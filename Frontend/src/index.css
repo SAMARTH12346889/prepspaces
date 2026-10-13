@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --color-brand-orange: #f97316;
+  --color-brand-orange-hover: #ea580c;
+  --color-warm-bg: #f6f4ee;
+  --color-card-black: #18181b;
+}
+
+html,
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: #f6f4ee;
+  color: #1c1917;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-x pan-y;
+}
+
+/* White glass surface utilities */
+.glass-panel-white {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(231, 227, 218, 0.9);
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.glass-panel-black {
+  background: #18181b;
+  border: 1px solid #27272a;
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+}

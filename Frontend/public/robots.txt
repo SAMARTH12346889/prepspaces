@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow private or internal query parameters if any exist in future
+Disallow: /?*preview=
+Disallow: /?*debug=
+
+# Host and Sitemap Declarations
+Host: https://prepspaces.com
+Sitemap: https://prepspaces.com/sitemap.xml
