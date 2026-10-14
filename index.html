@@ -33,44 +33,40 @@
     />
     <meta name="twitter:image" content="https://prepspaces.com/logo-mark.png" />
 
-    <!-- Favicons & App Icons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Favicons & App Icons (Standardized for Google Favicon User-Agent) -->
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="48x48" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <!-- Schema.org JSON-LD Structured Data: Organization & WebSite -->
+    <!-- Schema.org JSON-LD Structured Data: WebSite (Site Name Definition) -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "@id": "https://prepspaces.com/#organization",
-            "name": "PrepSpaces",
-            "url": "https://prepspaces.com",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://prepspaces.com/logo-mark.png",
-              "caption": "PrepSpaces Logo"
-            },
-            "description": "Technical career learning workspace and interview preparation platform for software engineers."
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://prepspaces.com/#website",
-            "url": "https://prepspaces.com",
-            "name": "PrepSpaces",
-            "description": "Technical interview preparation and structured engineering learning resources.",
-            "publisher": {
-              "@id": "https://prepspaces.com/#organization"
-            },
-            "inLanguage": "en-US"
-          }
-        ]
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PrepSpaces",
+      "alternateName": "PrepSpaces",
+      "url": "https://prepspaces.com/"
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://prepspaces.com/#organization",
+      "name": "PrepSpaces",
+      "url": "https://prepspaces.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://prepspaces.com/logo-mark.png",
+        "caption": "PrepSpaces Logo"
+      },
+      "description": "Technical career learning workspace and interview preparation platform for software engineers."
+    }
     </script>
 
     <!-- Font Optimization & Preconnect -->
