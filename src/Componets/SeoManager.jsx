@@ -6,18 +6,18 @@ const BASE_URL = "https://prepspaces.com";
 // Comprehensive route SEO definitions
 const routeMeta = {
   "/": {
-    title: "PrepSpaces — Technical Interview Preparation & Architecture Mastery",
-    description: "Prepare for top-tier software engineering interviews with interactive learning tracks in System Design, Cloud Computing, DevOps, and OOPS.",
+    title: "PrepSpaces — AI Interview Preparation & Technical Learning",
+    description: "Prepare for technical interviews with structured learning resources, System Design masterclasses, DevOps, Cloud Computing, and interview practice tools from PrepSpaces.",
     canonical: `${BASE_URL}/`,
   },
   "/learning": {
-    title: "Engineering Curriculum & Study Tracks — PrepSpaces",
-    description: "Explore in-depth interactive tracks for System Design, DevOps & SRE, Cloud Computing, and Object-Oriented Programming (OOPS).",
+    title: "Technical Interview Preparation Curriculum & Courses — PrepSpaces",
+    description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, Cloud Computing, and Object-Oriented Programming (OOPS).",
     canonical: `${BASE_URL}/learning`,
   },
   "/learning/oops": {
-    title: "OOPS Mastery & Object-Oriented Design Patterns — PrepSpaces",
-    description: "Master OOP principles, encapsulation, polymorphism, inheritance, and SOLID design patterns with real-world architectural code examples.",
+    title: "OOP Concepts & Interview Questions with Java Examples | PrepSpaces",
+    description: "Master Object-Oriented Programming (OOP) concepts, Java examples, encapsulation, polymorphism, inheritance, and SOLID design patterns for technical interviews.",
     canonical: `${BASE_URL}/learning/oops`,
   },
   "/interview": {
@@ -28,8 +28,8 @@ const routeMeta = {
 
   // System Design Masterclass
   "/learning/system-design": {
-    title: "System Design Masterclass: Architecture & Scale — PrepSpaces",
-    description: "Complete guide to designing scalable distributed systems, high availability, microservices, and architectural trade-offs.",
+    title: "System Design Course & Architecture Interview Preparation | PrepSpaces",
+    description: "Complete guide to designing scalable distributed systems, high availability, microservices, and system design interview questions.",
     canonical: `${BASE_URL}/learning/system-design`,
   },
   "/learning/system-design/intro": {
@@ -150,8 +150,8 @@ const routeMeta = {
 
   // Cloud Computing Track
   "/learning/cloud": {
-    title: "Cloud Computing Fundamentals & Global Infrastructure — PrepSpaces",
-    description: "Master public cloud architecture, availability zones, data center topologies, and cloud operating principles.",
+    title: "Cloud Computing Course & Interview Preparation | PrepSpaces",
+    description: "Master public cloud architecture, AWS, Azure, GCP, availability zones, data center topologies, and cloud interview questions.",
     canonical: `${BASE_URL}/learning/cloud`,
   },
   "/learning/cloud/networking": {
@@ -217,8 +217,8 @@ const routeMeta = {
 
   // DevOps & SRE Track
   "/learning/devops": {
-    title: "DevOps & Site Reliability Engineering (SRE) Track — PrepSpaces",
-    description: "Master modern production infrastructure, Linux systems, GitOps, Docker, Kubernetes, and automated deployment pipelines.",
+    title: "DevOps Course & SRE Interview Preparation | PrepSpaces",
+    description: "Master modern production infrastructure, Linux systems, GitOps, Docker, Kubernetes, CI/CD, and DevOps interview questions.",
     canonical: `${BASE_URL}/learning/devops`,
   },
   "/learning/devops/linux": {
@@ -310,9 +310,61 @@ function updateCanonicalUrl(url) {
 }
 
 /**
+ * Helper to inject or update BreadcrumbList JSON-LD on nested pages
+ */
+function updateBreadcrumbs(pathname, title) {
+  let script = document.getElementById("jsonld-breadcrumbs");
+  
+  if (pathname === "/" || pathname === "") {
+    if (script) script.remove();
+    return;
+  }
+
+  const parts = pathname.split("/").filter(Boolean);
+  const itemListElement = [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": `${BASE_URL}/`,
+    },
+  ];
+
+  let currentPath = "";
+  parts.forEach((part, index) => {
+    currentPath += `/${part}`;
+    const cleanName =
+      index === parts.length - 1
+        ? title.split("—")[0].split("|")[0].trim()
+        : part.charAt(0).toUpperCase() + part.slice(1).replace(/-/g, " ");
+
+    itemListElement.push({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": cleanName,
+      "item": `${BASE_URL}${currentPath}`,
+    });
+  });
+
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": itemListElement,
+  };
+
+  if (!script) {
+    script = document.createElement("script");
+    script.id = "jsonld-breadcrumbs";
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+  script.text = JSON.stringify(breadcrumbData);
+}
+
+/**
  * SeoManager Component
  * Observes React Router pathname changes and updates document.title, meta descriptions,
- * canonical link tags, Open Graph, and Twitter metadata in real time.
+ * canonical link tags, Open Graph, Twitter metadata, and Breadcrumbs in real time.
  */
 export default function SeoManager() {
   const location = useLocation();
@@ -348,6 +400,9 @@ export default function SeoManager() {
     updateMetaTag("name", "twitter:title", meta.title);
     updateMetaTag("name", "twitter:description", meta.description);
     updateMetaTag("name", "twitter:image", `${BASE_URL}/logo-mark.png`);
+
+    // 6. Update Breadcrumbs Structured Data
+    updateBreadcrumbs(pathname, meta.title);
   }, [location.pathname]);
 
   return null;

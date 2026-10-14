@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Logo from "../Componets/Logo";
 import {
   Home,
@@ -416,6 +416,133 @@ export default function Landingpage() {
               </button>
             </div>
           </section>
+
+          {/* ================= SEO INTERNAL LINKING FOOTER ================= */}
+          <footer className="mt-12 pt-8 border-t border-[#e7e3da] text-stone-600">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-xs">
+              <div>
+                <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
+                  Core Curriculum
+                </h4>
+                <ul className="space-y-2">
+                  <li>
+                    <Link to="/learning" className="hover:text-[#ea580c] transition">
+                      Full Engineering Syllabus
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/system-design" className="hover:text-[#ea580c] transition">
+                      System Design Masterclass
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/oops" className="hover:text-[#ea580c] transition">
+                      OOP & Design Patterns
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/interview" className="hover:text-[#ea580c] transition">
+                      Mock Interview Platform
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
+                  System Design Tracks
+                </h4>
+                <ul className="space-y-2">
+                  <li>
+                    <Link to="/learning/system-design/architecture" className="hover:text-[#ea580c] transition">
+                      Microservices vs Monoliths
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/system-design/databases" className="hover:text-[#ea580c] transition">
+                      SQL, NoSQL & B-Trees
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/system-design/caching" className="hover:text-[#ea580c] transition">
+                      Distributed Caching & Redis
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/system-design/consensus" className="hover:text-[#ea580c] transition">
+                      Consensus & Raft Protocol
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
+                  Cloud Infrastructure
+                </h4>
+                <ul className="space-y-2">
+                  <li>
+                    <Link to="/learning/cloud" className="hover:text-[#ea580c] transition">
+                      Cloud Foundations & DC
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/cloud/networking" className="hover:text-[#ea580c] transition">
+                      VPCs, Subnets & Gateways
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/cloud/aws" className="hover:text-[#ea580c] transition">
+                      AWS Architecture Mastery
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/cloud/security" className="hover:text-[#ea580c] transition">
+                      IAM & Cloud Governance
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
+                  DevOps & SRE
+                </h4>
+                <ul className="space-y-2">
+                  <li>
+                    <Link to="/learning/devops/linux" className="hover:text-[#ea580c] transition">
+                      Linux Administration
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/devops/docker" className="hover:text-[#ea580c] transition">
+                      Docker Containerization
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/devops/k8s" className="hover:text-[#ea580c] transition">
+                      Kubernetes Orchestration
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/devops/cicd" className="hover:text-[#ea580c] transition">
+                      CI/CD Pipelines & GitOps
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-4 border-t border-stone-200/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-500">
+              <div className="flex items-center gap-2">
+                <Logo size="xs" />
+                <span>— Technical Interview Preparation & Architecture Mastery</span>
+              </div>
+              <div className="mt-2 sm:mt-0 font-mono">
+                © {new Date().getFullYear()} PrepSpaces. All rights reserved.
+              </div>
+            </div>
+          </footer>
         </main>
       </div>
     </div>
