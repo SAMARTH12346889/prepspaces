@@ -75,13 +75,17 @@ function App() {
             {/* LANDING PAGE */}
             <Route path="/" element={<Landingpage />} />
 
-            {/* LEARNING MAIN PAGE */}
+            {/* LEARNING MAIN PAGE & SEO ALIAS */}
             <Route path="/learning" element={<Learning />} />
+            <Route path="/learn" element={<Learning />} />
 
-            {/* SEPARATE OOPS PAGE */}
+            {/* OOP & JAVA INTERVIEW QUESTIONS */}
             <Route path="/learning/oops" element={<OOPS />} />
+            <Route path="/learn/oop-interview-questions" element={<OOPS />} />
+            <Route path="/learn/java-interview-questions" element={<OOPS />} />
 
-            {/* SYSTEM DESIGN MASTERCLASS - MODULE 1: ARCHITECTURAL THINKING */}
+            {/* SYSTEM DESIGN COURSE & SEO ALIAS */}
+            <Route path="/learn/system-design" element={<SystemDesignIntro />} />
             <Route path="/learning/system-design" element={<SystemDesignIntro />} />
             <Route path="/learning/system-design/intro" element={<SystemDesignIntro />} />
             <Route path="/learning/system-design/architectural-thinking" element={<SystemDesignIntro />} />
@@ -227,7 +231,8 @@ function App() {
             <Route path="/learning/system-design/final-capstone" element={<SystemDesignCapstone />} />
             <Route path="/learning/system-design/module-24" element={<SystemDesignCapstone />} />
 
-            {/* CLOUD COMPUTING COURSE - MODULE 1: FOUNDATIONS */}
+            {/* CLOUD COMPUTING COURSE - MODULE 1: FOUNDATIONS & SEO ALIAS */}
+            <Route path="/learn/cloud-computing" element={<CloudComputing />} />
             <Route path="/learning/cloud" element={<CloudComputing />} />
 
             {/* CLOUD COMPUTING COURSE - MODULE 2: NETWORKING */}
@@ -266,7 +271,8 @@ function App() {
             {/* CLOUD COMPUTING COURSE - MODULE 13: ADVANCED CLOUD SYSTEMS */}
             <Route path="/learning/cloud/advanced" element={<CloudAdvanced />} />
 
-            {/* DEVOPS & SRE TRACK - MODULE 1: LINUX FOR DEVOPS */}
+            {/* DEVOPS & SRE TRACK - MODULE 1: LINUX FOR DEVOPS & SEO ALIAS */}
+            <Route path="/learn/devops" element={<DevOpsLinux />} />
             <Route path="/learning/devops/linux" element={<DevOpsLinux />} />
             <Route path="/learning/devops" element={<DevOpsLinux />} />
 

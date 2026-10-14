@@ -431,18 +431,28 @@ export default function Landingpage() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/learning/system-design" className="hover:text-[#ea580c] transition">
-                      System Design Masterclass
+                    <Link to="/learn/oop-interview-questions" className="hover:text-[#ea580c] transition">
+                      OOP Concepts & Interview Questions
                     </Link>
                   </li>
                   <li>
-                    <Link to="/learning/oops" className="hover:text-[#ea580c] transition">
-                      OOP & Design Patterns
+                    <Link to="/learn/java-interview-questions" className="hover:text-[#ea580c] transition">
+                      Java Interview Questions (Freshers)
                     </Link>
                   </li>
                   <li>
-                    <Link to="/interview" className="hover:text-[#ea580c] transition">
-                      Mock Interview Platform
+                    <Link to="/learn/system-design" className="hover:text-[#ea580c] transition">
+                      System Design Course for Beginners
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learn/cloud-computing" className="hover:text-[#ea580c] transition">
+                      Cloud Computing Course
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learn/devops" className="hover:text-[#ea580c] transition">
+                      DevOps Course & SRE
                     </Link>
                   </li>
                 </ul>

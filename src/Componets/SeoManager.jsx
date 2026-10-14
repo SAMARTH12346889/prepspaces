@@ -15,10 +15,40 @@ const routeMeta = {
     description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, Cloud Computing, and Object-Oriented Programming (OOPS).",
     canonical: `${BASE_URL}/learning`,
   },
+  "/learn": {
+    title: "Technical Interview Preparation Curriculum & Courses — PrepSpaces",
+    description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, Cloud Computing, and Object-Oriented Programming (OOPS).",
+    canonical: `${BASE_URL}/learning`,
+  },
   "/learning/oops": {
     title: "OOP Concepts & Interview Questions with Java Examples | PrepSpaces",
     description: "Master Object-Oriented Programming (OOP) concepts, Java examples, encapsulation, polymorphism, inheritance, and SOLID design patterns for technical interviews.",
     canonical: `${BASE_URL}/learning/oops`,
+  },
+  "/learn/oop-interview-questions": {
+    title: "OOP Concepts and Interview Questions | PrepSpaces",
+    description: "Master core Object-Oriented Programming principles, classes, inheritance, polymorphism, encapsulation, and interview questions with Java examples.",
+    canonical: `${BASE_URL}/learn/oop-interview-questions`,
+  },
+  "/learn/java-interview-questions": {
+    title: "Java Interview Questions and Answers for Freshers | PrepSpaces",
+    description: "Comprehensive Java and OOP interview questions, mental models, code walkthroughs, and answers designed for fresher and junior engineering interviews.",
+    canonical: `${BASE_URL}/learn/java-interview-questions`,
+  },
+  "/learn/system-design": {
+    title: "System Design Course for Beginners | PrepSpaces",
+    description: "Master large-scale distributed systems, architectural thinking, capacity estimation, microservices, and system design interview questions.",
+    canonical: `${BASE_URL}/learn/system-design`,
+  },
+  "/learn/cloud-computing": {
+    title: "Cloud Computing Course and Interview Preparation | PrepSpaces",
+    description: "Master enterprise public cloud architecture, AWS, Azure, GCP, VPC networking, compute, storage, and cloud engineering interview questions.",
+    canonical: `${BASE_URL}/learn/cloud-computing`,
+  },
+  "/learn/devops": {
+    title: "DevOps Course and Interview Preparation | PrepSpaces",
+    description: "Master modern production infrastructure, Linux systems, Docker, Kubernetes, CI/CD pipelines, and SRE interview preparation.",
+    canonical: `${BASE_URL}/learn/devops`,
   },
   "/interview": {
     title: "Technical Mock Interview Platform — PrepSpaces",
