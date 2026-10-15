@@ -1207,10 +1207,10 @@ function InterviewRoomInner() {
           {/* Action Buttons */}
           <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pb-12">
             <button
-              onClick={() => navigate("/learning/oops")}
+              onClick={() => navigate("/learning")}
               className="rounded-xl border border-[#e7e3da] bg-white px-5 py-3 text-xs md:text-sm font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] shadow-sm transition"
             >
-              Study OOP Concepts in Deep Dive
+              Explore Learning Tracks
             </button>
 
             <button

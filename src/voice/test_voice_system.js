@@ -61,8 +61,8 @@ console.log("\n2. Testing Deterministic Fast-Path Command Matcher...");
 const testNav1 = matchFastCommand("Open interview");
 assert(testNav1 && testNav1.type === "NAVIGATE" && testNav1.route === "/interview", "'Open interview' fast-paths to /interview");
 
-const testNav2 = matchFastCommand("Take me to oops");
-assert(testNav2 && testNav2.type === "NAVIGATE" && testNav2.route === "/learning/oops", "'Take me to oops' fast-paths to /learning/oops");
+const testNav2 = matchFastCommand("Take me to system design");
+assert(testNav2 && testNav2.type === "NAVIGATE" && testNav2.route === "/learning/system-design", "'Take me to system design' fast-paths to /learning/system-design");
 
 const testNav3 = matchFastCommand("open learning");
 assert(testNav3 && testNav3.type === "NAVIGATE" && testNav3.route === "/learning", "'open learning' fast-paths to /learning");

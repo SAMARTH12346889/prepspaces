@@ -6,7 +6,6 @@ import Learning from "./Pages/Learning";
 import InterviewRoom from "./Pages/InterviewRoom";
 import NotFound from "./Pages/NotFound";
 
-import OOPS from "./Componets/oops";
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
 import SystemDesignNetworking from "./Componets/SystemDesignNetworking";
@@ -78,11 +77,6 @@ function App() {
             {/* LEARNING MAIN PAGE & SEO ALIAS */}
             <Route path="/learning" element={<Learning />} />
             <Route path="/learn" element={<Learning />} />
-
-            {/* OOP & JAVA INTERVIEW QUESTIONS */}
-            <Route path="/learning/oops" element={<OOPS />} />
-            <Route path="/learn/oop-interview-questions" element={<OOPS />} />
-            <Route path="/learn/java-interview-questions" element={<OOPS />} />
 
             {/* SYSTEM DESIGN COURSE & SEO ALIAS */}
             <Route path="/learn/system-design" element={<SystemDesignIntro />} />

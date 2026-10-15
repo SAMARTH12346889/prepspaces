@@ -25,7 +25,7 @@ export function getContextualFallback(pathname) {
     return "/learning/system-design";
   }
 
-  // Course main page (/learning/cloud, /learning/devops/linux, /learning/system-design, /learning/oops) -> course catalog (/learning)
+  // Course main page (/learning/cloud, /learning/devops/linux, /learning/system-design) -> course catalog (/learning)
   if (pathname.startsWith("/learning/") && pathname !== "/learning") {
     return "/learning";
   }

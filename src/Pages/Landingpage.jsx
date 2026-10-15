@@ -11,7 +11,6 @@ import {
   X,
   Terminal,
   Cloud,
-  Layers,
   Compass,
   Network,
 } from "lucide-react";
@@ -49,15 +48,6 @@ export default function Landingpage() {
       color: "from-orange-600 to-amber-600",
       tag: "Cloud Systems",
     },
-    {
-      id: "oops",
-      title: "OOPS Mastery",
-      subtitle: "Object Design, Encapsulation & Design Patterns",
-      route: "/learning/oops",
-      icon: Layers,
-      color: "from-orange-500 to-amber-500",
-      tag: "Core Paradigm",
-    },
   ];
 
   // Real available entry topics
@@ -79,12 +69,6 @@ export default function Landingpage() {
       track: "Cloud Computing",
       route: "/learning/cloud",
       tag: "Architecture",
-    },
-    {
-      title: "Object-Oriented Thought Process",
-      track: "OOPS Mastery",
-      route: "/learning/oops",
-      tag: "Design Principles",
     },
   ];
 
@@ -402,7 +386,7 @@ export default function Landingpage() {
                   Ready to start learning?
                 </h3>
                 <p className="mt-1 text-xs md:text-sm text-stone-500 max-w-xl">
-                  Dive into Linux administration, container orchestration, multi-cloud architectures, and foundational OOP software design.
+                  Dive into Linux administration, container orchestration, multi-cloud architectures, and scalable system design.
                 </p>
               </div>
 
@@ -428,16 +412,6 @@ export default function Landingpage() {
                   <li>
                     <Link to="/learning" className="hover:text-[#ea580c] transition">
                       Full Engineering Syllabus
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/learn/oop-interview-questions" className="hover:text-[#ea580c] transition">
-                      OOP Concepts & Interview Questions
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/learn/java-interview-questions" className="hover:text-[#ea580c] transition">
-                      Java Interview Questions (Freshers)
                     </Link>
                   </li>
                   <li>

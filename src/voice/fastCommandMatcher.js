@@ -9,7 +9,6 @@
 const REGISTERED_ROUTES = {
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
-  oops: { route: "/learning/oops", label: "OOP Deep Dive" },
   "system-design": { route: "/learning/system-design", label: "System Design Masterclass" },
   "system-design-requirements": { route: "/learning/system-design/requirements", label: "System Design Requirements & Capacity" },
   "system-design-networking": { route: "/learning/system-design/networking", label: "System Design APIs & Networking" },
@@ -142,7 +141,7 @@ const NAVIGATION_RULES = [
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(oops|oop|object oriented|oops page|oop page)$/i,
-    destination: "oops",
+    destination: "learning",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(learning|learning center|lessons|study)$/i,
@@ -163,7 +162,7 @@ const NAVIGATION_RULES = [
   },
   {
     regex: /^(oops|oop mastery)$/i,
-    destination: "oops",
+    destination: "learning",
   },
   {
     regex: /^(home|dashboard)$/i,

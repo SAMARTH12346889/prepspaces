@@ -74,11 +74,11 @@ export default function NotFound() {
               <span>Cloud Computing</span>
             </Link>
             <Link
-              to="/learning/oops"
+              to="/learning"
               className="p-3 rounded-lg bg-white border border-stone-200/60 hover:border-orange-300 font-semibold text-stone-800 transition flex items-center gap-2"
             >
               <Compass size={14} className="text-[#ea580c]" />
-              <span>OOPS Mastery</span>
+              <span>Full Curriculum Directory</span>
             </Link>
           </div>
         </div>

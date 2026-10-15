@@ -374,7 +374,7 @@ function VoiceAssistantContent() {
                 <p className="text-xs text-stone-400">Quick commands:</p>
                 <div className="mt-2.5 flex flex-wrap justify-center gap-1.5">
                   {[
-                    "Open OOP",
+                    "Open System Design",
                     "Open interview",
                     "What is polymorphism?",
                     "Open home",

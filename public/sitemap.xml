@@ -14,24 +14,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://prepspaces.com/learning/oops</loc>
-    <lastmod>2026-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://prepspaces.com/learn/oop-interview-questions</loc>
-    <lastmod>2026-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://prepspaces.com/learn/java-interview-questions</loc>
-    <lastmod>2026-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://prepspaces.com/learn/system-design</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>

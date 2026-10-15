@@ -50,7 +50,7 @@ export function inferNavigation(message = "") {
     return "/";
   }
   if (/\b(oops?|object oriented|classes and objects)\b/i.test(target)) {
-    return "/learning/oops";
+    return "/learning";
   }
   if (/\b(interview|mock interview|interview prep|interview room)\b/i.test(target)) {
     return "/interview";
