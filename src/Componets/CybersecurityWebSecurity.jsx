@@ -929,7 +929,7 @@ Date Generated: ${new Date().toISOString()}
                   <ShieldCheck className="w-4 h-4" />
                   <span>13.1 MODULE OVERVIEW</span>
                 </div>
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-bold text-stone-900">
                   Foundations of Web Application Architecture & Browser Defenses
                 </h2>
                 <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -994,7 +994,7 @@ Date Generated: ${new Date().toISOString()}
                   <Layers className="w-4 h-4" />
                   <span>13.2 WEB APPLICATION ARCHITECTURE</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Multi-Tier Component Model & Defense in Depth
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1107,7 +1107,7 @@ Date Generated: ${new Date().toISOString()}
                   <Terminal className="w-4 h-4" />
                   <span>13.3 HTTP FUNDAMENTALS & WIRE PROCESSING</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   HTTP Semantics, Methods, Status Codes & Security Headers
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1213,7 +1213,7 @@ Date Generated: ${new Date().toISOString()}
                   <KeyRound className="w-4 h-4" />
                   <span>13.4 STATELESS HTTP VS STATEFUL SESSIONS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Session Lifecycle, Identifier Entropy & Timeout Policies
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1292,7 +1292,7 @@ Date Generated: ${new Date().toISOString()}
                   <Cookie className="w-4 h-4" />
                   <span>13.5 COOKIES: ATTRIBUTES, SCOPE & PREFIXES</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Cookie Security Invariants, Prefix Rules & Storage Matrix
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1410,7 +1410,7 @@ Date Generated: ${new Date().toISOString()}
                   <Key className="w-4 h-4" />
                   <span>13.6 AUTHENTICATION COOKIES, BEARER TOKENS & JWTS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Opaque Session Identifiers vs Self-Contained Signed JWTs
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1495,7 +1495,7 @@ Date Generated: ${new Date().toISOString()}
                   <Globe className="w-4 h-4" />
                   <span>13.7 BROWSER SECURITY MODEL: ORIGINS, SOP & CORS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   The Same-Origin Policy (SOP) & Cross-Origin Resource Sharing (CORS)
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1571,7 +1571,7 @@ Date Generated: ${new Date().toISOString()}
                   <ShieldAlert className="w-4 h-4" />
                   <span>13.8 COMMON WEB APPLICATION ATTACK CLASSES</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Cross-Site Scripting (XSS), CSRF, Clickjacking & Broken Access Control
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1656,7 +1656,7 @@ Date Generated: ${new Date().toISOString()}
                   <ShieldCheck className="w-4 h-4" />
                   <span>13.9 BROWSER SECURITY HEADERS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Content Security Policy (CSP), HSTS & Hardening Headers
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1719,7 +1719,7 @@ Date Generated: ${new Date().toISOString()}
                   <span>13.12 BROWSER DEVTOOLS SECURITY AUDITING</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-bold text-white">
+                  <h2 className="text-xl font-bold text-stone-900">
                     13.12.4 Interactive Browser Security Review Checklist
                   </h2>
                   <span className="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-orange-600 font-bold">
@@ -1800,7 +1800,7 @@ Date Generated: ${new Date().toISOString()}
                   <TerminalSquare className="w-4 h-4" />
                   <span>13.13 PRACTICAL LAB WORKSPACE</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Local Web Application Security Assessment & Reporting
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1931,7 +1931,7 @@ Date Generated: ${new Date().toISOString()}
                   <BookOpen className="w-4 h-4" />
                   <span>13.15 OFFICIAL LEARNING RESOURCES</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Standards & Authoritative Technical Documentation
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -2000,7 +2000,7 @@ Date Generated: ${new Date().toISOString()}
                   <Award className="w-4 h-4" />
                   <span>13.16 KEY TAKEAWAYS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">Summary of Core Principles</h2>
+                <h2 className="text-xl font-bold text-stone-900">Summary of Core Principles</h2>
                 <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-2.5 text-xs text-stone-700 leading-relaxed">
                   <p>
                     1. <strong>Defense in Depth:</strong> Web security depends on every layer: browser,

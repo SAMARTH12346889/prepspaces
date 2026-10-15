@@ -767,7 +767,7 @@ Generated: ${new Date().toISOString()}
                   <ShieldCheck className="w-4 h-4" />
                   <span>15.1 MODULE OVERVIEW</span>
                 </div>
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-bold text-stone-900">
                   Authentication Flaws, Access Control, Session Security & API Security
                 </h2>
                 <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -827,7 +827,7 @@ Generated: ${new Date().toISOString()}
                   <Workflow className="w-4 h-4" />
                   <span>15.2 AUTHENTICATION, AUTHORIZATION & SESSIONS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   The 4-Step Security Verification Pipeline
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs text-center">
@@ -875,7 +875,7 @@ Generated: ${new Date().toISOString()}
                   <Lock className="w-4 h-4" />
                   <span>15.3 AUTHENTICATION FLAWS & ACCOUNT TAKEOVER (ATO)</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Password Storage, Credential Stuffing & Throttling
                 </h2>
                 <div className="overflow-x-auto border border-stone-200 rounded-xl">
@@ -924,7 +924,7 @@ Generated: ${new Date().toISOString()}
                   <Cookie className="w-4 h-4" />
                   <span>15.4 SESSION SECURITY & COOKIE INVARIANTS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Session Fixation Defense, Invalidation & Cookie Flags
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
@@ -961,7 +961,7 @@ Generated: ${new Date().toISOString()}
                   <Users className="w-4 h-4" />
                   <span>15.5 ACCESS CONTROL MODELS & AUTHORIZATION DESIGN</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   RBAC vs ABAC & Deny-by-Default Policy
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1021,7 +1021,7 @@ Generated: ${new Date().toISOString()}
                   <ShieldAlert className="w-4 h-4" />
                   <span>15.7 OWASP API SECURITY TOP 10 (2023 EDITION)</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   API-Specific Threat Vectors & Defenses
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -1058,7 +1058,7 @@ Generated: ${new Date().toISOString()}
                   <TerminalSquare className="w-4 h-4" />
                   <span>15.10 PRACTICAL LAB DELIVERABLE</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   API Security Assessment Worksheet & Reporting
                 </h2>
                 <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-4">
@@ -1140,7 +1140,7 @@ Generated: ${new Date().toISOString()}
                   <BookOpen className="w-4 h-4" />
                   <span>15.12 OFFICIAL REFERENCES & FURTHER READING</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Standards & Authoritative Technical Documentation
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -1209,7 +1209,7 @@ Generated: ${new Date().toISOString()}
                   <Award className="w-4 h-4" />
                   <span>15.13 KEY ENGINEERING TAKEAWAYS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">Summary of Core Principles</h2>
+                <h2 className="text-xl font-bold text-stone-900">Summary of Core Principles</h2>
                 <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-2.5 text-xs text-stone-700 leading-relaxed">
                   <p>
                     1. <strong>Identity Is Not Authorization:</strong> A valid authentication credential

@@ -664,7 +664,7 @@ SHA-256 Fingerprint: 8f4b29c91a02e5b741029c1d88a47f20194821a38210948bca120934120
                       key={t.id}
                       onClick={() => setSelectedTopic(t.id)}
                       className={`w-full text-left p-2.5 rounded-xl text-xs font-medium transition-all flex items-center justify-between ${
-                        selectedTopic === t.id
+                        (selectedTopic || 1) === t.id
                           ? "bg-orange-50 text-orange-950 font-bold border border-orange-200 shadow-xs"
                           : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                       }`}
@@ -695,7 +695,7 @@ SHA-256 Fingerprint: 8f4b29c91a02e5b741029c1d88a47f20194821a38210948bca120934120
             {/* Right Content Area: Detailed Section Material */}
             <div className="lg:col-span-8 xl:col-span-9 space-y-8">
               {/* TOPIC 1 */}
-              {selectedTopic === 1 && (
+              {(selectedTopic === 1 || !selectedTopic || selectedTopic === 0) && (
                 <div className="space-y-6">
                   <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-xs">
                     <div className="flex items-center gap-2 mb-3">
@@ -1810,7 +1810,7 @@ SHA-256 Fingerprint: 8f4b29c91a02e5b741029c1d88a47f20194821a38210948bca120934120
         <LearningRo
           courseName="Cybersecurity Master Course"
           moduleName="Module 5: Ethical Hacking Methodologies, Scoping & Rules of Engagement"
-          currentTopic={topics.find((t) => t.id === selectedTopic)?.title || "Overview"}
+          currentTopic={topics.find((t) => t.id === (selectedTopic || 1))?.title || "Overview"}
           onClose={() => setShowAiTutor(false)}
         />
       )}

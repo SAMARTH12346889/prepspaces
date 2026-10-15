@@ -1016,9 +1016,9 @@ Generated: ${new Date().toISOString()}
                     setActiveTab("theory");
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
-                    selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
-                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
+                    (selectedTopic || 1) === topic.id
+                      ? "bg-orange-50 text-orange-800 font-semibold border-l-2 border-orange-500"
+                      : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
@@ -1034,30 +1034,30 @@ Generated: ${new Date().toISOString()}
               <div className="grid grid-cols-2 gap-1.5">
                 <button
                   onClick={() => setActiveTab("sast-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
                   <FileSearch className="w-3 h-3 mr-1 text-orange-600 shrink-0" />
                   <span>SAST Taint</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("dast-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
-                  <Globe className="w-3 h-3 mr-1 text-blue-400 shrink-0" />
+                  <Globe className="w-3 h-3 mr-1 text-blue-500 shrink-0" />
                   <span>DAST ZAP</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("cicd-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
-                  <GitPullRequest className="w-3 h-3 mr-1 text-emerald-400 shrink-0" />
+                  <GitPullRequest className="w-3 h-3 mr-1 text-emerald-600 shrink-0" />
                   <span>CI/CD Gates</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("retest-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
-                  <CheckSquare className="w-3 h-3 mr-1 text-amber-400 shrink-0" />
+                  <CheckSquare className="w-3 h-3 mr-1 text-amber-600 shrink-0" />
                   <span>Retest Matrix</span>
                 </button>
               </div>
@@ -1071,11 +1071,11 @@ Generated: ${new Date().toISOString()}
           {activeTab === "theory" && (
             <div className="space-y-10">
               {/* SECTION 16.1 */}
-              {selectedTopic === 1 && (
+              {(selectedTopic === 1 || !selectedTopic || selectedTopic === 0) && (
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.1</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Module Overview & Learning Objectives</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Module Overview & Learning Objectives</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1127,7 +1127,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.2</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Secure Code Review Fundamentals</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Secure Code Review Fundamentals</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1215,7 +1215,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.3</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Establishing Review Scope & Security Context</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Establishing Review Scope & Security Context</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1289,7 +1289,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.4</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">A Systematic Secure Code Review Method</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">A Systematic Secure Code Review Method</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1350,7 +1350,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.5</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Common Security Weaknesses Found in Reviews</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Common Security Weaknesses Found in Reviews</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1476,7 +1476,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.6</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Static Application Security Testing (SAST)</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Static Application Security Testing (SAST)</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1547,7 +1547,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.7</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Software Composition Analysis (SCA) & Dependencies</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Software Composition Analysis (SCA) & Dependencies</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1591,7 +1591,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.8</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Dynamic Application Security Testing (DAST)</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Dynamic Application Security Testing (DAST)</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1642,7 +1642,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.9</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">API Security Testing & Authorization Verification</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">API Security Testing & Authorization Verification</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1708,7 +1708,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.10</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Writing Effective Security Test Cases</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Writing Effective Security Test Cases</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1750,7 +1750,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.11</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Finding Validation, Triage & Risk Prioritization</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Finding Validation, Triage & Risk Prioritization</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1815,7 +1815,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.12</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Writing High-Quality, Actionable Security Findings</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Writing High-Quality, Actionable Security Findings</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1847,7 +1847,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.13</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Secure Remediation & Root-Cause Fixes</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Secure Remediation & Root-Cause Fixes</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1901,7 +1901,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.14</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Remediation Validation & Regression Testing</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Remediation Validation & Regression Testing</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1939,7 +1939,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.15</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Integrating Security Testing into CI/CD Pipelines</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Integrating Security Testing into CI/CD Pipelines</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1986,7 +1986,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.16</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">
                       Practical Lab: Secure Code Review & Remediation Validation
                     </h2>
                   </div>
@@ -2117,7 +2117,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.17</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Knowledge Assessment Quiz</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Knowledge Assessment Quiz</h2>
                   </div>
 
                   <p className="text-stone-700 text-sm">
@@ -2204,7 +2204,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.18</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Official References & Authoritative Standards</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Official References & Authoritative Standards</h2>
                   </div>
 
                   <p className="text-stone-700 text-sm">
@@ -2267,7 +2267,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.19</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Key Engineering Takeaways</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Key Engineering Takeaways</h2>
                   </div>
 
                   <div className="p-5 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">

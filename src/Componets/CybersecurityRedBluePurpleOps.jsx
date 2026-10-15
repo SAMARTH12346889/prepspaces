@@ -1601,14 +1601,14 @@ level: critical`;
             </section>
 
             {/* 22.12 Practical Lab: Build a Mini Purple Team Detection Exercise */}
-            <section className="bg-gradient-to-br from-slate-900 via-slate-900/60 to-purple-950/20 border border-purple-500/30 rounded-2xl p-6 sm:p-8 shadow-xl">
+            <section className="bg-white border border-stone-200/80 rounded-2xl p-6 sm:p-8 shadow-xs">
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.12 Hands-on Lab
                 </span>
                 <span className="text-xs text-stone-600">Estimated time: 2–3 hours</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">
+              <h3 className="text-2xl font-bold text-stone-900 mb-3">
                 Practical Lab: Build a Mini Purple Team Detection Exercise
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">

@@ -550,7 +550,7 @@ default via 192.168.10.1 dev eth0 proto dhcp src 192.168.10.25 metric 100
                       type="button"
                       onClick={() => setSelectedTopic(t.id)}
                       className={`w-full text-left px-3 py-2.5 rounded-xl text-xs font-medium transition flex flex-col gap-0.5 ${
-                        selectedTopic === t.id
+                        (selectedTopic || 1) === t.id
                           ? "bg-orange-50 text-orange-950 font-semibold border border-orange-200 shadow-2xs"
                           : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                       }`}
@@ -609,7 +609,7 @@ default via 192.168.10.1 dev eth0 proto dhcp src 192.168.10.25 metric 100
             {/* Main Content Body */}
             <div className="lg:col-span-3 space-y-8">
               {/* TOPIC 2.1 */}
-              {selectedTopic === 1 && (
+              {(selectedTopic === 1 || !selectedTopic || selectedTopic === 0) && (
                 <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 shadow-xs space-y-6">
                   <div>
                     <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">
@@ -2067,7 +2067,7 @@ The local DNS resolver service (\`named\` / BIND9) on 192.168.10.2 was halted du
         <LearningRo
           courseName="Cybersecurity Master Course"
           moduleName="Module 2: Networking Fundamentals, TCP/IP, DNS, HTTP/HTTPS, and Protocols"
-          currentTopic={topics.find((t) => t.id === selectedTopic)?.title || "Overview"}
+          currentTopic={topics.find((t) => t.id === (selectedTopic || 1))?.title || "Overview"}
           onClose={() => setShowAiTutor(false)}
         />
       )}

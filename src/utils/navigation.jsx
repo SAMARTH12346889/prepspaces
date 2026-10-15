@@ -171,50 +171,57 @@ export function useSafeBack(defaultFallback) {
  * - Direct shareable/bookmarkable URLs for specific topics
  * - Smooth Back button navigation escaping directly back to the curriculum overview and home
  */
-export function useSyncedTopic(maxTopicsOrFallback = 100) {
+export function useSyncedTopic(maxTopicsOrFallback = 100, defaultFallback) {
   const [searchParams, setSearchParams] = useSearchParams();
   const topicParam = searchParams.get("topic");
 
+  const fallback = defaultFallback !== undefined
+    ? defaultFallback
+    : (maxTopicsOrFallback === 1
+        ? 1
+        : (Array.isArray(maxTopicsOrFallback)
+            ? maxTopicsOrFallback[0]
+            : (typeof maxTopicsOrFallback === "string" ? maxTopicsOrFallback : 0)));
+
+  const max = typeof maxTopicsOrFallback === "number" && maxTopicsOrFallback > 1 ? maxTopicsOrFallback : 100;
+
   const selectedTopic = useMemo(() => {
-    if (!topicParam) {
-      return typeof maxTopicsOrFallback === "string" ? maxTopicsOrFallback : 0;
-    }
+    if (!topicParam) return fallback;
     // If topicParam is purely digits, parse it as integer
     if (/^\d+$/.test(topicParam)) {
       const n = parseInt(topicParam, 10);
-      const max = typeof maxTopicsOrFallback === "number" ? maxTopicsOrFallback : 100;
-      return !isNaN(n) && n >= 0 && n < max ? n : 0;
+      const min = typeof fallback === "number" ? Math.min(fallback, 0) : 0;
+      return !isNaN(n) && n >= min && n <= max ? n : fallback;
     }
     // Otherwise it's a string identifier like 'what-is-system-design'
     return topicParam;
-  }, [topicParam, maxTopicsOrFallback]);
+  }, [topicParam, max, fallback]);
 
   const setSelectedTopic = useCallback(
     (action) => {
       const nextValue = typeof action === "function" ? action(selectedTopic) : action;
       if (nextValue === selectedTopic) return;
 
-      if (nextValue === 0 || nextValue === "" || nextValue === null || nextValue === undefined) {
-        setSearchParams(
-          (prev) => {
-            const next = new URLSearchParams(prev);
+      setSearchParams(
+        (prev) => {
+          const next = new URLSearchParams(prev);
+          if (
+            nextValue === fallback ||
+            nextValue === 0 ||
+            nextValue === "" ||
+            nextValue === null ||
+            nextValue === undefined
+          ) {
             next.delete("topic");
-            return next;
-          },
-          { replace: true }
-        );
-      } else {
-        setSearchParams(
-          (prev) => {
-            const next = new URLSearchParams(prev);
+          } else {
             next.set("topic", String(nextValue));
-            return next;
-          },
-          { replace: true }
-        );
-      }
+          }
+          return next;
+        },
+        { replace: true }
+      );
     },
-    [selectedTopic, setSearchParams]
+    [selectedTopic, setSearchParams, fallback]
   );
 
   return [selectedTopic, setSelectedTopic];

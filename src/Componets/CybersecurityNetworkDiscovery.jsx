@@ -643,13 +643,13 @@ export default function CybersecurityNetworkDiscovery() {
                       key={t.id}
                       onClick={() => setSelectedTopic(t.id)}
                       className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-between ${
-                        selectedTopic === t.id
+                        (selectedTopic || 1) === t.id
                           ? "bg-orange-50 text-orange-800 border border-orange-200"
                           : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                       }`}
                     >
                       <span className="truncate">{t.title}</span>
-                      {selectedTopic === t.id && (
+                      {(selectedTopic || 1) === t.id && (
                         <CheckCircle2 size={13} className="text-orange-600 shrink-0 ml-1.5" />
                       )}
                     </button>
@@ -672,7 +672,7 @@ export default function CybersecurityNetworkDiscovery() {
             {/* Main Theory Reading Area */}
             <div className="lg:col-span-8 rounded-3xl border border-[#e7e3da] bg-white/95 p-6 sm:p-8 backdrop-blur-xl shadow-xs space-y-8">
               {/* 7.1 Overview */}
-              {selectedTopic === 1 && (
+              {(selectedTopic === 1 || !selectedTopic || selectedTopic === 0) && (
                 <article className="space-y-5">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="font-mono text-xs font-bold text-orange-600">Section 7.1</span>
@@ -1668,8 +1668,8 @@ export default function CybersecurityNetworkDiscovery() {
               {/* Bottom Topic Pagination */}
               <div className="pt-6 border-t border-stone-100 flex items-center justify-between">
                 <button
-                  disabled={selectedTopic <= 1}
-                  onClick={() => setSelectedTopic((prev) => Math.max(1, prev - 1))}
+                  disabled={(selectedTopic || 1) <= 1}
+                  onClick={() => setSelectedTopic((prev) => Math.max(1, (prev || 1) - 1))}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-stone-200 bg-white text-xs font-bold text-stone-700 hover:bg-stone-50 disabled:opacity-40 transition-all"
                 >
                   <ArrowLeft size={14} />
@@ -1677,12 +1677,12 @@ export default function CybersecurityNetworkDiscovery() {
                 </button>
 
                 <span className="font-mono text-xs text-stone-500 font-bold">
-                  {selectedTopic} of {topics.length}
+                  {(selectedTopic || 1)} of {topics.length}
                 </span>
 
                 <button
-                  disabled={selectedTopic >= topics.length}
-                  onClick={() => setSelectedTopic((prev) => Math.min(topics.length, prev + 1))}
+                  disabled={(selectedTopic || 1) >= topics.length}
+                  onClick={() => setSelectedTopic((prev) => Math.min(topics.length, (prev || 1) + 1))}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-600 text-xs font-bold text-white hover:bg-orange-700 disabled:opacity-40 transition-all shadow-sm"
                 >
                   <span>Next Section</span>

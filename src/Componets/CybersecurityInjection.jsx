@@ -826,7 +826,7 @@ Generated: ${new Date().toISOString()}
                   <ShieldCheck className="w-4 h-4" />
                   <span>14.1 MODULE OVERVIEW</span>
                 </div>
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-bold text-stone-900">
                   OWASP Top 10, Injection Mechanics & Secure Input Handling
                 </h2>
                 <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -890,7 +890,7 @@ Generated: ${new Date().toISOString()}
                   <Award className="w-4 h-4" />
                   <span>14.2 OWASP & THE OWASP TOP 10 (2025 EDITION)</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Authoritative Risk Categories & Threat Landscape
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -972,7 +972,7 @@ Generated: ${new Date().toISOString()}
                   <Bug className="w-4 h-4" />
                   <span>14.3 THE INJECTION VULNERABILITY CLASS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   The Fundamental Failure: Data Mutating Instruction Structure
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1027,7 +1027,7 @@ Generated: ${new Date().toISOString()}
                   <Database className="w-4 h-4" />
                   <span>14.4 SQL INJECTION (SQLI) IN-DEPTH</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Prepared Statements, Dynamic Sorting & Least Privilege
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1115,7 +1115,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   <FileCode className="w-4 h-4" />
                   <span>14.5 CROSS-SITE SCRIPTING (XSS) & CONTEXTUAL ENCODING</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Context-Aware Output Encoding & Safe DOM APIs
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1173,7 +1173,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   <Terminal className="w-4 h-4" />
                   <span>14.6 OS COMMAND & ARGUMENT INJECTION</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Safe Process APIs, Disabling Shells & Argument Arrays
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1205,7 +1205,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   <ShieldCheck className="w-4 h-4" />
                   <span>14.11 SECURE INPUT-HANDLING ENGINEERING</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Trust Boundaries, Schema Validation & Defensive Logging
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1235,7 +1235,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   <TerminalSquare className="w-4 h-4" />
                   <span>14.13 PRACTICAL LAB DELIVERABLE</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Injection Assessment Report Generator (OWASP Juice Shop Standard)
                 </h2>
                 <p className="text-stone-700 text-sm leading-relaxed">
@@ -1324,7 +1324,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   <BookOpen className="w-4 h-4" />
                   <span>14.15 OFFICIAL REFERENCES & DOCUMENTATION</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   Authoritative Guidance & Security Standards
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -1393,7 +1393,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   <Award className="w-4 h-4" />
                   <span>14.16 KEY ENGINEERING TAKEAWAYS</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">Summary of Core Principles</h2>
+                <h2 className="text-xl font-bold text-stone-900">Summary of Core Principles</h2>
                 <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-2.5 text-xs text-stone-700 leading-relaxed">
                   <p>
                     1. <strong>The Injection Invariant:</strong> Injection occurs when untrusted data

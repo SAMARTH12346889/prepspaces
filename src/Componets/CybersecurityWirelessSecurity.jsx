@@ -833,9 +833,9 @@ Generated: ${new Date().toISOString()}
                     setActiveTab("theory");
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
-                    selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
-                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
+                    (selectedTopic || 1) === topic.id
+                      ? "bg-orange-50 text-orange-800 font-semibold border-l-2 border-orange-500"
+                      : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
@@ -851,30 +851,30 @@ Generated: ${new Date().toISOString()}
               <div className="grid grid-cols-2 gap-1.5">
                 <button
                   onClick={() => setActiveTab("handshake-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
                   <KeyRound className="w-3 h-3 mr-1 text-orange-600 shrink-0" />
                   <span>Handshakes</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("enterprise-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
-                  <Server className="w-3 h-3 mr-1 text-blue-400 shrink-0" />
+                  <Server className="w-3 h-3 mr-1 text-blue-500 shrink-0" />
                   <span>802.1X EAP</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("segmentation-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
-                  <Split className="w-3 h-3 mr-1 text-emerald-400 shrink-0" />
+                  <Split className="w-3 h-3 mr-1 text-emerald-600 shrink-0" />
                   <span>VLAN ACLs</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("wids-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
-                  <Radio className="w-3 h-3 mr-1 text-amber-400 shrink-0" />
+                  <Radio className="w-3 h-3 mr-1 text-amber-600 shrink-0" />
                   <span>WIDS Radar</span>
                 </button>
               </div>
@@ -888,11 +888,11 @@ Generated: ${new Date().toISOString()}
           {activeTab === "theory" && (
             <div className="space-y-10">
               {/* SECTION 17.1 */}
-              {selectedTopic === 1 && (
+              {(selectedTopic === 1 || !selectedTopic || selectedTopic === 0) && (
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.1</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Module Overview & Learning Objectives</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Module Overview & Learning Objectives</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -944,7 +944,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.2</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Wireless Networking Fundamentals</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Wireless Networking Fundamentals</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1017,7 +1017,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.3</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Wi-Fi Security Standards: WEP, WPA, WPA2, and WPA3</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Wi-Fi Security Standards: WEP, WPA, WPA2, and WPA3</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1077,7 +1077,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.4</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Wi-Fi Authentication Models: Personal vs. Enterprise</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Wi-Fi Authentication Models: Personal vs. Enterprise</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1132,7 +1132,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.5</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Wireless Encryption & The 4-Way Handshake</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Wireless Encryption & The 4-Way Handshake</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1162,7 +1162,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.6</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Common Wireless Threats & Defensive Analysis</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Common Wireless Threats & Defensive Analysis</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1206,7 +1206,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.7</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Wireless Network Segmentation & Zero Trust</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Wireless Network Segmentation & Zero Trust</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1239,7 +1239,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.8</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Wireless Intrusion Detection & Monitoring (WIDS)</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Wireless Intrusion Detection & Monitoring (WIDS)</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1287,7 +1287,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.9</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Secure Wireless Access Point Configuration</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Secure Wireless Access Point Configuration</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1372,7 +1372,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.10</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Client Device and User Security</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Client Device and User Security</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1408,7 +1408,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.11</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Wireless Security Assessment Methodology</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Wireless Security Assessment Methodology</h2>
                   </div>
 
                   <p className="text-stone-700 leading-relaxed text-sm">
@@ -1442,7 +1442,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.12</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Practical Lab: Build & Audit a Secure Wi-Fi Environment</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Practical Lab: Build & Audit a Secure Wi-Fi Environment</h2>
                   </div>
 
                   <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
@@ -1549,7 +1549,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.13</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Knowledge Assessment Quiz</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Knowledge Assessment Quiz</h2>
                   </div>
 
                   <p className="text-stone-700 text-sm">
@@ -1636,7 +1636,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.14</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Official References & Further Reading</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Official References & Further Reading</h2>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
@@ -1695,7 +1695,7 @@ Generated: ${new Date().toISOString()}
                 <section className="space-y-6">
                   <div className="border-b border-stone-200 pb-4">
                     <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 17.15</span>
-                    <h2 className="text-2xl font-bold text-white mt-1">Key Engineering Takeaways</h2>
+                    <h2 className="text-2xl font-bold text-stone-900 mt-1">Key Engineering Takeaways</h2>
                   </div>
 
                   <div className="p-5 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
