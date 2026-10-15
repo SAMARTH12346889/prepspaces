@@ -803,17 +803,6 @@ export default function CybersecurityThreatModeling() {
             </div>
 
             <div className="flex items-center gap-2">
-              <button
-                onClick={() => setShowAiTutor(!showAiTutor)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
-                  showAiTutor
-                    ? "bg-orange-600 text-white border-orange-600 shadow-sm"
-                    : "bg-white text-stone-700 border-stone-300 hover:bg-stone-50"
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-                <span>Nova AI Tutor</span>
-              </button>
             </div>
           </div>
         </div>

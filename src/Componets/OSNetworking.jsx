@@ -525,13 +525,6 @@ export default function OSNetworking() {
 
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
               <button
-                onClick={() => setShowAiTutor(true)}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white font-medium text-sm transition-colors shadow-xs"
-              >
-                <Sparkles size={16} className="text-[#ea580c]" />
-                <span>Discuss with Nova AI</span>
-              </button>
-              <button
                 onClick={() => {
                   const el = document.getElementById("capstone-lab");
                   if (el) el.scrollIntoView({ behavior: "smooth" });

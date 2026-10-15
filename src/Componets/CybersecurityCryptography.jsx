@@ -542,13 +542,6 @@ ${labReportRemediation}`;
             {/* Quick Actions */}
             <div className="flex items-center gap-2">
               <button
-                onClick={() => setShowAiTutor(!showAiTutor)}
-                className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-sm hover:from-orange-700 hover:to-amber-700 transition-all"
-              >
-                <Sparkles size={14} />
-                <span>Nova AI Tutor</span>
-              </button>
-              <button
                 onClick={() => navigate("/learning/cybersecurity/iam")}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium border border-stone-200 text-stone-600 hover:bg-stone-50 transition-colors"
                 title="Previous: Module 11"

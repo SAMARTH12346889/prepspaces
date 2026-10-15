@@ -15,6 +15,7 @@ import {
   Network,
   Cpu,
   Globe,
+  Shield,
 } from "lucide-react";
 
 export default function Landingpage() {
@@ -68,6 +69,15 @@ export default function Landingpage() {
       color: "from-orange-600 to-amber-600",
       tag: "Cloud Systems",
     },
+    {
+      id: "cybersecurity",
+      title: "Cybersecurity & Ethical Hacking",
+      subtitle: "Offensive Testing, Defense & Capstone",
+      route: "/learning/cybersecurity",
+      icon: Shield,
+      color: "from-stone-900 via-neutral-800 to-orange-600",
+      tag: "Security",
+    },
   ];
 
   // Real available entry topics
@@ -101,6 +111,12 @@ export default function Landingpage() {
       track: "Cloud Computing",
       route: "/learning/cloud",
       tag: "Architecture",
+    },
+    {
+      title: "Ethical Hacking & Threat Modeling",
+      track: "Cybersecurity",
+      route: "/learning/cybersecurity",
+      tag: "Security",
     },
   ];
 
@@ -287,7 +303,7 @@ export default function Landingpage() {
                     LEARNING PATHS
                   </span>
                   <span className="rounded-full bg-orange-100 text-orange-700 px-3 py-0.5 text-xs font-bold">
-                    5 Tracks Available
+                    6 Tracks Available
                   </span>
                 </div>
                 <h3 className="text-xl font-extrabold text-[#18181b]">Your Technical Journey</h3>
@@ -459,6 +475,11 @@ export default function Landingpage() {
                   <li>
                     <Link to="/learn/devops" className="hover:text-[#ea580c] transition">
                       DevOps Course & SRE
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/cybersecurity" className="hover:text-[#ea580c] transition">
+                      Cybersecurity & Ethical Hacking
                     </Link>
                   </li>
                 </ul>

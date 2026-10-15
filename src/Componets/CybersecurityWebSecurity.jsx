@@ -736,13 +736,6 @@ Date Generated: ${new Date().toISOString()}
           </div>
 
           <div className="flex items-center space-x-3">
-            <button
-              onClick={() => setShowAiTutor(true)}
-              className="px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-medium flex items-center space-x-1.5 transition"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-              <span>Ask Nova Tutor</span>
-            </button>
           </div>
         </div>
       </header>

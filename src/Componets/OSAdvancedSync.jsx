@@ -370,13 +370,6 @@ export default function OSAdvancedSync() {
 
         {/* Action Controls */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => setShowAiTutor(true)}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-[#e7e3da] hover:border-orange-300 text-stone-800 text-xs font-semibold shadow-2xs transition-all hover:bg-orange-50/40"
-          >
-            <Sparkles size={14} className="text-[#ea580c]" />
-            <span className="hidden sm:inline">Ask Nova AI</span>
-          </button>
         </div>
       </header>
 

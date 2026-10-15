@@ -646,13 +646,6 @@ tags:
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <button
-              onClick={() => setShowAiTutor(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/30 text-xs font-medium hover:bg-purple-500/20 transition"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Ask Nova AI</span>
-            </button>
 
             <button
               onClick={() => navigate("/learning/cybersecurity/pentest-reporting-remediation")}
