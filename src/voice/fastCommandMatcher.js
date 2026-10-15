@@ -57,6 +57,31 @@ const REGISTERED_ROUTES = {
   "networks-advanced-routing": { route: "/learning/networks/advanced-routing", label: "Advanced Routing, Performance & Troubleshooting" },
   "networks-security-architecture": { route: "/learning/networks/security-architecture", label: "Modern Network Security Architecture" },
   "networks-final-capstone": { route: "/learning/networks/final-capstone", label: "Final Capstone: Network Engineering Lab" },
+  cybersecurity: { route: "/learning/cybersecurity", label: "Cybersecurity Master Course" },
+  "cybersecurity-intro": { route: "/learning/cybersecurity", label: "Introduction to Cybersecurity & Ethical Hacking" },
+  "cybersecurity-networking": { route: "/learning/cybersecurity/networking", label: "Networking Fundamentals & Protocols" },
+  "cybersecurity-os-internals": { route: "/learning/cybersecurity/os-internals", label: "Linux Fundamentals & Windows Internals" },
+  "cybersecurity-threat-modeling": { route: "/learning/cybersecurity/threat-modeling", label: "Threat Modeling & Risk Management" },
+  "cybersecurity-ethical-hacking": { route: "/learning/cybersecurity/ethical-hacking-methodology", label: "Ethical Hacking Methodologies & Rules of Engagement" },
+  "cybersecurity-osint": { route: "/learning/cybersecurity/osint-reconnaissance", label: "OSINT & Passive Reconnaissance" },
+  "cybersecurity-network-discovery": { route: "/learning/cybersecurity/network-discovery", label: "Network Discovery & Port Scanning" },
+  "cybersecurity-vulnerability-assessment": { route: "/learning/cybersecurity/vulnerability-assessment", label: "Vulnerability Assessment & CVSS" },
+  "cybersecurity-network-security": { route: "/learning/cybersecurity/network-security", label: "Network Security, Firewalls & IDS/IPS" },
+  "cybersecurity-os-hardening": { route: "/learning/cybersecurity/os-hardening", label: "Operating System Security & Hardening" },
+  "cybersecurity-iam": { route: "/learning/cybersecurity/iam", label: "Identity & Access Management, AuthN, AuthZ & MFA" },
+  "cybersecurity-cryptography": { route: "/learning/cybersecurity/cryptography", label: "Cryptography, PKI, TLS & Digital Certificates" },
+  "cybersecurity-web-security": { route: "/learning/cybersecurity/web-security", label: "Web Architecture, Sessions, Cookies & Browser Security" },
+  "cybersecurity-injection": { route: "/learning/cybersecurity/injection", label: "OWASP Top 10, Injection & Secure Input Handling" },
+  "cybersecurity-auth-api-security": { route: "/learning/cybersecurity/auth-api-security", label: "Auth Flaws, Access Control, Sessions & API Security" },
+  "cybersecurity-secure-code-review": { route: "/learning/cybersecurity/secure-code-review", label: "Secure Code Review, Web Testing & Remediation" },
+  "cybersecurity-wireless-security": { route: "/learning/cybersecurity/wireless-security", label: "Wireless Network Security & Wi-Fi Defense" },
+  "cybersecurity-cloud-security": { route: "/learning/cybersecurity/cloud-security", label: "Cloud Security, Containers & IAM Policies" },
+  "cybersecurity-malware-analysis": { route: "/learning/cybersecurity/malware-analysis", label: "Malware Analysis, Ransomware Defense & CTI" },
+  "cybersecurity-siem-incident-response": { route: "/learning/cybersecurity/siem-incident-response", label: "SIEM, Incident Response & Digital Forensics" },
+  "cybersecurity-pentest-methodology": { route: "/learning/cybersecurity/pentest-methodology", label: "Pentest Planning, Scope & Evidence Collection" },
+  "cybersecurity-red-blue-purple-teams": { route: "/learning/cybersecurity/red-blue-purple-teams", label: "Red, Blue & Purple Team Operations" },
+  "cybersecurity-pentest-reporting": { route: "/learning/cybersecurity/pentest-reporting-remediation", label: "Pentest Reports, Risk & Retesting" },
+  "cybersecurity-capstone": { route: "/learning/cybersecurity/capstone", label: "Final Capstone: Assess, Secure & Defend" },
   "system-design": { route: "/learning/system-design", label: "System Design Masterclass" },
   "system-design-requirements": { route: "/learning/system-design/requirements", label: "System Design Requirements & Capacity" },
   "system-design-networking": { route: "/learning/system-design/networking", label: "System Design APIs & Networking" },
@@ -160,7 +185,7 @@ const NAVIGATION_RULES = [
     destination: "system-design-reliability",
   },
   {
-    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(security|multi-tenant|multi tenancy|authorization|identity|rbac|abac|row level security|rls|idor|bola|passkeys|zero trust|system design security|system design module 18)$/i,
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(system design security|multi-tenant|multi tenancy|row level security|rls|zero trust architecture|system design module 18)$/i,
     destination: "system-design-security",
   },
   {
@@ -397,6 +422,102 @@ const NAVIGATION_RULES = [
     destination: "networks-final-capstone",
   },
   {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity|cyber security|ethical hacking|cybersecurity course|cyber security course|cybersecurity module 1|ethical hacking module 1)$/i,
+    destination: "cybersecurity-intro",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity networking|cyber networking|cybersecurity module 2|networking fundamentals module 2)$/i,
+    destination: "cybersecurity-networking",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity os internals|cybersecurity linux windows|linux and windows internals|windows internals|cybersecurity module 3)$/i,
+    destination: "cybersecurity-os-internals",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity threat modeling|threat modeling|risk management|attack surfaces|cybersecurity module 4)$/i,
+    destination: "cybersecurity-threat-modeling",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity ethical hacking|ethical hacking methodology|rules of engagement|cybersecurity rules of engagement|cybersecurity module 5)$/i,
+    destination: "cybersecurity-ethical-hacking",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity osint|osint|passive reconnaissance|passive recon|cybersecurity module 6)$/i,
+    destination: "cybersecurity-osint",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity network discovery|network discovery|port scanning|nmap port scanning|service enumeration|cybersecurity module 7)$/i,
+    destination: "cybersecurity-network-discovery",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity vulnerability assessment|vulnerability assessment|cve|cvss|security prioritization|cybersecurity module 8)$/i,
+    destination: "cybersecurity-vulnerability-assessment",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity network security|network security|firewalls|ids and ips|ids ips|network segmentation|cybersecurity module 9)$/i,
+    destination: "cybersecurity-network-security",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity os hardening|os hardening|operating system security|permissions and privilege management|host hardening|cybersecurity module 10)$/i,
+    destination: "cybersecurity-os-hardening",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity iam|iam|identity and access management|identity access management|authentication and authorization|mfa|multi-factor authentication|cybersecurity module 11)$/i,
+    destination: "cybersecurity-iam",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity cryptography|cryptography|encryption|pki|tls|digital certificates|x509|public key infrastructure|cybersecurity module 12)$/i,
+    destination: "cybersecurity-cryptography",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity web security|web security|web application architecture|cookies and sessions|browser security|cors|csrf|xss|cybersecurity module 13)$/i,
+    destination: "cybersecurity-web-security",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity injection|injection|sqli|sql injection|command injection|nosql injection|owasp top 10|owasp|cybersecurity module 14)$/i,
+    destination: "cybersecurity-injection",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity auth api security|auth and api security|api security|bola|idor|broken object level authorization|session security|cybersecurity module 15)$/i,
+    destination: "cybersecurity-auth-api-security",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity secure code review|secure code review|code review|sast|dast|sast and dast|remediation validation|cybersecurity module 16)$/i,
+    destination: "cybersecurity-secure-code-review",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity wireless security|wireless security|wi-fi security|wifi security|wifi defense|wpa3|sae|wpa3 sae|wids|wips|rogue ap|cybersecurity module 17)$/i,
+    destination: "cybersecurity-wireless-security",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity cloud security|cloud container security|container security|kubernetes security|k8s security|cloud iam|cspm|checkov|cybersecurity module 18)$/i,
+    destination: "cybersecurity-cloud-security",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity malware analysis|malware analysis|ransomware defense|threat intelligence|cti|stix|taxii|cybersecurity module 19)$/i,
+    destination: "cybersecurity-malware-analysis",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity siem|siem|incident response|security operations|soc operations|digital forensics|forensics|cybersecurity module 20)$/i,
+    destination: "cybersecurity-siem-incident-response",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity pentest|pentest methodology|penetration testing|pentest planning|rules of engagement|evidence collection|cybersecurity module 21)$/i,
+    destination: "cybersecurity-pentest-methodology",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity purple team|purple team|red team|blue team|detection engineering|purple teaming|red teaming|blue teaming|cybersecurity module 22)$/i,
+    destination: "cybersecurity-red-blue-purple-teams",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity pentest report|pentest report|pentest reporting|remediation retesting|cvss v4|remediation planning|cybersecurity module 23)$/i,
+    destination: "cybersecurity-pentest-reporting",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cybersecurity capstone|final capstone|lab defense|cybersecurity module 24)$/i,
+    destination: "cybersecurity-capstone",
+  },
+  {
     regex: /^(interview|mock interview)$/i,
     destination: "interview",
   },
@@ -599,6 +720,98 @@ const NAVIGATION_RULES = [
   {
     regex: /^(networks capstone|network capstone|network engineering lab|capstone network lab)$/i,
     destination: "networks-final-capstone",
+  },
+  {
+    regex: /^(cybersecurity|cyber security|ethical hacking)$/i,
+    destination: "cybersecurity",
+  },
+  {
+    regex: /^(cybersecurity os internals|cybersecurity linux windows|windows internals|linux and windows internals)$/i,
+    destination: "cybersecurity-os-internals",
+  },
+  {
+    regex: /^(cybersecurity threat modeling|threat modeling|attack surfaces|risk management)$/i,
+    destination: "cybersecurity-threat-modeling",
+  },
+  {
+    regex: /^(cybersecurity ethical hacking|ethical hacking methodology|rules of engagement)$/i,
+    destination: "cybersecurity-ethical-hacking",
+  },
+  {
+    regex: /^(cybersecurity osint|osint|passive reconnaissance|passive recon)$/i,
+    destination: "cybersecurity-osint",
+  },
+  {
+    regex: /^(cybersecurity network discovery|network discovery|port scanning|service enumeration)$/i,
+    destination: "cybersecurity-network-discovery",
+  },
+  {
+    regex: /^(cybersecurity vulnerability assessment|vulnerability assessment|cve|cvss|security prioritization)$/i,
+    destination: "cybersecurity-vulnerability-assessment",
+  },
+  {
+    regex: /^(cybersecurity network security|network security|firewalls|ids and ips|network segmentation)$/i,
+    destination: "cybersecurity-network-security",
+  },
+  {
+    regex: /^(cybersecurity os hardening|os hardening|host hardening)$/i,
+    destination: "cybersecurity-os-hardening",
+  },
+  {
+    regex: /^(cybersecurity iam|iam|identity management|access management)$/i,
+    destination: "cybersecurity-iam",
+  },
+  {
+    regex: /^(cybersecurity cryptography|cryptography|encryption|pki tls)$/i,
+    destination: "cybersecurity-cryptography",
+  },
+  {
+    regex: /^(cybersecurity web security|web security|browser security|cookies and sessions)$/i,
+    destination: "cybersecurity-web-security",
+  },
+  {
+    regex: /^(cybersecurity injection|sql injection|sqli|command injection|owasp top 10)$/i,
+    destination: "cybersecurity-injection",
+  },
+  {
+    regex: /^(cybersecurity auth api security|api security|bola|idor|access control)$/i,
+    destination: "cybersecurity-auth-api-security",
+  },
+  {
+    regex: /^(cybersecurity secure code review|secure code review|code review|sast|dast|remediation validation)$/i,
+    destination: "cybersecurity-secure-code-review",
+  },
+  {
+    regex: /^(cybersecurity wireless security|wireless security|wifi security|wi-fi security|wifi defense|wpa3|wpa3 sae|wids|wips)$/i,
+    destination: "cybersecurity-wireless-security",
+  },
+  {
+    regex: /^(cybersecurity cloud security|cloud container security|container security|kubernetes security|k8s security|cloud iam|cspm)$/i,
+    destination: "cybersecurity-cloud-security",
+  },
+  {
+    regex: /^(cybersecurity malware analysis|malware analysis|ransomware defense|threat intelligence|cti)$/i,
+    destination: "cybersecurity-malware-analysis",
+  },
+  {
+    regex: /^(cybersecurity siem|siem|incident response|soc operations|digital forensics)$/i,
+    destination: "cybersecurity-siem-incident-response",
+  },
+  {
+    regex: /^(cybersecurity pentest|pentest methodology|penetration testing|pentest planning|rules of engagement)$/i,
+    destination: "cybersecurity-pentest-methodology",
+  },
+  {
+    regex: /^(cybersecurity purple team|purple team|red team|blue team|purple teaming|detection engineering)$/i,
+    destination: "cybersecurity-red-blue-purple-teams",
+  },
+  {
+    regex: /^(cybersecurity pentest report|pentest report|pentest reporting|remediation retesting|cvss v4)$/i,
+    destination: "cybersecurity-pentest-reporting",
+  },
+  {
+    regex: /^(cybersecurity capstone|final capstone|lab defense)$/i,
+    destination: "cybersecurity-capstone",
   },
 ];
 

@@ -12,6 +12,7 @@ import {
   Compass,
   Cpu,
   Globe,
+  Shield,
 } from "lucide-react";
 import { useSafeBack } from "../utils/navigation";
 import Logo from "../Componets/Logo";
@@ -117,6 +118,26 @@ const learningTracks = [
       "Real-World CLI Diagnostics & Network Security",
     ],
   },
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity & Ethical Hacking",
+    tagline: "Offensive Testing, Defensive Architecture & Incident Response",
+    description:
+      "Master foundational and advanced cybersecurity principles, ethical hacking, threat modeling, the CIA triad, attack surfaces, MITRE ATT&CK, Kali Linux tooling, and isolated lab testing informed by top university curricula.",
+    icon: Shield,
+    route: "/learning/cybersecurity",
+    tag: "Security & Ethical Hacking",
+    modulesCount: "Master Course",
+    color: "from-stone-900 via-neutral-800 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "Ethical Hacking & Penetration Testing",
+      "CIA Triad & Defensive Architecture",
+      "Threat Actors, Malware & Ransomware",
+      "MITRE ATT&CK & Cyber Kill Chain",
+      "Isolated Virtual Sandbox Labs",
+    ],
+  },
 ];
 
 export default function Learning() {
@@ -166,11 +187,11 @@ export default function Learning() {
         {/* Metric Badges Banner */}
         <div className="mb-10 grid grid-cols-2 sm:grid-cols-4 gap-3 p-2 rounded-2xl bg-white/70 border border-[#e7e3da] backdrop-blur-md shadow-2xs">
           <div className="p-3 text-center">
-            <div className="text-xl sm:text-2xl font-black text-stone-900 font-mono">5</div>
+            <div className="text-xl sm:text-2xl font-black text-stone-900 font-mono">6</div>
             <div className="text-[11px] text-stone-500 font-medium mt-0.5">Comprehensive Tracks</div>
           </div>
           <div className="p-3 text-center border-l border-stone-200/70">
-            <div className="text-xl sm:text-2xl font-black text-orange-600 font-mono">75+</div>
+            <div className="text-xl sm:text-2xl font-black text-orange-600 font-mono">80+</div>
             <div className="text-[11px] text-stone-500 font-medium mt-0.5">In-Depth Modules</div>
           </div>
           <div className="p-3 text-center border-l border-stone-200/70">

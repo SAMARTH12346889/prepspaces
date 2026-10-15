@@ -334,6 +334,147 @@ assert(testNavNetCapstone && testNavNetCapstone.type === "NAVIGATE" && testNavNe
 const testNavNetEngLab = matchFastCommand("take me to network engineering lab");
 assert(testNavNetEngLab && testNavNetEngLab.type === "NAVIGATE" && testNavNetEngLab.route === "/learning/networks/final-capstone", "'take me to network engineering lab' fast-paths to /learning/networks/final-capstone");
 
+const testNavCybersecurity = matchFastCommand("Open cybersecurity");
+assert(testNavCybersecurity && testNavCybersecurity.type === "NAVIGATE" && testNavCybersecurity.route === "/learning/cybersecurity", "'Open cybersecurity' fast-paths to /learning/cybersecurity");
+
+const testNavEthicalHacking = matchFastCommand("take me to ethical hacking");
+assert(testNavEthicalHacking && testNavEthicalHacking.type === "NAVIGATE" && testNavEthicalHacking.route === "/learning/cybersecurity", "'take me to ethical hacking' fast-paths to /learning/cybersecurity");
+
+const testNavCyberNetworking = matchFastCommand("Open cybersecurity networking");
+assert(testNavCyberNetworking && testNavCyberNetworking.type === "NAVIGATE" && testNavCyberNetworking.route === "/learning/cybersecurity/networking", "'Open cybersecurity networking' fast-paths to /learning/cybersecurity/networking");
+
+const testNavCyberOSInternals = matchFastCommand("Open cybersecurity os internals");
+assert(testNavCyberOSInternals && testNavCyberOSInternals.type === "NAVIGATE" && testNavCyberOSInternals.route === "/learning/cybersecurity/os-internals", "'Open cybersecurity os internals' fast-paths to /learning/cybersecurity/os-internals");
+
+const testNavWindowsInternals = matchFastCommand("take me to windows internals");
+assert(testNavWindowsInternals && testNavWindowsInternals.type === "NAVIGATE" && testNavWindowsInternals.route === "/learning/cybersecurity/os-internals", "'take me to windows internals' fast-paths to /learning/cybersecurity/os-internals");
+
+const testNavCyberThreatModeling = matchFastCommand("Open cybersecurity threat modeling");
+assert(testNavCyberThreatModeling && testNavCyberThreatModeling.type === "NAVIGATE" && testNavCyberThreatModeling.route === "/learning/cybersecurity/threat-modeling", "'Open cybersecurity threat modeling' fast-paths to /learning/cybersecurity/threat-modeling");
+
+const testNavRiskManagement = matchFastCommand("take me to risk management");
+assert(testNavRiskManagement && testNavRiskManagement.type === "NAVIGATE" && testNavRiskManagement.route === "/learning/cybersecurity/threat-modeling", "'take me to risk management' fast-paths to /learning/cybersecurity/threat-modeling");
+
+const testNavCyberEthicalHacking = matchFastCommand("Open cybersecurity ethical hacking");
+assert(testNavCyberEthicalHacking && testNavCyberEthicalHacking.type === "NAVIGATE" && testNavCyberEthicalHacking.route === "/learning/cybersecurity/ethical-hacking-methodology", "'Open cybersecurity ethical hacking' fast-paths to /learning/cybersecurity/ethical-hacking-methodology");
+
+const testNavRoE = matchFastCommand("take me to rules of engagement");
+assert(testNavRoE && testNavRoE.type === "NAVIGATE" && testNavRoE.route === "/learning/cybersecurity/ethical-hacking-methodology", "'take me to rules of engagement' fast-paths to /learning/cybersecurity/ethical-hacking-methodology");
+
+const testNavCyberOSINT = matchFastCommand("Open cybersecurity osint");
+assert(testNavCyberOSINT && testNavCyberOSINT.type === "NAVIGATE" && testNavCyberOSINT.route === "/learning/cybersecurity/osint-reconnaissance", "'Open cybersecurity osint' fast-paths to /learning/cybersecurity/osint-reconnaissance");
+
+const testNavPassiveRecon = matchFastCommand("take me to passive recon");
+assert(testNavPassiveRecon && testNavPassiveRecon.type === "NAVIGATE" && testNavPassiveRecon.route === "/learning/cybersecurity/osint-reconnaissance", "'take me to passive recon' fast-paths to /learning/cybersecurity/osint-reconnaissance");
+
+const testNavCyberDiscovery = matchFastCommand("Open cybersecurity network discovery");
+assert(testNavCyberDiscovery && testNavCyberDiscovery.type === "NAVIGATE" && testNavCyberDiscovery.route === "/learning/cybersecurity/network-discovery", "'Open cybersecurity network discovery' fast-paths to /learning/cybersecurity/network-discovery");
+
+const testNavPortScanning = matchFastCommand("take me to port scanning");
+assert(testNavPortScanning && testNavPortScanning.type === "NAVIGATE" && testNavPortScanning.route === "/learning/cybersecurity/network-discovery", "'take me to port scanning' fast-paths to /learning/cybersecurity/network-discovery");
+
+const testNavCyberVuln = matchFastCommand("Open cybersecurity vulnerability assessment");
+assert(testNavCyberVuln && testNavCyberVuln.type === "NAVIGATE" && testNavCyberVuln.route === "/learning/cybersecurity/vulnerability-assessment", "'Open cybersecurity vulnerability assessment' fast-paths to /learning/cybersecurity/vulnerability-assessment");
+
+const testNavCVSS = matchFastCommand("take me to cvss");
+assert(testNavCVSS && testNavCVSS.type === "NAVIGATE" && testNavCVSS.route === "/learning/cybersecurity/vulnerability-assessment", "'take me to cvss' fast-paths to /learning/cybersecurity/vulnerability-assessment");
+
+const testNavCyberNetSec = matchFastCommand("Open cybersecurity network security");
+assert(testNavCyberNetSec && testNavCyberNetSec.type === "NAVIGATE" && testNavCyberNetSec.route === "/learning/cybersecurity/network-security", "'Open cybersecurity network security' fast-paths to /learning/cybersecurity/network-security");
+
+const testNavFirewalls = matchFastCommand("take me to network segmentation");
+assert(testNavFirewalls && testNavFirewalls.type === "NAVIGATE" && testNavFirewalls.route === "/learning/cybersecurity/network-security", "'take me to network segmentation' fast-paths to /learning/cybersecurity/network-security");
+
+const testNavCyberOSHardening = matchFastCommand("Open cybersecurity os hardening");
+assert(testNavCyberOSHardening && testNavCyberOSHardening.type === "NAVIGATE" && testNavCyberOSHardening.route === "/learning/cybersecurity/os-hardening", "'Open cybersecurity os hardening' fast-paths to /learning/cybersecurity/os-hardening");
+
+const testNavHostHardening = matchFastCommand("take me to host hardening");
+assert(testNavHostHardening && testNavHostHardening.type === "NAVIGATE" && testNavHostHardening.route === "/learning/cybersecurity/os-hardening", "'take me to host hardening' fast-paths to /learning/cybersecurity/os-hardening");
+
+const testNavCyberIAM = matchFastCommand("Open cybersecurity iam");
+assert(testNavCyberIAM && testNavCyberIAM.type === "NAVIGATE" && testNavCyberIAM.route === "/learning/cybersecurity/iam", "'Open cybersecurity iam' fast-paths to /learning/cybersecurity/iam");
+
+const testNavMFA = matchFastCommand("take me to mfa");
+assert(testNavMFA && testNavMFA.type === "NAVIGATE" && testNavMFA.route === "/learning/cybersecurity/iam", "'take me to mfa' fast-paths to /learning/cybersecurity/iam");
+
+const testNavCyberCrypto = matchFastCommand("Open cybersecurity cryptography");
+assert(testNavCyberCrypto && testNavCyberCrypto.type === "NAVIGATE" && testNavCyberCrypto.route === "/learning/cybersecurity/cryptography", "'Open cybersecurity cryptography' fast-paths to /learning/cybersecurity/cryptography");
+
+const testNavEncryption = matchFastCommand("take me to encryption");
+assert(testNavEncryption && testNavEncryption.type === "NAVIGATE" && testNavEncryption.route === "/learning/cybersecurity/cryptography", "'take me to encryption' fast-paths to /learning/cybersecurity/cryptography");
+
+const testNavCyberWeb = matchFastCommand("Open cybersecurity web security");
+assert(testNavCyberWeb && testNavCyberWeb.type === "NAVIGATE" && testNavCyberWeb.route === "/learning/cybersecurity/web-security", "'Open cybersecurity web security' fast-paths to /learning/cybersecurity/web-security");
+
+const testNavCookies = matchFastCommand("take me to cookies and sessions");
+assert(testNavCookies && testNavCookies.type === "NAVIGATE" && testNavCookies.route === "/learning/cybersecurity/web-security", "'take me to cookies and sessions' fast-paths to /learning/cybersecurity/web-security");
+
+const testNavCyberInjection = matchFastCommand("Open cybersecurity injection");
+assert(testNavCyberInjection && testNavCyberInjection.type === "NAVIGATE" && testNavCyberInjection.route === "/learning/cybersecurity/injection", "'Open cybersecurity injection' fast-paths to /learning/cybersecurity/injection");
+
+const testNavSQLi = matchFastCommand("take me to sql injection");
+assert(testNavSQLi && testNavSQLi.type === "NAVIGATE" && testNavSQLi.route === "/learning/cybersecurity/injection", "'take me to sql injection' fast-paths to /learning/cybersecurity/injection");
+
+const testNavCyberAuthAPI = matchFastCommand("Open cybersecurity auth api security");
+assert(testNavCyberAuthAPI && testNavCyberAuthAPI.type === "NAVIGATE" && testNavCyberAuthAPI.route === "/learning/cybersecurity/auth-api-security", "'Open cybersecurity auth api security' fast-paths to /learning/cybersecurity/auth-api-security");
+
+const testNavBOLA = matchFastCommand("take me to bola");
+assert(testNavBOLA && testNavBOLA.type === "NAVIGATE" && testNavBOLA.route === "/learning/cybersecurity/auth-api-security", "'take me to bola' fast-paths to /learning/cybersecurity/auth-api-security");
+
+const testNavCyberCodeReview = matchFastCommand("Open cybersecurity secure code review");
+assert(testNavCyberCodeReview && testNavCyberCodeReview.type === "NAVIGATE" && testNavCyberCodeReview.route === "/learning/cybersecurity/secure-code-review", "'Open cybersecurity secure code review' fast-paths to /learning/cybersecurity/secure-code-review");
+
+const testNavSAST = matchFastCommand("take me to sast");
+assert(testNavSAST && testNavSAST.type === "NAVIGATE" && testNavSAST.route === "/learning/cybersecurity/secure-code-review", "'take me to sast' fast-paths to /learning/cybersecurity/secure-code-review");
+
+const testNavCyberWireless = matchFastCommand("Open cybersecurity wireless security");
+assert(testNavCyberWireless && testNavCyberWireless.type === "NAVIGATE" && testNavCyberWireless.route === "/learning/cybersecurity/wireless-security", "'Open cybersecurity wireless security' fast-paths to /learning/cybersecurity/wireless-security");
+
+const testNavWPA3 = matchFastCommand("take me to wpa3");
+assert(testNavWPA3 && testNavWPA3.type === "NAVIGATE" && testNavWPA3.route === "/learning/cybersecurity/wireless-security", "'take me to wpa3' fast-paths to /learning/cybersecurity/wireless-security");
+
+const testNavCyberCloud = matchFastCommand("Open cybersecurity cloud security");
+assert(testNavCyberCloud && testNavCyberCloud.type === "NAVIGATE" && testNavCyberCloud.route === "/learning/cybersecurity/cloud-security", "'Open cybersecurity cloud security' fast-paths to /learning/cybersecurity/cloud-security");
+
+const testNavK8sSec = matchFastCommand("take me to kubernetes security");
+assert(testNavK8sSec && testNavK8sSec.type === "NAVIGATE" && testNavK8sSec.route === "/learning/cybersecurity/cloud-security", "'take me to kubernetes security' fast-paths to /learning/cybersecurity/cloud-security");
+
+const testNavCyberMalware = matchFastCommand("Open cybersecurity malware analysis");
+assert(testNavCyberMalware && testNavCyberMalware.type === "NAVIGATE" && testNavCyberMalware.route === "/learning/cybersecurity/malware-analysis", "'Open cybersecurity malware analysis' fast-paths to /learning/cybersecurity/malware-analysis");
+
+const testNavRansom = matchFastCommand("take me to ransomware defense");
+assert(testNavRansom && testNavRansom.type === "NAVIGATE" && testNavRansom.route === "/learning/cybersecurity/malware-analysis", "'take me to ransomware defense' fast-paths to /learning/cybersecurity/malware-analysis");
+
+const testNavCyberSIEM = matchFastCommand("Open cybersecurity siem");
+assert(testNavCyberSIEM && testNavCyberSIEM.type === "NAVIGATE" && testNavCyberSIEM.route === "/learning/cybersecurity/siem-incident-response", "'Open cybersecurity siem' fast-paths to /learning/cybersecurity/siem-incident-response");
+
+const testNavForensics = matchFastCommand("take me to digital forensics");
+assert(testNavForensics && testNavForensics.type === "NAVIGATE" && testNavForensics.route === "/learning/cybersecurity/siem-incident-response", "'take me to digital forensics' fast-paths to /learning/cybersecurity/siem-incident-response");
+
+const testNavCyberPentest = matchFastCommand("Open cybersecurity pentest");
+assert(testNavCyberPentest && testNavCyberPentest.type === "NAVIGATE" && testNavCyberPentest.route === "/learning/cybersecurity/pentest-methodology", "'Open cybersecurity pentest' fast-paths to /learning/cybersecurity/pentest-methodology");
+
+const testNavPentestPlanning = matchFastCommand("take me to pentest planning");
+assert(testNavPentestPlanning && testNavPentestPlanning.type === "NAVIGATE" && testNavPentestPlanning.route === "/learning/cybersecurity/pentest-methodology", "'take me to pentest planning' fast-paths to /learning/cybersecurity/pentest-methodology");
+
+const testNavPurpleTeam = matchFastCommand("Open cybersecurity purple team");
+assert(testNavPurpleTeam && testNavPurpleTeam.type === "NAVIGATE" && testNavPurpleTeam.route === "/learning/cybersecurity/red-blue-purple-teams", "'Open cybersecurity purple team' fast-paths to /learning/cybersecurity/red-blue-purple-teams");
+
+const testNavDetectionEngineering = matchFastCommand("take me to detection engineering");
+assert(testNavDetectionEngineering && testNavDetectionEngineering.type === "NAVIGATE" && testNavDetectionEngineering.route === "/learning/cybersecurity/red-blue-purple-teams", "'take me to detection engineering' fast-paths to /learning/cybersecurity/red-blue-purple-teams");
+
+const testNavPentestReport = matchFastCommand("Open cybersecurity pentest report");
+assert(testNavPentestReport && testNavPentestReport.type === "NAVIGATE" && testNavPentestReport.route === "/learning/cybersecurity/pentest-reporting-remediation", "'Open cybersecurity pentest report' fast-paths to /learning/cybersecurity/pentest-reporting-remediation");
+
+const testNavRemediationRetesting = matchFastCommand("take me to remediation retesting");
+assert(testNavRemediationRetesting && testNavRemediationRetesting.type === "NAVIGATE" && testNavRemediationRetesting.route === "/learning/cybersecurity/pentest-reporting-remediation", "'take me to remediation retesting' fast-paths to /learning/cybersecurity/pentest-reporting-remediation");
+
+const testNavCyberCapstone = matchFastCommand("Open cybersecurity capstone");
+assert(testNavCyberCapstone && testNavCyberCapstone.type === "NAVIGATE" && testNavCyberCapstone.route === "/learning/cybersecurity/capstone", "'Open cybersecurity capstone' fast-paths to /learning/cybersecurity/capstone");
+
+const testNavLabDefense = matchFastCommand("take me to lab defense");
+assert(testNavLabDefense && testNavLabDefense.type === "NAVIGATE" && testNavLabDefense.route === "/learning/cybersecurity/capstone", "'take me to lab defense' fast-paths to /learning/cybersecurity/capstone");
+
 const testNav3 = matchFastCommand("open learning");
 assert(testNav3 && testNav3.type === "NAVIGATE" && testNav3.route === "/learning", "'open learning' fast-paths to /learning");
 
