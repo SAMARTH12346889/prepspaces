@@ -571,34 +571,17 @@ Generated: ${new Date().toISOString()}
   return (
     <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Breadcrumb & Header */}
-      <header className="border-b border-stone-200/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={() => navigate("/learning/cybersecurity")}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 hover:text-white transition flex items-center text-xs"
-              title="Return to Cybersecurity Curriculum"
-            >
-              <ArrowLeft className="w-4 h-4 mr-1" />
-              Course Index
-            </button>
-            <div className="h-4 w-px bg-slate-700" />
-            <div className="flex items-center space-x-2 text-xs">
-              <span className="text-orange-600 font-semibold tracking-wider uppercase">Module 15</span>
-              <span className="text-stone-500">/</span>
-              <span className="text-stone-700 truncate max-w-[280px] sm:max-w-md">
-                Authentication Flaws, Access Control, Session Security & API Security
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-3">
-          </div>
+      <div className="border-b border-[#eae6de] bg-white/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <ModuleNav
+            track="cybersecurity"
+            currentModuleId="auth-api-security"
+            showAiTutor={showAiTutor}
+            onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
+            aiTutorLabel="Auth & API AI Mentor"
+          />
         </div>
-      </header>
-
-      {/* TRACK SUB-NAVIGATION */}
-      <ModuleNav currentModuleId="auth-api-security" track="cybersecurity" />
+      </div>
 
       {/* Hero Banner */}
       <div className="border-b border-stone-200 bg-gradient-to-b from-[#f9f7f2] to-[#f4f0e6] px-4 sm:px-6 lg:px-8 py-8">
@@ -609,7 +592,7 @@ Generated: ${new Date().toISOString()}
                 <Lock className="w-3.5 h-3.5" />
                 <span>OWASP API Security Top 10 · NIST SP 800-63B · RFC 9700</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
                 Authentication Flaws, Access Control, Session Security & API Security
               </h1>
               <p className="text-sm sm:text-base text-stone-700 max-w-3xl leading-relaxed">
@@ -737,17 +720,21 @@ Generated: ${new Date().toISOString()}
                 <button
                   key={topic.id}
                   onClick={() => {
-                    setSelectedTopic(topic.id);
-                    setActiveTab("theory");
+                    if (topic.id === 14) {
+                      setActiveTab("quiz");
+                    } else {
+                      setSelectedTopic(topic.id);
+                      setActiveTab("theory");
+                    }
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
-                    selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
-                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
+                    (selectedTopic || 1) === topic.id
+                      ? "bg-orange-50 text-orange-950 font-semibold border border-orange-200 shadow-2xs"
+                      : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
-                  {selectedTopic === topic.id && (
+                  {(selectedTopic || 1) === topic.id && (
                     <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0 ml-1" />
                   )}
                 </button>
@@ -762,6 +749,7 @@ Generated: ${new Date().toISOString()}
           {activeTab === "theory" && (
             <div className="space-y-10">
               {/* 15.1 Overview */}
+              {(selectedTopic === 1 || !selectedTopic || selectedTopic === 0) && (
               <section id="section-1" className="space-y-4">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldCheck className="w-4 h-4" />
@@ -820,8 +808,10 @@ Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 15.2 Authentication vs Authorization vs Sessions */}
+              {selectedTopic === 2 && (
               <section id="section-2" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Workflow className="w-4 h-4" />
@@ -868,8 +858,10 @@ Generated: ${new Date().toISOString()}
                   operation must verify resource ownership and role permissions independently.
                 </div>
               </section>
+              )}
 
               {/* 15.3 Authentication Flaws & ATO */}
+              {selectedTopic === 3 && (
               <section id="section-3" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Lock className="w-4 h-4" />
@@ -917,8 +909,10 @@ Generated: ${new Date().toISOString()}
                   </table>
                 </div>
               </section>
+              )}
 
               {/* 15.4 Session Lifecycle & Cookies */}
+              {selectedTopic === 4 && (
               <section id="section-4" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Cookie className="w-4 h-4" />
@@ -954,8 +948,10 @@ Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 15.5 Access Control Models */}
+              {(selectedTopic === 5 || selectedTopic === 6) && (
               <section id="section-5" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Users className="w-4 h-4" />
@@ -1014,8 +1010,10 @@ Generated: ${new Date().toISOString()}
                   </table>
                 </div>
               </section>
+              )}
 
               {/* 15.7 OWASP API Security Top 10 */}
+              {(selectedTopic === 7 || selectedTopic === 8 || selectedTopic === 9) && (
               <section id="section-7" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldAlert className="w-4 h-4" />
@@ -1051,8 +1049,10 @@ Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 15.10 Practical Lab Workspace */}
+              {(selectedTopic === 10 || selectedTopic === 11) && (
               <section id="section-10" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <TerminalSquare className="w-4 h-4" />
@@ -1065,7 +1065,7 @@ Generated: ${new Date().toISOString()}
                   <div className="flex items-center justify-between border-b border-stone-200 pb-3">
                     <div className="flex items-center space-x-2">
                       <FileSpreadsheet className="w-5 h-5 text-orange-600" />
-                      <h4 className="text-sm font-bold text-white">API Security Finding Report Generator</h4>
+                      <h4 className="text-sm font-bold text-stone-900">API Security Finding Report Generator</h4>
                     </div>
                     <button
                       onClick={copyLabReport}
@@ -1133,8 +1133,10 @@ Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 15.12 Official References */}
+              {selectedTopic === 12 && (
               <section id="section-12" className="space-y-4 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <BookOpen className="w-4 h-4" />
@@ -1150,7 +1152,7 @@ Generated: ${new Date().toISOString()}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP API Security Top 10: 2023</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1164,7 +1166,7 @@ Generated: ${new Date().toISOString()}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP Authorization Cheat Sheet</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1178,7 +1180,7 @@ Generated: ${new Date().toISOString()}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>NIST SP 800-63B Digital Identity</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1192,7 +1194,7 @@ Generated: ${new Date().toISOString()}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>RFC 9700 — OAuth 2.0 Security BCP</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1202,8 +1204,10 @@ Generated: ${new Date().toISOString()}
                   </a>
                 </div>
               </section>
+              )}
 
               {/* 15.13 Key Takeaways */}
+              {(selectedTopic === 13 || selectedTopic === 15 || selectedTopic === 16) && (
               <section id="section-13" className="space-y-4 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Award className="w-4 h-4" />
@@ -1234,6 +1238,7 @@ Generated: ${new Date().toISOString()}
                   </p>
                 </div>
               </section>
+              )}
             </div>
           )}
 
@@ -1242,7 +1247,7 @@ Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <ShieldAlert className="w-5 h-5 text-orange-600" />
                     <span>Simulator 1: BOLA / IDOR Exploitation & Tenant Isolation Engine</span>
                   </h3>
@@ -1356,7 +1361,7 @@ Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <UserCog className="w-5 h-5 text-orange-600" />
                     <span>Simulator 2: Mass Assignment & Property-Level Auth Sandbox</span>
                   </h3>
@@ -1463,7 +1468,7 @@ Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Key className="w-5 h-5 text-orange-600" />
                     <span>Simulator 3: Token Validation & JWT Signature Dissector</span>
                   </h3>
@@ -1583,7 +1588,7 @@ Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Activity className="w-5 h-5 text-orange-600" />
                     <span>Simulator 4: Token Bucket Rate Limiter & Abuse Prevention Engine</span>
                   </h3>
@@ -1672,7 +1677,7 @@ Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Award className="w-5 h-5 text-orange-600" />
                     <span>15.11 Authentication, Authorization & API Security Assessment</span>
                   </h3>

@@ -231,7 +231,22 @@ export default function ModuleNav({
               <span>{showAiTutor ? "Close Nova AI" : aiTutorLabel || "Ask Nova AI Tutor"}</span>
             </button>
           ) : (
-            <Logo size="xs" suffix={track === "devops" ? "DevOps" : track === "system-design" ? "System Design" : "Cloud"} />
+            <Logo
+              size="xs"
+              suffix={
+                track === "devops"
+                  ? "DevOps"
+                  : track === "system-design"
+                  ? "System Design"
+                  : track === "cybersecurity"
+                  ? "Cybersecurity"
+                  : track === "os"
+                  ? "Operating Systems"
+                  : track === "networks"
+                  ? "Computer Networks"
+                  : "Cloud"
+              }
+            />
           )}
         </div>
       </div>

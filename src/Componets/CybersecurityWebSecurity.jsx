@@ -7,6 +7,8 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronUp,
+  ChevronRight,
+  LockOpen,
   Globe,
   Layers,
   Terminal,
@@ -712,36 +714,17 @@ Date Generated: ${new Date().toISOString()}
   return (
     <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Breadcrumb & Metadata Header */}
-      <header className="border-b border-stone-200/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={() => navigate("/learning/cybersecurity")}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 hover:text-white transition flex items-center text-xs"
-              title="Return to Cybersecurity Curriculum"
-            >
-              <ArrowLeft className="w-4 h-4 mr-1" />
-              Course Index
-            </button>
-            <div className="h-4 w-px bg-slate-700" />
-            <div className="flex items-center space-x-2 text-xs">
-              <span className="text-orange-600 font-semibold tracking-wider uppercase">
-                Module 13
-              </span>
-              <span className="text-stone-500">/</span>
-              <span className="text-stone-700 truncate max-w-[280px] sm:max-w-md">
-                Web Architecture, HTTP Sessions, Cookies & Browser Security
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-3">
-          </div>
+      <div className="border-b border-[#eae6de] bg-white/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <ModuleNav
+            track="cybersecurity"
+            currentModuleId="web-security"
+            showAiTutor={showAiTutor}
+            onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
+            aiTutorLabel="Web Security AI Mentor"
+          />
         </div>
-      </header>
-
-      {/* TRACK SUB-NAVIGATION */}
-      <ModuleNav currentModuleId="web-security" track="cybersecurity" />
+      </div>
 
       {/* Hero Banner */}
       <div className="border-b border-stone-200 bg-gradient-to-b from-[#f9f7f2] to-[#f4f0e6] px-4 sm:px-6 lg:px-8 py-8">
@@ -752,7 +735,7 @@ Date Generated: ${new Date().toISOString()}
                 <Globe className="w-3.5 h-3.5" />
                 <span>RFC 9110 · RFC 6265bis · OWASP Web Defense</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
                 Web Application Architecture, HTTP Sessions, Cookies & Browser Security
               </h1>
               <p className="text-sm sm:text-base text-stone-700 max-w-3xl leading-relaxed">
@@ -885,17 +868,21 @@ Date Generated: ${new Date().toISOString()}
                 <button
                   key={topic.id}
                   onClick={() => {
-                    setSelectedTopic(topic.id);
-                    setActiveTab("theory");
+                    if (topic.id === 14) {
+                      setActiveTab("quiz");
+                    } else {
+                      setSelectedTopic(topic.id);
+                      setActiveTab("theory");
+                    }
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
-                    selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
-                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
+                    (selectedTopic || 1) === topic.id
+                      ? "bg-orange-50 text-orange-950 font-semibold border border-orange-200 shadow-2xs"
+                      : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
-                  {selectedTopic === topic.id && (
+                  {(selectedTopic || 1) === topic.id && (
                     <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0 ml-1" />
                   )}
                 </button>
@@ -924,6 +911,7 @@ Date Generated: ${new Date().toISOString()}
           {activeTab === "theory" && (
             <div className="space-y-10">
               {/* 13.1 Module Overview */}
+              {(selectedTopic === 1 || !selectedTopic || selectedTopic === 0) && (
               <section id="section-1" className="space-y-4">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldCheck className="w-4 h-4" />
@@ -987,8 +975,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.2 Web Application Architecture */}
+              {selectedTopic === 2 && (
               <section id="section-2" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Layers className="w-4 h-4" />
@@ -1052,7 +1042,7 @@ Date Generated: ${new Date().toISOString()}
 
                 {/* 13.2.5 Architectural Patterns Table */}
                 <div className="space-y-3">
-                  <h3 className="text-base font-semibold text-white">
+                  <h3 className="text-base font-semibold text-stone-900">
                     13.2.5 Common Architectural Patterns & Security Considerations
                   </h3>
                   <div className="overflow-x-auto border border-stone-200 rounded-xl">
@@ -1100,8 +1090,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.3 HTTP Fundamentals */}
+              {selectedTopic === 3 && (
               <section id="section-3" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Terminal className="w-4 h-4" />
@@ -1118,7 +1110,7 @@ Date Generated: ${new Date().toISOString()}
 
                 {/* HTTP Methods Table */}
                 <div className="space-y-3">
-                  <h3 className="text-base font-semibold text-white">13.3.3 HTTP Methods & Security Invariants</h3>
+                  <h3 className="text-base font-semibold text-stone-900">13.3.3 HTTP Methods & Security Invariants</h3>
                   <div className="overflow-x-auto border border-stone-200 rounded-xl">
                     <table className="w-full text-left text-xs">
                       <thead className="bg-stone-50/90 text-stone-700 uppercase font-mono border-b border-stone-200">
@@ -1173,32 +1165,32 @@ Date Generated: ${new Date().toISOString()}
 
                 {/* HTTP Status Codes Table */}
                 <div className="space-y-3">
-                  <h3 className="text-base font-semibold text-white">13.3.4 Security Implications of Status Codes</h3>
+                  <h3 className="text-base font-semibold text-stone-900">13.3.4 Security Implications of Status Codes</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
                     <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
                       <div className="font-mono font-bold text-emerald-400">200 / 201 / 204</div>
-                      <div className="font-semibold text-white">Success Classes</div>
+                      <div className="font-semibold text-stone-900">Success Classes</div>
                       <p className="text-stone-600 text-[11px]">
                         200 OK (returned), 201 Created (resource allocated), 204 No Content (action succeeded with empty body).
                       </p>
                     </div>
                     <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
                       <div className="font-mono font-bold text-indigo-400">301 / 302 / 304</div>
-                      <div className="font-semibold text-white">Redirection & Cache</div>
+                      <div className="font-semibold text-stone-900">Redirection & Cache</div>
                       <p className="text-stone-600 text-[11px]">
                         301 Permanent, 302 Found (check for open redirects!), 304 Not Modified (conditional ETag/If-Modified-Since).
                       </p>
                     </div>
                     <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
                       <div className="font-mono font-bold text-amber-400">401 vs 403 vs 404</div>
-                      <div className="font-semibold text-white">Client Error & Auth</div>
+                      <div className="font-semibold text-stone-900">Client Error & Auth</div>
                       <p className="text-stone-600 text-[11px]">
                         401 Unauthorized (missing AuthN), 403 Forbidden (authenticated but lacks role), 404 Not Found (or disguised 403 to prevent enum).
                       </p>
                     </div>
                     <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
                       <div className="font-mono font-bold text-rose-400">429 / 500 / 502 / 504</div>
-                      <div className="font-semibold text-white">Rate Limits & Server</div>
+                      <div className="font-semibold text-stone-900">Rate Limits & Server</div>
                       <p className="text-stone-600 text-[11px]">
                         429 Too Many Requests (rate limiting), 500 Internal Error (never leak stack traces!), 502/504 Gateway errors.
                       </p>
@@ -1206,8 +1198,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.4 Stateless HTTP vs Stateful Application Sessions */}
+              {selectedTopic === 4 && (
               <section id="section-4" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <KeyRound className="w-4 h-4" />
@@ -1285,8 +1279,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.5 Cookies: Storage, Scope & Security Attributes */}
+              {selectedTopic === 5 && (
               <section id="section-5" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Cookie className="w-4 h-4" />
@@ -1304,7 +1300,7 @@ Date Generated: ${new Date().toISOString()}
 
                 {/* Cookie Attributes Table */}
                 <div className="space-y-3">
-                  <h3 className="text-base font-semibold text-white">13.5.2 Essential Cookie Security Flags</h3>
+                  <h3 className="text-base font-semibold text-stone-900">13.5.2 Essential Cookie Security Flags</h3>
                   <div className="overflow-x-auto border border-stone-200 rounded-xl">
                     <table className="w-full text-left text-xs">
                       <thead className="bg-stone-50/90 text-stone-700 uppercase font-mono border-b border-stone-200">
@@ -1357,7 +1353,7 @@ Date Generated: ${new Date().toISOString()}
 
                 {/* Storage Comparison Table */}
                 <div className="space-y-3">
-                  <h3 className="text-base font-semibold text-white">13.5.5 Browser Storage Mechanisms Compared</h3>
+                  <h3 className="text-base font-semibold text-stone-900">13.5.5 Browser Storage Mechanisms Compared</h3>
                   <div className="overflow-x-auto border border-stone-200 rounded-xl">
                     <table className="w-full text-left text-xs">
                       <thead className="bg-stone-50/90 text-stone-700 uppercase font-mono border-b border-stone-200">
@@ -1403,8 +1399,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.6 Auth Cookies, Bearer Tokens & JWTs */}
+              {selectedTopic === 6 && (
               <section id="section-6" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Key className="w-4 h-4" />
@@ -1456,7 +1454,7 @@ Date Generated: ${new Date().toISOString()}
                 </div>
 
                 <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-3">
-                  <h4 className="text-sm font-bold text-white flex items-center space-x-2">
+                  <h4 className="text-sm font-bold text-stone-900 flex items-center space-x-2">
                     <ShieldCheck className="w-4 h-4 text-emerald-400" />
                     <span>JWT Backend Verification Requirements (Never Trust Client Decode)</span>
                   </h4>
@@ -1488,8 +1486,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.7 Browser Security Model: Origins, SOP & CORS */}
+              {selectedTopic === 7 && (
               <section id="section-7" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Globe className="w-4 h-4" />
@@ -1506,7 +1506,7 @@ Date Generated: ${new Date().toISOString()}
 
                 {/* Origin vs Site Definition */}
                 <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-3">
-                  <h4 className="text-sm font-bold text-white">An Origin: Scheme + Host + Port</h4>
+                  <h4 className="text-sm font-bold text-stone-900">An Origin: Scheme + Host + Port</h4>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs">
                       <thead className="bg-slate-800/80 font-mono text-stone-700">
@@ -1564,8 +1564,10 @@ Date Generated: ${new Date().toISOString()}
                   </ul>
                 </div>
               </section>
+              )}
 
               {/* 13.8 Common Web Application Attacks */}
+              {selectedTopic === 8 && (
               <section id="section-8" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldAlert className="w-4 h-4" />
@@ -1649,8 +1651,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.9 Browser Security Headers */}
+              {(selectedTopic === 9 || selectedTopic === 10 || selectedTopic === 11) && (
               <section id="section-9" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldCheck className="w-4 h-4" />
@@ -1711,8 +1715,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.12 Browser DevTools Checklist */}
+              {selectedTopic === 12 && (
               <section id="section-12" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <CheckSquare className="w-4 h-4" />
@@ -1786,15 +1792,17 @@ Date Generated: ${new Date().toISOString()}
                         className="mt-0.5 rounded text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-800 border-stone-300"
                       />
                       <div className="space-y-1">
-                        <div className="font-bold text-white text-xs">{item.title}</div>
+                        <div className="font-bold text-stone-900 text-xs">{item.title}</div>
                         <p className="text-[11px] text-stone-600">{item.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </section>
+              )}
 
               {/* 13.13 Practical Lab Workspace */}
+              {selectedTopic === 13 && (
               <section id="section-13" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <TerminalSquare className="w-4 h-4" />
@@ -1854,7 +1862,7 @@ Date Generated: ${new Date().toISOString()}
                   <div className="flex items-center justify-between border-b border-stone-200 pb-3">
                     <div className="flex items-center space-x-2">
                       <FileSpreadsheet className="w-5 h-5 text-orange-600" />
-                      <h4 className="text-sm font-bold text-white">Lab Assessment Report Generator</h4>
+                      <h4 className="text-sm font-bold text-stone-900">Lab Assessment Report Generator</h4>
                     </div>
                     <button
                       onClick={copyLabReport}
@@ -1924,8 +1932,10 @@ Date Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 13.15 Learning Resources */}
+              {selectedTopic === 15 && (
               <section id="section-15" className="space-y-4 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <BookOpen className="w-4 h-4" />
@@ -1941,7 +1951,7 @@ Date Generated: ${new Date().toISOString()}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>MDN — HTTP Overview & Reference</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1955,7 +1965,7 @@ Date Generated: ${new Date().toISOString()}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP Session Management Cheat Sheet</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1969,7 +1979,7 @@ Date Generated: ${new Date().toISOString()}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP HTTP Security Headers Cheat Sheet</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1983,7 +1993,7 @@ Date Generated: ${new Date().toISOString()}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP Top 10 Web Security Risks</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1993,8 +2003,10 @@ Date Generated: ${new Date().toISOString()}
                   </a>
                 </div>
               </section>
+              )}
 
               {/* 13.16 Key Takeaways */}
+              {selectedTopic === 16 && (
               <section id="section-16" className="space-y-4 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Award className="w-4 h-4" />
@@ -2024,6 +2036,7 @@ Date Generated: ${new Date().toISOString()}
                   </p>
                 </div>
               </section>
+              )}
             </div>
           )}
 
@@ -2032,7 +2045,7 @@ Date Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <TerminalSquare className="w-5 h-5 text-orange-600" />
                     <span>Simulator 1: HTTP Request/Response Wire Dissector</span>
                   </h3>
@@ -2221,7 +2234,7 @@ Date Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Cookie className="w-5 h-5 text-orange-600" />
                     <span>Simulator 2: Cookie Security Attributes & SameSite Contexts</span>
                   </h3>
@@ -2395,7 +2408,7 @@ Date Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Globe className="w-5 h-5 text-orange-600" />
                     <span>Simulator 3: Same-Origin Policy (SOP) & CORS Preflight Engine</span>
                   </h3>
@@ -2521,7 +2534,7 @@ Date Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Bug className="w-5 h-5 text-orange-600" />
                     <span>Simulator 4: XSS Exploitation vs Content Security Policy (CSP)</span>
                   </h3>
@@ -2620,7 +2633,7 @@ Date Generated: ${new Date().toISOString()}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Award className="w-5 h-5 text-orange-600" />
                     <span>13.14 Web Security Knowledge Assessment</span>
                   </h3>

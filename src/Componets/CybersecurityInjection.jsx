@@ -626,34 +626,17 @@ Generated: ${new Date().toISOString()}
   return (
     <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Header */}
-      <header className="border-b border-stone-200/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={() => navigate("/learning/cybersecurity")}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 hover:text-white transition flex items-center text-xs"
-              title="Return to Cybersecurity Curriculum"
-            >
-              <ArrowLeft className="w-4 h-4 mr-1" />
-              Course Index
-            </button>
-            <div className="h-4 w-px bg-slate-700" />
-            <div className="flex items-center space-x-2 text-xs">
-              <span className="text-orange-600 font-semibold tracking-wider uppercase">Module 14</span>
-              <span className="text-stone-500">/</span>
-              <span className="text-stone-700 truncate max-w-[280px] sm:max-w-md">
-                OWASP Top 10, Injection Vulnerabilities & Secure Input Handling
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-3">
-          </div>
+      <div className="border-b border-[#eae6de] bg-white/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <ModuleNav
+            track="cybersecurity"
+            currentModuleId="injection"
+            showAiTutor={showAiTutor}
+            onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
+            aiTutorLabel="Injection Defense AI Mentor"
+          />
         </div>
-      </header>
-
-      {/* TRACK SUB-NAVIGATION */}
-      <ModuleNav currentModuleId="injection" track="cybersecurity" />
+      </div>
 
       {/* Hero Banner */}
       <div className="border-b border-stone-200 bg-gradient-to-b from-[#f9f7f2] to-[#f4f0e6] px-4 sm:px-6 lg:px-8 py-8">
@@ -664,7 +647,7 @@ Generated: ${new Date().toISOString()}
                 <Bug className="w-3.5 h-3.5" />
                 <span>OWASP Top 10: 2025 · A05: Injection · NIST SP 800-40</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
                 OWASP Top 10, Injection Vulnerabilities & Secure Input Handling
               </h1>
               <p className="text-sm sm:text-base text-stone-700 max-w-3xl leading-relaxed">
@@ -796,17 +779,21 @@ Generated: ${new Date().toISOString()}
                 <button
                   key={topic.id}
                   onClick={() => {
-                    setSelectedTopic(topic.id);
-                    setActiveTab("theory");
+                    if (topic.id === 14) {
+                      setActiveTab("quiz");
+                    } else {
+                      setSelectedTopic(topic.id);
+                      setActiveTab("theory");
+                    }
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
-                    selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
-                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
+                    (selectedTopic || 1) === topic.id
+                      ? "bg-orange-50 text-orange-950 font-semibold border border-orange-200 shadow-2xs"
+                      : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
-                  {selectedTopic === topic.id && (
+                  {(selectedTopic || 1) === topic.id && (
                     <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0 ml-1" />
                   )}
                 </button>
@@ -821,6 +808,7 @@ Generated: ${new Date().toISOString()}
           {activeTab === "theory" && (
             <div className="space-y-10">
               {/* 14.1 Module Overview */}
+              {(selectedTopic === 1 || !selectedTopic || selectedTopic === 0) && (
               <section id="section-1" className="space-y-4">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldCheck className="w-4 h-4" />
@@ -883,8 +871,10 @@ Generated: ${new Date().toISOString()}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 14.2 OWASP Top 10: 2025 Edition */}
+              {selectedTopic === 2 && (
               <section id="section-2" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Award className="w-4 h-4" />
@@ -965,8 +955,10 @@ Generated: ${new Date().toISOString()}
                   </table>
                 </div>
               </section>
+              )}
 
               {/* 14.3 Understanding the Injection Vulnerability Class */}
+              {selectedTopic === 3 && (
               <section id="section-3" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Bug className="w-4 h-4" />
@@ -1020,8 +1012,10 @@ Generated: ${new Date().toISOString()}
                   </ul>
                 </div>
               </section>
+              )}
 
               {/* 14.4 SQL Injection (SQLi) */}
+              {selectedTopic === 4 && (
               <section id="section-4" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Database className="w-4 h-4" />
@@ -1108,8 +1102,10 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </pre>
                 </div>
               </section>
+              )}
 
               {/* 14.5 XSS & Output Handling */}
+              {selectedTopic === 5 && (
               <section id="section-5" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <FileCode className="w-4 h-4" />
@@ -1166,8 +1162,10 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 14.6 Command Injection */}
+              {(selectedTopic === 6 || selectedTopic === 7 || selectedTopic === 8 || selectedTopic === 9 || selectedTopic === 10) && (
               <section id="section-6" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Terminal className="w-4 h-4" />
@@ -1198,8 +1196,10 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </p>
                 </div>
               </section>
+              )}
 
               {/* 14.11 Secure Input-Handling Engineering */}
+              {(selectedTopic === 11 || selectedTopic === 12) && (
               <section id="section-11" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldCheck className="w-4 h-4" />
@@ -1228,8 +1228,10 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 14.13 Practical Lab Workspace */}
+              {selectedTopic === 13 && (
               <section id="section-13" className="space-y-6 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <TerminalSquare className="w-4 h-4" />
@@ -1248,7 +1250,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   <div className="flex items-center justify-between border-b border-stone-200 pb-3">
                     <div className="flex items-center space-x-2">
                       <FileSpreadsheet className="w-5 h-5 text-orange-600" />
-                      <h4 className="text-sm font-bold text-white">Injection Assessment Report Generator</h4>
+                      <h4 className="text-sm font-bold text-stone-900">Injection Assessment Report Generator</h4>
                     </div>
                     <button
                       onClick={copyLabReport}
@@ -1317,8 +1319,10 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </div>
                 </div>
               </section>
+              )}
 
               {/* 14.15 Official References */}
+              {selectedTopic === 15 && (
               <section id="section-15" className="space-y-4 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <BookOpen className="w-4 h-4" />
@@ -1334,7 +1338,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP Top 10: 2025 Official Standard</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1348,7 +1352,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>SQL Injection Prevention Cheat Sheet</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1362,7 +1366,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>XSS Prevention & Output Encoding Cheat Sheet</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1376,7 +1380,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     rel="noreferrer"
                     className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
+                    <div className="font-bold text-stone-900 group-hover:text-orange-700 flex items-center justify-between">
                       <span>OS Command Injection Defense Guide</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
@@ -1386,8 +1390,10 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </a>
                 </div>
               </section>
+              )}
 
               {/* 14.16 Key Takeaways */}
+              {selectedTopic === 16 && (
               <section id="section-16" className="space-y-4 pt-6 border-t border-stone-200">
                 <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Award className="w-4 h-4" />
@@ -1420,6 +1426,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </p>
                 </div>
               </section>
+              )}
             </div>
           )}
 
@@ -1428,7 +1435,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Database className="w-5 h-5 text-orange-600" />
                     <span>Simulator 1: SQL Injection vs Parameterized Prepared Statements</span>
                   </h3>
@@ -1569,7 +1576,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <FileCode className="w-5 h-5 text-orange-600" />
                     <span>Simulator 2: Context-Aware Output Encoding Lab</span>
                   </h3>
@@ -1663,7 +1670,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Terminal className="w-5 h-5 text-orange-600" />
                     <span>Simulator 3: OS Command & Argument Injection Sandbox</span>
                   </h3>
@@ -1765,7 +1772,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Braces className="w-5 h-5 text-orange-600" />
                     <span>Simulator 4: NoSQL Injection & Operator Manipulation Lab</span>
                   </h3>
@@ -1879,7 +1886,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
+                  <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
                     <Award className="w-5 h-5 text-orange-600" />
                     <span>14.14 Injection Vulnerabilities Knowledge Assessment</span>
                   </h3>

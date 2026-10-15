@@ -639,7 +639,7 @@ tags:
                 </span>
                 <span className="text-xs text-stone-500 hidden sm:inline">Cybersecurity Master Course</span>
               </div>
-              <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
+              <h1 className="text-sm sm:text-base font-bold text-stone-900 tracking-tight flex items-center gap-2">
                 Assess, Document, Secure, Retest, and Defend a Complete Lab
               </h1>
             </div>
@@ -734,7 +734,7 @@ tags:
                   End-to-End Master Project
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight mb-4">
                 Assess, Document, Secure, Retest, and Defend a Complete Lab Environment
               </h2>
               <p className="text-stone-700 text-sm sm:text-base leading-relaxed mb-6">
@@ -742,7 +742,7 @@ tags:
               </p>
 
               <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs text-orange-700">
-                <strong className="text-white">Portfolio-Ready Deliverable:</strong> The final output of this capstone is a comprehensive, professional project package containing the lab architecture, rules of engagement, findings register, root-cause remediation record, detection validation results, retest report, and executive defense presentation.
+                <strong className="text-stone-900 font-semibold">Portfolio-Ready Deliverable:</strong> The final output of this capstone is a comprehensive, professional project package containing the lab architecture, rules of engagement, findings register, root-cause remediation record, detection validation results, retest report, and executive defense presentation.
               </div>
             </section>
 
@@ -753,7 +753,7 @@ tags:
                   24.2 Capstone Objectives
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-6">End-to-End Professional Competencies</h3>
+              <h3 className="text-xl font-bold text-stone-900 mb-6">End-to-End Professional Competencies</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700">
                 {[
@@ -783,7 +783,7 @@ tags:
                   24.3 Scenario
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Engagement Context: Northstar Learning Systems
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">
@@ -793,27 +793,27 @@ tags:
               <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-xs text-center mb-6">
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">1</div>
-                  <div className="font-bold text-white mb-1">Asset Landscape</div>
+                  <div className="font-bold text-stone-900 mb-1">Asset Landscape</div>
                   <div className="text-[11px] text-stone-600">What assets & security risks exist in the lab?</div>
                 </div>
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">2</div>
-                  <div className="font-bold text-white mb-1">Demonstrated Risk</div>
+                  <div className="font-bold text-stone-900 mb-1">Demonstrated Risk</div>
                   <div className="text-[11px] text-stone-600">Which weaknesses are proven, and how serious?</div>
                 </div>
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">3</div>
-                  <div className="font-bold text-white mb-1">Hardening Fixes</div>
+                  <div className="font-bold text-stone-900 mb-1">Hardening Fixes</div>
                   <div className="text-[11px] text-stone-600">What changes will reduce the greatest risks?</div>
                 </div>
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">4</div>
-                  <div className="font-bold text-white mb-1">Detection Check</div>
+                  <div className="font-bold text-stone-900 mb-1">Detection Check</div>
                   <div className="text-[11px] text-stone-600">Can monitoring catch suspicious activity?</div>
                 </div>
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">5</div>
-                  <div className="font-bold text-white mb-1">Verified Retest</div>
+                  <div className="font-bold text-stone-900 mb-1">Verified Retest</div>
                   <div className="text-[11px] text-stone-600">Do the fixes work, and what risks remain?</div>
                 </div>
               </div>
@@ -826,7 +826,7 @@ tags:
                   24.4 Authorization & Scope
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Define Scope, Authorization, and Rules of Engagement
               </h3>
 
@@ -840,23 +840,23 @@ tags:
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans font-bold text-white">Assessment Target</td>
+                      <td className="p-3 font-sans font-bold text-stone-800">Assessment Target</td>
                       <td className="p-3 font-sans">Local Northstar training application, API services, host OS, and database</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans font-bold text-white">Permitted Environment</td>
+                      <td className="p-3 font-sans font-bold text-stone-800">Permitted Environment</td>
                       <td className="p-3 font-sans">Isolated local containers, host-only VMs, and synthetic event datasets</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans font-bold text-white">Excluded Targets</td>
+                      <td className="p-3 font-sans font-bold text-stone-800">Excluded Targets</td>
                       <td className="p-3 font-sans text-rose-400">Public IP addresses, personal devices, third-party APIs, production systems</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans font-bold text-white">Test Identities</td>
+                      <td className="p-3 font-sans font-bold text-stone-800">Test Identities</td>
                       <td className="p-3 font-sans">Dedicated synthetic accounts: learner-01 through learner-10, admin-test</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans font-bold text-white">Stop Conditions</td>
+                      <td className="p-3 font-sans font-bold text-stone-800">Stop Conditions</td>
                       <td className="p-3 font-sans text-amber-400">Unintended service outage, access to real customer data, scope ambiguity</td>
                     </tr>
                   </tbody>
@@ -871,7 +871,7 @@ tags:
                   24.6 Threat Modeling
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Asset Inventory & STRIDE Threat Modeling
               </h3>
 
@@ -887,32 +887,32 @@ tags:
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white font-bold">Spoofing</td>
+                      <td className="p-3 font-sans text-stone-800 font-bold">Spoofing</td>
                       <td className="p-3 font-sans">A request impersonates another learner or administrator</td>
                       <td className="p-3 font-sans">Is session authentication and JWT integrity verified correctly?</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white font-bold">Tampering</td>
+                      <td className="p-3 font-sans text-stone-800 font-bold">Tampering</td>
                       <td className="p-3 font-sans">A user modifies another user's project record via API</td>
                       <td className="p-3 font-sans">Does the server enforce object-level authorization on all updates?</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white font-bold">Repudiation</td>
+                      <td className="p-3 font-sans text-stone-800 font-bold">Repudiation</td>
                       <td className="p-3 font-sans">An administrative role modification lacks an audit trail</td>
                       <td className="p-3 font-sans">Are all security-relevant actions attributable and immutable?</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white font-bold">Information Disclosure</td>
+                      <td className="p-3 font-sans text-stone-800 font-bold">Information Disclosure</td>
                       <td className="p-3 font-sans">A learner accesses private project records belonging to others</td>
                       <td className="p-3 font-sans">Are database queries bounded by the authenticated principal's ID?</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white font-bold">Denial of Service</td>
+                      <td className="p-3 font-sans text-stone-800 font-bold">Denial of Service</td>
                       <td className="p-3 font-sans">Excessive authentication bursts overwhelm the identity backend</td>
                       <td className="p-3 font-sans">Are rate limits, connection pools, and cgroup resource limits active?</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white font-bold">Elevation of Privilege</td>
+                      <td className="p-3 font-sans text-stone-800 font-bold">Elevation of Privilege</td>
                       <td className="p-3 font-sans">A learner invokes admin-only user-management endpoints</td>
                       <td className="p-3 font-sans">Is RBAC enforced strictly at the API controller middleware layer?</td>
                     </tr>
@@ -928,7 +928,7 @@ tags:
                   24.9 Hardening
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Systemic Security Hardening Across Lab Layers
               </h3>
 
@@ -966,12 +966,12 @@ tags:
                   24.11 & 24.12 Validation & Incident Response
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Retest Classification & Incident Response Tabletop
               </h3>
 
               <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 mb-6">
-                <h4 className="text-sm font-bold text-white mb-2">24.11.2 The 5 Retest Status Classifications</h4>
+                <h4 className="text-sm font-bold text-stone-900 mb-2">24.11.2 The 5 Retest Status Classifications</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs font-mono text-center">
                   <div className="p-2.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">Resolved</div>
                   <div className="p-2.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold">Partially Resolved</div>
@@ -989,14 +989,14 @@ tags:
                   24.14 Capstone Deliverable
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">
+              <h3 className="text-2xl font-bold text-stone-900 mb-3">
                 Capstone Final Report Builder & Presentation Package
               </h3>
 
               <div className="p-5 rounded-xl bg-slate-950 border border-purple-500/30 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3 border-b border-stone-200 pb-2">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                    <span className="text-xs font-bold text-stone-900 uppercase tracking-wider">
                       Master Final Report Preview
                     </span>
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-orange-700">
@@ -1026,7 +1026,7 @@ tags:
                   24.15 Evaluation Rubric
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Capstone Assessment Rubric (100% Total)
               </h3>
 
@@ -1041,37 +1041,37 @@ tags:
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Scope, Authorization & Architecture</td>
+                      <td className="p-3 font-sans text-stone-800">Scope, Authorization & Architecture</td>
                       <td className="p-3 text-orange-600 font-bold">10%</td>
                       <td className="p-3 font-sans">Clear boundaries, asset inventory, STRIDE threat model, safe lab design</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Assessment Methodology & Evidence</td>
+                      <td className="p-3 font-sans text-stone-800">Assessment Methodology & Evidence</td>
                       <td className="p-3 text-orange-600 font-bold">20%</td>
                       <td className="p-3 font-sans">Reproducibility, technical validation, sanitized evidence, honest limitations</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Risk Analysis & Reporting</td>
+                      <td className="p-3 font-sans text-stone-800">Risk Analysis & Reporting</td>
                       <td className="p-3 text-orange-600 font-bold">15%</td>
                       <td className="p-3 font-sans">Clear findings, defensible CVSS severity, business risk context</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Remediation & Hardening</td>
+                      <td className="p-3 font-sans text-stone-800">Remediation & Hardening</td>
                       <td className="p-3 text-orange-600 font-bold">20%</td>
                       <td className="p-3 font-sans">Root-cause correction, least-privilege, secure configurations</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Monitoring & Incident Response</td>
+                      <td className="p-3 font-sans text-stone-800">Monitoring & Incident Response</td>
                       <td className="p-3 text-orange-600 font-bold">15%</td>
                       <td className="p-3 font-sans">Telemetry, detection tests, investigation, tabletop response record</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Retesting & Regression Validation</td>
+                      <td className="p-3 font-sans text-stone-800">Retesting & Regression Validation</td>
                       <td className="p-3 text-orange-600 font-bold">10%</td>
                       <td className="p-3 font-sans">Reliable before/after evidence and accurate finding status classification</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Final Defense & Communication</td>
+                      <td className="p-3 font-sans text-stone-800">Final Defense & Communication</td>
                       <td className="p-3 text-orange-600 font-bold">10%</td>
                       <td className="p-3 font-sans">Clear explanation, technical reasoning, response to reviewer questions</td>
                     </tr>
@@ -1087,7 +1087,7 @@ tags:
                   24.17 & 24.18 Standards & Takeaways
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-6">
+              <h3 className="text-xl font-bold text-stone-900 mb-6">
                 Authoritative Frameworks & Final Capstone Takeaways
               </h3>
 
@@ -1123,7 +1123,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 1
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Lab Architecture & STRIDE Threat Model Explorer
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -1164,7 +1164,7 @@ tags:
               <div className="p-6 rounded-xl bg-stone-50 border border-stone-200/80">
                 <div className="flex items-center justify-between mb-4 border-b border-stone-200 pb-3">
                   <div>
-                    <div className="text-sm font-bold text-white">{componentsData[selectedComponent].name}</div>
+                    <div className="text-sm font-bold text-stone-900">{componentsData[selectedComponent].name}</div>
                     <div className="text-xs text-orange-600 font-mono mt-0.5">{componentsData[selectedComponent].tech}</div>
                   </div>
                   <span className="px-2.5 py-0.5 rounded bg-purple-500/20 text-orange-700 text-[11px] font-mono font-bold">
@@ -1203,7 +1203,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 2
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Dynamic Findings Register & Risk Prioritizer
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -1312,7 +1312,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 3
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Security Hardening & Before/After Diff Inspector
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -1347,7 +1347,7 @@ tags:
               <div className="p-6 rounded-xl bg-stone-50 border border-stone-200/80">
                 <div className="flex items-center justify-between mb-4 border-b border-stone-200 pb-3">
                   <div>
-                    <div className="text-sm font-bold text-white">{hardeningDiffs[selectedHardeningDomain].title}</div>
+                    <div className="text-sm font-bold text-stone-900">{hardeningDiffs[selectedHardeningDomain].title}</div>
                     <div className="text-xs text-orange-600 font-mono mt-0.5">{hardeningDiffs[selectedHardeningDomain].file}</div>
                   </div>
                 </div>
@@ -1394,7 +1394,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 4
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Incident Response Tabletop & Containment Reconstructor
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -1436,7 +1436,7 @@ tags:
 
               {/* Live Incident Log Terminal */}
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
-                <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
+                <div className="text-xs font-bold text-stone-900 mb-2 flex items-center gap-2">
                   <Terminal className="w-4 h-4 text-orange-600" /> Incident Timeline & Command Log
                 </div>
 
@@ -1465,7 +1465,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Section 24.16
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Capstone Comprehensive Assessment
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -1495,7 +1495,7 @@ tags:
                       key={q.id}
                       className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 transition"
                     >
-                      <div className="font-bold text-sm text-white mb-3 flex items-start gap-2.5">
+                      <div className="font-bold text-sm text-stone-900 mb-3 flex items-start gap-2.5">
                         <span className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-700 flex items-center justify-center text-xs shrink-0 mt-0.5">
                           {idx + 1}
                         </span>

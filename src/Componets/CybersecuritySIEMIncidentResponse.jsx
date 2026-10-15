@@ -617,7 +617,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                 </span>
                 <span className="text-xs text-stone-500 hidden sm:inline">Cybersecurity Master Course</span>
               </div>
-              <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
+              <h1 className="text-sm sm:text-base font-bold text-stone-900 tracking-tight flex items-center gap-2">
                 SIEM, Incident Response & Digital Forensics
               </h1>
             </div>
@@ -660,7 +660,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md whitespace-nowrap transition ${
                   isActive
-                    ? "bg-cyan-500 text-slate-950 font-bold shadow-sm"
+                    ? "bg-stone-900 text-white font-bold shadow-xs"
                     : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
                 }`}
               >
@@ -709,7 +709,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                 </span>
                 <span className="text-xs text-stone-500">Security Operations & Digital Forensics</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
                 Security Monitoring, SIEM, Incident Response, and Digital Forensics
               </h2>
               <p className="mt-3 text-stone-700 text-sm sm:text-base leading-relaxed max-w-4xl">
@@ -756,10 +756,10 @@ export default function CybersecuritySIEMIncidentResponse() {
             <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-700 font-semibold border border-blue-200">
                     20.2 SOC Fundamentals
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Operational Structure, Roles & Event vs. Alert vs. Incident</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Operational Structure, Roles & Event vs. Alert vs. Incident</h3>
                 </div>
                 <span className="text-xs text-stone-600 font-mono">SOC Tiering & Responsibilities</span>
               </div>
@@ -830,7 +830,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
                     20.3 Security Telemetry & Logs
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Multi-Source Telemetry & Time Synchronization (NTP/UTC)</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Multi-Source Telemetry & Time Synchronization (NTP/UTC)</h3>
                 </div>
                 <span className="text-xs text-stone-600 font-mono">NIST SP 800-92 Compliance</span>
               </div>
@@ -873,7 +873,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                     20.4 SIEM Architecture
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Data Ingestion, Parsing, Normalization & SIEM vs EDR vs XDR vs SOAR</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Data Ingestion, Parsing, Normalization & SIEM vs EDR vs XDR vs SOAR</h3>
                 </div>
                 <span className="text-xs text-stone-600 font-mono">The 7-Stage Pipeline</span>
               </div>
@@ -939,7 +939,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
                     20.5 Detection Engineering
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Rule Anatomy, Sigma Format & Operational SOC Metrics</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Rule Anatomy, Sigma Format & Operational SOC Metrics</h3>
                 </div>
                 <span className="text-xs text-stone-600 font-mono">Precision, Recall & MTTD/MTTR</span>
               </div>
@@ -1014,10 +1014,10 @@ tags:
             <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-700 font-semibold border border-rose-200">
                     20.8 Incident Response Lifecycle
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">NIST SP 800-61r3 / CISA Incident Handling Framework</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">NIST SP 800-61r3 / CISA Incident Handling Framework</h3>
                 </div>
                 <span className="text-xs text-stone-600 font-mono">6-Phase Execution Model</span>
               </div>
@@ -1071,7 +1071,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     20.9 Digital Forensics Fundamentals
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Foundational Principles, Order of Volatility & Chain of Custody</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Foundational Principles, Order of Volatility & Chain of Custody</h3>
                 </div>
                 <span className="text-xs text-stone-600 font-mono">NIST SP 800-86 Standards</span>
               </div>
@@ -1141,7 +1141,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
                     20.11 Evidence Handling
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Interactive Evidence Checklist & Professional Incident Report</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Interactive Evidence Checklist & Professional Incident Report</h3>
                 </div>
                 <span className="text-xs text-stone-600 font-mono">Chain of Custody Protocol</span>
               </div>
@@ -1151,7 +1151,7 @@ tags:
                 <div className="flex items-center justify-between flex-wrap gap-2 border-b border-stone-200 pb-3">
                   <div className="flex items-center gap-2">
                     <ClipboardList className="w-4 h-4 text-amber-400" />
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                    <span className="text-xs font-bold text-stone-900 uppercase tracking-wider">
                       Evidence-Handling Checklist ({checkedCount} / 8 Completed)
                     </span>
                   </div>
@@ -1207,7 +1207,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                     20.12 Practical Defensive Lab
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">SOC Investigation Workbench & Forensic Evidence Recorder</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">SOC Investigation Workbench & Forensic Evidence Recorder</h3>
                 </div>
                 <span className="text-xs text-stone-600 font-mono">Exercises A, B, C & D</span>
               </div>
@@ -1277,10 +1277,10 @@ tags:
 
             {/* 20.14 Official References */}
             <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-4">
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-700 font-semibold border border-blue-200">
                 20.14 Authoritative References & Standards
               </span>
-              <h3 className="text-xl font-bold text-white">Government & Industry Primary Guidance</h3>
+              <h3 className="text-xl font-bold text-stone-900">Government & Industry Primary Guidance</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                 {[
@@ -1344,7 +1344,7 @@ tags:
               <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
                 20.15 Strategic Summary
               </span>
-              <h3 className="text-xl font-bold text-white">Key Takeaways for Defensive Practitioners</h3>
+              <h3 className="text-xl font-bold text-stone-900">Key Takeaways for Defensive Practitioners</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-stone-700">
                 <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-stone-200">
                   <ShieldCheck className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
@@ -1386,7 +1386,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
                     SOC Defensive Simulator 1
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">SIEM Log Aggregation, Normalization & Query Engine</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">SIEM Log Aggregation, Normalization & Query Engine</h3>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-stone-600">Telemetry Stream:</span>
@@ -1453,7 +1453,7 @@ tags:
                           <span
                             className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                               log.action === "failure" || log.action === "alert_trigger"
-                                ? "bg-rose-500/10 text-rose-400 border border-rose-500/20"
+                                ? "bg-rose-500/10 text-rose-700 font-semibold border border-rose-200"
                                 : log.action === "success"
                                 ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
                                 : "bg-cyan-500/10 text-orange-600 border border-cyan-500/20"
@@ -1505,7 +1505,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
                     SOC Defensive Simulator 2
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Detection Engineering & Multi-Event Correlation Engine</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Detection Engineering & Multi-Event Correlation Engine</h3>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-stone-600">Test Ingestion Scenario:</span>
@@ -1644,13 +1644,13 @@ tags:
             <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6">
               <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-700 font-semibold border border-rose-200">
                     SOC Defensive Simulator 3
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Incident Response Lifecycle & Containment Matrix</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Incident Response Lifecycle & Containment Matrix</h3>
                 </div>
                 <div className="text-xs font-mono text-orange-600">
-                  Containment Effectiveness: <strong className="text-white">{irScore}%</strong>
+                  Containment Effectiveness: <strong className="text-stone-900 font-semibold">{irScore}%</strong>
                 </div>
               </div>
 
@@ -1751,7 +1751,7 @@ tags:
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 font-mono text-xs space-y-1">
                 <div className="text-orange-600 font-bold">[INCIDENT COMMANDER DIRECTIVE]</div>
                 <div className="text-stone-700">
-                  Target asset <strong className="text-white">WS-014</strong> status:{" "}
+                  Target asset <strong className="text-stone-900 font-semibold">WS-014</strong> status:{" "}
                   {isHostIsolated ? (
                     <span className="text-emerald-400 font-bold">QUARANTINED (Zero Lateral Movement Possible)</span>
                   ) : (
@@ -1782,7 +1782,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     SOC Defensive Simulator 4
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Digital Forensics Acquisition & Chain of Custody</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Digital Forensics Acquisition & Chain of Custody</h3>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-stone-600">Forensic Artifact:</span>
@@ -1888,7 +1888,7 @@ tags:
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                     20.13 Knowledge Assessment
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Module 20 Quiz: SIEM, IR & Digital Forensics</h3>
+                  <h3 className="text-xl font-bold text-stone-900 mt-1">Module 20 Quiz: SIEM, IR & Digital Forensics</h3>
                 </div>
                 <div className="text-right">
                   <span className="text-xs text-stone-600 block font-mono">

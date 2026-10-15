@@ -668,41 +668,25 @@ Generated: ${new Date().toISOString()}
   return (
     <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Header */}
-      <header className="border-b border-stone-200/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={() => navigate("/learning/cybersecurity")}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 hover:text-white transition flex items-center text-xs"
-              title="Return to Cybersecurity Curriculum"
-            >
-              <ArrowLeft className="w-4 h-4 mr-1" />
-              <span>Cybersecurity Track</span>
-            </button>
-            <span className="text-slate-600">/</span>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
-              Module 18
-            </span>
-            <span className="text-xs text-stone-600 hidden sm:inline">
-              Cloud Security, Containers, IAM Policies & Misconfiguration Assessment
-            </span>
-          </div>
-
-          <div className="flex items-center space-x-3">
-          </div>
+      <div className="border-b border-[#eae6de] bg-white/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <ModuleNav
+            track="cybersecurity"
+            currentModuleId="cloud-security"
+            showAiTutor={showAiTutor}
+            onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
+            aiTutorLabel="Cloud Security AI Mentor"
+          />
         </div>
-      </header>
-
-      {/* Curriculum Module Navigation Bar */}
-      <ModuleNav currentModuleId="cloud-security" track="cybersecurity" />
+      </div>
 
       {/* Hero Banner */}
-      <div className="border-b border-stone-200 bg-gradient-to-b from-slate-900 via-[#0c1322] to-[#0a0f1d] py-10">
+      <div className="border-b border-stone-200 bg-gradient-to-b from-[#f9f7f2] to-[#f4f0e6] py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <span className="px-2.5 py-0.5 rounded text-[11px] font-mono uppercase tracking-wider bg-cyan-950 text-orange-600 border border-cyan-800/50">
+                <span className="px-2.5 py-0.5 rounded text-[11px] font-mono uppercase tracking-wider bg-orange-100 text-orange-800 border border-orange-200 font-semibold">
                   Intermediate to Advanced · Cloud Infrastructure & DevSecOps
                 </span>
                 <span className="text-stone-500 text-xs">•</span>
@@ -711,7 +695,7 @@ Generated: ${new Date().toISOString()}
                   AWS Well-Architected, CIS Benchmarks, NIST SP 800-190 & SP 800-207
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">
                 Cloud Security, Containers, IAM Policies & Misconfiguration Assessment
               </h1>
               <p className="text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">

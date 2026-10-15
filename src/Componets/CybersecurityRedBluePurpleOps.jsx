@@ -8,6 +8,7 @@ import {
   Globe,
   Layers,
   Terminal,
+  TestTube2,
   Shield,
   Activity,
   Play,
@@ -646,7 +647,7 @@ level: critical`;
                 </span>
                 <span className="text-xs text-stone-500 hidden sm:inline">Cybersecurity Master Course</span>
               </div>
-              <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
+              <h1 className="text-sm sm:text-base font-bold text-stone-900 tracking-tight flex items-center gap-2">
                 Red & Blue Team Ops, Detection Engineering & Purple Teaming
               </h1>
             </div>
@@ -740,7 +741,7 @@ level: critical`;
                   Intermediate to Advanced
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight mb-4">
                 Adversary Simulation, Defensive Operations & Purple Team Validation
               </h2>
               <p className="text-stone-700 text-sm sm:text-base leading-relaxed mb-6">
@@ -806,7 +807,7 @@ level: critical`;
                   22.2 Learning Objectives
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-6">Skills & Capabilities Developed</h3>
+              <h3 className="text-xl font-bold text-stone-900 mb-6">Skills & Capabilities Developed</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700">
                 {[
@@ -836,7 +837,7 @@ level: critical`;
                   22.3 Foundations
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Understanding Red, Blue, and Purple Teams
               </h3>
 
@@ -845,7 +846,7 @@ level: critical`;
               </p>
 
               {/* 22.3.1 Comparing the Teams Table */}
-              <h4 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+              <h4 className="text-base font-semibold text-stone-900 mb-3 flex items-center gap-2">
                 <span>22.3.1 Comparing the Teams Across Core Operational Dimensions</span>
               </h4>
 
@@ -861,31 +862,31 @@ level: critical`;
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3.5 font-sans font-semibold text-white">Primary objective</td>
+                      <td className="p-3.5 font-sans font-semibold text-stone-800">Primary objective</td>
                       <td className="p-3.5">Test defenses from an adversary perspective</td>
                       <td className="p-3.5">Detect, investigate, and respond</td>
                       <td className="p-3.5">Improve security through collaboration</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3.5 font-sans font-semibold text-white">Typical activities</td>
+                      <td className="p-3.5 font-sans font-semibold text-stone-800">Typical activities</td>
                       <td className="p-3.5">Adversary emulation, control validation</td>
                       <td className="p-3.5">Monitoring, hunting, incident response</td>
                       <td className="p-3.5">Detection tests, joint analysis, retesting</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3.5 font-sans font-semibold text-white">Main evidence</td>
+                      <td className="p-3.5 font-sans font-semibold text-stone-800">Main evidence</td>
                       <td className="p-3.5">Observed control weaknesses and achieved objectives</td>
                       <td className="p-3.5">Alerts, event records, investigation findings</td>
                       <td className="p-3.5">Detection gaps and validated improvements</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3.5 font-sans font-semibold text-white">Success measure</td>
+                      <td className="p-3.5 font-sans font-semibold text-stone-800">Success measure</td>
                       <td className="p-3.5">Objectives and agreed test questions answered</td>
                       <td className="p-3.5">Reliable detection and effective response</td>
                       <td className="p-3.5">Demonstrable improvement in defensive capability</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3.5 font-sans font-semibold text-white">Key output</td>
+                      <td className="p-3.5 font-sans font-semibold text-stone-800">Key output</td>
                       <td className="p-3.5">Adversary simulation report</td>
                       <td className="p-3.5">Incident and detection records</td>
                       <td className="p-3.5">Detection improvements and retest results</td>
@@ -895,18 +896,18 @@ level: critical`;
               </div>
 
               <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs text-orange-700">
-                <strong className="text-white">Important Distinction:</strong> A penetration test generally concentrates on finding and validating vulnerabilities in a defined target application or network range. A red team exercise evaluates whether an organization&apos;s people, processes, and technologies can detect and resist a realistic, objective-driven simulation. <em>Purple teaming is a collaborative improvement process</em>, not simply another name for penetration testing.
+                <strong className="text-stone-900 font-semibold">Important Distinction:</strong> A penetration test generally concentrates on finding and validating vulnerabilities in a defined target application or network range. A red team exercise evaluates whether an organization&apos;s people, processes, and technologies can detect and resist a realistic, objective-driven simulation. <em>Purple teaming is a collaborative improvement process</em>, not simply another name for penetration testing.
               </div>
             </section>
 
             {/* 22.4 Red Team Operations: Planning and Execution */}
             <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-700 font-semibold border border-rose-200">
                   22.4 Red Team Operations
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Red Team Operations: Planning and Execution
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">
@@ -916,7 +917,7 @@ level: critical`;
               {/* 22.4.1 & 22.4.2 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
-                  <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <Target className="w-4 h-4 text-rose-400" /> 22.4.1 Define the Objective
                   </h4>
                   <p className="text-xs text-stone-700 mb-3">
@@ -932,7 +933,7 @@ level: critical`;
                 </div>
 
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
-                  <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <ShieldAlert className="w-4 h-4 text-amber-400" /> 22.4.2 Rules of Engagement (RoE)
                   </h4>
                   <p className="text-xs text-stone-700 mb-3">
@@ -950,7 +951,7 @@ level: critical`;
               </div>
 
               {/* 22.4.3 Threat-Informed Test Scenario Planning Matrix */}
-              <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <h4 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
                 <Radar className="w-4 h-4 text-orange-600" /> 22.4.3 Threat-Informed Scenario Planning Matrix
               </h4>
               <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
@@ -964,22 +965,22 @@ level: critical`;
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Can suspicious execution be detected?</td>
+                      <td className="p-3 font-sans text-stone-800">Can suspicious execution be detected?</td>
                       <td className="p-3">Run a benign, approved test process (e.g. whoami / PowerShell cradle)</td>
                       <td className="p-3">Was process telemetry (Sysmon ID 1) recorded and correlated?</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Can unusual authentication be identified?</td>
+                      <td className="p-3 font-sans text-stone-800">Can unusual authentication be identified?</td>
                       <td className="p-3">Generate synthetic failed-login events for a single account</td>
                       <td className="p-3">Did the threshold or correlation rule trigger in the SIEM?</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Can unauthorized changes be detected?</td>
+                      <td className="p-3 font-sans text-stone-800">Can unauthorized changes be detected?</td>
                       <td className="p-3">Modify a disposable lab configuration or local security policy</td>
                       <td className="p-3">Was the change logged and attributed to the test principal?</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Can responders investigate a suspicious sequence?</td>
+                      <td className="p-3 font-sans text-stone-800">Can responders investigate a suspicious sequence?</td>
                       <td className="p-3">Supply a synthetic timeline of reconnaissance and logon events</td>
                       <td className="p-3">Can the analyst reconstruct the sequence without missing hops?</td>
                     </tr>
@@ -1000,7 +1001,7 @@ level: critical`;
                   22.5 Blue Team Operations
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Blue Team Operations: Monitoring, Triage, and Response
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">
@@ -1008,40 +1009,40 @@ level: critical`;
               </p>
 
               {/* 22.5.1 The 5-Stage Monitoring Pipeline */}
-              <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <h4 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
                 <Workflow className="w-4 h-4 text-orange-600" /> 22.5.1 The Security Monitoring Pipeline
               </h4>
 
               <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 text-center text-xs mb-8">
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">1</div>
-                  <div className="font-bold text-white mb-1">Generate Events</div>
+                  <div className="font-bold text-stone-900 mb-1">Generate Events</div>
                   <div className="text-[11px] text-stone-600">Endpoints, IdPs, cloud audit, firewalls</div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">2</div>
-                  <div className="font-bold text-white mb-1">Collect & Normalize</div>
+                  <div className="font-bold text-stone-900 mb-1">Collect & Normalize</div>
                   <div className="text-[11px] text-stone-600">Agents, log shippers, ECS parsing, timestamps</div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">3</div>
-                  <div className="font-bold text-white mb-1">Analyze & Correlate</div>
+                  <div className="font-bold text-stone-900 mb-1">Analyze & Correlate</div>
                   <div className="text-[11px] text-stone-600">Sigma rules, thresholds, multi-hop correlation</div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">4</div>
-                  <div className="font-bold text-white mb-1">Alert & Investigate</div>
+                  <div className="font-bold text-stone-900 mb-1">Alert & Investigate</div>
                   <div className="text-[11px] text-stone-600">Triage queue, asset context, evidence correlation</div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
                   <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">5</div>
-                  <div className="font-bold text-white mb-1">Respond & Improve</div>
+                  <div className="font-bold text-stone-900 mb-1">Respond & Improve</div>
                   <div className="text-[11px] text-stone-600">Containment, tuning, retesting, regression checks</div>
                 </div>
               </div>
 
               {/* 22.5.2 Telemetry Sources Table */}
-              <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <h4 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
                 <Database className="w-4 h-4 text-orange-600" /> 22.5.2 Common Telemetry Sources & Investigation Context
               </h4>
               <div className="overflow-x-auto rounded-xl border border-stone-200 mb-8">
@@ -1055,37 +1056,37 @@ level: critical`;
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Endpoint operating system</td>
+                      <td className="p-3 font-sans text-stone-800">Endpoint operating system</td>
                       <td className="p-3">Process, parent process, user, timestamp, host, CLI</td>
                       <td className="p-3 font-sans">Suspicious execution or unexpected administrative activity</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Identity provider (IdP)</td>
+                      <td className="p-3 font-sans text-stone-800">Identity provider (IdP)</td>
                       <td className="p-3">User, source IP, authentication result, MFA status</td>
                       <td className="p-3 font-sans">Repeated failures, unusual sign-ins, privilege changes</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">DNS resolver</td>
+                      <td className="p-3 font-sans text-stone-800">DNS resolver</td>
                       <td className="p-3">Query domain, response IP, client IP, timestamp</td>
                       <td className="p-3 font-sans">Unexpected C2 domain lookups, DGA traffic</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Network security device</td>
+                      <td className="p-3 font-sans text-stone-800">Network security device</td>
                       <td className="p-3">Src/dst IP, ports, action, protocol, bytes</td>
                       <td className="p-3 font-sans">Lateral movement or exfiltration connection attempts</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Cloud audit log</td>
+                      <td className="p-3 font-sans text-stone-800">Cloud audit log</td>
                       <td className="p-3">Principal, action, resource ARN, result, userAgent</td>
                       <td className="p-3 font-sans">Unusual API calls, IAM policy modifications, bucket exposures</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Web application</td>
+                      <td className="p-3 font-sans text-stone-800">Web application</td>
                       <td className="p-3">Route, account, response status, request ID, headers</td>
                       <td className="p-3 font-sans">BOLA/IDOR access violations, SQLi/XSS injection attempts</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">EDR platform</td>
+                      <td className="p-3 font-sans text-stone-800">EDR platform</td>
                       <td className="p-3">Alert ID, process lineage tree, host isolation state</td>
                       <td className="p-3 font-sans">In-memory code injection, token manipulation containment</td>
                     </tr>
@@ -1096,22 +1097,22 @@ level: critical`;
               {/* 22.5.3 Alert Triage Workflow & 22.5.4 Severity Matrix */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
-                  <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <Filter className="w-4 h-4 text-orange-600" /> 22.5.3 Alert Triage Workflow (7 Steps)
                   </h4>
                   <ol className="space-y-1 text-xs text-stone-700 list-decimal list-inside">
-                    <li><strong className="text-white">Validate alert:</strong> Confirm rule, fields, time range, source.</li>
-                    <li><strong className="text-white">Establish context:</strong> Identify user, asset role, scheduled changes.</li>
-                    <li><strong className="text-white">Correlate evidence:</strong> Check identity, network, host logs.</li>
-                    <li><strong className="text-white">Assess impact:</strong> Classify as benign, suspicious, or confirmed incident.</li>
-                    <li><strong className="text-white">Choose action:</strong> Close with justification, monitor, or escalate.</li>
-                    <li><strong className="text-white">Record decision:</strong> Preserve evidence, rationale, and timeline.</li>
-                    <li><strong className="text-white">Improve detection:</strong> Tune rule if noisy, incomplete, or false positive.</li>
+                    <li><strong className="text-stone-900 font-semibold">Validate alert:</strong> Confirm rule, fields, time range, source.</li>
+                    <li><strong className="text-stone-900 font-semibold">Establish context:</strong> Identify user, asset role, scheduled changes.</li>
+                    <li><strong className="text-stone-900 font-semibold">Correlate evidence:</strong> Check identity, network, host logs.</li>
+                    <li><strong className="text-stone-900 font-semibold">Assess impact:</strong> Classify as benign, suspicious, or confirmed incident.</li>
+                    <li><strong className="text-stone-900 font-semibold">Choose action:</strong> Close with justification, monitor, or escalate.</li>
+                    <li><strong className="text-stone-900 font-semibold">Record decision:</strong> Preserve evidence, rationale, and timeline.</li>
+                    <li><strong className="text-stone-900 font-semibold">Improve detection:</strong> Tune rule if noisy, incomplete, or false positive.</li>
                   </ol>
                 </div>
 
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
-                  <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <Flame className="w-4 h-4 text-rose-400" /> 22.5.4 Incident Severity & Escalation (NIST SP 800-61)
                   </h4>
                   <div className="space-y-2 text-xs">
@@ -1143,7 +1144,7 @@ level: critical`;
                   22.6 Detection Engineering
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Detection Engineering: From Hypothesis to Validated Rule
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">
@@ -1151,7 +1152,7 @@ level: critical`;
               </p>
 
               {/* 22.6.1 The 7 Lifecycle Stages */}
-              <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <h4 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
                 <Workflow className="w-4 h-4 text-orange-600" /> 22.6.1 The Detection Engineering Lifecycle
               </h4>
 
@@ -1159,43 +1160,43 @@ level: critical`;
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
                   <span className="font-mono font-bold text-orange-600 shrink-0">1.</span>
                   <div>
-                    <strong className="text-white">Define Threat Hypothesis:</strong> State what suspicious behavior the rule detects and the adversary threat model behind it.
+                    <strong className="text-stone-900 font-semibold">Define Threat Hypothesis:</strong> State what suspicious behavior the rule detects and the adversary threat model behind it.
                   </div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
                   <span className="font-mono font-bold text-orange-600 shrink-0">2.</span>
                   <div>
-                    <strong className="text-white">Identify Required Telemetry:</strong> Pinpoint exact log sources, audit channels, and fields (e.g. Sysmon Event ID 1).
+                    <strong className="text-stone-900 font-semibold">Identify Required Telemetry:</strong> Pinpoint exact log sources, audit channels, and fields (e.g. Sysmon Event ID 1).
                   </div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
                   <span className="font-mono font-bold text-orange-600 shrink-0">3.</span>
                   <div>
-                    <strong className="text-white">Design Analytic Logic:</strong> Author selection filters, threshold counters, grouping keys, and exclusion filters.
+                    <strong className="text-stone-900 font-semibold">Design Analytic Logic:</strong> Author selection filters, threshold counters, grouping keys, and exclusion filters.
                   </div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
                   <span className="font-mono font-bold text-orange-600 shrink-0">4.</span>
                   <div>
-                    <strong className="text-white">Test Against Known Datasets:</strong> Run synthetic test cases with positive triggers and negative benign controls.
+                    <strong className="text-stone-900 font-semibold">Test Against Known Datasets:</strong> Run synthetic test cases with positive triggers and negative benign controls.
                   </div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
                   <span className="font-mono font-bold text-orange-600 shrink-0">5.</span>
                   <div>
-                    <strong className="text-white">Validate in Target SIEM/EDR:</strong> Confirm field parser compatibility, regex execution speed, and index performance.
+                    <strong className="text-stone-900 font-semibold">Validate in Target SIEM/EDR:</strong> Confirm field parser compatibility, regex execution speed, and index performance.
                   </div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
                   <span className="font-mono font-bold text-orange-600 shrink-0">6.</span>
                   <div>
-                    <strong className="text-white">Deploy with Active Monitoring:</strong> Track daily alert volume, triage times, and false-positive ratios in staging.
+                    <strong className="text-stone-900 font-semibold">Deploy with Active Monitoring:</strong> Track daily alert volume, triage times, and false-positive ratios in staging.
                   </div>
                 </div>
                 <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 md:col-span-2 flex items-start gap-2">
                   <span className="font-mono font-bold text-orange-600 shrink-0">7.</span>
                   <div>
-                    <strong className="text-white">Tune and Regression Test:</strong> Refine exclusions without hiding malicious evasion; retest against historical benchmarks.
+                    <strong className="text-stone-900 font-semibold">Tune and Regression Test:</strong> Refine exclusions without hiding malicious evasion; retest against historical benchmarks.
                   </div>
                 </div>
               </div>
@@ -1203,7 +1204,7 @@ level: critical`;
               {/* 22.6.2 Logic Architectures & 22.6.3 Hypothesis Example */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
-                  <h4 className="text-sm font-bold text-white mb-2">22.6.2 Detection Logic Architectures</h4>
+                  <h4 className="text-sm font-bold text-stone-900 mb-2">22.6.2 Detection Logic Architectures</h4>
                   <ul className="space-y-2 text-xs text-stone-700">
                     <li><strong className="text-orange-600">Single-Event:</strong> Instant trigger on high-fidelity signature (e.g. LSASS access or Mimikatz driver loaded).</li>
                     <li><strong className="text-amber-400">Threshold:</strong> Aggregates repetitive low-signal events (e.g. &gt;5 failed logons within 1 minute).</li>
@@ -1213,12 +1214,12 @@ level: critical`;
                 </div>
 
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
-                  <h4 className="text-sm font-bold text-white mb-2">22.6.3 Concrete Detection Hypothesis</h4>
+                  <h4 className="text-sm font-bold text-stone-900 mb-2">22.6.3 Concrete Detection Hypothesis</h4>
                   <div className="text-xs text-stone-700 space-y-2">
-                    <p><strong className="text-white">Scenario:</strong> Synthetic failed logons targeting test accounts in lab identity system.</p>
-                    <p><strong className="text-white">Hypothesis:</strong> A burst of &gt;5 failed authentication events for the same account in &lt;1m indicates password guessing or service misconfiguration.</p>
-                    <p><strong className="text-white">Required Fields:</strong> Timestamp, TargetUserName, EventID (4625), Status/SubStatus, WorkstationName.</p>
-                    <p><strong className="text-white">Analytic:</strong> Count failed events per TargetUserName over a rolling 1-minute window.</p>
+                    <p><strong className="text-stone-900 font-semibold">Scenario:</strong> Synthetic failed logons targeting test accounts in lab identity system.</p>
+                    <p><strong className="text-stone-900 font-semibold">Hypothesis:</strong> A burst of &gt;5 failed authentication events for the same account in &lt;1m indicates password guessing or service misconfiguration.</p>
+                    <p><strong className="text-stone-900 font-semibold">Required Fields:</strong> Timestamp, TargetUserName, EventID (4625), Status/SubStatus, WorkstationName.</p>
+                    <p><strong className="text-stone-900 font-semibold">Analytic:</strong> Count failed events per TargetUserName over a rolling 1-minute window.</p>
                   </div>
                 </div>
               </div>
@@ -1256,7 +1257,7 @@ level: critical`;
                   22.7 Threat Intelligence
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Threat Intelligence and MITRE ATT&CK Mapping
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">
@@ -1264,7 +1265,7 @@ level: critical`;
               </p>
 
               {/* 22.7.2 ATT&CK Coverage Record Table */}
-              <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <h4 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
                 <Radar className="w-4 h-4 text-orange-600" /> 22.7.2 Meaningful ATT&CK Coverage Documentation Standard
               </h4>
 
@@ -1279,42 +1280,42 @@ level: critical`;
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Technique / Behavior</td>
+                      <td className="p-3 font-sans text-stone-800">Technique / Behavior</td>
                       <td className="p-3 font-sans">Adversary technique being evaluated</td>
                       <td className="p-3">T1110.001 (Password Guessing)</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Business Relevance</td>
+                      <td className="p-3 font-sans text-stone-800">Business Relevance</td>
                       <td className="p-3 font-sans">Why this threat matters to corporate infrastructure</td>
                       <td className="p-3 font-sans">Protects enterprise SSO and customer portals</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Required Telemetry</td>
+                      <td className="p-3 font-sans text-stone-800">Required Telemetry</td>
                       <td className="p-3 font-sans">Events, channels, and specific fields needed</td>
                       <td className="p-3">Event 4625 with Status 0xC000006A</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Detection Analytic</td>
+                      <td className="p-3 font-sans text-stone-800">Detection Analytic</td>
                       <td className="p-3 font-sans">Rule or correlation engine responsible</td>
                       <td className="p-3">SIGMA-AUTH-BURST-01 (Threshold: &gt;5/1m)</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Validation Method</td>
+                      <td className="p-3 font-sans text-stone-800">Validation Method</td>
                       <td className="p-3 font-sans">Synthetic test, approved emulation, or historical logs</td>
                       <td className="p-3">Atomic Red Team Test PT-001 in lab</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Result Status</td>
+                      <td className="p-3 font-sans text-stone-800">Result Status</td>
                       <td className="p-3 font-sans">Validated detected, partial, or blind spot</td>
                       <td className="p-3 text-emerald-400 font-bold">Validated Detected (MTTD: 18s)</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Limitations & Gaps</td>
+                      <td className="p-3 font-sans text-stone-800">Limitations & Gaps</td>
                       <td className="p-3 font-sans">Known blind spots or missing coverage areas</td>
                       <td className="p-3 font-sans">Low-and-slow attacks (1 guess/hr) missed</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Owner & Last Validated</td>
+                      <td className="p-3 font-sans text-stone-800">Owner & Last Validated</td>
                       <td className="p-3 font-sans">Responsible engineer and validation timestamp</td>
                       <td className="p-3">SecOps Team (2026-10-15 UTC)</td>
                     </tr>
@@ -1330,7 +1331,7 @@ level: critical`;
                   22.8 Threat Hunting
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Threat Hunting and Detection Gaps
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">
@@ -1339,7 +1340,7 @@ level: critical`;
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
-                  <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <Search className="w-4 h-4 text-orange-600" /> 22.8.1 Realistic Hunting Hypotheses
                   </h4>
                   <ul className="space-y-2 text-xs text-stone-700 list-disc list-inside">
@@ -1352,17 +1353,17 @@ level: critical`;
                 </div>
 
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
-                  <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <Workflow className="w-4 h-4 text-orange-600" /> 22.8.2 The 7-Step Hunting Methodology
                   </h4>
                   <ol className="space-y-1.5 text-xs text-stone-700 list-decimal list-inside">
-                    <li><strong className="text-white">Form hypothesis:</strong> State suspected behavior based on threat intel.</li>
-                    <li><strong className="text-white">Identify evidence:</strong> Select telemetry sources, fields, and time range.</li>
-                    <li><strong className="text-white">Establish baseline:</strong> Filter out legitimate operational activity.</li>
-                    <li><strong className="text-white">Search and correlate:</strong> Query data looking for anomalies and outliers.</li>
-                    <li><strong className="text-white">Validate findings:</strong> Confirm whether anomalies are malicious or benign.</li>
-                    <li><strong className="text-white">Record outcomes:</strong> Document visibility gaps or confirmed incidents.</li>
-                    <li><strong className="text-white">Engineer detection:</strong> Turn repeatable discoveries into permanent Sigma rules.</li>
+                    <li><strong className="text-stone-900 font-semibold">Form hypothesis:</strong> State suspected behavior based on threat intel.</li>
+                    <li><strong className="text-stone-900 font-semibold">Identify evidence:</strong> Select telemetry sources, fields, and time range.</li>
+                    <li><strong className="text-stone-900 font-semibold">Establish baseline:</strong> Filter out legitimate operational activity.</li>
+                    <li><strong className="text-stone-900 font-semibold">Search and correlate:</strong> Query data looking for anomalies and outliers.</li>
+                    <li><strong className="text-stone-900 font-semibold">Validate findings:</strong> Confirm whether anomalies are malicious or benign.</li>
+                    <li><strong className="text-stone-900 font-semibold">Record outcomes:</strong> Document visibility gaps or confirmed incidents.</li>
+                    <li><strong className="text-stone-900 font-semibold">Engineer detection:</strong> Turn repeatable discoveries into permanent Sigma rules.</li>
                   </ol>
                 </div>
               </div>
@@ -1375,7 +1376,7 @@ level: critical`;
                   22.9 Purple Team Exercises
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Purple Team Exercises: Collaborative Security Validation
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">
@@ -1403,7 +1404,7 @@ level: critical`;
               </div>
 
               {/* 22.9.3 Outcomes & Root Cause Table */}
-              <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <h4 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 text-orange-600" /> 22.9.3 Exercise Outcomes, Root Causes & Remediation
               </h4>
 
@@ -1418,32 +1419,32 @@ level: critical`;
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">No event appears in SIEM</td>
+                      <td className="p-3 font-sans text-stone-800">No event appears in SIEM</td>
                       <td className="p-3">Collection or forwarding failure; endpoint agent stopped</td>
                       <td className="p-3 font-sans">Repair ingestion agent, enable audit channel, verify network syslog egress</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Event arrives without required fields</td>
+                      <td className="p-3 font-sans text-stone-800">Event arrives without required fields</td>
                       <td className="p-3">Parser or normalization problem; schema mismatch</td>
                       <td className="p-3 font-sans">Update Grok/ECS parser mapping and add automated parser regression tests</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Events exist but no alert is generated</td>
+                      <td className="p-3 font-sans text-stone-800">Events exist but no alert is generated</td>
                       <td className="p-3">Rule condition too strict; threshold higher than test count</td>
                       <td className="p-3 font-sans">Refactor Sigma rule logic, adjust threshold, test against unit cases</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Alert triggers too frequently</td>
+                      <td className="p-3 font-sans text-stone-800">Alert triggers too frequently</td>
                       <td className="p-3">Weak conditions, missing exclusions for service accounts</td>
                       <td className="p-3 font-sans">Tune baseline exclusions, add known approved test exemptions</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Alert correct but analyst cannot investigate</td>
+                      <td className="p-3 font-sans text-stone-800">Alert correct but analyst cannot investigate</td>
                       <td className="p-3">Missing identity enrichment, host context, or runbook</td>
                       <td className="p-3 font-sans">Enrich alert with LDAP/Asset DB metadata and attach standard SOP link</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Activity detected but response delayed</td>
+                      <td className="p-3 font-sans text-stone-800">Activity detected but response delayed</td>
                       <td className="p-3">Escalation failure or unclear triage ownership</td>
                       <td className="p-3 font-sans">Clarify on-call routing, establish SLA deadlines, automate Tier 1 notifications</td>
                     </tr>
@@ -1459,7 +1460,7 @@ level: critical`;
                   22.10 Security Metrics
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Security Metrics and Continuous Improvement
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed mb-6">
@@ -1467,7 +1468,7 @@ level: critical`;
               </p>
 
               {/* 22.10.1 Key Metrics Table */}
-              <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <h4 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
                 <Gauge className="w-4 h-4 text-orange-600" /> 22.10.1 Key Detection Engineering Metrics
               </h4>
 
@@ -1482,32 +1483,32 @@ level: critical`;
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Detection Coverage</td>
+                      <td className="p-3 font-sans text-stone-800">Detection Coverage</td>
                       <td className="p-3 font-sans">Relevant behaviors with validated detections</td>
                       <td className="p-3 font-sans">Depends strictly on chosen scope and test quality</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Telemetry Completeness</td>
+                      <td className="p-3 font-sans text-stone-800">Telemetry Completeness</td>
                       <td className="p-3 font-sans">Expected events successfully collected in SIEM</td>
                       <td className="p-3 font-sans">Missing events make detection appear cleaner than reality</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Recall (True Positive Rate)</td>
+                      <td className="p-3 font-sans text-stone-800">Recall (True Positive Rate)</td>
                       <td className="p-3 font-sans">Proportion of genuine attacks correctly caught: TP / (TP+FN)</td>
                       <td className="p-3 font-sans">Requires a trustworthy, diverse labeled test set</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Precision</td>
+                      <td className="p-3 font-sans text-stone-800">Precision</td>
                       <td className="p-3 font-sans">Fraction of alerts fired that are truly malicious: TP / (TP+FP)</td>
                       <td className="p-3 font-sans">Low precision causes alert fatigue and ignored queues</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Mean Time to Detect (MTTD)</td>
+                      <td className="p-3 font-sans text-stone-800">Mean Time to Detect (MTTD)</td>
                       <td className="p-3 font-sans">Time elapsed from event execution to alert generation</td>
                       <td className="p-3 font-sans">Depends on precise baseline event timestamp accuracy</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
-                      <td className="p-3 font-sans text-white">Mean Time to Respond (MTTR)</td>
+                      <td className="p-3 font-sans text-stone-800">Mean Time to Respond (MTTR)</td>
                       <td className="p-3 font-sans">Time elapsed from alert generation to containment</td>
                       <td className="p-3 font-sans">Define whether milestone is triage, isolation, or recovery</td>
                     </tr>
@@ -1517,7 +1518,7 @@ level: critical`;
 
               {/* 22.10.2 Mathematical Example Calculation */}
               <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80">
-                <h4 className="text-sm font-bold text-white mb-2">22.10.2 Real-World Calculation Walkthrough</h4>
+                <h4 className="text-sm font-bold text-stone-900 mb-2">22.10.2 Real-World Calculation Walkthrough</h4>
                 <p className="text-xs text-stone-700 mb-3">
                   Suppose a lab tests an identity analytic using 100 labeled positive adversary cases and 20 labeled benign background cases:
                 </p>
@@ -1542,7 +1543,7 @@ level: critical`;
                   22.11 Tool Ecosystem
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-stone-900 mb-4">
                 Core Technologies for Detection and Validation
               </h3>
 
@@ -1618,7 +1619,7 @@ level: critical`;
               {/* 22.12.1 Directory Structure & 22.12.2 Synthetic CSV */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
-                  <h4 className="text-xs font-bold text-white mb-2 flex items-center gap-2">
+                  <h4 className="text-xs font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <Compass className="w-4 h-4 text-orange-600" /> 22.12.1 Workspace Structure
                   </h4>
                   <pre className="p-3 rounded bg-white border border-stone-200/80 shadow-xs text-[11px] font-mono text-stone-700">
@@ -1633,7 +1634,7 @@ level: critical`;
 
                 <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-xs font-bold text-white flex items-center gap-2">
+                    <h4 className="text-xs font-bold text-stone-900 flex items-center gap-2">
                       <Database className="w-4 h-4 text-orange-600" /> 22.12.2 Synthetic Security Events (events.csv)
                     </h4>
                     <button
@@ -1652,7 +1653,7 @@ level: critical`;
 
               {/* 22.12.5 Interactive Purple Team Findings Worksheet */}
               <div className="p-6 rounded-xl bg-slate-950/90 border border-purple-500/30 mb-6">
-                <h4 className="text-base font-bold text-white mb-2 flex items-center gap-2">
+                <h4 className="text-base font-bold text-stone-900 mb-2 flex items-center gap-2">
                   <Users className="w-5 h-5 text-orange-600" /> 22.12.5 Interactive Purple Team Findings Worksheet
                 </h4>
                 <p className="text-xs text-stone-600 mb-6">
@@ -1761,7 +1762,7 @@ level: critical`;
                   <div className="flex flex-col justify-between p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs">
                     <div>
                       <div className="flex items-center justify-between mb-3 border-b border-stone-200 pb-2">
-                        <span className="text-xs font-bold text-white uppercase tracking-wider">
+                        <span className="text-xs font-bold text-stone-900 uppercase tracking-wider">
                           Report Preview
                         </span>
                         <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-orange-700">
@@ -1793,7 +1794,7 @@ level: critical`;
                   22.14 Primary Documentation
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-6">
+              <h3 className="text-xl font-bold text-stone-900 mb-6">
                 Official References & Standards
               </h3>
 
@@ -1852,7 +1853,7 @@ level: critical`;
                 ].map((ref, idx) => (
                   <div key={idx} className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex flex-col justify-between">
                     <div>
-                      <h4 className="font-bold text-white mb-1">{ref.title}</h4>
+                      <h4 className="font-bold text-stone-900 mb-1">{ref.title}</h4>
                       <p className="text-stone-600 text-xs mb-3">{ref.desc}</p>
                     </div>
                     <a
@@ -1875,7 +1876,7 @@ level: critical`;
                   22.15 Core Summary
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Key Takeaways</h3>
+              <h3 className="text-xl font-bold text-stone-900 mb-4">Key Takeaways</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700">
                 {[
@@ -1906,10 +1907,10 @@ level: critical`;
             <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-700 font-semibold border border-rose-200">
                     Simulator 1
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Adversary Emulation & MITRE ATT&CK Matrix Navigator
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -1999,7 +2000,7 @@ level: critical`;
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col justify-between">
                   <div>
-                    <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
+                    <div className="text-xs font-bold text-stone-900 mb-2 flex items-center gap-2">
                       <Terminal className="w-4 h-4 text-rose-400" /> Active Adversary Payload
                     </div>
                     <pre className="p-3 rounded bg-white border border-stone-200/80 shadow-xs text-[11px] font-mono text-rose-300 whitespace-pre-wrap leading-relaxed mb-3">
@@ -2023,7 +2024,7 @@ level: critical`;
                 </div>
 
                 <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
-                  <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
+                  <div className="text-xs font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <Activity className="w-4 h-4 text-orange-600" /> Telemetry & Detection Pipeline Audit
                   </div>
                   <div className="p-3 rounded bg-white border border-stone-200/80 shadow-xs min-h-[160px] font-mono text-[11px] space-y-1 text-stone-700">
@@ -2057,7 +2058,7 @@ level: critical`;
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 2
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Detection Engineering Workbench & Sigma Rule Authoring Engine
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -2092,7 +2093,7 @@ level: critical`;
                         : "bg-stone-50 border-stone-200 text-stone-600 hover:border-stone-300"
                     }`}
                   >
-                    <div className="font-bold text-xs text-white">{tpl.label}</div>
+                    <div className="font-bold text-xs text-stone-900">{tpl.label}</div>
                     <div className="text-[11px] text-orange-600 font-mono mt-1">{tpl.type}</div>
                   </button>
                 ))}
@@ -2159,7 +2160,7 @@ level: critical`;
               {/* Split Editor & Test Runner */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
-                  <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
+                  <div className="text-xs font-bold text-stone-900 mb-2 flex items-center gap-2">
                     <FileCode className="w-4 h-4 text-orange-600" /> Live Sigma YAML Definition
                   </div>
                   <pre className="p-3 rounded bg-white border border-stone-200/80 shadow-xs text-[11px] font-mono text-orange-700 overflow-x-auto max-h-96 leading-relaxed">
@@ -2169,7 +2170,7 @@ level: critical`;
 
                 <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col justify-between">
                   <div>
-                    <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
+                    <div className="text-xs font-bold text-stone-900 mb-2 flex items-center gap-2">
                       <TestTube2 className="w-4 h-4 text-orange-600" /> Synthetic Test Suite & Regression Verification
                     </div>
 
@@ -2222,7 +2223,7 @@ level: critical`;
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 3
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Detection Metrics, Precision, Recall & Confusion Matrix Sandbox
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -2342,7 +2343,7 @@ level: critical`;
               {/* Visual 2x2 Confusion Matrix */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80">
-                  <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
                     <BarChart3 className="w-4 h-4 text-orange-600" /> Visual 2x2 Confusion Matrix
                   </h4>
 
@@ -2372,7 +2373,7 @@ level: critical`;
 
                 <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col justify-between">
                   <div>
-                    <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                    <h4 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
                       <Gauge className="w-4 h-4 text-orange-600" /> SOC Operational Impact Analysis
                     </h4>
                     <div className="space-y-3 text-xs text-stone-700">
@@ -2409,7 +2410,7 @@ level: critical`;
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 4
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Purple Team Exercise Tracker & Root-Cause Gap Analyzer
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -2546,7 +2547,7 @@ level: critical`;
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Section 22.13
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
+                  <h3 className="text-xl font-bold text-stone-900 mt-2">
                     Module 22 Knowledge Assessment
                   </h3>
                   <p className="text-xs text-stone-600 mt-1">
@@ -2576,7 +2577,7 @@ level: critical`;
                       key={q.id}
                       className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 transition"
                     >
-                      <div className="font-bold text-sm text-white mb-3 flex items-start gap-2.5">
+                      <div className="font-bold text-sm text-stone-900 mb-3 flex items-start gap-2.5">
                         <span className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-700 flex items-center justify-center text-xs shrink-0 mt-0.5">
                           {idx + 1}
                         </span>
