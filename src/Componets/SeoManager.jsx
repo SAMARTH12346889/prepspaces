@@ -667,7 +667,7 @@ export default function SeoManager() {
     updateMetaTag("property", "og:description", meta.description);
     updateMetaTag("property", "og:url", meta.canonical);
     updateMetaTag("property", "og:type", "website");
-    updateMetaTag("property", "og:site_name", "PrepSpaces");
+    updateMetaTag("property", "og:site_name", "prepspaces");
     updateMetaTag("property", "og:image", `${BASE_URL}/logo-mark.png`);
 
     // 5. Update Twitter Meta
