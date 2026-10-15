@@ -598,14 +598,14 @@ export default function CybersecuritySIEMIncidentResponse() {
   const checkedCount = Object.values(checkedChecklistItems).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500/20 selection:text-cyan-300">
+    <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Header */}
-      <header className="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+      <header className="border-b border-stone-200 bg-white/80 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate("/learning")}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-white hover:bg-slate-800 transition"
               title="Return to Course Index"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -615,7 +615,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                 <span className="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   Module 20
                 </span>
-                <span className="text-xs text-slate-500 hidden sm:inline">Cybersecurity Master Course</span>
+                <span className="text-xs text-stone-500 hidden sm:inline">Cybersecurity Master Course</span>
               </div>
               <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
                 SIEM, Incident Response & Digital Forensics
@@ -627,14 +627,14 @@ export default function CybersecuritySIEMIncidentResponse() {
 
             <button
               onClick={() => navigate("/learning/cybersecurity/malware-analysis")}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-white hover:bg-slate-800 transition"
               title="Previous Module: Malware & CTI"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => navigate("/learning/cybersecurity")}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-white hover:bg-slate-800 transition"
               title="Curriculum Index"
             >
               <ArrowRight className="w-4 h-4" />
@@ -643,7 +643,7 @@ export default function CybersecuritySIEMIncidentResponse() {
         </div>
 
         {/* Tab Strip */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-slate-900 py-2 no-scrollbar text-xs font-medium">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-stone-200 py-2 no-scrollbar bg-white text-xs font-medium">
           {[
             { id: "theory", label: "Curriculum Theory", icon: BookOpen },
             { id: "siem-sim", label: "Simulator: SIEM Log Engine", icon: Database },
@@ -661,7 +661,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md whitespace-nowrap transition ${
                   isActive
                     ? "bg-cyan-500 text-slate-950 font-bold shadow-sm"
-                    : "text-slate-400 hover:text-white hover:bg-slate-900"
+                    : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -673,8 +673,8 @@ export default function CybersecuritySIEMIncidentResponse() {
       </header>
 
       {/* Track & Time Header */}
-      <div className="bg-slate-900/60 border-b border-slate-800/60 py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-slate-400">
+      <div className="bg-white border-b border-stone-200 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-stone-600">
           <ModuleNav
             track="cybersecurity"
             currentModuleId="siem-incident-response"
@@ -683,10 +683,10 @@ export default function CybersecuritySIEMIncidentResponse() {
             aiTutorLabel="Nova AI: SOC Analyst"
           />
           <div className="flex items-center gap-4 text-xs font-mono">
-            <span className="flex items-center gap-1 text-slate-300">
-              <Clock className="w-3.5 h-3.5 text-cyan-400" /> Est: 70 mins
+            <span className="flex items-center gap-1 text-stone-700">
+              <Clock className="w-3.5 h-3.5 text-orange-600" /> Est: 70 mins
             </span>
-            <span className="flex items-center gap-1 text-slate-300">
+            <span className="flex items-center gap-1 text-stone-700">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> SOC Operations & Digital Forensics
             </span>
           </div>
@@ -701,31 +701,31 @@ export default function CybersecuritySIEMIncidentResponse() {
         {activeTab === "theory" && (
           <div className="space-y-12">
             {/* 20.1 Module Overview */}
-            <section className="bg-gradient-to-br from-slate-900/90 via-slate-900/40 to-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl">
+            <section className="bg-white border border-stone-200/80 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl">
               <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   20.1 Module Overview
                 </span>
-                <span className="text-xs text-slate-500">Security Operations & Digital Forensics</span>
+                <span className="text-xs text-stone-500">Security Operations & Digital Forensics</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 Security Monitoring, SIEM, Incident Response, and Digital Forensics
               </h2>
-              <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed max-w-4xl">
+              <p className="mt-3 text-stone-700 text-sm sm:text-base leading-relaxed max-w-4xl">
                 Modern enterprise defense extends beyond perimeter controls. Organizations must continuously monitor
                 endpoints, networks, identities, and cloud infrastructures to detect unauthorized intrusions, conduct
                 systematic incident containment, and acquire legally defensible digital evidence.
               </p>
-              <p className="mt-2 text-slate-400 text-xs sm:text-sm leading-relaxed max-w-4xl">
-                This curriculum incorporates foundational standards from <strong className="text-cyan-400">NIST SP 800-61 Rev. 3</strong> (Computer Security Incident Handling),
-                <strong className="text-cyan-400"> NIST SP 800-86</strong> (Guide to Integrating Forensic Techniques), <strong className="text-cyan-400">NIST SP 800-92</strong> (Log Management),
-                and <strong className="text-cyan-400">CISA Federal Incident Response Playbooks</strong>.
+              <p className="mt-2 text-stone-600 text-xs sm:text-sm leading-relaxed max-w-4xl">
+                This curriculum incorporates foundational standards from <strong className="text-orange-600">NIST SP 800-61 Rev. 3</strong> (Computer Security Incident Handling),
+                <strong className="text-orange-600"> NIST SP 800-86</strong> (Guide to Integrating Forensic Techniques), <strong className="text-orange-600">NIST SP 800-92</strong> (Log Management),
+                and <strong className="text-orange-600">CISA Federal Incident Response Playbooks</strong>.
               </p>
 
               {/* Learning Objectives Grid */}
-              <div className="mt-6 pt-6 border-t border-slate-800/80">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5 mb-3">
+              <div className="mt-6 pt-6 border-t border-stone-200/80">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-orange-600 flex items-center gap-1.5 mb-3">
                   <Target className="w-4 h-4" /> Core Learning Objectives
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -742,9 +742,9 @@ export default function CybersecuritySIEMIncidentResponse() {
                   ].map((obj, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2 p-2.5 rounded-lg bg-slate-950/60 border border-slate-800/60 text-xs text-slate-300"
+                      className="flex items-start gap-2 p-2.5 rounded-lg bg-stone-50 border border-stone-200/60 text-xs text-stone-700"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0 mt-0.5" />
                       <span>{obj}</span>
                     </div>
                   ))}
@@ -753,7 +753,7 @@ export default function CybersecuritySIEMIncidentResponse() {
             </section>
 
             {/* 20.2 SOC Fundamentals */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
@@ -761,7 +761,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">Operational Structure, Roles & Event vs. Alert vs. Incident</h3>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">SOC Tiering & Responsibilities</span>
+                <span className="text-xs text-stone-600 font-mono">SOC Tiering & Responsibilities</span>
               </div>
 
               {/* Tier Structure Cards */}
@@ -777,7 +777,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                     tier: "Tier 2: Deep Investigation",
                     role: "Incident Responder",
                     focus: "Cross-telemetry correlation, blast-radius scoping, root-cause identification, host containment.",
-                    color: "border-cyan-500/30 text-cyan-400",
+                    color: "border-cyan-500/30 text-orange-600",
                   },
                   {
                     tier: "Tier 3: Advanced Hunting",
@@ -794,29 +794,29 @@ export default function CybersecuritySIEMIncidentResponse() {
                 ].map((t, idx) => (
                   <div key={idx} className={`p-4 rounded-xl bg-slate-950/80 border ${t.color} space-y-2`}>
                     <span className="text-xs font-bold uppercase tracking-wider">{t.tier}</span>
-                    <div className="text-[11px] font-mono text-slate-400">Position: {t.role}</div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-sans">{t.focus}</p>
+                    <div className="text-[11px] font-mono text-stone-600">Position: {t.role}</div>
+                    <p className="text-xs text-stone-700 leading-relaxed font-sans">{t.focus}</p>
                   </div>
                 ))}
               </div>
 
               {/* Event vs Alert vs Incident Distinction */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                  <span className="text-xs font-mono font-bold text-slate-400 uppercase">1. Security Event</span>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1.5">
+                  <span className="text-xs font-mono font-bold text-stone-600 uppercase">1. Security Event</span>
+                  <p className="text-xs text-stone-700 leading-relaxed">
                     Any observable occurrence in an IT system (e.g. user sign-in, DNS lookup, TCP socket connection). Most events are benign routine activity.
                   </p>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/30 space-y-1.5">
                   <span className="text-xs font-mono font-bold text-amber-400 uppercase">2. Security Alert</span>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-stone-700 leading-relaxed">
                     A notification triggered by a detection rule or heuristic model indicating potentially anomalous or malicious behavior requiring human review.
                   </p>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-950 border border-rose-500/30 space-y-1.5">
                   <span className="text-xs font-mono font-bold text-rose-400 uppercase">3. Security Incident</span>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-stone-700 leading-relaxed">
                     A confirmed adverse security event that compromises confidentiality, integrity, or availability, requiring formal containment and remediation.
                   </p>
                 </div>
@@ -824,15 +824,15 @@ export default function CybersecuritySIEMIncidentResponse() {
             </section>
 
             {/* 20.3 Security Telemetry & Log Fundamentals */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
                     20.3 Security Telemetry & Logs
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">Multi-Source Telemetry & Time Synchronization (NTP/UTC)</h3>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">NIST SP 800-92 Compliance</span>
+                <span className="text-xs text-stone-600 font-mono">NIST SP 800-92 Compliance</span>
               </div>
 
               {/* Telemetry Sources Grid */}
@@ -845,29 +845,29 @@ export default function CybersecuritySIEMIncidentResponse() {
                   { name: "DNS & Web Proxies", detail: "Domain resolution queries (DGA detection), HTTP User-Agents, TLS SNI certificates." },
                   { name: "Identity & Cloud", detail: "Azure AD / Okta sign-ins, MFA challenges, AWS CloudTrail API calls, IAM role assumptions." },
                 ].map((src, i) => (
-                  <div key={i} className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                    <span className="text-xs font-bold text-cyan-400 font-mono">{src.name}</span>
-                    <p className="text-xs text-slate-300 leading-relaxed">{src.detail}</p>
+                  <div key={i} className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1">
+                    <span className="text-xs font-bold text-orange-600 font-mono">{src.name}</span>
+                    <p className="text-xs text-stone-700 leading-relaxed">{src.detail}</p>
                   </div>
                 ))}
               </div>
 
               {/* Log Anatomy & NTP Callout */}
-              <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800 space-y-2">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-2">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
                   <Clock className="w-4 h-4" /> The Vital Role of Time Synchronization (UTC)
                 </h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-stone-700 leading-relaxed">
                   Clock drift between domain controllers, firewalls, and cloud audit trails corrupts timeline reconstruction.
                   All log producers must synchronize via authenticated NTP to trusted stratum-1 time sources and serialize
-                  timestamps in ISO 8601 UTC format (<code className="text-cyan-300">YYYY-MM-DDTHH:MM:SSZ</code>). Ingestion timestamp
+                  timestamps in ISO 8601 UTC format (<code className="text-orange-700">YYYY-MM-DDTHH:MM:SSZ</code>). Ingestion timestamp
                   must always be distinguished from event generation timestamp.
                 </p>
               </div>
             </section>
 
             {/* 20.4 SIEM Architecture & Data Processing */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -875,7 +875,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">Data Ingestion, Parsing, Normalization & SIEM vs EDR vs XDR vs SOAR</h3>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">The 7-Stage Pipeline</span>
+                <span className="text-xs text-stone-600 font-mono">The 7-Stage Pipeline</span>
               </div>
 
               {/* 7-Stage Pipeline Steps */}
@@ -889,43 +889,43 @@ export default function CybersecuritySIEMIncidentResponse() {
                   { step: "6. Correlation", desc: "Evaluating multi-event temporal rules across distinct data streams." },
                   { step: "7. Alert & Action", desc: "Dispatching alerts to SOC queues or triggering SOAR automation playbooks." },
                 ].map((stage, idx) => (
-                  <div key={idx} className="p-3 rounded-lg bg-slate-950 border border-slate-800 space-y-1">
+                  <div key={idx} className="p-3 rounded-lg bg-stone-50 border border-stone-200/80 space-y-1">
                     <span className="font-bold text-emerald-400 font-mono">{stage.step}</span>
-                    <p className="text-slate-400 text-[11px] leading-relaxed">{stage.desc}</p>
+                    <p className="text-stone-600 text-[11px] leading-relaxed">{stage.desc}</p>
                   </div>
                 ))}
               </div>
 
               {/* Technology Comparison Table */}
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/80">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 bg-slate-950/80">
                 <table className="w-full text-left text-xs font-sans">
-                  <thead className="bg-slate-900 text-slate-300 uppercase tracking-wider font-semibold border-b border-slate-800 font-mono">
+                  <thead className="bg-stone-50 text-stone-700 uppercase tracking-wider font-semibold border-b border-stone-200 font-mono">
                     <tr>
                       <th className="py-2.5 px-4">Technology</th>
                       <th className="py-2.5 px-4">Primary Operational Focus</th>
                       <th className="py-2.5 px-4">Example Investigative Use Case</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/70 text-slate-300">
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="py-2.5 px-4 font-mono font-bold text-cyan-400">SIEM</td>
+                  <tbody className="divide-y divide-slate-800/70 text-stone-700">
+                    <tr className="hover:bg-stone-50/50">
+                      <td className="py-2.5 px-4 font-mono font-bold text-orange-600">SIEM</td>
                       <td className="py-2.5 px-4">Centralized log aggregation, long-term retention, cross-domain correlation.</td>
-                      <td className="py-2.5 px-4 text-slate-400">Correlate VPN failed logins with cloud admin role alteration.</td>
+                      <td className="py-2.5 px-4 text-stone-600">Correlate VPN failed logins with cloud admin role alteration.</td>
                     </tr>
-                    <tr className="hover:bg-slate-900/50">
+                    <tr className="hover:bg-stone-50/50">
                       <td className="py-2.5 px-4 font-mono font-bold text-amber-400">EDR</td>
                       <td className="py-2.5 px-4">Real-time endpoint behavioral monitoring, in-memory analysis, host isolation.</td>
-                      <td className="py-2.5 px-4 text-slate-400">Trace malicious PowerShell spawned by Microsoft Word and isolate host.</td>
+                      <td className="py-2.5 px-4 text-stone-600">Trace malicious PowerShell spawned by Microsoft Word and isolate host.</td>
                     </tr>
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="py-2.5 px-4 font-mono font-bold text-purple-400">XDR</td>
+                    <tr className="hover:bg-stone-50/50">
+                      <td className="py-2.5 px-4 font-mono font-bold text-orange-600">XDR</td>
                       <td className="py-2.5 px-4">Native pre-correlated telemetry spanning endpoint, identity, cloud, and email.</td>
-                      <td className="py-2.5 px-4 text-slate-400">Connect a phishing email click directly to process execution and token theft.</td>
+                      <td className="py-2.5 px-4 text-stone-600">Connect a phishing email click directly to process execution and token theft.</td>
                     </tr>
-                    <tr className="hover:bg-slate-900/50">
+                    <tr className="hover:bg-stone-50/50">
                       <td className="py-2.5 px-4 font-mono font-bold text-emerald-400">SOAR</td>
                       <td className="py-2.5 px-4">Security orchestration, automated playbooks, API response dispatch.</td>
-                      <td className="py-2.5 px-4 text-slate-400">Automatically isolate workstation, reset AD password, and create ticket.</td>
+                      <td className="py-2.5 px-4 text-stone-600">Automatically isolate workstation, reset AD password, and create ticket.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -933,7 +933,7 @@ export default function CybersecuritySIEMIncidentResponse() {
             </section>
 
             {/* 20.5 Detection Engineering & Correlation Rules */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
@@ -941,37 +941,37 @@ export default function CybersecuritySIEMIncidentResponse() {
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">Rule Anatomy, Sigma Format & Operational SOC Metrics</h3>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">Precision, Recall & MTTD/MTTR</span>
+                <span className="text-xs text-stone-600 font-mono">Precision, Recall & MTTD/MTTR</span>
               </div>
 
               {/* Detection Metrics Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-center">
-                  <span className="text-slate-400 block font-mono text-[11px]">True Positive Rate</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80 text-center">
+                  <span className="text-stone-600 block font-mono text-[11px]">True Positive Rate</span>
                   <span className="text-base font-bold text-emerald-400 mt-1 block">Precision</span>
-                  <span className="text-[10px] text-slate-500">TP / (TP + FP)</span>
+                  <span className="text-[10px] text-stone-500">TP / (TP + FP)</span>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-center">
-                  <span className="text-slate-400 block font-mono text-[11px]">Detection Coverage</span>
-                  <span className="text-base font-bold text-cyan-400 mt-1 block">Recall</span>
-                  <span className="text-[10px] text-slate-500">TP / (TP + FN)</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80 text-center">
+                  <span className="text-stone-600 block font-mono text-[11px]">Detection Coverage</span>
+                  <span className="text-base font-bold text-orange-600 mt-1 block">Recall</span>
+                  <span className="text-[10px] text-stone-500">TP / (TP + FN)</span>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-center">
-                  <span className="text-slate-400 block font-mono text-[11px]">Detection Speed</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80 text-center">
+                  <span className="text-stone-600 block font-mono text-[11px]">Detection Speed</span>
                   <span className="text-base font-bold text-amber-400 mt-1 block">MTTD</span>
-                  <span className="text-[10px] text-slate-500">Mean Time to Detect</span>
+                  <span className="text-[10px] text-stone-500">Mean Time to Detect</span>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-center">
-                  <span className="text-slate-400 block font-mono text-[11px]">Response Speed</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80 text-center">
+                  <span className="text-stone-600 block font-mono text-[11px]">Response Speed</span>
                   <span className="text-base font-bold text-rose-400 mt-1 block">MTTR</span>
-                  <span className="text-[10px] text-slate-500">Mean Time to Respond</span>
+                  <span className="text-[10px] text-stone-500">Mean Time to Respond</span>
                 </div>
               </div>
 
               {/* Sigma Rule Example Box */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                <div className="flex items-center justify-between text-xs text-slate-400">
-                  <span className="font-mono text-cyan-400 font-bold">Standard Sigma Rule: Office Application Spawning Script Interpreter</span>
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-2">
+                <div className="flex items-center justify-between text-xs text-stone-600">
+                  <span className="font-mono text-orange-600 font-bold">Standard Sigma Rule: Office Application Spawning Script Interpreter</span>
                   <button
                     onClick={() =>
                       copyToClipboard(
@@ -985,7 +985,7 @@ export default function CybersecuritySIEMIncidentResponse() {
                     <span>Copy Sigma</span>
                   </button>
                 </div>
-                <pre className="text-xs font-mono text-slate-200 bg-slate-900/80 p-3 rounded-lg overflow-x-auto">
+                <pre className="text-xs font-mono text-stone-800 bg-stone-50/80 p-3 rounded-lg overflow-x-auto">
 {`title: Office Spawning Script Interpreter
 id: 3f8e9102-4b2a-4a11-89ab-910283cde401
 status: production
@@ -1011,7 +1011,7 @@ tags:
             </section>
 
             {/* 20.8 Incident Response: Preparation to Recovery */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
@@ -1019,7 +1019,7 @@ tags:
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">NIST SP 800-61r3 / CISA Incident Handling Framework</h3>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">6-Phase Execution Model</span>
+                <span className="text-xs text-stone-600 font-mono">6-Phase Execution Model</span>
               </div>
 
               {/* 6-Phase Lifecycle Grid */}
@@ -1033,7 +1033,7 @@ tags:
                   {
                     step: "2. Detection & Analysis",
                     desc: "Triaging alerts, validating scope, distinguishing true positives from benign noise, preserving initial memory.",
-                    color: "border-cyan-500/30 text-cyan-400",
+                    color: "border-cyan-500/30 text-orange-600",
                   },
                   {
                     step: "3. Containment",
@@ -1053,59 +1053,59 @@ tags:
                   {
                     step: "6. Post-Incident Improvement",
                     desc: "Conducting blameless Post-Mortem, tuning detection rules to eliminate blind spots, updating playbooks.",
-                    color: "border-purple-500/30 text-purple-400",
+                    color: "border-purple-500/30 text-orange-600",
                   },
                 ].map((phase, idx) => (
                   <div key={idx} className={`p-4 rounded-xl bg-slate-950 border ${phase.color} space-y-2`}>
                     <span className="text-xs font-bold uppercase tracking-wider">{phase.step}</span>
-                    <p className="text-xs text-slate-300 leading-relaxed font-sans">{phase.desc}</p>
+                    <p className="text-xs text-stone-700 leading-relaxed font-sans">{phase.desc}</p>
                   </div>
                 ))}
               </div>
             </section>
 
             {/* 20.9 Digital Forensics Fundamentals */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     20.9 Digital Forensics Fundamentals
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">Foundational Principles, Order of Volatility & Chain of Custody</h3>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">NIST SP 800-86 Standards</span>
+                <span className="text-xs text-stone-600 font-mono">NIST SP 800-86 Standards</span>
               </div>
 
               {/* 4 Foundational Principles */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                  <span className="font-bold text-cyan-400 font-mono">1. Integrity</span>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1">
+                  <span className="font-bold text-orange-600 font-mono">1. Integrity</span>
+                  <p className="text-stone-700 text-[11px] leading-relaxed">
                     Evidence remains untampered; verified via cryptographic SHA-256 hash comparison against master copy.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1">
                   <span className="font-bold text-emerald-400 font-mono">2. Provenance</span>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">
+                  <p className="text-stone-700 text-[11px] leading-relaxed">
                     Unbroken documentation recording exact device source, serial number, collector identity, and timestamp.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1">
                   <span className="font-bold text-amber-400 font-mono">3. Reproducibility</span>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">
+                  <p className="text-stone-700 text-[11px] leading-relaxed">
                     Independent qualified forensic examiners must achieve identical results using documented tools and methods.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                  <span className="font-bold text-purple-400 font-mono">4. Objectivity</span>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1">
+                  <span className="font-bold text-orange-600 font-mono">4. Objectivity</span>
+                  <p className="text-stone-700 text-[11px] leading-relaxed">
                     Conclusions must be strictly grounded in empirical forensic artifacts, clearly highlighting contradictory facts.
                   </p>
                 </div>
               </div>
 
               {/* Order of Volatility (RFC 3227) */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-3">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-rose-400 flex items-center gap-1.5 font-mono">
                   <Flame className="w-4 h-4" /> Order of Volatility: From Most Volatile to Least Volatile (RFC 3227)
                 </h4>
@@ -1122,11 +1122,11 @@ tags:
                     <span className="font-bold block">3. Temp Filesystem</span>
                     <span className="text-[10px] opacity-80">Lost on reboot</span>
                   </div>
-                  <div className="p-2.5 rounded bg-cyan-950/40 border border-cyan-800 text-cyan-300">
+                  <div className="p-2.5 rounded bg-cyan-950/40 border border-cyan-800 text-orange-700">
                     <span className="font-bold block">4. Non-Volatile Disk</span>
                     <span className="text-[10px] opacity-80">Persists indefinitely</span>
                   </div>
-                  <div className="p-2.5 rounded bg-slate-900 border border-slate-700 text-slate-300">
+                  <div className="p-2.5 rounded bg-stone-50 border border-stone-300 text-stone-700">
                     <span className="font-bold block">5. Remote Log Stores</span>
                     <span className="text-[10px] opacity-80">Archived offsite</span>
                   </div>
@@ -1135,7 +1135,7 @@ tags:
             </section>
 
             {/* 20.11 Evidence Handling Checklist & Incident Report Structure */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
@@ -1143,12 +1143,12 @@ tags:
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">Interactive Evidence Checklist & Professional Incident Report</h3>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">Chain of Custody Protocol</span>
+                <span className="text-xs text-stone-600 font-mono">Chain of Custody Protocol</span>
               </div>
 
               {/* Checklist */}
-              <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
-                <div className="flex items-center justify-between flex-wrap gap-2 border-b border-slate-800 pb-3">
+              <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-4">
+                <div className="flex items-center justify-between flex-wrap gap-2 border-b border-stone-200 pb-3">
                   <div className="flex items-center gap-2">
                     <ClipboardList className="w-4 h-4 text-amber-400" />
                     <span className="text-xs font-bold text-white uppercase tracking-wider">
@@ -1162,7 +1162,7 @@ tags:
                         .join("\n");
                       copyToClipboard(text, "evidence-chk");
                     }}
-                    className="flex items-center gap-1.5 px-3 py-1 rounded bg-slate-900 border border-slate-800 hover:text-white text-xs text-slate-400 transition"
+                    className="flex items-center gap-1.5 px-3 py-1 rounded bg-white border border-stone-200/80 shadow-xs hover:text-white text-xs text-stone-600 transition"
                   >
                     {copiedCodeId === "evidence-chk" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>Copy Checklist</span>
@@ -1179,18 +1179,18 @@ tags:
                         className={`flex items-start gap-2.5 p-2.5 rounded-lg border transition cursor-pointer ${
                           isChecked
                             ? "bg-emerald-950/30 border-emerald-800/60 text-emerald-200"
-                            : "bg-slate-900/60 border-slate-800/80 text-slate-300 hover:border-slate-700"
+                            : "bg-stone-50/60 border-stone-200/80 text-stone-700 hover:border-stone-300"
                         }`}
                       >
                         <div className="mt-0.5">
                           {isChecked ? (
                             <CheckSquare className="w-4 h-4 text-emerald-400" />
                           ) : (
-                            <Square className="w-4 h-4 text-slate-500" />
+                            <Square className="w-4 h-4 text-stone-500" />
                           )}
                         </div>
                         <span className="text-xs leading-relaxed">
-                          <strong className="text-cyan-400 mr-1.5">{idx + 1}.</strong>
+                          <strong className="text-orange-600 mr-1.5">{idx + 1}.</strong>
                           {item}
                         </span>
                       </div>
@@ -1201,7 +1201,7 @@ tags:
             </section>
 
             {/* 20.12 Practical Lab */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -1209,13 +1209,13 @@ tags:
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">SOC Investigation Workbench & Forensic Evidence Recorder</h3>
                 </div>
-                <span className="text-xs text-slate-400 font-mono">Exercises A, B, C & D</span>
+                <span className="text-xs text-stone-600 font-mono">Exercises A, B, C & D</span>
               </div>
 
               {/* Lab Evidence Input Form */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
-                <div className="flex items-center justify-between flex-wrap gap-2 border-b border-slate-800 pb-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-4">
+                <div className="flex items-center justify-between flex-wrap gap-2 border-b border-stone-200 pb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 flex items-center gap-1.5">
                     <Fingerprint className="w-4 h-4" /> Exercise C: Forensic Evidence Record Generator (Case SOC-020-001)
                   </h4>
                   <button
@@ -1234,49 +1234,49 @@ tags:
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   <div>
-                    <label className="text-slate-400 block mb-1">Case Identifier:</label>
+                    <label className="text-stone-600 block mb-1">Case Identifier:</label>
                     <input
                       type="text"
                       value={forensicRecord.caseId}
                       onChange={(e) => setForensicRecord({ ...forensicRecord, caseId: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded p-2 text-cyan-300 font-mono focus:outline-none"
+                      className="w-full bg-white border border-stone-200/80 shadow-xs rounded p-2 text-orange-700 font-mono focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="text-slate-400 block mb-1">SHA-256 Digest:</label>
+                    <label className="text-stone-600 block mb-1">SHA-256 Digest:</label>
                     <input
                       type="text"
                       value={forensicRecord.calculatedHash}
                       onChange={(e) => setForensicRecord({ ...forensicRecord, calculatedHash: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded p-2 text-cyan-300 font-mono text-[11px] focus:outline-none"
+                      className="w-full bg-white border border-stone-200/80 shadow-xs rounded p-2 text-orange-700 font-mono text-[11px] focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1 text-xs">
-                  <label className="text-slate-400 block">Observed Findings & Timeline Context:</label>
+                  <label className="text-stone-600 block">Observed Findings & Timeline Context:</label>
                   <textarea
                     value={forensicRecord.observedFindings}
                     onChange={(e) => setForensicRecord({ ...forensicRecord, observedFindings: e.target.value })}
                     rows={2}
-                    className="w-full bg-slate-900 border border-slate-800 rounded p-2 text-slate-200 font-mono focus:outline-none"
+                    className="w-full bg-white border border-stone-200/80 shadow-xs rounded p-2 text-stone-800 font-mono focus:outline-none"
                   />
                 </div>
 
                 <div className="space-y-1 text-xs">
-                  <label className="text-slate-400 block">Recommended Containment Actions:</label>
+                  <label className="text-stone-600 block">Recommended Containment Actions:</label>
                   <textarea
                     value={forensicRecord.recommendedAction}
                     onChange={(e) => setForensicRecord({ ...forensicRecord, recommendedAction: e.target.value })}
                     rows={2}
-                    className="w-full bg-slate-900 border border-slate-800 rounded p-2 text-emerald-300 font-mono focus:outline-none"
+                    className="w-full bg-white border border-stone-200/80 shadow-xs rounded p-2 text-emerald-300 font-mono focus:outline-none"
                   />
                 </div>
               </div>
             </section>
 
             {/* 20.14 Official References */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8 space-y-4">
               <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
                 20.14 Authoritative References & Standards
               </span>
@@ -1326,14 +1326,14 @@ tags:
                     href={ref.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-cyan-500/40 transition group block"
+                    className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80/80 hover:border-cyan-500/40 transition group block"
                   >
-                    <div className="flex items-center justify-between text-cyan-400 font-bold">
+                    <div className="flex items-center justify-between text-orange-600 font-bold">
                       <span>{ref.title}</span>
                       <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
                     </div>
-                    <div className="text-[11px] font-mono text-slate-500 mt-0.5">{ref.org}</div>
-                    <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">{ref.desc}</p>
+                    <div className="text-[11px] font-mono text-stone-500 mt-0.5">{ref.org}</div>
+                    <p className="text-xs text-stone-600 mt-1.5 leading-relaxed">{ref.desc}</p>
                   </a>
                 ))}
               </div>
@@ -1341,31 +1341,31 @@ tags:
 
             {/* 20.15 Key Takeaways */}
             <section className="bg-gradient-to-r from-slate-900 to-slate-950 border border-cyan-500/20 rounded-2xl p-6 sm:p-8 space-y-4">
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
                 20.15 Strategic Summary
               </span>
               <h3 className="text-xl font-bold text-white">Key Takeaways for Defensive Practitioners</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300">
-                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-slate-800">
-                  <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-stone-700">
+                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-stone-200">
+                  <ShieldCheck className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                   <span>
                     <strong>Telemetry Correlation:</strong> No single log source provides complete visibility. Correlating identity, endpoint, network, and cloud logs exposes multi-stage intrusion paths.
                   </span>
                 </div>
-                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-slate-800">
-                  <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-stone-200">
+                  <ShieldCheck className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                   <span>
                     <strong>Detection Precision:</strong> High alert volume generates analyst burnout. Tune correlation thresholds and enrich alerts with asset criticality and user privileges.
                   </span>
                 </div>
-                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-slate-800">
-                  <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-stone-200">
+                  <ShieldCheck className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                   <span>
                     <strong>Volatile Evidence First:</strong> Acquire RAM, active network sockets, and running process states before severing power or initiating disruptive system reboots.
                   </span>
                 </div>
-                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-slate-800">
-                  <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/70 border border-stone-200">
+                  <ShieldCheck className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                   <span>
                     <strong>Defensible Reporting:</strong> Clearly differentiate confirmed empirical facts from analytical hypotheses; maintain rigorous chain-of-custody ledgers.
                   </span>
@@ -1380,20 +1380,20 @@ tags:
         {/* ================================================================== */}
         {activeTab === "siem-sim" && (
           <div className="space-y-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6">
               <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
                     SOC Defensive Simulator 1
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">SIEM Log Aggregation, Normalization & Query Engine</h3>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-slate-400">Telemetry Stream:</span>
+                  <span className="text-xs text-stone-600">Telemetry Stream:</span>
                   <select
                     value={selectedLogFilter}
                     onChange={(e) => setSelectedLogFilter(e.target.value)}
-                    className="bg-slate-950 border border-slate-700 text-xs text-cyan-300 rounded px-2.5 py-1.5 focus:outline-none"
+                    className="bg-slate-950 border border-stone-300 text-xs text-orange-700 rounded px-2.5 py-1.5 focus:outline-none"
                   >
                     <option value="all">All Sources (Identity, Endpoint, Network, Cloud)</option>
                     <option value="identity">Identity Logs (Okta / AzureAD)</option>
@@ -1405,27 +1405,27 @@ tags:
               </div>
 
               {/* Search Bar */}
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 mb-4 flex items-center gap-3">
-                <Search className="w-4 h-4 text-slate-500 shrink-0" />
+              <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80 mb-4 flex items-center gap-3">
+                <Search className="w-4 h-4 text-stone-500 shrink-0" />
                 <input
                   type="text"
                   value={siemSearchQuery}
                   onChange={(e) => setSiemSearchQuery(e.target.value)}
                   placeholder="e.g. event.type == 'authentication' AND event.action == 'failure' OR user == 'admin02'"
-                  className="bg-transparent text-xs text-cyan-300 font-mono w-full focus:outline-none"
+                  className="bg-transparent text-xs text-orange-700 font-mono w-full focus:outline-none"
                 />
                 <button
                   onClick={() => setSiemSearchQuery("")}
-                  className="text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-900"
+                  className="text-xs text-stone-600 hover:text-white px-2 py-1 rounded bg-stone-50"
                 >
                   Clear
                 </button>
               </div>
 
               {/* Log Table */}
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 bg-slate-950">
                 <table className="w-full text-left text-xs font-mono">
-                  <thead className="bg-slate-900 text-slate-400 border-b border-slate-800">
+                  <thead className="bg-stone-50 text-stone-600 border-b border-stone-200">
                     <tr>
                       <th className="p-2.5">Time (UTC)</th>
                       <th className="p-2.5">Source / Host</th>
@@ -1437,15 +1437,15 @@ tags:
                   </thead>
                   <tbody className="divide-y divide-slate-800/60">
                     {filteredLogs.map((log) => (
-                      <tr key={log.id} className="hover:bg-slate-900/50 transition">
-                        <td className="p-2.5 text-cyan-400 font-bold">{log.timestamp.split("T")[1].replace("Z", "")}</td>
-                        <td className="p-2.5 text-slate-300">
+                      <tr key={log.id} className="hover:bg-stone-50/50 transition">
+                        <td className="p-2.5 text-orange-600 font-bold">{log.timestamp.split("T")[1].replace("Z", "")}</td>
+                        <td className="p-2.5 text-stone-700">
                           <span className="block text-white font-bold">{log.sourceSystem}</span>
-                          <span className="text-[10px] text-slate-500">{log.host || log.sourceIp}</span>
+                          <span className="text-[10px] text-stone-500">{log.host || log.sourceIp}</span>
                         </td>
-                        <td className="p-2.5 text-slate-200">{log.user || "—"}</td>
+                        <td className="p-2.5 text-stone-800">{log.user || "—"}</td>
                         <td className="p-2.5">
-                          <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-300 text-[10px]">
+                          <span className="px-2 py-0.5 rounded bg-white border border-stone-200/80 shadow-xs text-stone-700 text-[10px]">
                             {log.eventType}
                           </span>
                         </td>
@@ -1456,13 +1456,13 @@ tags:
                                 ? "bg-rose-500/10 text-rose-400 border border-rose-500/20"
                                 : log.action === "success"
                                 ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                                : "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+                                : "bg-cyan-500/10 text-orange-600 border border-cyan-500/20"
                             }`}
                           >
                             {log.action}
                           </span>
                         </td>
-                        <td className="p-2.5 text-slate-400 font-sans text-xs">{log.details}</td>
+                        <td className="p-2.5 text-stone-600 font-sans text-xs">{log.details}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -1470,11 +1470,11 @@ tags:
               </div>
 
               {/* Selected Raw Log JSON Inspection */}
-              <div className="mt-4 p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">
+              <div className="mt-4 p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-orange-600 font-mono">
                   SIEM Normalized Event Schema (ECS / OCSF Sample)
                 </span>
-                <pre className="text-xs font-mono text-emerald-300 bg-slate-900 p-3 rounded overflow-x-auto">
+                <pre className="text-xs font-mono text-emerald-300 bg-stone-50 p-3 rounded overflow-x-auto">
 {`{
   "@timestamp": "2026-10-15T09:14:02.000Z",
   "event": {
@@ -1499,7 +1499,7 @@ tags:
         {/* ================================================================== */}
         {activeTab === "detection-sim" && (
           <div className="space-y-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6">
               <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
@@ -1508,11 +1508,11 @@ tags:
                   <h3 className="text-xl font-bold text-white mt-1">Detection Engineering & Multi-Event Correlation Engine</h3>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-slate-400">Test Ingestion Scenario:</span>
+                  <span className="text-xs text-stone-600">Test Ingestion Scenario:</span>
                   <select
                     value={testDatasetType}
                     onChange={(e) => setTestDatasetType(e.target.value)}
-                    className="bg-slate-950 border border-slate-700 text-xs text-amber-300 rounded px-2.5 py-1.5 focus:outline-none"
+                    className="bg-slate-950 border border-stone-300 text-xs text-amber-300 rounded px-2.5 py-1.5 focus:outline-none"
                   >
                     <option value="brute_then_success">Attack Scenario: 6 Failed Logins + Instant Success (admin02)</option>
                     <option value="benign_typo">Benign Noise: 2 Failed Logins + Success (dev_user09)</option>
@@ -1523,10 +1523,10 @@ tags:
 
               {/* Rule Parameters Control Panel */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-2">
                   <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-slate-400 font-bold">Failure Threshold:</span>
-                    <span className="text-cyan-400 font-bold">&gt;= {detectionThreshold} failures</span>
+                    <span className="text-stone-600 font-bold">Failure Threshold:</span>
+                    <span className="text-orange-600 font-bold">&gt;= {detectionThreshold} failures</span>
                   </div>
                   <input
                     type="range"
@@ -1536,15 +1536,15 @@ tags:
                     onChange={(e) => setDetectionThreshold(Number(e.target.value))}
                     className="w-full accent-cyan-500"
                   />
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-[11px] text-stone-500">
                     Higher thresholds decrease false positives from typos but increase dwell time for stealth sprays.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-2">
                   <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-slate-400 font-bold">Time Window:</span>
-                    <span className="text-cyan-400 font-bold">{timeWindowMins} Minutes</span>
+                    <span className="text-stone-600 font-bold">Time Window:</span>
+                    <span className="text-orange-600 font-bold">{timeWindowMins} Minutes</span>
                   </div>
                   <input
                     type="range"
@@ -1555,22 +1555,22 @@ tags:
                     onChange={(e) => setTimeWindowMins(Number(e.target.value))}
                     className="w-full accent-cyan-500"
                   />
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-[11px] text-stone-500">
                     Sliding temporal correlation window across authentication logs.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                  <label className="flex items-center gap-2 text-xs text-slate-300 cursor-pointer pt-2">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-2">
+                  <label className="flex items-center gap-2 text-xs text-stone-700 cursor-pointer pt-2">
                     <input
                       type="checkbox"
                       checked={requirePrivilegeMatch}
                       onChange={(e) => setRequirePrivilegeMatch(e.target.checked)}
-                      className="rounded bg-slate-950 border-slate-700 text-cyan-500"
+                      className="rounded bg-slate-950 border-stone-300 text-cyan-500"
                     />
                     <span>Enrich with Privileged Account Context</span>
                   </label>
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-[11px] text-stone-500">
                     Prioritizes Domain Admin / Cloud Global Admin identities to minimize operational noise.
                   </p>
                 </div>
@@ -1581,7 +1581,7 @@ tags:
                 className={`p-5 rounded-xl border space-y-3 ${
                   correlationResult.triggered
                     ? "bg-rose-950/30 border-rose-800/80"
-                    : "bg-slate-950 border-slate-800"
+                    : "bg-slate-950 border-stone-200"
                 }`}
               >
                 <div className="flex items-center justify-between flex-wrap gap-2">
@@ -1595,7 +1595,7 @@ tags:
                   </div>
                   <span
                     className={`text-xs font-bold font-mono px-2.5 py-1 rounded ${
-                      correlationResult.triggered ? "bg-rose-500/20 text-rose-300" : "bg-slate-800 text-slate-400"
+                      correlationResult.triggered ? "bg-rose-500/20 text-rose-300" : "bg-slate-800 text-stone-600"
                     }`}
                   >
                     {correlationResult.verdict}
@@ -1603,21 +1603,21 @@ tags:
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs pt-2">
-                  <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
-                    <span className="text-slate-500 block text-[10px]">Failures Evaluated</span>
+                  <div className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs">
+                    <span className="text-stone-500 block text-[10px]">Failures Evaluated</span>
                     <span className="text-white font-bold">{correlationResult.failuresObserved} Events</span>
                   </div>
-                  <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
-                    <span className="text-slate-500 block text-[10px]">Target Identity</span>
-                    <span className="text-cyan-400 font-bold">{correlationResult.targetAccount}</span>
+                  <div className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs">
+                    <span className="text-stone-500 block text-[10px]">Target Identity</span>
+                    <span className="text-orange-600 font-bold">{correlationResult.targetAccount}</span>
                   </div>
-                  <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
-                    <span className="text-slate-500 block text-[10px]">Rule Severity</span>
+                  <div className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs">
+                    <span className="text-stone-500 block text-[10px]">Rule Severity</span>
                     <span className="text-rose-400 font-bold">{correlationResult.severity}</span>
                   </div>
                 </div>
 
-                <p className="text-xs text-slate-300 font-sans leading-relaxed pt-1">
+                <p className="text-xs text-stone-700 font-sans leading-relaxed pt-1">
                   <strong>Analytical Context: </strong>
                   {correlationResult.explanation}
                 </p>
@@ -1641,7 +1641,7 @@ tags:
         {/* ================================================================== */}
         {activeTab === "ir-sim" && (
           <div className="space-y-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6">
               <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
@@ -1649,7 +1649,7 @@ tags:
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">Incident Response Lifecycle & Containment Matrix</h3>
                 </div>
-                <div className="text-xs font-mono text-cyan-400">
+                <div className="text-xs font-mono text-orange-600">
                   Containment Effectiveness: <strong className="text-white">{irScore}%</strong>
                 </div>
               </div>
@@ -1670,7 +1670,7 @@ tags:
                     className={`p-2.5 rounded-lg border text-xs font-mono font-bold transition text-center ${
                       irPhase === phase.step
                         ? "bg-cyan-500 text-slate-950 border-cyan-400"
-                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-white"
+                        : "bg-slate-950 border-stone-200 text-stone-600 hover:text-white"
                     }`}
                   >
                     {phase.name}
@@ -1679,7 +1679,7 @@ tags:
               </div>
 
               {/* Active Containment Controls */}
-              <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4 mb-6">
+              <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-4 mb-6">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 font-mono flex items-center gap-2">
                   <ShieldAlert className="w-4 h-4" /> Live Containment Actions (Target: WS-014 & admin02)
                 </h4>
@@ -1690,14 +1690,14 @@ tags:
                     className={`p-3 rounded-lg border cursor-pointer transition flex items-center justify-between ${
                       isMemoryPreserved
                         ? "bg-purple-950/40 border-purple-600 text-purple-200"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     <div>
                       <div className="font-bold text-white">1. Capture Volatile RAM (WinPmem)</div>
                       <div className="text-[11px] opacity-80">Preserves injected code and C2 sockets before host disconnect</div>
                     </div>
-                    {isMemoryPreserved ? <Check className="w-4 h-4 text-purple-400" /> : <PlusCircle className="w-4 h-4" />}
+                    {isMemoryPreserved ? <Check className="w-4 h-4 text-orange-600" /> : <PlusCircle className="w-4 h-4" />}
                   </div>
 
                   <div
@@ -1705,7 +1705,7 @@ tags:
                     className={`p-3 rounded-lg border cursor-pointer transition flex items-center justify-between ${
                       isHostIsolated
                         ? "bg-emerald-950/40 border-emerald-600 text-emerald-200"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     <div>
@@ -1720,7 +1720,7 @@ tags:
                     className={`p-3 rounded-lg border cursor-pointer transition flex items-center justify-between ${
                       isTokenRevoked
                         ? "bg-emerald-950/40 border-emerald-600 text-emerald-200"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     <div>
@@ -1735,7 +1735,7 @@ tags:
                     className={`p-3 rounded-lg border cursor-pointer transition flex items-center justify-between ${
                       isEgressBlocked
                         ? "bg-emerald-950/40 border-emerald-600 text-emerald-200"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     <div>
@@ -1748,9 +1748,9 @@ tags:
               </div>
 
               {/* Status Banner */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs space-y-1">
-                <div className="text-cyan-400 font-bold">[INCIDENT COMMANDER DIRECTIVE]</div>
-                <div className="text-slate-300">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 font-mono text-xs space-y-1">
+                <div className="text-orange-600 font-bold">[INCIDENT COMMANDER DIRECTIVE]</div>
+                <div className="text-stone-700">
                   Target asset <strong className="text-white">WS-014</strong> status:{" "}
                   {isHostIsolated ? (
                     <span className="text-emerald-400 font-bold">QUARANTINED (Zero Lateral Movement Possible)</span>
@@ -1758,7 +1758,7 @@ tags:
                     <span className="text-rose-400 font-bold">EXPOSED (Lateral movement active via SMB/RDP)</span>
                   )}
                 </div>
-                <div className="text-slate-400">
+                <div className="text-stone-600">
                   Volatile memory evidence:{" "}
                   {isMemoryPreserved ? (
                     <span className="text-emerald-400 font-bold">SECURED (SHA-256 Verified)</span>
@@ -1776,20 +1776,20 @@ tags:
         {/* ================================================================== */}
         {activeTab === "forensics-sim" && (
           <div className="space-y-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6">
               <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     SOC Defensive Simulator 4
                   </span>
                   <h3 className="text-xl font-bold text-white mt-1">Digital Forensics Acquisition & Chain of Custody</h3>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-slate-400">Forensic Artifact:</span>
+                  <span className="text-xs text-stone-600">Forensic Artifact:</span>
                   <select
                     value={selectedArtifactType}
                     onChange={(e) => setSelectedArtifactType(e.target.value)}
-                    className="bg-slate-950 border border-slate-700 text-xs text-purple-300 rounded px-2.5 py-1.5 focus:outline-none"
+                    className="bg-slate-950 border border-stone-300 text-xs text-orange-700 rounded px-2.5 py-1.5 focus:outline-none"
                   >
                     <option value="memory">Volatile RAM Dump (.raw - 16 GB)</option>
                     <option value="disk">Physical NVMe Disk Image (.E01 - 512 GB)</option>
@@ -1800,55 +1800,55 @@ tags:
 
               {/* Artifact Metadata Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-[11px] text-slate-500 uppercase font-mono">Evidence File Name</div>
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="text-[11px] text-stone-500 uppercase font-mono">Evidence File Name</div>
                   <div className="text-xs font-bold text-white mt-1 truncate" title={activeForensicArtifact.name}>
                     {activeForensicArtifact.name}
                   </div>
-                  <div className="text-[10px] text-cyan-400 mt-1">{activeForensicArtifact.size}</div>
+                  <div className="text-[10px] text-orange-600 mt-1">{activeForensicArtifact.size}</div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-[11px] text-slate-500 uppercase font-mono">Acquisition Hardware/Tool</div>
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="text-[11px] text-stone-500 uppercase font-mono">Acquisition Hardware/Tool</div>
                   <div className="text-xs font-bold text-emerald-400 mt-1">{activeForensicArtifact.acquisitionTool}</div>
-                  <div className="text-[10px] text-slate-400 mt-1">Hardware Write-Blocker Verified</div>
+                  <div className="text-[10px] text-stone-600 mt-1">Hardware Write-Blocker Verified</div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-[11px] text-slate-500 uppercase font-mono">SHA-256 Digest</div>
-                  <div className="text-[10px] font-mono text-cyan-300 mt-1 truncate" title={activeForensicArtifact.sha256Original}>
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="text-[11px] text-stone-500 uppercase font-mono">SHA-256 Digest</div>
+                  <div className="text-[10px] font-mono text-orange-700 mt-1 truncate" title={activeForensicArtifact.sha256Original}>
                     {activeForensicArtifact.sha256Original.substring(0, 18)}...
                   </div>
                   <button
                     onClick={() => copyToClipboard(activeForensicArtifact.sha256Original, "forensic-hash")}
-                    className="text-[10px] text-cyan-400 hover:underline mt-1 flex items-center gap-1"
+                    className="text-[10px] text-orange-600 hover:underline mt-1 flex items-center gap-1"
                   >
                     {copiedCodeId === "forensic-hash" ? <Check className="w-2.5 h-2.5 text-emerald-400" /> : <Copy className="w-2.5 h-2.5" />}
                     Copy Digest
                   </button>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-[11px] text-slate-500 uppercase font-mono">Integrity Status</div>
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="text-[11px] text-stone-500 uppercase font-mono">Integrity Status</div>
                   <div className="text-xs font-bold text-emerald-400 mt-1 flex items-center gap-1">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>{activeForensicArtifact.evidenceIntegrity}</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 mt-1">Zero Bit-Level Drift</div>
+                  <div className="text-[10px] text-stone-600 mt-1">Zero Bit-Level Drift</div>
                 </div>
               </div>
 
               {/* Findings & Custody Chain */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Forensic Findings */}
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5 font-mono">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 flex items-center gap-1.5 font-mono">
                     <Search className="w-4 h-4" /> Recovered Forensic Artifacts
                   </h4>
-                  <ul className="space-y-2 text-xs text-slate-300 font-sans">
+                  <ul className="space-y-2 text-xs text-stone-700 font-sans">
                     {activeForensicArtifact.findings.map((f, idx) => (
-                      <li key={idx} className="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                      <li key={idx} className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -1856,18 +1856,18 @@ tags:
                 </div>
 
                 {/* Chain of Custody Ledger */}
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-1.5 font-mono">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 flex items-center gap-1.5 font-mono">
                     <History className="w-4 h-4" /> Tamper-Evident Chain of Custody Ledger
                   </h4>
                   <div className="space-y-2 text-xs font-mono">
                     {activeForensicArtifact.custodyEntries.map((c, idx) => (
-                      <div key={idx} className="p-2.5 rounded bg-slate-900 border border-slate-800 space-y-1">
+                      <div key={idx} className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs space-y-1">
                         <div className="flex items-center justify-between text-[11px]">
-                          <span className="text-cyan-400 font-bold">{c.time}</span>
-                          <span className="text-slate-400">{c.actor}</span>
+                          <span className="text-orange-600 font-bold">{c.time}</span>
+                          <span className="text-stone-600">{c.actor}</span>
                         </div>
-                        <p className="text-slate-300 font-sans text-xs">{c.action}</p>
+                        <p className="text-stone-700 font-sans text-xs">{c.action}</p>
                       </div>
                     ))}
                   </div>
@@ -1882,8 +1882,8 @@ tags:
         {/* ================================================================== */}
         {activeTab === "quiz" && (
           <div className="space-y-6 max-w-4xl mx-auto">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
-              <div className="flex items-center justify-between flex-wrap gap-2 mb-6 border-b border-slate-800 pb-4">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
+              <div className="flex items-center justify-between flex-wrap gap-2 mb-6 border-b border-stone-200 pb-4">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                     20.13 Knowledge Assessment
@@ -1891,7 +1891,7 @@ tags:
                   <h3 className="text-xl font-bold text-white mt-1">Module 20 Quiz: SIEM, IR & Digital Forensics</h3>
                 </div>
                 <div className="text-right">
-                  <span className="text-xs text-slate-400 block font-mono">
+                  <span className="text-xs text-stone-600 block font-mono">
                     Progress: {Object.keys(quizAnswers).length} / 10 Answered
                   </span>
                   {quizSubmitted && (
@@ -1921,11 +1921,11 @@ tags:
                           ? isCorrect
                             ? "bg-emerald-950/20 border-emerald-800/60"
                             : "bg-rose-950/20 border-rose-800/60"
-                          : "bg-slate-950 border-slate-800/80"
+                          : "bg-slate-950 border-stone-200/80"
                       }`}
                     >
                       <div className="flex items-start justify-between gap-3 mb-3">
-                        <span className="text-xs font-bold text-cyan-400 font-mono">Question {idx + 1} of 10</span>
+                        <span className="text-xs font-bold text-orange-600 font-mono">Question {idx + 1} of 10</span>
                         {isSubmitted && (
                           <span
                             className={`text-xs font-bold px-2 py-0.5 rounded ${
@@ -1941,7 +1941,7 @@ tags:
                       <div className="space-y-2">
                         {q.options.map((opt, optIdx) => {
                           const isOptionSelected = selectedOpt === optIdx;
-                          let optionClass = "bg-slate-900/60 border-slate-800 text-slate-300 hover:border-slate-700";
+                          let optionClass = "bg-stone-50/60 border-stone-200 text-stone-700 hover:border-stone-300";
 
                           if (isSubmitted) {
                             if (optIdx === q.correctAnswer) {
@@ -1949,7 +1949,7 @@ tags:
                             } else if (isOptionSelected) {
                               optionClass = "bg-rose-900/40 border-rose-500 text-rose-200";
                             } else {
-                              optionClass = "bg-slate-900/40 border-slate-800/60 text-slate-500 opacity-60";
+                              optionClass = "bg-stone-50/40 border-stone-200/60 text-stone-500 opacity-60";
                             }
                           } else if (isOptionSelected) {
                             optionClass = "bg-cyan-950/40 border-cyan-500 text-cyan-200 font-medium";
@@ -1963,15 +1963,15 @@ tags:
                               className={`w-full text-left p-3 rounded-lg border text-xs transition flex items-center justify-between ${optionClass}`}
                             >
                               <span>{opt}</span>
-                              {isOptionSelected && !isSubmitted && <Check className="w-3.5 h-3.5 text-cyan-400" />}
+                              {isOptionSelected && !isSubmitted && <Check className="w-3.5 h-3.5 text-orange-600" />}
                             </button>
                           );
                         })}
                       </div>
 
                       {isSubmitted && (
-                        <div className="mt-3 pt-3 border-t border-slate-800/60 text-xs text-slate-400 leading-relaxed font-sans">
-                          <strong className="text-slate-300">Explanation: </strong>
+                        <div className="mt-3 pt-3 border-t border-stone-200/60 text-xs text-stone-600 leading-relaxed font-sans">
+                          <strong className="text-stone-700">Explanation: </strong>
                           {q.explanation}
                         </div>
                       )}
@@ -1981,13 +1981,13 @@ tags:
               </div>
 
               {/* Submit / Reset Actions */}
-              <div className="mt-8 flex items-center justify-between pt-4 border-t border-slate-800">
+              <div className="mt-8 flex items-center justify-between pt-4 border-t border-stone-200">
                 <button
                   onClick={() => {
                     setQuizAnswers({});
                     setQuizSubmitted(false);
                   }}
-                  className="px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-400 hover:text-white transition flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-xs text-stone-600 hover:text-white transition flex items-center gap-1.5"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>Reset Answers</span>

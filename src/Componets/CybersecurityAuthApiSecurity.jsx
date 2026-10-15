@@ -569,14 +569,14 @@ Generated: ${new Date().toISOString()}
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0f1d] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Breadcrumb & Header */}
-      <header className="border-b border-slate-800/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
+      <header className="border-b border-stone-200/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <button
               onClick={() => navigate("/learning/cybersecurity")}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition flex items-center text-xs"
+              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 hover:text-white transition flex items-center text-xs"
               title="Return to Cybersecurity Curriculum"
             >
               <ArrowLeft className="w-4 h-4 mr-1" />
@@ -584,9 +584,9 @@ Generated: ${new Date().toISOString()}
             </button>
             <div className="h-4 w-px bg-slate-700" />
             <div className="flex items-center space-x-2 text-xs">
-              <span className="text-cyan-400 font-semibold tracking-wider uppercase">Module 15</span>
-              <span className="text-slate-500">/</span>
-              <span className="text-slate-300 truncate max-w-[280px] sm:max-w-md">
+              <span className="text-orange-600 font-semibold tracking-wider uppercase">Module 15</span>
+              <span className="text-stone-500">/</span>
+              <span className="text-stone-700 truncate max-w-[280px] sm:max-w-md">
                 Authentication Flaws, Access Control, Session Security & API Security
               </span>
             </div>
@@ -597,19 +597,22 @@ Generated: ${new Date().toISOString()}
         </div>
       </header>
 
+      {/* TRACK SUB-NAVIGATION */}
+      <ModuleNav currentModuleId="auth-api-security" track="cybersecurity" />
+
       {/* Hero Banner */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-[#0e172a] to-[#0a0f1d] px-4 sm:px-6 lg:px-8 py-8">
+      <div className="border-b border-stone-200 bg-gradient-to-b from-[#f9f7f2] to-[#f4f0e6] px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
-              <div className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/60 text-cyan-300 text-xs font-mono">
+              <div className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-full bg-orange-100 border border-orange-200 text-orange-800 font-bold text-xs font-mono">
                 <Lock className="w-3.5 h-3.5" />
                 <span>OWASP API Security Top 10 · NIST SP 800-63B · RFC 9700</span>
               </div>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
                 Authentication Flaws, Access Control, Session Security & API Security
               </h1>
-              <p className="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              <p className="text-sm sm:text-base text-stone-700 max-w-3xl leading-relaxed">
                 Deconstruct the security boundary separating verified identity from resource
                 permissions. Master Broken Object-Level Authorization (BOLA), mass assignment
                 mitigation, session rotation lifecycles, cryptographic JWT validation, token bucket
@@ -618,29 +621,29 @@ Generated: ${new Date().toISOString()}
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 self-start md:self-auto min-w-[280px]">
-              <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
-                <div className="text-xs text-slate-400">Primary Standard</div>
-                <div className="text-sm font-bold text-cyan-400">OWASP API: 2023</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3">
+                <div className="text-xs text-stone-600">Primary Standard</div>
+                <div className="text-sm font-bold text-orange-600">OWASP API: 2023</div>
               </div>
-              <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
-                <div className="text-xs text-slate-400">Core Lab Tasks</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3">
+                <div className="text-xs text-stone-600">Core Lab Tasks</div>
                 <div className="text-sm font-bold text-emerald-400">6 Assessment Tasks</div>
               </div>
-              <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-3 col-span-2 sm:col-span-1">
-                <div className="text-xs text-slate-400">Interactive Sandboxes</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 col-span-2 sm:col-span-1">
+                <div className="text-xs text-stone-600">Interactive Sandboxes</div>
                 <div className="text-sm font-bold text-amber-400">4 Wire Engines</div>
               </div>
             </div>
           </div>
 
           {/* Quick Nav Anchor Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-slate-800/80 pt-4">
+          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-stone-200 pt-4">
             <button
               onClick={() => setActiveTab("theory")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "theory"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
@@ -650,8 +653,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("bola-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "bola-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <ShieldAlert className="w-3.5 h-3.5" />
@@ -661,8 +664,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("mass-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "mass-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <UserCog className="w-3.5 h-3.5" />
@@ -672,8 +675,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("jwt-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "jwt-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Key className="w-3.5 h-3.5" />
@@ -683,8 +686,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("rate-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "rate-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Activity className="w-3.5 h-3.5" />
@@ -694,8 +697,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("quiz")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "quiz"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Award className="w-3.5 h-3.5" />
@@ -709,10 +712,10 @@ Generated: ${new Date().toISOString()}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Left Column: Topics Sidebar */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 sticky top-20 space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 tracking-wider uppercase flex items-center justify-between">
+          <div className="bg-stone-50/70 border border-stone-200 rounded-xl p-4 sticky top-20 space-y-4">
+            <h3 className="text-xs font-bold text-stone-600 tracking-wider uppercase flex items-center justify-between">
               <span>Curriculum Navigator</span>
-              <span className="text-cyan-400 font-mono">15 / 24</span>
+              <span className="text-orange-600 font-mono">15 / 24</span>
             </h3>
 
             <div className="space-y-1">
@@ -739,13 +742,13 @@ Generated: ${new Date().toISOString()}
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
                     selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-cyan-300 font-semibold border-l-2 border-cyan-400"
-                      : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
+                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
                   {selectedTopic === topic.id && (
-                    <ChevronRight className="w-3.5 h-3.5 text-cyan-400 shrink-0 ml-1" />
+                    <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0 ml-1" />
                   )}
                 </button>
               ))}
@@ -760,14 +763,14 @@ Generated: ${new Date().toISOString()}
             <div className="space-y-10">
               {/* 15.1 Overview */}
               <section id="section-1" className="space-y-4">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldCheck className="w-4 h-4" />
                   <span>15.1 MODULE OVERVIEW</span>
                 </div>
                 <h2 className="text-2xl font-bold text-white">
                   Authentication Flaws, Access Control, Session Security & API Security
                 </h2>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
                   Authentication establishes who or what is making a request. Access control
                   determines which actions and resources that identity is allowed to use. Session
                   security protects the continuity of an authenticated interaction. API security
@@ -777,41 +780,41 @@ Generated: ${new Date().toISOString()}
 
                 {/* Objectives */}
                 <div className="bg-cyan-950/20 border border-cyan-800/40 rounded-xl p-5 space-y-3">
-                  <h4 className="text-sm font-bold text-cyan-300 flex items-center space-x-2">
-                    <Target className="w-4 h-4 text-cyan-400" />
+                  <h4 className="text-sm font-bold text-orange-700 flex items-center space-x-2">
+                    <Target className="w-4 h-4 text-orange-600" />
                     <span>Learning Objectives</span>
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-700">
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Distinguish authentication, authorization, identity, and session management.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Recognize authentication failures, credential stuffing, and ATO risks.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Implement secure session creation, rotation, timeouts, and revocation.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Explain RBAC, ABAC, ReBAC, and least-privilege deny-by-default rules.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Identify Broken Object-Level (BOLA), Function-Level, and Property-Level flaws.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Validate JWT signatures, prevent alg:none, and manage OAuth 2.0 PKCE.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Apply token bucket rate limiting and prevent resource consumption abuse.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Audit local APIs using controlled test accounts and generate remediation reports.</span>
                     </div>
                   </div>
@@ -819,8 +822,8 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 15.2 Authentication vs Authorization vs Sessions */}
-              <section id="section-2" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-2" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Workflow className="w-4 h-4" />
                   <span>15.2 AUTHENTICATION, AUTHORIZATION & SESSIONS</span>
                 </div>
@@ -828,31 +831,31 @@ Generated: ${new Date().toISOString()}
                   The 4-Step Security Verification Pipeline
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs text-center">
-                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
-                    <div className="text-cyan-400 font-bold font-mono">1. Authentication</div>
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-1">
+                    <div className="text-orange-600 font-bold font-mono">1. Authentication</div>
                     <div className="text-white font-semibold">Who are you?</div>
-                    <p className="text-slate-400 text-[11px] mt-1">
+                    <p className="text-stone-600 text-[11px] mt-1">
                       Verifies identity via Argon2id hashed passwords, Passkeys (FIDO2), or mTLS.
                     </p>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-1">
                     <div className="text-amber-400 font-bold font-mono">2. Session Validation</div>
                     <div className="text-white font-semibold">Is credential valid?</div>
-                    <p className="text-slate-400 text-[11px] mt-1">
+                    <p className="text-stone-600 text-[11px] mt-1">
                       Validates session state in Redis or verifies JWT cryptographic signature and exp.
                     </p>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-1">
                     <div className="text-emerald-400 font-bold font-mono">3. Authorization</div>
                     <div className="text-white font-semibold">What can you do?</div>
-                    <p className="text-slate-400 text-[11px] mt-1">
+                    <p className="text-stone-600 text-[11px] mt-1">
                       Enforces resource ownership (BOLA), operation permissions (RBAC), and tenant boundaries.
                     </p>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
-                    <div className="text-purple-400 font-bold font-mono">4. Audit & Monitor</div>
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-1">
+                    <div className="text-orange-600 font-bold font-mono">4. Audit & Monitor</div>
                     <div className="text-white font-semibold">Can it be traced?</div>
-                    <p className="text-slate-400 text-[11px] mt-1">
+                    <p className="text-stone-600 text-[11px] mt-1">
                       Records tamper-evident security logs without leaking passwords or bearer tokens.
                     </p>
                   </div>
@@ -867,46 +870,46 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 15.3 Authentication Flaws & ATO */}
-              <section id="section-3" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-3" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Lock className="w-4 h-4" />
                   <span>15.3 AUTHENTICATION FLAWS & ACCOUNT TAKEOVER (ATO)</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   Password Storage, Credential Stuffing & Throttling
                 </h2>
-                <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                <div className="overflow-x-auto border border-stone-200 rounded-xl">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-900/90 text-slate-300 uppercase font-mono border-b border-slate-800">
+                    <thead className="bg-stone-50/90 text-stone-700 uppercase font-mono border-b border-stone-200">
                       <tr>
                         <th className="p-3">Vulnerability</th>
                         <th className="p-3">Threat & Impact</th>
                         <th className="p-3">Defensive Engineering Practice</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Weak Password Storage</td>
+                    <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Weak Password Storage</td>
                         <td className="p-3">Plaintext or fast hashes (MD5, SHA256) cracked in seconds on GPUs.</td>
                         <td className="p-3">Argon2id (m=64MB, t=3, p=4) or bcrypt (cost &ge; 12) with per-user CSPRNG salt.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Credential Stuffing</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Credential Stuffing</td>
                         <td className="p-3">Automated bots replay credentials leaked from external breaches.</td>
                         <td className="p-3">HaveIBeenPwned API check, device fingerprinting, and CAPTCHA/MFA challenges.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Account Enumeration</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Account Enumeration</td>
                         <td className="p-3">Different error messages or response times reveal registered emails.</td>
                         <td className="p-3">Uniform responses: &quot;If account exists, an email has been sent.&quot; Equalized timing.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Missing MFA</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Missing MFA</td>
                         <td className="p-3">Single compromised password allows full unauthorized account takeover.</td>
                         <td className="p-3">Require FIDO2 / WebAuthn passkeys or TOTP (RFC 6238) on sensitive accounts.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Insecure Password Reset</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Insecure Password Reset</td>
                         <td className="p-3">Predictable tokens or long-lived reset links leaked in referrer logs.</td>
                         <td className="p-3">CSPRNG 256-bit token, single-use, 15-minute expiry, invalidate on password change.</td>
                       </tr>
@@ -916,8 +919,8 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 15.4 Session Lifecycle & Cookies */}
-              <section id="section-4" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-4" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Cookie className="w-4 h-4" />
                   <span>15.4 SESSION SECURITY & COOKIE INVARIANTS</span>
                 </div>
@@ -925,25 +928,25 @@ Generated: ${new Date().toISOString()}
                   Session Fixation Defense, Invalidation & Cookie Flags
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                  <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
-                    <h4 className="font-bold text-cyan-300">Session Fixation Attack & Mitigation</h4>
-                    <p className="text-slate-300 leading-relaxed">
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2">
+                    <h4 className="font-bold text-orange-700">Session Fixation Attack & Mitigation</h4>
+                    <p className="text-stone-700 leading-relaxed">
                       If an application preserves the same session ID across login, an attacker who
                       forces a known session ID onto the victim inherits the authenticated state.
                     </p>
-                    <div className="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-emerald-300 border border-slate-800">
+                    <div className="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-emerald-300 border border-stone-200">
                       // Regenerate session ID immediately upon successful login<br />
                       req.session.regenerate((err) =&gt; &#123; req.session.userId = user.id; &#125;);
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
-                    <h4 className="font-bold text-cyan-300">Complete Server-Side Logout</h4>
-                    <p className="text-slate-300 leading-relaxed">
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2">
+                    <h4 className="font-bold text-orange-700">Complete Server-Side Logout</h4>
+                    <p className="text-stone-700 leading-relaxed">
                       Clearing a browser cookie is insufficient. If the backend fails to delete the
                       session record from Redis or the database, the token remains replayable.
                     </p>
-                    <div className="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-emerald-300 border border-slate-800">
+                    <div className="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-emerald-300 border border-stone-200">
                       // Invalidate backend session record upon logout<br />
                       await redis.del(`sess:$&#123;sessionId&#125;`);<br />
                       res.clearCookie(&quot;__Host-SessionID&quot;);
@@ -953,22 +956,22 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 15.5 Access Control Models */}
-              <section id="section-5" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-5" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Users className="w-4 h-4" />
                   <span>15.5 ACCESS CONTROL MODELS & AUTHORIZATION DESIGN</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   RBAC vs ABAC & Deny-by-Default Policy
                 </h2>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Access control evaluates: <code className="font-mono text-cyan-300">Decision = f(Identity, Action, Resource, Context)</code>.
+                <p className="text-stone-700 text-sm leading-relaxed">
+                  Access control evaluates: <code className="font-mono text-orange-700">Decision = f(Identity, Action, Resource, Context)</code>.
                 </p>
 
                 {/* Prepspaces RBAC Matrix */}
-                <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                <div className="overflow-x-auto border border-stone-200 rounded-xl">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-900/90 text-slate-300 uppercase font-mono border-b border-slate-800">
+                    <thead className="bg-stone-50/90 text-stone-700 uppercase font-mono border-b border-stone-200">
                       <tr>
                         <th className="p-3">Operation / API Route</th>
                         <th className="p-3">Learner Role</th>
@@ -976,33 +979,33 @@ Generated: ${new Date().toISOString()}
                         <th className="p-3">Administrator Role</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-slate-200">POST /api/interviews/start</td>
+                    <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-stone-800">POST /api/interviews/start</td>
                         <td className="p-3 text-emerald-400 font-bold">Allow</td>
-                        <td className="p-3 text-slate-400">Deny (Default)</td>
-                        <td className="p-3 text-emerald-400 font-bold">Allow</td>
-                      </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-slate-200">GET /api/interviews/:id (Own)</td>
-                        <td className="p-3 text-emerald-400 font-bold">Allow</td>
-                        <td className="p-3 text-slate-400">N/A</td>
+                        <td className="p-3 text-stone-600">Deny (Default)</td>
                         <td className="p-3 text-emerald-400 font-bold">Allow</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-slate-200">GET /api/interviews/:id (Foreign)</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-stone-800">GET /api/interviews/:id (Own)</td>
+                        <td className="p-3 text-emerald-400 font-bold">Allow</td>
+                        <td className="p-3 text-stone-600">N/A</td>
+                        <td className="p-3 text-emerald-400 font-bold">Allow</td>
+                      </tr>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-stone-800">GET /api/interviews/:id (Foreign)</td>
                         <td className="p-3 text-rose-400 font-bold">Deny (403)</td>
                         <td className="p-3 text-amber-400">Allow if assigned</td>
                         <td className="p-3 text-emerald-400 font-bold">Allow (Audited)</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-slate-200">PATCH /api/users/:id/role</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-stone-800">PATCH /api/users/:id/role</td>
                         <td className="p-3 text-rose-400 font-bold">Deny (403)</td>
                         <td className="p-3 text-rose-400 font-bold">Deny (403)</td>
                         <td className="p-3 text-emerald-400 font-bold">Allow</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-slate-200">POST /api/reports/bulk-export</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-stone-800">POST /api/reports/bulk-export</td>
                         <td className="p-3 text-rose-400 font-bold">Deny (403)</td>
                         <td className="p-3 text-emerald-400 font-bold">Allow (Org scoped)</td>
                         <td className="p-3 text-emerald-400 font-bold">Allow</td>
@@ -1013,8 +1016,8 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 15.7 OWASP API Security Top 10 */}
-              <section id="section-7" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-7" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldAlert className="w-4 h-4" />
                   <span>15.7 OWASP API SECURITY TOP 10 (2023 EDITION)</span>
                 </div>
@@ -1022,46 +1025,46 @@ Generated: ${new Date().toISOString()}
                   API-Specific Threat Vectors & Defenses
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-3 space-y-1">
-                    <div className="font-mono font-bold text-cyan-400">API1:2023 — BOLA</div>
-                    <p className="text-slate-300">Broken Object-Level Authorization: Failure to verify caller owns requested object ID.</p>
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
+                    <div className="font-mono font-bold text-orange-600">API1:2023 — BOLA</div>
+                    <p className="text-stone-700">Broken Object-Level Authorization: Failure to verify caller owns requested object ID.</p>
                   </div>
-                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-3 space-y-1">
-                    <div className="font-mono font-bold text-cyan-400">API2:2023 — Broken Authentication</div>
-                    <p className="text-slate-300">Weak token validation, missing signature checks, credential stuffing, password reuse.</p>
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
+                    <div className="font-mono font-bold text-orange-600">API2:2023 — Broken Authentication</div>
+                    <p className="text-stone-700">Weak token validation, missing signature checks, credential stuffing, password reuse.</p>
                   </div>
-                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-3 space-y-1">
-                    <div className="font-mono font-bold text-cyan-400">API3:2023 — Broken Property-Level Auth</div>
-                    <p className="text-slate-300">Mass assignment: Users altering unauthorized object fields (role, isAdmin, score).</p>
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
+                    <div className="font-mono font-bold text-orange-600">API3:2023 — Broken Property-Level Auth</div>
+                    <p className="text-stone-700">Mass assignment: Users altering unauthorized object fields (role, isAdmin, score).</p>
                   </div>
-                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-3 space-y-1">
-                    <div className="font-mono font-bold text-cyan-400">API4:2023 — Unrestricted Resource Consumption</div>
-                    <p className="text-slate-300">Missing rate limits, unbounded pagination, excessive memory/CPU consumption.</p>
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
+                    <div className="font-mono font-bold text-orange-600">API4:2023 — Unrestricted Resource Consumption</div>
+                    <p className="text-stone-700">Missing rate limits, unbounded pagination, excessive memory/CPU consumption.</p>
                   </div>
-                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-3 space-y-1">
-                    <div className="font-mono font-bold text-cyan-400">API5:2023 — Broken Function-Level Auth</div>
-                    <p className="text-slate-300">Unprivileged users invoking administrative routes (/api/admin/users).</p>
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
+                    <div className="font-mono font-bold text-orange-600">API5:2023 — Broken Function-Level Auth</div>
+                    <p className="text-stone-700">Unprivileged users invoking administrative routes (/api/admin/users).</p>
                   </div>
-                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-3 space-y-1">
-                    <div className="font-mono font-bold text-cyan-400">API7:2023 — Server-Side Request Forgery</div>
-                    <p className="text-slate-300">Backend coerced into requesting internal cloud metadata (169.254.169.254).</p>
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 space-y-1">
+                    <div className="font-mono font-bold text-orange-600">API7:2023 — Server-Side Request Forgery</div>
+                    <p className="text-stone-700">Backend coerced into requesting internal cloud metadata (169.254.169.254).</p>
                   </div>
                 </div>
               </section>
 
               {/* 15.10 Practical Lab Workspace */}
-              <section id="section-10" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-10" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <TerminalSquare className="w-4 h-4" />
                   <span>15.10 PRACTICAL LAB DELIVERABLE</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   API Security Assessment Worksheet & Reporting
                 </h2>
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-5 space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-4">
+                  <div className="flex items-center justify-between border-b border-stone-200 pb-3">
                     <div className="flex items-center space-x-2">
-                      <FileSpreadsheet className="w-5 h-5 text-cyan-400" />
+                      <FileSpreadsheet className="w-5 h-5 text-orange-600" />
                       <h4 className="text-sm font-bold text-white">API Security Finding Report Generator</h4>
                     </div>
                     <button
@@ -1075,29 +1078,29 @@ Generated: ${new Date().toISOString()}
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Application / Target</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Application / Target</label>
                       <input
                         type="text"
                         value={labTarget}
                         onChange={(e) => setLabTarget(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200 font-mono"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800 font-mono"
                       />
                     </div>
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Security Finding</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Security Finding</label>
                       <input
                         type="text"
                         value={labFinding}
                         onChange={(e) => setLabFinding(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200 font-mono"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800 font-mono"
                       />
                     </div>
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Preliminary Severity</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Preliminary Severity</label>
                       <select
                         value={labSeverity}
                         onChange={(e) => setLabSeverity(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800"
                       >
                         <option>Informational</option>
                         <option>Low</option>
@@ -1110,21 +1113,21 @@ Generated: ${new Date().toISOString()}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Evidence & Reproducibility</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Evidence & Reproducibility</label>
                       <textarea
                         rows={3}
                         value={labEvidence}
                         onChange={(e) => setLabEvidence(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded p-2 text-slate-200 font-mono text-[11px]"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded p-2 text-stone-800 font-mono text-[11px]"
                       />
                     </div>
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Remediation & Retest Evidence</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Remediation & Retest Evidence</label>
                       <textarea
                         rows={3}
                         value={labRemediation}
                         onChange={(e) => setLabRemediation(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded p-2 text-slate-200 font-mono text-[11px]"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded p-2 text-stone-800 font-mono text-[11px]"
                       />
                     </div>
                   </div>
@@ -1132,8 +1135,8 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 15.12 Official References */}
-              <section id="section-12" className="space-y-4 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-12" className="space-y-4 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <BookOpen className="w-4 h-4" />
                   <span>15.12 OFFICIAL REFERENCES & FURTHER READING</span>
                 </div>
@@ -1145,13 +1148,13 @@ Generated: ${new Date().toISOString()}
                     href="https://api-security.owasp.org/editions/2023/en/0x11-t10/"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition block space-y-1 group"
+                    className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP API Security Top 10: 2023</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
-                    <p className="text-slate-400 text-[11px]">
+                    <p className="text-stone-600 text-[11px]">
                       The definitive framework for modern API threats: BOLA, Broken Auth, and SSRF.
                     </p>
                   </a>
@@ -1159,13 +1162,13 @@ Generated: ${new Date().toISOString()}
                     href="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition block space-y-1 group"
+                    className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP Authorization Cheat Sheet</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
-                    <p className="text-slate-400 text-[11px]">
+                    <p className="text-stone-600 text-[11px]">
                       Architectural patterns for deny-by-default access control and BOLA defense.
                     </p>
                   </a>
@@ -1173,13 +1176,13 @@ Generated: ${new Date().toISOString()}
                     href="https://pages.nist.gov/800-63-4/sp800-63b.html"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition block space-y-1 group"
+                    className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
                       <span>NIST SP 800-63B Digital Identity</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
-                    <p className="text-slate-400 text-[11px]">
+                    <p className="text-stone-600 text-[11px]">
                       Authentication assurance levels (AAL), authenticators, and password policies.
                     </p>
                   </a>
@@ -1187,13 +1190,13 @@ Generated: ${new Date().toISOString()}
                     href="https://www.rfc-editor.org/rfc/rfc9700.html"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition block space-y-1 group"
+                    className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
                       <span>RFC 9700 — OAuth 2.0 Security BCP</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
-                    <p className="text-slate-400 text-[11px]">
+                    <p className="text-stone-600 text-[11px]">
                       Authorization code flow with PKCE, token replay defenses, and sender-constraining.
                     </p>
                   </a>
@@ -1201,13 +1204,13 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 15.13 Key Takeaways */}
-              <section id="section-13" className="space-y-4 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-13" className="space-y-4 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Award className="w-4 h-4" />
                   <span>15.13 KEY ENGINEERING TAKEAWAYS</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">Summary of Core Principles</h2>
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-5 space-y-2.5 text-xs text-slate-300 leading-relaxed">
+                <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-2.5 text-xs text-stone-700 leading-relaxed">
                   <p>
                     1. <strong>Identity Is Not Authorization:</strong> A valid authentication credential
                     or JWT does not grant unrestricted access. Authorization must check whether that
@@ -1227,7 +1230,7 @@ Generated: ${new Date().toISOString()}
                   </p>
                   <p>
                     5. <strong>JWT Invariants:</strong> Whitelist permitted algorithms (RS256); reject
-                    <code className="font-mono text-cyan-300">alg: none</code>; verify <code className="font-mono text-cyan-300">exp</code>, <code className="font-mono text-cyan-300">aud</code>, and <code className="font-mono text-cyan-300">iss</code> claims.
+                    <code className="font-mono text-orange-700">alg: none</code>; verify <code className="font-mono text-orange-700">exp</code>, <code className="font-mono text-orange-700">aud</code>, and <code className="font-mono text-orange-700">iss</code> claims.
                   </p>
                 </div>
               </section>
@@ -1237,13 +1240,13 @@ Generated: ${new Date().toISOString()}
           {/* TAB: SIMULATOR 1 - BOLA / IDOR ENGINE */}
           {activeTab === "bola-sim" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <ShieldAlert className="w-5 h-5 text-cyan-400" />
+                    <ShieldAlert className="w-5 h-5 text-orange-600" />
                     <span>Simulator 1: BOLA / IDOR Exploitation & Tenant Isolation Engine</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Test horizontal privilege escalation across tenant accounts and enforce ownership-scoped query filters.
                   </p>
                 </div>
@@ -1265,12 +1268,12 @@ Generated: ${new Date().toISOString()}
 
               {/* Selector Controls */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
-                  <label className="text-slate-300 font-bold block">1. Authenticated Session (Caller Identity)</label>
+                <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2">
+                  <label className="text-stone-700 font-bold block">1. Authenticated Session (Caller Identity)</label>
                   <select
                     value={activeUserRole}
                     onChange={(e) => setActiveUserRole(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200"
+                    className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800"
                   >
                     <option value="user_a">User A (Samarth — ID: usr_101) [Learner]</option>
                     <option value="user_b">User B (Alice — ID: usr_202) [Learner]</option>
@@ -1278,12 +1281,12 @@ Generated: ${new Date().toISOString()}
                   </select>
                 </div>
 
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
-                  <label className="text-slate-300 font-bold block">2. Requested Report Resource Identifier</label>
+                <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2">
+                  <label className="text-stone-700 font-bold block">2. Requested Report Resource Identifier</label>
                   <select
                     value={requestedReportId}
                     onChange={(e) => setRequestedReportId(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200"
+                    className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800"
                   >
                     <option value="4821">Report #4821 (Owned by User A: Samarth)</option>
                     <option value="7710">Report #7710 (Owned by User B: Alice)</option>
@@ -1293,12 +1296,12 @@ Generated: ${new Date().toISOString()}
 
               {/* Request / Response Wire */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2">
-                  <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1">Client HTTP Request</div>
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-2">
+                  <div className="text-orange-600 font-bold border-b border-stone-200 pb-1">Client HTTP Request</div>
                   <div className="text-emerald-400">GET /api/v1/interviews/{requestedReportId} HTTP/1.1</div>
-                  <div className="text-slate-400">Host: api.prepspaces.com</div>
-                  <div className="text-slate-400">Authorization: Bearer session_token_{bolaSimulation.currentUser.id}</div>
-                  <div className="text-slate-500 pt-2 border-t border-slate-800">
+                  <div className="text-stone-600">Host: api.prepspaces.com</div>
+                  <div className="text-stone-600">Authorization: Bearer session_token_{bolaSimulation.currentUser.id}</div>
+                  <div className="text-stone-500 pt-2 border-t border-stone-200">
                     // Database Query Executed on Server:<br />
                     {bolaDefenseMode === "vulnerable"
                       ? `SELECT * FROM reports WHERE id = '${requestedReportId}'`
@@ -1306,8 +1309,8 @@ Generated: ${new Date().toISOString()}
                   </div>
                 </div>
 
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2">
-                  <div className="text-amber-400 font-bold border-b border-slate-800 pb-1">Server Response</div>
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-2">
+                  <div className="text-amber-400 font-bold border-b border-stone-200 pb-1">Server Response</div>
                   <div
                     className={`font-bold ${
                       bolaSimulation.statusCode.startsWith("2") ? "text-emerald-400" : "text-rose-400"
@@ -1315,7 +1318,7 @@ Generated: ${new Date().toISOString()}
                   >
                     HTTP/1.1 {bolaSimulation.statusCode}
                   </div>
-                  <pre className="text-slate-300 text-[11px] overflow-x-auto">
+                  <pre className="text-stone-700 text-[11px] overflow-x-auto">
                     {JSON.stringify(bolaSimulation.responseBody, null, 2)}
                   </pre>
                 </div>
@@ -1343,7 +1346,7 @@ Generated: ${new Date().toISOString()}
                     </span>
                   </span>
                 </div>
-                <p className="leading-relaxed text-slate-200">{bolaSimulation.diagnosis}</p>
+                <p className="leading-relaxed text-stone-800">{bolaSimulation.diagnosis}</p>
               </div>
             </div>
           )}
@@ -1351,13 +1354,13 @@ Generated: ${new Date().toISOString()}
           {/* TAB: SIMULATOR 2 - MASS ASSIGNMENT SANDBOX */}
           {activeTab === "mass-sim" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <UserCog className="w-5 h-5 text-cyan-400" />
+                    <UserCog className="w-5 h-5 text-orange-600" />
                     <span>Simulator 2: Mass Assignment & Property-Level Auth Sandbox</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Demonstrates how blind object updates enable privilege escalation, and how schema allowlists protect sensitive model properties.
                   </p>
                 </div>
@@ -1383,8 +1386,8 @@ Generated: ${new Date().toISOString()}
                   onClick={() => setMassPayloadType("benign")}
                   className={`p-3 rounded-lg border text-left transition ${
                     massPayloadType === "benign"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   1. Normal Profile Update (displayName)
@@ -1393,8 +1396,8 @@ Generated: ${new Date().toISOString()}
                   onClick={() => setMassPayloadType("role_escalate")}
                   className={`p-3 rounded-lg border text-left transition ${
                     massPayloadType === "role_escalate"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   2. Role Escalation Attack (role: &quot;administrator&quot;)
@@ -1403,8 +1406,8 @@ Generated: ${new Date().toISOString()}
                   onClick={() => setMassPayloadType("score_tamper")}
                   className={`p-3 rounded-lg border text-left transition ${
                     massPayloadType === "score_tamper"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   3. Score Tampering Attack (officialScore: 100)
@@ -1413,16 +1416,16 @@ Generated: ${new Date().toISOString()}
 
               {/* Diff View */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2">
-                  <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1">Client Injected PATCH JSON</div>
-                  <pre className="text-slate-300 text-[11px] overflow-x-auto">
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-2">
+                  <div className="text-orange-600 font-bold border-b border-stone-200 pb-1">Client Injected PATCH JSON</div>
+                  <pre className="text-stone-700 text-[11px] overflow-x-auto">
                     {JSON.stringify(massSimulation.clientPatch, null, 2)}
                   </pre>
                 </div>
 
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2">
-                  <div className="text-amber-400 font-bold border-b border-slate-800 pb-1">Resulting User Record in DB</div>
-                  <pre className="text-slate-300 text-[11px] overflow-x-auto">
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-2">
+                  <div className="text-amber-400 font-bold border-b border-stone-200 pb-1">Resulting User Record in DB</div>
+                  <pre className="text-stone-700 text-[11px] overflow-x-auto">
                     {JSON.stringify(massSimulation.updatedProfile, null, 2)}
                   </pre>
                 </div>
@@ -1450,7 +1453,7 @@ Generated: ${new Date().toISOString()}
                     </span>
                   </span>
                 </div>
-                <p className="leading-relaxed text-slate-200">{massSimulation.verdict}</p>
+                <p className="leading-relaxed text-stone-800">{massSimulation.verdict}</p>
               </div>
             </div>
           )}
@@ -1458,13 +1461,13 @@ Generated: ${new Date().toISOString()}
           {/* TAB: SIMULATOR 3 - JWT SIGNATURE DISSECTOR */}
           {activeTab === "jwt-sim" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <Key className="w-5 h-5 text-cyan-400" />
+                    <Key className="w-5 h-5 text-orange-600" />
                     <span>Simulator 3: Token Validation & JWT Signature Dissector</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Inspect cryptographic token structures, test alg:none and key-confusion attacks, and enforce claim validation.
                   </p>
                 </div>
@@ -1476,8 +1479,8 @@ Generated: ${new Date().toISOString()}
                   onClick={() => setJwtScenario("valid_token")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     jwtScenario === "valid_token"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   1. Valid RS256 Token
@@ -1486,8 +1489,8 @@ Generated: ${new Date().toISOString()}
                   onClick={() => setJwtScenario("alg_none")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     jwtScenario === "alg_none"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   2. alg: &quot;none&quot; Exploit
@@ -1496,8 +1499,8 @@ Generated: ${new Date().toISOString()}
                   onClick={() => setJwtScenario("key_confusion")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     jwtScenario === "key_confusion"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   3. Key Confusion (HS256)
@@ -1506,8 +1509,8 @@ Generated: ${new Date().toISOString()}
                   onClick={() => setJwtScenario("expired_token")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     jwtScenario === "expired_token"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   4. Expired Token
@@ -1516,8 +1519,8 @@ Generated: ${new Date().toISOString()}
                   onClick={() => setJwtScenario("audience_mismatch")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     jwtScenario === "audience_mismatch"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   5. Audience Mismatch
@@ -1526,21 +1529,21 @@ Generated: ${new Date().toISOString()}
 
               {/* Token Dissection Panels */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs font-mono">
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-1">
-                  <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1">1. Decoded Header</div>
-                  <pre className="text-slate-300 text-[11px] overflow-x-auto">
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-1">
+                  <div className="text-orange-600 font-bold border-b border-stone-200 pb-1">1. Decoded Header</div>
+                  <pre className="text-stone-700 text-[11px] overflow-x-auto">
                     {JSON.stringify(jwtAnalysis.header, null, 2)}
                   </pre>
                 </div>
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-1">
-                  <div className="text-amber-400 font-bold border-b border-slate-800 pb-1">2. Decoded Claims Payload</div>
-                  <pre className="text-slate-300 text-[11px] overflow-x-auto">
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-1">
+                  <div className="text-amber-400 font-bold border-b border-stone-200 pb-1">2. Decoded Claims Payload</div>
+                  <pre className="text-stone-700 text-[11px] overflow-x-auto">
                     {JSON.stringify(jwtAnalysis.payload, null, 2)}
                   </pre>
                 </div>
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-1">
-                  <div className="text-purple-400 font-bold border-b border-slate-800 pb-1">3. Cryptographic Signature</div>
-                  <div className="text-[11px] text-slate-300 break-all pt-2">
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-1">
+                  <div className="text-orange-600 font-bold border-b border-stone-200 pb-1">3. Cryptographic Signature</div>
+                  <div className="text-[11px] text-stone-700 break-all pt-2">
                     {jwtAnalysis.signatureStatus}
                   </div>
                 </div>
@@ -1566,7 +1569,7 @@ Generated: ${new Date().toISOString()}
                     </span>
                   </span>
                 </div>
-                <p className="leading-relaxed text-slate-200">
+                <p className="leading-relaxed text-stone-800">
                   {jwtAnalysis.tokenRejected
                     ? jwtAnalysis.rejectionReason
                     : "Cryptographic signature matches server public key; algorithm RS256 verified; expiration and audience claims verified successfully."}
@@ -1578,19 +1581,19 @@ Generated: ${new Date().toISOString()}
           {/* TAB: SIMULATOR 4 - TOKEN BUCKET RATE LIMITER */}
           {activeTab === "rate-sim" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <Activity className="w-5 h-5 text-cyan-400" />
+                    <Activity className="w-5 h-5 text-orange-600" />
                     <span>Simulator 4: Token Bucket Rate Limiter & Abuse Prevention Engine</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Simulate burst traffic against rate-limited endpoints, observe token depletion, and trigger HTTP 429 backpressure.
                   </p>
                 </div>
                 <button
                   onClick={refillBucket}
-                  className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center space-x-1"
+                  className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-800 text-xs font-semibold flex items-center space-x-1"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
                   <span>Refill Bucket (10)</span>
@@ -1598,18 +1601,18 @@ Generated: ${new Date().toISOString()}
               </div>
 
               {/* Bucket Visualizer */}
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4 text-xs">
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-4 text-xs">
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
-                    <div className="text-slate-400 font-semibold">Active Token Bucket Level:</div>
-                    <div className="text-2xl font-bold font-mono text-cyan-400">
+                    <div className="text-stone-600 font-semibold">Active Token Bucket Level:</div>
+                    <div className="text-2xl font-bold font-mono text-orange-600">
                       {tokenCount} / {bucketCapacity} Tokens
                     </div>
                   </div>
                   <div className="flex space-x-2">
                     <button
                       onClick={() => sendBurstRequests(3)}
-                      className="px-3 py-2 rounded-lg bg-cyan-950 border border-cyan-800 text-cyan-300 font-bold"
+                      className="px-3 py-2 rounded-lg bg-cyan-950 border border-cyan-800 text-orange-700 font-bold"
                     >
                       Send 3 Requests
                     </button>
@@ -1628,7 +1631,7 @@ Generated: ${new Date().toISOString()}
                   </div>
                 </div>
 
-                <div className="w-full h-3 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                <div className="w-full h-3 bg-slate-950 rounded-full overflow-hidden border border-stone-200">
                   <div
                     className={`h-full transition-all duration-300 ${
                       tokenCount > 5 ? "bg-emerald-400" : tokenCount > 0 ? "bg-amber-400" : "bg-rose-500"
@@ -1639,10 +1642,10 @@ Generated: ${new Date().toISOString()}
               </div>
 
               {/* Request Log */}
-              <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1">Live Request Stream</div>
+              <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 font-mono text-xs space-y-2">
+                <div className="text-orange-600 font-bold border-b border-stone-200 pb-1">Live Request Stream</div>
                 {requestHistory.length === 0 ? (
-                  <div className="text-slate-500 py-4 text-center">Click a burst button above to send simulated API requests.</div>
+                  <div className="text-stone-500 py-4 text-center">Click a burst button above to send simulated API requests.</div>
                 ) : (
                   <div className="space-y-1">
                     {requestHistory.map((item) => (
@@ -1655,7 +1658,7 @@ Generated: ${new Date().toISOString()}
                         }`}
                       >
                         <span>{item.message}</span>
-                        <span className="text-[10px] text-slate-500">{new Date(item.id).toLocaleTimeString()}</span>
+                        <span className="text-[10px] text-stone-500">{new Date(item.id).toLocaleTimeString()}</span>
                       </div>
                     ))}
                   </div>
@@ -1667,19 +1670,19 @@ Generated: ${new Date().toISOString()}
           {/* TAB: KNOWLEDGE ASSESSMENT QUIZ (15.11) */}
           {activeTab === "quiz" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <Award className="w-5 h-5 text-cyan-400" />
+                    <Award className="w-5 h-5 text-orange-600" />
                     <span>15.11 Authentication, Authorization & API Security Assessment</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     10 scenario-based questions to validate your mastery of BOLA, session lifecycles, JWT validation, and API defense.
                   </p>
                 </div>
                 {quizSubmitted && (
                   <div className="text-right">
-                    <span className="text-xs text-slate-400">Final Score: </span>
+                    <span className="text-xs text-stone-600">Final Score: </span>
                     <span
                       className={`text-base font-bold font-mono ${
                         quizScore >= 8 ? "text-emerald-400" : "text-amber-400"
@@ -1699,7 +1702,7 @@ Generated: ${new Date().toISOString()}
                   return (
                     <div
                       key={q.id}
-                      className="bg-slate-900/80 border border-slate-800 rounded-xl p-5 space-y-3 text-xs"
+                      className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-3 text-xs"
                     >
                       <div className="flex items-start justify-between">
                         <span className="font-bold text-white text-sm">
@@ -1721,7 +1724,7 @@ Generated: ${new Date().toISOString()}
                       <div className="space-y-2">
                         {q.options.map((opt, optIdx) => {
                           const isSelected = quizAnswers[q.id] === optIdx;
-                          let btnStyle = "bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-850";
+                          let btnStyle = "bg-slate-950 border-stone-200 text-stone-700 hover:bg-slate-850";
 
                           if (quizSubmitted) {
                             if (optIdx === q.correct) {
@@ -1729,7 +1732,7 @@ Generated: ${new Date().toISOString()}
                             } else if (isSelected) {
                               btnStyle = "bg-rose-950/60 border-rose-500 text-rose-200";
                             } else {
-                              btnStyle = "bg-slate-950/40 border-slate-900 text-slate-500";
+                              btnStyle = "bg-stone-50 border-slate-900 text-stone-500";
                             }
                           } else if (isSelected) {
                             btnStyle = "bg-cyan-950/60 border-cyan-400 text-cyan-200 font-semibold";
@@ -1743,15 +1746,15 @@ Generated: ${new Date().toISOString()}
                               className={`w-full text-left p-3 rounded-lg border transition flex items-center justify-between ${btnStyle}`}
                             >
                               <span>{opt}</span>
-                              {isSelected && <Check className="w-3.5 h-3.5 text-cyan-400" />}
+                              {isSelected && <Check className="w-3.5 h-3.5 text-orange-600" />}
                             </button>
                           );
                         })}
                       </div>
 
                       {quizSubmitted && (
-                        <div className="mt-3 p-3 bg-slate-950 rounded-lg border border-slate-800 text-slate-300 text-[11px] leading-relaxed">
-                          <strong className="text-cyan-400">Architectural Rationale: </strong>
+                        <div className="mt-3 p-3 bg-slate-950 rounded-lg border border-stone-200 text-stone-700 text-[11px] leading-relaxed">
+                          <strong className="text-orange-600">Architectural Rationale: </strong>
                           {q.explanation}
                         </div>
                       )}
@@ -1767,7 +1770,7 @@ Generated: ${new Date().toISOString()}
                   className={`w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition ${
                     Object.keys(quizAnswers).length === quizQuestions.length
                       ? "bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/20"
-                      : "bg-slate-800 text-slate-500 cursor-not-allowed"
+                      : "bg-slate-800 text-stone-500 cursor-not-allowed"
                   }`}
                 >
                   Submit Assessment ({Object.keys(quizAnswers).length}/10 Answered)
@@ -1778,7 +1781,7 @@ Generated: ${new Date().toISOString()}
                     setQuizSubmitted(false);
                     setQuizAnswers({});
                   }}
-                  className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider transition"
+                  className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-stone-800 font-bold text-xs uppercase tracking-wider transition"
                 >
                   Retake Assessment
                 </button>

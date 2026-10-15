@@ -620,14 +620,14 @@ tags:
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-purple-500/20 selection:text-purple-300">
+    <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Navigation Bar */}
-      <header className="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+      <header className="border-b border-stone-200 bg-white/80 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate("/learning")}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-white hover:bg-slate-800 transition"
               title="Return to Course Index"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -637,7 +637,7 @@ tags:
                 <span className="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   Module 24 — Final Capstone
                 </span>
-                <span className="text-xs text-slate-500 hidden sm:inline">Cybersecurity Master Course</span>
+                <span className="text-xs text-stone-500 hidden sm:inline">Cybersecurity Master Course</span>
               </div>
               <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
                 Assess, Document, Secure, Retest, and Defend a Complete Lab
@@ -649,24 +649,24 @@ tags:
 
             <button
               onClick={() => navigate("/learning/cybersecurity/pentest-reporting-remediation")}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-white hover:bg-slate-800 transition"
               title="Previous Module: Pentest Reports, Risk & Retesting"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => navigate("/learning")}
-              className="p-2 rounded-lg bg-purple-600/20 border border-purple-500/40 text-purple-300 hover:bg-purple-600/30 transition flex items-center gap-1 text-xs font-semibold px-3"
+              className="p-2 rounded-lg bg-purple-600/20 border border-purple-500/40 text-orange-700 hover:bg-purple-600/30 transition flex items-center gap-1 text-xs font-semibold px-3"
               title="Course Completed! Return to Course Index"
             >
-              <Award className="w-4 h-4 text-purple-400" />
+              <Award className="w-4 h-4 text-orange-600" />
               <span className="hidden sm:inline">Complete Track</span>
             </button>
           </div>
         </div>
 
         {/* Tab Strip */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-slate-900 py-2 no-scrollbar text-xs font-medium">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-stone-200 py-2 no-scrollbar bg-white text-xs font-medium">
           {[
             { id: "theory", label: "Curriculum Theory", icon: BookOpen },
             { id: "threat-sim", label: "Simulator: Lab Architecture & STRIDE", icon: Compass },
@@ -683,8 +683,8 @@ tags:
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md whitespace-nowrap transition ${
                   isActive
-                    ? "bg-purple-500 text-slate-950 font-bold shadow-sm"
-                    : "text-slate-400 hover:text-white hover:bg-slate-900"
+                    ? "bg-stone-900 text-white font-bold shadow-xs"
+                    : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -696,8 +696,8 @@ tags:
       </header>
 
       {/* Track & Time Header */}
-      <div className="bg-slate-900/60 border-b border-slate-800/60 py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-slate-400">
+      <div className="bg-white border-b border-stone-200 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-stone-600">
           <ModuleNav
             track="cybersecurity"
             currentModuleId="capstone"
@@ -706,8 +706,8 @@ tags:
             aiTutorLabel="Nova AI: Capstone Reviewer"
           />
           <div className="flex items-center gap-4 text-xs font-mono">
-            <span className="flex items-center gap-1 text-slate-300">
-              <Clock className="w-3.5 h-3.5 text-purple-400" /> Est: 120 mins
+            <span className="flex items-center gap-1 text-stone-700">
+              <Clock className="w-3.5 h-3.5 text-orange-600" /> Est: 120 mins
             </span>
             <span className="flex items-center gap-1 text-emerald-400 font-bold">
               <Award className="w-3.5 h-3.5 text-emerald-400" /> Final Master Capstone Project
@@ -724,38 +724,38 @@ tags:
         {activeTab === "theory" && (
           <div className="space-y-12">
             {/* 24.1 Capstone Overview */}
-            <section className="bg-gradient-to-br from-slate-900/90 via-slate-900/40 to-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl">
+            <section className="bg-white border border-stone-200/80 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl">
               <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   24.1 Capstone Overview
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   End-to-End Master Project
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-4">
                 Assess, Document, Secure, Retest, and Defend a Complete Lab Environment
               </h2>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm sm:text-base leading-relaxed mb-6">
                 This capstone synthesizes the knowledge and skills developed throughout the entire Cybersecurity and Ethical Hacking curriculum. You will plan and assess an isolated lab environment (Northstar Learning Systems), identify security weaknesses, validate findings with reproducible evidence, prioritize risks, engineer robust technical hardening, retest the environment, and demonstrate how defensive monitoring detects suspicious activity.
               </p>
 
-              <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs text-purple-300">
+              <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs text-orange-700">
                 <strong className="text-white">Portfolio-Ready Deliverable:</strong> The final output of this capstone is a comprehensive, professional project package containing the lab architecture, rules of engagement, findings register, root-cause remediation record, detection validation results, retest report, and executive defense presentation.
               </div>
             </section>
 
             {/* 24.2 Capstone Objectives */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-4">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.2 Capstone Objectives
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-6">End-to-End Professional Competencies</h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-300">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700">
                 {[
                   "Design and document a controlled, multi-tier cybersecurity lab environment.",
                   "Define scope, authorization, rules of engagement, and non-destructive test boundaries.",
@@ -768,7 +768,7 @@ tags:
                   "Retest fixes to distinguish resolved, partially resolved, and unresolved weaknesses.",
                   "Produce a professional technical report, executive summary, and defend decisions before reviewers.",
                 ].map((obj, i) => (
-                  <div key={i} className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-start gap-2.5">
+                  <div key={i} className="p-3 rounded-lg bg-stone-50 border border-stone-200/80 flex items-start gap-2.5">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{obj}</span>
                   </div>
@@ -777,52 +777,52 @@ tags:
             </section>
 
             {/* 24.3 Project Scenario */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.3 Scenario
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">
                 Engagement Context: Northstar Learning Systems
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 You are acting as a junior security engineer for Northstar Learning Systems, an educational platform operating a web portal and backend API for synthetic learners and instructors. Leadership has requested answers to five core security questions:
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-xs text-center mb-6">
-                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">1</div>
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">1</div>
                   <div className="font-bold text-white mb-1">Asset Landscape</div>
-                  <div className="text-[11px] text-slate-400">What assets & security risks exist in the lab?</div>
+                  <div className="text-[11px] text-stone-600">What assets & security risks exist in the lab?</div>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">2</div>
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">2</div>
                   <div className="font-bold text-white mb-1">Demonstrated Risk</div>
-                  <div className="text-[11px] text-slate-400">Which weaknesses are proven, and how serious?</div>
+                  <div className="text-[11px] text-stone-600">Which weaknesses are proven, and how serious?</div>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">3</div>
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">3</div>
                   <div className="font-bold text-white mb-1">Hardening Fixes</div>
-                  <div className="text-[11px] text-slate-400">What changes will reduce the greatest risks?</div>
+                  <div className="text-[11px] text-stone-600">What changes will reduce the greatest risks?</div>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">4</div>
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">4</div>
                   <div className="font-bold text-white mb-1">Detection Check</div>
-                  <div className="text-[11px] text-slate-400">Can monitoring catch suspicious activity?</div>
+                  <div className="text-[11px] text-stone-600">Can monitoring catch suspicious activity?</div>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">5</div>
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">5</div>
                   <div className="font-bold text-white mb-1">Verified Retest</div>
-                  <div className="text-[11px] text-slate-400">Do the fixes work, and what risks remain?</div>
+                  <div className="text-[11px] text-stone-600">Do the fixes work, and what risks remain?</div>
                 </div>
               </div>
             </section>
 
             {/* 24.4 Scope, Authorization & Rules of Engagement */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.4 Authorization & Scope
                 </span>
               </div>
@@ -830,12 +830,12 @@ tags:
                 Define Scope, Authorization, and Rules of Engagement
               </h3>
 
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-6">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3">Scope Item</th>
-                      <th className="p-3 text-purple-400">Capstone Definition for Northstar Lab</th>
+                      <th className="p-3 text-orange-600">Capstone Definition for Northstar Lab</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
@@ -865,9 +865,9 @@ tags:
             </section>
 
             {/* 24.6 Asset Inventory and Threat Modeling */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.6 Threat Modeling
                 </span>
               </div>
@@ -876,13 +876,13 @@ tags:
               </h3>
 
               {/* STRIDE Table */}
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-6">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3">STRIDE Category</th>
-                      <th className="p-3 text-purple-400">Northstar Capstone Example</th>
-                      <th className="p-3 text-cyan-400">Core Security Question</th>
+                      <th className="p-3 text-orange-600">Northstar Capstone Example</th>
+                      <th className="p-3 text-orange-600">Core Security Question</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
@@ -922,9 +922,9 @@ tags:
             </section>
 
             {/* 24.9 Secure and Harden the Lab */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.9 Hardening
                 </span>
               </div>
@@ -933,11 +933,11 @@ tags:
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <div className="font-bold text-purple-400 mb-2 flex items-center gap-1.5">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200">
+                  <div className="font-bold text-orange-600 mb-2 flex items-center gap-1.5">
                     <Code2 className="w-4 h-4" /> Application & API Hardening
                   </div>
-                  <ul className="space-y-1.5 text-slate-300 list-disc list-inside">
+                  <ul className="space-y-1.5 text-stone-700 list-disc list-inside">
                     <li>Enforce server-side object authorization on all CRUD routes.</li>
                     <li>Use parameterized queries with prepared statements.</li>
                     <li>Validate input against business rules; contextually encode output.</li>
@@ -945,11 +945,11 @@ tags:
                   </ul>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <div className="font-bold text-cyan-400 mb-2 flex items-center gap-1.5">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200">
+                  <div className="font-bold text-orange-600 mb-2 flex items-center gap-1.5">
                     <Server className="w-4 h-4" /> Linux Host & Network Hardening
                   </div>
-                  <ul className="space-y-1.5 text-slate-300 list-disc list-inside">
+                  <ul className="space-y-1.5 text-stone-700 list-disc list-inside">
                     <li>Migrate services to dedicated non-root users (svc-northstar).</li>
                     <li>Configure host firewall (UFW) to drop unsolicited inbound traffic.</li>
                     <li>Enable auditd rules for sensitive file watches (/etc/passwd, sudoers).</li>
@@ -960,9 +960,9 @@ tags:
             </section>
 
             {/* 24.11 Retest & 24.12 Incident Response Tabletop */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.11 & 24.12 Validation & Incident Response
                 </span>
               </div>
@@ -970,14 +970,14 @@ tags:
                 Retest Classification & Incident Response Tabletop
               </h3>
 
-              <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 mb-6">
+              <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 mb-6">
                 <h4 className="text-sm font-bold text-white mb-2">24.11.2 The 5 Retest Status Classifications</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs font-mono text-center">
                   <div className="p-2.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">Resolved</div>
                   <div className="p-2.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold">Partially Resolved</div>
                   <div className="p-2.5 rounded bg-rose-500/10 border border-rose-500/30 text-rose-400 font-bold">Not Resolved</div>
-                  <div className="p-2.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-bold">Unable to Verify</div>
-                  <div className="p-2.5 rounded bg-purple-500/10 border border-purple-500/30 text-purple-300 font-bold">Risk Accepted</div>
+                  <div className="p-2.5 rounded bg-slate-800 border border-stone-300 text-stone-700 font-bold">Unable to Verify</div>
+                  <div className="p-2.5 rounded bg-purple-500/10 border border-purple-500/30 text-orange-700 font-bold">Risk Accepted</div>
                 </div>
               </div>
             </section>
@@ -985,7 +985,7 @@ tags:
             {/* 24.14 Final Report Template */}
             <section className="bg-gradient-to-br from-slate-900 via-slate-900/60 to-purple-950/20 border border-purple-500/30 rounded-2xl p-6 sm:p-8 shadow-xl">
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.14 Capstone Deliverable
                 </span>
               </div>
@@ -995,16 +995,16 @@ tags:
 
               <div className="p-5 rounded-xl bg-slate-950 border border-purple-500/30 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                  <div className="flex items-center justify-between mb-3 border-b border-stone-200 pb-2">
                     <span className="text-xs font-bold text-white uppercase tracking-wider">
                       Master Final Report Preview
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-orange-700">
                       Portfolio-Ready
                     </span>
                   </div>
 
-                  <pre className="p-3.5 rounded-lg bg-slate-900 font-mono text-[11px] text-purple-300 whitespace-pre-wrap leading-relaxed max-h-96 overflow-y-auto">
+                  <pre className="p-3.5 rounded-lg bg-stone-50 font-mono text-[11px] text-orange-700 whitespace-pre-wrap leading-relaxed max-h-96 overflow-y-auto">
                     {capstoneFinalReportText}
                   </pre>
                 </div>
@@ -1020,9 +1020,9 @@ tags:
             </section>
 
             {/* 24.15 Assessment Rubric */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.15 Evaluation Rubric
                 </span>
               </div>
@@ -1030,49 +1030,49 @@ tags:
                 Capstone Assessment Rubric (100% Total)
               </h3>
 
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-6">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3">Assessment Area</th>
-                      <th className="p-3 text-purple-400">Weight</th>
-                      <th className="p-3 text-slate-400">What is Evaluated</th>
+                      <th className="p-3 text-orange-600">Weight</th>
+                      <th className="p-3 text-stone-600">What is Evaluated</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
                     <tr className="hover:bg-slate-800/30">
                       <td className="p-3 font-sans text-white">Scope, Authorization & Architecture</td>
-                      <td className="p-3 text-purple-400 font-bold">10%</td>
+                      <td className="p-3 text-orange-600 font-bold">10%</td>
                       <td className="p-3 font-sans">Clear boundaries, asset inventory, STRIDE threat model, safe lab design</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
                       <td className="p-3 font-sans text-white">Assessment Methodology & Evidence</td>
-                      <td className="p-3 text-purple-400 font-bold">20%</td>
+                      <td className="p-3 text-orange-600 font-bold">20%</td>
                       <td className="p-3 font-sans">Reproducibility, technical validation, sanitized evidence, honest limitations</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
                       <td className="p-3 font-sans text-white">Risk Analysis & Reporting</td>
-                      <td className="p-3 text-purple-400 font-bold">15%</td>
+                      <td className="p-3 text-orange-600 font-bold">15%</td>
                       <td className="p-3 font-sans">Clear findings, defensible CVSS severity, business risk context</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
                       <td className="p-3 font-sans text-white">Remediation & Hardening</td>
-                      <td className="p-3 text-purple-400 font-bold">20%</td>
+                      <td className="p-3 text-orange-600 font-bold">20%</td>
                       <td className="p-3 font-sans">Root-cause correction, least-privilege, secure configurations</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
                       <td className="p-3 font-sans text-white">Monitoring & Incident Response</td>
-                      <td className="p-3 text-purple-400 font-bold">15%</td>
+                      <td className="p-3 text-orange-600 font-bold">15%</td>
                       <td className="p-3 font-sans">Telemetry, detection tests, investigation, tabletop response record</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
                       <td className="p-3 font-sans text-white">Retesting & Regression Validation</td>
-                      <td className="p-3 text-purple-400 font-bold">10%</td>
+                      <td className="p-3 text-orange-600 font-bold">10%</td>
                       <td className="p-3 font-sans">Reliable before/after evidence and accurate finding status classification</td>
                     </tr>
                     <tr className="hover:bg-slate-800/30">
                       <td className="p-3 font-sans text-white">Final Defense & Communication</td>
-                      <td className="p-3 text-purple-400 font-bold">10%</td>
+                      <td className="p-3 text-orange-600 font-bold">10%</td>
                       <td className="p-3 font-sans">Clear explanation, technical reasoning, response to reviewer questions</td>
                     </tr>
                   </tbody>
@@ -1081,9 +1081,9 @@ tags:
             </section>
 
             {/* 24.17 Official References & 24.18 Final Takeaways */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   24.17 & 24.18 Standards & Takeaways
                 </span>
               </div>
@@ -1091,7 +1091,7 @@ tags:
                 Authoritative Frameworks & Final Capstone Takeaways
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-300">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700">
                 {[
                   "A complete security assessment starts with authorization, scope, asset discovery, and threat modeling.",
                   "Security findings must be supported by evidence and clearly distinguish confirmed behavior from potential impact.",
@@ -1102,7 +1102,7 @@ tags:
                   "A professional final report connects architecture, assessment evidence, risk decisions, remediation, detection validation, and residual risk.",
                   "A strong portfolio project demonstrates not just that weaknesses were found, but that security improved measurably and the evidence supports that conclusion.",
                 ].map((point, idx) => (
-                  <div key={idx} className="p-3.5 rounded-lg bg-slate-950/60 border border-slate-800 flex items-start gap-2.5">
+                  <div key={idx} className="p-3.5 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2.5">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{point}</span>
                   </div>
@@ -1117,16 +1117,16 @@ tags:
         {/* ================================================================== */}
         {activeTab === "threat-sim" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 1
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Lab Architecture & STRIDE Threat Model Explorer
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Select a component in the Northstar Learning Systems architecture to inspect threat boundaries and STRIDE mitigations.
                   </p>
                 </div>
@@ -1150,7 +1150,7 @@ tags:
                       className={`p-4 rounded-xl text-left border transition ${
                         isSelected
                           ? "bg-purple-600 text-white border-purple-500 shadow-md"
-                          : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white"
+                          : "bg-stone-50 border-stone-200 text-stone-600 hover:border-stone-300 hover:text-white"
                       }`}
                     >
                       <Icon className="w-5 h-5 mb-2" />
@@ -1161,28 +1161,28 @@ tags:
               </div>
 
               {/* Component STRIDE Threat Details */}
-              <div className="p-6 rounded-xl bg-slate-950 border border-slate-800">
-                <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+              <div className="p-6 rounded-xl bg-stone-50 border border-stone-200/80">
+                <div className="flex items-center justify-between mb-4 border-b border-stone-200 pb-3">
                   <div>
                     <div className="text-sm font-bold text-white">{componentsData[selectedComponent].name}</div>
-                    <div className="text-xs text-purple-400 font-mono mt-0.5">{componentsData[selectedComponent].tech}</div>
+                    <div className="text-xs text-orange-600 font-mono mt-0.5">{componentsData[selectedComponent].tech}</div>
                   </div>
-                  <span className="px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 text-[11px] font-mono font-bold">
+                  <span className="px-2.5 py-0.5 rounded bg-purple-500/20 text-orange-700 text-[11px] font-mono font-bold">
                     STRIDE Analysis Active
                   </span>
                 </div>
 
                 <div className="space-y-3">
                   {componentsData[selectedComponent].strideThreats.map((th, idx) => (
-                    <div key={idx} className="p-3.5 rounded-lg bg-slate-900 border border-slate-800 text-xs flex flex-col md:flex-row md:items-center justify-between gap-3">
+                    <div key={idx} className="p-3.5 rounded-lg bg-white border border-stone-200/80 shadow-xs text-xs flex flex-col md:flex-row md:items-center justify-between gap-3">
                       <div className="space-y-1 md:w-1/2">
                         <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-bold font-mono text-[10px]">
                           {th.threat}
                         </span>
-                        <div className="text-slate-300 mt-1">{th.desc}</div>
+                        <div className="text-stone-700 mt-1">{th.desc}</div>
                       </div>
-                      <div className="md:w-1/2 p-2 rounded bg-slate-950 border border-slate-800/80 text-emerald-400 font-mono text-[11px]">
-                        <strong className="text-slate-400 font-sans">Mitigation: </strong>{th.mitigation}
+                      <div className="md:w-1/2 p-2 rounded bg-stone-50 border border-stone-200/80/80 text-emerald-400 font-mono text-[11px]">
+                        <strong className="text-stone-600 font-sans">Mitigation: </strong>{th.mitigation}
                       </div>
                     </div>
                   ))}
@@ -1197,16 +1197,16 @@ tags:
         {/* ================================================================== */}
         {activeTab === "register-sim" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 2
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Dynamic Findings Register & Risk Prioritizer
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Manage findings, assign engineering owners, toggle remediation status, and export the register.
                   </p>
                 </div>
@@ -1214,7 +1214,7 @@ tags:
                 <div className="flex items-center gap-2">
                   <button
                     onClick={addFinding}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center gap-1.5 transition"
+                    className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 text-xs flex items-center gap-1.5 transition"
                   >
                     <PlusCircle className="w-3.5 h-3.5" /> Add Finding
                   </button>
@@ -1233,17 +1233,17 @@ tags:
                 {findingsRegister.map((f) => (
                   <div
                     key={f.id}
-                    className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs"
+                    className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs"
                   >
                     <div className="flex items-center gap-3 w-full md:w-2/5">
-                      <span className="font-mono font-bold text-purple-400 px-2 py-1 rounded bg-slate-900 border border-slate-800 shrink-0">
+                      <span className="font-mono font-bold text-orange-600 px-2 py-1 rounded bg-white border border-stone-200/80 shadow-xs shrink-0">
                         {f.id}
                       </span>
                       <input
                         type="text"
                         value={f.title}
                         onChange={(e) => updateFinding(f.id, "title", e.target.value)}
-                        className="w-full p-1.5 rounded bg-slate-900 border border-slate-800 text-slate-200 text-xs font-semibold focus:outline-none focus:border-purple-500"
+                        className="w-full p-1.5 rounded bg-white border border-stone-200/80 shadow-xs text-stone-800 text-xs font-semibold focus:outline-none focus:border-purple-500"
                       />
                     </div>
 
@@ -1268,7 +1268,7 @@ tags:
                       <select
                         value={f.status}
                         onChange={(e) => updateFinding(f.id, "status", e.target.value)}
-                        className="p-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 text-xs"
+                        className="p-1.5 rounded bg-white border border-stone-200/80 shadow-xs text-stone-700 text-xs"
                       >
                         <option value="Open">Open</option>
                         <option value="In Remediation">In Remediation</option>
@@ -1283,7 +1283,7 @@ tags:
                         value={f.owner}
                         onChange={(e) => updateFinding(f.id, "owner", e.target.value)}
                         placeholder="Owner"
-                        className="w-32 p-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 text-xs"
+                        className="w-32 p-1.5 rounded bg-white border border-stone-200/80 shadow-xs text-stone-700 text-xs"
                       />
 
                       <button
@@ -1306,16 +1306,16 @@ tags:
         {/* ================================================================== */}
         {activeTab === "hardening-sim" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 3
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Security Hardening & Before/After Diff Inspector
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Compare vulnerable configurations against secured implementations and check technical verification verdicts.
                   </p>
                 </div>
@@ -1335,7 +1335,7 @@ tags:
                     className={`p-3 rounded-xl text-left border transition text-xs font-bold ${
                       selectedHardeningDomain === item.id
                         ? "bg-purple-600 text-white border-purple-500"
-                        : "bg-slate-950/60 border-slate-800 text-slate-300 hover:bg-slate-800"
+                        : "bg-stone-50 border-stone-200 text-stone-700 hover:bg-slate-800"
                     }`}
                   >
                     {item.label}
@@ -1344,17 +1344,17 @@ tags:
               </div>
 
               {/* Before vs After Side-by-Side Diff */}
-              <div className="p-6 rounded-xl bg-slate-950 border border-slate-800">
-                <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+              <div className="p-6 rounded-xl bg-stone-50 border border-stone-200/80">
+                <div className="flex items-center justify-between mb-4 border-b border-stone-200 pb-3">
                   <div>
                     <div className="text-sm font-bold text-white">{hardeningDiffs[selectedHardeningDomain].title}</div>
-                    <div className="text-xs text-purple-400 font-mono mt-0.5">{hardeningDiffs[selectedHardeningDomain].file}</div>
+                    <div className="text-xs text-orange-600 font-mono mt-0.5">{hardeningDiffs[selectedHardeningDomain].file}</div>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
                   {/* Before */}
-                  <div className="p-4 rounded-xl bg-slate-900 border border-rose-500/30">
+                  <div className="p-4 rounded-xl bg-stone-50 border border-rose-500/30">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-rose-400 mb-2">
                       <XCircle className="w-4 h-4" /> Vulnerable Initial State (Before)
                     </div>
@@ -1364,7 +1364,7 @@ tags:
                   </div>
 
                   {/* After */}
-                  <div className="p-4 rounded-xl bg-slate-900 border border-emerald-500/30">
+                  <div className="p-4 rounded-xl bg-stone-50 border border-emerald-500/30">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-400 mb-2">
                       <CheckCircle2 className="w-4 h-4" /> Hardened & Secured State (After)
                     </div>
@@ -1388,16 +1388,16 @@ tags:
         {/* ================================================================== */}
         {activeTab === "tabletop-sim" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 4
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Incident Response Tabletop & Containment Reconstructor
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Walk through the simulated BOLA probe incident, reconstruct timeline evidence, and execute containment.
                   </p>
                 </div>
@@ -1405,7 +1405,7 @@ tags:
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleResetTabletop}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center gap-1.5 transition"
+                    className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 text-xs flex items-center gap-1.5 transition"
                   >
                     <RotateCcw className="w-3.5 h-3.5" /> Reset Exercise
                   </button>
@@ -1423,26 +1423,26 @@ tags:
 
               {/* Progress Steps */}
               <div className="grid grid-cols-3 gap-2 text-center text-xs mb-6">
-                <div className={`p-2.5 rounded-lg border font-bold ${tabletopStep >= 1 ? "bg-purple-600 text-white border-purple-500" : "bg-slate-950 border-slate-800 text-slate-500"}`}>
+                <div className={`p-2.5 rounded-lg border font-bold ${tabletopStep >= 1 ? "bg-purple-600 text-white border-purple-500" : "bg-slate-950 border-stone-200 text-stone-500"}`}>
                   1. Triage & Correlate
                 </div>
-                <div className={`p-2.5 rounded-lg border font-bold ${tabletopStep >= 2 ? "bg-purple-600 text-white border-purple-500" : "bg-slate-950 border-slate-800 text-slate-500"}`}>
+                <div className={`p-2.5 rounded-lg border font-bold ${tabletopStep >= 2 ? "bg-purple-600 text-white border-purple-500" : "bg-slate-950 border-stone-200 text-stone-500"}`}>
                   2. Active Containment
                 </div>
-                <div className={`p-2.5 rounded-lg border font-bold ${tabletopStep >= 3 ? "bg-purple-600 text-white border-purple-500" : "bg-slate-950 border-slate-800 text-slate-500"}`}>
+                <div className={`p-2.5 rounded-lg border font-bold ${tabletopStep >= 3 ? "bg-purple-600 text-white border-purple-500" : "bg-slate-950 border-stone-200 text-stone-500"}`}>
                   3. Forensic Sign-Off
                 </div>
               </div>
 
               {/* Live Incident Log Terminal */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                 <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-purple-400" /> Incident Timeline & Command Log
+                  <Terminal className="w-4 h-4 text-orange-600" /> Incident Timeline & Command Log
                 </div>
 
-                <div className="p-3.5 rounded bg-slate-900 border border-slate-800 min-h-[160px] font-mono text-[11px] space-y-1.5 text-slate-300">
+                <div className="p-3.5 rounded bg-white border border-stone-200/80 shadow-xs min-h-[160px] font-mono text-[11px] space-y-1.5 text-stone-700">
                   {tabletopLogs.map((log, idx) => {
-                    let color = "text-slate-300";
+                    let color = "text-stone-700";
                     if (log.includes("[SIEM ALERT]")) color = "text-rose-400 font-bold";
                     if (log.includes("[CONTAINMENT")) color = "text-amber-400 font-bold";
                     if (log.includes("[INCIDENT CLOSED]")) color = "text-emerald-400 font-bold";
@@ -1459,26 +1459,26 @@ tags:
         {/* ================================================================== */}
         {activeTab === "quiz" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Section 24.16
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Capstone Comprehensive Assessment
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Final mastery assessment testing scope boundaries, evidence rigor, root-cause remediation, and tabletop incident response.
                   </p>
                 </div>
 
                 <div className="text-right">
-                  <div className="text-xs text-slate-400">
+                  <div className="text-xs text-stone-600">
                     {Object.keys(quizAnswers).length} of {quizQuestions.length} Answered
                   </div>
                   {quizSubmitted && (
-                    <div className="text-sm font-bold mt-1 text-purple-400">
+                    <div className="text-sm font-bold mt-1 text-orange-600">
                       Score: {quizScore} / {quizQuestions.length} ({Math.round((quizScore / quizQuestions.length) * 100)}%)
                     </div>
                   )}
@@ -1493,10 +1493,10 @@ tags:
                   return (
                     <div
                       key={q.id}
-                      className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 transition"
+                      className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 transition"
                     >
                       <div className="font-bold text-sm text-white mb-3 flex items-start gap-2.5">
-                        <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                        <span className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-700 flex items-center justify-center text-xs shrink-0 mt-0.5">
                           {idx + 1}
                         </span>
                         <span>{q.question}</span>
@@ -1505,7 +1505,7 @@ tags:
                       <div className="space-y-2 mb-3">
                         {q.options.map((opt, oIdx) => {
                           const isOptionSelected = selected === oIdx;
-                          let btnStyle = "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800";
+                          let btnStyle = "bg-stone-50 border-stone-200 text-stone-700 hover:bg-slate-800";
 
                           if (quizSubmitted) {
                             if (oIdx === q.correctAnswer) {
@@ -1536,8 +1536,8 @@ tags:
                       </div>
 
                       {quizSubmitted && (
-                        <div className="p-3 rounded-lg bg-slate-900/90 border border-slate-800 text-xs text-slate-300 leading-relaxed">
-                          <span className="font-bold text-purple-400">Explanation: </span>
+                        <div className="p-3 rounded-lg bg-white border border-stone-200/80 shadow-xs text-xs text-stone-700 leading-relaxed">
+                          <span className="font-bold text-orange-600">Explanation: </span>
                           {q.explanation}
                         </div>
                       )}
@@ -1547,10 +1547,10 @@ tags:
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-8 flex items-center justify-between pt-4 border-t border-slate-800">
+              <div className="mt-8 flex items-center justify-between pt-4 border-t border-stone-200">
                 <button
                   onClick={resetQuiz}
-                  className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 text-xs font-medium transition flex items-center gap-1.5"
                 >
                   <RotateCcw className="w-3.5 h-3.5" /> Reset Quiz
                 </button>
@@ -1564,7 +1564,7 @@ tags:
                     Submit Quiz
                   </button>
                 ) : (
-                  <div className="text-xs font-bold text-purple-400">
+                  <div className="text-xs font-bold text-orange-600">
                     Capstone Assessment Complete! Check rationales above.
                   </div>
                 )}

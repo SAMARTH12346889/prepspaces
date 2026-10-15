@@ -627,24 +627,24 @@ level: critical`;
 2026-10-15T10:05:00Z,lab-user-03,authentication,success,lab-host-c,PT-003`;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-purple-500/20 selection:text-purple-300">
+    <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Navigation Bar */}
-      <header className="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+      <header className="border-b border-stone-200 bg-white/80 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate("/learning")}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-white hover:bg-slate-800 transition"
               title="Return to Course Index"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2 py-0.5 rounded text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   Module 22
                 </span>
-                <span className="text-xs text-slate-500 hidden sm:inline">Cybersecurity Master Course</span>
+                <span className="text-xs text-stone-500 hidden sm:inline">Cybersecurity Master Course</span>
               </div>
               <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
                 Red & Blue Team Ops, Detection Engineering & Purple Teaming
@@ -656,14 +656,14 @@ level: critical`;
 
             <button
               onClick={() => navigate("/learning/cybersecurity/pentest-methodology")}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-white hover:bg-slate-800 transition"
               title="Previous Module: Pentest Planning & Evidence"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => navigate("/learning/cybersecurity/pentest-reporting-remediation")}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+              className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-600 hover:text-white hover:bg-slate-800 transition"
               title="Next Module: Pentest Reports, Risk Ratings & Retesting"
             >
               <ArrowRight className="w-4 h-4" />
@@ -672,7 +672,7 @@ level: critical`;
         </div>
 
         {/* Tab Strip */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-slate-900 py-2 no-scrollbar text-xs font-medium">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-stone-200 py-2 no-scrollbar bg-white text-xs font-medium">
           {[
             { id: "theory", label: "Curriculum Theory", icon: BookOpen },
             { id: "attack-sim", label: "Simulator: Adversary Emulation & MITRE Matrix", icon: Target },
@@ -689,8 +689,8 @@ level: critical`;
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md whitespace-nowrap transition ${
                   isActive
-                    ? "bg-purple-500 text-slate-950 font-bold shadow-sm"
-                    : "text-slate-400 hover:text-white hover:bg-slate-900"
+                    ? "bg-stone-900 text-white font-bold shadow-xs"
+                    : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -702,8 +702,8 @@ level: critical`;
       </header>
 
       {/* Track & Time Header */}
-      <div className="bg-slate-900/60 border-b border-slate-800/60 py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-slate-400">
+      <div className="bg-white border-b border-stone-200 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-stone-600">
           <ModuleNav
             track="cybersecurity"
             currentModuleId="red-blue-purple-teams"
@@ -712,10 +712,10 @@ level: critical`;
             aiTutorLabel="Nova AI: Detection Architect"
           />
           <div className="flex items-center gap-4 text-xs font-mono">
-            <span className="flex items-center gap-1 text-slate-300">
-              <Clock className="w-3.5 h-3.5 text-purple-400" /> Est: 75 mins
+            <span className="flex items-center gap-1 text-stone-700">
+              <Clock className="w-3.5 h-3.5 text-orange-600" /> Est: 75 mins
             </span>
-            <span className="flex items-center gap-1 text-slate-300">
+            <span className="flex items-center gap-1 text-stone-700">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Threat-Informed Collaborative Defense
             </span>
           </div>
@@ -730,20 +730,20 @@ level: critical`;
         {activeTab === "theory" && (
           <div className="space-y-12">
             {/* 22.1 Module Overview */}
-            <section className="bg-gradient-to-br from-slate-900/90 via-slate-900/40 to-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl">
+            <section className="bg-white border border-stone-200/80 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl">
               <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.1 Module Overview
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-stone-700 border border-stone-300">
                   Intermediate to Advanced
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-4">
                 Adversary Simulation, Defensive Operations & Purple Team Validation
               </h2>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm sm:text-base leading-relaxed mb-6">
                 Modern cybersecurity requires more than identifying vulnerabilities. Organizations must understand how adversaries behave, detect suspicious activity across their systems, investigate alerts, and continuously improve their defenses.
               </p>
 
@@ -753,7 +753,7 @@ level: critical`;
                     <div className="flex items-center gap-2 text-rose-400 font-bold text-sm mb-2">
                       <Swords className="w-4 h-4" /> Red Team — Adversary Simulation
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-stone-700 leading-relaxed">
                       Simulates realistic adversary behavior within an approved scope to evaluate security controls and identify gaps. Objective-driven and bounded by strict rules of engagement.
                     </p>
                   </div>
@@ -764,28 +764,28 @@ level: critical`;
 
                 <div className="p-5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-2 text-cyan-400 font-bold text-sm mb-2">
+                    <div className="flex items-center gap-2 text-orange-600 font-bold text-sm mb-2">
                       <Shield className="w-4 h-4" /> Blue Team — Defense & Response
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-stone-700 leading-relaxed">
                       Collects security telemetry, monitors alerts, investigates incidents, hunts for threats, contains confirmed activity, and engineers resilient detection logic.
                     </p>
                   </div>
-                  <div className="mt-3 pt-3 border-t border-cyan-500/20 text-[11px] font-mono text-cyan-300">
+                  <div className="mt-3 pt-3 border-t border-cyan-500/20 text-[11px] font-mono text-orange-700">
                     Focus: Telemetry, triage, containment, tuning
                   </div>
                 </div>
 
                 <div className="p-5 rounded-xl bg-purple-500/10 border border-purple-500/30 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-2 text-purple-400 font-bold text-sm mb-2">
+                    <div className="flex items-center gap-2 text-orange-600 font-bold text-sm mb-2">
                       <Users className="w-4 h-4" /> Purple Team — Collaborative Validation
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-stone-700 leading-relaxed">
                       Brings red and blue teams together to validate detections, share evidence, uncover root causes of blind spots, and turn attack simulations into measurable defensive improvements.
                     </p>
                   </div>
-                  <div className="mt-3 pt-3 border-t border-purple-500/20 text-[11px] font-mono text-purple-300">
+                  <div className="mt-3 pt-3 border-t border-purple-500/20 text-[11px] font-mono text-orange-700">
                     Focus: Joint feedback loops, retesting, metrics
                   </div>
                 </div>
@@ -800,15 +800,15 @@ level: critical`;
             </section>
 
             {/* 22.2 Learning Objectives */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-4">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.2 Learning Objectives
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-6">Skills & Capabilities Developed</h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-300">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700">
                 {[
                   "Explain the distinct roles and responsibilities of red, blue, and purple teams.",
                   "Distinguish penetration testing, red teaming, threat hunting, and detection engineering.",
@@ -821,8 +821,8 @@ level: critical`;
                   "Document evidence, communicate findings, and recommend defensive improvements.",
                   "Build a repeatable workflow for testing and continuously improving security detections.",
                 ].map((obj, i) => (
-                  <div key={i} className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-start gap-2.5">
-                    <CheckCircle className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                  <div key={i} className="p-3 rounded-lg bg-stone-50 border border-stone-200/80 flex items-start gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                     <span>{obj}</span>
                   </div>
                 ))}
@@ -830,9 +830,9 @@ level: critical`;
             </section>
 
             {/* 22.3 Understanding Red, Blue, and Purple Teams */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.3 Foundations
                 </span>
               </div>
@@ -840,7 +840,7 @@ level: critical`;
                 Understanding Red, Blue, and Purple Teams
               </h3>
 
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 Information security functions are often divided into distinct tactical groups. While they operate with different mindsets, their ultimate goal is identical: resilience against real-world adversaries.
               </p>
 
@@ -849,14 +849,14 @@ level: critical`;
                 <span>22.3.1 Comparing the Teams Across Core Operational Dimensions</span>
               </h4>
 
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-6">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3.5">Dimension</th>
                       <th className="p-3.5 text-rose-400">Red Team</th>
-                      <th className="p-3.5 text-cyan-400">Blue Team</th>
-                      <th className="p-3.5 text-purple-400">Purple Team</th>
+                      <th className="p-3.5 text-orange-600">Blue Team</th>
+                      <th className="p-3.5 text-orange-600">Purple Team</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
@@ -894,13 +894,13 @@ level: critical`;
                 </table>
               </div>
 
-              <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs text-purple-300">
+              <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs text-orange-700">
                 <strong className="text-white">Important Distinction:</strong> A penetration test generally concentrates on finding and validating vulnerabilities in a defined target application or network range. A red team exercise evaluates whether an organization&apos;s people, processes, and technologies can detect and resist a realistic, objective-driven simulation. <em>Purple teaming is a collaborative improvement process</em>, not simply another name for penetration testing.
               </div>
             </section>
 
             {/* 22.4 Red Team Operations: Planning and Execution */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
                   22.4 Red Team Operations
@@ -909,20 +909,20 @@ level: critical`;
               <h3 className="text-xl font-bold text-white mb-4">
                 Red Team Operations: Planning and Execution
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 Red team operations must be objective-driven, controlled, and evidence-based. The purpose is not to run as many automated exploits as possible; it is to answer a specific security question, such as whether an organization can identify suspicious account activity or detect an unexpected change to a critical asset.
               </p>
 
               {/* 22.4.1 & 22.4.2 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
                   <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
                     <Target className="w-4 h-4 text-rose-400" /> 22.4.1 Define the Objective
                   </h4>
-                  <p className="text-xs text-slate-300 mb-3">
+                  <p className="text-xs text-stone-700 mb-3">
                     Every engagement begins with a clearly defined objective bounded by time and authorization:
                   </p>
-                  <ul className="space-y-1.5 text-xs text-slate-400 list-disc list-inside">
+                  <ul className="space-y-1.5 text-xs text-stone-600 list-disc list-inside">
                     <li>Determine whether unusual administrative activity generates a security alert.</li>
                     <li>Evaluate whether endpoint telemetry captures suspicious script execution.</li>
                     <li>Test whether access-control monitoring detects unauthorized resource access.</li>
@@ -931,35 +931,35 @@ level: critical`;
                   </ul>
                 </div>
 
-                <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
                   <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
                     <ShieldAlert className="w-4 h-4 text-amber-400" /> 22.4.2 Rules of Engagement (RoE)
                   </h4>
-                  <p className="text-xs text-slate-300 mb-3">
+                  <p className="text-xs text-stone-700 mb-3">
                     Mandatory parameters documented and signed before running any simulation:
                   </p>
-                  <div className="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-300">
-                    <span className="p-1.5 rounded bg-slate-900 border border-slate-800">• Authorization: Named owner</span>
-                    <span className="p-1.5 rounded bg-slate-900 border border-slate-800">• Scope: Explicit hosts/IPs</span>
-                    <span className="p-1.5 rounded bg-slate-900 border border-slate-800">• Exclusions: Out-of-bounds assets</span>
-                    <span className="p-1.5 rounded bg-slate-900 border border-slate-800">• Test Window: Start/end UTC</span>
-                    <span className="p-1.5 rounded bg-slate-900 border border-slate-800">• Stop Conditions: Safety limits</span>
-                    <span className="p-1.5 rounded bg-slate-900 border border-slate-800">• Cleanup: Removal of artifacts</span>
+                  <div className="grid grid-cols-2 gap-2 text-[11px] font-mono text-stone-700">
+                    <span className="p-1.5 rounded bg-white border border-stone-200/80 shadow-xs">• Authorization: Named owner</span>
+                    <span className="p-1.5 rounded bg-white border border-stone-200/80 shadow-xs">• Scope: Explicit hosts/IPs</span>
+                    <span className="p-1.5 rounded bg-white border border-stone-200/80 shadow-xs">• Exclusions: Out-of-bounds assets</span>
+                    <span className="p-1.5 rounded bg-white border border-stone-200/80 shadow-xs">• Test Window: Start/end UTC</span>
+                    <span className="p-1.5 rounded bg-white border border-stone-200/80 shadow-xs">• Stop Conditions: Safety limits</span>
+                    <span className="p-1.5 rounded bg-white border border-stone-200/80 shadow-xs">• Cleanup: Removal of artifacts</span>
                   </div>
                 </div>
               </div>
 
               {/* 22.4.3 Threat-Informed Test Scenario Planning Matrix */}
               <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                <Radar className="w-4 h-4 text-purple-400" /> 22.4.3 Threat-Informed Scenario Planning Matrix
+                <Radar className="w-4 h-4 text-orange-600" /> 22.4.3 Threat-Informed Scenario Planning Matrix
               </h4>
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-6">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3">Test Question</th>
                       <th className="p-3 text-rose-400">Simulated Behavior</th>
-                      <th className="p-3 text-cyan-400">Defensive Question</th>
+                      <th className="p-3 text-orange-600">Defensive Question</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
@@ -988,69 +988,69 @@ level: critical`;
               </div>
 
               {/* 22.4.4 Controlled Evidence Collection */}
-              <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-xs text-slate-300">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700">
                 <span className="font-bold text-white">22.4.4 Evidence Handling Requirement:</span> For each simulation step, record: Test identifier, start/end timestamps (UTC), target host/account, expected events, observed events/alerts, analyst actions, and cleanup verification. A failed detection does not imply complete program failure; it isolates whether the gap was caused by sensor failure, pipeline drop, parser defect, or alert suppression.
               </div>
             </section>
 
             {/* 22.5 Blue Team Operations: Monitoring, Triage, and Response */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
                   22.5 Blue Team Operations
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">
                 Blue Team Operations: Monitoring, Triage, and Response
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 The blue team turns raw security telemetry into defensible decisions. A mature operation combines reliable telemetry, meaningful detections, contextual investigation, and carefully controlled response actions.
               </p>
 
               {/* 22.5.1 The 5-Stage Monitoring Pipeline */}
               <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                <Workflow className="w-4 h-4 text-cyan-400" /> 22.5.1 The Security Monitoring Pipeline
+                <Workflow className="w-4 h-4 text-orange-600" /> 22.5.1 The Security Monitoring Pipeline
               </h4>
 
               <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 text-center text-xs mb-8">
-                <div className="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">1</div>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">1</div>
                   <div className="font-bold text-white mb-1">Generate Events</div>
-                  <div className="text-[11px] text-slate-400">Endpoints, IdPs, cloud audit, firewalls</div>
+                  <div className="text-[11px] text-stone-600">Endpoints, IdPs, cloud audit, firewalls</div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">2</div>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">2</div>
                   <div className="font-bold text-white mb-1">Collect & Normalize</div>
-                  <div className="text-[11px] text-slate-400">Agents, log shippers, ECS parsing, timestamps</div>
+                  <div className="text-[11px] text-stone-600">Agents, log shippers, ECS parsing, timestamps</div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">3</div>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">3</div>
                   <div className="font-bold text-white mb-1">Analyze & Correlate</div>
-                  <div className="text-[11px] text-slate-400">Sigma rules, thresholds, multi-hop correlation</div>
+                  <div className="text-[11px] text-stone-600">Sigma rules, thresholds, multi-hop correlation</div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">4</div>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">4</div>
                   <div className="font-bold text-white mb-1">Alert & Investigate</div>
-                  <div className="text-[11px] text-slate-400">Triage queue, asset context, evidence correlation</div>
+                  <div className="text-[11px] text-stone-600">Triage queue, asset context, evidence correlation</div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold mx-auto mb-2 flex items-center justify-center text-xs">5</div>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200/80">
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-orange-600 font-bold mx-auto mb-2 flex items-center justify-center text-xs">5</div>
                   <div className="font-bold text-white mb-1">Respond & Improve</div>
-                  <div className="text-[11px] text-slate-400">Containment, tuning, retesting, regression checks</div>
+                  <div className="text-[11px] text-stone-600">Containment, tuning, retesting, regression checks</div>
                 </div>
               </div>
 
               {/* 22.5.2 Telemetry Sources Table */}
               <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                <Database className="w-4 h-4 text-cyan-400" /> 22.5.2 Common Telemetry Sources & Investigation Context
+                <Database className="w-4 h-4 text-orange-600" /> 22.5.2 Common Telemetry Sources & Investigation Context
               </h4>
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-8">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-8">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3">Source</th>
-                      <th className="p-3 text-cyan-400">Useful Fields</th>
-                      <th className="p-3 text-slate-300">Typical Investigation</th>
+                      <th className="p-3 text-orange-600">Useful Fields</th>
+                      <th className="p-3 text-stone-700">Typical Investigation</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
@@ -1095,11 +1095,11 @@ level: critical`;
 
               {/* 22.5.3 Alert Triage Workflow & 22.5.4 Severity Matrix */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
                   <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-                    <Filter className="w-4 h-4 text-cyan-400" /> 22.5.3 Alert Triage Workflow (7 Steps)
+                    <Filter className="w-4 h-4 text-orange-600" /> 22.5.3 Alert Triage Workflow (7 Steps)
                   </h4>
-                  <ol className="space-y-1 text-xs text-slate-300 list-decimal list-inside">
+                  <ol className="space-y-1 text-xs text-stone-700 list-decimal list-inside">
                     <li><strong className="text-white">Validate alert:</strong> Confirm rule, fields, time range, source.</li>
                     <li><strong className="text-white">Establish context:</strong> Identify user, asset role, scheduled changes.</li>
                     <li><strong className="text-white">Correlate evidence:</strong> Check identity, network, host logs.</li>
@@ -1110,26 +1110,26 @@ level: critical`;
                   </ol>
                 </div>
 
-                <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
                   <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
                     <Flame className="w-4 h-4 text-rose-400" /> 22.5.4 Incident Severity & Escalation (NIST SP 800-61)
                   </h4>
                   <div className="space-y-2 text-xs">
                     <div className="p-2 rounded bg-rose-500/10 border border-rose-500/30 flex justify-between items-center">
                       <span className="font-bold text-rose-400">Critical</span>
-                      <span className="text-slate-300">Confirmed compromise of critical system; immediate containment</span>
+                      <span className="text-stone-700">Confirmed compromise of critical system; immediate containment</span>
                     </div>
                     <div className="p-2 rounded bg-orange-500/10 border border-orange-500/30 flex justify-between items-center">
                       <span className="font-bold text-orange-400">High</span>
-                      <span className="text-slate-300">Unauthorized privileged activity; urgent investigation & owner alert</span>
+                      <span className="text-stone-700">Unauthorized privileged activity; urgent investigation & owner alert</span>
                     </div>
                     <div className="p-2 rounded bg-amber-500/10 border border-amber-500/30 flex justify-between items-center">
                       <span className="font-bold text-amber-400">Medium</span>
-                      <span className="text-slate-300">Suspicious activity requiring validation; prioritized review</span>
+                      <span className="text-stone-700">Suspicious activity requiring validation; prioritized review</span>
                     </div>
                     <div className="p-2 rounded bg-blue-500/10 border border-blue-500/30 flex justify-between items-center">
                       <span className="font-bold text-blue-400">Low</span>
-                      <span className="text-slate-300">Weak signal or policy deviation; routine review and documented closure</span>
+                      <span className="text-stone-700">Weak signal or policy deviation; routine review and documented closure</span>
                     </div>
                   </div>
                 </div>
@@ -1137,63 +1137,63 @@ level: critical`;
             </section>
 
             {/* 22.6 Detection Engineering: From Hypothesis to Validated Rule */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.6 Detection Engineering
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">
                 Detection Engineering: From Hypothesis to Validated Rule
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 Detection engineering is the disciplined software engineering practice of designing, implementing, testing, deploying, and tuning detection logic as code.
               </p>
 
               {/* 22.6.1 The 7 Lifecycle Stages */}
               <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                <Workflow className="w-4 h-4 text-purple-400" /> 22.6.1 The Detection Engineering Lifecycle
+                <Workflow className="w-4 h-4 text-orange-600" /> 22.6.1 The Detection Engineering Lifecycle
               </h4>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs mb-8">
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800 flex items-start gap-2">
-                  <span className="font-mono font-bold text-purple-400 shrink-0">1.</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
+                  <span className="font-mono font-bold text-orange-600 shrink-0">1.</span>
                   <div>
                     <strong className="text-white">Define Threat Hypothesis:</strong> State what suspicious behavior the rule detects and the adversary threat model behind it.
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800 flex items-start gap-2">
-                  <span className="font-mono font-bold text-purple-400 shrink-0">2.</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
+                  <span className="font-mono font-bold text-orange-600 shrink-0">2.</span>
                   <div>
                     <strong className="text-white">Identify Required Telemetry:</strong> Pinpoint exact log sources, audit channels, and fields (e.g. Sysmon Event ID 1).
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800 flex items-start gap-2">
-                  <span className="font-mono font-bold text-purple-400 shrink-0">3.</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
+                  <span className="font-mono font-bold text-orange-600 shrink-0">3.</span>
                   <div>
                     <strong className="text-white">Design Analytic Logic:</strong> Author selection filters, threshold counters, grouping keys, and exclusion filters.
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800 flex items-start gap-2">
-                  <span className="font-mono font-bold text-purple-400 shrink-0">4.</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
+                  <span className="font-mono font-bold text-orange-600 shrink-0">4.</span>
                   <div>
                     <strong className="text-white">Test Against Known Datasets:</strong> Run synthetic test cases with positive triggers and negative benign controls.
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800 flex items-start gap-2">
-                  <span className="font-mono font-bold text-purple-400 shrink-0">5.</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
+                  <span className="font-mono font-bold text-orange-600 shrink-0">5.</span>
                   <div>
                     <strong className="text-white">Validate in Target SIEM/EDR:</strong> Confirm field parser compatibility, regex execution speed, and index performance.
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800 flex items-start gap-2">
-                  <span className="font-mono font-bold text-purple-400 shrink-0">6.</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2">
+                  <span className="font-mono font-bold text-orange-600 shrink-0">6.</span>
                   <div>
                     <strong className="text-white">Deploy with Active Monitoring:</strong> Track daily alert volume, triage times, and false-positive ratios in staging.
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800 md:col-span-2 flex items-start gap-2">
-                  <span className="font-mono font-bold text-purple-400 shrink-0">7.</span>
+                <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 md:col-span-2 flex items-start gap-2">
+                  <span className="font-mono font-bold text-orange-600 shrink-0">7.</span>
                   <div>
                     <strong className="text-white">Tune and Regression Test:</strong> Refine exclusions without hiding malicious evasion; retest against historical benchmarks.
                   </div>
@@ -1202,19 +1202,19 @@ level: critical`;
 
               {/* 22.6.2 Logic Architectures & 22.6.3 Hypothesis Example */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
                   <h4 className="text-sm font-bold text-white mb-2">22.6.2 Detection Logic Architectures</h4>
-                  <ul className="space-y-2 text-xs text-slate-300">
-                    <li><strong className="text-cyan-400">Single-Event:</strong> Instant trigger on high-fidelity signature (e.g. LSASS access or Mimikatz driver loaded).</li>
+                  <ul className="space-y-2 text-xs text-stone-700">
+                    <li><strong className="text-orange-600">Single-Event:</strong> Instant trigger on high-fidelity signature (e.g. LSASS access or Mimikatz driver loaded).</li>
                     <li><strong className="text-amber-400">Threshold:</strong> Aggregates repetitive low-signal events (e.g. &gt;5 failed logons within 1 minute).</li>
-                    <li><strong className="text-purple-400">Correlation:</strong> Combines disparate telemetry streams (e.g. anomalous VPN logon followed by privilege escalation).</li>
+                    <li><strong className="text-orange-600">Correlation:</strong> Combines disparate telemetry streams (e.g. anomalous VPN logon followed by privilege escalation).</li>
                     <li><strong className="text-emerald-400">Behavioral/Baseline:</strong> Identifies deviations from learned historical patterns (requires operational variance tolerance).</li>
                   </ul>
                 </div>
 
-                <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
                   <h4 className="text-sm font-bold text-white mb-2">22.6.3 Concrete Detection Hypothesis</h4>
-                  <div className="text-xs text-slate-300 space-y-2">
+                  <div className="text-xs text-stone-700 space-y-2">
                     <p><strong className="text-white">Scenario:</strong> Synthetic failed logons targeting test accounts in lab identity system.</p>
                     <p><strong className="text-white">Hypothesis:</strong> A burst of &gt;5 failed authentication events for the same account in &lt;1m indicates password guessing or service misconfiguration.</p>
                     <p><strong className="text-white">Required Fields:</strong> Timestamp, TargetUserName, EventID (4625), Status/SubStatus, WorkstationName.</p>
@@ -1224,57 +1224,57 @@ level: critical`;
               </div>
 
               {/* 22.6.4 Writing Portable Detections with Sigma */}
-              <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 mb-6">
+              <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 mb-6">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2 text-xs font-bold text-white">
-                    <FileCode className="w-4 h-4 text-purple-400" />
+                    <FileCode className="w-4 h-4 text-orange-600" />
                     <span>22.6.4 Portable Sigma Rule Specification Example</span>
                   </div>
                   <button
                     onClick={() => copyToClipboard(generatedSigmaYaml, "sigma-yaml")}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition"
+                    className="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-stone-700 text-xs transition"
                   >
                     {copiedCodeId === "sigma-yaml" ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
                     <span>{copiedCodeId === "sigma-yaml" ? "Copied" : "Copy YAML"}</span>
                   </button>
                 </div>
 
-                <pre className="p-4 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-mono text-purple-300 overflow-x-auto leading-relaxed">
+                <pre className="p-4 rounded-lg bg-white border border-stone-200/80 shadow-xs text-[11px] font-mono text-orange-700 overflow-x-auto leading-relaxed">
                   {generatedSigmaYaml}
                 </pre>
 
-                <div className="mt-3 text-[11px] text-slate-400 leading-relaxed">
-                  <strong>Architecture Note:</strong> Standard Sigma describes event filtering patterns. Complex time-window aggregations and stateful correlation (<code className="text-purple-300">count() by user &gt; 5</code>) require SIEM-specific conversion (e.g. via pySigma) or native correlation pipelines. Always validate the compiled query on your target platform.
+                <div className="mt-3 text-[11px] text-stone-600 leading-relaxed">
+                  <strong>Architecture Note:</strong> Standard Sigma describes event filtering patterns. Complex time-window aggregations and stateful correlation (<code className="text-orange-700">count() by user &gt; 5</code>) require SIEM-specific conversion (e.g. via pySigma) or native correlation pipelines. Always validate the compiled query on your target platform.
                 </div>
               </div>
             </section>
 
             {/* 22.7 Threat Intelligence and MITRE ATT&CK Mapping */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.7 Threat Intelligence
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">
                 Threat Intelligence and MITRE ATT&CK Mapping
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 Cyber threat intelligence (CTI) informs detection engineering of genuine adversary tradecraft. However, simply coloring cells on an ATT&CK matrix does not equal defensive capability. Real coverage requires tested telemetry and validated analytics.
               </p>
 
               {/* 22.7.2 ATT&CK Coverage Record Table */}
               <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                <Radar className="w-4 h-4 text-purple-400" /> 22.7.2 Meaningful ATT&CK Coverage Documentation Standard
+                <Radar className="w-4 h-4 text-orange-600" /> 22.7.2 Meaningful ATT&CK Coverage Documentation Standard
               </h4>
 
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-6">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3">Field</th>
-                      <th className="p-3 text-purple-400">What to Record</th>
-                      <th className="p-3 text-slate-400">Production Example</th>
+                      <th className="p-3 text-orange-600">What to Record</th>
+                      <th className="p-3 text-stone-600">Production Example</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 font-mono text-[11px]">
@@ -1324,38 +1324,38 @@ level: critical`;
             </section>
 
             {/* 22.8 Threat Hunting and Detection Gaps */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
                   22.8 Threat Hunting
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">
                 Threat Hunting and Detection Gaps
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 Threat hunting is a proactive, hypothesis-driven search through security telemetry to detect malicious activity that bypassed automated alerting. A hunt that finds no adversary is still highly valuable—it validates data visibility and confirms that baseline behaviors match expectations.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
                   <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-                    <Search className="w-4 h-4 text-cyan-400" /> 22.8.1 Realistic Hunting Hypotheses
+                    <Search className="w-4 h-4 text-orange-600" /> 22.8.1 Realistic Hunting Hypotheses
                   </h4>
-                  <ul className="space-y-2 text-xs text-slate-300 list-disc list-inside">
+                  <ul className="space-y-2 text-xs text-stone-700 list-disc list-inside">
                     <li>Privileged accounts performing administrative actions outside normal working hours.</li>
                     <li>Service accounts generating authentication failures across unrelated domain controllers.</li>
                     <li>Critical configuration changes or registry edits lacking corresponding change-management tickets.</li>
-                    <li>Suspicious parent-child process relationships (e.g. <code className="text-purple-300">word.exe -&gt; cmd.exe</code> or <code className="text-purple-300">w3wp.exe -&gt; powershell.exe</code>).</li>
+                    <li>Suspicious parent-child process relationships (e.g. <code className="text-orange-700">word.exe -&gt; cmd.exe</code> or <code className="text-orange-700">w3wp.exe -&gt; powershell.exe</code>).</li>
                     <li>Cloud IAM audit logs displaying policy modifications from novel geographic regions.</li>
                   </ul>
                 </div>
 
-                <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
                   <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-                    <Workflow className="w-4 h-4 text-purple-400" /> 22.8.2 The 7-Step Hunting Methodology
+                    <Workflow className="w-4 h-4 text-orange-600" /> 22.8.2 The 7-Step Hunting Methodology
                   </h4>
-                  <ol className="space-y-1.5 text-xs text-slate-300 list-decimal list-inside">
+                  <ol className="space-y-1.5 text-xs text-stone-700 list-decimal list-inside">
                     <li><strong className="text-white">Form hypothesis:</strong> State suspected behavior based on threat intel.</li>
                     <li><strong className="text-white">Identify evidence:</strong> Select telemetry sources, fields, and time range.</li>
                     <li><strong className="text-white">Establish baseline:</strong> Filter out legitimate operational activity.</li>
@@ -1369,47 +1369,47 @@ level: critical`;
             </section>
 
             {/* 22.9 Purple Team Exercises: Collaborative Security Validation */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.9 Purple Team Exercises
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">
                 Purple Team Exercises: Collaborative Security Validation
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 A purple team exercise is a structured collaboration between operators executing controlled simulations and defenders monitoring environments. Its purpose is to continuously eliminate blind spots, not to declare a &quot;winner&quot;.
               </p>
 
               {/* 22.9.1 Lifecycle & 22.9.2 Roles */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs mb-8 text-center">
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="font-bold text-purple-400 mb-1">Phase 1: Plan</div>
-                  <div className="text-[11px] text-slate-300">Define scenario, scope, expected logs, stop conditions, and participants.</div>
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="font-bold text-orange-600 mb-1">Phase 1: Plan</div>
+                  <div className="text-[11px] text-stone-700">Define scenario, scope, expected logs, stop conditions, and participants.</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="font-bold text-rose-400 mb-1">Phase 2: Simulate</div>
-                  <div className="text-[11px] text-slate-300">Execute approved atomic test payload; log exact start/end timestamps and run ID.</div>
+                  <div className="text-[11px] text-stone-700">Execute approved atomic test payload; log exact start/end timestamps and run ID.</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="font-bold text-cyan-400 mb-1">Phase 3: Observe</div>
-                  <div className="text-[11px] text-slate-300">Verify event arrival, parser normalization, rule trigger, and SOC context.</div>
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="font-bold text-orange-600 mb-1">Phase 3: Observe</div>
+                  <div className="text-[11px] text-stone-700">Verify event arrival, parser normalization, rule trigger, and SOC context.</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="font-bold text-emerald-400 mb-1">Phase 4: Improve</div>
-                  <div className="text-[11px] text-slate-300">Isolate root cause of gaps, implement engineering fix, and execute retest.</div>
+                  <div className="text-[11px] text-stone-700">Isolate root cause of gaps, implement engineering fix, and execute retest.</div>
                 </div>
               </div>
 
               {/* 22.9.3 Outcomes & Root Cause Table */}
               <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-purple-400" /> 22.9.3 Exercise Outcomes, Root Causes & Remediation
+                <AlertCircle className="w-4 h-4 text-orange-600" /> 22.9.3 Exercise Outcomes, Root Causes & Remediation
               </h4>
 
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-6">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3">Observation</th>
                       <th className="p-3 text-rose-400">Possible Root Cause</th>
@@ -1453,30 +1453,30 @@ level: critical`;
             </section>
 
             {/* 22.10 Security Metrics and Continuous Improvement */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.10 Security Metrics
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">
                 Security Metrics and Continuous Improvement
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 Detection metrics must be grounded in precise mathematical definitions and test limitations. A high pass rate on synthetic tests does not automatically guarantee detection of unknown zero-day tradecraft.
               </p>
 
               {/* 22.10.1 Key Metrics Table */}
               <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                <Gauge className="w-4 h-4 text-purple-400" /> 22.10.1 Key Detection Engineering Metrics
+                <Gauge className="w-4 h-4 text-orange-600" /> 22.10.1 Key Detection Engineering Metrics
               </h4>
 
-              <div className="overflow-x-auto rounded-xl border border-slate-800 mb-6">
-                <table className="w-full text-xs text-left text-slate-300">
-                  <thead className="bg-slate-900 text-slate-200 border-b border-slate-800 font-semibold">
+              <div className="overflow-x-auto rounded-xl border border-stone-200 mb-6">
+                <table className="w-full text-xs text-left text-stone-700">
+                  <thead className="bg-stone-50 text-stone-800 border-b border-stone-200 font-semibold">
                     <tr>
                       <th className="p-3">Metric</th>
-                      <th className="p-3 text-purple-400">What it Measures</th>
+                      <th className="p-3 text-orange-600">What it Measures</th>
                       <th className="p-3 text-amber-400">Important Operational Caveat</th>
                     </tr>
                   </thead>
@@ -1516,18 +1516,18 @@ level: critical`;
               </div>
 
               {/* 22.10.2 Mathematical Example Calculation */}
-              <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80">
                 <h4 className="text-sm font-bold text-white mb-2">22.10.2 Real-World Calculation Walkthrough</h4>
-                <p className="text-xs text-slate-300 mb-3">
+                <p className="text-xs text-stone-700 mb-3">
                   Suppose a lab tests an identity analytic using 100 labeled positive adversary cases and 20 labeled benign background cases:
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono mb-4">
-                  <div className="p-2.5 rounded bg-slate-900 border border-slate-800 text-emerald-400">TP = 90 (Detected)</div>
-                  <div className="p-2.5 rounded bg-slate-900 border border-slate-800 text-rose-400">FN = 10 (Missed)</div>
-                  <div className="p-2.5 rounded bg-slate-900 border border-slate-800 text-amber-400">FP = 2 (False Alarm)</div>
-                  <div className="p-2.5 rounded bg-slate-900 border border-slate-800 text-cyan-400">TN = 18 (Benign Passed)</div>
+                  <div className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs text-emerald-400">TP = 90 (Detected)</div>
+                  <div className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs text-rose-400">FN = 10 (Missed)</div>
+                  <div className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs text-amber-400">FP = 2 (False Alarm)</div>
+                  <div className="p-2.5 rounded bg-white border border-stone-200/80 shadow-xs text-orange-600">TN = 18 (Benign Passed)</div>
                 </div>
-                <div className="space-y-2 text-xs font-mono text-purple-300 bg-slate-900 p-3 rounded border border-slate-800">
+                <div className="space-y-2 text-xs font-mono text-orange-700 bg-stone-50 p-3 rounded border border-stone-200">
                   <div>Recall = [90 / (90 + 10)] * 100 = 90.00%</div>
                   <div>Precision = [90 / (90 + 2)] * 100 = 97.83%</div>
                   <div>F1-Score = 2 * [(97.83 * 90) / (97.83 + 90)] = 93.75%</div>
@@ -1536,9 +1536,9 @@ level: critical`;
             </section>
 
             {/* 22.11 Tools and Technologies */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.11 Tool Ecosystem
                 </span>
               </div>
@@ -1547,45 +1547,45 @@ level: critical`;
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <div className="font-bold text-cyan-400 mb-1 flex items-center gap-1.5">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200">
+                  <div className="font-bold text-orange-600 mb-1 flex items-center gap-1.5">
                     <Server className="w-4 h-4" /> Wazuh
                   </div>
-                  <p className="text-slate-300 mb-2">
+                  <p className="text-stone-700 mb-2">
                     Open-source security monitoring, endpoint compliance, file integrity monitoring, and SIEM alerting engine.
                   </p>
                   <a
                     href="https://documentation.wazuh.com/"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-cyan-400 hover:underline flex items-center gap-1 text-[11px]"
+                    className="text-orange-600 hover:underline flex items-center gap-1 text-[11px]"
                   >
                     <span>Wazuh Documentation</span> <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <div className="font-bold text-purple-400 mb-1 flex items-center gap-1.5">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200">
+                  <div className="font-bold text-orange-600 mb-1 flex items-center gap-1.5">
                     <FileCode className="w-4 h-4" /> Sigma HQ
                   </div>
-                  <p className="text-slate-300 mb-2">
+                  <p className="text-stone-700 mb-2">
                     Generic, open detection-as-code signature format transpilable into Elastic, Splunk, Sentinel, and QRadar queries.
                   </p>
                   <a
                     href="https://github.com/SigmaHQ/sigma-specification"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-purple-400 hover:underline flex items-center gap-1 text-[11px]"
+                    className="text-orange-600 hover:underline flex items-center gap-1 text-[11px]"
                   >
                     <span>Sigma Specification</span> <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200">
                   <div className="font-bold text-rose-400 mb-1 flex items-center gap-1.5">
                     <Swords className="w-4 h-4" /> Atomic Red Team
                   </div>
-                  <p className="text-slate-300 mb-2">
+                  <p className="text-stone-700 mb-2">
                     Library of simple, actionable, open-source tests mapped directly to the MITRE ATT&CK matrix for defensive testing.
                   </p>
                   <a
@@ -1603,25 +1603,25 @@ level: critical`;
             {/* 22.12 Practical Lab: Build a Mini Purple Team Detection Exercise */}
             <section className="bg-gradient-to-br from-slate-900 via-slate-900/60 to-purple-950/20 border border-purple-500/30 rounded-2xl p-6 sm:p-8 shadow-xl">
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.12 Hands-on Lab
                 </span>
-                <span className="text-xs text-slate-400">Estimated time: 2–3 hours</span>
+                <span className="text-xs text-stone-600">Estimated time: 2–3 hours</span>
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">
                 Practical Lab: Build a Mini Purple Team Detection Exercise
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-stone-700 text-sm leading-relaxed mb-6">
                 In this lab, you build a small, repeatable security validation exercise demonstrating how an event moves from adversary generation to detection, investigation, and engineering improvement.
               </p>
 
               {/* 22.12.1 Directory Structure & 22.12.2 Synthetic CSV */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <h4 className="text-xs font-bold text-white mb-2 flex items-center gap-2">
-                    <Compass className="w-4 h-4 text-purple-400" /> 22.12.1 Workspace Structure
+                    <Compass className="w-4 h-4 text-orange-600" /> 22.12.1 Workspace Structure
                   </h4>
-                  <pre className="p-3 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300">
+                  <pre className="p-3 rounded bg-white border border-stone-200/80 shadow-xs text-[11px] font-mono text-stone-700">
 {`purple-team-lab/
 ├── events.csv
 ├── detection-hypothesis.md
@@ -1631,20 +1631,20 @@ level: critical`;
                   </pre>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-xs font-bold text-white flex items-center gap-2">
-                      <Database className="w-4 h-4 text-cyan-400" /> 22.12.2 Synthetic Security Events (events.csv)
+                      <Database className="w-4 h-4 text-orange-600" /> 22.12.2 Synthetic Security Events (events.csv)
                     </h4>
                     <button
                       onClick={() => copyToClipboard(eventCsvData, "events-csv")}
-                      className="flex items-center gap-1 px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] transition"
+                      className="flex items-center gap-1 px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-stone-700 text-[10px] transition"
                     >
                       {copiedCodeId === "events-csv" ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
                       <span>{copiedCodeId === "events-csv" ? "Copied" : "Copy CSV"}</span>
                     </button>
                   </div>
-                  <pre className="p-3 rounded bg-slate-900 border border-slate-800 text-[10px] font-mono text-cyan-300 overflow-x-auto max-h-36">
+                  <pre className="p-3 rounded bg-white border border-stone-200/80 shadow-xs text-[10px] font-mono text-orange-700 overflow-x-auto max-h-36">
                     {eventCsvData}
                   </pre>
                 </div>
@@ -1653,9 +1653,9 @@ level: critical`;
               {/* 22.12.5 Interactive Purple Team Findings Worksheet */}
               <div className="p-6 rounded-xl bg-slate-950/90 border border-purple-500/30 mb-6">
                 <h4 className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                  <Users className="w-5 h-5 text-purple-400" /> 22.12.5 Interactive Purple Team Findings Worksheet
+                  <Users className="w-5 h-5 text-orange-600" /> 22.12.5 Interactive Purple Team Findings Worksheet
                 </h4>
-                <p className="text-xs text-slate-400 mb-6">
+                <p className="text-xs text-stone-600 mb-6">
                   Select the results observed in your lab. The report preview updates dynamically as you test hypotheses.
                 </p>
 
@@ -1663,13 +1663,13 @@ level: critical`;
                   <div className="space-y-4 text-xs">
                     {/* Q1 */}
                     <div>
-                      <label className="block font-semibold text-slate-300 mb-1.5">
+                      <label className="block font-semibold text-stone-700 mb-1.5">
                         1. Did all expected events arrive?
                       </label>
                       <select
                         value={worksheetData.eventsArrived}
                         onChange={(e) => setWorksheetData((prev) => ({ ...prev, eventsArrived: e.target.value }))}
-                        className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 focus:outline-none focus:border-purple-500"
+                        className="w-full p-2.5 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-800 focus:outline-none focus:border-purple-500"
                       >
                         <option value="yes">Yes — telemetry is complete</option>
                         <option value="partially">Partially — some events are missing</option>
@@ -1679,13 +1679,13 @@ level: critical`;
 
                     {/* Q2 */}
                     <div>
-                      <label className="block font-semibold text-slate-300 mb-1.5">
+                      <label className="block font-semibold text-stone-700 mb-1.5">
                         2. Did the detection trigger as expected?
                       </label>
                       <select
                         value={worksheetData.detectionTriggered}
                         onChange={(e) => setWorksheetData((prev) => ({ ...prev, detectionTriggered: e.target.value }))}
-                        className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 focus:outline-none focus:border-purple-500"
+                        className="w-full p-2.5 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-800 focus:outline-none focus:border-purple-500"
                       >
                         <option value="yes">Yes — expected alert generated</option>
                         <option value="no">No — expected alert was missed</option>
@@ -1695,13 +1695,13 @@ level: critical`;
 
                     {/* Q3 */}
                     <div>
-                      <label className="block font-semibold text-slate-300 mb-1.5">
+                      <label className="block font-semibold text-stone-700 mb-1.5">
                         3. Was the alert useful for investigation?
                       </label>
                       <select
                         value={worksheetData.alertUseful}
                         onChange={(e) => setWorksheetData((prev) => ({ ...prev, alertUseful: e.target.value }))}
-                        className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 focus:outline-none focus:border-purple-500"
+                        className="w-full p-2.5 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-800 focus:outline-none focus:border-purple-500"
                       >
                         <option value="yes">Yes — sufficient account, time, and source context</option>
                         <option value="partially">Partially — some context was missing</option>
@@ -1711,13 +1711,13 @@ level: critical`;
 
                     {/* Q4 */}
                     <div>
-                      <label className="block font-semibold text-slate-300 mb-1.5">
+                      <label className="block font-semibold text-stone-700 mb-1.5">
                         4. Most likely gap
                       </label>
                       <select
                         value={worksheetData.mostLikelyGap}
                         onChange={(e) => setWorksheetData((prev) => ({ ...prev, mostLikelyGap: e.target.value }))}
-                        className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 focus:outline-none focus:border-purple-500"
+                        className="w-full p-2.5 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-800 focus:outline-none focus:border-purple-500"
                       >
                         <option value="none">No gap observed</option>
                         <option value="collection">Collection or forwarding</option>
@@ -1729,26 +1729,26 @@ level: critical`;
 
                     {/* Q5 */}
                     <div>
-                      <label className="block font-semibold text-slate-300 mb-1.5">
+                      <label className="block font-semibold text-stone-700 mb-1.5">
                         5. Proposed improvement
                       </label>
                       <input
                         type="text"
                         value={worksheetData.proposedImprovement}
                         onChange={(e) => setWorksheetData((prev) => ({ ...prev, proposedImprovement: e.target.value }))}
-                        className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 focus:outline-none focus:border-purple-500"
+                        className="w-full p-2.5 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-800 focus:outline-none focus:border-purple-500"
                       />
                     </div>
 
                     {/* Q6 */}
                     <div>
-                      <label className="block font-semibold text-slate-300 mb-1.5">
+                      <label className="block font-semibold text-stone-700 mb-1.5">
                         6. Retest result
                       </label>
                       <select
                         value={worksheetData.retestResult}
                         onChange={(e) => setWorksheetData((prev) => ({ ...prev, retestResult: e.target.value }))}
-                        className="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 focus:outline-none focus:border-purple-500"
+                        className="w-full p-2.5 rounded-lg bg-white border border-stone-200/80 shadow-xs text-stone-800 focus:outline-none focus:border-purple-500"
                       >
                         <option value="pass">Pass — expected positive and negative cases work</option>
                         <option value="partial">Partial — some test cases still fail</option>
@@ -1758,18 +1758,18 @@ level: critical`;
                   </div>
 
                   {/* Report Preview Display */}
-                  <div className="flex flex-col justify-between p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+                  <div className="flex flex-col justify-between p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs">
                     <div>
-                      <div className="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                      <div className="flex items-center justify-between mb-3 border-b border-stone-200 pb-2">
                         <span className="text-xs font-bold text-white uppercase tracking-wider">
                           Report Preview
                         </span>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-orange-700">
                           Live Output
                         </span>
                       </div>
 
-                      <pre className="p-3 rounded-lg bg-slate-950 font-mono text-[11px] text-purple-300 whitespace-pre-wrap leading-relaxed">
+                      <pre className="p-3 rounded-lg bg-slate-950 font-mono text-[11px] text-orange-700 whitespace-pre-wrap leading-relaxed">
                         {reportPreviewText}
                       </pre>
                     </div>
@@ -1787,9 +1787,9 @@ level: critical`;
             </section>
 
             {/* 22.14 Official References and Further Learning */}
-            <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <section className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.14 Primary Documentation
                 </span>
               </div>
@@ -1850,16 +1850,16 @@ level: critical`;
                     url: "https://www.cisa.gov/",
                   },
                 ].map((ref, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex flex-col justify-between">
+                  <div key={idx} className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex flex-col justify-between">
                     <div>
                       <h4 className="font-bold text-white mb-1">{ref.title}</h4>
-                      <p className="text-slate-400 text-xs mb-3">{ref.desc}</p>
+                      <p className="text-stone-600 text-xs mb-3">{ref.desc}</p>
                     </div>
                     <a
                       href={ref.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center gap-1 text-[11px]"
+                      className="text-orange-600 hover:text-orange-700 font-medium inline-flex items-center gap-1 text-[11px]"
                     >
                       <span>Explore Official Standard</span> <ExternalLink className="w-3 h-3" />
                     </a>
@@ -1871,13 +1871,13 @@ level: critical`;
             {/* 22.15 Key Takeaways */}
             <section className="bg-gradient-to-br from-purple-950/30 via-slate-900 to-slate-950 border border-purple-500/20 rounded-2xl p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                   22.15 Core Summary
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Key Takeaways</h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-300">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700">
                 {[
                   "Red teams test defenses through authorized adversary simulation; blue teams detect and respond; purple teams coordinate collaborative testing and systematic improvement.",
                   "Strong security operations depend on both reliable upstream telemetry and robustly engineered detection logic.",
@@ -1888,8 +1888,8 @@ level: critical`;
                   "A successful purple team exercise identifies a specific gap, assigns ownership, implements an improvement, and demonstrates the result through validated retesting.",
                   "Written authorization, scope controls, evidence integrity, privacy safeguards, and emergency stop conditions are fundamental to responsible security testing.",
                 ].map((point, idx) => (
-                  <div key={idx} className="p-3.5 rounded-lg bg-slate-950/60 border border-slate-800 flex items-start gap-2.5">
-                    <CheckCircle className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                  <div key={idx} className="p-3.5 rounded-lg bg-stone-50 border border-stone-200 flex items-start gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                     <span>{point}</span>
                   </div>
                 ))}
@@ -1903,7 +1903,7 @@ level: critical`;
         {/* ================================================================== */}
         {activeTab === "attack-sim" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
@@ -1912,7 +1912,7 @@ level: critical`;
                   <h3 className="text-xl font-bold text-white mt-2">
                     Adversary Emulation & MITRE ATT&CK Matrix Navigator
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Trigger threat-informed red team simulations and observe the blue team telemetry ingestion pipeline at each stage.
                   </p>
                 </div>
@@ -1939,75 +1939,75 @@ level: critical`;
                       className={`p-4 rounded-xl text-left border transition ${
                         isSelected
                           ? "bg-rose-500/10 border-rose-500 text-white"
-                          : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
+                          : "bg-stone-50 border-stone-200 text-stone-600 hover:border-stone-300"
                       }`}
                     >
                       <div className="text-[10px] font-mono font-bold text-rose-400 mb-1">{sc.id}</div>
                       <div className="font-bold text-xs text-white mb-1">{sc.name}</div>
-                      <div className="text-[11px] text-slate-400">{sc.tactic}</div>
+                      <div className="text-[11px] text-stone-600">{sc.tactic}</div>
                     </button>
                   );
                 })}
               </div>
 
               {/* Pipeline Controls & Toggles */}
-              <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 mb-6">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 mb-6">
                 <div className="text-xs font-bold text-white mb-3 flex items-center gap-2">
-                  <Sliders className="w-4 h-4 text-cyan-400" /> Blue Team Pipeline Health Controls (Toggle to inject failures)
+                  <Sliders className="w-4 h-4 text-orange-600" /> Blue Team Pipeline Health Controls (Toggle to inject failures)
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                  <label className="flex items-center gap-2 p-2 rounded bg-slate-900 border border-slate-800 cursor-pointer">
+                  <label className="flex items-center gap-2 p-2 rounded bg-white border border-stone-200/80 shadow-xs cursor-pointer">
                     <input
                       type="checkbox"
                       checked={sim1TelemetryEnabled}
                       onChange={(e) => setSim1TelemetryEnabled(e.target.checked)}
                       className="rounded text-cyan-500 focus:ring-0"
                     />
-                    <span className="text-slate-300">Sensor Active</span>
+                    <span className="text-stone-700">Sensor Active</span>
                   </label>
-                  <label className="flex items-center gap-2 p-2 rounded bg-slate-900 border border-slate-800 cursor-pointer">
+                  <label className="flex items-center gap-2 p-2 rounded bg-white border border-stone-200/80 shadow-xs cursor-pointer">
                     <input
                       type="checkbox"
                       checked={sim1ParserEnabled}
                       onChange={(e) => setSim1ParserEnabled(e.target.checked)}
                       className="rounded text-cyan-500 focus:ring-0"
                     />
-                    <span className="text-slate-300">Parser Valid</span>
+                    <span className="text-stone-700">Parser Valid</span>
                   </label>
-                  <label className="flex items-center gap-2 p-2 rounded bg-slate-900 border border-slate-800 cursor-pointer">
+                  <label className="flex items-center gap-2 p-2 rounded bg-white border border-stone-200/80 shadow-xs cursor-pointer">
                     <input
                       type="checkbox"
                       checked={sim1RuleEnabled}
                       onChange={(e) => setSim1RuleEnabled(e.target.checked)}
                       className="rounded text-cyan-500 focus:ring-0"
                     />
-                    <span className="text-slate-300">Rule Enabled</span>
+                    <span className="text-stone-700">Rule Enabled</span>
                   </label>
-                  <label className="flex items-center gap-2 p-2 rounded bg-slate-900 border border-slate-800 cursor-pointer">
+                  <label className="flex items-center gap-2 p-2 rounded bg-white border border-stone-200/80 shadow-xs cursor-pointer">
                     <input
                       type="checkbox"
                       checked={sim1EnrichmentEnabled}
                       onChange={(e) => setSim1EnrichmentEnabled(e.target.checked)}
                       className="rounded text-cyan-500 focus:ring-0"
                     />
-                    <span className="text-slate-300">SOC Enrichment</span>
+                    <span className="text-stone-700">SOC Enrichment</span>
                   </label>
                 </div>
               </div>
 
               {/* Console Output & Emulation Details */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col justify-between">
                   <div>
                     <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
                       <Terminal className="w-4 h-4 text-rose-400" /> Active Adversary Payload
                     </div>
-                    <pre className="p-3 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-rose-300 whitespace-pre-wrap leading-relaxed mb-3">
+                    <pre className="p-3 rounded bg-white border border-stone-200/80 shadow-xs text-[11px] font-mono text-rose-300 whitespace-pre-wrap leading-relaxed mb-3">
                       {sim1Scenarios[sim1Scenario].redCommand}
                     </pre>
-                    <div className="text-xs text-slate-300 space-y-1">
-                      <div><strong className="text-slate-400">Telemetry:</strong> {sim1Scenarios[sim1Scenario].telemetrySource}</div>
-                      <div><strong className="text-slate-400">Description:</strong> {sim1Scenarios[sim1Scenario].description}</div>
+                    <div className="text-xs text-stone-700 space-y-1">
+                      <div><strong className="text-stone-600">Telemetry:</strong> {sim1Scenarios[sim1Scenario].telemetrySource}</div>
+                      <div><strong className="text-stone-600">Description:</strong> {sim1Scenarios[sim1Scenario].description}</div>
                     </div>
                   </div>
 
@@ -2022,18 +2022,18 @@ level: critical`;
                   </a>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
-                    <Activity className="w-4 h-4 text-cyan-400" /> Telemetry & Detection Pipeline Audit
+                    <Activity className="w-4 h-4 text-orange-600" /> Telemetry & Detection Pipeline Audit
                   </div>
-                  <div className="p-3 rounded bg-slate-900 border border-slate-800 min-h-[160px] font-mono text-[11px] space-y-1 text-slate-300">
+                  <div className="p-3 rounded bg-white border border-stone-200/80 shadow-xs min-h-[160px] font-mono text-[11px] space-y-1 text-stone-700">
                     {sim1LogOutput.length === 0 ? (
                       <div className="text-slate-600 italic">Click &quot;Launch Adversary Emulation&quot; to begin test run...</div>
                     ) : (
                       sim1LogOutput.map((log, idx) => {
-                        let color = "text-slate-300";
+                        let color = "text-stone-700";
                         if (log.startsWith("[RED TEAM]")) color = "text-rose-400";
-                        if (log.startsWith("[TELEMETRY")) color = "text-cyan-400";
+                        if (log.startsWith("[TELEMETRY")) color = "text-orange-600";
                         if (log.startsWith("[BLUE SOC]")) color = "text-amber-400";
                         if (log.startsWith("[PURPLE VERDICT]")) color = log.includes("VALIDATED") ? "text-emerald-400 font-bold" : "text-rose-400 font-bold";
                         return <div key={idx} className={color}>{log}</div>;
@@ -2051,16 +2051,16 @@ level: critical`;
         {/* ================================================================== */}
         {activeTab === "sigma-sim" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 2
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Detection Engineering Workbench & Sigma Rule Authoring Engine
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Author portable Sigma rules as code, tune threshold parameters, and validate against live synthetic test suites.
                   </p>
                 </div>
@@ -2089,26 +2089,26 @@ level: critical`;
                     className={`p-4 rounded-xl text-left border transition ${
                       sigmaRuleType === tpl.id
                         ? "bg-purple-500/10 border-purple-500 text-white"
-                        : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
+                        : "bg-stone-50 border-stone-200 text-stone-600 hover:border-stone-300"
                     }`}
                   >
                     <div className="font-bold text-xs text-white">{tpl.label}</div>
-                    <div className="text-[11px] text-purple-400 font-mono mt-1">{tpl.type}</div>
+                    <div className="text-[11px] text-orange-600 font-mono mt-1">{tpl.type}</div>
                   </button>
                 ))}
               </div>
 
               {/* Parameters Slider / Controls */}
               {sigmaRuleType === "auth_failure" && (
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 mb-6">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 mb-6">
                   <div className="text-xs font-bold text-white mb-3 flex items-center gap-2">
-                    <Sliders className="w-4 h-4 text-purple-400" /> Rule Tuning Parameters
+                    <Sliders className="w-4 h-4 text-orange-600" /> Rule Tuning Parameters
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
                     <div>
-                      <div className="flex justify-between text-slate-300 mb-1">
+                      <div className="flex justify-between text-stone-700 mb-1">
                         <span>Threshold Count:</span>
-                        <span className="font-mono font-bold text-purple-400">&gt; {sigmaThresholdCount} events</span>
+                        <span className="font-mono font-bold text-orange-600">&gt; {sigmaThresholdCount} events</span>
                       </div>
                       <input
                         type="range"
@@ -2121,14 +2121,14 @@ level: critical`;
                     </div>
 
                     <div>
-                      <div className="flex justify-between text-slate-300 mb-1">
+                      <div className="flex justify-between text-stone-700 mb-1">
                         <span>Timeframe Window:</span>
-                        <span className="font-mono font-bold text-cyan-400">{sigmaTimeframeWindow}</span>
+                        <span className="font-mono font-bold text-orange-600">{sigmaTimeframeWindow}</span>
                       </div>
                       <select
                         value={sigmaTimeframeWindow}
                         onChange={(e) => setSigmaTimeframeWindow(e.target.value)}
-                        className="w-full p-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 text-xs"
+                        className="w-full p-1.5 rounded bg-white border border-stone-200/80 shadow-xs text-stone-700 text-xs"
                       >
                         <option value="30s">30 Seconds</option>
                         <option value="1m">1 Minute</option>
@@ -2138,7 +2138,7 @@ level: critical`;
                     </div>
 
                     <div>
-                      <div className="flex justify-between text-slate-300 mb-1">
+                      <div className="flex justify-between text-stone-700 mb-1">
                         <span>Exclusions:</span>
                         <span className="font-mono font-bold text-emerald-400">{sigmaExcludeServiceAccounts ? "Enabled" : "Disabled"}</span>
                       </div>
@@ -2149,7 +2149,7 @@ level: critical`;
                           onChange={(e) => setSigmaExcludeServiceAccounts(e.target.checked)}
                           className="rounded text-purple-500 focus:ring-0"
                         />
-                        <span className="text-slate-400 text-[11px]">Exclude &apos;svc-*&apos; service accounts</span>
+                        <span className="text-stone-600 text-[11px]">Exclude &apos;svc-*&apos; service accounts</span>
                       </label>
                     </div>
                   </div>
@@ -2158,49 +2158,49 @@ level: critical`;
 
               {/* Split Editor & Test Runner */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
-                    <FileCode className="w-4 h-4 text-purple-400" /> Live Sigma YAML Definition
+                    <FileCode className="w-4 h-4 text-orange-600" /> Live Sigma YAML Definition
                   </div>
-                  <pre className="p-3 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-purple-300 overflow-x-auto max-h-96 leading-relaxed">
+                  <pre className="p-3 rounded bg-white border border-stone-200/80 shadow-xs text-[11px] font-mono text-orange-700 overflow-x-auto max-h-96 leading-relaxed">
                     {generatedSigmaYaml}
                   </pre>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col justify-between">
                   <div>
                     <div className="text-xs font-bold text-white mb-2 flex items-center gap-2">
-                      <TestTube2 className="w-4 h-4 text-cyan-400" /> Synthetic Test Suite & Regression Verification
+                      <TestTube2 className="w-4 h-4 text-orange-600" /> Synthetic Test Suite & Regression Verification
                     </div>
 
-                    <div className="p-3 rounded bg-slate-900 border border-slate-800 space-y-3 mb-4">
+                    <div className="p-3 rounded bg-white border border-stone-200/80 shadow-xs space-y-3 mb-4">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-400">Test Case 1 (5 rapid failures for lab-user-01):</span>
+                        <span className="text-stone-600">Test Case 1 (5 rapid failures for lab-user-01):</span>
                         <span className={`font-mono font-bold px-2 py-0.5 rounded ${syntheticRunnerOutput.matched ? "bg-emerald-500/20 text-emerald-400" : "bg-rose-500/20 text-rose-400"}`}>
                           {syntheticRunnerOutput.matched ? "TRIGGERED" : "SILENT"}
                         </span>
                       </div>
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-400">Test Case 2 (Service account automated backup):</span>
-                        <span className="font-mono font-bold px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400">
+                        <span className="text-stone-600">Test Case 2 (Service account automated backup):</span>
+                        <span className="font-mono font-bold px-2 py-0.5 rounded bg-cyan-500/20 text-orange-600">
                           {sigmaExcludeServiceAccounts ? "SUPPRESSED (BENIGN)" : "ALERTED (FALSE POSITIVE)"}
                         </span>
                       </div>
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-400">Test Case 3 (Single failure on lab-user-02):</span>
-                        <span className="font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">
+                        <span className="text-stone-600">Test Case 3 (Single failure on lab-user-02):</span>
+                        <span className="font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-stone-700">
                           FILTERED (BELOW THRESHOLD)
                         </span>
                       </div>
                     </div>
 
-                    <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20 text-xs text-purple-300 font-mono">
+                    <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20 text-xs text-orange-700 font-mono">
                       {syntheticRunnerOutput.verdict}
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Regression Test Suite:</span>
+                  <div className="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs">
+                    <span className="text-stone-600">Regression Test Suite:</span>
                     <span className="font-bold text-emerald-400 flex items-center gap-1">
                       <CheckCircle2 className="w-4 h-4" /> 3 of 3 Passed (0 Regressions)
                     </span>
@@ -2216,16 +2216,16 @@ level: critical`;
         {/* ================================================================== */}
         {activeTab === "metrics-sim" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 3
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Detection Metrics, Precision, Recall & Confusion Matrix Sandbox
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Adjust test-run outcomes dynamically and calculate Recall, Precision, F1-Score, and False Positive Rates.
                   </p>
                 </div>
@@ -2239,7 +2239,7 @@ level: critical`;
                     setMttdSeconds(42);
                     setMttrMinutes(14);
                   }}
-                  className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center gap-1.5 transition"
+                  className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 text-xs flex items-center gap-1.5 transition"
                 >
                   <RotateCcw className="w-3.5 h-3.5" /> Reset to Section 22.10 Example
                 </button>
@@ -2247,9 +2247,9 @@ level: critical`;
 
               {/* Sliders Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-slate-400">True Positives (TP):</span>
+                    <span className="text-stone-600">True Positives (TP):</span>
                     <span className="font-mono font-bold text-emerald-400">{tp}</span>
                   </div>
                   <input
@@ -2260,12 +2260,12 @@ level: critical`;
                     onChange={(e) => setTp(parseInt(e.target.value))}
                     className="w-full accent-emerald-500"
                   />
-                  <div className="text-[10px] text-slate-500 mt-1">Adversary attacks correctly caught</div>
+                  <div className="text-[10px] text-stone-500 mt-1">Adversary attacks correctly caught</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-slate-400">False Negatives (FN):</span>
+                    <span className="text-stone-600">False Negatives (FN):</span>
                     <span className="font-mono font-bold text-rose-400">{fn}</span>
                   </div>
                   <input
@@ -2276,12 +2276,12 @@ level: critical`;
                     onChange={(e) => setFn(parseInt(e.target.value))}
                     className="w-full accent-rose-500"
                   />
-                  <div className="text-[10px] text-slate-500 mt-1">Adversary attacks missed (Blind spots)</div>
+                  <div className="text-[10px] text-stone-500 mt-1">Adversary attacks missed (Blind spots)</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-slate-400">False Positives (FP):</span>
+                    <span className="text-stone-600">False Positives (FP):</span>
                     <span className="font-mono font-bold text-amber-400">{fp}</span>
                   </div>
                   <input
@@ -2292,13 +2292,13 @@ level: critical`;
                     onChange={(e) => setFp(parseInt(e.target.value))}
                     className="w-full accent-amber-500"
                   />
-                  <div className="text-[10px] text-slate-500 mt-1">Benign events triggering alarms</div>
+                  <div className="text-[10px] text-stone-500 mt-1">Benign events triggering alarms</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-slate-400">True Negatives (TN):</span>
-                    <span className="font-mono font-bold text-cyan-400">{tn}</span>
+                    <span className="text-stone-600">True Negatives (TN):</span>
+                    <span className="font-mono font-bold text-orange-600">{tn}</span>
                   </div>
                   <input
                     type="range"
@@ -2308,79 +2308,79 @@ level: critical`;
                     onChange={(e) => setTn(parseInt(e.target.value))}
                     className="w-full accent-cyan-500"
                   />
-                  <div className="text-[10px] text-slate-500 mt-1">Benign events correctly ignored</div>
+                  <div className="text-[10px] text-stone-500 mt-1">Benign events correctly ignored</div>
                 </div>
               </div>
 
               {/* Calculated Metrics Cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 text-center">
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-xs text-slate-400 mb-1">Recall (TPR)</div>
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="text-xs text-stone-600 mb-1">Recall (TPR)</div>
                   <div className="text-2xl font-extrabold text-emerald-400 font-mono">{metrics.recall}%</div>
-                  <div className="text-[10px] text-slate-500 font-mono mt-1">TP / (TP + FN)</div>
+                  <div className="text-[10px] text-stone-500 font-mono mt-1">TP / (TP + FN)</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-xs text-slate-400 mb-1">Precision</div>
-                  <div className="text-2xl font-extrabold text-purple-400 font-mono">{metrics.precision}%</div>
-                  <div className="text-[10px] text-slate-500 font-mono mt-1">TP / (TP + FP)</div>
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="text-xs text-stone-600 mb-1">Precision</div>
+                  <div className="text-2xl font-extrabold text-orange-600 font-mono">{metrics.precision}%</div>
+                  <div className="text-[10px] text-stone-500 font-mono mt-1">TP / (TP + FP)</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-xs text-slate-400 mb-1">F1-Score</div>
-                  <div className="text-2xl font-extrabold text-cyan-400 font-mono">{metrics.f1}%</div>
-                  <div className="text-[10px] text-slate-500 font-mono mt-1">Harmonic Mean</div>
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="text-xs text-stone-600 mb-1">F1-Score</div>
+                  <div className="text-2xl font-extrabold text-orange-600 font-mono">{metrics.f1}%</div>
+                  <div className="text-[10px] text-stone-500 font-mono mt-1">Harmonic Mean</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                  <div className="text-xs text-slate-400 mb-1">False Positive Rate</div>
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="text-xs text-stone-600 mb-1">False Positive Rate</div>
                   <div className="text-2xl font-extrabold text-amber-400 font-mono">{metrics.fpr}%</div>
-                  <div className="text-[10px] text-slate-500 font-mono mt-1">FP / (FP + TN)</div>
+                  <div className="text-[10px] text-stone-500 font-mono mt-1">FP / (FP + TN)</div>
                 </div>
               </div>
 
               {/* Visual 2x2 Confusion Matrix */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-5 rounded-xl bg-slate-950 border border-slate-800">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80">
                   <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                    <BarChart3 className="w-4 h-4 text-purple-400" /> Visual 2x2 Confusion Matrix
+                    <BarChart3 className="w-4 h-4 text-orange-600" /> Visual 2x2 Confusion Matrix
                   </h4>
 
                   <div className="grid grid-cols-2 gap-2 text-center text-xs font-mono">
                     <div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
                       <div className="text-emerald-400 font-bold text-lg">{tp}</div>
                       <div className="text-white font-sans text-xs mt-1">True Positive (TP)</div>
-                      <div className="text-[10px] text-slate-400">Correct Detection</div>
+                      <div className="text-[10px] text-stone-600">Correct Detection</div>
                     </div>
                     <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/30">
                       <div className="text-amber-400 font-bold text-lg">{fp}</div>
                       <div className="text-white font-sans text-xs mt-1">False Positive (FP)</div>
-                      <div className="text-[10px] text-slate-400">Type I Error (Noise)</div>
+                      <div className="text-[10px] text-stone-600">Type I Error (Noise)</div>
                     </div>
                     <div className="p-4 rounded-lg bg-rose-500/10 border border-rose-500/30">
                       <div className="text-rose-400 font-bold text-lg">{fn}</div>
                       <div className="text-white font-sans text-xs mt-1">False Negative (FN)</div>
-                      <div className="text-[10px] text-slate-400">Type II Error (Missed)</div>
+                      <div className="text-[10px] text-stone-600">Type II Error (Missed)</div>
                     </div>
                     <div className="p-4 rounded-lg bg-cyan-500/10 border border-cyan-500/30">
-                      <div className="text-cyan-400 font-bold text-lg">{tn}</div>
+                      <div className="text-orange-600 font-bold text-lg">{tn}</div>
                       <div className="text-white font-sans text-xs mt-1">True Negative (TN)</div>
-                      <div className="text-[10px] text-slate-400">Correct Inaction</div>
+                      <div className="text-[10px] text-stone-600">Correct Inaction</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
+                <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col justify-between">
                   <div>
                     <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-                      <Gauge className="w-4 h-4 text-cyan-400" /> SOC Operational Impact Analysis
+                      <Gauge className="w-4 h-4 text-orange-600" /> SOC Operational Impact Analysis
                     </h4>
-                    <div className="space-y-3 text-xs text-slate-300">
+                    <div className="space-y-3 text-xs text-stone-700">
                       <p>
                         <strong className="text-emerald-400">Recall ({metrics.recall}%):</strong> Represents your coverage against known attack variations. Missed cases (FN = {fn}) indicate tradecraft that successfully circumvented your current telemetry or Sigma correlation.
                       </p>
                       <p>
-                        <strong className="text-purple-400">Precision ({metrics.precision}%):</strong> Governs analyst confidence. With FP = {fp}, {metrics.precision}% of all tickets raised represent actual adversary execution rather than false alarms.
+                        <strong className="text-orange-600">Precision ({metrics.precision}%):</strong> Governs analyst confidence. With FP = {fp}, {metrics.precision}% of all tickets raised represent actual adversary execution rather than false alarms.
                       </p>
                       <p>
                         <strong className="text-amber-400">Alert Fatigue Index:</strong> Lower precision forces Tier 1 analysts to sift through noise, leading to dangerous triage delays.
@@ -2388,7 +2388,7 @@ level: critical`;
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-slate-400">
+                  <div className="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-xs font-mono text-stone-600">
                     <span>Simulated MTTD: <strong>{mttdSeconds}s</strong></span>
                     <span>Simulated MTTR: <strong>{mttrMinutes}m</strong></span>
                   </div>
@@ -2403,16 +2403,16 @@ level: critical`;
         {/* ================================================================== */}
         {activeTab === "purpleteam-sim" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Simulator 4
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Purple Team Exercise Tracker & Root-Cause Gap Analyzer
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Isolate pipeline failure stages, inspect root causes, and simulate collaborative engineering remediation.
                   </p>
                 </div>
@@ -2430,21 +2430,21 @@ level: critical`;
                       className={`p-4 rounded-xl text-left border transition ${
                         isSelected
                           ? "bg-purple-500/10 border-purple-500 text-white"
-                          : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
+                          : "bg-stone-50 border-stone-200 text-stone-600 hover:border-stone-300"
                       }`}
                     >
-                      <div className="font-mono font-bold text-[10px] text-purple-400 mb-1">{sc.id}</div>
+                      <div className="font-mono font-bold text-[10px] text-orange-600 mb-1">{sc.id}</div>
                       <div className="font-bold text-xs text-white mb-1">{sc.title}</div>
-                      <div className="text-[11px] text-slate-400">{sc.technique}</div>
+                      <div className="text-[11px] text-stone-600">{sc.technique}</div>
                     </button>
                   );
                 })}
               </div>
 
               {/* 5-Stage Root Cause Selector */}
-              <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 mb-6">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 mb-6">
                 <div className="text-xs font-bold text-white mb-3 flex items-center gap-2">
-                  <Workflow className="w-4 h-4 text-purple-400" /> Select Pipeline Failure Stage to Analyze Root Cause
+                  <Workflow className="w-4 h-4 text-orange-600" /> Select Pipeline Failure Stage to Analyze Root Cause
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs">
@@ -2462,7 +2462,7 @@ level: critical`;
                       className={`p-2.5 rounded-lg border text-center transition font-semibold text-xs ${
                         injectedFailureStage === st.id
                           ? "bg-purple-600 text-white border-purple-500"
-                          : "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800"
+                          : "bg-stone-50 border-stone-200 text-stone-700 hover:bg-slate-800"
                       }`}
                     >
                       {st.label}
@@ -2472,8 +2472,8 @@ level: critical`;
               </div>
 
               {/* Diagnostics Card */}
-              <div className="p-6 rounded-xl bg-slate-950 border border-slate-800">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-4 border-b border-slate-800 pb-3">
+              <div className="p-6 rounded-xl bg-stone-50 border border-stone-200/80">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-4 border-b border-stone-200 pb-3">
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-white text-sm">
                       {failureStageDetails[injectedFailureStage].label}
@@ -2489,29 +2489,29 @@ level: critical`;
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-                  <div className="p-4 rounded-lg bg-slate-900 border border-slate-800">
+                  <div className="p-4 rounded-lg bg-white border border-stone-200/80 shadow-xs">
                     <div className="font-bold text-amber-400 mb-2 flex items-center gap-1.5">
                       <AlertCircle className="w-4 h-4" /> Observed Symptom
                     </div>
-                    <p className="text-slate-300 leading-relaxed">
+                    <p className="text-stone-700 leading-relaxed">
                       {failureStageDetails[injectedFailureStage].symptom}
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-lg bg-slate-900 border border-slate-800">
+                  <div className="p-4 rounded-lg bg-white border border-stone-200/80 shadow-xs">
                     <div className="font-bold text-rose-400 mb-2 flex items-center gap-1.5">
                       <Bug className="w-4 h-4" /> Root Cause Analysis
                     </div>
-                    <p className="text-slate-300 leading-relaxed">
+                    <p className="text-stone-700 leading-relaxed">
                       {failureStageDetails[injectedFailureStage].rootCause}
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-lg bg-slate-900 border border-slate-800">
+                  <div className="p-4 rounded-lg bg-white border border-stone-200/80 shadow-xs">
                     <div className="font-bold text-emerald-400 mb-2 flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4" /> Engineering Remediation
                     </div>
-                    <p className="text-slate-300 leading-relaxed">
+                    <p className="text-stone-700 leading-relaxed">
                       {failureStageDetails[injectedFailureStage].remediation}
                     </p>
                   </div>
@@ -2519,7 +2519,7 @@ level: critical`;
 
                 {injectedFailureStage !== "none" && (
                   <div className="mt-6 p-3 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-between">
-                    <span className="text-xs text-purple-300">
+                    <span className="text-xs text-orange-700">
                       Collaborative Fix Proposed: Assign to Detection Engineering & SecOps on-call.
                     </span>
                     <button
@@ -2540,26 +2540,26 @@ level: critical`;
         {/* ================================================================== */}
         {activeTab === "quiz" && (
           <div className="space-y-8">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+            <div className="bg-white border border-stone-200/80 shadow-xs rounded-2xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200 font-bold">
                     Section 22.13
                   </span>
                   <h3 className="text-xl font-bold text-white mt-2">
                     Module 22 Knowledge Assessment
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-600 mt-1">
                     Test your understanding of adversary simulation, telemetry pipelines, Sigma detection engineering, and purple team workflows.
                   </p>
                 </div>
 
                 <div className="text-right">
-                  <div className="text-xs text-slate-400">
+                  <div className="text-xs text-stone-600">
                     {Object.keys(quizAnswers).length} of {quizQuestions.length} Answered
                   </div>
                   {quizSubmitted && (
-                    <div className="text-sm font-bold mt-1 text-purple-400">
+                    <div className="text-sm font-bold mt-1 text-orange-600">
                       Score: {quizScore} / {quizQuestions.length} ({Math.round((quizScore / quizQuestions.length) * 100)}%)
                     </div>
                   )}
@@ -2574,10 +2574,10 @@ level: critical`;
                   return (
                     <div
                       key={q.id}
-                      className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 transition"
+                      className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 transition"
                     >
                       <div className="font-bold text-sm text-white mb-3 flex items-start gap-2.5">
-                        <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                        <span className="w-6 h-6 rounded-full bg-purple-500/20 text-orange-700 flex items-center justify-center text-xs shrink-0 mt-0.5">
                           {idx + 1}
                         </span>
                         <span>{q.question}</span>
@@ -2586,7 +2586,7 @@ level: critical`;
                       <div className="space-y-2 mb-3">
                         {q.options.map((opt, oIdx) => {
                           const isOptionSelected = selected === oIdx;
-                          let btnStyle = "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800";
+                          let btnStyle = "bg-stone-50 border-stone-200 text-stone-700 hover:bg-slate-800";
 
                           if (quizSubmitted) {
                             if (oIdx === q.correctAnswer) {
@@ -2617,8 +2617,8 @@ level: critical`;
                       </div>
 
                       {quizSubmitted && (
-                        <div className="p-3 rounded-lg bg-slate-900/90 border border-slate-800 text-xs text-slate-300 leading-relaxed">
-                          <span className="font-bold text-purple-400">Explanation: </span>
+                        <div className="p-3 rounded-lg bg-white border border-stone-200/80 shadow-xs text-xs text-stone-700 leading-relaxed">
+                          <span className="font-bold text-orange-600">Explanation: </span>
                           {q.explanation}
                         </div>
                       )}
@@ -2628,10 +2628,10 @@ level: critical`;
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-8 flex items-center justify-between pt-4 border-t border-slate-800">
+              <div className="mt-8 flex items-center justify-between pt-4 border-t border-stone-200">
                 <button
                   onClick={resetQuiz}
-                  className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 text-xs font-medium transition flex items-center gap-1.5"
                 >
                   <RotateCcw className="w-3.5 h-3.5" /> Reset Quiz
                 </button>
@@ -2645,7 +2645,7 @@ level: critical`;
                     Submit Quiz
                   </button>
                 ) : (
-                  <div className="text-xs font-bold text-purple-400">
+                  <div className="text-xs font-bold text-orange-600">
                     Assessment Complete! Check rationales above.
                   </div>
                 )}

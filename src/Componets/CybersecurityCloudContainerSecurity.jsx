@@ -666,24 +666,24 @@ Generated: ${new Date().toISOString()}
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0f1d] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Header */}
-      <header className="border-b border-slate-800/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
+      <header className="border-b border-stone-200/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <button
               onClick={() => navigate("/learning/cybersecurity")}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition flex items-center text-xs"
+              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 hover:text-white transition flex items-center text-xs"
               title="Return to Cybersecurity Curriculum"
             >
               <ArrowLeft className="w-4 h-4 mr-1" />
               <span>Cybersecurity Track</span>
             </button>
             <span className="text-slate-600">/</span>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
               Module 18
             </span>
-            <span className="text-xs text-slate-400 hidden sm:inline">
+            <span className="text-xs text-stone-600 hidden sm:inline">
               Cloud Security, Containers, IAM Policies & Misconfiguration Assessment
             </span>
           </div>
@@ -694,19 +694,19 @@ Generated: ${new Date().toISOString()}
       </header>
 
       {/* Curriculum Module Navigation Bar */}
-      <ModuleNav currentModuleId="cloud-security" />
+      <ModuleNav currentModuleId="cloud-security" track="cybersecurity" />
 
       {/* Hero Banner */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-slate-900 via-[#0c1322] to-[#0a0f1d] py-10">
+      <div className="border-b border-stone-200 bg-gradient-to-b from-slate-900 via-[#0c1322] to-[#0a0f1d] py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <span className="px-2.5 py-0.5 rounded text-[11px] font-mono uppercase tracking-wider bg-cyan-950 text-cyan-400 border border-cyan-800/50">
+                <span className="px-2.5 py-0.5 rounded text-[11px] font-mono uppercase tracking-wider bg-cyan-950 text-orange-600 border border-cyan-800/50">
                   Intermediate to Advanced · Cloud Infrastructure & DevSecOps
                 </span>
-                <span className="text-slate-500 text-xs">•</span>
-                <span className="text-slate-400 text-xs flex items-center">
+                <span className="text-stone-500 text-xs">•</span>
+                <span className="text-stone-600 text-xs flex items-center">
                   <ShieldCheck className="w-3.5 h-3.5 mr-1 text-emerald-400" />
                   AWS Well-Architected, CIS Benchmarks, NIST SP 800-190 & SP 800-207
                 </span>
@@ -714,31 +714,31 @@ Generated: ${new Date().toISOString()}
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
                 Cloud Security, Containers, IAM Policies & Misconfiguration Assessment
               </h1>
-              <p className="text-sm sm:text-base text-slate-400 max-w-3xl leading-relaxed">
+              <p className="text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
                 Master the cloud shared responsibility model, least-privilege IAM policy engineering, container isolation boundaries, Kubernetes RBAC &amp; NetworkPolicies, and automated Infrastructure-as-Code posture scanning to detect and remediate cloud risks before adversaries can exploit them.
               </p>
             </div>
 
             <div className="flex md:flex-col items-center gap-3">
-              <div className="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl text-center min-w-[130px]">
-                <div className="text-2xl font-bold text-cyan-400 font-mono">18 / 24</div>
-                <div className="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Course Sequence</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs p-3.5 rounded-xl text-center min-w-[130px]">
+                <div className="text-2xl font-bold text-orange-600 font-mono">18 / 24</div>
+                <div className="text-[11px] text-stone-600 uppercase tracking-wider mt-0.5">Course Sequence</div>
               </div>
-              <div className="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl text-center min-w-[130px]">
+              <div className="bg-white border border-stone-200/80 shadow-xs p-3.5 rounded-xl text-center min-w-[130px]">
                 <div className="text-2xl font-bold text-emerald-400 font-mono">4 Labs</div>
-                <div className="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Interactive Tools</div>
+                <div className="text-[11px] text-stone-600 uppercase tracking-wider mt-0.5">Interactive Tools</div>
               </div>
             </div>
           </div>
 
           {/* Quick Nav Anchor Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-slate-800/80 pt-4">
+          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-stone-200 pt-4">
             <button
               onClick={() => setActiveTab("theory")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "theory"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
@@ -748,8 +748,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("iam-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "iam-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <KeyRound className="w-3.5 h-3.5" />
@@ -759,8 +759,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("container-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "container-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Container className="w-3.5 h-3.5" />
@@ -770,8 +770,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("k8s-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "k8s-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Box className="w-3.5 h-3.5" />
@@ -781,8 +781,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("cspm-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "cspm-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Cloud className="w-3.5 h-3.5" />
@@ -792,8 +792,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("quiz")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "quiz"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Award className="w-3.5 h-3.5" />
@@ -807,10 +807,10 @@ Generated: ${new Date().toISOString()}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Left Column: Topics Sidebar */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 sticky top-20 space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 tracking-wider uppercase flex items-center justify-between">
+          <div className="bg-stone-50/70 border border-stone-200 rounded-xl p-4 sticky top-20 space-y-4">
+            <h3 className="text-xs font-bold text-stone-600 tracking-wider uppercase flex items-center justify-between">
               <span>Curriculum Navigator</span>
-              <span className="text-cyan-400 font-mono">18 / 24</span>
+              <span className="text-orange-600 font-mono">18 / 24</span>
             </h3>
 
             <div className="space-y-1">
@@ -839,8 +839,8 @@ Generated: ${new Date().toISOString()}
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
                     selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-cyan-300 font-semibold border-l-2 border-cyan-400"
-                      : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
+                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
@@ -849,35 +849,35 @@ Generated: ${new Date().toISOString()}
             </div>
 
             {/* Quick Practice Jump */}
-            <div className="pt-4 border-t border-slate-800">
-              <div className="text-[11px] font-semibold text-slate-400 mb-2 uppercase tracking-wider">
+            <div className="pt-4 border-t border-stone-200">
+              <div className="text-[11px] font-semibold text-stone-600 mb-2 uppercase tracking-wider">
                 Hands-on Simulators
               </div>
               <div className="grid grid-cols-2 gap-1.5">
                 <button
                   onClick={() => setActiveTab("iam-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
-                  <KeyRound className="w-3 h-3 mr-1 text-cyan-400 shrink-0" />
+                  <KeyRound className="w-3 h-3 mr-1 text-orange-600 shrink-0" />
                   <span>IAM Policy</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("container-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
                   <Container className="w-3 h-3 mr-1 text-blue-400 shrink-0" />
                   <span>Docker Hardening</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("k8s-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
                   <Box className="w-3 h-3 mr-1 text-emerald-400 shrink-0" />
                   <span>K8s RBAC</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("cspm-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
                   <Cloud className="w-3 h-3 mr-1 text-amber-400 shrink-0" />
                   <span>CSPM Scanner</span>
@@ -895,22 +895,22 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.1 */}
               {selectedTopic === 1 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.1</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.1</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Module Overview & Learning Objectives</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Cloud platforms and container technologies empower organizations to scale distributed microservices through software automation. However, software-defined infrastructure expands the attack surface when IAM permissions are overly permissive, storage buckets are publicly accessible, container runtimes execute as root, or configuration drift escapes baseline governance.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-                      <div className="flex items-center space-x-2 text-cyan-400 font-semibold text-sm">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
+                      <div className="flex items-center space-x-2 text-orange-600 font-semibold text-sm">
                         <Cloud className="w-4 h-4" />
                         <span>Cloud & IAM Learning Objectives</span>
                       </div>
-                      <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                      <ul className="text-xs text-stone-700 space-y-2 list-disc list-inside">
                         <li>Delineate cloud shared responsibility across IaaS, PaaS, SaaS, and Serverless.</li>
                         <li>Identify risks involving public S3 buckets, 0.0.0.0/0 security groups, and exposed management interfaces.</li>
                         <li>Audit IAM users, roles, trust policies, and temporary STS credentials for least privilege.</li>
@@ -919,12 +919,12 @@ Generated: ${new Date().toISOString()}
                       </ul>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
                       <div className="flex items-center space-x-2 text-emerald-400 font-semibold text-sm">
                         <Container className="w-4 h-4" />
                         <span>Container & Kubernetes Objectives</span>
                       </div>
-                      <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                      <ul className="text-xs text-stone-700 space-y-2 list-disc list-inside">
                         <li>Harden container images, enforce non-root users, drop Linux capabilities, and enable read-only rootfs.</li>
                         <li>Scan images for vulnerabilities and supply-chain flaws using Trivy and Grype.</li>
                         <li>Manage container secrets, avoid environment variable leakage, and apply resource cgroups.</li>
@@ -934,8 +934,8 @@ Generated: ${new Date().toISOString()}
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-800/40 text-xs text-cyan-300 flex items-start space-x-3">
-                    <AlertCircle className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                  <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-800/40 text-xs text-orange-700 flex items-start space-x-3">
+                    <AlertCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <div>
                       <span className="font-bold">Authorized Assessment Scope: </span>
                       All practical labs and scans must use personal sandbox cloud accounts or local container environments (Docker/kind/Minikube). Never run posture assessment scanners or exploit tests against third-party or production cloud tenancies without explicit authorization.
@@ -947,19 +947,19 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.2 */}
               {selectedTopic === 2 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.2</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.2</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Cloud Architecture & Shared Responsibility</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     In cloud computing, security responsibilities are divided between the cloud service provider (CSP) and the customer. The CSP is responsible for <em>security OF the cloud</em> (physical facilities, hypervisor virtualization, and managed service infrastructure), while the customer is responsible for <em>security IN the cloud</em> (data classification, IAM policies, network security groups, and workload patching).
                   </p>
 
                   <h3 className="text-base font-bold text-white">Shared Responsibility Matrix Across Service Models</h3>
-                  <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                  <div className="overflow-x-auto border border-stone-200 rounded-xl">
                     <table className="w-full text-left text-xs border-collapse">
-                      <thead className="bg-slate-900 text-slate-300 font-semibold border-b border-slate-800">
+                      <thead className="bg-stone-50 text-stone-700 font-semibold border-b border-stone-200">
                         <tr>
                           <th className="p-3">Architecture Layer</th>
                           <th className="p-3">IaaS (EC2 / Azure VM)</th>
@@ -968,48 +968,48 @@ Generated: ${new Date().toISOString()}
                           <th className="p-3">SaaS (M365 / Salesforce)</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Data & IAM Access</td>
+                      <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Data & IAM Access</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Application Logic & Code</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Application Logic & Code</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Runtime & OS Patching</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Runtime & OS Patching</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Virtual Network & Firewalls</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Virtual Network & Firewalls</td>
                           <td className="p-3 text-emerald-400 font-bold">Customer</td>
                           <td className="p-3 text-amber-400 font-bold">Shared / Customer ACLs</td>
                           <td className="p-3 text-amber-400 font-bold">Shared (VPC triggers)</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Physical & Hypervisor</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
-                          <td className="p-3 text-slate-500">Cloud Provider</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Physical & Hypervisor</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
+                          <td className="p-3 text-stone-500">Cloud Provider</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2 text-xs text-slate-300">
-                    <span className="font-bold text-cyan-400">Core Takeaway: </span>
+                  <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2 text-xs text-stone-700">
+                    <span className="font-bold text-orange-600">Core Takeaway: </span>
                     Adopting managed services (like Amazon S3 or RDS) offloads hardware and hypervisor management to the cloud provider, but customer misconfiguration of bucket access policies or IAM credentials remains the leading root cause of enterprise cloud data breaches.
                   </div>
                 </section>
@@ -1018,52 +1018,52 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.3 */}
               {selectedTopic === 3 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.3</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.3</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Cloud Threats & Common Misconfigurations</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Cloud vulnerabilities rarely stem from zero-day hypervisor escapes; the vast majority result from simple, avoidable infrastructure misconfigurations.
                   </p>
 
                   <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-rose-400 text-sm">1. Publicly Exposed Object Storage Buckets</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800">Critical</span>
                       </div>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         S3 buckets or Azure Blob containers configured with public read/write ACLs. Enables unauthorized internet callers to harvest customer PII, corporate backups, or tamper with static assets. Mitigated with account-level <strong>S3 Block Public Access</strong> and private endpoint policies.
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-amber-400 text-sm">2. Excessively Permissive Network Security Groups</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-950 text-amber-400 border border-amber-800">High</span>
                       </div>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         Security groups with ingress rules allowing `0.0.0.0/0` on port 22 (SSH), port 3389 (RDP), or database ports (3306 MySQL, 5432 Postgres, 6379 Redis). Allows automated botnets to brute-force administrative interfaces.
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-rose-400 text-sm">3. Hardcoded Secrets in Images & Repositories</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800">Critical</span>
                       </div>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         API tokens, database passwords, and long-lived AWS IAM Access Keys baked into Docker image layers or pushed to git repositories. Deleting a key in a subsequent commit does not purge it from image or git history; the key must be immediately revoked in IAM.
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-amber-400 text-sm">4. Missing Audit Logging & Encryption at Rest</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-950 text-amber-400 border border-amber-800">Medium</span>
                       </div>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         CloudTrail disabled or not multi-region; S3 bucket access logging disabled; RDS databases unencrypted with default keys. Leaves security teams blind during incident response.
                       </p>
                     </div>
@@ -1074,32 +1074,32 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.4 */}
               {selectedTopic === 4 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.4</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.4</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Cloud Identity & Access Management (IAM)</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     In the cloud, identity is the primary perimeter. IAM controls compute instance actions, database access, network routing, and secret retrieval. Misconfigured IAM permissions create immediate pathways for horizontal lateral movement and vertical privilege escalation.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                      <span className="font-bold text-cyan-400 text-sm">Permission Policies vs. Trust Policies</span>
-                      <p className="text-slate-300 leading-relaxed">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                      <span className="font-bold text-orange-600 text-sm">Permission Policies vs. Trust Policies</span>
+                      <p className="text-stone-700 leading-relaxed">
                         <strong>Permission Policy:</strong> Defines WHAT actions an identity can execute on which cloud resources (e.g. `s3:GetObject` on a bucket ARN).
                       </p>
-                      <p className="text-slate-300 leading-relaxed">
+                      <p className="text-stone-700 leading-relaxed">
                         <strong>Trust Policy:</strong> Defines WHO or WHAT is authorized to assume the role (e.g. EC2 service principal `ec2.amazonaws.com` or GitHub Actions OIDC federated identity).
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
                       <span className="font-bold text-emerald-400 text-sm">Human vs. Workload Identities</span>
-                      <p className="text-slate-300 leading-relaxed">
+                      <p className="text-stone-700 leading-relaxed">
                         <strong>Human Identities:</strong> Must use federated Single Sign-On (SSO / Okta / Entra ID) with hardware MFA, just-in-time access, and zero static access keys.
                       </p>
-                      <p className="text-slate-300 leading-relaxed">
+                      <p className="text-stone-700 leading-relaxed">
                         <strong>Workload Identities:</strong> Applications and CI/CD runners should use short-lived temporary credentials (AWS IAM Roles for Service Accounts / IRSA, GCP Workload Identity Federation) rather than static long-lived API keys.
                       </p>
                     </div>
@@ -1120,25 +1120,25 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.5 */}
               {selectedTopic === 5 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.5</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.5</span>
                     <h2 className="text-2xl font-bold text-white mt-1">IAM Policy Assessment & Effective Permissions</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     In cloud environments, an identity&apos;s effective permissions are not determined by a single policy document. The final decision is calculated by evaluating identity-based policies, resource-based policies, permission boundaries, Service Control Policies (SCPs), and explicit denials.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 font-mono text-xs">
-                    <span className="font-bold text-cyan-400 block border-b border-slate-800 pb-2">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3 font-mono text-xs">
+                    <span className="font-bold text-orange-600 block border-b border-stone-200 pb-2">
                       AWS IAM Policy Evaluation Logic
                     </span>
-                    <div className="space-y-2 text-slate-300">
+                    <div className="space-y-2 text-stone-700">
                       <div>1. <strong className="text-rose-400">Explicit Deny:</strong> If ANY policy contains a matching Deny statement, the request is immediately denied. Deny always trumps Allow.</div>
-                      <div>2. <strong className="text-cyan-400">SCP Guardrails:</strong> Organization Service Control Policies must permit the action.</div>
-                      <div>3. <strong className="text-cyan-400">Permission Boundaries:</strong> The identity&apos;s boundary must permit the action.</div>
+                      <div>2. <strong className="text-orange-600">SCP Guardrails:</strong> Organization Service Control Policies must permit the action.</div>
+                      <div>3. <strong className="text-orange-600">Permission Boundaries:</strong> The identity&apos;s boundary must permit the action.</div>
                       <div>4. <strong className="text-emerald-400">Identity or Resource Allow:</strong> An explicit Allow must exist in either the identity policy OR the resource-based policy.</div>
-                      <div>5. <strong className="text-slate-500">Default Closed:</strong> If no explicit Allow is found, the request is implicitly denied.</div>
+                      <div>5. <strong className="text-stone-500">Default Closed:</strong> If no explicit Allow is found, the request is implicitly denied.</div>
                     </div>
                   </div>
                 </section>
@@ -1147,44 +1147,44 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.6 */}
               {selectedTopic === 6 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.6</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.6</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Container Security Fundamentals</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Containers package application code and dependencies into portable images. Unlike virtual machines, containers share the host operating system kernel using Linux namespaces (PID, NET, MNT, IPC, UTS, USER) and control groups (cgroups). Consequently, a vulnerability in the kernel or a container executing with excessive privileges can allow an attacker to escape into the underlying host.
                   </p>
 
-                  <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                  <div className="overflow-x-auto border border-stone-200 rounded-xl">
                     <table className="w-full text-left text-xs border-collapse">
-                      <thead className="bg-slate-900 text-slate-300 font-semibold border-b border-slate-800">
+                      <thead className="bg-stone-50 text-stone-700 font-semibold border-b border-stone-200">
                         <tr>
                           <th className="p-3">Characteristic</th>
                           <th className="p-3">Containers (Docker / OCI)</th>
                           <th className="p-3">Virtual Machines (KVM / VMware)</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Kernel Model</td>
+                      <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Kernel Model</td>
                           <td className="p-3 text-amber-300">Shared host Linux kernel</td>
                           <td className="p-3 text-emerald-400">Separate guest kernel per VM</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Isolation Mechanism</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Isolation Mechanism</td>
                           <td className="p-3">Linux Namespaces, cgroups, Seccomp, AppArmor</td>
                           <td className="p-3">Hardware hypervisor (Type-1 / Type-2)</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Startup Time & Overhead</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Startup Time & Overhead</td>
                           <td className="p-3 text-emerald-400">Milliseconds; lightweight</td>
-                          <td className="p-3 text-slate-400">Seconds to minutes; higher RAM/CPU</td>
+                          <td className="p-3 text-stone-600">Seconds to minutes; higher RAM/CPU</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Primary Attack Vector</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Primary Attack Vector</td>
                           <td className="p-3 text-rose-300">Privileged escape, vulnerable packages, root execution</td>
-                          <td className="p-3 text-slate-400">Unpatched guest OS, hypervisor flaws</td>
+                          <td className="p-3 text-stone-600">Unpatched guest OS, hypervisor flaws</td>
                         </tr>
                       </tbody>
                     </table>
@@ -1195,12 +1195,12 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.7 */}
               {selectedTopic === 7 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.7</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.7</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Container Image Security & Docker Hardening</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Securing containerized workloads begins at the Dockerfile. By using minimal base images, executing as an unprivileged user, dropping unnecessary Linux capabilities, and mounting a read-only root filesystem, engineers eliminate the vast majority of container breakout vectors.
                   </p>
 
@@ -1237,8 +1237,8 @@ Generated: ${new Date().toISOString()}
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2 text-xs text-slate-300">
-                    <span className="font-bold text-cyan-400 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2 text-xs text-stone-700">
+                    <span className="font-bold text-orange-600 uppercase tracking-wider">
                       Essential Runtime Security Flags (Docker CLI / Compose)
                     </span>
                     <ul className="space-y-1 list-disc list-inside">
@@ -1254,26 +1254,26 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.8 */}
               {selectedTopic === 8 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.8</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.8</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Container Secrets, Networking & Runtime Defense</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Containers require database credentials, API keys, and certificates to operate. Storing secrets in plain environment variables creates risk, as process dumps, crash logs, and `docker inspect` can leak them.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                      <span className="font-bold text-cyan-400 text-sm">Dedicated Secrets Management</span>
-                      <p className="text-slate-300 leading-relaxed">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                      <span className="font-bold text-orange-600 text-sm">Dedicated Secrets Management</span>
+                      <p className="text-stone-700 leading-relaxed">
                         Mount secrets as temporary in-memory files (RAM-backed `tmpfs`) using HashiCorp Vault, AWS Secrets Manager, or Kubernetes External Secrets Operator. Rotate secrets automatically.
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
                       <span className="font-bold text-emerald-400 text-sm">Runtime Anomaly Detection (Falco / eBPF)</span>
-                      <p className="text-slate-300 leading-relaxed">
+                      <p className="text-stone-700 leading-relaxed">
                         Use kernel eBPF monitors (such as Falco or Tetragon) to alert in real time when a container spawns unexpected shells (`/bin/sh`), modifies `/etc/passwd`, or opens unauthorized outbound C2 connections.
                       </p>
                     </div>
@@ -1284,20 +1284,20 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.9 */}
               {selectedTopic === 9 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.9</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.9</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Kubernetes Security: RBAC & NetworkPolicies</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     In Kubernetes, the API server orchestrates all cluster resources. Securing Kubernetes requires scoping Role-Based Access Control (RBAC), hardening pod security contexts, and enforcing CNI NetworkPolicies.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 font-mono text-xs">
-                    <span className="font-bold text-cyan-400 block border-b border-slate-800 pb-2">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3 font-mono text-xs">
+                    <span className="font-bold text-orange-600 block border-b border-stone-200 pb-2">
                       Production Kubernetes Pod SecurityContext Manifest
                     </span>
-                    <pre className="p-3 rounded bg-slate-950 border border-slate-800 text-cyan-300 leading-relaxed overflow-x-auto">
+                    <pre className="p-3 rounded bg-stone-50 border border-stone-200/80 text-orange-700 leading-relaxed overflow-x-auto">
                       <code>{`spec:
   securityContext:
     runAsNonRoot: true
@@ -1317,7 +1317,7 @@ Generated: ${new Date().toISOString()}
                     </pre>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2 text-xs text-slate-300">
+                  <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2 text-xs text-stone-700">
                     <span className="font-bold text-emerald-400 uppercase tracking-wider">
                       Kubernetes NetworkPolicy Enforcement Caveat
                     </span>
@@ -1331,27 +1331,27 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.10 */}
               {selectedTopic === 10 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.10</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.10</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Infrastructure as Code (IaC) & Configuration Security</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Modern cloud infrastructure is defined in Terraform, OpenTofu, CloudFormation, or Bicep manifests. Shifting security left means scanning IaC templates in pull requests before resources are provisioned.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                    <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1.5">
-                      <span className="font-bold text-cyan-400 block font-mono">Checkov (Bridgecrew)</span>
-                      <p className="text-slate-400">Static code analysis for Terraform, K8s, Docker, and CloudFormation with 1000+ built-in CIS benchmark policies.</p>
+                    <div className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-1.5">
+                      <span className="font-bold text-orange-600 block font-mono">Checkov (Bridgecrew)</span>
+                      <p className="text-stone-600">Static code analysis for Terraform, K8s, Docker, and CloudFormation with 1000+ built-in CIS benchmark policies.</p>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1.5">
+                    <div className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-1.5">
                       <span className="font-bold text-blue-400 block font-mono">Trivy Config</span>
-                      <p className="text-slate-400">Fast misconfiguration scanner for HCL, YAML, and Dockerfiles integrated cleanly into CI/CD pipelines.</p>
+                      <p className="text-stone-600">Fast misconfiguration scanner for HCL, YAML, and Dockerfiles integrated cleanly into CI/CD pipelines.</p>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1.5">
+                    <div className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-1.5">
                       <span className="font-bold text-indigo-400 block font-mono">Open Policy Agent (OPA)</span>
-                      <p className="text-slate-400">Declarative policy-as-code using Rego to enforce organization guardrails (e.g. mandatory encryption tags).</p>
+                      <p className="text-stone-600">Declarative policy-as-code using Rego to enforce organization guardrails (e.g. mandatory encryption tags).</p>
                     </div>
                   </div>
                 </section>
@@ -1360,39 +1360,39 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.11 */}
               {selectedTopic === 11 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.11</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.11</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Cloud Security Posture Management (CSPM)</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     While IaC scanners evaluate pre-deployment code, Cloud Security Posture Management (CSPM) tools continuously assess live, deployed infrastructure against compliance baselines (CIS Benchmarks, NIST CSF, PCI DSS) to detect drift and unmanaged resources.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
-                    <h3 className="text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
+                    <h3 className="text-xs font-bold text-orange-700 uppercase tracking-wider">
                       The Continuous CSPM Workflow
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 text-center text-xs">
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800">
-                        <span className="font-bold text-cyan-400 block">1. Discover</span>
-                        <span className="text-[11px] text-slate-400">Inventory accounts & assets</span>
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80">
+                        <span className="font-bold text-orange-600 block">1. Discover</span>
+                        <span className="text-[11px] text-stone-600">Inventory accounts & assets</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800">
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80">
                         <span className="font-bold text-blue-400 block">2. Evaluate</span>
-                        <span className="text-[11px] text-slate-400">Compare to CIS baselines</span>
+                        <span className="text-[11px] text-stone-600">Compare to CIS baselines</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800">
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80">
                         <span className="font-bold text-indigo-400 block">3. Prioritize</span>
-                        <span className="text-[11px] text-slate-400">Filter by exposure & impact</span>
+                        <span className="text-[11px] text-stone-600">Filter by exposure & impact</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800">
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80">
                         <span className="font-bold text-amber-400 block">4. Remediate</span>
-                        <span className="text-[11px] text-slate-400">Apply root-cause IaC fix</span>
+                        <span className="text-[11px] text-stone-600">Apply root-cause IaC fix</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800">
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80">
                         <span className="font-bold text-emerald-400 block">5. Verify</span>
-                        <span className="text-[11px] text-slate-400">Retest & detect drift</span>
+                        <span className="text-[11px] text-stone-600">Retest & detect drift</span>
                       </div>
                     </div>
                   </div>
@@ -1402,47 +1402,47 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.12: PRACTICAL LAB */}
               {selectedTopic === 12 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.12</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.12</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Practical Lab: Cloud & Container Security Audit</h2>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-cyan-300 text-sm">Lab Scenario: Audit and Harden a Cloud-Native App</span>
-                      <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800/50">
+                      <span className="font-bold text-orange-700 text-sm">Lab Scenario: Audit and Harden a Cloud-Native App</span>
+                      <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-950 text-orange-600 border border-cyan-800/50">
                         2–3 Hours
                       </span>
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-stone-700 leading-relaxed">
                       Assess IAM policies, container configurations, and Terraform IaC manifests. Correct identified misconfigurations, apply least-privilege scoping, and compile an exportable audit report.
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-2">
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 space-y-1">
-                        <span className="font-bold text-cyan-400">Task A: IAM Assessment</span>
-                        <p className="text-slate-400">Identify wildcard policies and privilege escalation vectors.</p>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 space-y-1">
+                        <span className="font-bold text-orange-600">Task A: IAM Assessment</span>
+                        <p className="text-stone-600">Identify wildcard policies and privilege escalation vectors.</p>
                       </div>
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 space-y-1">
-                        <span className="font-bold text-cyan-400">Task B: Container Hardening</span>
-                        <p className="text-slate-400">Scan Dockerfile with Trivy; enforce non-root unprivileged execution.</p>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 space-y-1">
+                        <span className="font-bold text-orange-600">Task B: Container Hardening</span>
+                        <p className="text-stone-600">Scan Dockerfile with Trivy; enforce non-root unprivileged execution.</p>
                       </div>
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 space-y-1">
-                        <span className="font-bold text-cyan-400">Task C & D: IaC & Remediation</span>
-                        <p className="text-slate-400">Scan Terraform with Checkov; fix open S3 public access and open SSH rules.</p>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 space-y-1">
+                        <span className="font-bold text-orange-600">Task C & D: IaC & Remediation</span>
+                        <p className="text-stone-600">Scan Terraform with Checkov; fix open S3 public access and open SSH rules.</p>
                       </div>
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 space-y-1">
-                        <span className="font-bold text-cyan-400">Task E: Validate & Report</span>
-                        <p className="text-slate-400">Confirm zero regressions and generate standardized compliance report.</p>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 space-y-1">
+                        <span className="font-bold text-orange-600">Task E: Validate & Report</span>
+                        <p className="text-stone-600">Confirm zero regressions and generate standardized compliance report.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Interactive Lab Worksheet Generator */}
-                  <div className="p-5 rounded-xl bg-slate-900/90 border border-cyan-500/30 space-y-4">
+                  <div className="p-5 rounded-xl bg-stone-50/90 border border-cyan-500/30 space-y-4">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-bold text-cyan-300 flex items-center space-x-2">
-                        <FileSpreadsheet className="w-4 h-4 text-cyan-400" />
+                      <h3 className="text-sm font-bold text-orange-700 flex items-center space-x-2">
+                        <FileSpreadsheet className="w-4 h-4 text-orange-600" />
                         <span>Interactive Cloud Security Finding Worksheet</span>
                       </h3>
                       <button
@@ -1456,32 +1456,32 @@ Generated: ${new Date().toISOString()}
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                       <div className="space-y-1">
-                        <label className="text-slate-400 font-semibold">Asset or Component</label>
+                        <label className="text-stone-600 font-semibold">Asset or Component</label>
                         <input
                           type="text"
                           value={labAssetComponent}
                           onChange={(e) => setLabAssetComponent(e.target.value)}
-                          className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none"
+                          className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-slate-400 font-semibold">Finding Title</label>
+                        <label className="text-stone-600 font-semibold">Finding Title</label>
                         <input
                           type="text"
                           value={labFindingTitle}
                           onChange={(e) => setLabFindingTitle(e.target.value)}
-                          className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none"
+                          className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                       <div className="space-y-1">
-                        <label className="text-slate-400 font-semibold">Provisional Risk</label>
+                        <label className="text-stone-600 font-semibold">Provisional Risk</label>
                         <select
                           value={labProvisionalRisk}
                           onChange={(e) => setLabProvisionalRisk(e.target.value)}
-                          className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none"
+                          className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none"
                         >
                           <option value="Critical">Critical</option>
                           <option value="High">High</option>
@@ -1490,11 +1490,11 @@ Generated: ${new Date().toISOString()}
                         </select>
                       </div>
                       <div className="space-y-1">
-                        <label className="text-slate-400 font-semibold">Validation Result</label>
+                        <label className="text-stone-600 font-semibold">Validation Result</label>
                         <select
                           value={labValidationStatus}
                           onChange={(e) => setLabValidationStatus(e.target.value)}
-                          className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none"
+                          className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none"
                         >
                           <option value="Fixed and verified">Fixed and verified</option>
                           <option value="Partially fixed">Partially fixed</option>
@@ -1505,22 +1505,22 @@ Generated: ${new Date().toISOString()}
                     </div>
 
                     <div className="space-y-1 text-xs">
-                      <label className="text-slate-400 font-semibold">Evidence & Impact Analysis</label>
+                      <label className="text-stone-600 font-semibold">Evidence & Impact Analysis</label>
                       <textarea
                         rows={3}
                         value={labEvidenceImpact}
                         onChange={(e) => setLabEvidenceImpact(e.target.value)}
-                        className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none font-mono"
+                        className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none font-mono"
                       />
                     </div>
 
                     <div className="space-y-1 text-xs">
-                      <label className="text-slate-400 font-semibold">Remediation & Hardening Applied</label>
+                      <label className="text-stone-600 font-semibold">Remediation & Hardening Applied</label>
                       <textarea
                         rows={2}
                         value={labRemediationSummary}
                         onChange={(e) => setLabRemediationSummary(e.target.value)}
-                        className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none font-mono"
+                        className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none font-mono"
                       />
                     </div>
                   </div>
@@ -1530,18 +1530,18 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.13: QUIZ */}
               {selectedTopic === 13 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.13</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.13</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Knowledge Assessment Quiz</h2>
                   </div>
 
-                  <p className="text-slate-300 text-sm">
+                  <p className="text-stone-700 text-sm">
                     Test your understanding of cloud IAM policies, container isolation, Kubernetes RBAC, and Infrastructure as Code security.
                   </p>
 
                   <div className="space-y-6">
                     {quizQuestions.map((q, idx) => (
-                      <div key={q.id} className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+                      <div key={q.id} className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
                         <div className="flex items-start justify-between">
                           <span className="font-bold text-white text-xs sm:text-sm">
                             {idx + 1}. {q.question}
@@ -1567,7 +1567,7 @@ Generated: ${new Date().toISOString()}
                               className={`w-full text-left p-2.5 rounded-lg text-xs transition flex items-center justify-between ${
                                 quizAnswers[q.id] === optIdx
                                   ? "bg-cyan-500/20 text-cyan-200 border border-cyan-500/50"
-                                  : "bg-slate-950/60 text-slate-300 border border-slate-800 hover:bg-slate-800"
+                                  : "bg-stone-50 text-stone-700 border border-stone-200 hover:bg-slate-800"
                               } ${
                                 quizSubmitted && optIdx === q.correct
                                   ? "bg-emerald-950/60 border-emerald-500 text-emerald-200"
@@ -1583,21 +1583,21 @@ Generated: ${new Date().toISOString()}
                         </div>
 
                         {quizSubmitted && (
-                          <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-[11px] text-slate-400 mt-2">
-                            <span className="font-semibold text-cyan-400">Explanation: </span>
+                          <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80 text-[11px] text-stone-600 mt-2">
+                            <span className="font-semibold text-orange-600">Explanation: </span>
                             {q.explanation}
                           </div>
                         )}
                       </div>
                     ))}
 
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-                      <div className="text-xs text-slate-400 font-mono">
+                    <div className="flex items-center justify-between pt-4 border-t border-stone-200">
+                      <div className="text-xs text-stone-600 font-mono">
                         Answered: {Object.keys(quizAnswers).length} / 10
                       </div>
                       <div className="flex items-center space-x-3">
                         {quizSubmitted && (
-                          <div className="text-sm font-bold text-cyan-400 font-mono">
+                          <div className="text-sm font-bold text-orange-600 font-mono">
                             Final Score: {quizScore} / 10 ({Math.round((quizScore / 10) * 100)}%)
                           </div>
                         )}
@@ -1617,8 +1617,8 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.14 */}
               {selectedTopic === 14 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.14</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.14</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Official References & Authoritative Standards</h2>
                   </div>
 
@@ -1655,14 +1655,14 @@ Generated: ${new Date().toISOString()}
                         url: "https://kubernetes.io/docs/concepts/security/",
                       },
                     ].map((ref, idx) => (
-                      <div key={idx} className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                        <div className="font-bold text-cyan-400 text-sm">{ref.name}</div>
-                        <p className="text-slate-400 leading-relaxed">{ref.desc}</p>
+                      <div key={idx} className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                        <div className="font-bold text-orange-600 text-sm">{ref.name}</div>
+                        <p className="text-stone-600 leading-relaxed">{ref.desc}</p>
                         <a
                           href={ref.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-cyan-400 hover:underline flex items-center pt-1"
+                          className="text-orange-600 hover:underline flex items-center pt-1"
                         >
                           <span>Explore Official Standard</span>
                           <ExternalLink className="w-3 h-3 ml-1" />
@@ -1676,40 +1676,40 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 18.15 */}
               {selectedTopic === 15 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 18.15</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 18.15</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Key Engineering Takeaways</h2>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-4">
-                    <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
+                  <div className="p-5 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
+                    <ul className="space-y-3 text-xs sm:text-sm text-stone-700">
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Shared Responsibility Reality:</strong> The cloud provider secures the cloud infrastructure, but the customer remains 100% accountable for IAM policies, object storage public access, and data encryption.</span>
                       </li>
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Eliminate Wildcards in IAM:</strong> Never grant `Action: "*", Resource: "*"`. Scope permissions down to specific API verbs, resources, and ABAC tenant conditions.</span>
                       </li>
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Hardened Non-Root Containers:</strong> Execute containerized workloads as an unprivileged user (`USER node` or UID 65532), drop ALL capabilities, and mount the root filesystem read-only.</span>
                       </li>
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Kubernetes Least-Privilege & NetworkPolicies:</strong> Restrict service accounts from cluster-admin bindings and enforce CNI NetworkPolicies to prevent lateral east-west movement between microservices.</span>
                       </li>
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Shift-Left IaC Scanning & CSPM:</strong> Scan Terraform templates with Checkov in pull requests to catch misconfigurations before deployment, while continuously auditing live cloud posture with Prowler/CSPM.</span>
                       </li>
                     </ul>
                   </div>
 
-                  <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+                  <div className="flex items-center justify-between pt-6 border-t border-stone-200">
                     <button
                       onClick={() => setSelectedTopic(12)}
-                      className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center"
+                      className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 text-xs flex items-center"
                     >
                       <ArrowLeft className="w-3.5 h-3.5 mr-1" />
                       <span>Previous: 18.12 Practical Lab</span>
@@ -1730,24 +1730,24 @@ Generated: ${new Date().toISOString()}
           {/* TAB 2: SIMULATOR 1 - IAM POLICY EVALUATOR */}
           {activeTab === "iam-sim" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Simulator 1</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Simulator 1</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
                   Cloud IAM Policy Evaluator & Least-Privilege Generator
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-600 mt-1">
                   Simulate AWS policy evaluation against benign operational requests and malicious privilege escalation attempts.
                 </p>
               </div>
 
               {/* Policy Mode Selector */}
-              <div className="flex rounded bg-slate-900 p-1 border border-slate-800 max-w-md">
+              <div className="flex rounded bg-stone-50 p-1 border border-stone-200 max-w-md">
                 <button
                   onClick={() => setIamPolicyMode("overly_permissive")}
                   className={`flex-1 py-1.5 rounded text-xs font-bold transition ${
                     iamPolicyMode === "overly_permissive"
                       ? "bg-rose-600 text-white shadow-md shadow-rose-600/20"
-                      : "text-slate-400 hover:text-white"
+                      : "text-stone-600 hover:text-white"
                   }`}
                 >
                   Overly Permissive Policy
@@ -1757,7 +1757,7 @@ Generated: ${new Date().toISOString()}
                   className={`flex-1 py-1.5 rounded text-xs font-bold transition ${
                     iamPolicyMode === "least_privilege"
                       ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
-                      : "text-slate-400 hover:text-white"
+                      : "text-stone-600 hover:text-white"
                   }`}
                 >
                   Least-Privilege Scoped Policy
@@ -1765,8 +1765,8 @@ Generated: ${new Date().toISOString()}
               </div>
 
               {/* Code Display & Action Tester */}
-              <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
+                <div className="flex items-center justify-between border-b border-stone-200 pb-3">
                   <div>
                     <h3 className="text-sm font-bold text-white">{iamSimulation.activePolicy.title}</h3>
                     <span
@@ -1781,7 +1781,7 @@ Generated: ${new Date().toISOString()}
                   </div>
                   <button
                     onClick={() => copyCode(iamSimulation.activePolicy.json, "iam")}
-                    className="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300"
+                    className="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-stone-700"
                     title="Copy Policy JSON"
                   >
                     {copiedCodeId === "iam" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -1789,13 +1789,13 @@ Generated: ${new Date().toISOString()}
                 </div>
 
                 {/* Policy JSON Window */}
-                <pre className="p-3.5 rounded-lg bg-slate-950 border border-slate-800 text-xs font-mono text-cyan-300 overflow-x-auto leading-relaxed">
+                <pre className="p-3.5 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-mono text-orange-700 overflow-x-auto leading-relaxed">
                   <code>{iamSimulation.activePolicy.json}</code>
                 </pre>
 
                 {/* Test Action Trigger */}
                 <div className="space-y-2 pt-2">
-                  <label className="text-xs font-bold text-slate-300 block">Simulate Incoming Cloud API Request</label>
+                  <label className="text-xs font-bold text-stone-700 block">Simulate Incoming Cloud API Request</label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                     {[
                       { id: "s3_read_report", label: "1. Read Candidate Report (Benign)", danger: false },
@@ -1809,7 +1809,7 @@ Generated: ${new Date().toISOString()}
                         className={`p-2.5 rounded-lg border text-left transition ${
                           testedAction === act.id
                             ? "bg-cyan-500/20 border-cyan-400 text-cyan-200 font-bold"
-                            : "bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800"
+                            : "bg-slate-950 border-stone-200 text-stone-600 hover:bg-slate-800"
                         }`}
                       >
                         {act.label}
@@ -1830,7 +1830,7 @@ Generated: ${new Date().toISOString()}
                   <div className="flex items-center justify-between font-bold">
                     <span>IAM Decision: {iamSimulation.evaluationResult}</span>
                   </div>
-                  <p className="text-[11px] text-slate-300">{iamSimulation.explanation}</p>
+                  <p className="text-[11px] text-stone-700">{iamSimulation.explanation}</p>
                 </div>
               </div>
             </div>
@@ -1839,24 +1839,24 @@ Generated: ${new Date().toISOString()}
           {/* TAB 3: SIMULATOR 2 - CONTAINER HARDENING */}
           {activeTab === "container-sim" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Simulator 2</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Simulator 2</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
                   Dockerfile & Container Runtime Hardening Sandbox
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-600 mt-1">
                   Inspect vulnerabilities, capabilities, and test simulated container escape payloads.
                 </p>
               </div>
 
               {/* Mode Selector */}
-              <div className="flex rounded bg-slate-900 p-1 border border-slate-800 max-w-md">
+              <div className="flex rounded bg-stone-50 p-1 border border-stone-200 max-w-md">
                 <button
                   onClick={() => setContainerBuildMode("vulnerable")}
                   className={`flex-1 py-1.5 rounded text-xs font-bold transition ${
                     containerBuildMode === "vulnerable"
                       ? "bg-rose-600 text-white shadow-md shadow-rose-600/20"
-                      : "text-slate-400 hover:text-white"
+                      : "text-stone-600 hover:text-white"
                   }`}
                 >
                   Insecure Dockerfile
@@ -1866,7 +1866,7 @@ Generated: ${new Date().toISOString()}
                   className={`flex-1 py-1.5 rounded text-xs font-bold transition ${
                     containerBuildMode === "hardened"
                       ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
-                      : "text-slate-400 hover:text-white"
+                      : "text-stone-600 hover:text-white"
                   }`}
                 >
                   Hardened Distroless
@@ -1874,20 +1874,20 @@ Generated: ${new Date().toISOString()}
               </div>
 
               {/* Dockerfile Window & Scan Metrics */}
-              <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
+                <div className="flex items-center justify-between border-b border-stone-200 pb-2">
                   <h3 className="text-sm font-bold text-white">{containerDetails.title}</h3>
                   <span className="text-xs font-mono text-emerald-400">{containerDetails.cisScore}</span>
                 </div>
 
-                <pre className="p-3.5 rounded-lg bg-slate-950 border border-slate-800 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed">
+                <pre className="p-3.5 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-mono text-stone-800 overflow-x-auto leading-relaxed">
                   <code>{containerDetails.dockerfile}</code>
                 </pre>
 
                 {/* Trivy Vulnerability Scan Card */}
-                <div className="p-3.5 rounded-lg bg-slate-950 border border-slate-800 space-y-2 text-xs">
+                <div className="p-3.5 rounded-lg bg-stone-50 border border-stone-200/80 space-y-2 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-cyan-400 font-mono">Trivy Image Scan Metrics:</span>
+                    <span className="font-bold text-orange-600 font-mono">Trivy Image Scan Metrics:</span>
                     <div className="flex items-center space-x-2 font-mono text-[11px]">
                       <span className="px-1.5 py-0.5 rounded bg-rose-950 text-rose-400">
                         Critical: {containerDetails.trivyVulns.critical}
@@ -1897,11 +1897,11 @@ Generated: ${new Date().toISOString()}
                       </span>
                     </div>
                   </div>
-                  <div className="text-[11px] text-slate-400">{containerDetails.trivyVulns.cveExamples}</div>
+                  <div className="text-[11px] text-stone-600">{containerDetails.trivyVulns.cveExamples}</div>
                 </div>
 
                 {/* Container Breakout Exploit Test */}
-                <div className="flex justify-end pt-2 border-t border-slate-800">
+                <div className="flex justify-end pt-2 border-t border-stone-200">
                   <button
                     onClick={testContainerBreakout}
                     disabled={runningContainerBreakoutTest}
@@ -1922,11 +1922,11 @@ Generated: ${new Date().toISOString()}
                   >
                     <div className="flex items-center justify-between font-bold">
                       <span>{breakoutResult.status}</span>
-                      <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-900">
+                      <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-stone-50">
                         {breakoutResult.severity}
                       </span>
                     </div>
-                    <p className="text-[11px] leading-relaxed text-slate-300">{breakoutResult.evidence}</p>
+                    <p className="text-[11px] leading-relaxed text-stone-700">{breakoutResult.evidence}</p>
                   </div>
                 )}
               </div>
@@ -1936,25 +1936,25 @@ Generated: ${new Date().toISOString()}
           {/* TAB 4: SIMULATOR 3 - KUBERNETES RBAC & NETWORKPOLICY */}
           {activeTab === "k8s-sim" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Simulator 3</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Simulator 3</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
                   Kubernetes RBAC & NetworkPolicy Isolation Matrix
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-600 mt-1">
                   Test east-west pod network filtering and RBAC API access controls.
                 </p>
               </div>
 
               {/* Controls */}
-              <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
+              <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
                   <div>
-                    <label className="text-slate-400 font-semibold block mb-1">Source Pod</label>
+                    <label className="text-stone-600 font-semibold block mb-1">Source Pod</label>
                     <select
                       value={sourcePod}
                       onChange={(e) => setSourcePod(e.target.value)}
-                      className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:outline-none"
+                      className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:outline-none"
                     >
                       <option value="frontend">Frontend Web Pod (app: frontend)</option>
                       <option value="guest_attacker">Compromised Pod (app: guest)</option>
@@ -1962,11 +1962,11 @@ Generated: ${new Date().toISOString()}
                   </div>
 
                   <div>
-                    <label className="text-slate-400 font-semibold block mb-1">Target Resource</label>
+                    <label className="text-stone-600 font-semibold block mb-1">Target Resource</label>
                     <select
                       value={targetService}
                       onChange={(e) => setTargetService(e.target.value)}
-                      className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:outline-none"
+                      className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:outline-none"
                     >
                       <option value="backend_api">Backend Microservice (Port 8080)</option>
                       <option value="kube_api_secrets">Kubernetes API: kube-system/secrets</option>
@@ -1975,7 +1975,7 @@ Generated: ${new Date().toISOString()}
                   </div>
 
                   <div>
-                    <label className="text-slate-400 font-semibold block mb-1">CNI NetworkPolicy</label>
+                    <label className="text-stone-600 font-semibold block mb-1">CNI NetworkPolicy</label>
                     <button
                       onClick={() => setK8sNetworkPolicyEnforced(!k8sNetworkPolicyEnforced)}
                       className={`w-full py-2 rounded text-xs font-bold transition ${
@@ -1987,11 +1987,11 @@ Generated: ${new Date().toISOString()}
                   </div>
 
                   <div>
-                    <label className="text-slate-400 font-semibold block mb-1">ServiceAccount RBAC Binding</label>
+                    <label className="text-stone-600 font-semibold block mb-1">ServiceAccount RBAC Binding</label>
                     <select
                       value={k8sRbacScope}
                       onChange={(e) => setK8sRbacScope(e.target.value)}
-                      className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:outline-none"
+                      className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:outline-none"
                     >
                       <option value="namespaced_role">Scoped Role (Least Privilege)</option>
                       <option value="cluster_admin">ClusterRole: cluster-admin</option>
@@ -2009,11 +2009,11 @@ Generated: ${new Date().toISOString()}
                 >
                   <div className="flex items-center justify-between font-bold text-sm">
                     <span>Decision: {k8sSimulation.trafficAllowed ? "TRAFFIC / OPERATION ALLOWED" : "OPERATION BLOCKED (SECURE)"}</span>
-                    <span className="font-mono text-xs px-2 py-0.5 rounded bg-slate-950 border border-slate-800">
+                    <span className="font-mono text-xs px-2 py-0.5 rounded bg-stone-50 border border-stone-200/80">
                       {sourcePod.toUpperCase()} ➔ {targetService.toUpperCase()}
                     </span>
                   </div>
-                  <p className="text-[11px] leading-relaxed text-slate-300">{k8sSimulation.rationale}</p>
+                  <p className="text-[11px] leading-relaxed text-stone-700">{k8sSimulation.rationale}</p>
                 </div>
               </div>
             </div>
@@ -2022,21 +2022,21 @@ Generated: ${new Date().toISOString()}
           {/* TAB 5: SIMULATOR 4 - CSPM & IAC SCANNER */}
           {activeTab === "cspm-sim" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Simulator 4</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Simulator 4</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
                   CSPM Cloud Security Posture & IaC Drift Inspector (Checkov)
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-600 mt-1">
                   Scan Terraform infrastructure for public S3 buckets, open SSH rules, and KMS encryption drift.
                 </p>
               </div>
 
               {/* Controls */}
-              <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
+              <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <span className="text-xs text-slate-400">Terraform Codebase State:</span>
+                    <span className="text-xs text-stone-600">Terraform Codebase State:</span>
                     <div className="text-sm font-bold text-white">
                       {cspmHardened ? "Remediated Terraform Baseline (CIS Compliant)" : "Unpatched Terraform Codebase (Contains 4 Misconfigurations)"}
                     </div>
@@ -2047,7 +2047,7 @@ Generated: ${new Date().toISOString()}
                         setCspmHardened(!cspmHardened);
                         setCspmResults(null);
                       }}
-                      className="px-3 py-1.5 rounded text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200"
+                      className="px-3 py-1.5 rounded text-xs font-bold bg-slate-800 hover:bg-slate-700 text-stone-800"
                     >
                       {cspmHardened ? "Load Unpatched IaC" : "Apply IaC Auto-Remediation"}
                     </button>
@@ -2065,12 +2065,12 @@ Generated: ${new Date().toISOString()}
 
               {/* Scan Results */}
               {cspmResults && (
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <span className="text-xs font-bold text-cyan-400 font-mono">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-3">
+                  <div className="flex items-center justify-between border-b border-stone-200 pb-2">
+                    <span className="text-xs font-bold text-orange-600 font-mono">
                       Checkov IaC Compliance Score: {cspmResults.score}
                     </span>
-                    <span className="text-[11px] text-slate-400 font-mono">Framework: CIS AWS Foundations Benchmark</span>
+                    <span className="text-[11px] text-stone-600 font-mono">Framework: CIS AWS Foundations Benchmark</span>
                   </div>
 
                   <div className="space-y-2">
@@ -2089,12 +2089,12 @@ Generated: ${new Date().toISOString()}
                       >
                         <div className="flex items-center justify-between">
                           <span className="font-bold">{f.title}</span>
-                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white border border-stone-200/80 shadow-xs">
                             {f.id} ({f.severity})
                           </span>
                         </div>
-                        <div className="text-[11px] text-slate-400 font-mono">Resource: {f.resource}</div>
-                        <div className="text-[11px] text-cyan-300 font-mono pt-0.5">Remediation: {f.fix}</div>
+                        <div className="text-[11px] text-stone-600 font-mono">Resource: {f.resource}</div>
+                        <div className="text-[11px] text-orange-700 font-mono pt-0.5">Remediation: {f.fix}</div>
                       </div>
                     ))}
                   </div>
@@ -2106,15 +2106,15 @@ Generated: ${new Date().toISOString()}
           {/* TAB 6: ASSESSMENT QUIZ */}
           {activeTab === "quiz" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Assessment</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Assessment</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">Knowledge Assessment</h2>
-                <p className="text-xs text-slate-400 mt-1">10 Scenario-based evaluation questions from Section 18.13.</p>
+                <p className="text-xs text-stone-600 mt-1">10 Scenario-based evaluation questions from Section 18.13.</p>
               </div>
 
               <div className="space-y-6">
                 {quizQuestions.map((q, idx) => (
-                  <div key={q.id} className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+                  <div key={q.id} className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
                     <div className="flex items-start justify-between">
                       <span className="font-bold text-white text-xs sm:text-sm">
                         {idx + 1}. {q.question}
@@ -2140,7 +2140,7 @@ Generated: ${new Date().toISOString()}
                           className={`w-full text-left p-2.5 rounded-lg text-xs transition flex items-center justify-between ${
                             quizAnswers[q.id] === optIdx
                               ? "bg-cyan-500/20 text-cyan-200 border border-cyan-500/50"
-                              : "bg-slate-950/60 text-slate-300 border border-slate-800 hover:bg-slate-800"
+                              : "bg-stone-50 text-stone-700 border border-stone-200 hover:bg-slate-800"
                           } ${
                             quizSubmitted && optIdx === q.correct
                               ? "bg-emerald-950/60 border-emerald-500 text-emerald-200"
@@ -2156,21 +2156,21 @@ Generated: ${new Date().toISOString()}
                     </div>
 
                     {quizSubmitted && (
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-[11px] text-slate-400 mt-2">
-                        <span className="font-semibold text-cyan-400">Explanation: </span>
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80 text-[11px] text-stone-600 mt-2">
+                        <span className="font-semibold text-orange-600">Explanation: </span>
                         {q.explanation}
                       </div>
                     )}
                   </div>
                 ))}
 
-                <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-                  <div className="text-xs text-slate-400 font-mono">
+                <div className="flex items-center justify-between pt-4 border-t border-stone-200">
+                  <div className="text-xs text-stone-600 font-mono">
                     Answered: {Object.keys(quizAnswers).length} / 10
                   </div>
                   <div className="flex items-center space-x-3">
                     {quizSubmitted && (
-                      <div className="text-sm font-bold text-cyan-400 font-mono">
+                      <div className="text-sm font-bold text-orange-600 font-mono">
                         Final Score: {quizScore} / 10 ({Math.round((quizScore / 10) * 100)}%)
                       </div>
                     )}

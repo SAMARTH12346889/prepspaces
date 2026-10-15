@@ -624,14 +624,14 @@ Generated: ${new Date().toISOString()}
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0f1d] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Header */}
-      <header className="border-b border-slate-800/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
+      <header className="border-b border-stone-200/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <button
               onClick={() => navigate("/learning/cybersecurity")}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition flex items-center text-xs"
+              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 hover:text-white transition flex items-center text-xs"
               title="Return to Cybersecurity Curriculum"
             >
               <ArrowLeft className="w-4 h-4 mr-1" />
@@ -639,9 +639,9 @@ Generated: ${new Date().toISOString()}
             </button>
             <div className="h-4 w-px bg-slate-700" />
             <div className="flex items-center space-x-2 text-xs">
-              <span className="text-cyan-400 font-semibold tracking-wider uppercase">Module 14</span>
-              <span className="text-slate-500">/</span>
-              <span className="text-slate-300 truncate max-w-[280px] sm:max-w-md">
+              <span className="text-orange-600 font-semibold tracking-wider uppercase">Module 14</span>
+              <span className="text-stone-500">/</span>
+              <span className="text-stone-700 truncate max-w-[280px] sm:max-w-md">
                 OWASP Top 10, Injection Vulnerabilities & Secure Input Handling
               </span>
             </div>
@@ -652,19 +652,22 @@ Generated: ${new Date().toISOString()}
         </div>
       </header>
 
+      {/* TRACK SUB-NAVIGATION */}
+      <ModuleNav currentModuleId="injection" track="cybersecurity" />
+
       {/* Hero Banner */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-[#0e172a] to-[#0a0f1d] px-4 sm:px-6 lg:px-8 py-8">
+      <div className="border-b border-stone-200 bg-gradient-to-b from-[#f9f7f2] to-[#f4f0e6] px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
-              <div className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/60 text-cyan-300 text-xs font-mono">
+              <div className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-full bg-orange-100 border border-orange-200 text-orange-800 font-bold text-xs font-mono">
                 <Bug className="w-3.5 h-3.5" />
                 <span>OWASP Top 10: 2025 · A05: Injection · NIST SP 800-40</span>
               </div>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
                 OWASP Top 10, Injection Vulnerabilities & Secure Input Handling
               </h1>
-              <p className="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              <p className="text-sm sm:text-base text-stone-700 max-w-3xl leading-relaxed">
                 Master the root causes of the injection vulnerability class: untrusted data mutating
                 instruction interpreters across SQL databases, operating system shells, DOM sinks,
                 NoSQL datastores, and server template engines. Engineer bulletproof defenses through
@@ -674,29 +677,29 @@ Generated: ${new Date().toISOString()}
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 self-start md:self-auto min-w-[280px]">
-              <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
-                <div className="text-xs text-slate-400">Current Standard</div>
-                <div className="text-sm font-bold text-cyan-400">OWASP Top 10 (2025)</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3">
+                <div className="text-xs text-stone-600">Current Standard</div>
+                <div className="text-sm font-bold text-orange-600">OWASP Top 10 (2025)</div>
               </div>
-              <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
-                <div className="text-xs text-slate-400">Primary Defense</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3">
+                <div className="text-xs text-stone-600">Primary Defense</div>
                 <div className="text-sm font-bold text-emerald-400">Parameterized APIs</div>
               </div>
-              <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-3 col-span-2 sm:col-span-1">
-                <div className="text-xs text-slate-400">Interactive Labs</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-3 col-span-2 sm:col-span-1">
+                <div className="text-xs text-stone-600">Interactive Labs</div>
                 <div className="text-sm font-bold text-amber-400">4 Sandboxes</div>
               </div>
             </div>
           </div>
 
           {/* Quick Nav Anchor Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-slate-800/80 pt-4">
+          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-stone-200 pt-4">
             <button
               onClick={() => setActiveTab("theory")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "theory"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
@@ -706,8 +709,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("sqli-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "sqli-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Database className="w-3.5 h-3.5" />
@@ -717,8 +720,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("xss-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "xss-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <FileCode className="w-3.5 h-3.5" />
@@ -728,8 +731,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("cmd-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "cmd-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Terminal className="w-3.5 h-3.5" />
@@ -739,8 +742,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("nosql-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "nosql-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Braces className="w-3.5 h-3.5" />
@@ -750,8 +753,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("quiz")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "quiz"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Award className="w-3.5 h-3.5" />
@@ -765,10 +768,10 @@ Generated: ${new Date().toISOString()}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Left Column: Topics Sidebar */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 sticky top-20 space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 tracking-wider uppercase flex items-center justify-between">
+          <div className="bg-stone-50/70 border border-stone-200 rounded-xl p-4 sticky top-20 space-y-4">
+            <h3 className="text-xs font-bold text-stone-600 tracking-wider uppercase flex items-center justify-between">
               <span>Curriculum Navigator</span>
-              <span className="text-cyan-400 font-mono">14 / 24</span>
+              <span className="text-orange-600 font-mono">14 / 24</span>
             </h3>
 
             <div className="space-y-1">
@@ -798,13 +801,13 @@ Generated: ${new Date().toISOString()}
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
                     selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-cyan-300 font-semibold border-l-2 border-cyan-400"
-                      : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
+                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
                   {selectedTopic === topic.id && (
-                    <ChevronRight className="w-3.5 h-3.5 text-cyan-400 shrink-0 ml-1" />
+                    <ChevronRight className="w-3.5 h-3.5 text-orange-600 shrink-0 ml-1" />
                   )}
                 </button>
               ))}
@@ -819,20 +822,20 @@ Generated: ${new Date().toISOString()}
             <div className="space-y-10">
               {/* 14.1 Module Overview */}
               <section id="section-1" className="space-y-4">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldCheck className="w-4 h-4" />
                   <span>14.1 MODULE OVERVIEW</span>
                 </div>
                 <h2 className="text-2xl font-bold text-white">
                   OWASP Top 10, Injection Mechanics & Secure Input Handling
                 </h2>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
                   Web applications process data from users, browsers, APIs, databases, files, and
                   third-party services. Security vulnerabilities arise when applications trust that
                   data without correctly validating it, controlling how it is interpreted, or checking
                   whether the requester is authorized to use it.
                 </p>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
                   This module introduces the OWASP Top 10 as an application security awareness
                   framework, explores injection vulnerabilities in depth, and develops secure
                   input-handling practices for real-world production environments.
@@ -840,41 +843,41 @@ Generated: ${new Date().toISOString()}
 
                 {/* Learning Objectives Callout */}
                 <div className="bg-cyan-950/20 border border-cyan-800/40 rounded-xl p-5 space-y-3">
-                  <h4 className="text-sm font-bold text-cyan-300 flex items-center space-x-2">
-                    <Target className="w-4 h-4 text-cyan-400" />
+                  <h4 className="text-sm font-bold text-orange-700 flex items-center space-x-2">
+                    <Target className="w-4 h-4 text-orange-600" />
                     <span>Learning Objectives</span>
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-700">
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Explain the scope and limitations of the OWASP Top 10 framework.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Identify the 10 risk categories in the OWASP Top 10: 2025 edition.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Distinguish validation, output encoding, sanitization, parameterization & authorization.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Trace how injection occurs when untrusted data mutates interpreter instructions.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Deconstruct SQLi, XSS, Command Injection, NoSQLi, and SSTI patterns.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Deploy parameterized prepared statements and context-aware encoders.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Enforce schema-based validation across all application trust boundaries.</span>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                       <span>Build automated regression test suites proving injection resilience.</span>
                     </div>
                   </div>
@@ -882,15 +885,15 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 14.2 OWASP Top 10: 2025 Edition */}
-              <section id="section-2" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-2" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Award className="w-4 h-4" />
                   <span>14.2 OWASP & THE OWASP TOP 10 (2025 EDITION)</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   Authoritative Risk Categories & Threat Landscape
                 </h2>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-stone-700 text-sm leading-relaxed">
                   The OWASP Foundation is a global nonprofit providing standards and guidance. The
                   OWASP Top 10 is an awareness document summarizing prominent risk categories. It is
                   not an exhaustive checklist or a substitute for a comprehensive risk assessment. The
@@ -898,63 +901,63 @@ Generated: ${new Date().toISOString()}
                 </p>
 
                 {/* OWASP Top 10 2025 Table */}
-                <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                <div className="overflow-x-auto border border-stone-200 rounded-xl">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-900/90 text-slate-300 uppercase font-mono border-b border-slate-800">
+                    <thead className="bg-stone-50/90 text-stone-700 uppercase font-mono border-b border-stone-200">
                       <tr>
                         <th className="p-3">Rank</th>
                         <th className="p-3">Category</th>
                         <th className="p-3">Core Vulnerability Scope</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A01</td>
+                    <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A01</td>
                         <td className="p-3 font-semibold text-white">Broken Access Control</td>
                         <td className="p-3">Users performing actions or accessing resources beyond their permitted boundaries (BOLA/IDOR).</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A02</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A02</td>
                         <td className="p-3 font-semibold text-white">Security Misconfiguration</td>
                         <td className="p-3">Unsafe defaults, exposed administrative interfaces, unhardened cloud settings, verbose errors.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A03</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A03</td>
                         <td className="p-3 font-semibold text-white">Software Supply Chain Failures</td>
                         <td className="p-3">Compromised third-party packages, vulnerable dependencies, unverified build pipelines.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A04</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A04</td>
                         <td className="p-3 font-semibold text-white">Cryptographic Failures</td>
                         <td className="p-3">Weak algorithms, plaintext transmission, insecure key management, nonce reuse in AEAD.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40 bg-cyan-950/20">
-                        <td className="p-3 font-mono font-bold text-cyan-300">A05</td>
-                        <td className="p-3 font-semibold text-cyan-300">Injection</td>
+                      <tr className="hover:bg-stone-50/40 bg-cyan-950/20">
+                        <td className="p-3 font-mono font-bold text-orange-700">A05</td>
+                        <td className="p-3 font-semibold text-orange-700">Injection</td>
                         <td className="p-3 text-cyan-200">Untrusted input interpreted as commands, queries, templates, or active code (Focus of this module).</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A06</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A06</td>
                         <td className="p-3 font-semibold text-white">Insecure Design</td>
                         <td className="p-3">Flaws in threat modeling, architectural logic, and lack of pre-implementation security patterns.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A07</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A07</td>
                         <td className="p-3 font-semibold text-white">Authentication Failures</td>
                         <td className="p-3">Weak credentials, missing MFA, session fixation, credential stuffing, flawed token lifecycles.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A08</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A08</td>
                         <td className="p-3 font-semibold text-white">Software or Data Integrity Failures</td>
                         <td className="p-3">Unsafe deserialization, auto-updating code without cryptographic signature verification.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A09</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A09</td>
                         <td className="p-3 font-semibold text-white">Security Logging and Alerting Failures</td>
                         <td className="p-3">Silent compromises, missing audit trails, unmonitored authentication alerts, lack of log integrity.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-mono font-bold text-cyan-400">A10</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-mono font-bold text-orange-600">A10</td>
                         <td className="p-3 font-semibold text-white">Mishandling of Exceptional Conditions</td>
                         <td className="p-3">Failing open on exceptions, exposing stack traces, unhandled edge cases in control flow.</td>
                       </tr>
@@ -964,15 +967,15 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 14.3 Understanding the Injection Vulnerability Class */}
-              <section id="section-3" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-3" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Bug className="w-4 h-4" />
                   <span>14.3 THE INJECTION VULNERABILITY CLASS</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   The Fundamental Failure: Data Mutating Instruction Structure
                 </h2>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-stone-700 text-sm leading-relaxed">
                   Injection occurs when an application allows untrusted data to alter the intended
                   structure or meaning of an instruction processed by another component. The receiving
                   interpreter may be a SQL database, NoSQL engine, OS shell, template compiler, or
@@ -981,27 +984,27 @@ Generated: ${new Date().toISOString()}
 
                 {/* 4 Steps Diagram */}
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs text-center">
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                    <div className="text-cyan-400 font-bold font-mono">1. Untrusted Input</div>
-                    <p className="text-slate-400 mt-1">Data arrives from form, URL query, JSON body, or header.</p>
+                  <div className="p-3 rounded-xl bg-white border border-stone-200/80 shadow-xs">
+                    <div className="text-orange-600 font-bold font-mono">1. Untrusted Input</div>
+                    <p className="text-stone-600 mt-1">Data arrives from form, URL query, JSON body, or header.</p>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                  <div className="p-3 rounded-xl bg-white border border-stone-200/80 shadow-xs">
                     <div className="text-amber-400 font-bold font-mono">2. Unsafe Concat</div>
-                    <p className="text-slate-400 mt-1">App interpolates raw data directly into instruction syntax.</p>
+                    <p className="text-stone-600 mt-1">App interpolates raw data directly into instruction syntax.</p>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                  <div className="p-3 rounded-xl bg-white border border-stone-200/80 shadow-xs">
                     <div className="text-rose-400 font-bold font-mono">3. AST Mutated</div>
-                    <p className="text-slate-400 mt-1">Interpreter grammar interprets input characters as active commands.</p>
+                    <p className="text-stone-600 mt-1">Interpreter grammar interprets input characters as active commands.</p>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                    <div className="text-purple-400 font-bold font-mono">4. Exploit Executed</div>
-                    <p className="text-slate-400 mt-1">Data leakage, authentication bypass, or system compromise.</p>
+                  <div className="p-3 rounded-xl bg-white border border-stone-200/80 shadow-xs">
+                    <div className="text-orange-600 font-bold font-mono">4. Exploit Executed</div>
+                    <p className="text-stone-600 mt-1">Data leakage, authentication bypass, or system compromise.</p>
                   </div>
                 </div>
 
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 space-y-2 text-xs">
+                <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2 text-xs">
                   <h4 className="font-bold text-white">Distinguishing Security Boundaries</h4>
-                  <ul className="space-y-1.5 text-slate-300 list-disc list-inside">
+                  <ul className="space-y-1.5 text-stone-700 list-disc list-inside">
                     <li>
                       <strong>Input Validation:</strong> Verifies format, length, type, and schema. <em>Does not alone stop injection if concatenation is used!</em>
                     </li>
@@ -1019,52 +1022,52 @@ Generated: ${new Date().toISOString()}
               </section>
 
               {/* 14.4 SQL Injection (SQLi) */}
-              <section id="section-4" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-4" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Database className="w-4 h-4" />
                   <span>14.4 SQL INJECTION (SQLI) IN-DEPTH</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   Prepared Statements, Dynamic Sorting & Least Privilege
                 </h2>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-stone-700 text-sm leading-relaxed">
                   SQL injection occurs when user-controlled data alters an SQL statement. It can leak
                   confidential records, bypass authentication, modify data, and execute destructive operations.
                 </p>
 
                 {/* Common SQLi Patterns Table */}
-                <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                <div className="overflow-x-auto border border-stone-200 rounded-xl">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-900/90 text-slate-300 uppercase font-mono border-b border-slate-800">
+                    <thead className="bg-stone-50/90 text-stone-700 uppercase font-mono border-b border-stone-200">
                       <tr>
                         <th className="p-3">Pattern</th>
                         <th className="p-3">Mechanics</th>
                         <th className="p-3">Defensive Countermeasure</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">In-Band (Error / UNION)</td>
+                    <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">In-Band (Error / UNION)</td>
                         <td className="p-3">Attacker extracts data or triggers database syntax errors directly in HTTP response.</td>
                         <td className="p-3">Parameterized prepared statements; disable verbose database error disclosure.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Boolean-Based Blind</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Boolean-Based Blind</td>
                         <td className="p-3">Application reveals true/false differences in page content based on injected predicates.</td>
                         <td className="p-3">Separate query structure from values via driver parameter binding.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Time-Based Blind</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Time-Based Blind</td>
                         <td className="p-3">Attacker injects sleep functions (e.g., pg_sleep) to infer data character-by-character.</td>
                         <td className="p-3">Universal parameterization; query timeout caps at the database pool level.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Second-Order SQLi</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Second-Order SQLi</td>
                         <td className="p-3">Malicious payload stored safely in DB, then later concatenated into a secondary query.</td>
                         <td className="p-3">Parameterize every query across the entire lifecycle; never trust internal DB records.</td>
                       </tr>
-                      <tr className="hover:bg-slate-900/40">
-                        <td className="p-3 font-bold text-cyan-400">Dynamic Sorting Hazard</td>
+                      <tr className="hover:bg-stone-50/40">
+                        <td className="p-3 font-bold text-orange-600">Dynamic Sorting Hazard</td>
                         <td className="p-3">User controls column name in ORDER BY clause (cannot be parameterized by SQL drivers).</td>
                         <td className="p-3">Map user inputs to a strict hardcoded allowlist dictionary on the backend.</td>
                       </tr>
@@ -1073,8 +1076,8 @@ Generated: ${new Date().toISOString()}
                 </div>
 
                 {/* Dynamic Sorting Code Example */}
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                  <div className="text-cyan-400 font-bold flex items-center justify-between">
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 font-mono text-xs space-y-2">
+                  <div className="text-orange-600 font-bold flex items-center justify-between">
                     <span>Safe Dynamic Sorting Pattern (Allowlist Mapping)</span>
                     <button
                       onClick={() =>
@@ -1083,13 +1086,13 @@ Generated: ${new Date().toISOString()}
                           "sort_code"
                         )
                       }
-                      className="text-slate-400 hover:text-white flex items-center space-x-1"
+                      className="text-stone-600 hover:text-white flex items-center space-x-1"
                     >
-                      {copiedCodeId === "sort_code" ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5 text-cyan-400" />}
+                      {copiedCodeId === "sort_code" ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5 text-orange-600" />}
                       <span>{copiedCodeId === "sort_code" ? "Copied" : "Copy"}</span>
                     </button>
                   </div>
-                  <pre className="text-slate-300 text-[11px] overflow-x-auto">
+                  <pre className="text-stone-700 text-[11px] overflow-x-auto">
 {`const ALLOWED_COLUMNS = {
   date: "created_at",
   score: "interview_score",
@@ -1107,57 +1110,57 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </section>
 
               {/* 14.5 XSS & Output Handling */}
-              <section id="section-5" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-5" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <FileCode className="w-4 h-4" />
                   <span>14.5 CROSS-SITE SCRIPTING (XSS) & CONTEXTUAL ENCODING</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   Context-Aware Output Encoding & Safe DOM APIs
                 </h2>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-stone-700 text-sm leading-relaxed">
                   XSS occurs when untrusted data is interpreted as active code in a browser. Encoding
                   must match the exact sink context where the data is rendered.
                 </p>
 
                 {/* Context-Aware Matrix */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                  <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
-                    <div className="font-bold text-cyan-300">1. HTML Body Text Context</div>
-                    <p className="text-slate-300">
-                      Standard text between tags (<code className="font-mono text-cyan-400">&lt;div&gt;...&lt;/div&gt;</code>).
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2">
+                    <div className="font-bold text-orange-700">1. HTML Body Text Context</div>
+                    <p className="text-stone-700">
+                      Standard text between tags (<code className="font-mono text-orange-600">&lt;div&gt;...&lt;/div&gt;</code>).
                     </p>
-                    <div className="bg-slate-950 p-2 rounded text-[11px] text-slate-300 font-mono">
+                    <div className="bg-slate-950 p-2 rounded text-[11px] text-stone-700 font-mono">
                       Safe: element.textContent = input; or HTML entity encoding (&amp;lt; &amp;gt; &amp;amp;)
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2">
                     <div className="font-bold text-amber-300">2. HTML Attribute Context</div>
-                    <p className="text-slate-300">
+                    <p className="text-stone-700">
                       Inside tag quotes (<code className="font-mono text-amber-400">&lt;input value=&quot;...&quot;&gt;</code>).
                     </p>
-                    <div className="bg-slate-950 p-2 rounded text-[11px] text-slate-300 font-mono">
+                    <div className="bg-slate-950 p-2 rounded text-[11px] text-stone-700 font-mono">
                       Safe: Quote values and encode quotes (&amp;quot; &amp;#39;). HTML escaping alone fails!
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
-                    <div className="font-bold text-purple-300">3. JavaScript Execution Context</div>
-                    <p className="text-slate-300">
-                      Inside script tags (<code className="font-mono text-purple-400">&lt;script&gt;var id = ...&lt;/script&gt;</code>).
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2">
+                    <div className="font-bold text-orange-700">3. JavaScript Execution Context</div>
+                    <p className="text-stone-700">
+                      Inside script tags (<code className="font-mono text-orange-600">&lt;script&gt;var id = ...&lt;/script&gt;</code>).
                     </p>
-                    <div className="bg-slate-950 p-2 rounded text-[11px] text-slate-300 font-mono">
+                    <div className="bg-slate-950 p-2 rounded text-[11px] text-stone-700 font-mono">
                       Safe: Serialize via JSON.stringify() or pass data via data-* attributes and read via dataset.
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-2">
                     <div className="font-bold text-rose-300">4. URL / Href Context</div>
-                    <p className="text-slate-300">
+                    <p className="text-stone-700">
                       Inside links (<code className="font-mono text-rose-400">&lt;a href=&quot;...&quot;&gt;</code>).
                     </p>
-                    <div className="bg-slate-950 p-2 rounded text-[11px] text-slate-300 font-mono">
+                    <div className="bg-slate-950 p-2 rounded text-[11px] text-stone-700 font-mono">
                       Safe: Protocol allowlist (https:, http:, mailto:). Reject javascript: and data: URIs!
                     </div>
                   </div>
@@ -1165,22 +1168,22 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </section>
 
               {/* 14.6 Command Injection */}
-              <section id="section-6" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-6" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Terminal className="w-4 h-4" />
                   <span>14.6 OS COMMAND & ARGUMENT INJECTION</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   Safe Process APIs, Disabling Shells & Argument Arrays
                 </h2>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-stone-700 text-sm leading-relaxed">
                   When web applications execute system utilities (e.g. video processing with ffmpeg,
                   PDF generation with pandoc), interpolating user input into shell strings allows
                   shell metacharacters to spawn secondary commands.
                 </p>
 
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3 text-xs leading-relaxed">
-                  <h4 className="font-bold text-cyan-300">The 4-Step OS Command Defense Rulebook:</h4>
+                <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-3 text-xs leading-relaxed">
+                  <h4 className="font-bold text-orange-700">The 4-Step OS Command Defense Rulebook:</h4>
                   <p>
                     1. <strong>Avoid the Shell:</strong> Prefer in-process standard libraries over launching system executables.
                   </p>
@@ -1197,29 +1200,29 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </section>
 
               {/* 14.11 Secure Input-Handling Engineering */}
-              <section id="section-11" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-11" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <ShieldCheck className="w-4 h-4" />
                   <span>14.11 SECURE INPUT-HANDLING ENGINEERING</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   Trust Boundaries, Schema Validation & Defensive Logging
                 </h2>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-stone-700 text-sm leading-relaxed">
                   Input validation checks whether data conforms to structural and semantic business
                   invariants. It must be enforced at every trust boundary without relying on client checks.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 space-y-2">
-                    <div className="font-bold text-cyan-300">Syntax Validation</div>
-                    <p className="text-slate-300">
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-4 space-y-2">
+                    <div className="font-bold text-orange-700">Syntax Validation</div>
+                    <p className="text-stone-700">
                       Validates structural shape: data type (integer), string length, UUID format, regex email pattern.
                     </p>
                   </div>
-                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 space-y-2">
+                  <div className="bg-white border border-stone-200/80 shadow-xs rounded-lg p-4 space-y-2">
                     <div className="font-bold text-amber-300">Semantic Validation</div>
-                    <p className="text-slate-300">
+                    <p className="text-stone-700">
                       Validates business meaning: interview start time is before end time; requester owns the target report.
                     </p>
                   </div>
@@ -1227,24 +1230,24 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </section>
 
               {/* 14.13 Practical Lab Workspace */}
-              <section id="section-13" className="space-y-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-13" className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <TerminalSquare className="w-4 h-4" />
                   <span>14.13 PRACTICAL LAB DELIVERABLE</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">
                   Injection Assessment Report Generator (OWASP Juice Shop Standard)
                 </h2>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-stone-700 text-sm leading-relaxed">
                   Document your security assessment findings from Exercises A through E in accordance
                   with professional application security testing reporting standards.
                 </p>
 
                 {/* Report Generator Box */}
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-5 space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-4">
+                  <div className="flex items-center justify-between border-b border-stone-200 pb-3">
                     <div className="flex items-center space-x-2">
-                      <FileSpreadsheet className="w-5 h-5 text-cyan-400" />
+                      <FileSpreadsheet className="w-5 h-5 text-orange-600" />
                       <h4 className="text-sm font-bold text-white">Injection Assessment Report Generator</h4>
                     </div>
                     <button
@@ -1258,57 +1261,57 @@ const result = await db.query(sql, [authenticatedUserId]);`}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Scope & Environment</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Scope & Environment</label>
                       <input
                         type="text"
                         value={labScope}
                         onChange={(e) => setLabScope(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200 font-mono"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800 font-mono"
                       />
                     </div>
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Finding Title</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Finding Title</label>
                       <input
                         type="text"
                         value={labFinding}
                         onChange={(e) => setLabFinding(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200 font-mono"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800 font-mono"
                       />
                     </div>
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Root Cause Analysis</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Root Cause Analysis</label>
                       <textarea
                         rows={2}
                         value={labRootCause}
                         onChange={(e) => setLabRootCause(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded p-2 text-slate-200 font-mono text-[11px]"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded p-2 text-stone-800 font-mono text-[11px]"
                       />
                     </div>
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Realistic Impact</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Realistic Impact</label>
                       <textarea
                         rows={2}
                         value={labImpact}
                         onChange={(e) => setLabImpact(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded p-2 text-slate-200 font-mono text-[11px]"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded p-2 text-stone-800 font-mono text-[11px]"
                       />
                     </div>
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Remediation Code Change</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Remediation Code Change</label>
                       <textarea
                         rows={2}
                         value={labRemediation}
                         onChange={(e) => setLabRemediation(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded p-2 text-slate-200 font-mono text-[11px]"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded p-2 text-stone-800 font-mono text-[11px]"
                       />
                     </div>
                     <div>
-                      <label className="text-slate-400 block mb-1 font-semibold">Verification & Regression Test</label>
+                      <label className="text-stone-600 block mb-1 font-semibold">Verification & Regression Test</label>
                       <textarea
                         rows={2}
                         value={labVerification}
                         onChange={(e) => setLabVerification(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded p-2 text-slate-200 font-mono text-[11px]"
+                        className="w-full bg-stone-50 border border-stone-200/80 rounded p-2 text-stone-800 font-mono text-[11px]"
                       />
                     </div>
                   </div>
@@ -1316,8 +1319,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </section>
 
               {/* 14.15 Official References */}
-              <section id="section-15" className="space-y-4 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-15" className="space-y-4 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <BookOpen className="w-4 h-4" />
                   <span>14.15 OFFICIAL REFERENCES & DOCUMENTATION</span>
                 </div>
@@ -1329,13 +1332,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     href="https://owasp.org/Top10/2025/"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition block space-y-1 group"
+                    className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
                       <span>OWASP Top 10: 2025 Official Standard</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
-                    <p className="text-slate-400 text-[11px]">
+                    <p className="text-stone-600 text-[11px]">
                       The official risk categories, including A05: Injection and A01: Broken Access Control.
                     </p>
                   </a>
@@ -1343,13 +1346,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition block space-y-1 group"
+                    className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
                       <span>SQL Injection Prevention Cheat Sheet</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
-                    <p className="text-slate-400 text-[11px]">
+                    <p className="text-stone-600 text-[11px]">
                       Prepared statements, safe dynamic sorting allowlists, and stored procedure guidelines.
                     </p>
                   </a>
@@ -1357,13 +1360,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition block space-y-1 group"
+                    className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
                       <span>XSS Prevention & Output Encoding Cheat Sheet</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
-                    <p className="text-slate-400 text-[11px]">
+                    <p className="text-stone-600 text-[11px]">
                       Context-aware output encoding rules for HTML, attribute, script, URL, and CSS contexts.
                     </p>
                   </a>
@@ -1371,13 +1374,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     href="https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition block space-y-1 group"
+                    className="p-3.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:border-cyan-500/50 transition block space-y-1 group"
                   >
-                    <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                    <div className="font-bold text-white group-hover:text-orange-700 flex items-center justify-between">
                       <span>OS Command Injection Defense Guide</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </div>
-                    <p className="text-slate-400 text-[11px]">
+                    <p className="text-stone-600 text-[11px]">
                       Disabling shell execution, parameterizing argument arrays, and process sandboxing.
                     </p>
                   </a>
@@ -1385,13 +1388,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </section>
 
               {/* 14.16 Key Takeaways */}
-              <section id="section-16" className="space-y-4 pt-6 border-t border-slate-800">
-                <div className="flex items-center space-x-2 text-cyan-400 text-sm font-semibold tracking-wide">
+              <section id="section-16" className="space-y-4 pt-6 border-t border-stone-200">
+                <div className="flex items-center space-x-2 text-orange-600 text-sm font-semibold tracking-wide">
                   <Award className="w-4 h-4" />
                   <span>14.16 KEY ENGINEERING TAKEAWAYS</span>
                 </div>
                 <h2 className="text-xl font-bold text-white">Summary of Core Principles</h2>
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-5 space-y-2.5 text-xs text-slate-300 leading-relaxed">
+                <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-2.5 text-xs text-stone-700 leading-relaxed">
                   <p>
                     1. <strong>The Injection Invariant:</strong> Injection occurs when untrusted data
                     changes the syntax or meaning of an instruction. The primary defense is keeping data
@@ -1408,7 +1411,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </p>
                   <p>
                     4. <strong>Command Safety:</strong> Avoid the shell. Use process APIs with argument
-                    arrays (<code className="font-mono text-cyan-300">execFile</code> with <code className="font-mono text-cyan-300">shell: false</code>).
+                    arrays (<code className="font-mono text-orange-700">execFile</code> with <code className="font-mono text-orange-700">shell: false</code>).
                   </p>
                   <p>
                     5. <strong>Defense in Depth:</strong> Combine schema validation, parameterized
@@ -1423,13 +1426,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
           {/* TAB: SIMULATOR 1 - SQLI VS PREPARED STATEMENTS */}
           {activeTab === "sqli-sim" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <Database className="w-5 h-5 text-cyan-400" />
+                    <Database className="w-5 h-5 text-orange-600" />
                     <span>Simulator 1: SQL Injection vs Parameterized Prepared Statements</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Test classic SQL injection payloads against vulnerable string concatenation versus secure parameter binding.
                   </p>
                 </div>
@@ -1453,14 +1456,14 @@ const result = await db.query(sql, [authenticatedUserId]);`}
 
               {/* Payload Selector Buttons */}
               <div className="space-y-2">
-                <div className="text-xs font-bold text-slate-300">Select Injected Payload:</div>
+                <div className="text-xs font-bold text-stone-700">Select Injected Payload:</div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs">
                   <button
                     onClick={() => setSqliPayloadType("tautology")}
                     className={`p-2 rounded-lg border text-left transition ${
                       sqliPayloadType === "tautology"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     1. &apos; OR &apos;1&apos;=&apos;1 (Tautology)
@@ -1469,8 +1472,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setSqliPayloadType("comment")}
                     className={`p-2 rounded-lg border text-left transition ${
                       sqliPayloadType === "comment"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     2. admin&apos; -- (Bypass)
@@ -1479,8 +1482,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setSqliPayloadType("union")}
                     className={`p-2 rounded-lg border text-left transition ${
                       sqliPayloadType === "union"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     3. UNION Exfiltration
@@ -1489,8 +1492,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setSqliPayloadType("stacked")}
                     className={`p-2 rounded-lg border text-left transition ${
                       sqliPayloadType === "stacked"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     4. Stacked (DROP)
@@ -1499,8 +1502,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setSqliPayloadType("time_blind")}
                     className={`p-2 rounded-lg border text-left transition ${
                       sqliPayloadType === "time_blind"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     5. Time-Based Blind
@@ -1509,8 +1512,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setSqliPayloadType("benign")}
                     className={`p-2 rounded-lg border text-left transition ${
                       sqliPayloadType === "benign"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-900 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-stone-50 border-stone-200 text-stone-600"
                     }`}
                   >
                     6. Benign Input
@@ -1519,14 +1522,14 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </div>
 
               {/* Query Dissector View */}
-              <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1 flex items-center justify-between">
+              <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 font-mono text-xs space-y-2">
+                <div className="text-orange-600 font-bold border-b border-stone-200 pb-1 flex items-center justify-between">
                   <span>Constructed Database Query Stream</span>
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[11px] text-stone-600">
                     AST Status: {sqliSimulation.astMutated ? "MUTATED (HIJACKED)" : "STABLE & FIXED"}
                   </span>
                 </div>
-                <pre className="text-slate-300 text-[11px] overflow-x-auto whitespace-pre-wrap">
+                <pre className="text-stone-700 text-[11px] overflow-x-auto whitespace-pre-wrap">
                   {sqliSimulation.constructedQuery}
                 </pre>
               </div>
@@ -1552,11 +1555,11 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                         : "DATABASE QUERY SAFELY ISOLATED"}
                     </span>
                   </span>
-                  <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-slate-900/80">
+                  <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-stone-50/80">
                     Records Returned: {sqliSimulation.recordsReturned}
                   </span>
                 </div>
-                <p className="leading-relaxed text-slate-200">{sqliSimulation.executionOutcome}</p>
+                <p className="leading-relaxed text-stone-800">{sqliSimulation.executionOutcome}</p>
               </div>
             </div>
           )}
@@ -1564,26 +1567,26 @@ const result = await db.query(sql, [authenticatedUserId]);`}
           {/* TAB: SIMULATOR 2 - CONTEXT-AWARE OUTPUT ENCODING */}
           {activeTab === "xss-sim" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <FileCode className="w-5 h-5 text-cyan-400" />
+                    <FileCode className="w-5 h-5 text-orange-600" />
                     <span>Simulator 2: Context-Aware Output Encoding Lab</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Demonstrates why naive HTML escaping fails when untrusted data is rendered inside attributes, scripts, or URLs.
                   </p>
                 </div>
               </div>
 
               {/* Controls */}
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                 <div>
-                  <label className="text-slate-400 block mb-1 font-semibold">Destination Sink Context</label>
+                  <label className="text-stone-600 block mb-1 font-semibold">Destination Sink Context</label>
                   <select
                     value={outputContext}
                     onChange={(e) => setOutputContext(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200"
+                    className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800"
                   >
                     <option value="html_body">HTML Body Context (&lt;div&gt;...&lt;/div&gt;)</option>
                     <option value="html_attribute">HTML Attribute Context (&lt;input value=&quot;...&quot;&gt;)</option>
@@ -1592,11 +1595,11 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </select>
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1 font-semibold">Injected Payload</label>
+                  <label className="text-stone-600 block mb-1 font-semibold">Injected Payload</label>
                   <select
                     value={xssAttackPayload}
                     onChange={(e) => setXssAttackPayload(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200"
+                    className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800"
                   >
                     <option value="script_tag">&lt;script&gt; tag injection</option>
                     <option value="attr_onfocus">&quot; onfocus=alert() attribute breakout</option>
@@ -1605,11 +1608,11 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   </select>
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1 font-semibold">Encoding Strategy</label>
+                  <label className="text-stone-600 block mb-1 font-semibold">Encoding Strategy</label>
                   <select
                     value={encodingStrategy}
                     onChange={(e) => setEncodingStrategy(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded px-2.5 py-1.5 text-slate-200"
+                    className="w-full bg-stone-50 border border-stone-200/80 rounded px-2.5 py-1.5 text-stone-800"
                   >
                     <option value="none">No Encoding (Raw Reflection)</option>
                     <option value="naive_html">Naive HTML Escaping (&lt; &gt; only)</option>
@@ -1619,11 +1622,11 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </div>
 
               {/* Rendered DOM Sink */}
-              <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1">
+              <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 font-mono text-xs space-y-2">
+                <div className="text-orange-600 font-bold border-b border-stone-200 pb-1">
                   Rendered Browser DOM Sink
                 </div>
-                <pre className="text-slate-300 text-[11px] overflow-x-auto whitespace-pre-wrap">
+                <pre className="text-stone-700 text-[11px] overflow-x-auto whitespace-pre-wrap">
                   {xssContextData.renderedSink}
                 </pre>
               </div>
@@ -1650,7 +1653,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     </span>
                   </span>
                 </div>
-                <p className="leading-relaxed text-slate-200">{xssContextData.diagnosis}</p>
+                <p className="leading-relaxed text-stone-800">{xssContextData.diagnosis}</p>
               </div>
             </div>
           )}
@@ -1658,13 +1661,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
           {/* TAB: SIMULATOR 3 - OS COMMAND & ARGUMENT INJECTION */}
           {activeTab === "cmd-sim" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <Terminal className="w-5 h-5 text-cyan-400" />
+                    <Terminal className="w-5 h-5 text-orange-600" />
                     <span>Simulator 3: OS Command & Argument Injection Sandbox</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Observe how shell interpretation enables command chaining, and how safe process APIs with argument arrays prevent exploitation.
                   </p>
                 </div>
@@ -1685,15 +1688,15 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </div>
 
               {/* Controls */}
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3 text-xs">
-                <div className="font-bold text-slate-300">Select Uploaded File Parameter:</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-4 space-y-3 text-xs">
+                <div className="font-bold text-stone-700">Select Uploaded File Parameter:</div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                   <button
                     onClick={() => setCmdInputPayload("normal_file")}
                     className={`p-2 rounded-lg border text-left transition ${
                       cmdInputPayload === "normal_file"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-950 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-slate-950 border-stone-200 text-stone-600"
                     }`}
                   >
                     1. normal_file.mp4
@@ -1702,8 +1705,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setCmdInputPayload("chained_semicolon")}
                     className={`p-2 rounded-lg border text-left transition ${
                       cmdInputPayload === "chained_semicolon"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-950 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-slate-950 border-stone-200 text-stone-600"
                     }`}
                   >
                     2. file.mp4; cat /etc/passwd
@@ -1712,8 +1715,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setCmdInputPayload("ampersand_id")}
                     className={`p-2 rounded-lg border text-left transition ${
                       cmdInputPayload === "ampersand_id"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-950 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-slate-950 border-stone-200 text-stone-600"
                     }`}
                   >
                     3. file.mp4 &amp;&amp; id
@@ -1722,8 +1725,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setCmdInputPayload("pipe_netcat")}
                     className={`p-2 rounded-lg border text-left transition ${
                       cmdInputPayload === "pipe_netcat"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-950 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-slate-950 border-stone-200 text-stone-600"
                     }`}
                   >
                     4. file.mp4 | nc reverse_shell
@@ -1732,8 +1735,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     onClick={() => setCmdInputPayload("arg_injection")}
                     className={`p-2 rounded-lg border text-left transition ${
                       cmdInputPayload === "arg_injection"
-                        ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                        : "bg-slate-950 border-slate-800 text-slate-400"
+                        ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                        : "bg-slate-950 border-stone-200 text-stone-600"
                     }`}
                   >
                     5. --output=/etc/shadow
@@ -1742,14 +1745,14 @@ const result = await db.query(sql, [authenticatedUserId]);`}
               </div>
 
               {/* Terminal View */}
-              <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1 flex items-center justify-between">
+              <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 font-mono text-xs space-y-2">
+                <div className="text-orange-600 font-bold border-b border-stone-200 pb-1 flex items-center justify-between">
                   <span>Backend Process Execution Trace</span>
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[11px] text-stone-600">
                     Processes Spawned: {cmdSimulation.executedProcesses.length}
                   </span>
                 </div>
-                <div className="text-slate-400">Command: {cmdSimulation.commandLine}</div>
+                <div className="text-stone-600">Command: {cmdSimulation.commandLine}</div>
                 <div className="pt-2 text-emerald-400">
                   <pre className="text-[11px] whitespace-pre-wrap">{cmdSimulation.terminalOutput}</pre>
                 </div>
@@ -1760,13 +1763,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
           {/* TAB: SIMULATOR 4 - NOSQL OPERATOR INJECTION */}
           {activeTab === "nosql-sim" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <Braces className="w-5 h-5 text-cyan-400" />
+                    <Braces className="w-5 h-5 text-orange-600" />
                     <span>Simulator 4: NoSQL Injection & Operator Manipulation Lab</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Test MongoDB query operator injection ($ne, $gt, $regex) and enforce schema validation.
                   </p>
                 </div>
@@ -1794,8 +1797,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   onClick={() => setNosqlPayload("ne_bypass")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     nosqlPayload === "ne_bypass"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   1. &#123; $ne: &quot;&quot; &#125; (Not Equal)
@@ -1804,8 +1807,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   onClick={() => setNosqlPayload("gt_bypass")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     nosqlPayload === "gt_bypass"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   2. &#123; $gt: &quot;&quot; &#125; (Greater Than)
@@ -1814,8 +1817,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   onClick={() => setNosqlPayload("regex_match")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     nosqlPayload === "regex_match"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   3. &#123; $regex: &quot;^admin.*&quot; &#125;
@@ -1824,8 +1827,8 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   onClick={() => setNosqlPayload("normal_auth")}
                   className={`p-2.5 rounded-lg border text-left transition ${
                     nosqlPayload === "normal_auth"
-                      ? "bg-cyan-950/60 border-cyan-500 text-cyan-300 font-bold"
-                      : "bg-slate-900 border-slate-800 text-slate-400"
+                      ? "bg-cyan-950/60 border-cyan-500 text-orange-700 font-bold"
+                      : "bg-stone-50 border-stone-200 text-stone-600"
                   }`}
                 >
                   4. Normal String Login
@@ -1834,13 +1837,13 @@ const result = await db.query(sql, [authenticatedUserId]);`}
 
               {/* Code comparison */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-1">
-                  <div className="text-cyan-400 font-bold border-b border-slate-800 pb-1">Incoming Client JSON Body</div>
-                  <pre className="text-slate-300 text-[11px] overflow-x-auto">{nosqlSimulation.reqBody}</pre>
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-1">
+                  <div className="text-orange-600 font-bold border-b border-stone-200 pb-1">Incoming Client JSON Body</div>
+                  <pre className="text-stone-700 text-[11px] overflow-x-auto">{nosqlSimulation.reqBody}</pre>
                 </div>
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-1">
-                  <div className="text-amber-400 font-bold border-b border-slate-800 pb-1">Constructed MongoDB Filter</div>
-                  <pre className="text-slate-300 text-[11px] overflow-x-auto">{nosqlSimulation.constructedFilter}</pre>
+                <div className="bg-stone-50 border border-stone-200/80 rounded-xl p-4 space-y-1">
+                  <div className="text-amber-400 font-bold border-b border-stone-200 pb-1">Constructed MongoDB Filter</div>
+                  <pre className="text-stone-700 text-[11px] overflow-x-auto">{nosqlSimulation.constructedFilter}</pre>
                 </div>
               </div>
 
@@ -1866,7 +1869,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     </span>
                   </span>
                 </div>
-                <p className="leading-relaxed text-slate-200">{nosqlSimulation.explanation}</p>
+                <p className="leading-relaxed text-stone-800">{nosqlSimulation.explanation}</p>
               </div>
             </div>
           )}
@@ -1874,19 +1877,19 @@ const result = await db.query(sql, [authenticatedUserId]);`}
           {/* TAB: KNOWLEDGE ASSESSMENT QUIZ (14.14) */}
           {activeTab === "quiz" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <Award className="w-5 h-5 text-cyan-400" />
+                    <Award className="w-5 h-5 text-orange-600" />
                     <span>14.14 Injection Vulnerabilities Knowledge Assessment</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     10 scenario-based questions to evaluate your mastery of the OWASP Top 10, injection vectors, and input handling.
                   </p>
                 </div>
                 {quizSubmitted && (
                   <div className="text-right">
-                    <span className="text-xs text-slate-400">Final Score: </span>
+                    <span className="text-xs text-stone-600">Final Score: </span>
                     <span
                       className={`text-base font-bold font-mono ${
                         quizScore >= 8 ? "text-emerald-400" : "text-amber-400"
@@ -1906,7 +1909,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   return (
                     <div
                       key={q.id}
-                      className="bg-slate-900/80 border border-slate-800 rounded-xl p-5 space-y-3 text-xs"
+                      className="bg-white border border-stone-200/80 shadow-xs rounded-xl p-5 space-y-3 text-xs"
                     >
                       <div className="flex items-start justify-between">
                         <span className="font-bold text-white text-sm">
@@ -1928,7 +1931,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                       <div className="space-y-2">
                         {q.options.map((opt, optIdx) => {
                           const isSelected = quizAnswers[q.id] === optIdx;
-                          let btnStyle = "bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-850";
+                          let btnStyle = "bg-slate-950 border-stone-200 text-stone-700 hover:bg-slate-850";
 
                           if (quizSubmitted) {
                             if (optIdx === q.correct) {
@@ -1936,7 +1939,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                             } else if (isSelected) {
                               btnStyle = "bg-rose-950/60 border-rose-500 text-rose-200";
                             } else {
-                              btnStyle = "bg-slate-950/40 border-slate-900 text-slate-500";
+                              btnStyle = "bg-stone-50 border-slate-900 text-stone-500";
                             }
                           } else if (isSelected) {
                             btnStyle = "bg-cyan-950/60 border-cyan-400 text-cyan-200 font-semibold";
@@ -1950,15 +1953,15 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                               className={`w-full text-left p-3 rounded-lg border transition flex items-center justify-between ${btnStyle}`}
                             >
                               <span>{opt}</span>
-                              {isSelected && <Check className="w-3.5 h-3.5 text-cyan-400" />}
+                              {isSelected && <Check className="w-3.5 h-3.5 text-orange-600" />}
                             </button>
                           );
                         })}
                       </div>
 
                       {quizSubmitted && (
-                        <div className="mt-3 p-3 bg-slate-950 rounded-lg border border-slate-800 text-slate-300 text-[11px] leading-relaxed">
-                          <strong className="text-cyan-400">Architectural Rationale: </strong>
+                        <div className="mt-3 p-3 bg-slate-950 rounded-lg border border-stone-200 text-stone-700 text-[11px] leading-relaxed">
+                          <strong className="text-orange-600">Architectural Rationale: </strong>
                           {q.explanation}
                         </div>
                       )}
@@ -1974,7 +1977,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                   className={`w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition ${
                     Object.keys(quizAnswers).length === quizQuestions.length
                       ? "bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/20"
-                      : "bg-slate-800 text-slate-500 cursor-not-allowed"
+                      : "bg-slate-800 text-stone-500 cursor-not-allowed"
                   }`}
                 >
                   Submit Assessment ({Object.keys(quizAnswers).length}/10 Answered)
@@ -1985,7 +1988,7 @@ const result = await db.query(sql, [authenticatedUserId]);`}
                     setQuizSubmitted(false);
                     setQuizAnswers({});
                   }}
-                  className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider transition"
+                  className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-stone-800 font-bold text-xs uppercase tracking-wider transition"
                 >
                   Retake Assessment
                 </button>

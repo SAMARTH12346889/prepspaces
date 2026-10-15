@@ -239,7 +239,7 @@ function displayCandidateNote() {
   // SECURITY CONTROL: textContent treats all input strictly as inert string data
   // Even if noteContent is '<script>alert(1)</script>', the browser will NOT execute it
   const prefixSpan = document.createElement("span");
-  prefixSpan.className = "font-bold text-slate-200";
+  prefixSpan.className = "font-bold text-stone-800";
   prefixSpan.textContent = "Candidate Feedback: ";
   
   const contentSpan = document.createElement("span");
@@ -840,24 +840,24 @@ Generated: ${new Date().toISOString()}
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0f1d] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#faf8f5] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Breadcrumb & Header */}
-      <header className="border-b border-slate-800/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
+      <header className="border-b border-stone-200/80 bg-[#0d1424]/90 backdrop-blur sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <button
               onClick={() => navigate("/learning/cybersecurity")}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition flex items-center text-xs"
+              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 hover:text-white transition flex items-center text-xs"
               title="Return to Cybersecurity Curriculum"
             >
               <ArrowLeft className="w-4 h-4 mr-1" />
               <span>Cybersecurity Track</span>
             </button>
             <span className="text-slate-600">/</span>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-500/10 text-orange-600 border border-cyan-500/20">
               Module 16
             </span>
-            <span className="text-xs text-slate-400 hidden sm:inline">
+            <span className="text-xs text-stone-600 hidden sm:inline">
               Secure Code Review, Web Security Testing & Remediation Validation
             </span>
           </div>
@@ -868,19 +868,19 @@ Generated: ${new Date().toISOString()}
       </header>
 
       {/* Curriculum Module Navigation Bar */}
-      <ModuleNav currentModuleId="secure-code-review" />
+      <ModuleNav currentModuleId="secure-code-review" track="cybersecurity" />
 
       {/* Hero Section */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-slate-900 via-[#0c1322] to-[#0a0f1d] py-10">
+      <div className="border-b border-stone-200 bg-gradient-to-b from-slate-900 via-[#0c1322] to-[#0a0f1d] py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <span className="px-2.5 py-0.5 rounded text-[11px] font-mono uppercase tracking-wider bg-cyan-950 text-cyan-400 border border-cyan-800/50">
+                <span className="px-2.5 py-0.5 rounded text-[11px] font-mono uppercase tracking-wider bg-cyan-950 text-orange-600 border border-cyan-800/50">
                   Intermediate to Advanced · Application Security
                 </span>
-                <span className="text-slate-500 text-xs">•</span>
-                <span className="text-slate-400 text-xs flex items-center">
+                <span className="text-stone-500 text-xs">•</span>
+                <span className="text-stone-600 text-xs flex items-center">
                   <ShieldCheck className="w-3.5 h-3.5 mr-1 text-emerald-400" />
                   OWASP WSTG, ASVS & NIST SSDF SP 800-218
                 </span>
@@ -888,31 +888,31 @@ Generated: ${new Date().toISOString()}
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
                 Secure Code Review, Web Security Testing & Remediation Validation
               </h1>
-              <p className="text-sm sm:text-base text-slate-400 max-w-3xl leading-relaxed">
+              <p className="text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
                 Master the discipline of examining application code for security weaknesses, executing dynamic DAST tests, tracing inputs from source to sink, distinguishing true vulnerabilities from false positives, writing actionable findings, and proving that root-cause fixes remain effective through automated regression verification in CI/CD pipelines.
               </p>
             </div>
 
             <div className="flex md:flex-col items-center gap-3">
-              <div className="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl text-center min-w-[130px]">
-                <div className="text-2xl font-bold text-cyan-400 font-mono">16 / 24</div>
-                <div className="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Course Sequence</div>
+              <div className="bg-white border border-stone-200/80 shadow-xs p-3.5 rounded-xl text-center min-w-[130px]">
+                <div className="text-2xl font-bold text-orange-600 font-mono">16 / 24</div>
+                <div className="text-[11px] text-stone-600 uppercase tracking-wider mt-0.5">Course Sequence</div>
               </div>
-              <div className="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl text-center min-w-[130px]">
+              <div className="bg-white border border-stone-200/80 shadow-xs p-3.5 rounded-xl text-center min-w-[130px]">
                 <div className="text-2xl font-bold text-emerald-400 font-mono">4 Labs</div>
-                <div className="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Interactive Tools</div>
+                <div className="text-[11px] text-stone-600 uppercase tracking-wider mt-0.5">Interactive Tools</div>
               </div>
             </div>
           </div>
 
           {/* Quick Nav Anchor Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-slate-800/80 pt-4">
+          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-stone-200 pt-4">
             <button
               onClick={() => setActiveTab("theory")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "theory"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
@@ -922,8 +922,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("sast-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "sast-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <FileSearch className="w-3.5 h-3.5" />
@@ -933,8 +933,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("dast-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "dast-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Globe className="w-3.5 h-3.5" />
@@ -944,8 +944,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("cicd-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "cicd-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <GitPullRequest className="w-3.5 h-3.5" />
@@ -955,8 +955,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("retest-sim")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "retest-sim"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <CheckSquare className="w-3.5 h-3.5" />
@@ -966,8 +966,8 @@ Generated: ${new Date().toISOString()}
               onClick={() => setActiveTab("quiz")}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition flex items-center space-x-1.5 ${
                 activeTab === "quiz"
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-800/70 text-slate-300 hover:bg-slate-700"
+                  ? "bg-stone-900 text-white font-bold shadow-xs"
+                  : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
               <Award className="w-3.5 h-3.5" />
@@ -981,10 +981,10 @@ Generated: ${new Date().toISOString()}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Left Column: Topics Sidebar */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 sticky top-20 space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 tracking-wider uppercase flex items-center justify-between">
+          <div className="bg-stone-50/70 border border-stone-200 rounded-xl p-4 sticky top-20 space-y-4">
+            <h3 className="text-xs font-bold text-stone-600 tracking-wider uppercase flex items-center justify-between">
               <span>Curriculum Navigator</span>
-              <span className="text-cyan-400 font-mono">16 / 24</span>
+              <span className="text-orange-600 font-mono">16 / 24</span>
             </h3>
 
             <div className="space-y-1">
@@ -1017,8 +1017,8 @@ Generated: ${new Date().toISOString()}
                   }}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
                     selectedTopic === topic.id
-                      ? "bg-cyan-500/15 text-cyan-300 font-semibold border-l-2 border-cyan-400"
-                      : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                      ? "bg-cyan-500/15 text-orange-700 font-semibold border-l-2 border-cyan-400"
+                      : "text-stone-600 hover:bg-slate-800 hover:text-stone-800"
                   }`}
                 >
                   <span className="truncate">{topic.title}</span>
@@ -1027,35 +1027,35 @@ Generated: ${new Date().toISOString()}
             </div>
 
             {/* Quick Practice Jump */}
-            <div className="pt-4 border-t border-slate-800">
-              <div className="text-[11px] font-semibold text-slate-400 mb-2 uppercase tracking-wider">
+            <div className="pt-4 border-t border-stone-200">
+              <div className="text-[11px] font-semibold text-stone-600 mb-2 uppercase tracking-wider">
                 Hands-on Simulators
               </div>
               <div className="grid grid-cols-2 gap-1.5">
                 <button
                   onClick={() => setActiveTab("sast-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
-                  <FileSearch className="w-3 h-3 mr-1 text-cyan-400 shrink-0" />
+                  <FileSearch className="w-3 h-3 mr-1 text-orange-600 shrink-0" />
                   <span>SAST Taint</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("dast-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
                   <Globe className="w-3 h-3 mr-1 text-blue-400 shrink-0" />
                   <span>DAST ZAP</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("cicd-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
                   <GitPullRequest className="w-3 h-3 mr-1 text-emerald-400 shrink-0" />
                   <span>CI/CD Gates</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("retest-sim")}
-                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium text-left truncate flex items-center"
+                  className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-stone-700 rounded text-[11px] font-medium text-left truncate flex items-center"
                 >
                   <CheckSquare className="w-3 h-3 mr-1 text-amber-400 shrink-0" />
                   <span>Retest Matrix</span>
@@ -1073,22 +1073,22 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.1 */}
               {selectedTopic === 1 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.1</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.1</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Module Overview & Learning Objectives</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Secure code review and web security testing are essential activities across the modern software development lifecycle (SDLC). They identify vulnerabilities before adversaries can exploit them, verify whether security controls work as intended, and confirm that engineering fixes actually resolve the underlying root cause without introducing new defects or functional regressions.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-                      <div className="flex items-center space-x-2 text-cyan-400 font-semibold text-sm">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
+                      <div className="flex items-center space-x-2 text-orange-600 font-semibold text-sm">
                         <Shield className="w-4 h-4" />
                         <span>Core Learning Objectives</span>
                       </div>
-                      <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                      <ul className="text-xs text-stone-700 space-y-2 list-disc list-inside">
                         <li>Perform structured manual reviews of application code, dependencies, and configurations.</li>
                         <li>Understand the strengths and boundaries of SAST, DAST, SCA, and manual penetration tests.</li>
                         <li>Trace untrusted input from HTTP sources to sensitive database, filesystem, and DOM sinks.</li>
@@ -1097,12 +1097,12 @@ Generated: ${new Date().toISOString()}
                       </ul>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
                       <div className="flex items-center space-x-2 text-emerald-400 font-semibold text-sm">
                         <Workflow className="w-4 h-4" />
                         <span>Engineering & CI/CD Delivery</span>
                       </div>
-                      <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                      <ul className="text-xs text-stone-700 space-y-2 list-disc list-inside">
                         <li>Assess risk using exploitability, business exposure, and asset sensitivity.</li>
                         <li>Draft actionable security findings with minimal, reproducible sanitized evidence.</li>
                         <li>Verify remediation by testing the security property, not just a single payload string.</li>
@@ -1112,8 +1112,8 @@ Generated: ${new Date().toISOString()}
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-800/40 text-xs text-cyan-300 flex items-start space-x-3">
-                    <AlertCircle className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                  <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-800/40 text-xs text-orange-700 flex items-start space-x-3">
+                    <AlertCircle className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <div>
                       <span className="font-bold">Practical Context & Authorization Scope: </span>
                       Throughout this module, all practical security evaluations must remain within local training testbeds or an explicitly authorized staging environment. Never execute active scans against unauthorized systems or third-party web assets.
@@ -1125,19 +1125,19 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.2 */}
               {selectedTopic === 2 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.2</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.2</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Secure Code Review Fundamentals</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Secure code review is a structured examination of source code to discover implementation choices that violate security policies. While an ordinary code review checks whether code meets functional business requirements, a security review asks how the application behaves when inputs are malicious, sessions expire, users attempt privilege escalation, or external dependencies fail.
                   </p>
 
                   <h3 className="text-base font-bold text-white">Manual Review vs. Automated Analysis Matrix</h3>
-                  <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                  <div className="overflow-x-auto border border-stone-200 rounded-xl">
                     <table className="w-full text-left text-xs border-collapse">
-                      <thead className="bg-slate-900 text-slate-300 font-semibold border-b border-slate-800">
+                      <thead className="bg-stone-50 text-stone-700 font-semibold border-b border-stone-200">
                         <tr>
                           <th className="p-3">Testing Method</th>
                           <th className="p-3">Primary Purpose</th>
@@ -1145,33 +1145,33 @@ Generated: ${new Date().toISOString()}
                           <th className="p-3">Best Integrated At</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Manual Code Review</td>
+                      <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Manual Code Review</td>
                           <td className="p-3">Understand business logic, trust boundaries, multi-step workflows</td>
                           <td className="p-3 text-rose-300">Requires deep expertise; time-consuming for large codebases</td>
                           <td className="p-3">Pull Request reviews & architecture sign-offs</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">SAST (Static Analysis)</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">SAST (Static Analysis)</td>
                           <td className="p-3">Scan source/bytecode for known unsafe syntax and tainted data paths</td>
                           <td className="p-3 text-rose-300">Cannot observe runtime state; high false-positive rate; misses logic</td>
                           <td className="p-3">Pre-commit hooks & CI build pipelines</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">DAST (Dynamic Analysis)</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">DAST (Dynamic Analysis)</td>
                           <td className="p-3">Fuzz running web application via exposed HTTP interfaces (black-box)</td>
                           <td className="p-3 text-rose-300">Cannot see internal code paths; requires active test target</td>
                           <td className="p-3">Nightly staging runs & release candidates</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">SCA (Software Composition)</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">SCA (Software Composition)</td>
                           <td className="p-3">Identify known CVEs in third-party packages, libraries, and lockfiles</td>
                           <td className="p-3 text-rose-300">A reported CVE does not prove the vulnerable function is reachable</td>
                           <td className="p-3">Package install (`npm audit`) & CI pull requests</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Manual Penetration Testing</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Manual Penetration Testing</td>
                           <td className="p-3">Simulate realistic adversary attack chains across the entire system</td>
                           <td className="p-3 text-rose-300">Coverage depends on tester skill, scope, and time boundaries</td>
                           <td className="p-3">Major milestone releases & annual audits</td>
@@ -1180,30 +1180,30 @@ Generated: ${new Date().toISOString()}
                     </table>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
-                    <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
+                    <h4 className="text-xs font-bold text-stone-700 uppercase tracking-wider">
                       The Continuous Security Lifecycle (NIST SSDF SP 800-218)
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 text-center text-xs">
-                      <div className="p-2.5 rounded bg-slate-800/80 border border-slate-700">
-                        <span className="font-bold text-cyan-400 block">1. Requirements</span>
-                        <span className="text-[11px] text-slate-400">Assets & Trust Boundaries</span>
+                      <div className="p-2.5 rounded bg-slate-800/80 border border-stone-300">
+                        <span className="font-bold text-orange-600 block">1. Requirements</span>
+                        <span className="text-[11px] text-stone-600">Assets & Trust Boundaries</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-800/80 border border-slate-700">
+                      <div className="p-2.5 rounded bg-slate-800/80 border border-stone-300">
                         <span className="font-bold text-blue-400 block">2. Code Review</span>
-                        <span className="text-[11px] text-slate-400">Manual + SAST + SCA</span>
+                        <span className="text-[11px] text-stone-600">Manual + SAST + SCA</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-800/80 border border-slate-700">
+                      <div className="p-2.5 rounded bg-slate-800/80 border border-stone-300">
                         <span className="font-bold text-indigo-400 block">3. DAST Testing</span>
-                        <span className="text-[11px] text-slate-400">Staging Fuzzing & Authz</span>
+                        <span className="text-[11px] text-stone-600">Staging Fuzzing & Authz</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-800/80 border border-slate-700">
+                      <div className="p-2.5 rounded bg-slate-800/80 border border-stone-300">
                         <span className="font-bold text-amber-400 block">4. Triage & Fix</span>
-                        <span className="text-[11px] text-slate-400">Root-Cause Remediation</span>
+                        <span className="text-[11px] text-stone-600">Root-Cause Remediation</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-800/80 border border-slate-700">
+                      <div className="p-2.5 rounded bg-slate-800/80 border border-stone-300">
                         <span className="font-bold text-emerald-400 block">5. Retest & Gate</span>
-                        <span className="text-[11px] text-slate-400">Automated Regressions</span>
+                        <span className="text-[11px] text-stone-600">Automated Regressions</span>
                       </div>
                     </div>
                   </div>
@@ -1213,49 +1213,49 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.3 */}
               {selectedTopic === 3 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.3</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.3</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Establishing Review Scope & Security Context</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     A security reviewer cannot evaluate code in a vacuum. Before inspecting a single line, the reviewer must understand what the application protects, who its users are, and where untrusted data enters the system.
                   </p>
 
                   <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                      <h3 className="text-sm font-bold text-cyan-300 flex items-center space-x-2">
-                        <Database className="w-4 h-4 text-cyan-400" />
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs">
+                      <h3 className="text-sm font-bold text-orange-700 flex items-center space-x-2">
+                        <Database className="w-4 h-4 text-orange-600" />
                         <span>1. Identify Sensitive Assets</span>
                       </h3>
-                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                      <p className="text-xs text-stone-700 mt-1 leading-relaxed">
                         Identify all data and operations whose loss of Confidentiality, Integrity, or Availability would create substantial business harm:
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-3 text-xs">
-                        <div className="p-2 bg-slate-800/60 rounded border border-slate-700/60 text-slate-300">
+                        <div className="p-2 bg-slate-800/60 rounded border border-stone-300/60 text-stone-700">
                           <span className="font-semibold text-rose-300 block">Credentials & Secrets</span>
                           User passwords, JWT signing keys, OAuth tokens, DB credentials.
                         </div>
-                        <div className="p-2 bg-slate-800/60 rounded border border-slate-700/60 text-slate-300">
+                        <div className="p-2 bg-slate-800/60 rounded border border-stone-300/60 text-stone-700">
                           <span className="font-semibold text-amber-300 block">Private PII & Workflows</span>
                           Candidate resumes, interview transcripts, evaluator scorecards.
                         </div>
-                        <div className="p-2 bg-slate-800/60 rounded border border-slate-700/60 text-slate-300">
+                        <div className="p-2 bg-slate-800/60 rounded border border-stone-300/60 text-stone-700">
                           <span className="font-semibold text-emerald-300 block">Administrative Controls</span>
                           Recruiter assignment mappings, user role escalation, billing APIs.
                         </div>
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                      <h3 className="text-sm font-bold text-cyan-300 flex items-center space-x-2">
-                        <Share2 className="w-4 h-4 text-cyan-400" />
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs">
+                      <h3 className="text-sm font-bold text-orange-700 flex items-center space-x-2">
+                        <Share2 className="w-4 h-4 text-orange-600" />
                         <span>2. Map Trust Boundaries</span>
                       </h3>
-                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                      <p className="text-xs text-stone-700 mt-1 leading-relaxed">
                         Every crossing of a trust boundary requires explicit authentication, authorization, and semantic input validation:
                       </p>
-                      <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside mt-2">
+                      <ul className="text-xs text-stone-700 space-y-1.5 list-disc list-inside mt-2">
                         <li><strong>Web Browser to Backend REST API:</strong> Untrusted client parameters, headers, and cookies.</li>
                         <li><strong>Candidate Account to Recruiter Account:</strong> Horizontal role and tenant isolation boundaries.</li>
                         <li><strong>Application Server to Relational Database:</strong> Query boundary requiring parameterized bindings.</li>
@@ -1264,17 +1264,17 @@ Generated: ${new Date().toISOString()}
                       </ul>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                      <h3 className="text-sm font-bold text-cyan-300 flex items-center space-x-2">
-                        <Target className="w-4 h-4 text-cyan-400" />
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs">
+                      <h3 className="text-sm font-bold text-orange-700 flex items-center space-x-2">
+                        <Target className="w-4 h-4 text-orange-600" />
                         <span>3. Review Sensitive Entry Points First</span>
                       </h3>
-                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                      <p className="text-xs text-stone-700 mt-1 leading-relaxed">
                         Security review prioritizes high-impact operational paths over trivial cosmetic files. Always begin reviews with:
                       </p>
                       <div className="flex flex-wrap gap-2 mt-2">
                         {["Auth & Password Reset", "Object Retrieval by ID", "File Upload Handlers", "Raw DB Queries & Aggregations", "Privilege Granting Routes", "Webhooks & Callback Handlers"].map((item, idx) => (
-                          <span key={idx} className="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-cyan-300 text-[11px] font-mono">
+                          <span key={idx} className="px-2.5 py-1 rounded bg-slate-800 border border-stone-300 text-orange-700 text-[11px] font-mono">
                             {item}
                           </span>
                         ))}
@@ -1287,57 +1287,57 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.4 */}
               {selectedTopic === 4 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.4</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.4</span>
                     <h2 className="text-2xl font-bold text-white mt-1">A Systematic Secure Code Review Method</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Rather than randomly browsing files, professional reviewers execute a disciplined 5-step methodology that traces data flows from untrusted inputs to sensitive operations.
                   </p>
 
                   <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                      <span className="text-xs font-bold text-cyan-400 uppercase font-mono">Step 1 — Understand Intended Business Behavior</span>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                      <span className="text-xs font-bold text-orange-600 uppercase font-mono">Step 1 — Understand Intended Business Behavior</span>
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         Read PR descriptions, Jira acceptance criteria, and API contracts. Identify the intended actors: Who is permitted to call this endpoint? What state transitions should occur? If the security specification is ambiguous, record the ambiguity rather than assuming the existing code is correct.
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                      <span className="text-xs font-bold text-cyan-400 uppercase font-mono">Step 2 — Trace Input from Source to Sensitive Sink</span>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                      <span className="text-xs font-bold text-orange-600 uppercase font-mono">Step 2 — Trace Input from Source to Sensitive Sink</span>
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         Identify where the data enters the application (Source), how it is transformed, parsed, or normalized, and which critical operation it reaches (Sink).
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 text-xs">
-                        <div className="p-3 rounded bg-slate-800/60 border border-slate-700/60">
+                        <div className="p-3 rounded bg-slate-800/60 border border-stone-300/60">
                           <span className="font-bold text-rose-400 block mb-1">Untrusted Sources</span>
-                          <span className="text-slate-400">`req.body`, `req.params`, `req.query`, `req.headers`, `req.cookies`, uploaded file streams, external webhook payloads.</span>
+                          <span className="text-stone-600">`req.body`, `req.params`, `req.query`, `req.headers`, `req.cookies`, uploaded file streams, external webhook payloads.</span>
                         </div>
-                        <div className="p-3 rounded bg-slate-800/60 border border-slate-700/60">
+                        <div className="p-3 rounded bg-slate-800/60 border border-stone-300/60">
                           <span className="font-bold text-amber-400 block mb-1">Sensitive Sinks</span>
-                          <span className="text-slate-400">`db.query()`, `fs.writeFile()`, `child_process.exec()`, `res.redirect()`, `element.innerHTML`, `crypto.createCipheriv()`.</span>
+                          <span className="text-stone-600">`db.query()`, `fs.writeFile()`, `child_process.exec()`, `res.redirect()`, `element.innerHTML`, `crypto.createCipheriv()`.</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                      <span className="text-xs font-bold text-cyan-400 uppercase font-mono">Step 3 — Examine Security Controls at the Sink</span>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                      <span className="text-xs font-bold text-orange-600 uppercase font-mono">Step 3 — Examine Security Controls at the Sink</span>
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         Verify that protection is applied immediately at the sensitive sink where execution takes place. Client-side input validation on a React form is convenient for UI feedback, but it does NOT substitute for parameterized queries or server-side authorization middleware.
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                      <span className="text-xs font-bold text-cyan-400 uppercase font-mono">Step 4 — Examine Failure Paths & Edge Conditions</span>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                      <span className="text-xs font-bold text-orange-600 uppercase font-mono">Step 4 — Examine Failure Paths & Edge Conditions</span>
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         What happens when database lookups time out? When invalid JSON is submitted? When a token is expired? When a transaction partially fails? An unhandled exception or early return can bypass downstream authorization checks.
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                      <span className="text-xs font-bold text-cyan-400 uppercase font-mono">Step 5 — Verify Automated Tests & Reproducible Evidence</span>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                      <span className="text-xs font-bold text-orange-600 uppercase font-mono">Step 5 — Verify Automated Tests & Reproducible Evidence</span>
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         Confirm that unit and integration tests assert both positive permissions (authorized user receives 200 OK) and negative boundaries (unauthorized cross-tenant user receives 403 Forbidden or 404 Not Found).
                       </p>
                     </div>
@@ -1348,23 +1348,23 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.5 */}
               {selectedTopic === 5 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.5</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.5</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Common Security Weaknesses Found in Reviews</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Reviewers frequently encounter six major vulnerability patterns. Understanding their signature code warnings and root-cause remediations enables rapid detection during pull request reviews.
                   </p>
 
                   <div className="space-y-6">
                     {/* Weakness 1: Broken Access Control */}
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-cyan-300 text-sm">1. Broken Object-Level Authorization (BOLA / IDOR)</span>
+                        <span className="font-bold text-orange-700 text-sm">1. Broken Object-Level Authorization (BOLA / IDOR)</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800/50">High / Critical</span>
                       </div>
-                      <p className="text-xs text-slate-300">
+                      <p className="text-xs text-stone-700">
                         <strong>Warning Sign:</strong> The endpoint retrieves or updates a record using a client-provided route parameter ID without verifying that the authenticated user owns or is assigned to that record.
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-mono">
@@ -1389,12 +1389,12 @@ Generated: ${new Date().toISOString()}
                     </div>
 
                     {/* Weakness 2: SQL Injection */}
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-cyan-300 text-sm">2. SQL Injection via Dynamic Construction</span>
+                        <span className="font-bold text-orange-700 text-sm">2. SQL Injection via Dynamic Construction</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800/50">Critical</span>
                       </div>
-                      <p className="text-xs text-slate-300">
+                      <p className="text-xs text-stone-700">
                         <strong>Warning Sign:</strong> Concatenating untrusted strings into query text. Dynamic table/column names must also be strictly allowlisted.
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-mono">
@@ -1414,12 +1414,12 @@ Generated: ${new Date().toISOString()}
                     </div>
 
                     {/* Weakness 3: XSS & Insecure DOM */}
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-cyan-300 text-sm">3. Cross-Site Scripting (XSS) & Unsafe DOM Sinks</span>
+                        <span className="font-bold text-orange-700 text-sm">3. Cross-Site Scripting (XSS) & Unsafe DOM Sinks</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-950 text-amber-400 border border-amber-800/50">High</span>
                       </div>
-                      <p className="text-xs text-slate-300">
+                      <p className="text-xs text-stone-700">
                         <strong>Warning Sign:</strong> Use of `innerHTML`, `dangerouslySetInnerHTML`, or `document.write` with user-controlled data.
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-mono">
@@ -1436,34 +1436,34 @@ Generated: ${new Date().toISOString()}
                     </div>
 
                     {/* Weakness 4: Insecure File Upload */}
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-cyan-300 text-sm">4. Insecure File Upload & Path Traversal</span>
+                        <span className="font-bold text-orange-700 text-sm">4. Insecure File Upload & Path Traversal</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800/50">High</span>
                       </div>
-                      <p className="text-xs text-slate-300">
+                      <p className="text-xs text-stone-700">
                         <strong>Warning Sign:</strong> Trusting `file.originalname` or saving files into web-executable root directories. Remediate with server-generated UUID filenames, magic byte verification, and isolated non-executable storage.
                       </p>
                     </div>
 
                     {/* Weakness 5: Secrets & Key Misuse */}
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-cyan-300 text-sm">5. Hardcoded Secrets & Cryptographic Misuse</span>
+                        <span className="font-bold text-orange-700 text-sm">5. Hardcoded Secrets & Cryptographic Misuse</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800/50">Critical</span>
                       </div>
-                      <p className="text-xs text-slate-300">
+                      <p className="text-xs text-stone-700">
                         <strong>Warning Sign:</strong> Committing static API keys or fallback secrets. If an exposed secret is discovered, merely deleting it in a subsequent commit is insufficient; the secret must be actively revoked and rotated in the credential provider.
                       </p>
                     </div>
 
                     {/* Weakness 6: Insecure Error Handling & Leaky Logs */}
-                    <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                    <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-cyan-300 text-sm">6. Verbose Error Traces & Credential Logging</span>
+                        <span className="font-bold text-orange-700 text-sm">6. Verbose Error Traces & Credential Logging</span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-950 text-amber-400 border border-amber-800/50">Medium</span>
                       </div>
-                      <p className="text-xs text-slate-300">
+                      <p className="text-xs text-stone-700">
                         <strong>Warning Sign:</strong> Returning raw SQL error stacks to users or printing `req.body` (including plaintext passwords) into centralized logs. Production endpoints should return generic correlation error IDs (&apos;&#123; error: &quot;Internal Error&quot;, requestId: &quot;req-982&quot; &#125;&apos;).
                       </p>
                     </div>
@@ -1474,47 +1474,47 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.6 */}
               {selectedTopic === 6 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.6</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.6</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Static Application Security Testing (SAST)</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Static Application Security Testing (SAST) tools analyze source code, AST (Abstract Syntax Tree) representations, and data-flow call graphs without running the application. SAST provides early feedback during the development phase and is well-suited for automated CI integration.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
-                      <div className="flex items-center space-x-2 text-cyan-400 font-bold text-sm">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
+                      <div className="flex items-center space-x-2 text-orange-600 font-bold text-sm">
                         <Code2 className="w-4 h-4" />
                         <span>Semgrep (Fast Pattern Matching)</span>
                       </div>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         Semgrep uses concrete source code syntax patterns combined with lightweight taint tracking. It excels at fast pull-request scans (sub-30s) and custom organization-specific rule enforcement.
                       </p>
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-[11px] font-mono text-cyan-300">
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-orange-700">
                         $ semgrep scan --config auto --error
                       </div>
                       <a
                         href="https://semgrep.dev/docs/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs text-cyan-400 hover:underline flex items-center mt-2"
+                        className="text-xs text-orange-600 hover:underline flex items-center mt-2"
                       >
                         <span>Official Semgrep Documentation</span>
                         <ExternalLink className="w-3 h-3 ml-1" />
                       </a>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
                       <div className="flex items-center space-x-2 text-indigo-400 font-bold text-sm">
                         <Binary className="w-4 h-4" />
                         <span>GitHub CodeQL (Semantic Database Queries)</span>
                       </div>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                      <p className="text-xs text-stone-700 leading-relaxed">
                         CodeQL compiles codebases into relational data stores and executes complex QL queries to perform inter-procedural taint flow analysis, cross-file tracking, and deep vulnerability identification.
                       </p>
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-[11px] font-mono text-indigo-300">
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80 text-[11px] font-mono text-indigo-300">
                         $ codeql database analyze --format=sarif-latest
                       </div>
                       <a
@@ -1529,11 +1529,11 @@ Generated: ${new Date().toISOString()}
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-                    <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
+                    <h3 className="text-xs font-bold text-stone-700 uppercase tracking-wider">
                       Critical SAST Limitations to Remember
                     </h3>
-                    <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                    <ul className="text-xs text-stone-700 space-y-1.5 list-disc list-inside">
                       <li><strong>False Positives:</strong> Reports paths that are neutralized by middleware or unreachable in the deployed production environment.</li>
                       <li><strong>False Negatives:</strong> Misses complex multi-step business logic flaws (e.g. recruiter permissions).</li>
                       <li><strong>Dynamic State Blindness:</strong> Cannot inspect runtime configurations, third-party database state, or microservice API responses.</li>
@@ -1545,29 +1545,29 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.7 */}
               {selectedTopic === 7 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.7</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.7</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Software Composition Analysis (SCA) & Dependencies</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Modern applications frequently consist of over 80% open-source third-party dependencies. A critical vulnerability in an indirect transitive dependency can compromise the application even when the first-party codebase is written securely.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
-                    <h3 className="text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
+                    <h3 className="text-xs font-bold text-orange-700 uppercase tracking-wider">
                       Node.js Baseline SCA Workflow
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800">
-                        <span className="font-mono text-cyan-400 block mb-1">$ npm ci</span>
-                        <p className="text-slate-300">
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80">
+                        <span className="font-mono text-orange-600 block mb-1">$ npm ci</span>
+                        <p className="text-stone-700">
                           Installs exact package versions locked in `package-lock.json`. Avoids accidental floating version drift in automated CI builds.
                         </p>
                       </div>
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800">
-                        <span className="font-mono text-cyan-400 block mb-1">$ npm audit --audit-level=high</span>
-                        <p className="text-slate-300">
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80">
+                        <span className="font-mono text-orange-600 block mb-1">$ npm audit --audit-level=high</span>
+                        <p className="text-stone-700">
                           Compares dependency dependency tree against npm security advisory database and exits with code 1 on high/critical findings.
                         </p>
                       </div>
@@ -1589,47 +1589,47 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.8 */}
               {selectedTopic === 8 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.8</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.8</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Dynamic Application Security Testing (DAST)</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Dynamic Application Security Testing (DAST) evaluates running applications from their exposed HTTP/WebSocket endpoints. DAST is technology-agnostic and detects misconfigured HTTP response headers, CORS flaws, cookie vulnerabilities, and runtime injection.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+                  <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-cyan-300 flex items-center space-x-2">
-                        <Globe className="w-4 h-4 text-cyan-400" />
+                      <span className="text-sm font-bold text-orange-700 flex items-center space-x-2">
+                        <Globe className="w-4 h-4 text-orange-600" />
                         <span>Baseline DAST Workflow with OWASP ZAP (Zed Attack Proxy)</span>
                       </span>
                       <a
                         href="https://www.zaproxy.org/getting-started/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs text-cyan-400 hover:underline flex items-center"
+                        className="text-xs text-orange-600 hover:underline flex items-center"
                       >
                         <span>OWASP ZAP Guide</span>
                         <ExternalLink className="w-3 h-3 ml-1" />
                       </a>
                     </div>
 
-                    <div className="space-y-2 text-xs text-slate-300">
+                    <div className="space-y-2 text-xs text-stone-700">
                       <div className="flex items-start space-x-2">
-                        <span className="font-bold text-cyan-400 font-mono">1.</span>
+                        <span className="font-bold text-orange-600 font-mono">1.</span>
                         <span><strong>Scope Definition:</strong> Explicitly configure target URL and include/exclude regexes. Never point active scanners outside approved staging domains.</span>
                       </div>
                       <div className="flex items-start space-x-2">
-                        <span className="font-bold text-cyan-400 font-mono">2.</span>
+                        <span className="font-bold text-orange-600 font-mono">2.</span>
                         <span><strong>Spider & Passive Scan:</strong> Crawl application through proxy. Passively inspect response headers (CSP, HSTS, XFO) and cookie flags without modifying server state.</span>
                       </div>
                       <div className="flex items-start space-x-2">
-                        <span className="font-bold text-cyan-400 font-mono">3.</span>
+                        <span className="font-bold text-orange-600 font-mono">3.</span>
                         <span><strong>Authenticated Active Scan:</strong> Feed authorization bearer tokens or session cookies to fuzz authenticated API endpoints with bounded request rates.</span>
                       </div>
                       <div className="flex items-start space-x-2">
-                        <span className="font-bold text-cyan-400 font-mono">4.</span>
+                        <span className="font-bold text-orange-600 font-mono">4.</span>
                         <span><strong>Triage & Manual Reproduction:</strong> Verify every reported alert manually in Burp Suite or Postman before creating developer issue tickets.</span>
                       </div>
                     </div>
@@ -1640,19 +1640,19 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.9 */}
               {selectedTopic === 9 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.9</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.9</span>
                     <h2 className="text-2xl font-bold text-white mt-1">API Security Testing & Authorization Verification</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     APIs can return a technically valid `200 OK` response while still violating critical security policies. Generic automated scanners frequently miss business-logic flaws and object-level authorization bypasses because the requests follow syntactically valid JSON schemas.
                   </p>
 
                   <h3 className="text-base font-bold text-white">Prepspaces API Security Test Matrix</h3>
-                  <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                  <div className="overflow-x-auto border border-stone-200 rounded-xl">
                     <table className="w-full text-left text-xs border-collapse">
-                      <thead className="bg-slate-900 text-slate-300 font-semibold border-b border-slate-800">
+                      <thead className="bg-stone-50 text-stone-700 font-semibold border-b border-stone-200">
                         <tr>
                           <th className="p-3">Scenario ID</th>
                           <th className="p-3">Client Identity</th>
@@ -1660,39 +1660,39 @@ Generated: ${new Date().toISOString()}
                           <th className="p-3">Expected Security Behavior</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-mono text-cyan-400">AUTH-01</td>
+                      <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-mono text-orange-600">AUTH-01</td>
                           <td className="p-3">Unauthenticated Anonymous User</td>
                           <td className="p-3 font-mono">GET /api/reports/4821</td>
                           <td className="p-3 text-rose-300 font-semibold">401 Unauthorized (Blocked)</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-mono text-cyan-400">AUTHZ-01</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-mono text-orange-600">AUTHZ-01</td>
                           <td className="p-3">Candidate Samarth (Owner)</td>
                           <td className="p-3 font-mono">GET /api/reports/4821</td>
                           <td className="p-3 text-emerald-300 font-semibold">200 OK (Allowed)</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-mono text-cyan-400">AUTHZ-02</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-mono text-orange-600">AUTHZ-02</td>
                           <td className="p-3">Candidate Alice (Non-Owner)</td>
                           <td className="p-3 font-mono">GET /api/reports/4821</td>
                           <td className="p-3 text-rose-300 font-semibold">404 Not Found (Denied)</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-mono text-cyan-400">AUTHZ-03</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-mono text-orange-600">AUTHZ-03</td>
                           <td className="p-3">Recruiter Sarah (Assigned)</td>
                           <td className="p-3 font-mono">GET /api/reports/4821</td>
                           <td className="p-3 text-emerald-300 font-semibold">200 OK (Allowed by assignment)</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-mono text-cyan-400">AUTHZ-04</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-mono text-orange-600">AUTHZ-04</td>
                           <td className="p-3">Recruiter Dave (Unassigned)</td>
                           <td className="p-3 font-mono">GET /api/reports/4821</td>
                           <td className="p-3 text-rose-300 font-semibold">403 Forbidden (Denied)</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-mono text-cyan-400">MASS-01</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-mono text-orange-600">MASS-01</td>
                           <td className="p-3">Candidate Samarth</td>
                           <td className="p-3 font-mono">PATCH /api/users/profile &#123; role: &quot;admin&quot; &#125;</td>
                           <td className="p-3 text-amber-300 font-semibold">400 Bad Request or Role Ignored</td>
@@ -1706,32 +1706,32 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.10 */}
               {selectedTopic === 10 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.10</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.10</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Writing Effective Security Test Cases</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     A security test case must be repeatable, scoped to an authorized environment, and tied to an explicit security requirement. Vague instructions such as &quot;verify API security&quot; fail in automated CI pipelines.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 font-mono text-xs">
-                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                      <span className="font-bold text-cyan-400">Test Case Specification: AUTHZ-REPORT-001</span>
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3 font-mono text-xs">
+                    <div className="flex items-center justify-between border-b border-stone-200 pb-2">
+                      <span className="font-bold text-orange-600">Test Case Specification: AUTHZ-REPORT-001</span>
                       <span className="text-emerald-400">Status: PASSING</span>
                     </div>
-                    <div className="space-y-1.5 text-slate-300">
-                      <div><strong className="text-slate-400">Objective:</strong> Verify Candidate A cannot access Candidate B&apos;s interview scorecard.</div>
-                      <div><strong className="text-slate-400">Preconditions:</strong> Test account A (usr_101) and test account B (usr_202) provisioned with distinct reports.</div>
-                      <div><strong className="text-slate-400">Procedure:</strong></div>
-                      <ol className="list-decimal list-inside pl-2 space-y-1 text-slate-400">
+                    <div className="space-y-1.5 text-stone-700">
+                      <div><strong className="text-stone-600">Objective:</strong> Verify Candidate A cannot access Candidate B&apos;s interview scorecard.</div>
+                      <div><strong className="text-stone-600">Preconditions:</strong> Test account A (usr_101) and test account B (usr_202) provisioned with distinct reports.</div>
+                      <div><strong className="text-stone-600">Procedure:</strong></div>
+                      <ol className="list-decimal list-inside pl-2 space-y-1 text-stone-600">
                         <li>Authenticate as Candidate A; store JWT token `token_a`.</li>
                         <li>Send `GET /api/reports/7710` (owned by B) with `Authorization: Bearer token_a`.</li>
                         <li>Assert HTTP response status is 404 or 403.</li>
                         <li>Assert response body does NOT contain Candidate B&apos;s score, notes, or PII.</li>
                       </ol>
-                      <div><strong className="text-slate-400">Automated Jest Implementation:</strong></div>
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 text-cyan-300">
+                      <div><strong className="text-stone-600">Automated Jest Implementation:</strong></div>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 text-orange-700">
                         it(&quot;should reject cross-tenant report retrieval with 404&quot;, async () =&gt; &#123;<br />
                         &nbsp;&nbsp;const res = await request(app)<br />
                         &nbsp;&nbsp;&nbsp;&nbsp;.get(&quot;/api/reports/7710&quot;)<br />
@@ -1748,62 +1748,62 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.11 */}
               {selectedTopic === 11 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.11</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.11</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Finding Validation, Triage & Risk Prioritization</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Automated tools and human reviewers generate hundreds of candidate findings. Security engineers must classify each finding accurately into one of four states and prioritize remediation based on real-world business context.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
                       <span className="font-bold text-rose-400 block text-sm">Confirmed Vulnerability</span>
-                      <p className="text-slate-300">
+                      <p className="text-stone-700">
                         Reproducible evidence demonstrates that a security policy is violated under documented conditions. The code path is reachable and exploitable.
                       </p>
                     </div>
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
                       <span className="font-bold text-amber-400 block text-sm">Needs Investigation</span>
-                      <p className="text-slate-300">
+                      <p className="text-stone-700">
                         The alert is plausible, but additional context is required to determine whether input is truly attacker-controlled or whether upstream middleware neutralizes it.
                       </p>
                     </div>
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
                       <span className="font-bold text-emerald-400 block text-sm">False Positive</span>
-                      <p className="text-slate-300">
+                      <p className="text-stone-700">
                         The scanner reported a pattern that does not constitute a defect in the assessed environment (e.g., test mock file or unreachable internal debug path).
                       </p>
                     </div>
-                    <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                    <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
                       <span className="font-bold text-blue-400 block text-sm">Accepted Risk</span>
-                      <p className="text-slate-300">
+                      <p className="text-stone-700">
                         An authorized risk owner explicitly signs off on residual risk under organizational governance. This does NOT mean the defect is resolved.
                       </p>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-                    <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
+                    <h3 className="text-xs font-bold text-stone-700 uppercase tracking-wider">
                       Severity SLA Matrix (NIST SSDF SP 800-218)
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 text-center text-xs">
                       <div className="p-2.5 rounded bg-rose-950/40 border border-rose-800/50">
                         <span className="font-bold text-rose-400 block">Critical</span>
-                        <span className="text-[11px] text-slate-400">Remediate in 24–48h</span>
+                        <span className="text-[11px] text-stone-600">Remediate in 24–48h</span>
                       </div>
                       <div className="p-2.5 rounded bg-amber-950/40 border border-amber-800/50">
                         <span className="font-bold text-amber-400 block">High</span>
-                        <span className="text-[11px] text-slate-400">Remediate in 7 days</span>
+                        <span className="text-[11px] text-stone-600">Remediate in 7 days</span>
                       </div>
                       <div className="p-2.5 rounded bg-blue-950/40 border border-blue-800/50">
                         <span className="font-bold text-blue-400 block">Medium</span>
-                        <span className="text-[11px] text-slate-400">Remediate in 30 days</span>
+                        <span className="text-[11px] text-stone-600">Remediate in 30 days</span>
                       </div>
-                      <div className="p-2.5 rounded bg-slate-800 border border-slate-700">
-                        <span className="font-bold text-slate-300 block">Low / Info</span>
-                        <span className="text-[11px] text-slate-400">Planned sprint hygiene</span>
+                      <div className="p-2.5 rounded bg-slate-800 border border-stone-300">
+                        <span className="font-bold text-stone-700 block">Low / Info</span>
+                        <span className="text-[11px] text-stone-600">Planned sprint hygiene</span>
                       </div>
                     </div>
                   </div>
@@ -1813,30 +1813,30 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.12 */}
               {selectedTopic === 12 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.12</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.12</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Writing High-Quality, Actionable Security Findings</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     A developer cannot fix a defect if the security ticket says &quot;the API is insecure.&quot; High-quality vulnerability reports must include clean reproduction steps, identified root causes, business impact, and verification criteria.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 font-mono text-xs">
-                    <div className="text-cyan-400 font-bold border-b border-slate-800 pb-2">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3 font-mono text-xs">
+                    <div className="text-orange-600 font-bold border-b border-stone-200 pb-2">
                       Finding Report Standard: WEB-AUTHZ-001
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-300">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-stone-700">
                       <div><strong>Title:</strong> Missing Object-Level Authorization on Report Retrieval</div>
                       <div><strong>Severity:</strong> High (CVSS 7.5 - AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N)</div>
                       <div><strong>Component:</strong> `controllers/reportController.js:42`</div>
                       <div><strong>CWE:</strong> CWE-639 / OWASP API1:2023</div>
                     </div>
-                    <div className="text-slate-300 space-y-1 pt-2 border-t border-slate-800/80">
-                      <div><strong className="text-slate-400">Business Impact:</strong> Any authenticated candidate can read proprietary interview evaluations, scores, and recruiter notes of competing candidates by incrementing IDs.</div>
-                      <div><strong className="text-slate-400">Minimal Reproduction:</strong> `curl -H &quot;Authorization: Bearer token_a&quot; https://api.prepspaces.local/reports/7710` returns Alice&apos;s score 98.</div>
-                      <div><strong className="text-slate-400">Root Cause:</strong> Unscoped `findById(id)` does not join or filter by `req.user.id`.</div>
-                      <div><strong className="text-slate-400">Recommended Fix:</strong> Scope MongoDB query with &apos;&#123; _id: id, ownerId: req.user.id &#125;&apos; and add automated test.</div>
+                    <div className="text-stone-700 space-y-1 pt-2 border-t border-stone-200/80">
+                      <div><strong className="text-stone-600">Business Impact:</strong> Any authenticated candidate can read proprietary interview evaluations, scores, and recruiter notes of competing candidates by incrementing IDs.</div>
+                      <div><strong className="text-stone-600">Minimal Reproduction:</strong> `curl -H &quot;Authorization: Bearer token_a&quot; https://api.prepspaces.local/reports/7710` returns Alice&apos;s score 98.</div>
+                      <div><strong className="text-stone-600">Root Cause:</strong> Unscoped `findById(id)` does not join or filter by `req.user.id`.</div>
+                      <div><strong className="text-stone-600">Recommended Fix:</strong> Scope MongoDB query with &apos;&#123; _id: id, ownerId: req.user.id &#125;&apos; and add automated test.</div>
                     </div>
                   </div>
                 </section>
@@ -1845,48 +1845,48 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.13 */}
               {selectedTopic === 13 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.13</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.13</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Secure Remediation & Root-Cause Fixes</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Remediation should eliminate the underlying flaw across all codepaths rather than merely blocking a specific exploit payload or hiding a UI button.
                   </p>
 
                   <h3 className="text-base font-bold text-white">Weak Workaround vs. Strong Root-Cause Fix</h3>
-                  <div className="overflow-x-auto border border-slate-800 rounded-xl">
+                  <div className="overflow-x-auto border border-stone-200 rounded-xl">
                     <table className="w-full text-left text-xs border-collapse">
-                      <thead className="bg-slate-900 text-slate-300 font-semibold border-b border-slate-800">
+                      <thead className="bg-stone-50 text-stone-700 font-semibold border-b border-stone-200">
                         <tr>
                           <th className="p-3">Vulnerability</th>
                           <th className="p-3 text-rose-400">Weak / Fragile Workaround</th>
                           <th className="p-3 text-emerald-400">Strong Root-Cause Remediation</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">SQL Injection</td>
+                      <tbody className="divide-y divide-slate-800/60 text-stone-700">
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">SQL Injection</td>
                           <td className="p-3 text-rose-300">Filtering single quotes (`&apos;`) with regex</td>
                           <td className="p-3 text-emerald-300">Parameterized queries with bind variables ($1)</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">BOLA / IDOR</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">BOLA / IDOR</td>
                           <td className="p-3 text-rose-300">Hiding download button in React frontend</td>
                           <td className="p-3 text-emerald-300">Enforce server-side ownership query on data layer</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">XSS</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">XSS</td>
                           <td className="p-3 text-rose-300">Stripping `&lt;script&gt;` tags from string</td>
                           <td className="p-3 text-emerald-300">Context-aware encoding & textContent DOM APIs</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">Committed Secret</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">Committed Secret</td>
                           <td className="p-3 text-rose-300">Deleting string in a new Git commit</td>
                           <td className="p-3 text-emerald-300">Revoke key in cloud IAM, rotate secret, scrub git history</td>
                         </tr>
-                        <tr className="hover:bg-slate-900/40">
-                          <td className="p-3 font-semibold text-cyan-300">File Upload</td>
+                        <tr className="hover:bg-stone-50/40">
+                          <td className="p-3 font-semibold text-orange-700">File Upload</td>
                           <td className="p-3 text-rose-300">Checking `.pdf` filename extension string</td>
                           <td className="p-3 text-emerald-300">Verify magic byte headers, assign UUID, isolate storage</td>
                         </tr>
@@ -1899,34 +1899,34 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.14 */}
               {selectedTopic === 14 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.14</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.14</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Remediation Validation & Regression Testing</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     A vulnerability is never closed merely because a PR is merged or a scanner stops alerting. Security engineers must execute the full retesting sequence, verifying both the negative security boundary and legitimate business operations.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
-                    <h3 className="text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
+                    <h3 className="text-xs font-bold text-orange-700 uppercase tracking-wider">
                       The Remediation Retesting Sequence
                     </h3>
-                    <div className="space-y-2 text-xs text-slate-300">
+                    <div className="space-y-2 text-xs text-stone-700">
                       <div className="flex items-center space-x-2">
-                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-cyan-400">Phase 1</span>
+                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-orange-600">Phase 1</span>
                         <span><strong>Baseline Confirmation:</strong> Reproduce defect on unpatched staging baseline to confirm exploitability.</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-cyan-400">Phase 2</span>
+                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-orange-600">Phase 2</span>
                         <span><strong>Code Review of Fix:</strong> Ensure patch does not introduce side effects, loose permissions, or credential logging.</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-cyan-400">Phase 3</span>
+                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-orange-600">Phase 3</span>
                         <span><strong>Retest Security Boundary:</strong> Re-execute exploit; verify unauthorized access returns 403 or 404.</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-cyan-400">Phase 4</span>
+                        <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-orange-600">Phase 4</span>
                         <span><strong>Functional Regression Suite:</strong> Confirm legitimate owners and authorized assigned recruiters still succeed.</span>
                       </div>
                     </div>
@@ -1937,38 +1937,38 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.15 */}
               {selectedTopic === 15 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.15</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.15</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Integrating Security Testing into CI/CD Pipelines</h2>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed text-sm">
+                  <p className="text-stone-700 leading-relaxed text-sm">
                     Continuous integration automates security controls at every commit, shifting security left into the developer&apos;s daily pull-request workflow rather than serving as a bottleneck before release.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
-                    <h3 className="text-xs font-bold text-cyan-400 uppercase tracking-wider font-mono">
+                  <div className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
+                    <h3 className="text-xs font-bold text-orange-600 uppercase tracking-wider font-mono">
                       DevSecOps Multi-Stage Pipeline Architecture
                     </h3>
                     <div className="flex flex-wrap items-center gap-2 text-xs">
-                      <span className="p-2 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono">1. PR Open</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
-                      <span className="p-2 rounded bg-slate-800 border border-slate-700 text-cyan-300 font-mono">2. Lint/Format</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
-                      <span className="p-2 rounded bg-slate-800 border border-slate-700 text-rose-300 font-mono">3. Secrets Scan</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
-                      <span className="p-2 rounded bg-slate-800 border border-slate-700 text-indigo-300 font-mono">4. SAST (Semgrep)</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
-                      <span className="p-2 rounded bg-slate-800 border border-slate-700 text-amber-300 font-mono">5. SCA (npm audit)</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
-                      <span className="p-2 rounded bg-slate-800 border border-slate-700 text-blue-300 font-mono">6. DAST/Authz</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
+                      <span className="p-2 rounded bg-slate-800 border border-stone-300 text-stone-700 font-mono">1. PR Open</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-stone-500" />
+                      <span className="p-2 rounded bg-slate-800 border border-stone-300 text-orange-700 font-mono">2. Lint/Format</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-stone-500" />
+                      <span className="p-2 rounded bg-slate-800 border border-stone-300 text-rose-300 font-mono">3. Secrets Scan</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-stone-500" />
+                      <span className="p-2 rounded bg-slate-800 border border-stone-300 text-indigo-300 font-mono">4. SAST (Semgrep)</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-stone-500" />
+                      <span className="p-2 rounded bg-slate-800 border border-stone-300 text-amber-300 font-mono">5. SCA (npm audit)</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-stone-500" />
+                      <span className="p-2 rounded bg-slate-800 border border-stone-300 text-blue-300 font-mono">6. DAST/Authz</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-stone-500" />
                       <span className="p-2 rounded bg-emerald-950/80 border border-emerald-700 text-emerald-300 font-bold font-mono">7. Policy Gate</span>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2 text-xs text-slate-300">
-                    <h4 className="font-bold text-slate-200 uppercase tracking-wider">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2 text-xs text-stone-700">
+                    <h4 className="font-bold text-stone-800 uppercase tracking-wider">
                       Effective Release Security Gate Policies
                     </h4>
                     <ul className="space-y-1 list-disc list-inside">
@@ -1984,49 +1984,49 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.16: PRACTICAL LAB */}
               {selectedTopic === 16 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.16</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.16</span>
                     <h2 className="text-2xl font-bold text-white mt-1">
                       Practical Lab: Secure Code Review & Remediation Validation
                     </h2>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                  <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-cyan-300 text-sm">Lab Scenario: Audit the Prepspaces Mock Interview API</span>
-                      <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800/50">
+                      <span className="font-bold text-orange-700 text-sm">Lab Scenario: Audit the Prepspaces Mock Interview API</span>
+                      <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-950 text-orange-600 border border-cyan-800/50">
                         90–120 Minutes
                       </span>
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-stone-700 leading-relaxed">
                       You are tasked with reviewing the interview scorecard endpoint of a mock interview platform. Follow tasks 1 through 5 to inspect the code, execute static/dynamic scans, implement a root-cause remediation, and compile a standardized lab report.
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-2">
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 space-y-1">
-                        <span className="font-bold text-cyan-400">Task 1: Establish Scope</span>
-                        <p className="text-slate-400">Document assets, roles (candidate, recruiter, admin), and boundaries.</p>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 space-y-1">
+                        <span className="font-bold text-orange-600">Task 1: Establish Scope</span>
+                        <p className="text-stone-600">Document assets, roles (candidate, recruiter, admin), and boundaries.</p>
                       </div>
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 space-y-1">
-                        <span className="font-bold text-cyan-400">Task 2: Code Review</span>
-                        <p className="text-slate-400">Trace input from `req.params.reportId` to MongoDB query sink.</p>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 space-y-1">
+                        <span className="font-bold text-orange-600">Task 2: Code Review</span>
+                        <p className="text-stone-600">Trace input from `req.params.reportId` to MongoDB query sink.</p>
                       </div>
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 space-y-1">
-                        <span className="font-bold text-cyan-400">Task 3: Automated Scans</span>
-                        <p className="text-slate-400">Execute `npm audit` and Semgrep security rules.</p>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 space-y-1">
+                        <span className="font-bold text-orange-600">Task 3: Automated Scans</span>
+                        <p className="text-stone-600">Execute `npm audit` and Semgrep security rules.</p>
                       </div>
-                      <div className="p-3 rounded bg-slate-950 border border-slate-800 space-y-1">
-                        <span className="font-bold text-cyan-400">Task 4 & 5: Fix & Retest</span>
-                        <p className="text-slate-400">Enforce ownership filter and assert both 200 OK and 404 responses.</p>
+                      <div className="p-3 rounded bg-stone-50 border border-stone-200/80 space-y-1">
+                        <span className="font-bold text-orange-600">Task 4 & 5: Fix & Retest</span>
+                        <p className="text-stone-600">Enforce ownership filter and assert both 200 OK and 404 responses.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Interactive Lab Worksheet Generator */}
-                  <div className="p-5 rounded-xl bg-slate-900/90 border border-cyan-500/30 space-y-4">
+                  <div className="p-5 rounded-xl bg-stone-50/90 border border-cyan-500/30 space-y-4">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-bold text-cyan-300 flex items-center space-x-2">
-                        <FileSpreadsheet className="w-4 h-4 text-cyan-400" />
+                      <h3 className="text-sm font-bold text-orange-700 flex items-center space-x-2">
+                        <FileSpreadsheet className="w-4 h-4 text-orange-600" />
                         <span>Interactive Security Finding Worksheet & Lab Report</span>
                       </h3>
                       <button
@@ -2040,20 +2040,20 @@ Generated: ${new Date().toISOString()}
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                       <div className="space-y-1">
-                        <label className="text-slate-400 font-semibold">Finding Title</label>
+                        <label className="text-stone-600 font-semibold">Finding Title</label>
                         <input
                           type="text"
                           value={labFindingTitle}
                           onChange={(e) => setLabFindingTitle(e.target.value)}
-                          className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none"
+                          className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-slate-400 font-semibold">Severity Assessment</label>
+                        <label className="text-stone-600 font-semibold">Severity Assessment</label>
                         <select
                           value={labSeverity}
                           onChange={(e) => setLabSeverity(e.target.value)}
-                          className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none"
+                          className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none"
                         >
                           <option value="Critical">Critical</option>
                           <option value="High">High</option>
@@ -2064,41 +2064,41 @@ Generated: ${new Date().toISOString()}
                     </div>
 
                     <div className="space-y-1 text-xs">
-                      <label className="text-slate-400 font-semibold">Evidence & Reproduction Summary</label>
+                      <label className="text-stone-600 font-semibold">Evidence & Reproduction Summary</label>
                       <textarea
                         rows={3}
                         value={labEvidence}
                         onChange={(e) => setLabEvidence(e.target.value)}
-                        className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none font-mono"
+                        className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none font-mono"
                       />
                     </div>
 
                     <div className="space-y-1 text-xs">
-                      <label className="text-slate-400 font-semibold">Root Cause Analysis</label>
+                      <label className="text-stone-600 font-semibold">Root Cause Analysis</label>
                       <textarea
                         rows={2}
                         value={labRootCause}
                         onChange={(e) => setLabRootCause(e.target.value)}
-                        className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none font-mono"
+                        className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none font-mono"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                       <div className="space-y-1">
-                        <label className="text-slate-400 font-semibold">Proposed Remediation</label>
+                        <label className="text-stone-600 font-semibold">Proposed Remediation</label>
                         <textarea
                           rows={2}
                           value={labRemediation}
                           onChange={(e) => setLabRemediation(e.target.value)}
-                          className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none font-mono"
+                          className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none font-mono"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-slate-400 font-semibold">Validation Status</label>
+                        <label className="text-stone-600 font-semibold">Validation Status</label>
                         <select
                           value={labValidationStatus}
                           onChange={(e) => setLabValidationStatus(e.target.value)}
-                          className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 text-xs focus:border-cyan-400 focus:outline-none"
+                          className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 text-xs focus:border-cyan-400 focus:outline-none"
                         >
                           <option value="Fixed and verified">Fixed and verified</option>
                           <option value="Partially fixed">Partially fixed</option>
@@ -2115,18 +2115,18 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.17: QUIZ */}
               {selectedTopic === 17 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.17</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.17</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Knowledge Assessment Quiz</h2>
                   </div>
 
-                  <p className="text-slate-300 text-sm">
+                  <p className="text-stone-700 text-sm">
                     Test your mastery of secure code review, SAST/DAST testing methodologies, triage classifications, and root-cause remediation validation.
                   </p>
 
                   <div className="space-y-6">
                     {quizQuestions.map((q, idx) => (
-                      <div key={q.id} className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+                      <div key={q.id} className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
                         <div className="flex items-start justify-between">
                           <span className="font-bold text-white text-xs sm:text-sm">
                             {idx + 1}. {q.question}
@@ -2152,7 +2152,7 @@ Generated: ${new Date().toISOString()}
                               className={`w-full text-left p-2.5 rounded-lg text-xs transition flex items-center justify-between ${
                                 quizAnswers[q.id] === optIdx
                                   ? "bg-cyan-500/20 text-cyan-200 border border-cyan-500/50"
-                                  : "bg-slate-950/60 text-slate-300 border border-slate-800 hover:bg-slate-800"
+                                  : "bg-stone-50 text-stone-700 border border-stone-200 hover:bg-slate-800"
                               } ${
                                 quizSubmitted && optIdx === q.correct
                                   ? "bg-emerald-950/60 border-emerald-500 text-emerald-200"
@@ -2168,21 +2168,21 @@ Generated: ${new Date().toISOString()}
                         </div>
 
                         {quizSubmitted && (
-                          <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-[11px] text-slate-400 mt-2">
-                            <span className="font-semibold text-cyan-400">Explanation: </span>
+                          <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80 text-[11px] text-stone-600 mt-2">
+                            <span className="font-semibold text-orange-600">Explanation: </span>
                             {q.explanation}
                           </div>
                         )}
                       </div>
                     ))}
 
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-                      <div className="text-xs text-slate-400 font-mono">
+                    <div className="flex items-center justify-between pt-4 border-t border-stone-200">
+                      <div className="text-xs text-stone-600 font-mono">
                         Answered: {Object.keys(quizAnswers).length} / 10
                       </div>
                       <div className="flex items-center space-x-3">
                         {quizSubmitted && (
-                          <div className="text-sm font-bold text-cyan-400 font-mono">
+                          <div className="text-sm font-bold text-orange-600 font-mono">
                             Final Score: {quizScore} / 10 ({Math.round((quizScore / 10) * 100)}%)
                           </div>
                         )}
@@ -2202,12 +2202,12 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.18 */}
               {selectedTopic === 18 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.18</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.18</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Official References & Authoritative Standards</h2>
                   </div>
 
-                  <p className="text-slate-300 text-sm">
+                  <p className="text-stone-700 text-sm">
                     Professional application security engineering relies on standardized industry frameworks and published security benchmarks:
                   </p>
 
@@ -2244,14 +2244,14 @@ Generated: ${new Date().toISOString()}
                         url: "https://www.first.org/cvss/",
                       },
                     ].map((ref, idx) => (
-                      <div key={idx} className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-                        <div className="font-bold text-cyan-400 text-sm">{ref.name}</div>
-                        <p className="text-slate-400 leading-relaxed">{ref.desc}</p>
+                      <div key={idx} className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-2">
+                        <div className="font-bold text-orange-600 text-sm">{ref.name}</div>
+                        <p className="text-stone-600 leading-relaxed">{ref.desc}</p>
                         <a
                           href={ref.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-cyan-400 hover:underline flex items-center pt-1"
+                          className="text-orange-600 hover:underline flex items-center pt-1"
                         >
                           <span>Explore Official Standard</span>
                           <ExternalLink className="w-3 h-3 ml-1" />
@@ -2265,40 +2265,40 @@ Generated: ${new Date().toISOString()}
               {/* SECTION 16.19 */}
               {selectedTopic === 19 && (
                 <section className="space-y-6">
-                  <div className="border-b border-slate-800 pb-4">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Section 16.19</span>
+                  <div className="border-b border-stone-200 pb-4">
+                    <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Section 16.19</span>
                     <h2 className="text-2xl font-bold text-white mt-1">Key Engineering Takeaways</h2>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-4">
-                    <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
+                  <div className="p-5 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
+                    <ul className="space-y-3 text-xs sm:text-sm text-stone-700">
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Multi-Disciplinary Assurance:</strong> SAST, DAST, SCA, and manual review provide complementary evidence. A clean scan from one scanner does not prove an application is secure.</span>
                       </li>
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Server-Enforced Boundaries:</strong> Authorization must be strictly validated on the server for every individual object and operation. Frontend guards are cosmetic.</span>
                       </li>
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Root-Cause Remediation:</strong> Fix the underlying architecture (parameterized queries, ownership predicates, isolated storage) rather than attempting payload blacklist filtering.</span>
                       </li>
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Retest the Security Property:</strong> Validate fixes against both unauthorized attacks (403/404) and legitimate user workflows (200 OK) to prevent breaking regressions.</span>
                       </li>
                       <li className="flex items-start space-x-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                         <span><strong>Automated CI/CD Gates:</strong> Guard pull requests with automated secret scanning, SAST analysis, and authorization regressions to keep flaws out of production.</span>
                       </li>
                     </ul>
                   </div>
 
-                  <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+                  <div className="flex items-center justify-between pt-6 border-t border-stone-200">
                     <button
                       onClick={() => setSelectedTopic(16)}
-                      className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center"
+                      className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-stone-700 text-xs flex items-center"
                     >
                       <ArrowLeft className="w-3.5 h-3.5 mr-1" />
                       <span>Previous: 16.16 Practical Lab</span>
@@ -2319,12 +2319,12 @@ Generated: ${new Date().toISOString()}
           {/* TAB 2: SIMULATOR 1 - SAST TAINT ANALYSIS */}
           {activeTab === "sast-sim" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Simulator 1</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Simulator 1</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
                   SAST Code Reviewer & Taint Analysis Workbench
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-600 mt-1">
                   Trace untrusted data from user-controlled HTTP sources through transformations into sensitive execution sinks.
                 </p>
               </div>
@@ -2341,7 +2341,7 @@ Generated: ${new Date().toISOString()}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${
                       selectedSastSnippet === key
                         ? "bg-cyan-500 text-slate-950 font-bold"
-                        : "bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800"
+                        : "bg-white border border-stone-200/80 shadow-xs text-stone-700 hover:bg-slate-800"
                     }`}
                   >
                     {sastSnippets[key].name}
@@ -2350,11 +2350,11 @@ Generated: ${new Date().toISOString()}
               </div>
 
               {/* Code Display & Inspection Panel */}
-              <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-200 pb-3">
                   <div>
                     <span className="text-xs font-bold text-white">{activeSnippet.vulnType}</span>
-                    <div className="text-[11px] font-mono text-cyan-400 mt-0.5">{activeSnippet.scanner}</div>
+                    <div className="text-[11px] font-mono text-orange-600 mt-0.5">{activeSnippet.scanner}</div>
                   </div>
                   <div className="flex items-center space-x-2">
                     <button
@@ -2362,7 +2362,7 @@ Generated: ${new Date().toISOString()}
                       className={`px-3 py-1.5 rounded text-xs font-bold transition flex items-center space-x-1 ${
                         showRemediatedCode
                           ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
-                          : "bg-slate-800 hover:bg-slate-700 text-slate-200"
+                          : "bg-slate-800 hover:bg-slate-700 text-stone-800"
                       }`}
                     >
                       {showRemediatedCode ? <Check className="w-3.5 h-3.5" /> : <ShieldCheck className="w-3.5 h-3.5" />}
@@ -2370,7 +2370,7 @@ Generated: ${new Date().toISOString()}
                     </button>
                     <button
                       onClick={() => copyCode(showRemediatedCode ? activeSnippet.safeCode : activeSnippet.unsafeCode, "sast")}
-                      className="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300"
+                      className="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-stone-700"
                       title="Copy code"
                     >
                       {copiedCodeId === "sast" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -2379,7 +2379,7 @@ Generated: ${new Date().toISOString()}
                 </div>
 
                 {/* Code Window */}
-                <pre className="p-4 rounded-lg bg-slate-950 border border-slate-800 text-xs font-mono overflow-x-auto text-slate-200 leading-relaxed">
+                <pre className="p-4 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-mono overflow-x-auto text-stone-800 leading-relaxed">
                   <code>{showRemediatedCode ? activeSnippet.safeCode : activeSnippet.unsafeCode}</code>
                 </pre>
 
@@ -2394,13 +2394,13 @@ Generated: ${new Date().toISOString()}
                     <code className="text-amber-200 font-mono text-[11px] block">{activeSnippet.transformText}</code>
                   </div>
                   <div className="p-3 rounded bg-cyan-950/30 border border-cyan-800/40">
-                    <span className="font-bold text-cyan-400 block mb-1">Sensitive Sink</span>
+                    <span className="font-bold text-orange-600 block mb-1">Sensitive Sink</span>
                     <code className="text-cyan-200 font-mono text-[11px] block">{activeSnippet.sinkText}</code>
                   </div>
                 </div>
 
-                <div className="p-3 rounded bg-slate-950 border border-slate-800 text-xs text-slate-300">
-                  <span className="font-bold text-cyan-400 font-mono">SAST AST Taint Rule: </span>
+                <div className="p-3 rounded bg-stone-50 border border-stone-200/80 text-xs text-stone-700">
+                  <span className="font-bold text-orange-600 font-mono">SAST AST Taint Rule: </span>
                   {activeSnippet.ruleExpl}
                 </div>
               </div>
@@ -2410,25 +2410,25 @@ Generated: ${new Date().toISOString()}
           {/* TAB 3: SIMULATOR 2 - DAST RUNTIME SCANNER */}
           {activeTab === "dast-sim" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Simulator 2</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Simulator 2</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
                   DAST & Dynamic Web Scanner Console (OWASP ZAP)
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-600 mt-1">
                   Simulate passive HTTP header auditing and active fuzzing against authenticated mock endpoints.
                 </p>
               </div>
 
               {/* Controls */}
-              <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
+              <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                   <div>
-                    <label className="text-slate-400 font-semibold block mb-1">Target Endpoint</label>
+                    <label className="text-stone-600 font-semibold block mb-1">Target Endpoint</label>
                     <select
                       value={dastTargetEndpoint}
                       onChange={(e) => setDastTargetEndpoint(e.target.value)}
-                      className="w-full p-2 bg-slate-950 border border-slate-700 rounded text-slate-200 font-mono text-xs focus:outline-none"
+                      className="w-full p-2 bg-slate-950 border border-stone-300 rounded text-stone-800 font-mono text-xs focus:outline-none"
                     >
                       <option value="/api/reports/4821">GET /api/reports/4821 (Report API)</option>
                       <option value="/api/v1/auth/reset">POST /api/v1/auth/reset (Password Reset)</option>
@@ -2437,12 +2437,12 @@ Generated: ${new Date().toISOString()}
                   </div>
 
                   <div>
-                    <label className="text-slate-400 font-semibold block mb-1">Scan Strategy</label>
-                    <div className="flex rounded bg-slate-950 p-1 border border-slate-700">
+                    <label className="text-stone-600 font-semibold block mb-1">Scan Strategy</label>
+                    <div className="flex rounded bg-slate-950 p-1 border border-stone-300">
                       <button
                         onClick={() => setDastScanMode("passive")}
                         className={`flex-1 py-1 rounded text-[11px] font-semibold transition ${
-                          dastScanMode === "passive" ? "bg-cyan-500 text-slate-950" : "text-slate-400"
+                          dastScanMode === "passive" ? "bg-cyan-500 text-slate-950" : "text-stone-600"
                         }`}
                       >
                         Passive Analysis
@@ -2450,7 +2450,7 @@ Generated: ${new Date().toISOString()}
                       <button
                         onClick={() => setDastScanMode("active")}
                         className={`flex-1 py-1 rounded text-[11px] font-semibold transition ${
-                          dastScanMode === "active" ? "bg-cyan-500 text-slate-950" : "text-slate-400"
+                          dastScanMode === "active" ? "bg-cyan-500 text-slate-950" : "text-stone-600"
                         }`}
                       >
                         Active Fuzzing
@@ -2459,7 +2459,7 @@ Generated: ${new Date().toISOString()}
                   </div>
 
                   <div>
-                    <label className="text-slate-400 font-semibold block mb-1">Target Server Defense</label>
+                    <label className="text-stone-600 font-semibold block mb-1">Target Server Defense</label>
                     <button
                       onClick={() => setTargetServerHardened(!targetServerHardened)}
                       className={`w-full py-2 rounded text-xs font-bold transition flex items-center justify-center space-x-1.5 ${
@@ -2474,7 +2474,7 @@ Generated: ${new Date().toISOString()}
                   </div>
                 </div>
 
-                <div className="flex justify-end pt-2 border-t border-slate-800">
+                <div className="flex justify-end pt-2 border-t border-stone-200">
                   <button
                     onClick={runDastScan}
                     disabled={dastScanning}
@@ -2489,15 +2489,15 @@ Generated: ${new Date().toISOString()}
               {/* Console & Alerts */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Console Log */}
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 font-mono text-xs">
-                  <div className="flex items-center justify-between text-slate-400 border-b border-slate-800 pb-2">
+                <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-2 font-mono text-xs">
+                  <div className="flex items-center justify-between text-stone-600 border-b border-stone-200 pb-2">
                     <span className="flex items-center space-x-1.5">
-                      <Terminal className="w-3.5 h-3.5 text-cyan-400" />
+                      <Terminal className="w-3.5 h-3.5 text-orange-600" />
                       <span>OWASP ZAP Execution Logs</span>
                     </span>
-                    <span className="text-[10px] text-slate-500">Port 8080 Proxy</span>
+                    <span className="text-[10px] text-stone-500">Port 8080 Proxy</span>
                   </div>
-                  <div className="space-y-1 h-48 overflow-y-auto text-slate-300 text-[11px] leading-relaxed">
+                  <div className="space-y-1 h-48 overflow-y-auto text-stone-700 text-[11px] leading-relaxed">
                     {dastLogs.length === 0 ? (
                       <span className="text-slate-600 italic">Click &quot;Launch DAST Scan&quot; to execute scan vectors...</span>
                     ) : (
@@ -2511,8 +2511,8 @@ Generated: ${new Date().toISOString()}
                 </div>
 
                 {/* Generated Alerts */}
-                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
-                  <div className="flex items-center justify-between text-slate-400 border-b border-slate-800 pb-2">
+                <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-2">
+                  <div className="flex items-center justify-between text-stone-600 border-b border-stone-200 pb-2">
                     <span className="text-xs font-bold text-white flex items-center space-x-1.5">
                       <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
                       <span>ZAP Alert Inventory ({dastAlerts.length})</span>
@@ -2521,7 +2521,7 @@ Generated: ${new Date().toISOString()}
 
                   <div className="space-y-2 max-h-48 overflow-y-auto">
                     {dastAlerts.length === 0 ? (
-                      <div className="text-xs text-slate-500 italic p-4 text-center">
+                      <div className="text-xs text-stone-500 italic p-4 text-center">
                         No active alerts. Run a scan to populate findings.
                       </div>
                     ) : (
@@ -2533,17 +2533,17 @@ Generated: ${new Date().toISOString()}
                               ? "bg-rose-950/30 border-rose-800/50 text-rose-200"
                               : alert.severity === "Medium"
                               ? "bg-amber-950/30 border-amber-800/50 text-amber-200"
-                              : "bg-slate-800/60 border-slate-700 text-slate-300"
+                              : "bg-slate-800/60 border-stone-300 text-stone-700"
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-bold">{alert.name}</span>
-                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">
+                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white border border-stone-200/80 shadow-xs">
                               {alert.severity}
                             </span>
                           </div>
-                          <div className="text-[11px] text-slate-400">{alert.evidence}</div>
-                          <div className="text-[11px] text-cyan-300 pt-0.5 font-mono">Fix: {alert.fix}</div>
+                          <div className="text-[11px] text-stone-600">{alert.evidence}</div>
+                          <div className="text-[11px] text-orange-700 pt-0.5 font-mono">Fix: {alert.fix}</div>
                         </div>
                       ))
                     )}
@@ -2556,19 +2556,19 @@ Generated: ${new Date().toISOString()}
           {/* TAB 4: SIMULATOR 3 - CI/CD DEVSECOPS PIPELINE */}
           {activeTab === "cicd-sim" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Simulator 3</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Simulator 3</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
                   DevSecOps CI/CD Security Pipeline & Release Gate
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-600 mt-1">
                   Test how automated security gates evaluate pull requests across Secrets, SAST, SCA, and DAST stages.
                 </p>
               </div>
 
               {/* Scenario Picker */}
-              <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3">
-                <label className="text-xs font-bold text-slate-300 block">Select Pull Request Scenario to Test</label>
+              <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
+                <label className="text-xs font-bold text-stone-700 block">Select Pull Request Scenario to Test</label>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-2">
                   {[
                     { id: "clean", name: "Clean PR (All Pass)", icon: CheckCircle2, color: "text-emerald-400" },
@@ -2585,8 +2585,8 @@ Generated: ${new Date().toISOString()}
                       }}
                       className={`p-2.5 rounded-lg text-xs font-medium border text-left transition flex items-center space-x-2 ${
                         pipelineScenario === sc.id
-                          ? "bg-cyan-500/15 border-cyan-500 text-cyan-300 font-bold"
-                          : "bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800"
+                          ? "bg-cyan-500/15 border-cyan-500 text-orange-700 font-bold"
+                          : "bg-slate-950 border-stone-200 text-stone-600 hover:bg-slate-800"
                       }`}
                     >
                       <sc.icon className={`w-3.5 h-3.5 ${sc.color} shrink-0`} />
@@ -2595,7 +2595,7 @@ Generated: ${new Date().toISOString()}
                   ))}
                 </div>
 
-                <div className="flex justify-end pt-2 border-t border-slate-800">
+                <div className="flex justify-end pt-2 border-t border-stone-200">
                   <button
                     onClick={() => runPipeline(pipelineScenario)}
                     disabled={runningPipeline}
@@ -2608,7 +2608,7 @@ Generated: ${new Date().toISOString()}
               </div>
 
               {/* Pipeline Visual Stages */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
+              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-7 gap-2">
                   {pipelineStages.map((stage) => {
                     const isCurrent = pipelineStage === stage.id;
@@ -2625,12 +2625,12 @@ Generated: ${new Date().toISOString()}
                             ? "bg-emerald-950/40 border-emerald-700 text-emerald-200"
                             : isCurrent
                             ? "bg-cyan-950/60 border-cyan-400 text-cyan-200 animate-pulse"
-                            : "bg-slate-900/60 border-slate-800 text-slate-500"
+                            : "bg-stone-50/60 border-stone-200 text-stone-500"
                         }`}
                       >
                         <div className="text-[10px] font-mono uppercase tracking-wider mb-1">Stage {stage.id}</div>
                         <div className="text-[11px] font-bold truncate">{stage.name}</div>
-                        <div className="text-[9px] text-slate-400 mt-1 truncate">{stage.tool}</div>
+                        <div className="text-[9px] text-stone-600 mt-1 truncate">{stage.tool}</div>
                       </div>
                     );
                   })}
@@ -2654,12 +2654,12 @@ Generated: ${new Date().toISOString()}
                         )}
                         <span>Gate Verdict: {pipelineResults.status}</span>
                       </span>
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
+                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-white border border-stone-200/80 shadow-xs">
                         {pipelineResults.stageName}
                       </span>
                     </div>
-                    <p className="text-slate-300">{pipelineResults.message}</p>
-                    <div className="text-[11px] text-cyan-300 font-mono pt-1">
+                    <p className="text-stone-700">{pipelineResults.message}</p>
+                    <div className="text-[11px] text-orange-700 font-mono pt-1">
                       Action Required: {pipelineResults.actionRequired}
                     </div>
                   </div>
@@ -2671,19 +2671,19 @@ Generated: ${new Date().toISOString()}
           {/* TAB 5: SIMULATOR 4 - REMEDIATION VALIDATION MATRIX */}
           {activeTab === "retest-sim" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Simulator 4</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Simulator 4</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
                   Remediation & Regression Verification Engine
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-600 mt-1">
                   Retest the complete security requirement across multiple user personas to verify that the fix resolves the flaw without causing regressions.
                 </p>
               </div>
 
               {/* Patch Selector */}
-              <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3">
-                <label className="text-xs font-bold text-slate-300 block">Select Engineering Patch Version to Retest</label>
+              <div className="p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs space-y-3">
+                <label className="text-xs font-bold text-stone-700 block">Select Engineering Patch Version to Retest</label>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-2">
                   {[
                     { id: "unpatched", label: "0. Unpatched (BOLA)" },
@@ -2697,7 +2697,7 @@ Generated: ${new Date().toISOString()}
                       className={`p-2.5 rounded-lg text-xs font-semibold border text-center transition ${
                         selectedPatchVersion === p.id
                           ? "bg-cyan-500 text-slate-950 font-bold border-cyan-400"
-                          : "bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800"
+                          : "bg-slate-950 border-stone-200 text-stone-700 hover:bg-slate-800"
                       }`}
                     >
                       {p.label}
@@ -2707,9 +2707,9 @@ Generated: ${new Date().toISOString()}
               </div>
 
               {/* Multi-Persona Retest Matrix */}
-              <div className="overflow-x-auto border border-slate-800 rounded-xl">
+              <div className="overflow-x-auto border border-stone-200 rounded-xl">
                 <table className="w-full text-left text-xs border-collapse">
-                  <thead className="bg-slate-900 text-slate-300 font-semibold border-b border-slate-800">
+                  <thead className="bg-stone-50 text-stone-700 font-semibold border-b border-stone-200">
                     <tr>
                       <th className="p-3">Caller Identity</th>
                       <th className="p-3">Role & Relationship</th>
@@ -2718,22 +2718,22 @@ Generated: ${new Date().toISOString()}
                       <th className="p-3">Security & Functional Verdict</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                  <tbody className="divide-y divide-slate-800/60 text-stone-700">
                     {regressionSimulation.results.map((r) => (
-                      <tr key={r.id} className="hover:bg-slate-900/40">
+                      <tr key={r.id} className="hover:bg-stone-50/40">
                         <td className="p-3 font-semibold text-white">{r.label}</td>
                         <td className="p-3">
-                          <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-[10px] text-cyan-300">
+                          <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-[10px] text-orange-700">
                             {r.role}
                           </span>
                         </td>
-                        <td className="p-3 font-mono font-bold text-cyan-400">{r.httpStatus}</td>
+                        <td className="p-3 font-mono font-bold text-orange-600">{r.httpStatus}</td>
                         <td className="p-3">
                           <span
                             className={`px-2 py-0.5 rounded text-[10px] font-mono ${
                               r.dataReturned && !r.isOwner && !r.isAssigned
                                 ? "bg-rose-950 text-rose-400 border border-rose-800"
-                                : "bg-slate-800 text-slate-400"
+                                : "bg-slate-800 text-stone-600"
                             }`}
                           >
                             {r.dataReturned ? "Payload Returned" : "Zero Data (Denied)"}
@@ -2751,7 +2751,7 @@ Generated: ${new Date().toISOString()}
                           >
                             {r.securityVerdict}
                           </span>
-                          <span className="block text-[11px] text-slate-400 mt-0.5">{r.note}</span>
+                          <span className="block text-[11px] text-stone-600 mt-0.5">{r.note}</span>
                         </td>
                       </tr>
                     ))}
@@ -2785,15 +2785,15 @@ Generated: ${new Date().toISOString()}
           {/* TAB 6: QUIZ TAB */}
           {activeTab === "quiz" && (
             <div className="space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Assessment</span>
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-xs font-mono text-orange-600 uppercase tracking-widest">Assessment</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">Knowledge Assessment</h2>
-                <p className="text-xs text-slate-400 mt-1">10 Scenario-based evaluation questions from Section 16.17.</p>
+                <p className="text-xs text-stone-600 mt-1">10 Scenario-based evaluation questions from Section 16.17.</p>
               </div>
 
               <div className="space-y-6">
                 {quizQuestions.map((q, idx) => (
-                  <div key={q.id} className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-3">
+                  <div key={q.id} className="p-4 rounded-xl bg-stone-50/70 border border-stone-200 space-y-3">
                     <div className="flex items-start justify-between">
                       <span className="font-bold text-white text-xs sm:text-sm">
                         {idx + 1}. {q.question}
@@ -2819,7 +2819,7 @@ Generated: ${new Date().toISOString()}
                           className={`w-full text-left p-2.5 rounded-lg text-xs transition flex items-center justify-between ${
                             quizAnswers[q.id] === optIdx
                               ? "bg-cyan-500/20 text-cyan-200 border border-cyan-500/50"
-                              : "bg-slate-950/60 text-slate-300 border border-slate-800 hover:bg-slate-800"
+                              : "bg-stone-50 text-stone-700 border border-stone-200 hover:bg-slate-800"
                           } ${
                             quizSubmitted && optIdx === q.correct
                               ? "bg-emerald-950/60 border-emerald-500 text-emerald-200"
@@ -2835,21 +2835,21 @@ Generated: ${new Date().toISOString()}
                     </div>
 
                     {quizSubmitted && (
-                      <div className="p-2.5 rounded bg-slate-950 border border-slate-800 text-[11px] text-slate-400 mt-2">
-                        <span className="font-semibold text-cyan-400">Explanation: </span>
+                      <div className="p-2.5 rounded bg-stone-50 border border-stone-200/80 text-[11px] text-stone-600 mt-2">
+                        <span className="font-semibold text-orange-600">Explanation: </span>
                         {q.explanation}
                       </div>
                     )}
                   </div>
                 ))}
 
-                <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-                  <div className="text-xs text-slate-400 font-mono">
+                <div className="flex items-center justify-between pt-4 border-t border-stone-200">
+                  <div className="text-xs text-stone-600 font-mono">
                     Answered: {Object.keys(quizAnswers).length} / 10
                   </div>
                   <div className="flex items-center space-x-3">
                     {quizSubmitted && (
-                      <div className="text-sm font-bold text-cyan-400 font-mono">
+                      <div className="text-sm font-bold text-orange-600 font-mono">
                         Final Score: {quizScore} / 10 ({Math.round((quizScore / 10) * 100)}%)
                       </div>
                     )}
