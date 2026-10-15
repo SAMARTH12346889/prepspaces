@@ -195,19 +195,19 @@ export default function Landingpage() {
             <div className="md:hidden">
               <Logo size="xs" onClick={() => navigate("/")} />
             </div>
-            <div className="hidden md:block">
-              <p className="text-xs font-semibold text-stone-500">
+            <div>
+              <p className="hidden md:block text-xs font-semibold text-stone-500">
                 {new Date().toLocaleDateString("en-US", {
                   weekday: "long",
                   month: "short",
                   day: "numeric",
                 })}
               </p>
-              <h1 className="text-2xl font-black tracking-tight text-[#18181b] md:text-3xl">
-                Welcome to PrepSpaces.
+              <h1 className="text-lg font-black tracking-tight text-[#18181b] sm:text-2xl md:text-3xl">
+                Welcome to PrepSpaces
               </h1>
-              <p className="text-xs text-stone-500 mt-0.5">
-                Explore structured technical learning tracks, core concepts, and practical skills.
+              <p className="hidden sm:block text-xs text-stone-500 mt-0.5">
+                Technical interview preparation, structured engineering tracks, and architecture mastery.
               </p>
             </div>
           </div>
