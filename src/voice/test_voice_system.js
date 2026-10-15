@@ -190,6 +190,150 @@ assert(testNavOSFinalCapstone && testNavOSFinalCapstone.type === "NAVIGATE" && t
 const testNavOSEngineeringLab = matchFastCommand("Open os engineering lab");
 assert(testNavOSEngineeringLab && testNavOSEngineeringLab.type === "NAVIGATE" && testNavOSEngineeringLab.route === "/learning/os/final-capstone", "'Open os engineering lab' fast-paths to /learning/os/final-capstone");
 
+const testNavNetworks = matchFastCommand("Open computer networks");
+assert(testNavNetworks && testNavNetworks.type === "NAVIGATE" && testNavNetworks.route === "/learning/networks", "'Open computer networks' fast-paths to /learning/networks");
+
+const testNavNetworking = matchFastCommand("take me to networking course");
+assert(testNavNetworking && testNavNetworking.type === "NAVIGATE" && testNavNetworking.route === "/learning/networks", "'take me to networking course' fast-paths to /learning/networks");
+
+const testNavNetModels = matchFastCommand("Open network models");
+assert(testNavNetModels && testNavNetModels.type === "NAVIGATE" && testNavNetModels.route === "/learning/networks/models", "'Open network models' fast-paths to /learning/networks/models");
+
+const testNavOSIModel = matchFastCommand("take me to osi model");
+assert(testNavOSIModel && testNavOSIModel.type === "NAVIGATE" && testNavOSIModel.route === "/learning/networks/models", "'take me to osi model' fast-paths to /learning/networks/models");
+
+const testNavNetPhysical = matchFastCommand("Open physical layer");
+assert(testNavNetPhysical && testNavNetPhysical.type === "NAVIGATE" && testNavNetPhysical.route === "/learning/networks/physical", "'Open physical layer' fast-paths to /learning/networks/physical");
+
+const testNavDataTransmission = matchFastCommand("take me to data transmission");
+assert(testNavDataTransmission && testNavDataTransmission.type === "NAVIGATE" && testNavDataTransmission.route === "/learning/networks/physical", "'take me to data transmission' fast-paths to /learning/networks/physical");
+
+const testNavNetDataLink = matchFastCommand("Open data link layer");
+assert(testNavNetDataLink && testNavNetDataLink.type === "NAVIGATE" && testNavNetDataLink.route === "/learning/networks/datalink", "'Open data link layer' fast-paths to /learning/networks/datalink");
+
+const testNavEthernetSwitching = matchFastCommand("take me to ethernet switching");
+assert(testNavEthernetSwitching && testNavEthernetSwitching.type === "NAVIGATE" && testNavEthernetSwitching.route === "/learning/networks/datalink", "'take me to ethernet switching' fast-paths to /learning/networks/datalink");
+
+const testNavNetIPv4 = matchFastCommand("Open ipv4 addressing");
+assert(testNavNetIPv4 && testNavNetIPv4.type === "NAVIGATE" && testNavNetIPv4.route === "/learning/networks/ipv4", "'Open ipv4 addressing' fast-paths to /learning/networks/ipv4");
+
+const testNavSubnetting = matchFastCommand("take me to subnetting");
+assert(testNavSubnetting && testNavSubnetting.type === "NAVIGATE" && testNavSubnetting.route === "/learning/networks/ipv4", "'take me to subnetting' fast-paths to /learning/networks/ipv4");
+
+const testNavNetIPv6 = matchFastCommand("Open ipv6 addressing");
+assert(testNavNetIPv6 && testNavNetIPv6.type === "NAVIGATE" && testNavNetIPv6.route === "/learning/networks/ipv6", "'Open ipv6 addressing' fast-paths to /learning/networks/ipv6");
+
+const testNavSLAAC = matchFastCommand("take me to slaac");
+assert(testNavSLAAC && testNavSLAAC.type === "NAVIGATE" && testNavSLAAC.route === "/learning/networks/ipv6", "'take me to slaac' fast-paths to /learning/networks/ipv6");
+
+const testNavNetRouting = matchFastCommand("Open routing");
+assert(testNavNetRouting && testNavNetRouting.type === "NAVIGATE" && testNavNetRouting.route === "/learning/networks/routing", "'Open routing' fast-paths to /learning/networks/routing");
+
+const testNavOSPF = matchFastCommand("take me to ospf");
+assert(testNavOSPF && testNavOSPF.type === "NAVIGATE" && testNavOSPF.route === "/learning/networks/routing", "'take me to ospf' fast-paths to /learning/networks/routing");
+
+const testNavNetConfig = matchFastCommand("Open network configuration");
+assert(testNavNetConfig && testNavNetConfig.type === "NAVIGATE" && testNavNetConfig.route === "/learning/networks/config", "'Open network configuration' fast-paths to /learning/networks/config");
+
+const testNavDHCP = matchFastCommand("take me to dhcp");
+assert(testNavDHCP && testNavDHCP.type === "NAVIGATE" && testNavDHCP.route === "/learning/networks/config", "'take me to dhcp' fast-paths to /learning/networks/config");
+
+const testNavNetTCP = matchFastCommand("Open tcp");
+assert(testNavNetTCP && testNavNetTCP.type === "NAVIGATE" && testNavNetTCP.route === "/learning/networks/tcp", "'Open tcp' fast-paths to /learning/networks/tcp");
+
+const testNavHandshake = matchFastCommand("take me to tcp handshake");
+assert(testNavHandshake && testNavHandshake.type === "NAVIGATE" && testNavHandshake.route === "/learning/networks/tcp", "'take me to tcp handshake' fast-paths to /learning/networks/tcp");
+
+const testNavNetUDP = matchFastCommand("Open udp");
+assert(testNavNetUDP && testNavNetUDP.type === "NAVIGATE" && testNavNetUDP.route === "/learning/networks/udp", "'Open udp' fast-paths to /learning/networks/udp");
+
+const testNavQUIC = matchFastCommand("take me to quic");
+assert(testNavQUIC && testNavQUIC.type === "NAVIGATE" && testNavQUIC.route === "/learning/networks/udp", "'take me to quic' fast-paths to /learning/networks/udp");
+
+const testNavNetDNS = matchFastCommand("Open dns");
+assert(testNavNetDNS && testNavNetDNS.type === "NAVIGATE" && testNavNetDNS.route === "/learning/networks/dns", "'Open dns' fast-paths to /learning/networks/dns");
+
+const testNavDNSResolution = matchFastCommand("take me to dns resolution");
+assert(testNavDNSResolution && testNavDNSResolution.type === "NAVIGATE" && testNavDNSResolution.route === "/learning/networks/dns", "'take me to dns resolution' fast-paths to /learning/networks/dns");
+
+const testNavNetAppLayer = matchFastCommand("Open application protocols");
+assert(testNavNetAppLayer && testNavNetAppLayer.type === "NAVIGATE" && testNavNetAppLayer.route === "/learning/networks/application-layer", "'Open application protocols' fast-paths to /learning/networks/application-layer");
+
+const testNavWebNetworking = matchFastCommand("take me to web networking");
+assert(testNavWebNetworking && testNavWebNetworking.type === "NAVIGATE" && testNavWebNetworking.route === "/learning/networks/application-layer", "'take me to web networking' fast-paths to /learning/networks/application-layer");
+
+const testNavNetWireless = matchFastCommand("Open wireless");
+assert(testNavNetWireless && testNavNetWireless.type === "NAVIGATE" && testNavNetWireless.route === "/learning/networks/wireless", "'Open wireless' fast-paths to /learning/networks/wireless");
+
+const testNavWiFi = matchFastCommand("take me to wifi");
+assert(testNavWiFi && testNavWiFi.type === "NAVIGATE" && testNavWiFi.route === "/learning/networks/wireless", "'take me to wifi' fast-paths to /learning/networks/wireless");
+
+const testNavNetSwitching = matchFastCommand("Open switching");
+assert(testNavNetSwitching && testNavNetSwitching.type === "NAVIGATE" && testNavNetSwitching.route === "/learning/networks/switching", "'Open switching' fast-paths to /learning/networks/switching");
+
+const testNavVLANs = matchFastCommand("take me to vlans");
+assert(testNavVLANs && testNavVLANs.type === "NAVIGATE" && testNavVLANs.route === "/learning/networks/switching", "'take me to vlans' fast-paths to /learning/networks/switching");
+
+const testNavNetFirewalls = matchFastCommand("Open firewalls");
+assert(testNavNetFirewalls && testNavNetFirewalls.type === "NAVIGATE" && testNavNetFirewalls.route === "/learning/networks/firewalls", "'Open firewalls' fast-paths to /learning/networks/firewalls");
+
+const testNavAccessControl = matchFastCommand("take me to access control");
+assert(testNavAccessControl && testNavAccessControl.type === "NAVIGATE" && testNavAccessControl.route === "/learning/networks/firewalls", "'take me to access control' fast-paths to /learning/networks/firewalls");
+
+const testNavNetCloud = matchFastCommand("Open enterprise networking");
+assert(testNavNetCloud && testNavNetCloud.type === "NAVIGATE" && testNavNetCloud.route === "/learning/networks/enterprise-cloud", "'Open enterprise networking' fast-paths to /learning/networks/enterprise-cloud");
+
+const testNavDataCenter = matchFastCommand("take me to data center");
+assert(testNavDataCenter && testNavDataCenter.type === "NAVIGATE" && testNavDataCenter.route === "/learning/networks/enterprise-cloud", "'take me to data center' fast-paths to /learning/networks/enterprise-cloud");
+
+const testNavThreatModeling = matchFastCommand("Open threat modeling");
+assert(testNavThreatModeling && testNavThreatModeling.type === "NAVIGATE" && testNavThreatModeling.route === "/learning/networks/threat-modeling", "'Open threat modeling' fast-paths to /learning/networks/threat-modeling");
+
+const testNavCIATriad = matchFastCommand("take me to cia triad");
+assert(testNavCIATriad && testNavCIATriad.type === "NAVIGATE" && testNavCIATriad.route === "/learning/networks/threat-modeling", "'take me to cia triad' fast-paths to /learning/networks/threat-modeling");
+
+const testNavPacketAnalysis = matchFastCommand("Open packet analysis");
+assert(testNavPacketAnalysis && testNavPacketAnalysis.type === "NAVIGATE" && testNavPacketAnalysis.route === "/learning/networks/packet-analysis", "'Open packet analysis' fast-paths to /learning/networks/packet-analysis");
+
+const testNavWireshark = matchFastCommand("take me to wireshark");
+assert(testNavWireshark && testNavWireshark.type === "NAVIGATE" && testNavWireshark.route === "/learning/networks/packet-analysis", "'take me to wireshark' fast-paths to /learning/networks/packet-analysis");
+
+const testNavNetAttacks = matchFastCommand("Open network attacks");
+assert(testNavNetAttacks && testNavNetAttacks.type === "NAVIGATE" && testNavNetAttacks.route === "/learning/networks/attacks-defenses", "'Open network attacks' fast-paths to /learning/networks/attacks-defenses");
+
+const testNavArpSpoofing = matchFastCommand("take me to arp spoofing");
+assert(testNavArpSpoofing && testNavArpSpoofing.type === "NAVIGATE" && testNavArpSpoofing.route === "/learning/networks/attacks-defenses", "'take me to arp spoofing' fast-paths to /learning/networks/attacks-defenses");
+
+const testNavNetIdsIps = matchFastCommand("Open ids and ips");
+assert(testNavNetIdsIps && testNavNetIdsIps.type === "NAVIGATE" && testNavNetIdsIps.route === "/learning/networks/ids-ips-soc", "'Open ids and ips' fast-paths to /learning/networks/ids-ips-soc");
+
+const testNavSocMonitoring = matchFastCommand("take me to soc monitoring");
+assert(testNavSocMonitoring && testNavSocMonitoring.type === "NAVIGATE" && testNavSocMonitoring.route === "/learning/networks/ids-ips-soc", "'take me to soc monitoring' fast-paths to /learning/networks/ids-ips-soc");
+
+const testNavNetAutomation = matchFastCommand("Open network automation");
+assert(testNavNetAutomation && testNavNetAutomation.type === "NAVIGATE" && testNavNetAutomation.route === "/learning/networks/network-automation", "'Open network automation' fast-paths to /learning/networks/network-automation");
+
+const testNavSocketProg = matchFastCommand("take me to socket programming");
+assert(testNavSocketProg && testNavSocketProg.type === "NAVIGATE" && testNavSocketProg.route === "/learning/networks/network-automation", "'take me to socket programming' fast-paths to /learning/networks/network-automation");
+
+const testNavNetAdvRouting = matchFastCommand("Open advanced routing");
+assert(testNavNetAdvRouting && testNavNetAdvRouting.type === "NAVIGATE" && testNavNetAdvRouting.route === "/learning/networks/advanced-routing", "'Open advanced routing' fast-paths to /learning/networks/advanced-routing");
+
+const testNavBgpRouting = matchFastCommand("take me to bgp routing");
+assert(testNavBgpRouting && testNavBgpRouting.type === "NAVIGATE" && testNavBgpRouting.route === "/learning/networks/advanced-routing", "'take me to bgp routing' fast-paths to /learning/networks/advanced-routing");
+
+const testNavNetSecArch = matchFastCommand("Open security architecture");
+assert(testNavNetSecArch && testNavNetSecArch.type === "NAVIGATE" && testNavNetSecArch.route === "/learning/networks/security-architecture", "'Open security architecture' fast-paths to /learning/networks/security-architecture");
+
+const testNavMicroseg = matchFastCommand("take me to microsegmentation");
+assert(testNavMicroseg && testNavMicroseg.type === "NAVIGATE" && testNavMicroseg.route === "/learning/networks/security-architecture", "'take me to microsegmentation' fast-paths to /learning/networks/security-architecture");
+
+const testNavNetCapstone = matchFastCommand("Open networks capstone");
+assert(testNavNetCapstone && testNavNetCapstone.type === "NAVIGATE" && testNavNetCapstone.route === "/learning/networks/final-capstone", "'Open networks capstone' fast-paths to /learning/networks/final-capstone");
+
+const testNavNetEngLab = matchFastCommand("take me to network engineering lab");
+assert(testNavNetEngLab && testNavNetEngLab.type === "NAVIGATE" && testNavNetEngLab.route === "/learning/networks/final-capstone", "'take me to network engineering lab' fast-paths to /learning/networks/final-capstone");
+
 const testNav3 = matchFastCommand("open learning");
 assert(testNav3 && testNav3.type === "NAVIGATE" && testNav3.route === "/learning", "'open learning' fast-paths to /learning");
 

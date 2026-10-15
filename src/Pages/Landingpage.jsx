@@ -13,6 +13,8 @@ import {
   Cloud,
   Compass,
   Network,
+  Cpu,
+  Globe,
 } from "lucide-react";
 
 export default function Landingpage() {
@@ -29,6 +31,24 @@ export default function Landingpage() {
       icon: Network,
       color: "from-zinc-900 via-stone-800 to-orange-600",
       tag: "Architecture",
+    },
+    {
+      id: "operating-systems",
+      title: "Operating Systems Master Course",
+      subtitle: "Kernel Internals, Memory & Low-Level Systems",
+      route: "/learning/os",
+      icon: Cpu,
+      color: "from-stone-900 via-orange-950 to-orange-600",
+      tag: "Core Systems",
+    },
+    {
+      id: "networks",
+      title: "Computer Networks & Internet",
+      subtitle: "Protocols, Architecture, Sockets & Performance",
+      route: "/learning/networks",
+      icon: Globe,
+      color: "from-stone-900 via-zinc-800 to-orange-600",
+      tag: "Networking",
     },
     {
       id: "devops",
@@ -57,6 +77,18 @@ export default function Landingpage() {
       track: "System Design",
       route: "/learning/system-design",
       tag: "Architecture",
+    },
+    {
+      title: "OS Foundations & Hardware Mediation",
+      track: "Operating Systems",
+      route: "/learning/os",
+      tag: "Core Systems",
+    },
+    {
+      title: "Packet Switching & Internet Architecture",
+      track: "Computer Networks",
+      route: "/learning/networks",
+      tag: "Networking",
     },
     {
       title: "Linux Administration & Permissions",
@@ -255,7 +287,7 @@ export default function Landingpage() {
                     LEARNING PATHS
                   </span>
                   <span className="rounded-full bg-orange-100 text-orange-700 px-3 py-0.5 text-xs font-bold">
-                    4 Tracks Available
+                    5 Tracks Available
                   </span>
                 </div>
                 <h3 className="text-xl font-extrabold text-[#18181b]">Your Technical Journey</h3>

@@ -33,6 +33,30 @@ const REGISTERED_ROUTES = {
   "os-design-testing": { route: "/learning/os/testing", label: "OS Design, Testing & Failure Analysis" },
   "os-capstone": { route: "/learning/os/capstone", label: "Operating Systems Capstone (xv6)" },
   "os-final-capstone": { route: "/learning/os/final-capstone", label: "Final Capstone: OS Engineering Lab" },
+  networks: { route: "/learning/networks", label: "Computer Networks & Internet Engineering" },
+  "networks-models": { route: "/learning/networks/models", label: "Network Models — OSI and TCP/IP" },
+  "networks-physical": { route: "/learning/networks/physical", label: "Physical Layer & Data Transmission" },
+  "networks-datalink": { route: "/learning/networks/datalink", label: "Data Link Layer & Ethernet Switching" },
+  "networks-ipv4": { route: "/learning/networks/ipv4", label: "IPv4 Addressing & Subnetting" },
+  "networks-ipv6": { route: "/learning/networks/ipv6", label: "IPv6 & Modern Addressing" },
+  "networks-routing": { route: "/learning/networks/routing", label: "Routing & Router Architecture" },
+  "networks-config": { route: "/learning/networks/config", label: "ICMP, ARP, DHCP & Network Configuration" },
+  "networks-tcp": { route: "/learning/networks/tcp", label: "TCP — Reliable Transport" },
+  "networks-udp": { route: "/learning/networks/udp", label: "UDP, QUIC & Modern Transport" },
+  "networks-dns": { route: "/learning/networks/dns", label: "DNS & Internet Naming" },
+  "networks-applayer": { route: "/learning/networks/application-layer", label: "Application Protocols & Web Networking" },
+  "networks-wireless": { route: "/learning/networks/wireless", label: "Wireless, Wi-Fi & Mobile Networking" },
+  "networks-switching": { route: "/learning/networks/switching", label: "Switching, VLANs & Enterprise LAN Design" },
+  "networks-firewalls": { route: "/learning/networks/firewalls", label: "Network Services, Firewalls & Access Control" },
+  "networks-enterprise-cloud": { route: "/learning/networks/enterprise-cloud", label: "Enterprise, Data Center & Cloud Networking" },
+  "networks-threat-modeling": { route: "/learning/networks/threat-modeling", label: "Network Security & Threat Modeling" },
+  "networks-packet-analysis": { route: "/learning/networks/packet-analysis", label: "Packet Analysis & Network Reconnaissance" },
+  "networks-attacks": { route: "/learning/networks/attacks-defenses", label: "Common Network Attacks & Countermeasures" },
+  "networks-ids-ips": { route: "/learning/networks/ids-ips-soc", label: "IDS/IPS, SOC Monitoring & Incident Response" },
+  "networks-automation": { route: "/learning/networks/network-automation", label: "Network Programming & Automation" },
+  "networks-advanced-routing": { route: "/learning/networks/advanced-routing", label: "Advanced Routing, Performance & Troubleshooting" },
+  "networks-security-architecture": { route: "/learning/networks/security-architecture", label: "Modern Network Security Architecture" },
+  "networks-final-capstone": { route: "/learning/networks/final-capstone", label: "Final Capstone: Network Engineering Lab" },
   "system-design": { route: "/learning/system-design", label: "System Design Masterclass" },
   "system-design-requirements": { route: "/learning/system-design/requirements", label: "System Design Requirements & Capacity" },
   "system-design-networking": { route: "/learning/system-design/networking", label: "System Design APIs & Networking" },
@@ -277,6 +301,102 @@ const NAVIGATION_RULES = [
     destination: "os-final-capstone",
   },
   {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(computer networks|networks|computer network|networking|networking course|computer networks course|networks module 1)$/i,
+    destination: "networks",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(network models|osi model|tcp ip model|osi and tcp ip|networks module 2)$/i,
+    destination: "networks-models",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(physical layer|data transmission|shannon capacity|line coding|networks module 3)$/i,
+    destination: "networks-physical",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(data link layer|datalink|data link|ethernet|ethernet switching|spanning tree|vlan|stp|networks module 4)$/i,
+    destination: "networks-datalink",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(ipv4 addressing|ipv4|subnetting|vlsm|flsm|ip addressing|nat|cidr|networks module 5)$/i,
+    destination: "networks-ipv4",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(ipv6 addressing|ipv6|slaac|ndp|neighbor discovery|dual stack|happy eyeballs|networks module 6)$/i,
+    destination: "networks-ipv6",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(routing|router architecture|routing tables|longest prefix match|ospf|bgp|packet forwarding|networks module 7)$/i,
+    destination: "networks-routing",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(network configuration|dhcp|arp|icmp|host configuration|dhcp dora|address resolution|networks module 8)$/i,
+    destination: "networks-config",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(tcp|reliable transport|tcp handshake|sliding window|tcp flow control|congestion control|networks module 9)$/i,
+    destination: "networks-tcp",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(udp|quic|modern transport|http3|http 3|udp datagrams|udp course|networks module 10)$/i,
+    destination: "networks-udp",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(dns|domain name system|internet naming|dns resolution|dnssec|doh|dot|networks module 11)$/i,
+    destination: "networks-dns",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(application protocols|web networking|http protocols|application layer|web protocols|networks module 12)$/i,
+    destination: "networks-applayer",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(wireless|wifi|wi-fi|mobile networking|cellular|5g|wireless networks|networks module 13)$/i,
+    destination: "networks-wireless",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(switching|vlans|vlan|enterprise lan|lan design|spanning tree|stp|rstp|networks module 14)$/i,
+    destination: "networks-switching",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(firewalls|firewall|network security|access control|vpn|ids ips|suricata|networks module 15)$/i,
+    destination: "networks-firewalls",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(enterprise networking|data center|datacenter|cloud networking|leaf spine|vxlan|zero trust|networks module 16)$/i,
+    destination: "networks-enterprise-cloud",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(threat modeling|threat model|security fundamentals|cia triad|stride|network risk|networks module 17)$/i,
+    destination: "networks-threat-modeling",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(packet analysis|wireshark|tcpdump|pcap|reconnaissance|network reconnaissance|networks module 18)$/i,
+    destination: "networks-packet-analysis",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(network attacks|arp spoofing|dns spoofing|syn flood|vlan hopping|attacks and defenses|common attacks|common network attacks|countermeasures|networks module 19)$/i,
+    destination: "networks-attacks",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(ids and ips|ids ips|ids|ips|suricata|snort|zeek|soc monitoring|incident response|soc|networks module 20)$/i,
+    destination: "networks-ids-ips",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(network programming|network automation|socket programming|python networking|python sockets|netconf|restconf|diagnostics tool|networks module 21)$/i,
+    destination: "networks-automation",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(advanced routing|bgp routing|ospf convergence|network troubleshooting|bufferbloat|asymmetric routing|pmtud|networks module 22)$/i,
+    destination: "networks-advanced-routing",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(security architecture|modern network security|zero trust architecture|network zero trust|microsegmentation|wireguard vpn|container network policy|container network policies|networks module 23)$/i,
+    destination: "networks-security-architecture",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(networks capstone|network capstone|final capstone network|network engineering lab|capstone network lab|networks module 24)$/i,
+    destination: "networks-final-capstone",
+  },
+  {
     regex: /^(interview|mock interview)$/i,
     destination: "interview",
   },
@@ -383,6 +503,102 @@ const NAVIGATION_RULES = [
   {
     regex: /^(final capstone|os final capstone|os engineering lab|capstone lab)$/i,
     destination: "os-final-capstone",
+  },
+  {
+    regex: /^(computer networks|computer network|networking course|computer networks course)$/i,
+    destination: "networks",
+  },
+  {
+    regex: /^(network models|osi model|tcp ip model|osi and tcp ip)$/i,
+    destination: "networks-models",
+  },
+  {
+    regex: /^(physical layer|data transmission|shannon capacity)$/i,
+    destination: "networks-physical",
+  },
+  {
+    regex: /^(data link layer|datalink|ethernet switching|spanning tree)$/i,
+    destination: "networks-datalink",
+  },
+  {
+    regex: /^(ipv4 addressing|ipv4|subnetting|vlsm)$/i,
+    destination: "networks-ipv4",
+  },
+  {
+    regex: /^(ipv6 addressing|ipv6|slaac|neighbor discovery)$/i,
+    destination: "networks-ipv6",
+  },
+  {
+    regex: /^(routing|router architecture|ospf|bgp)$/i,
+    destination: "networks-routing",
+  },
+  {
+    regex: /^(network configuration|dhcp|arp|icmp|dhcp dora)$/i,
+    destination: "networks-config",
+  },
+  {
+    regex: /^(tcp|reliable transport|tcp handshake)$/i,
+    destination: "networks-tcp",
+  },
+  {
+    regex: /^(udp|quic|modern transport|http3|http 3)$/i,
+    destination: "networks-udp",
+  },
+  {
+    regex: /^(dns|domain name system|dns resolution|dnssec)$/i,
+    destination: "networks-dns",
+  },
+  {
+    regex: /^(application protocols|web networking|http protocols|application layer)$/i,
+    destination: "networks-applayer",
+  },
+  {
+    regex: /^(wireless|wifi|wi-fi|mobile networking|cellular)$/i,
+    destination: "networks-wireless",
+  },
+  {
+    regex: /^(switching|vlans|enterprise lan|lan design|spanning tree)$/i,
+    destination: "networks-switching",
+  },
+  {
+    regex: /^(firewalls|firewall|access control|packet filtering)$/i,
+    destination: "networks-firewalls",
+  },
+  {
+    regex: /^(enterprise networking|data center|datacenter|cloud networking|leaf spine|vxlan)$/i,
+    destination: "networks-enterprise-cloud",
+  },
+  {
+    regex: /^(threat modeling|threat model|security fundamentals|cia triad|stride)$/i,
+    destination: "networks-threat-modeling",
+  },
+  {
+    regex: /^(packet analysis|wireshark|tcpdump|pcap|reconnaissance|network reconnaissance)$/i,
+    destination: "networks-packet-analysis",
+  },
+  {
+    regex: /^(network attacks|arp spoofing|dns spoofing|syn flood|vlan hopping|attacks and defenses)$/i,
+    destination: "networks-attacks",
+  },
+  {
+    regex: /^(ids and ips|ids ips|suricata|snort|zeek|soc monitoring|incident response)$/i,
+    destination: "networks-ids-ips",
+  },
+  {
+    regex: /^(network programming|network automation|socket programming|python networking|python sockets)$/i,
+    destination: "networks-automation",
+  },
+  {
+    regex: /^(advanced routing|bgp routing|ospf convergence|network troubleshooting|bufferbloat|asymmetric routing)$/i,
+    destination: "networks-advanced-routing",
+  },
+  {
+    regex: /^(security architecture|modern network security|zero trust architecture|microsegmentation|wireguard vpn)$/i,
+    destination: "networks-security-architecture",
+  },
+  {
+    regex: /^(networks capstone|network capstone|network engineering lab|capstone network lab)$/i,
+    destination: "networks-final-capstone",
   },
 ];
 

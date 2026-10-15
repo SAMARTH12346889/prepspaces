@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Compass,
   Cpu,
+  Globe,
 } from "lucide-react";
 import { useSafeBack } from "../utils/navigation";
 import Logo from "../Componets/Logo";
@@ -85,7 +86,7 @@ const learningTracks = [
     icon: Cpu,
     route: "/learning/os",
     tag: "Core Systems",
-    modulesCount: "15 University Modules",
+    modulesCount: "24 Comprehensive Modules",
     color: "from-stone-900 via-orange-950 to-orange-600",
     badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
     highlights: [
@@ -94,6 +95,26 @@ const learningTracks = [
       "Virtual Memory & TLB Translation",
       "Kernel Architectures: Linux vs Windows vs seL4",
       "Interactive Linux Terminal Inspection Labs",
+    ],
+  },
+  {
+    id: "computer-networks",
+    title: "Computer Networks & Internet",
+    tagline: "University-Level Architecture, Protocols & Systems Engineering",
+    description:
+      "Master computer networks and Internet engineering from physical transmission and Ethernet switching to IPv4/IPv6, BGP routing, TCP/UDP sockets, DNS, HTTP/3, Wireshark packet analysis, and network cybersecurity based on MIT, Stanford, UC Berkeley, CMU, and Princeton curricula.",
+    icon: Globe,
+    route: "/learning/networks",
+    tag: "Networking & Protocols",
+    modulesCount: "University Course",
+    color: "from-stone-900 via-zinc-800 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "Packet Switching & End-to-End Delays",
+      "OSI & TCP/IP Header Encapsulation",
+      "Network Topologies & Leaf-Spine Architecture",
+      "Interactive Wireshark Packet Inspection",
+      "Real-World CLI Diagnostics & Network Security",
     ],
   },
 ];
@@ -145,11 +166,11 @@ export default function Learning() {
         {/* Metric Badges Banner */}
         <div className="mb-10 grid grid-cols-2 sm:grid-cols-4 gap-3 p-2 rounded-2xl bg-white/70 border border-[#e7e3da] backdrop-blur-md shadow-2xs">
           <div className="p-3 text-center">
-            <div className="text-xl sm:text-2xl font-black text-stone-900 font-mono">4</div>
+            <div className="text-xl sm:text-2xl font-black text-stone-900 font-mono">5</div>
             <div className="text-[11px] text-stone-500 font-medium mt-0.5">Comprehensive Tracks</div>
           </div>
           <div className="p-3 text-center border-l border-stone-200/70">
-            <div className="text-xl sm:text-2xl font-black text-orange-600 font-mono">55+</div>
+            <div className="text-xl sm:text-2xl font-black text-orange-600 font-mono">75+</div>
             <div className="text-[11px] text-stone-500 font-medium mt-0.5">In-Depth Modules</div>
           </div>
           <div className="p-3 text-center border-l border-stone-200/70">

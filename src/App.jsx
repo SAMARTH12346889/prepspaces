@@ -29,6 +29,30 @@ import OSAdvancedSync from "./Componets/OSAdvancedSync";
 import OSDesignTesting from "./Componets/OSDesignTesting";
 import OSCapstone from "./Componets/OSCapstone";
 import OSFinalCapstone from "./Componets/OSFinalCapstone";
+import NetworkIntro from "./Componets/NetworkIntro";
+import NetworkModels from "./Componets/NetworkModels";
+import NetworkPhysical from "./Componets/NetworkPhysical";
+import NetworkDataLink from "./Componets/NetworkDataLink";
+import NetworkIPv4 from "./Componets/NetworkIPv4";
+import NetworkIPv6 from "./Componets/NetworkIPv6";
+import NetworkRouting from "./Componets/NetworkRouting";
+import NetworkConfig from "./Componets/NetworkConfig";
+import NetworkTCP from "./Componets/NetworkTCP";
+import NetworkUDP from "./Componets/NetworkUDP";
+import NetworkDNS from "./Componets/NetworkDNS";
+import NetworkAppLayer from "./Componets/NetworkAppLayer";
+import NetworkWireless from "./Componets/NetworkWireless";
+import NetworkSwitching from "./Componets/NetworkSwitching";
+import NetworkFirewalls from "./Componets/NetworkFirewalls";
+import NetworkEnterpriseCloud from "./Componets/NetworkEnterpriseCloud";
+import NetworkThreatModeling from "./Componets/NetworkThreatModeling";
+import NetworkPacketAnalysis from "./Componets/NetworkPacketAnalysis";
+import NetworkAttacksDefenses from "./Componets/NetworkAttacksDefenses";
+import NetworkIdsIpsSoc from "./Componets/NetworkIdsIpsSoc";
+import NetworkProgrammingAutomation from "./Componets/NetworkProgrammingAutomation";
+import NetworkAdvancedRouting from "./Componets/NetworkAdvancedRouting";
+import NetworkSecurityArchitecture from "./Componets/NetworkSecurityArchitecture";
+import NetworkFinalCapstone from "./Componets/NetworkFinalCapstone";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -240,6 +264,210 @@ function App() {
             <Route path="/learn/os/final-capstone" element={<OSFinalCapstone />} />
             <Route path="/learn/os/capstone-lab" element={<OSFinalCapstone />} />
             <Route path="/learn/operating-systems" element={<OSIntro />} />
+
+            {/* COMPUTER NETWORKS COURSE & SEO ALIAS */}
+            <Route path="/learn/networks" element={<NetworkIntro />} />
+            <Route path="/learn/computer-networks" element={<NetworkIntro />} />
+            <Route path="/learn/networking" element={<NetworkIntro />} />
+            <Route path="/learning/networks" element={<NetworkIntro />} />
+            <Route path="/learning/networks/intro" element={<NetworkIntro />} />
+            <Route path="/learning/networks/fundamentals" element={<NetworkIntro />} />
+            <Route path="/learning/networks/module-1" element={<NetworkIntro />} />
+            <Route path="/learning/computer-networks" element={<NetworkIntro />} />
+
+            {/* COMPUTER NETWORKS — MODULE 2: NETWORK MODELS (OSI & TCP/IP) */}
+            <Route path="/learning/networks/models" element={<NetworkModels />} />
+            <Route path="/learning/networks/osi-tcpip" element={<NetworkModels />} />
+            <Route path="/learning/networks/module-2" element={<NetworkModels />} />
+            <Route path="/learn/networks/models" element={<NetworkModels />} />
+            <Route path="/learn/networks/osi-tcpip" element={<NetworkModels />} />
+
+            {/* COMPUTER NETWORKS — MODULE 3: PHYSICAL LAYER & DATA TRANSMISSION */}
+            <Route path="/learning/networks/physical" element={<NetworkPhysical />} />
+            <Route path="/learning/networks/transmission" element={<NetworkPhysical />} />
+            <Route path="/learning/networks/module-3" element={<NetworkPhysical />} />
+            <Route path="/learn/networks/physical" element={<NetworkPhysical />} />
+            <Route path="/learn/networks/transmission" element={<NetworkPhysical />} />
+
+            {/* COMPUTER NETWORKS — MODULE 4: DATA LINK LAYER & ETHERNET */}
+            <Route path="/learning/networks/datalink" element={<NetworkDataLink />} />
+            <Route path="/learning/networks/ethernet" element={<NetworkDataLink />} />
+            <Route path="/learning/networks/module-4" element={<NetworkDataLink />} />
+            <Route path="/learn/networks/datalink" element={<NetworkDataLink />} />
+            <Route path="/learn/networks/ethernet" element={<NetworkDataLink />} />
+
+            {/* COMPUTER NETWORKS — MODULE 5: IPV4 ADDRESSING & SUBNETTING */}
+            <Route path="/learning/networks/ipv4" element={<NetworkIPv4 />} />
+            <Route path="/learning/networks/subnetting" element={<NetworkIPv4 />} />
+            <Route path="/learning/networks/addressing" element={<NetworkIPv4 />} />
+            <Route path="/learning/networks/module-5" element={<NetworkIPv4 />} />
+            <Route path="/learn/networks/ipv4" element={<NetworkIPv4 />} />
+            <Route path="/learn/networks/subnetting" element={<NetworkIPv4 />} />
+
+            {/* COMPUTER NETWORKS — MODULE 6: IPV6 & MODERN ADDRESSING */}
+            <Route path="/learning/networks/ipv6" element={<NetworkIPv6 />} />
+            <Route path="/learning/networks/ipv6-addressing" element={<NetworkIPv6 />} />
+            <Route path="/learning/networks/slaac-ndp" element={<NetworkIPv6 />} />
+            <Route path="/learning/networks/module-6" element={<NetworkIPv6 />} />
+            <Route path="/learn/networks/ipv6" element={<NetworkIPv6 />} />
+            <Route path="/learn/networks/ipv6-addressing" element={<NetworkIPv6 />} />
+
+            {/* COMPUTER NETWORKS — MODULE 7: ROUTING & ROUTER ARCHITECTURE */}
+            <Route path="/learning/networks/routing" element={<NetworkRouting />} />
+            <Route path="/learning/networks/router-architecture" element={<NetworkRouting />} />
+            <Route path="/learning/networks/ospf-bgp" element={<NetworkRouting />} />
+            <Route path="/learning/networks/module-7" element={<NetworkRouting />} />
+            <Route path="/learn/networks/routing" element={<NetworkRouting />} />
+            <Route path="/learn/networks/router-architecture" element={<NetworkRouting />} />
+
+            {/* COMPUTER NETWORKS — MODULE 8: ICMP, ARP, DHCP & HOST CONFIGURATION */}
+            <Route path="/learning/networks/config" element={<NetworkConfig />} />
+            <Route path="/learning/networks/dhcp-arp" element={<NetworkConfig />} />
+            <Route path="/learning/networks/icmp-diagnostics" element={<NetworkConfig />} />
+            <Route path="/learning/networks/module-8" element={<NetworkConfig />} />
+            <Route path="/learn/networks/config" element={<NetworkConfig />} />
+            <Route path="/learn/networks/dhcp-arp" element={<NetworkConfig />} />
+
+            {/* COMPUTER NETWORKS — MODULE 9: TCP — RELIABLE TRANSPORT */}
+            <Route path="/learning/networks/tcp" element={<NetworkTCP />} />
+            <Route path="/learning/networks/tcp-internals" element={<NetworkTCP />} />
+            <Route path="/learning/networks/handshake" element={<NetworkTCP />} />
+            <Route path="/learning/networks/module-9" element={<NetworkTCP />} />
+            <Route path="/learn/networks/tcp" element={<NetworkTCP />} />
+            <Route path="/learn/networks/tcp-internals" element={<NetworkTCP />} />
+
+            {/* COMPUTER NETWORKS — MODULE 10: UDP, QUIC & MODERN TRANSPORT */}
+            <Route path="/learning/networks/udp" element={<NetworkUDP />} />
+            <Route path="/learning/networks/quic" element={<NetworkUDP />} />
+            <Route path="/learning/networks/modern-transport" element={<NetworkUDP />} />
+            <Route path="/learning/networks/http3" element={<NetworkUDP />} />
+            <Route path="/learning/networks/module-10" element={<NetworkUDP />} />
+            <Route path="/learn/networks/udp" element={<NetworkUDP />} />
+            <Route path="/learn/networks/quic" element={<NetworkUDP />} />
+
+            {/* COMPUTER NETWORKS — MODULE 11: DNS & INTERNET NAMING */}
+            <Route path="/learning/networks/dns" element={<NetworkDNS />} />
+            <Route path="/learning/networks/dns-resolution" element={<NetworkDNS />} />
+            <Route path="/learning/networks/domain-naming" element={<NetworkDNS />} />
+            <Route path="/learning/networks/doh-dot" element={<NetworkDNS />} />
+            <Route path="/learning/networks/module-11" element={<NetworkDNS />} />
+            <Route path="/learn/networks/dns" element={<NetworkDNS />} />
+            <Route path="/learn/networks/domain-naming" element={<NetworkDNS />} />
+
+            {/* COMPUTER NETWORKS — MODULE 12: APPLICATION PROTOCOLS & WEB NETWORKING */}
+            <Route path="/learning/networks/application-layer" element={<NetworkAppLayer />} />
+            <Route path="/learning/networks/http" element={<NetworkAppLayer />} />
+            <Route path="/learning/networks/web-protocols" element={<NetworkAppLayer />} />
+            <Route path="/learning/networks/module-12" element={<NetworkAppLayer />} />
+            <Route path="/learn/networks/application-layer" element={<NetworkAppLayer />} />
+            <Route path="/learn/networks/http" element={<NetworkAppLayer />} />
+
+            {/* COMPUTER NETWORKS — MODULE 13: WIRELESS, WI-FI & MOBILE NETWORKING */}
+            <Route path="/learning/networks/wireless" element={<NetworkWireless />} />
+            <Route path="/learning/networks/wifi" element={<NetworkWireless />} />
+            <Route path="/learning/networks/mobile" element={<NetworkWireless />} />
+            <Route path="/learning/networks/5g" element={<NetworkWireless />} />
+            <Route path="/learning/networks/module-13" element={<NetworkWireless />} />
+            <Route path="/learn/networks/wireless" element={<NetworkWireless />} />
+            <Route path="/learn/networks/wifi" element={<NetworkWireless />} />
+
+            {/* COMPUTER NETWORKS — MODULE 14: SWITCHING, VLANS & ENTERPRISE LAN DESIGN */}
+            <Route path="/learning/networks/switching" element={<NetworkSwitching />} />
+            <Route path="/learning/networks/vlans" element={<NetworkSwitching />} />
+            <Route path="/learning/networks/lan-design" element={<NetworkSwitching />} />
+            <Route path="/learning/networks/stp" element={<NetworkSwitching />} />
+            <Route path="/learning/networks/module-14" element={<NetworkSwitching />} />
+            <Route path="/learn/networks/switching" element={<NetworkSwitching />} />
+            <Route path="/learn/networks/vlans" element={<NetworkSwitching />} />
+
+            {/* COMPUTER NETWORKS — MODULE 15: NETWORK SERVICES, FIREWALLS & ACCESS CONTROL */}
+            <Route path="/learning/networks/firewalls" element={<NetworkFirewalls />} />
+            <Route path="/learning/networks/security" element={<NetworkFirewalls />} />
+            <Route path="/learning/networks/access-control" element={<NetworkFirewalls />} />
+            <Route path="/learning/networks/vpn" element={<NetworkFirewalls />} />
+            <Route path="/learning/networks/module-15" element={<NetworkFirewalls />} />
+            <Route path="/learn/networks/firewalls" element={<NetworkFirewalls />} />
+            <Route path="/learn/networks/security" element={<NetworkFirewalls />} />
+
+            {/* COMPUTER NETWORKS — MODULE 16: ENTERPRISE, DATA CENTER & CLOUD NETWORKING */}
+            <Route path="/learning/networks/enterprise-cloud" element={<NetworkEnterpriseCloud />} />
+            <Route path="/learning/networks/cloud" element={<NetworkEnterpriseCloud />} />
+            <Route path="/learning/networks/datacenter" element={<NetworkEnterpriseCloud />} />
+            <Route path="/learning/networks/sdn-vxlan" element={<NetworkEnterpriseCloud />} />
+            <Route path="/learning/networks/module-16" element={<NetworkEnterpriseCloud />} />
+            <Route path="/learn/networks/enterprise-cloud" element={<NetworkEnterpriseCloud />} />
+            <Route path="/learn/networks/datacenter" element={<NetworkEnterpriseCloud />} />
+
+            {/* COMPUTER NETWORKS — MODULE 17: NETWORK SECURITY FUNDAMENTALS & THREAT MODELING */}
+            <Route path="/learning/networks/threat-modeling" element={<NetworkThreatModeling />} />
+            <Route path="/learning/networks/threat-model" element={<NetworkThreatModeling />} />
+            <Route path="/learning/networks/cia-triad" element={<NetworkThreatModeling />} />
+            <Route path="/learning/networks/stride" element={<NetworkThreatModeling />} />
+            <Route path="/learning/networks/module-17" element={<NetworkThreatModeling />} />
+            <Route path="/learn/networks/threat-modeling" element={<NetworkThreatModeling />} />
+
+            {/* COMPUTER NETWORKS — MODULE 18: PACKET ANALYSIS & NETWORK RECONNAISSANCE */}
+            <Route path="/learning/networks/packet-analysis" element={<NetworkPacketAnalysis />} />
+            <Route path="/learning/networks/wireshark" element={<NetworkPacketAnalysis />} />
+            <Route path="/learning/networks/tcpdump" element={<NetworkPacketAnalysis />} />
+            <Route path="/learning/networks/reconnaissance" element={<NetworkPacketAnalysis />} />
+            <Route path="/learning/networks/module-18" element={<NetworkPacketAnalysis />} />
+            <Route path="/learn/networks/packet-analysis" element={<NetworkPacketAnalysis />} />
+
+            {/* COMPUTER NETWORKS — MODULE 19: COMMON NETWORK ATTACKS & DEFENSIVE COUNTERMEASURES */}
+            <Route path="/learning/networks/attacks-defenses" element={<NetworkAttacksDefenses />} />
+            <Route path="/learning/networks/attacks" element={<NetworkAttacksDefenses />} />
+            <Route path="/learning/networks/arp-spoofing" element={<NetworkAttacksDefenses />} />
+            <Route path="/learning/networks/syn-flood" element={<NetworkAttacksDefenses />} />
+            <Route path="/learning/networks/module-19" element={<NetworkAttacksDefenses />} />
+            <Route path="/learn/networks/attacks-defenses" element={<NetworkAttacksDefenses />} />
+
+            {/* COMPUTER NETWORKS — MODULE 20: IDS/IPS, SOC MONITORING & INCIDENT RESPONSE */}
+            <Route path="/learning/networks/ids-ips-soc" element={<NetworkIdsIpsSoc />} />
+            <Route path="/learning/networks/ids-ips" element={<NetworkIdsIpsSoc />} />
+            <Route path="/learning/networks/suricata-zeek" element={<NetworkIdsIpsSoc />} />
+            <Route path="/learning/networks/soc-monitoring" element={<NetworkIdsIpsSoc />} />
+            <Route path="/learning/networks/incident-response" element={<NetworkIdsIpsSoc />} />
+            <Route path="/learning/networks/module-20" element={<NetworkIdsIpsSoc />} />
+            <Route path="/learn/networks/ids-ips-soc" element={<NetworkIdsIpsSoc />} />
+
+            {/* COMPUTER NETWORKS — MODULE 21: NETWORK PROGRAMMING & AUTOMATION */}
+            <Route path="/learning/networks/network-automation" element={<NetworkProgrammingAutomation />} />
+            <Route path="/learning/networks/automation" element={<NetworkProgrammingAutomation />} />
+            <Route path="/learning/networks/socket-programming" element={<NetworkProgrammingAutomation />} />
+            <Route path="/learning/networks/python-networking" element={<NetworkProgrammingAutomation />} />
+            <Route path="/learning/networks/netconf-restconf" element={<NetworkProgrammingAutomation />} />
+            <Route path="/learning/networks/module-21" element={<NetworkProgrammingAutomation />} />
+            <Route path="/learn/networks/network-automation" element={<NetworkProgrammingAutomation />} />
+
+            {/* COMPUTER NETWORKS — MODULE 22: ADVANCED ROUTING, PERFORMANCE & TROUBLESHOOTING */}
+            <Route path="/learning/networks/advanced-routing" element={<NetworkAdvancedRouting />} />
+            <Route path="/learning/networks/bgp" element={<NetworkAdvancedRouting />} />
+            <Route path="/learning/networks/ospf" element={<NetworkAdvancedRouting />} />
+            <Route path="/learning/networks/troubleshooting" element={<NetworkAdvancedRouting />} />
+            <Route path="/learning/networks/bufferbloat" element={<NetworkAdvancedRouting />} />
+            <Route path="/learning/networks/module-22" element={<NetworkAdvancedRouting />} />
+            <Route path="/learn/networks/advanced-routing" element={<NetworkAdvancedRouting />} />
+            <Route path="/learn/networks/bgp" element={<NetworkAdvancedRouting />} />
+            <Route path="/learn/networks/troubleshooting" element={<NetworkAdvancedRouting />} />
+
+            {/* COMPUTER NETWORKS — MODULE 23: MODERN NETWORK SECURITY ARCHITECTURE */}
+            <Route path="/learning/networks/security-architecture" element={<NetworkSecurityArchitecture />} />
+            <Route path="/learning/networks/zero-trust" element={<NetworkSecurityArchitecture />} />
+            <Route path="/learning/networks/microsegmentation" element={<NetworkSecurityArchitecture />} />
+            <Route path="/learning/networks/wireguard" element={<NetworkSecurityArchitecture />} />
+            <Route path="/learning/networks/module-23" element={<NetworkSecurityArchitecture />} />
+            <Route path="/learn/networks/security-architecture" element={<NetworkSecurityArchitecture />} />
+            <Route path="/learn/networks/zero-trust" element={<NetworkSecurityArchitecture />} />
+
+            {/* COMPUTER NETWORKS — MODULE 24: FINAL CAPSTONE (NETWORK ENGINEERING & SECURITY LAB) */}
+            <Route path="/learning/networks/final-capstone" element={<NetworkFinalCapstone />} />
+            <Route path="/learning/networks/capstone" element={<NetworkFinalCapstone />} />
+            <Route path="/learning/networks/capstone-project" element={<NetworkFinalCapstone />} />
+            <Route path="/learning/networks/network-lab" element={<NetworkFinalCapstone />} />
+            <Route path="/learning/networks/module-24" element={<NetworkFinalCapstone />} />
+            <Route path="/learn/networks/final-capstone" element={<NetworkFinalCapstone />} />
+            <Route path="/learn/networks/capstone" element={<NetworkFinalCapstone />} />
 
             {/* SYSTEM DESIGN COURSE & SEO ALIAS */}
             <Route path="/learn/system-design" element={<SystemDesignIntro />} />

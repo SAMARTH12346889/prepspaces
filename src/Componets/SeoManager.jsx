@@ -150,6 +150,136 @@ const routeMeta = {
     description: "Culminating operating systems engineering project. Implement bounded concurrent worker queues, performance diagnostic tools, or virtual memory simulators.",
     canonical: `${BASE_URL}/learning/os/final-capstone`,
   },
+  "/learning/networks": {
+    title: "Module 1: Introduction to Computer Networks & Internet Architecture | PrepSpaces",
+    description: "Master computer networks from physical signals and Ethernet switching to global BGP routing, packet switching math, TCP/IP protocols, and network cybersecurity.",
+    canonical: `${BASE_URL}/learning/networks`,
+  },
+  "/learning/networks/intro": {
+    title: "Module 1: Introduction to Computer Networks & Internet Architecture | PrepSpaces",
+    description: "Master computer networks from physical signals and Ethernet switching to global BGP routing, packet switching math, TCP/IP protocols, and network cybersecurity.",
+    canonical: `${BASE_URL}/learning/networks`,
+  },
+  "/learning/networks/models": {
+    title: "Module 2: Network Models — OSI & TCP/IP Protocol Architecture | PrepSpaces",
+    description: "Master OSI 7-layer and TCP/IP 4-layer network models, protocol encapsulation, router frame re-framing, Wireshark packet dissection, and layered troubleshooting.",
+    canonical: `${BASE_URL}/learning/networks/models`,
+  },
+  "/learning/networks/physical": {
+    title: "Module 3: Physical Layer & Data Transmission | PrepSpaces",
+    description: "Master physical layer signals, Nyquist and Shannon channel capacity, optical power budgets, line coding (NRZ, Manchester, PAM-4), and ethtool transceiver diagnostics.",
+    canonical: `${BASE_URL}/learning/networks/physical`,
+  },
+  "/learning/networks/datalink": {
+    title: "Module 4: Data Link Layer & Ethernet Switching | PrepSpaces",
+    description: "Master Ethernet frame structures, CAM table MAC learning, ARP resolution, 802.1Q VLAN trunking, Spanning Tree Protocol (STP), and Layer 2 link security.",
+    canonical: `${BASE_URL}/learning/networks/datalink`,
+  },
+  "/learning/networks/ipv4": {
+    title: "Module 5: IPv4 Addressing, Subnetting & Enterprise Planning | PrepSpaces",
+    description: "Master 32-bit binary arithmetic, CIDR notation, subnet calculations, VLSM address optimization, RFC 1918 private addressing, and NAT/PAT connection tracking.",
+    canonical: `${BASE_URL}/learning/networks/ipv4`,
+  },
+  "/learning/networks/ipv6": {
+    title: "Module 6: IPv6 Architecture, Modern Addressing & Transition Engineering | PrepSpaces",
+    description: "Master 128-bit hexadecimal addressing, address compression rules, Global Unicast, Link-Local, Neighbor Discovery Protocol (NDP), SLAAC autoconfiguration, DHCPv6, dual-stack networks, transition mechanisms (NAT64/DNS64), and IPv6 defense-in-depth.",
+    canonical: `${BASE_URL}/learning/networks/ipv6`,
+  },
+  "/learning/networks/routing": {
+    title: "Module 7: Routing and Router Architecture | PrepSpaces",
+    description: "Master Longest-Prefix Matching (LPM), RIB vs FIB data structures, hop-by-hop TTL frame re-encapsulation, Dijkstra link-state calculations in OSPF, BGP interdomain policy, and network fault troubleshooting.",
+    canonical: `${BASE_URL}/learning/networks/routing`,
+  },
+  "/learning/networks/config": {
+    title: "Module 8: ICMP, ARP, DHCP & Network Configuration | PrepSpaces",
+    description: "Master host configuration protocols, DHCP DORA lease lifecycle, ARP address resolution and spoofing, ICMP diagnostics, DNS name resolution dependencies, and tcpdump packet analysis.",
+    canonical: `${BASE_URL}/learning/networks/config`,
+  },
+  "/learning/networks/tcp": {
+    title: "Module 9: TCP — Reliable Transport & Performance Engineering | PrepSpaces",
+    description: "Master TCP internals, 3-way handshake, 11 connection states, sliding windows, flow control (rwnd), congestion control (cwnd), Fast Retransmit, PMTUD black holes, BDP calculation, and SYN cookies.",
+    canonical: `${BASE_URL}/learning/networks/tcp`,
+  },
+  "/learning/networks/udp": {
+    title: "Module 10: UDP, QUIC & Modern Transport Protocols | PrepSpaces",
+    description: "Master UDP datagrams, 8-byte headers, checksum verification, application-managed reliability, QUIC (RFC 9000), HTTP/3, 0-RTT handshakes, Head-of-Line blocking elimination, connection migration, and DDoS amplification defense.",
+    canonical: `${BASE_URL}/learning/networks/udp`,
+  },
+  "/learning/networks/dns": {
+    title: "Module 11: DNS & Internet Naming Architecture | PrepSpaces",
+    description: "Master global DNS hierarchy, root servers, recursive vs iterative resolution, 12-byte wire headers, resource records (A, AAAA, CNAME, MX, TXT, PTR), negative caching, DoH/DoT encryption, DNSSEC trust chains, and DNS tunneling forensics.",
+    canonical: `${BASE_URL}/learning/networks/dns`,
+  },
+  "/learning/networks/application-layer": {
+    title: "Module 12: Application Protocols & Web Networking | PrepSpaces",
+    description: "Master HTTP/1.1 semantics, status codes, conditional caching (ETags), TLS 1.3 handshakes, X.509 PKI certificates, reverse proxies, REST APIs, CORS, and WebSockets.",
+    canonical: `${BASE_URL}/learning/networks/application-layer`,
+  },
+  "/learning/networks/wireless": {
+    title: "Module 13: Wireless, Wi-Fi & Mobile Networking | PrepSpaces",
+    description: "Master IEEE 802.11 Wi-Fi generations (Wi-Fi 4-7), RF propagation, channel planning, WPA3-SAE, enterprise 802.1X EAP-TLS, Bluetooth LE, 5G Core, and WIPS defense.",
+    canonical: `${BASE_URL}/learning/networks/wireless`,
+  },
+  "/learning/networks/switching": {
+    title: "Module 14: Switching, VLANs & Enterprise LAN Design | PrepSpaces",
+    description: "Master hierarchical campus networks, 802.1Q trunking, inter-VLAN routing (ROAS and SVIs), 802.1w RSTP loop prevention, LACP link aggregation, and Layer 2 switch port security.",
+    canonical: `${BASE_URL}/learning/networks/switching`,
+  },
+  "/learning/networks/firewalls": {
+    title: "Module 15: Network Services, Firewalls & Access Control | PrepSpaces",
+    description: "Master stateful packet inspection, conntrack, ACL rule ordering, NAT, IPsec/WireGuard VPNs, Suricata IDS/IPS, bastion jump hosts, and Linux nftables.",
+    canonical: `${BASE_URL}/learning/networks/firewalls`,
+  },
+  "/learning/networks/enterprise-cloud": {
+    title: "Module 16: Enterprise, Data Center & Cloud Networking | PrepSpaces",
+    description: "Master data center leaf-spine fabrics, ECMP routing, multi-tier cloud VPCs, Layer 4/7 load balancing, VXLAN overlays, MTU engineering, and Zero Trust.",
+    canonical: `${BASE_URL}/learning/networks/enterprise-cloud`,
+  },
+  "/learning/networks/threat-modeling": {
+    title: "Module 17: Network Security Fundamentals & Threat Modeling | PrepSpaces",
+    description: "Master the CIA triad, explicit trust boundaries, attack surface reduction, STRIDE threat modeling, TLS 1.3 AEAD cryptography, and qualitative risk assessment.",
+    canonical: `${BASE_URL}/learning/networks/threat-modeling`,
+  },
+  "/learning/networks/packet-analysis": {
+    title: "Module 18: Packet Analysis & Network Reconnaissance | PrepSpaces",
+    description: "Master Wireshark 3-pane dissection, display filters, tcpdump command-line capture, BPF filters, Nmap port states, and evidence integrity hashing.",
+    canonical: `${BASE_URL}/learning/networks/packet-analysis`,
+  },
+  "/learning/networks/attacks-defenses": {
+    title: "Module 19: Common Network Attacks & Defensive Countermeasures | PrepSpaces",
+    description: "Master network attack vectors and mitigations: ARP cache poisoning vs Dynamic ARP Inspection (DAI), DNS cache poisoning vs DNSSEC, IP spoofing vs uRPF, TCP SYN floods vs SYN cookies, and VLAN hopping defenses.",
+    canonical: `${BASE_URL}/learning/networks/attacks-defenses`,
+  },
+  "/learning/networks/ids-ips-soc": {
+    title: "Module 20: IDS/IPS, SOC Monitoring and Incident Response | PrepSpaces",
+    description: "Master network intrusion detection and prevention: Passive IDS vs Inline IPS, Suricata and Snort 3 rule authoring, Zeek telemetry logs, multi-source IoC correlation, SIEM triage, and NIST SP 800-61 incident response.",
+    canonical: `${BASE_URL}/learning/networks/ids-ips-soc`,
+  },
+  "/learning/networks/network-automation": {
+    title: "Module 21: Network Programming and Automation | PrepSpaces",
+    description: "Master Python network programming and automation: TCP/UDP socket lifecycles, dual-stack DNS resolution with socket.getaddrinfo, HTTP client probing, ThreadPoolExecutor concurrency, RESTCONF/NETCONF idempotency, and JSONL diagnostics.",
+    canonical: `${BASE_URL}/learning/networks/network-automation`,
+  },
+  "/learning/networks/advanced-routing": {
+    title: "Module 22: Advanced Routing, Performance and Troubleshooting | PrepSpaces",
+    description: "Master BGP routing policy, OSPF link-state convergence, Bufferbloat queueing dynamics, Path MTU Discovery (PMTUD) black holes, asymmetric routing across stateful firewalls, and enterprise root-cause analysis (RCA).",
+    canonical: `${BASE_URL}/learning/networks/advanced-routing`,
+  },
+  "/learning/networks/security-architecture": {
+    title: "Module 23: Modern Network Security Architecture | PrepSpaces",
+    description: "Master Zero Trust (NIST SP 800-207), microsegmentation, secure DNS (DoH/DoT/DNSSEC), TLS 1.3 certificate lifecycle, WireGuard vs IPsec cryptokey routing, Kubernetes NetworkPolicies, and Network Detection & Response (NDR).",
+    canonical: `${BASE_URL}/learning/networks/security-architecture`,
+  },
+  "/learning/networks/final-capstone": {
+    title: "Module 24: Final Capstone — Network Engineering and Security Lab | PrepSpaces",
+    description: "Build and audit an enterprise-grade segmented network lab featuring 802.1Q VLAN trunking, inter-VLAN routing, stateful firewall rules, HSRP/VRRP gateway redundancy, packet captures, iperf3 benchmarks, and complete engineering reports.",
+    canonical: `${BASE_URL}/learning/networks/final-capstone`,
+  },
+  "/learn/computer-networks": {
+    title: "Computer Networks & Internet Engineering Course | PrepSpaces",
+    description: "University-level computer networks course based on MIT, Stanford, Berkeley, CMU, and Princeton curricula. Packet switching, sockets, routing, and Wireshark labs.",
+    canonical: `${BASE_URL}/learn/computer-networks`,
+  },
   "/learn/system-design": {
     title: "System Design Course for Beginners | PrepSpaces",
     description: "Master large-scale distributed systems, architectural thinking, capacity estimation, microservices, and system design interview questions.",

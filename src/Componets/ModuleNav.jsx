@@ -89,6 +89,33 @@ export const OS_MODULES = [
   { id: "final-capstone", name: "24. Final Capstone: OS Engineering Lab", route: "/learning/os/final-capstone" },
 ];
 
+export const NETWORKS_MODULES = [
+  { id: "intro", name: "1. Intro & Fundamentals", route: "/learning/networks" },
+  { id: "models", name: "2. Network Models (OSI & TCP/IP)", route: "/learning/networks/models" },
+  { id: "physical", name: "3. Physical Layer & Transmission", route: "/learning/networks/physical" },
+  { id: "datalink", name: "4. Data Link Layer & Ethernet", route: "/learning/networks/datalink" },
+  { id: "ipv4", name: "5. IPv4 Addressing & Subnetting", route: "/learning/networks/ipv4" },
+  { id: "ipv6", name: "6. IPv6 & Modern Addressing", route: "/learning/networks/ipv6" },
+  { id: "routing", name: "7. Routing & Router Architecture", route: "/learning/networks/routing" },
+  { id: "config", name: "8. ICMP, ARP, DHCP & Host Config", route: "/learning/networks/config" },
+  { id: "tcp", name: "9. TCP — Reliable Transport", route: "/learning/networks/tcp" },
+  { id: "udp", name: "10. UDP, QUIC & Modern Transport", route: "/learning/networks/udp" },
+  { id: "dns", name: "11. DNS & Internet Naming", route: "/learning/networks/dns" },
+  { id: "applayer", name: "12. Application Protocols & Web", route: "/learning/networks/application-layer" },
+  { id: "wireless", name: "13. Wireless, Wi-Fi & Mobile", route: "/learning/networks/wireless" },
+  { id: "switching", name: "14. Switching, VLANs & LAN Design", route: "/learning/networks/switching" },
+  { id: "firewalls", name: "15. Firewalls & Access Control", route: "/learning/networks/firewalls" },
+  { id: "enterprise-cloud", name: "16. Enterprise, Data Center & Cloud", route: "/learning/networks/enterprise-cloud" },
+  { id: "threat-modeling", name: "17. Security & Threat Modeling", route: "/learning/networks/threat-modeling" },
+  { id: "packet-analysis", name: "18. Packet Analysis & Recon", route: "/learning/networks/packet-analysis" },
+  { id: "attacks", name: "19. Attacks & Countermeasures", route: "/learning/networks/attacks-defenses" },
+  { id: "ids-ips-soc", name: "20. IDS/IPS & SOC Monitoring", route: "/learning/networks/ids-ips-soc" },
+  { id: "network-automation", name: "21. Network Programming & Automation", route: "/learning/networks/network-automation" },
+  { id: "advanced-routing", name: "22. Advanced Routing & Troubleshooting", route: "/learning/networks/advanced-routing" },
+  { id: "security-architecture", name: "23. Modern Network Security Architecture", route: "/learning/networks/security-architecture" },
+  { id: "final-capstone", name: "24. Final Capstone: Network Engineering Lab", route: "/learning/networks/final-capstone" },
+];
+
 export default function ModuleNav({
   track = "cloud",
   currentModuleId = "cloud",
@@ -105,10 +132,12 @@ export default function ModuleNav({
       ? SYSTEM_DESIGN_MODULES
       : track === "os"
       ? OS_MODULES
+      : track === "networks"
+      ? NETWORKS_MODULES
       : CLOUD_MODULES;
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : "cloud")
+    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : "cloud")
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
@@ -116,6 +145,8 @@ export default function ModuleNav({
       ? "/learning/system-design"
       : track === "os"
       ? "/learning/os"
+      : track === "networks"
+      ? "/learning/networks"
       : "/learning/cloud";
 
   const { goBack } = useSafeBack(defaultFallback);
