@@ -62,6 +62,33 @@ export const SYSTEM_DESIGN_MODULES = [
   { id: "capstone", name: "24. Final Capstone Project", route: "/learning/system-design/capstone" },
 ];
 
+export const OS_MODULES = [
+  { id: "intro", name: "1. Intro & Systems Thinking", route: "/learning/os" },
+  { id: "architecture", name: "2. Computer Architecture", route: "/learning/os/architecture" },
+  { id: "systems-programming", name: "3. C & Systems Programming", route: "/learning/os/systems-programming" },
+  { id: "syscalls", name: "4. Syscalls & Program Execution", route: "/learning/os/syscalls" },
+  { id: "processes", name: "5. Processes & Lifecycle", route: "/learning/os/processes" },
+  { id: "scheduling", name: "6. CPU Scheduling", route: "/learning/os/scheduling" },
+  { id: "threads", name: "7. Threads & Multithreading", route: "/learning/os/threads" },
+  { id: "concurrency", name: "8. Synchronization & Deadlocks", route: "/learning/os/concurrency" },
+  { id: "memory", name: "9. Memory Hierarchy & Allocation", route: "/learning/os/memory" },
+  { id: "virtual-memory", name: "10. Virtual Memory & Paging", route: "/learning/os/virtual-memory" },
+  { id: "demand-paging", name: "11. Demand Paging & Replacement", route: "/learning/os/demand-paging" },
+  { id: "virtualization", name: "12. Advanced Memory, VMs & Containers", route: "/learning/os/virtualization" },
+  { id: "filesystems", name: "13. Filesystems & Storage Architecture", route: "/learning/os/filesystems" },
+  { id: "storage", name: "14. Storage Architecture & I/O", route: "/learning/os/storage" },
+  { id: "ipc", name: "15. IPC, Pipes & Shared Memory", route: "/learning/os/ipc" },
+  { id: "crash-consistency", name: "16. Crash Consistency & Durability", route: "/learning/os/crash-consistency" },
+  { id: "kernel-architecture", name: "17. Kernel Architecture & xv6", route: "/learning/os/kernel-architecture" },
+  { id: "diagnostics", name: "18. Linux Internals & Diagnostics", route: "/learning/os/diagnostics" },
+  { id: "networking", name: "19. OS Networking & Network I/O", route: "/learning/os/networking" },
+  { id: "security", name: "20. OS Security, Isolation & Reliability", route: "/learning/os/security" },
+  { id: "advanced-sync", name: "21. Advanced Synchronization & Multiprocessor", route: "/learning/os/advanced-sync" },
+  { id: "testing", name: "22. OS Design, Testing & Failure Analysis", route: "/learning/os/testing" },
+  { id: "capstone", name: "23. Capstone: Build an OS Component (xv6)", route: "/learning/os/capstone" },
+  { id: "final-capstone", name: "24. Final Capstone: OS Engineering Lab", route: "/learning/os/final-capstone" },
+];
+
 export default function ModuleNav({
   track = "cloud",
   currentModuleId = "cloud",
@@ -76,15 +103,19 @@ export default function ModuleNav({
       ? DEVOPS_MODULES
       : track === "system-design"
       ? SYSTEM_DESIGN_MODULES
+      : track === "os"
+      ? OS_MODULES
       : CLOUD_MODULES;
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : "cloud")
+    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : "cloud")
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
       : track === "system-design"
       ? "/learning/system-design"
+      : track === "os"
+      ? "/learning/os"
       : "/learning/cloud";
 
   const { goBack } = useSafeBack(defaultFallback);

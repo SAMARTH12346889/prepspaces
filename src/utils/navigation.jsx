@@ -25,6 +25,11 @@ export function getContextualFallback(pathname) {
     return "/learning/system-design";
   }
 
+  // Nested OS module (/learning/os/processes) -> course root (/learning/os)
+  if (pathname.startsWith("/learning/os/") && pathname !== "/learning/os") {
+    return "/learning/os";
+  }
+
   // Course main page (/learning/cloud, /learning/devops/linux, /learning/system-design) -> course catalog (/learning)
   if (pathname.startsWith("/learning/") && pathname !== "/learning") {
     return "/learning";

@@ -10,6 +10,7 @@ import {
   Network,
   CheckCircle2,
   Compass,
+  Cpu,
 } from "lucide-react";
 import { useSafeBack } from "../utils/navigation";
 import Logo from "../Componets/Logo";
@@ -73,6 +74,26 @@ const learningTracks = [
       "Cloud Storage & Managed DBs",
       "Multi-Cloud Architecture",
       "Cloud Economics & FinOps",
+    ],
+  },
+  {
+    id: "operating-systems",
+    title: "Operating Systems Master Course",
+    tagline: "Kernel Internals, Hardware Mediation & University-Level Computing",
+    description:
+      "Master operating systems internals, kernel architectures, hardware privilege levels, process scheduling, virtual memory, concurrency, file systems, and low-level Linux systems programming based on MIT, Stanford, and CMU curricula.",
+    icon: Cpu,
+    route: "/learning/os",
+    tag: "Core Systems",
+    modulesCount: "15 University Modules",
+    color: "from-stone-900 via-orange-950 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "Hardware Abstraction & Kernel Rings",
+      "Process Lifecycle & CPU Scheduling",
+      "Virtual Memory & TLB Translation",
+      "Kernel Architectures: Linux vs Windows vs seL4",
+      "Interactive Linux Terminal Inspection Labs",
     ],
   },
 ];

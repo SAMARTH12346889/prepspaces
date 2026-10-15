@@ -64,6 +64,132 @@ assert(testNav1 && testNav1.type === "NAVIGATE" && testNav1.route === "/intervie
 const testNav2 = matchFastCommand("Take me to system design");
 assert(testNav2 && testNav2.type === "NAVIGATE" && testNav2.route === "/learning/system-design", "'Take me to system design' fast-paths to /learning/system-design");
 
+const testNavOS = matchFastCommand("Open operating systems");
+assert(testNavOS && testNavOS.type === "NAVIGATE" && testNavOS.route === "/learning/os", "'Open operating systems' fast-paths to /learning/os");
+
+const testNavOSArch = matchFastCommand("Open computer architecture");
+assert(testNavOSArch && testNavOSArch.type === "NAVIGATE" && testNavOSArch.route === "/learning/os/architecture", "'Open computer architecture' fast-paths to /learning/os/architecture");
+
+const testNavOSSysProg = matchFastCommand("Open systems programming");
+assert(testNavOSSysProg && testNavOSSysProg.type === "NAVIGATE" && testNavOSSysProg.route === "/learning/os/systems-programming", "'Open systems programming' fast-paths to /learning/os/systems-programming");
+
+const testNavOSSyscalls = matchFastCommand("Open system calls");
+assert(testNavOSSyscalls && testNavOSSyscalls.type === "NAVIGATE" && testNavOSSyscalls.route === "/learning/os/syscalls", "'Open system calls' fast-paths to /learning/os/syscalls");
+
+const testNavOSProcesses = matchFastCommand("Open process lifecycle");
+assert(testNavOSProcesses && testNavOSProcesses.type === "NAVIGATE" && testNavOSProcesses.route === "/learning/os/processes", "'Open process lifecycle' fast-paths to /learning/os/processes");
+
+const testNavOSScheduling = matchFastCommand("Open cpu scheduling");
+assert(testNavOSScheduling && testNavOSScheduling.type === "NAVIGATE" && testNavOSScheduling.route === "/learning/os/scheduling", "'Open cpu scheduling' fast-paths to /learning/os/scheduling");
+
+const testNavOSThreads = matchFastCommand("Open threads");
+assert(testNavOSThreads && testNavOSThreads.type === "NAVIGATE" && testNavOSThreads.route === "/learning/os/threads", "'Open threads' fast-paths to /learning/os/threads");
+
+const testNavOSMultithread = matchFastCommand("Open multithreading");
+assert(testNavOSMultithread && testNavOSMultithread.type === "NAVIGATE" && testNavOSMultithread.route === "/learning/os/threads", "'Open multithreading' fast-paths to /learning/os/threads");
+
+const testNavOSConcurrency = matchFastCommand("Open concurrency");
+assert(testNavOSConcurrency && testNavOSConcurrency.type === "NAVIGATE" && testNavOSConcurrency.route === "/learning/os/concurrency", "'Open concurrency' fast-paths to /learning/os/concurrency");
+
+const testNavOSDeadlocks = matchFastCommand("Open deadlocks");
+assert(testNavOSDeadlocks && testNavOSDeadlocks.type === "NAVIGATE" && testNavOSDeadlocks.route === "/learning/os/concurrency", "'Open deadlocks' fast-paths to /learning/os/concurrency");
+
+const testNavOSMemory = matchFastCommand("Open memory");
+assert(testNavOSMemory && testNavOSMemory.type === "NAVIGATE" && testNavOSMemory.route === "/learning/os/memory", "'Open memory' fast-paths to /learning/os/memory");
+
+const testNavOSAlloc = matchFastCommand("Open memory allocation");
+assert(testNavOSAlloc && testNavOSAlloc.type === "NAVIGATE" && testNavOSAlloc.route === "/learning/os/memory", "'Open memory allocation' fast-paths to /learning/os/memory");
+
+const testNavOSVM = matchFastCommand("Open virtual memory");
+assert(testNavOSVM && testNavOSVM.type === "NAVIGATE" && testNavOSVM.route === "/learning/os/virtual-memory", "'Open virtual memory' fast-paths to /learning/os/virtual-memory");
+
+const testNavOSPaging = matchFastCommand("Open paging");
+assert(testNavOSPaging && testNavOSPaging.type === "NAVIGATE" && testNavOSPaging.route === "/learning/os/virtual-memory", "'Open paging' fast-paths to /learning/os/virtual-memory");
+
+const testNavOSDemandPaging = matchFastCommand("Open demand paging");
+assert(testNavOSDemandPaging && testNavOSDemandPaging.type === "NAVIGATE" && testNavOSDemandPaging.route === "/learning/os/demand-paging", "'Open demand paging' fast-paths to /learning/os/demand-paging");
+
+const testNavOSPageReplacement = matchFastCommand("Open page replacement");
+assert(testNavOSPageReplacement && testNavOSPageReplacement.type === "NAVIGATE" && testNavOSPageReplacement.route === "/learning/os/demand-paging", "'Open page replacement' fast-paths to /learning/os/demand-paging");
+
+const testNavOSVirt = matchFastCommand("Open virtualization");
+assert(testNavOSVirt && testNavOSVirt.type === "NAVIGATE" && testNavOSVirt.route === "/learning/os/virtualization", "'Open virtualization' fast-paths to /learning/os/virtualization");
+
+const testNavOSContainers = matchFastCommand("Open containers");
+assert(testNavOSContainers && testNavOSContainers.type === "NAVIGATE" && testNavOSContainers.route === "/learning/os/virtualization", "'Open containers' fast-paths to /learning/os/virtualization");
+
+const testNavOSFilesystems = matchFastCommand("Open filesystems");
+assert(testNavOSFilesystems && testNavOSFilesystems.type === "NAVIGATE" && testNavOSFilesystems.route === "/learning/os/filesystems", "'Open filesystems' fast-paths to /learning/os/filesystems");
+
+const testNavOSFileSystemsSpace = matchFastCommand("Open file systems");
+assert(testNavOSFileSystemsSpace && testNavOSFileSystemsSpace.type === "NAVIGATE" && testNavOSFileSystemsSpace.route === "/learning/os/filesystems", "'Open file systems' fast-paths to /learning/os/filesystems");
+
+const testNavOSStorage = matchFastCommand("Open storage");
+assert(testNavOSStorage && testNavOSStorage.type === "NAVIGATE" && testNavOSStorage.route === "/learning/os/storage", "'Open storage' fast-paths to /learning/os/storage");
+
+const testNavOSDiskScheduling = matchFastCommand("Open disk scheduling");
+assert(testNavOSDiskScheduling && testNavOSDiskScheduling.type === "NAVIGATE" && testNavOSDiskScheduling.route === "/learning/os/storage", "'Open disk scheduling' fast-paths to /learning/os/storage");
+
+const testNavOSIPC = matchFastCommand("Open ipc");
+assert(testNavOSIPC && testNavOSIPC.type === "NAVIGATE" && testNavOSIPC.route === "/learning/os/ipc", "'Open ipc' fast-paths to /learning/os/ipc");
+
+const testNavOSPipes = matchFastCommand("Open pipes");
+assert(testNavOSPipes && testNavOSPipes.type === "NAVIGATE" && testNavOSPipes.route === "/learning/os/ipc", "'Open pipes' fast-paths to /learning/os/ipc");
+
+const testNavOSCrashConsistency = matchFastCommand("Open crash consistency");
+assert(testNavOSCrashConsistency && testNavOSCrashConsistency.type === "NAVIGATE" && testNavOSCrashConsistency.route === "/learning/os/crash-consistency", "'Open crash consistency' fast-paths to /learning/os/crash-consistency");
+
+const testNavOSDurability = matchFastCommand("Open durability");
+assert(testNavOSDurability && testNavOSDurability.type === "NAVIGATE" && testNavOSDurability.route === "/learning/os/crash-consistency", "'Open durability' fast-paths to /learning/os/crash-consistency");
+
+const testNavOSKernelArch = matchFastCommand("Open kernel architecture");
+assert(testNavOSKernelArch && testNavOSKernelArch.type === "NAVIGATE" && testNavOSKernelArch.route === "/learning/os/kernel-architecture", "'Open kernel architecture' fast-paths to /learning/os/kernel-architecture");
+
+const testNavOSXv6 = matchFastCommand("Open xv6");
+assert(testNavOSXv6 && testNavOSXv6.type === "NAVIGATE" && testNavOSXv6.route === "/learning/os/kernel-architecture", "'Open xv6' fast-paths to /learning/os/kernel-architecture");
+
+const testNavOSDiag = matchFastCommand("Open diagnostics");
+assert(testNavOSDiag && testNavOSDiag.type === "NAVIGATE" && testNavOSDiag.route === "/learning/os/diagnostics", "'Open diagnostics' fast-paths to /learning/os/diagnostics");
+
+const testNavOSLinuxDiag = matchFastCommand("Open linux diagnostics");
+assert(testNavOSLinuxDiag && testNavOSLinuxDiag.type === "NAVIGATE" && testNavOSLinuxDiag.route === "/learning/os/diagnostics", "'Open linux diagnostics' fast-paths to /learning/os/diagnostics");
+
+const testNavOSNet = matchFastCommand("Open os networking");
+assert(testNavOSNet && testNavOSNet.type === "NAVIGATE" && testNavOSNet.route === "/learning/os/networking", "'Open os networking' fast-paths to /learning/os/networking");
+
+const testNavOSNetIO = matchFastCommand("Open network io");
+assert(testNavOSNetIO && testNavOSNetIO.type === "NAVIGATE" && testNavOSNetIO.route === "/learning/os/networking", "'Open network io' fast-paths to /learning/os/networking");
+
+const testNavOSSecurity = matchFastCommand("Open os security");
+assert(testNavOSSecurity && testNavOSSecurity.type === "NAVIGATE" && testNavOSSecurity.route === "/learning/os/security", "'Open os security' fast-paths to /learning/os/security");
+
+const testNavOSIsolation = matchFastCommand("Open isolation");
+assert(testNavOSIsolation && testNavOSIsolation.type === "NAVIGATE" && testNavOSIsolation.route === "/learning/os/security", "'Open isolation' fast-paths to /learning/os/security");
+
+const testNavOSAdvSync = matchFastCommand("Open advanced synchronization");
+assert(testNavOSAdvSync && testNavOSAdvSync.type === "NAVIGATE" && testNavOSAdvSync.route === "/learning/os/advanced-sync", "'Open advanced synchronization' fast-paths to /learning/os/advanced-sync");
+
+const testNavOSMultiprocessor = matchFastCommand("Open multiprocessor");
+assert(testNavOSMultiprocessor && testNavOSMultiprocessor.type === "NAVIGATE" && testNavOSMultiprocessor.route === "/learning/os/advanced-sync", "'Open multiprocessor' fast-paths to /learning/os/advanced-sync");
+
+const testNavOSTesting = matchFastCommand("Open design and testing");
+assert(testNavOSTesting && testNavOSTesting.type === "NAVIGATE" && testNavOSTesting.route === "/learning/os/testing", "'Open design and testing' fast-paths to /learning/os/testing");
+
+const testNavOSFailureAnalysis = matchFastCommand("Open failure analysis");
+assert(testNavOSFailureAnalysis && testNavOSFailureAnalysis.type === "NAVIGATE" && testNavOSFailureAnalysis.route === "/learning/os/testing", "'Open failure analysis' fast-paths to /learning/os/testing");
+
+const testNavOSCapstone = matchFastCommand("Open os capstone");
+assert(testNavOSCapstone && testNavOSCapstone.type === "NAVIGATE" && testNavOSCapstone.route === "/learning/os/capstone", "'Open os capstone' fast-paths to /learning/os/capstone");
+
+const testNavOSXv6Capstone = matchFastCommand("Open xv6 capstone");
+assert(testNavOSXv6Capstone && testNavOSXv6Capstone.type === "NAVIGATE" && testNavOSXv6Capstone.route === "/learning/os/capstone", "'Open xv6 capstone' fast-paths to /learning/os/capstone");
+
+const testNavOSFinalCapstone = matchFastCommand("Open final capstone");
+assert(testNavOSFinalCapstone && testNavOSFinalCapstone.type === "NAVIGATE" && testNavOSFinalCapstone.route === "/learning/os/final-capstone", "'Open final capstone' fast-paths to /learning/os/final-capstone");
+
+const testNavOSEngineeringLab = matchFastCommand("Open os engineering lab");
+assert(testNavOSEngineeringLab && testNavOSEngineeringLab.type === "NAVIGATE" && testNavOSEngineeringLab.route === "/learning/os/final-capstone", "'Open os engineering lab' fast-paths to /learning/os/final-capstone");
+
 const testNav3 = matchFastCommand("open learning");
 assert(testNav3 && testNav3.type === "NAVIGATE" && testNav3.route === "/learning", "'open learning' fast-paths to /learning");
 

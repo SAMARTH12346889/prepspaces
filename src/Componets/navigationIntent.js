@@ -52,6 +52,9 @@ export function inferNavigation(message = "") {
   if (/\b(oops?|object oriented|classes and objects)\b/i.test(target)) {
     return "/learning";
   }
+  if (/\b(operating systems?|os course|kernel course|os)\b/i.test(target)) {
+    return "/learning/os";
+  }
   if (/\b(interview|mock interview|interview prep|interview room)\b/i.test(target)) {
     return "/interview";
   }

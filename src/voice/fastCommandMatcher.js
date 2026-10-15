@@ -9,6 +9,30 @@
 const REGISTERED_ROUTES = {
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
+  os: { route: "/learning/os", label: "Operating Systems Master Course" },
+  "os-architecture": { route: "/learning/os/architecture", label: "Computer Architecture for OS Engineers" },
+  "os-systems-programming": { route: "/learning/os/systems-programming", label: "C Programming & Systems Programming Model" },
+  "os-syscalls": { route: "/learning/os/syscalls", label: "OS Interfaces & System Calls" },
+  "os-processes": { route: "/learning/os/processes", label: "Processes & Process Lifecycle" },
+  "os-scheduling": { route: "/learning/os/scheduling", label: "CPU Scheduling & Performance" },
+  "os-threads": { route: "/learning/os/threads", label: "Threads & Multithreading" },
+  "os-concurrency": { route: "/learning/os/concurrency", label: "Concurrency, Synchronization & Deadlocks" },
+  "os-memory": { route: "/learning/os/memory", label: "Memory Hierarchy & Allocation" },
+  "os-virtual-memory": { route: "/learning/os/virtual-memory", label: "Virtual Memory & Address Translation" },
+  "os-demand-paging": { route: "/learning/os/demand-paging", label: "Demand Paging & Page Replacement" },
+  "os-virtualization": { route: "/learning/os/virtualization", label: "Advanced Memory, VMs & Containers" },
+  "os-filesystems": { route: "/learning/os/filesystems", label: "Filesystems & Storage Architecture" },
+  "os-storage": { route: "/learning/os/storage", label: "Storage Architecture & I/O" },
+  "os-ipc": { route: "/learning/os/ipc", label: "IPC, Pipes & Shared Memory" },
+  "os-crash-consistency": { route: "/learning/os/crash-consistency", label: "Crash Consistency & Durability" },
+  "os-kernel-architecture": { route: "/learning/os/kernel-architecture", label: "Kernel Architecture & xv6" },
+  "os-diagnostics": { route: "/learning/os/diagnostics", label: "Linux Internals & Performance Diagnostics" },
+  "os-networking": { route: "/learning/os/networking", label: "OS Networking & Network I/O" },
+  "os-security": { route: "/learning/os/security", label: "OS Security, Isolation & Reliability" },
+  "os-advanced-sync": { route: "/learning/os/advanced-sync", label: "Advanced Synchronization & Multiprocessor" },
+  "os-design-testing": { route: "/learning/os/testing", label: "OS Design, Testing & Failure Analysis" },
+  "os-capstone": { route: "/learning/os/capstone", label: "Operating Systems Capstone (xv6)" },
+  "os-final-capstone": { route: "/learning/os/final-capstone", label: "Final Capstone: OS Engineering Lab" },
   "system-design": { route: "/learning/system-design", label: "System Design Masterclass" },
   "system-design-requirements": { route: "/learning/system-design/requirements", label: "System Design Requirements & Capacity" },
   "system-design-networking": { route: "/learning/system-design/networking", label: "System Design APIs & Networking" },
@@ -136,7 +160,7 @@ const NAVIGATION_RULES = [
     destination: "system-design-advanced-case-studies",
   },
   {
-    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(capstone|final capstone|system design capstone|capstone project|system design module 24)$/i,
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(capstone|system design capstone|capstone project|system design module 24)$/i,
     destination: "system-design-capstone",
   },
   {
@@ -157,8 +181,108 @@ const NAVIGATION_RULES = [
     destination: "system-design",
   },
   {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(os|operating systems|operating system|os course|operating systems course)$/i,
+    destination: "os",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(computer architecture|os architecture|architecture module|os module 2)$/i,
+    destination: "os-architecture",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(c programming|systems programming|c and systems programming|systems programming model|os module 3)$/i,
+    destination: "os-systems-programming",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(system calls|syscalls|process execution|os interfaces|os module 4)$/i,
+    destination: "os-syscalls",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(processes|process lifecycle|process tree|pcb|os module 5)$/i,
+    destination: "os-processes",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(cpu scheduling|scheduling|scheduling algorithms|gantt chart|os module 6)$/i,
+    destination: "os-scheduling",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(threads|multithreading|posix threads|pthreads|amdahl's law|amdahl|os module 7)$/i,
+    destination: "os-threads",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(concurrency|synchronization|locks|deadlocks|mutex|os module 8)$/i,
+    destination: "os-concurrency",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(memory|memory hierarchy|memory allocation|allocator|free list|fragmentation|os module 9)$/i,
+    destination: "os-memory",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(virtual memory|address translation|paging|page tables|tlb|mmap|os module 10)$/i,
+    destination: "os-virtual-memory",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(demand paging|page replacement|page faults|belady|belady's anomaly|thrashing|working set|os module 11)$/i,
+    destination: "os-demand-paging",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(virtualization|virtual machines|containers|docker|cgroups|namespaces|ept|huge pages|numa|os module 12)$/i,
+    destination: "os-virtualization",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(filesystems|file systems|inodes|vfs|journaling|ext4|xfs|btrfs|zfs|fsync|os module 13)$/i,
+    destination: "os-filesystems",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(storage|storage architecture|disk scheduling|ssd|hdd|nvme|io scheduling|write amplification|io_uring|os module 14)$/i,
+    destination: "os-storage",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(ipc|interprocess communication|pipes|pipe|anonymous pipes|fifos|shared memory|shm|unix domain sockets|signals|os module 15)$/i,
+    destination: "os-ipc",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(crash consistency|durability|fsync|recovery|journaling|crash recovery|os module 16)$/i,
+    destination: "os-crash-consistency",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(kernel architecture|kernel|xv6|kernel internals|system calls dispatch|system call dispatch|os module 17)$/i,
+    destination: "os-kernel-architecture",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(diagnostics|performance diagnostics|linux diagnostics|linux internals|vmstat|iostat|perf|strace|os module 18)$/i,
+    destination: "os-diagnostics",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(os networking|network io|network i\/o|sockets|linux networking|epoll|os module 19)$/i,
+    destination: "os-networking",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(os security|operating system security|linux security|isolation|cgroups|seccomp|least privilege|os module 20)$/i,
+    destination: "os-security",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(advanced synchronization|multiprocessor|lock free|false sharing|cache coherence|os module 21)$/i,
+    destination: "os-advanced-sync",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(design and testing|os testing|testing|failure analysis|fault injection|race detection|kernel panics|kernel panic|os module 22)$/i,
+    destination: "os-design-testing",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(os capstone|xv6 capstone|kernel extension|os module 23)$/i,
+    destination: "os-capstone",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(final capstone|os final capstone|os engineering lab|capstone lab|os module 24)$/i,
+    destination: "os-final-capstone",
+  },
+  {
     regex: /^(interview|mock interview)$/i,
     destination: "interview",
+  },
+  {
+    regex: /^(operating systems|os course)$/i,
+    destination: "os",
   },
   {
     regex: /^(oops|oop mastery)$/i,
@@ -229,8 +353,36 @@ const NAVIGATION_RULES = [
     destination: "system-design-advanced-case-studies",
   },
   {
-    regex: /^(capstone|final capstone|system design capstone|capstone project)$/i,
+    regex: /^(capstone|system design capstone|capstone project)$/i,
     destination: "system-design-capstone",
+  },
+  {
+    regex: /^(diagnostics|performance diagnostics|linux diagnostics|linux internals)$/i,
+    destination: "os-diagnostics",
+  },
+  {
+    regex: /^(os networking|network io|network i\/o|linux networking)$/i,
+    destination: "os-networking",
+  },
+  {
+    regex: /^(os security|operating system security|linux security|least privilege)$/i,
+    destination: "os-security",
+  },
+  {
+    regex: /^(advanced synchronization|multiprocessor|lock free|false sharing|cache coherence)$/i,
+    destination: "os-advanced-sync",
+  },
+  {
+    regex: /^(design and testing|os testing|failure analysis|fault injection|kernel panics|kernel panic)$/i,
+    destination: "os-design-testing",
+  },
+  {
+    regex: /^(os capstone|xv6 capstone)$/i,
+    destination: "os-capstone",
+  },
+  {
+    regex: /^(final capstone|os final capstone|os engineering lab|capstone lab)$/i,
+    destination: "os-final-capstone",
   },
 ];
 

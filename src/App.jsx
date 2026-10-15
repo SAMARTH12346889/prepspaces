@@ -5,6 +5,30 @@ import Landingpage from "./Pages/Landingpage";
 import Learning from "./Pages/Learning";
 import InterviewRoom from "./Pages/InterviewRoom";
 import NotFound from "./Pages/NotFound";
+import OSIntro from "./Componets/OSIntro";
+import OSArchitecture from "./Componets/OSArchitecture";
+import OSSystemsProgramming from "./Componets/OSSystemsProgramming";
+import OSSyscalls from "./Componets/OSSyscalls";
+import OSProcessLifecycle from "./Componets/OSProcessLifecycle";
+import OSScheduling from "./Componets/OSScheduling";
+import OSThreads from "./Componets/OSThreads";
+import OSConcurrency from "./Componets/OSConcurrency";
+import OSMemory from "./Componets/OSMemory";
+import OSVirtualMemory from "./Componets/OSVirtualMemory";
+import OSDemandPaging from "./Componets/OSDemandPaging";
+import OSVirtualization from "./Componets/OSVirtualization";
+import OSFilesystems from "./Componets/OSFilesystems";
+import OSStorage from "./Componets/OSStorage";
+import OSIPC from "./Componets/OSIPC";
+import OSCrashConsistency from "./Componets/OSCrashConsistency";
+import OSKernelArchitecture from "./Componets/OSKernelArchitecture";
+import OSPerformanceDiagnostics from "./Componets/OSPerformanceDiagnostics";
+import OSNetworking from "./Componets/OSNetworking";
+import OSSecurity from "./Componets/OSSecurity";
+import OSAdvancedSync from "./Componets/OSAdvancedSync";
+import OSDesignTesting from "./Componets/OSDesignTesting";
+import OSCapstone from "./Componets/OSCapstone";
+import OSFinalCapstone from "./Componets/OSFinalCapstone";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -77,6 +101,145 @@ function App() {
             {/* LEARNING MAIN PAGE & SEO ALIAS */}
             <Route path="/learning" element={<Learning />} />
             <Route path="/learn" element={<Learning />} />
+
+            {/* OPERATING SYSTEMS MASTER COURSE */}
+            <Route path="/learning/os" element={<OSIntro />} />
+            <Route path="/learning/os/intro" element={<OSIntro />} />
+            <Route path="/learning/os/module-1" element={<OSIntro />} />
+            <Route path="/learning/os/architecture" element={<OSArchitecture />} />
+            <Route path="/learning/os/module-2" element={<OSArchitecture />} />
+            <Route path="/learning/os/systems-programming" element={<OSSystemsProgramming />} />
+            <Route path="/learning/os/c-programming" element={<OSSystemsProgramming />} />
+            <Route path="/learning/os/module-3" element={<OSSystemsProgramming />} />
+            <Route path="/learning/os/syscalls" element={<OSSyscalls />} />
+            <Route path="/learning/os/system-calls" element={<OSSyscalls />} />
+            <Route path="/learning/os/module-4" element={<OSSyscalls />} />
+            <Route path="/learning/os/processes" element={<OSProcessLifecycle />} />
+            <Route path="/learning/os/process-lifecycle" element={<OSProcessLifecycle />} />
+            <Route path="/learning/os/module-5" element={<OSProcessLifecycle />} />
+            <Route path="/learning/os/scheduling" element={<OSScheduling />} />
+            <Route path="/learning/os/cpu-scheduling" element={<OSScheduling />} />
+            <Route path="/learning/os/module-6" element={<OSScheduling />} />
+            <Route path="/learning/os/threads" element={<OSThreads />} />
+            <Route path="/learning/os/multithreading" element={<OSThreads />} />
+            <Route path="/learning/os/module-7" element={<OSThreads />} />
+            <Route path="/learning/os/concurrency" element={<OSConcurrency />} />
+            <Route path="/learning/os/synchronization" element={<OSConcurrency />} />
+            <Route path="/learning/os/deadlocks" element={<OSConcurrency />} />
+            <Route path="/learning/os/module-8" element={<OSConcurrency />} />
+            <Route path="/learning/os/memory" element={<OSMemory />} />
+            <Route path="/learning/os/memory-allocation" element={<OSMemory />} />
+            <Route path="/learning/os/module-9" element={<OSMemory />} />
+            <Route path="/learning/os/virtual-memory" element={<OSVirtualMemory />} />
+            <Route path="/learning/os/paging" element={<OSVirtualMemory />} />
+            <Route path="/learning/os/module-10" element={<OSVirtualMemory />} />
+            <Route path="/learning/os/demand-paging" element={<OSDemandPaging />} />
+            <Route path="/learning/os/page-replacement" element={<OSDemandPaging />} />
+            <Route path="/learning/os/module-11" element={<OSDemandPaging />} />
+            <Route path="/learning/os/virtualization" element={<OSVirtualization />} />
+            <Route path="/learning/os/containers" element={<OSVirtualization />} />
+            <Route path="/learning/os/advanced-memory" element={<OSVirtualization />} />
+            <Route path="/learning/os/module-12" element={<OSVirtualization />} />
+            <Route path="/learning/os/filesystems" element={<OSFilesystems />} />
+            <Route path="/learning/os/storage-architecture" element={<OSFilesystems />} />
+            <Route path="/learning/os/module-13" element={<OSFilesystems />} />
+            <Route path="/learning/os/storage" element={<OSStorage />} />
+            <Route path="/learning/os/disk-scheduling" element={<OSStorage />} />
+            <Route path="/learning/os/module-14" element={<OSStorage />} />
+            <Route path="/learning/os/ipc" element={<OSIPC />} />
+            <Route path="/learning/os/pipes" element={<OSIPC />} />
+            <Route path="/learning/os/shared-memory" element={<OSIPC />} />
+            <Route path="/learning/os/signals" element={<OSIPC />} />
+            <Route path="/learning/os/module-15" element={<OSIPC />} />
+            <Route path="/learning/os/crash-consistency" element={<OSCrashConsistency />} />
+            <Route path="/learning/os/durability" element={<OSCrashConsistency />} />
+            <Route path="/learning/os/fsync" element={<OSCrashConsistency />} />
+            <Route path="/learning/os/module-16" element={<OSCrashConsistency />} />
+            <Route path="/learning/os/kernel-architecture" element={<OSKernelArchitecture />} />
+            <Route path="/learning/os/kernel" element={<OSKernelArchitecture />} />
+            <Route path="/learning/os/xv6" element={<OSKernelArchitecture />} />
+            <Route path="/learning/os/module-17" element={<OSKernelArchitecture />} />
+            <Route path="/learning/os/diagnostics" element={<OSPerformanceDiagnostics />} />
+            <Route path="/learning/os/performance" element={<OSPerformanceDiagnostics />} />
+            <Route path="/learning/os/linux-internals" element={<OSPerformanceDiagnostics />} />
+            <Route path="/learning/os/module-18" element={<OSPerformanceDiagnostics />} />
+            <Route path="/learning/os/networking" element={<OSNetworking />} />
+            <Route path="/learning/os/network-io" element={<OSNetworking />} />
+            <Route path="/learning/os/sockets" element={<OSNetworking />} />
+            <Route path="/learning/os/module-19" element={<OSNetworking />} />
+            <Route path="/learning/os/security" element={<OSSecurity />} />
+            <Route path="/learning/os/isolation" element={<OSSecurity />} />
+            <Route path="/learning/os/reliability" element={<OSSecurity />} />
+            <Route path="/learning/os/module-20" element={<OSSecurity />} />
+            <Route path="/learning/os/advanced-sync" element={<OSAdvancedSync />} />
+            <Route path="/learning/os/synchronization" element={<OSAdvancedSync />} />
+            <Route path="/learning/os/multiprocessor" element={<OSAdvancedSync />} />
+            <Route path="/learning/os/lock-free" element={<OSAdvancedSync />} />
+            <Route path="/learning/os/module-21" element={<OSAdvancedSync />} />
+            <Route path="/learning/os/design-testing" element={<OSDesignTesting />} />
+            <Route path="/learning/os/testing" element={<OSDesignTesting />} />
+            <Route path="/learning/os/failure-analysis" element={<OSDesignTesting />} />
+            <Route path="/learning/os/distributed" element={<OSDesignTesting />} />
+            <Route path="/learning/os/module-22" element={<OSDesignTesting />} />
+            <Route path="/learning/os/capstone" element={<OSCapstone />} />
+            <Route path="/learning/os/xv6-capstone" element={<OSCapstone />} />
+            <Route path="/learning/os/module-23" element={<OSCapstone />} />
+            <Route path="/learning/os/final-capstone" element={<OSFinalCapstone />} />
+            <Route path="/learning/os/capstone-lab" element={<OSFinalCapstone />} />
+            <Route path="/learning/os/module-24" element={<OSFinalCapstone />} />
+            <Route path="/learn/os" element={<OSIntro />} />
+            <Route path="/learn/os/architecture" element={<OSArchitecture />} />
+            <Route path="/learn/os/systems-programming" element={<OSSystemsProgramming />} />
+            <Route path="/learn/os/c-programming" element={<OSSystemsProgramming />} />
+            <Route path="/learn/os/syscalls" element={<OSSyscalls />} />
+            <Route path="/learn/os/processes" element={<OSProcessLifecycle />} />
+            <Route path="/learn/os/process-lifecycle" element={<OSProcessLifecycle />} />
+            <Route path="/learn/os/scheduling" element={<OSScheduling />} />
+            <Route path="/learn/os/cpu-scheduling" element={<OSScheduling />} />
+            <Route path="/learn/os/threads" element={<OSThreads />} />
+            <Route path="/learn/os/multithreading" element={<OSThreads />} />
+            <Route path="/learn/os/concurrency" element={<OSConcurrency />} />
+            <Route path="/learn/os/synchronization" element={<OSConcurrency />} />
+            <Route path="/learn/os/memory" element={<OSMemory />} />
+            <Route path="/learn/os/memory-allocation" element={<OSMemory />} />
+            <Route path="/learn/os/virtual-memory" element={<OSVirtualMemory />} />
+            <Route path="/learn/os/paging" element={<OSVirtualMemory />} />
+            <Route path="/learn/os/demand-paging" element={<OSDemandPaging />} />
+            <Route path="/learn/os/page-replacement" element={<OSDemandPaging />} />
+            <Route path="/learn/os/virtualization" element={<OSVirtualization />} />
+            <Route path="/learn/os/containers" element={<OSVirtualization />} />
+            <Route path="/learn/os/filesystems" element={<OSFilesystems />} />
+            <Route path="/learn/os/storage-architecture" element={<OSFilesystems />} />
+            <Route path="/learn/os/storage" element={<OSStorage />} />
+            <Route path="/learn/os/disk-scheduling" element={<OSStorage />} />
+            <Route path="/learn/os/ipc" element={<OSIPC />} />
+            <Route path="/learn/os/pipes" element={<OSIPC />} />
+            <Route path="/learn/os/shared-memory" element={<OSIPC />} />
+            <Route path="/learn/os/crash-consistency" element={<OSCrashConsistency />} />
+            <Route path="/learn/os/durability" element={<OSCrashConsistency />} />
+            <Route path="/learn/os/kernel-architecture" element={<OSKernelArchitecture />} />
+            <Route path="/learn/os/kernel" element={<OSKernelArchitecture />} />
+            <Route path="/learn/os/xv6" element={<OSKernelArchitecture />} />
+            <Route path="/learn/os/diagnostics" element={<OSPerformanceDiagnostics />} />
+            <Route path="/learn/os/performance" element={<OSPerformanceDiagnostics />} />
+            <Route path="/learn/os/linux-internals" element={<OSPerformanceDiagnostics />} />
+            <Route path="/learn/os/networking" element={<OSNetworking />} />
+            <Route path="/learn/os/network-io" element={<OSNetworking />} />
+            <Route path="/learn/os/sockets" element={<OSNetworking />} />
+            <Route path="/learn/os/security" element={<OSSecurity />} />
+            <Route path="/learn/os/isolation" element={<OSSecurity />} />
+            <Route path="/learn/os/reliability" element={<OSSecurity />} />
+            <Route path="/learn/os/advanced-sync" element={<OSAdvancedSync />} />
+            <Route path="/learn/os/multiprocessor" element={<OSAdvancedSync />} />
+            <Route path="/learn/os/lock-free" element={<OSAdvancedSync />} />
+            <Route path="/learn/os/design-testing" element={<OSDesignTesting />} />
+            <Route path="/learn/os/testing" element={<OSDesignTesting />} />
+            <Route path="/learn/os/failure-analysis" element={<OSDesignTesting />} />
+            <Route path="/learn/os/capstone" element={<OSCapstone />} />
+            <Route path="/learn/os/xv6-capstone" element={<OSCapstone />} />
+            <Route path="/learn/os/final-capstone" element={<OSFinalCapstone />} />
+            <Route path="/learn/os/capstone-lab" element={<OSFinalCapstone />} />
+            <Route path="/learn/operating-systems" element={<OSIntro />} />
 
             {/* SYSTEM DESIGN COURSE & SEO ALIAS */}
             <Route path="/learn/system-design" element={<SystemDesignIntro />} />

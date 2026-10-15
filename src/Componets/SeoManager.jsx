@@ -12,13 +12,143 @@ const routeMeta = {
   },
   "/learning": {
     title: "Technical Interview Preparation Curriculum & Courses — PrepSpaces",
-    description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, and Cloud Computing.",
+    description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, Cloud Computing, and Operating Systems.",
     canonical: `${BASE_URL}/learning`,
   },
   "/learn": {
     title: "Technical Interview Preparation Curriculum & Courses — PrepSpaces",
-    description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, and Cloud Computing.",
+    description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, Cloud Computing, and Operating Systems.",
     canonical: `${BASE_URL}/learning`,
+  },
+  "/learning/os": {
+    title: "Operating Systems Master Course — Kernel Internals & Systems Thinking | PrepSpaces",
+    description: "Master operating systems internals, kernel architectures, process scheduling, virtual memory, concurrency, and Linux systems programming.",
+    canonical: `${BASE_URL}/learning/os`,
+  },
+  "/learning/os/intro": {
+    title: "Module 1: Introduction to Operating Systems and Systems Thinking | PrepSpaces",
+    description: "Learn why operating systems exist, hardware abstraction layers, kernel vs user space, system calls, and Linux inspection labs.",
+    canonical: `${BASE_URL}/learning/os`,
+  },
+  "/learning/os/architecture": {
+    title: "Module 2: Computer Architecture for OS Engineers | PrepSpaces",
+    description: "Master CPU execution, registers, privilege rings, interrupts, MMU page translation, TLBs, DMA, and system boot stages.",
+    canonical: `${BASE_URL}/learning/os/architecture`,
+  },
+  "/learning/os/systems-programming": {
+    title: "Module 3: C Programming & Systems Programming Model | PrepSpaces",
+    description: "Master C memory models, virtual address space layouts, ELF binaries, static and dynamic linking, AddressSanitizer, and POSIX system interfaces.",
+    canonical: `${BASE_URL}/learning/os/systems-programming`,
+  },
+  "/learning/os/syscalls": {
+    title: "Module 4: OS Interfaces, System Calls & Program Execution | PrepSpaces",
+    description: "Master system call transitions, file descriptors, fork, execvp, waitpid, process lifecycle, signals, pipes, and strace diagnostics.",
+    canonical: `${BASE_URL}/learning/os/syscalls`,
+  },
+  "/learning/os/processes": {
+    title: "Module 5: Processes and Process Lifecycle | PrepSpaces",
+    description: "Master process abstractions, kernel task_struct (PCB), 5-state transitions, context switching, orphans, zombies, and Linux /proc exploration.",
+    canonical: `${BASE_URL}/learning/os/processes`,
+  },
+  "/learning/os/scheduling": {
+    title: "Module 6: CPU Scheduling and Performance | PrepSpaces",
+    description: "Master FCFS, SJF, SRTF, Round Robin, Multilevel Feedback Queues (MLFQ), context-switch overhead, CPU affinity, and Linux EEVDF.",
+    canonical: `${BASE_URL}/learning/os/scheduling`,
+  },
+  "/learning/os/threads": {
+    title: "Module 7: Threads and Multithreaded Programming | PrepSpaces",
+    description: "Master POSIX threads (pthreads), shared vs private state, threading models (1:1, N:1, M:N), Amdahl's Law, and cache false sharing mitigation.",
+    canonical: `${BASE_URL}/learning/os/threads`,
+  },
+  "/learning/os/concurrency": {
+    title: "Module 8: Concurrency, Synchronization and Deadlocks | PrepSpaces",
+    description: "Master race conditions, critical sections, POSIX mutexes, condition variables, semaphores, C11 memory ordering, Coffman deadlock conditions, and linearizability.",
+    canonical: `${BASE_URL}/learning/os/concurrency`,
+  },
+  "/learning/os/memory": {
+    title: "Module 9: Memory Hierarchy and Memory Allocation | PrepSpaces",
+    description: "Master virtual address spaces, stack frames, heap allocators, first-fit vs best-fit vs buddy allocation, fragmentation, and cache locality.",
+    canonical: `${BASE_URL}/learning/os/memory`,
+  },
+  "/learning/os/virtual-memory": {
+    title: "Module 10: Virtual Memory and Address Translation | PrepSpaces",
+    description: "Master hardware MMU address translation, hierarchical page tables, PTE flags, TLB hit rates, Effective Access Time (EAT), and Copy-on-Write.",
+    canonical: `${BASE_URL}/learning/os/virtual-memory`,
+  },
+  "/learning/os/demand-paging": {
+    title: "Module 11: Demand Paging and Page Replacement | PrepSpaces",
+    description: "Master demand paging, minor and major faults, working sets, thrashing, FIFO, Optimal, LRU, Clock, Belady's Anomaly, and Linux memory pressure.",
+    canonical: `${BASE_URL}/learning/os/demand-paging`,
+  },
+  "/learning/os/virtualization": {
+    title: "Module 12: Advanced Memory, Virtual Machines and Containers | PrepSpaces",
+    description: "Master memory-mapped I/O, huge pages, NUMA nodes, hypervisors, EPT/NPT two-stage translation, Linux namespaces, and cgroup v2 memory limits.",
+    canonical: `${BASE_URL}/learning/os/virtualization`,
+  },
+  "/learning/os/filesystems": {
+    title: "Module 13: Filesystems and Storage Architecture | PrepSpaces",
+    description: "Master files, directories, inodes, dentries, extents, journaling, crash consistency, VFS, page cache writeback, fsync, and ext4/XFS/Btrfs design.",
+    canonical: `${BASE_URL}/learning/os/filesystems`,
+  },
+  "/learning/os/storage": {
+    title: "Module 14: Storage Architecture, I/O Scheduling & Performance | PrepSpaces",
+    description: "Master HDDs, flash SSDs, NVMe parallel queues, Little's Law, Linux I/O schedulers, DMA, write amplification, and io_uring.",
+    canonical: `${BASE_URL}/learning/os/storage`,
+  },
+  "/learning/os/ipc": {
+    title: "Module 15: IPC, Pipes, Shared Memory & Signals | PrepSpaces",
+    description: "Master interprocess communication, anonymous pipes, named FIFOs, Unix domain sockets, POSIX shared memory, semaphores, signals, and backpressure.",
+    canonical: `${BASE_URL}/learning/os/ipc`,
+  },
+  "/learning/os/crash-consistency": {
+    title: "Module 16: Crash Consistency, Durability and Recovery | PrepSpaces",
+    description: "Master crash consistency, page cache write ordering, fsync, atomic file replacement, journaling, copy-on-write, and disaster recovery validation.",
+    canonical: `${BASE_URL}/learning/os/crash-consistency`,
+  },
+  "/learning/os/kernel-architecture": {
+    title: "Module 17: Kernel Architecture & System Implementation | PrepSpaces",
+    description: "Master kernel internals, boot flow from UEFI to PID 1, system-call dispatch tables, trap handling, spinlock interrupt safety, and MIT xv6 vs Linux.",
+    canonical: `${BASE_URL}/learning/os/kernel-architecture`,
+  },
+  "/learning/os/diagnostics": {
+    title: "Module 18: Linux Internals & Performance Diagnostics | PrepSpaces",
+    description: "Master Linux performance diagnostics, /proc, /sys, vmstat, iostat, perf, strace, PSI stalls, and evidence-based bottleneck triage.",
+    canonical: `${BASE_URL}/learning/os/diagnostics`,
+  },
+  "/learning/os/networking": {
+    title: "Module 19: OS Networking & Network I/O | PrepSpaces",
+    description: "Master the Linux kernel network stack, TCP/UDP sockets, non-blocking I/O, epoll event loops, socket buffers, application backpressure, and network namespaces.",
+    canonical: `${BASE_URL}/learning/os/networking`,
+  },
+  "/learning/os/security": {
+    title: "Module 20: OS Security, Isolation & Reliability | PrepSpaces",
+    description: "Master Linux identities, capabilities, POSIX permissions, cgroup v2 limits, seccomp filters, Secure Boot, DoS defenses, and STRIDE threat modeling.",
+    canonical: `${BASE_URL}/learning/os/security`,
+  },
+  "/learning/os/advanced-sync": {
+    title: "Module 21: Advanced Synchronization & Multiprocessor Systems | PrepSpaces",
+    description: "Master multiprocessor synchronization, spinlocks, atomics, lock-free queues, memory ordering, cache coherence, false sharing, NUMA, and RCU.",
+    canonical: `${BASE_URL}/learning/os/advanced-sync`,
+  },
+  "/learning/os/testing": {
+    title: "Module 22: OS Design, Testing & Failure Analysis | PrepSpaces",
+    description: "Master systems testing, component invariants, fault injection, ThreadSanitizer race detection, kernel panics, and performance regression gates.",
+    canonical: `${BASE_URL}/learning/os/testing`,
+  },
+  "/learning/os/design-testing": {
+    title: "Module 22: OS Design, Testing & Failure Analysis | PrepSpaces",
+    description: "Master systems testing, component invariants, fault injection, ThreadSanitizer race detection, kernel panics, and performance regression gates.",
+    canonical: `${BASE_URL}/learning/os/testing`,
+  },
+  "/learning/os/capstone": {
+    title: "Module 23 Capstone: Build an OS Component (xv6/RISC-V) | PrepSpaces",
+    description: "Build, extend, and test an educational operating system component using MIT xv6 on RISC-V, system call traps, and engineering verification.",
+    canonical: `${BASE_URL}/learning/os/capstone`,
+  },
+  "/learning/os/final-capstone": {
+    title: "Module 24: Final Capstone — Operating Systems Engineering Lab | PrepSpaces",
+    description: "Culminating operating systems engineering project. Implement bounded concurrent worker queues, performance diagnostic tools, or virtual memory simulators.",
+    canonical: `${BASE_URL}/learning/os/final-capstone`,
   },
   "/learn/system-design": {
     title: "System Design Course for Beginners | PrepSpaces",
