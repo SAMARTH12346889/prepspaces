@@ -57,6 +57,7 @@ import NetworkFinalCapstone from "./Componets/NetworkFinalCapstone";
 import CybersecurityIntro from "./Componets/CybersecurityIntro";
 import CybersecurityNetworking from "./Componets/CybersecurityNetworking";
 import CybersecuritySystems from "./Componets/CybersecuritySystems";
+import CybersecurityThreatModeling from "./Componets/CybersecurityThreatModeling";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -743,6 +744,13 @@ function App() {
             <Route path="/learning/cybersecurity/linux-windows" element={<CybersecuritySystems />} />
             <Route path="/learning/cybersecurity/os-internals" element={<CybersecuritySystems />} />
             <Route path="/learn/cybersecurity/systems" element={<CybersecuritySystems />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 4: SECURITY PRINCIPLES, THREAT MODELING, ATTACK SURFACES & RISK MANAGEMENT */}
+            <Route path="/learning/cybersecurity/threat-modeling" element={<CybersecurityThreatModeling />} />
+            <Route path="/learning/cybersecurity/module-4" element={<CybersecurityThreatModeling />} />
+            <Route path="/learning/cybersecurity/security-engineering" element={<CybersecurityThreatModeling />} />
+            <Route path="/learning/cybersecurity/risk-management" element={<CybersecurityThreatModeling />} />
+            <Route path="/learn/cybersecurity/threat-modeling" element={<CybersecurityThreatModeling />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

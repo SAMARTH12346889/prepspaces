@@ -1344,12 +1344,12 @@ Spooler    Print Spooler`,
               Up Next · Module 4
             </span>
             <h4 className="text-sm sm:text-base font-extrabold text-[#18181b]">
-              Cryptography & Public Key Infrastructure (PKI) Engineering
+              Security Principles, Threat Modeling, Attack Surfaces & Risk Management
             </h4>
           </div>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/cryptography")}
+            onClick={() => navigate("/learning/cybersecurity/threat-modeling")}
             className="flex items-center gap-2 rounded-xl bg-[#18181b] px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 transition cursor-pointer"
           >
             <span>Proceed to Module 4</span>
