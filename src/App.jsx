@@ -64,6 +64,7 @@ import CybersecurityRecon from "./Componets/CybersecurityRecon";
 import CybersecurityVulnerabilityAssessment from "./Componets/CybersecurityVulnerabilityAssessment";
 import CybersecurityNetworkSecurity from "./Componets/CybersecurityNetworkSecurity";
 import CybersecurityOSSecurity from "./Componets/CybersecurityOSSecurity";
+import CybersecurityIAM from "./Componets/CybersecurityIAM";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -812,6 +813,17 @@ function App() {
             <Route path="/learn/cybersecurity/os-security" element={<CybersecurityOSSecurity />} />
             <Route path="/learn/cybersecurity/module-10" element={<CybersecurityOSSecurity />} />
             <Route path="/learn/cybersecurity/hardening" element={<CybersecurityOSSecurity />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 11: IDENTITY & ACCESS MANAGEMENT, AUTHENTICATION, AUTHORIZATION & MFA */}
+            <Route path="/learning/cybersecurity/iam" element={<CybersecurityIAM />} />
+            <Route path="/learning/cybersecurity/module-11" element={<CybersecurityIAM />} />
+            <Route path="/learning/cybersecurity/identity-access-management" element={<CybersecurityIAM />} />
+            <Route path="/learning/cybersecurity/authentication" element={<CybersecurityIAM />} />
+            <Route path="/learning/cybersecurity/authorization" element={<CybersecurityIAM />} />
+            <Route path="/learning/cybersecurity/mfa" element={<CybersecurityIAM />} />
+            <Route path="/learn/cybersecurity/iam" element={<CybersecurityIAM />} />
+            <Route path="/learn/cybersecurity/module-11" element={<CybersecurityIAM />} />
+            <Route path="/learn/cybersecurity/mfa" element={<CybersecurityIAM />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

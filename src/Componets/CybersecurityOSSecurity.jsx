@@ -1821,12 +1821,12 @@ export default function CybersecurityOSSecurity() {
               Up Next · Module 11
             </span>
             <h4 className="text-sm sm:text-base font-extrabold text-[#18181b]">
-              Web Security Fundamentals, OWASP Top 10 & Application Testing
+              Identity & Access Management, Authentication, Authorization & MFA
             </h4>
           </div>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/web-security")}
+            onClick={() => navigate("/learning/cybersecurity/iam")}
             className="flex items-center gap-2 rounded-xl bg-[#18181b] px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 transition cursor-pointer"
           >
             <span>Proceed to Module 11</span>
