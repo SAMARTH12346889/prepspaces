@@ -65,6 +65,7 @@ import CybersecurityVulnerabilityAssessment from "./Componets/CybersecurityVulne
 import CybersecurityNetworkSecurity from "./Componets/CybersecurityNetworkSecurity";
 import CybersecurityOSSecurity from "./Componets/CybersecurityOSSecurity";
 import CybersecurityIAM from "./Componets/CybersecurityIAM";
+import CybersecurityCryptography from "./Componets/CybersecurityCryptography";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -824,6 +825,17 @@ function App() {
             <Route path="/learn/cybersecurity/iam" element={<CybersecurityIAM />} />
             <Route path="/learn/cybersecurity/module-11" element={<CybersecurityIAM />} />
             <Route path="/learn/cybersecurity/mfa" element={<CybersecurityIAM />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 12: CRYPTOGRAPHY, ENCRYPTION, HASHING, PKI, TLS & DIGITAL CERTIFICATES */}
+            <Route path="/learning/cybersecurity/cryptography" element={<CybersecurityCryptography />} />
+            <Route path="/learning/cybersecurity/module-12" element={<CybersecurityCryptography />} />
+            <Route path="/learning/cybersecurity/pki" element={<CybersecurityCryptography />} />
+            <Route path="/learning/cybersecurity/tls" element={<CybersecurityCryptography />} />
+            <Route path="/learning/cybersecurity/certificates" element={<CybersecurityCryptography />} />
+            <Route path="/learning/cybersecurity/encryption" element={<CybersecurityCryptography />} />
+            <Route path="/learn/cybersecurity/cryptography" element={<CybersecurityCryptography />} />
+            <Route path="/learn/cybersecurity/module-12" element={<CybersecurityCryptography />} />
+            <Route path="/learn/cybersecurity/pki" element={<CybersecurityCryptography />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

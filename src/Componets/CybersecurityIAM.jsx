@@ -1730,10 +1730,10 @@ export default function CybersecurityIAM() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/web-security")}
+            onClick={() => navigate("/learning/cybersecurity/cryptography")}
             className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Next: Module 12 (Web Security & OWASP)</span>
+            <span>Next: Module 12 (Cryptography, PKI & TLS)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
