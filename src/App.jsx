@@ -60,6 +60,7 @@ import CybersecuritySystems from "./Componets/CybersecuritySystems";
 import CybersecurityThreatModeling from "./Componets/CybersecurityThreatModeling";
 import CybersecurityMethodology from "./Componets/CybersecurityMethodology";
 import CybersecurityOSINT from "./Componets/CybersecurityOSINT";
+import CybersecurityRecon from "./Componets/CybersecurityRecon";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -768,6 +769,14 @@ function App() {
             <Route path="/learning/cybersecurity/passive-reconnaissance" element={<CybersecurityOSINT />} />
             <Route path="/learning/cybersecurity/open-source-intelligence" element={<CybersecurityOSINT />} />
             <Route path="/learn/cybersecurity/osint" element={<CybersecurityOSINT />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 7: NETWORK DISCOVERY, PORT SCANNING & SERVICE ENUMERATION */}
+            <Route path="/learning/cybersecurity/recon" element={<CybersecurityRecon />} />
+            <Route path="/learning/cybersecurity/module-7" element={<CybersecurityRecon />} />
+            <Route path="/learning/cybersecurity/network-discovery" element={<CybersecurityRecon />} />
+            <Route path="/learning/cybersecurity/port-scanning" element={<CybersecurityRecon />} />
+            <Route path="/learning/cybersecurity/service-enumeration" element={<CybersecurityRecon />} />
+            <Route path="/learn/cybersecurity/recon" element={<CybersecurityRecon />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
