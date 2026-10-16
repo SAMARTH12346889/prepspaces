@@ -130,7 +130,7 @@ export const CYBERSECURITY_MODULES = [
   { id: "os-security", name: "10. OS Security & Hardening", route: "/learning/cybersecurity/os-security" },
   { id: "iam", name: "11. Identity & Access Management", route: "/learning/cybersecurity/iam" },
   { id: "cryptography", name: "12. Cryptography, PKI & TLS", route: "/learning/cybersecurity/cryptography" },
-  { id: "web-security", name: "13. Web Security & OWASP", route: "/learning/cybersecurity/web-security" },
+  { id: "web-security", name: "13. Web Architecture, Sessions & Browser Security", route: "/learning/cybersecurity/web-security" },
   { id: "burp-suite", name: "14. Web PenTesting (Burp Suite)", route: "/learning/cybersecurity/burp-suite" },
   { id: "api-security", name: "15. API Security & Microservices", route: "/learning/cybersecurity/api-security" },
   { id: "exploitation", name: "16. Exploitation & Metasploit", route: "/learning/cybersecurity/exploitation" },

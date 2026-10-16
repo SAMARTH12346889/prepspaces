@@ -66,6 +66,7 @@ import CybersecurityNetworkSecurity from "./Componets/CybersecurityNetworkSecuri
 import CybersecurityOSSecurity from "./Componets/CybersecurityOSSecurity";
 import CybersecurityIAM from "./Componets/CybersecurityIAM";
 import CybersecurityCryptography from "./Componets/CybersecurityCryptography";
+import CybersecurityWebSecurity from "./Componets/CybersecurityWebSecurity";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -836,6 +837,17 @@ function App() {
             <Route path="/learn/cybersecurity/cryptography" element={<CybersecurityCryptography />} />
             <Route path="/learn/cybersecurity/module-12" element={<CybersecurityCryptography />} />
             <Route path="/learn/cybersecurity/pki" element={<CybersecurityCryptography />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 13: WEB APPLICATION ARCHITECTURE, HTTP SESSIONS, COOKIES & BROWSER SECURITY */}
+            <Route path="/learning/cybersecurity/web-security" element={<CybersecurityWebSecurity />} />
+            <Route path="/learning/cybersecurity/module-13" element={<CybersecurityWebSecurity />} />
+            <Route path="/learning/cybersecurity/http-sessions" element={<CybersecurityWebSecurity />} />
+            <Route path="/learning/cybersecurity/cookies" element={<CybersecurityWebSecurity />} />
+            <Route path="/learning/cybersecurity/browser-security" element={<CybersecurityWebSecurity />} />
+            <Route path="/learning/cybersecurity/sop-cors" element={<CybersecurityWebSecurity />} />
+            <Route path="/learn/cybersecurity/web-security" element={<CybersecurityWebSecurity />} />
+            <Route path="/learn/cybersecurity/module-13" element={<CybersecurityWebSecurity />} />
+            <Route path="/learn/cybersecurity/browser-security" element={<CybersecurityWebSecurity />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
