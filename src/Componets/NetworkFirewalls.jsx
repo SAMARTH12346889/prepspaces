@@ -618,7 +618,7 @@ A comprehensive technical audit of the enterprise firewall rulebase and perimete
             <div className="space-y-2 max-w-3xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs font-bold font-mono">
                 <ShieldCheck size={13} />
-                <span>Defensive Cybersecurity &bull; Packet Inspection &bull; Zero Trust &bull; nftables</span>
+                <span>Defensive Network Security &bull; Packet Inspection &bull; Zero Trust &bull; nftables</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight">
                 Network Services, Firewalls &amp; Access Control

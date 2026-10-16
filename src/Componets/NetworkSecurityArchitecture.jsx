@@ -662,7 +662,7 @@ PersistentKeepalive = 25
 | **Test 5:** Expired/mismatched TLS certificate inspection | Client TLS library terminates handshake | TLS Alert: BAD_CERTIFICATE | **PASS** |
 
 ---
-*Report certified by Architecture Review Board — PrepSpaces Cybersecurity Division*`;
+*Report certified by Architecture Review Board — PrepSpaces Security Division*`;
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900">

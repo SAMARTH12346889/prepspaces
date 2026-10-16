@@ -519,7 +519,7 @@ export default function NetworkThreatModeling() {
           <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold">
               <ShieldAlert size={14} />
-              <span>Cybersecurity Foundations &amp; Threat Modeling</span>
+              <span>Network Security Foundations &amp; Threat Modeling</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-mono text-stone-700">
               <span>NIST SP 800-30</span>

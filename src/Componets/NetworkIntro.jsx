@@ -1004,11 +1004,11 @@ udp    UNCONN  0       0        127.0.0.53%lo:53          0.0.0.0:*      users:(
               </div>
             </section>
 
-            {/* Section 1.10: Cybersecurity Connections */}
+            {/* Section 1.10: Network Security Connections */}
             <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <ShieldCheck size={14} />
-                <span>1.10 — Cybersecurity Connections</span>
+                <span>1.10 — Network Security Connections</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-black text-[#18181b]">
                 Network Attack Surface & Defensive Engineering

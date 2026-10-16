@@ -116,33 +116,6 @@ export const NETWORKS_MODULES = [
   { id: "final-capstone", name: "24. Final Capstone: Network Engineering Lab", route: "/learning/networks/final-capstone" },
 ];
 
-export const CYBERSECURITY_MODULES = [
-  { id: "intro", name: "1. Intro & Ethical Hacking", route: "/learning/cybersecurity" },
-  { id: "networking", name: "2. Networking Fundamentals & Protocols", route: "/learning/cybersecurity/networking" },
-  { id: "os-internals", name: "3. Linux & Windows Internals", route: "/learning/cybersecurity/os-internals" },
-  { id: "threat-modeling", name: "4. Threat Modeling & Risk Management", route: "/learning/cybersecurity/threat-modeling" },
-  { id: "ethical-hacking-methodology", name: "5. Ethical Hacking & Rules of Engagement", route: "/learning/cybersecurity/ethical-hacking-methodology" },
-  { id: "osint-reconnaissance", name: "6. OSINT & Passive Reconnaissance", route: "/learning/cybersecurity/osint-reconnaissance" },
-  { id: "network-discovery", name: "7. Network Discovery & Port Scanning", route: "/learning/cybersecurity/network-discovery" },
-  { id: "vulnerability-assessment", name: "8. Vulnerability Assessment & CVSS", route: "/learning/cybersecurity/vulnerability-assessment" },
-  { id: "network-security", name: "9. Network Security, Firewalls & IDS/IPS", route: "/learning/cybersecurity/network-security" },
-  { id: "os-hardening", name: "10. OS Security, Hardening & Privilege Management", route: "/learning/cybersecurity/os-hardening" },
-  { id: "iam", name: "11. Identity & Access Management, AuthN, AuthZ & MFA", route: "/learning/cybersecurity/iam" },
-  { id: "cryptography", name: "12. Cryptography, PKI, TLS & Certificates", route: "/learning/cybersecurity/cryptography" },
-  { id: "web-security", name: "13. Web App Architecture, Sessions & Browser Security", route: "/learning/cybersecurity/web-security" },
-  { id: "injection", name: "14. OWASP Top 10, Injection & Secure Input", route: "/learning/cybersecurity/injection" },
-  { id: "auth-api-security", name: "15. Auth Flaws, Access Control, Sessions & API Security", route: "/learning/cybersecurity/auth-api-security" },
-  { id: "secure-code-review", name: "16. Secure Code Review, Web Testing & Remediation", route: "/learning/cybersecurity/secure-code-review" },
-  { id: "wireless-security", name: "17. Wireless Security & Wi-Fi Defense", route: "/learning/cybersecurity/wireless-security" },
-  { id: "cloud-security", name: "18. Cloud Security, Containers & IAM", route: "/learning/cybersecurity/cloud-security" },
-  { id: "malware-analysis", name: "19. Malware Analysis, Ransomware & CTI", route: "/learning/cybersecurity/malware-analysis" },
-  { id: "siem-incident-response", name: "20. SIEM, Incident Response & Forensics", route: "/learning/cybersecurity/siem-incident-response" },
-  { id: "pentest-methodology", name: "21. Pentest Planning, Scope & Evidence", route: "/learning/cybersecurity/pentest-methodology" },
-  { id: "red-blue-purple-teams", name: "22. Red, Blue & Purple Operations", route: "/learning/cybersecurity/red-blue-purple-teams" },
-  { id: "pentest-reporting-remediation", name: "23. Pentest Reports, Risk & Retesting", route: "/learning/cybersecurity/pentest-reporting-remediation" },
-  { id: "capstone", name: "24. Final Capstone: Assess, Secure & Defend", route: "/learning/cybersecurity/capstone" },
-];
-
 export default function ModuleNav({
   track = "cloud",
   currentModuleId = "cloud",
@@ -161,12 +134,10 @@ export default function ModuleNav({
       ? OS_MODULES
       : track === "networks"
       ? NETWORKS_MODULES
-      : track === "cybersecurity"
-      ? CYBERSECURITY_MODULES
       : CLOUD_MODULES;
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : "cloud")
+    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : "cloud")
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
@@ -176,8 +147,6 @@ export default function ModuleNav({
       ? "/learning/os"
       : track === "networks"
       ? "/learning/networks"
-      : track === "cybersecurity"
-      ? "/learning/cybersecurity"
       : "/learning/cloud";
 
   const { goBack } = useSafeBack(defaultFallback);
@@ -238,8 +207,6 @@ export default function ModuleNav({
                   ? "DevOps"
                   : track === "system-design"
                   ? "System Design"
-                  : track === "cybersecurity"
-                  ? "Cybersecurity"
                   : track === "os"
                   ? "Operating Systems"
                   : track === "networks"
