@@ -562,31 +562,37 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#f97316] selection:text-white">
-      {/* Top Global Navigation Bar */}
-      <ModuleNav
-        track="cybersecurity"
-        currentModuleId="intro"
-        showAiTutor={showAiTutor}
-        onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
-        aiTutorLabel="Cybersecurity Mentor"
-      />
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Ambient background glows */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-12 left-1/4 w-[500px] h-[500px] bg-orange-500/[0.04] rounded-full blur-[140px]" />
+        <div className="absolute top-1/2 right-12 w-[600px] h-[600px] bg-amber-500/[0.04] rounded-full blur-[160px]" />
+      </div>
 
-      <div className="flex-1 flex flex-col max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* Module Header & University Alignment Badge */}
-        <div className="mb-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+        {/* Top Global Navigation Bar */}
+        <ModuleNav
+          track="cybersecurity"
+          currentModuleId="intro"
+          showAiTutor={showAiTutor}
+          onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
+          aiTutorLabel="Cybersecurity Mentor"
+        />
+
+        {/* Hero Header Card */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white/85 p-6 sm:p-8 backdrop-blur-xl shadow-xs">
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 font-mono text-[11px] font-bold text-[#ea580c] uppercase tracking-wider">
               <Shield size={12} className="text-[#f97316]" />
               Course: Cybersecurity Masterclass
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-stone-200 bg-white/80 px-2.5 py-1 text-[11px] font-bold text-stone-600">
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-medium text-stone-600">
               Module 1 of 24 · Foundation Module
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-stone-200 bg-white/80 px-2.5 py-1 text-[11px] font-bold text-stone-600">
-              University Curriculum · MIT / Stanford / CMU / Berkeley / Cambridge / ETH
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-medium text-stone-600">
+              MIT / Stanford / CMU / Berkeley / Cambridge / ETH
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-700">
+            <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[11px] font-mono font-bold text-emerald-700">
               Beginner to Professional · 10–12 Hours
             </span>
           </div>
@@ -594,84 +600,57 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#18181b]">
             Introduction to Cybersecurity and Ethical Hacking
           </h1>
-          <p className="mt-2 text-sm md:text-base text-stone-600 max-w-4xl leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-4xl leading-relaxed">
             Establish the core foundation for professional security engineering. Learn why systems fail, how defenders evaluate adversarial risk, how ethical hackers conduct authorized assessments, and how organizations protect information, infrastructure, and privacy.
           </p>
-        </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-stone-200/80">
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Duration</span>
+              <span className="text-sm font-bold text-stone-900">10–12 Hours</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Track</span>
+              <span className="text-sm font-bold text-stone-900">Foundations</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Curriculum</span>
+              <span className="text-sm font-bold text-stone-900">MIT / Stanford Standard</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Interactive Labs</span>
+              <span className="text-sm font-bold text-stone-900">4 Simulation Sandboxes</span>
+            </div>
+          </div>
+        </header>
 
         {/* Tab Navigation Controls */}
-        <div className="flex items-center gap-2 border-b border-[#e7e3da] pb-3 mb-6 overflow-x-auto scrollbar-none">
-          <button
-            onClick={() => setActiveTab("theory")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-              activeTab === "theory"
-                ? "bg-[#18181b] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
-            }`}
-          >
-            <BookOpen size={14} />
-            <span>Curriculum & Deep Theory (Parts A–P)</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("interactive-labs")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-              activeTab === "interactive-labs"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
-            }`}
-          >
-            <Workflow size={14} />
-            <span>Interactive Labs (Asset, STRIDE, Risk & RoE)</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("observation-lab")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-              activeTab === "observation-lab"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
-            }`}
-          >
-            <Terminal size={14} />
-            <span>Safe Observation Lab (HTTP & API Inspection)</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("case-study")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-              activeTab === "case-study"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
-            }`}
-          >
-            <FileText size={14} />
-            <span>Applied Case Study: LearnSphere Platform</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("quiz")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-              activeTab === "quiz"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
-            }`}
-          >
-            <Award size={14} />
-            <span>Assessment & Quiz (10 Questions)</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("assignment")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-              activeTab === "assignment"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
-            }`}
-          >
-            <ListChecks size={14} />
-            <span>Capstone Assignment & Rubric (Part O)</span>
-          </button>
+        <div className="mb-8 flex flex-wrap items-center gap-2 border-b border-stone-200 pb-3">
+          {[
+            { id: "theory", label: "Curriculum & Deep Theory (Parts A–P)", icon: BookOpen },
+            { id: "interactive-labs", label: "Interactive Labs (Asset, STRIDE & RoE)", icon: Workflow },
+            { id: "observation-lab", label: "Safe Observation Lab (HTTP/API)", icon: Terminal },
+            { id: "case-study", label: "Applied Case Study: LearnSphere", icon: FileText },
+            { id: "quiz", label: "Assessment & Quiz (10 Questions)", icon: Award },
+            { id: "assignment", label: "Capstone Assignment & Rubric", icon: ListChecks }
+          ].map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer ${
+                  isActive
+                    ? "bg-[#18181b] text-white shadow-stone-900/10"
+                    : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
+                }`}
+              >
+                <Icon size={15} className={isActive ? "text-[#f97316]" : "text-stone-400"} />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* ------------------------------------------------------------------ */}
@@ -2522,20 +2501,13 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
         )}
 
         {/* Next Module Navigation Footer */}
-        <div className="mt-12 flex items-center justify-between rounded-3xl border border-[#e7e3da] bg-white/80 p-6 backdrop-blur-md">
-          <div>
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-400">
-              Up Next · Module 2
-            </span>
-            <h4 className="text-sm sm:text-base font-extrabold text-[#18181b]">
-              Networking Fundamentals for Cybersecurity (IP, DNS, Ports & Protocols)
-            </h4>
-          </div>
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
+          <div />
           <button
             onClick={() => navigate("/learning/cybersecurity/networking")}
-            className="flex items-center gap-2 rounded-xl bg-[#18181b] px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 transition cursor-pointer"
+            className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Proceed to Module 2</span>
+            <span>Next: Module 2 (Networking for Cybersecurity)</span>
             <ArrowRight size={14} />
           </button>
         </div>

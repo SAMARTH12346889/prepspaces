@@ -355,116 +355,90 @@ export default function CybersecurityRecon() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans">
-      {/* 1. TOP MODULE NAVIGATION BAR */}
-      <ModuleNav track="cybersecurity" currentModuleId="recon" />
-
-      {/* 2. HERO / HEADER SECTION */}
-      <header className="border-b border-stone-200 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-[#ea580c]">
-              <Shield size={13} />
-              Prepspaces Cybersecurity Masterclass
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-700">
-              <Network size={13} />
-              Network Reconnaissance & Active Discovery
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-700">
-              <BookOpen size={13} />
-              Nmap Network Scanning · NIST SP 800-115 · OWASP WSTG
-            </span>
-          </div>
-
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#18181b] mt-2">
-            Module 7: Network Discovery, Port Scanning Concepts & Service Enumeration in Authorized Labs
-          </h1>
-          <p className="mt-3 text-stone-600 max-w-4xl text-sm sm:text-base leading-relaxed">
-            Transitioning from passive OSINT into controlled, active technical reconnaissance. Learn how to discover reachable
-            hosts, interpret the 6 Nmap port states, perform TCP connect and UDP scans, identify running services, extract
-            HTTP banners and TLS metadata, and construct an evidence-based exposure inventory within authorized lab boundaries.
-          </p>
-
-          {/* QUICK STATS BAR */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-stone-200">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#ea580c]">
-                <Clock size={18} />
-              </div>
-              <div>
-                <div className="text-[11px] font-mono uppercase text-stone-500 font-semibold">Duration</div>
-                <div className="text-sm font-bold text-stone-900">14–18 Hours</div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-stone-100 border border-stone-200 flex items-center justify-center text-stone-700">
-                <Terminal size={18} />
-              </div>
-              <div>
-                <div className="text-[11px] font-mono uppercase text-stone-500 font-semibold">Practical Labs</div>
-                <div className="text-sm font-bold text-stone-900">6 Guided Labs</div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-stone-100 border border-stone-200 flex items-center justify-center text-stone-700">
-                <Radio size={18} />
-              </div>
-              <div>
-                <div className="text-[11px] font-mono uppercase text-stone-500 font-semibold">Tools</div>
-                <div className="text-sm font-bold text-stone-900">Nmap · ss · curl · PowerShell</div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-stone-100 border border-stone-200 flex items-center justify-center text-stone-700">
-                <Award size={18} />
-              </div>
-              <div>
-                <div className="text-[11px] font-mono uppercase text-stone-500 font-semibold">Capstone</div>
-                <div className="text-sm font-bold text-stone-900">LearnSphere Subnet Audit</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* 3. PRIMARY TABS NAVIGATION */}
-      <div className="bg-white border-b border-stone-200 sticky top-0 z-20 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-1 sm:space-x-4 overflow-x-auto py-2">
-            {[
-              { id: "theory", label: "1. Theory & Frameworks", icon: BookOpen },
-              { id: "labs", label: "2. Interactive Labs (6)", icon: Terminal },
-              { id: "casestudy", label: "3. Applied Case Study", icon: Building },
-              { id: "quiz", label: "4. Knowledge Check (10 Qs)", icon: HelpCircle },
-              { id: "capstone", label: "5. Capstone Project & Rubric", icon: Award },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap cursor-pointer ${
-                    isActive
-                      ? "bg-[#18181b] text-white shadow-xs"
-                      : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
-                  }`}
-                >
-                  <Icon size={16} />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </nav>
-        </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Ambient background glows */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-12 left-1/4 w-[500px] h-[500px] bg-orange-500/[0.04] rounded-full blur-[140px]" />
+        <div className="absolute top-1/2 right-12 w-[600px] h-[600px] bg-amber-500/[0.04] rounded-full blur-[160px]" />
       </div>
 
-      {/* 4. MAIN CONTENT CONTAINER */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+        {/* TOP MODULE NAVIGATION BAR */}
+        <ModuleNav track="cybersecurity" currentModuleId="recon" />
+
+        {/* HERO BANNER CARD */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white/85 p-6 sm:p-8 backdrop-blur-xl shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c]">
+              <Shield size={12} className="text-[#f97316]" />
+              Prepspaces Cybersecurity Masterclass
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-medium text-stone-600">
+              Module 7 of 24
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-medium text-stone-600">
+              Nmap Network Scanning · NIST SP 800-115 · OWASP WSTG
+            </span>
+            <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[11px] font-mono font-bold text-emerald-700">
+              Beginner to Intermediate · 14–18 Hours
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#18181b]">
+            Network Discovery, Port Scanning Concepts & Service Enumeration in Authorized Labs
+          </h1>
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-4xl leading-relaxed">
+            Transitioning from passive OSINT into controlled, active technical reconnaissance. Learn how to discover reachable hosts, interpret the 6 Nmap port states, perform TCP connect and UDP scans, identify running services, extract HTTP banners and TLS metadata, and construct an evidence-based exposure inventory within authorized lab boundaries.
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-stone-200/80">
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Duration</span>
+              <span className="text-sm font-bold text-stone-900">14–18 Hours</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Practical Labs</span>
+              <span className="text-sm font-bold text-stone-900">6 Guided Labs</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Tools</span>
+              <span className="text-sm font-bold text-stone-900">Nmap · ss · curl</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Capstone</span>
+              <span className="text-sm font-bold text-stone-900">Subnet Audit Report</span>
+            </div>
+          </div>
+        </header>
+
+        {/* WORKSPACE NAVIGATION TABS */}
+        <div className="mb-8 flex flex-wrap items-center gap-2 border-b border-stone-200 pb-3">
+          {[
+            { id: "theory", label: "Theory & Frameworks", icon: BookOpen },
+            { id: "labs", label: "Interactive Labs (6)", icon: Terminal },
+            { id: "casestudy", label: "Applied Case Study", icon: Building },
+            { id: "quiz", label: "Knowledge Check (10 Qs)", icon: HelpCircle },
+            { id: "capstone", label: "Capstone Project & Rubric", icon: Award },
+          ].map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer ${
+                  isActive
+                    ? "bg-[#18181b] text-white shadow-stone-900/10"
+                    : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
+                }`}
+              >
+                <Icon size={16} className={isActive ? "text-[#f97316]" : "text-stone-400"} />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* ========================================================= */}
         {/* TAB 1: THEORY & FRAMEWORKS */}
         {/* ========================================================= */}
@@ -1524,33 +1498,24 @@ export default function CybersecurityRecon() {
         )}
 
         {/* 5. FOOTER NAVIGATION (PREVIOUS & NEXT MODULE) */}
-        <div className="mt-10 pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
           <button
             onClick={() => navigate("/learning/cybersecurity/osint")}
-            className="flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-bold text-stone-700 hover:border-orange-400 transition cursor-pointer"
+            className="flex items-center gap-2 rounded-2xl border border-stone-200 bg-white px-5 py-3 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer"
           >
             <ArrowLeft size={14} />
             <span>Previous: Module 6 (OSINT & Passive Recon)</span>
           </button>
 
-          <div className="text-right">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-400">
-              Up Next · Module 8
-            </span>
-            <h4 className="text-sm sm:text-base font-extrabold text-[#18181b]">
-              Vulnerability Assessment Fundamentals, CVEs, CVSS & Prioritization
-            </h4>
-          </div>
-
           <button
-            onClick={() => navigate("/learning/cybersecurity/scanning")}
-            className="flex items-center gap-2 rounded-xl bg-[#18181b] px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 transition cursor-pointer"
+            onClick={() => navigate("/learning/cybersecurity/vulnerability-assessment")}
+            className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Proceed to Module 8</span>
+            <span>Next: Module 8 (Vulnerability Assessment & CVSS)</span>
             <ArrowRight size={14} />
           </button>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

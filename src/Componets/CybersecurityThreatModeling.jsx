@@ -643,22 +643,26 @@ export default function CybersecurityThreatModeling() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#f97316] selection:text-white">
-      {/* Top Global Navigation Bar */}
-      <ModuleNav
-        track="cybersecurity"
-        currentModuleId="threat-modeling"
-        showAiTutor={showAiTutor}
-        onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
-        aiTutorLabel="Threat Modeling Mentor"
-      />
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] relative overflow-hidden selection:bg-[#ea580c] selection:text-white">
+      {/* Ambient background glows */}
+      <div className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-orange-100/60 blur-3xl" />
+      <div className="pointer-events-none absolute top-1/3 -left-32 h-80 w-80 rounded-full bg-amber-100/50 blur-3xl" />
 
-      <div className="flex-1 flex flex-col max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* Module Header & University Alignment Badge */}
-        <div className="mb-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+        {/* Top Global Navigation Bar */}
+        <ModuleNav
+          track="cybersecurity"
+          currentModuleId="threat-modeling"
+          showAiTutor={showAiTutor}
+          onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
+          aiTutorLabel="Threat Modeling Mentor"
+        />
+
+        {/* Hero / Header Card */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white/85 p-6 sm:p-8 backdrop-blur-xl shadow-xs">
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 font-mono text-[11px] font-bold text-[#ea580c] uppercase tracking-wider">
-              <Shield size={12} className="text-[#f97316]" />
+              <Shield size={12} className="text-[#ea580c]" />
               Course: Cybersecurity Masterclass
             </span>
             <span className="inline-flex items-center gap-1 rounded-full border border-stone-200 bg-white/80 px-2.5 py-1 text-[11px] font-bold text-stone-600">
@@ -678,68 +682,68 @@ export default function CybersecurityThreatModeling() {
           <p className="mt-2 text-sm md:text-base text-stone-600 max-w-4xl leading-relaxed">
             Learn how to reason systematically about security before choosing tools, implementing controls, or testing a system. Bridge foundational knowledge into professional security engineering using DFDs, STRIDE, attack trees, attack-surface reduction, and evidence-based risk registers.
           </p>
-        </div>
+        </header>
 
         {/* Tab Navigation Controls */}
-        <div className="flex items-center gap-2 border-b border-[#e7e3da] pb-3 mb-6 overflow-x-auto scrollbar-none">
+        <div className="mb-8 flex flex-wrap items-center gap-2 border-b border-stone-200 pb-3">
           <button
             onClick={() => setActiveTab("theory")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+            className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "theory"
-                ? "bg-[#18181b] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
+                ? "bg-[#18181b] text-white shadow-stone-900/10 shadow-lg"
+                : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
             }`}
           >
-            <BookOpen size={14} />
-            <span>Curriculum & Deep Theory (Parts A–G, L)</span>
+            <BookOpen size={15} />
+            <span>Curriculum & Deep Theory</span>
           </button>
 
           <button
             onClick={() => setActiveTab("interactive-labs")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+            className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "interactive-labs"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
+                ? "bg-[#18181b] text-white shadow-stone-900/10 shadow-lg"
+                : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
             }`}
           >
-            <Workflow size={14} />
-            <span>Interactive Labs Suite (Labs 1–6)</span>
+            <Workflow size={15} />
+            <span>Interactive Labs Suite</span>
           </button>
 
           <button
             onClick={() => setActiveTab("case-study")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+            className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "case-study"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
+                ? "bg-[#18181b] text-white shadow-stone-900/10 shadow-lg"
+                : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
             }`}
           >
-            <FileText size={14} />
-            <span>Applied Case Study: LearnSphere Platform (Part H)</span>
+            <FileText size={15} />
+            <span>Applied Case Study</span>
           </button>
 
           <button
             onClick={() => setActiveTab("quiz")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+            className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "quiz"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
+                ? "bg-[#18181b] text-white shadow-stone-900/10 shadow-lg"
+                : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
             }`}
           >
-            <Award size={14} />
-            <span>Knowledge Check & Quiz (12 Questions)</span>
+            <Award size={15} />
+            <span>Knowledge Check & Quiz</span>
           </button>
 
           <button
             onClick={() => setActiveTab("capstone")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+            className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "capstone"
-                ? "bg-[#ea580c] text-white shadow-xs"
-                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
+                ? "bg-[#18181b] text-white shadow-stone-900/10 shadow-lg"
+                : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
             }`}
           >
-            <ListChecks size={14} />
-            <span>Capstone Project & Rubric (Part K)</span>
+            <ListChecks size={15} />
+            <span>Capstone Project & Rubric</span>
           </button>
         </div>
 
@@ -2416,29 +2420,20 @@ export default function CybersecurityThreatModeling() {
         )}
 
         {/* Next Module Navigation Footer */}
-        <div className="mt-12 flex items-center justify-between rounded-3xl border border-[#e7e3da] bg-white/80 p-6 backdrop-blur-md">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
           <button
             onClick={() => navigate("/learning/cybersecurity/systems")}
-            className="flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-bold text-stone-700 hover:border-orange-400 transition cursor-pointer"
+            className="flex items-center gap-2 rounded-2xl border border-stone-200 bg-white px-5 py-3 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer"
           >
             <ArrowLeft size={14} />
-            <span>Previous: Module 3</span>
+            <span>Previous: Module 3 (OS Internals & Hardening)</span>
           </button>
-
-          <div className="text-right">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-400">
-              Up Next · Module 5
-            </span>
-            <h4 className="text-sm sm:text-base font-extrabold text-[#18181b]">
-              Ethical Hacking Methodology, Scope Definition & Rules of Engagement
-            </h4>
-          </div>
 
           <button
             onClick={() => navigate("/learning/cybersecurity/methodology")}
-            className="flex items-center gap-2 rounded-xl bg-[#18181b] px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 transition cursor-pointer"
+            className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Proceed to Module 5</span>
+            <span>Next: Module 5 (Methodology, Scope & RoE)</span>
             <ArrowRight size={14} />
           </button>
         </div>

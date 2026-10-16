@@ -405,60 +405,67 @@ export default function CybersecurityIAM() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased">
-      {/* 1. TOP HEADER & METADATA */}
-      <header className="border-b border-stone-200 bg-white/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-8 py-3.5 shadow-xs">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-orange-600/10 text-orange-600">
-              <Shield className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
-                  Prepspaces Cybersecurity Masterclass · Module 11
-                </span>
-                <span className="text-[10px] bg-stone-100 text-stone-600 px-2 py-0.5 rounded-full font-medium">
-                  Intermediate
-                </span>
-                <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-medium">
-                  Identity Security · Zero Trust
-                </span>
-              </div>
-              <h1 className="text-base sm:text-lg font-extrabold tracking-tight text-[#18181b]">
-                Identity and Access Management, Authentication, Authorization, and MFA
-              </h1>
-            </div>
-          </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Ambient background glows */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-12 left-1/4 w-[500px] h-[500px] bg-orange-500/[0.04] rounded-full blur-[140px]" />
+        <div className="absolute top-1/2 right-12 w-[600px] h-[600px] bg-amber-500/[0.04] rounded-full blur-[160px]" />
+      </div>
 
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-100 text-stone-600 text-xs font-mono">
-              <Clock className="w-3.5 h-3.5 text-stone-400" />
-              12–16 Hours
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-50 text-orange-700 text-xs font-mono font-medium">
-              <BookOpen className="w-3.5 h-3.5 text-orange-600" />
-              NIST SP 800-63-4 · FIDO2
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-sky-50 text-sky-700 text-xs font-mono font-medium">
-              <Key className="w-3.5 h-3.5 text-sky-600" />
-              OAuth 2.0 / OIDC · SAML
-            </span>
-          </div>
-        </div>
-      </header>
-
-      {/* 2. SUB-NAVIGATION & TOPIC CAROUSEL */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-4">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+        {/* TOP NAVIGATION & MODULE SWITCHER */}
         <ModuleNav
-          currentTopic={selectedTopic}
-          onSelectTopic={(t) => {
-            setSelectedTopic(t);
-          }}
+          track="cybersecurity"
+          currentModuleId="iam"
         />
 
-        {/* Primary Tabs */}
-        <div className="flex border-b border-stone-200 mt-4 overflow-x-auto gap-1">
+        {/* HERO BANNER CARD */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white/85 p-6 sm:p-8 backdrop-blur-xl shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c]">
+              <Shield size={12} className="text-[#f97316]" />
+              Prepspaces Cybersecurity Masterclass
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-medium text-stone-600">
+              Module 11 of 24
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-medium text-stone-600">
+              NIST SP 800-63-4 · FIDO2 · OAuth 2.0 / OIDC · SAML
+            </span>
+            <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[11px] font-mono font-bold text-emerald-700">
+              Intermediate · 12–16 Hours
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#18181b]">
+            Identity and Access Management, Authentication, Authorization, and MFA
+          </h1>
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-4xl leading-relaxed">
+            Identity is the modern security perimeter. Master digital identity assurance levels (IAL/AAL/FAL), modern authentication protocols (FIDO2/WebAuthn, Passkeys, OAuth 2.0, OIDC, SAML), authorization architectures (RBAC, ABAC, ReBAC), privileged access management (PAM), and Zero Trust access policies.
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-stone-200/80">
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Duration</span>
+              <span className="text-sm font-bold text-stone-900">12–16 Hours</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Track</span>
+              <span className="text-sm font-bold text-stone-900">Identity Security · Zero Trust</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Standards</span>
+              <span className="text-sm font-bold text-stone-900">NIST SP 800-63-4</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Hands-on Labs</span>
+              <span className="text-sm font-bold text-stone-900">6 Interactive Labs</span>
+            </div>
+          </div>
+        </header>
+
+        {/* WORKSPACE NAVIGATION TABS */}
+        <div className="mb-8 flex flex-wrap items-center gap-2 border-b border-stone-200 pb-3">
           {[
             { id: "theory", label: "Theory & Frameworks", icon: BookOpen },
             { id: "labs", label: "Interactive Labs (1–6)", icon: Terminal },
@@ -472,22 +479,19 @@ export default function CybersecurityIAM() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-bold border-b-2 transition whitespace-nowrap cursor-pointer ${
+                className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer ${
                   isActive
-                    ? "border-orange-600 text-orange-600 bg-orange-50/50"
-                    : "border-transparent text-stone-500 hover:text-stone-800 hover:border-stone-300"
+                    ? "bg-[#18181b] text-white shadow-stone-900/10"
+                    : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? "text-orange-600" : "text-stone-400"}`} />
-                {tab.label}
+                <Icon className={`w-4 h-4 ${isActive ? "text-[#f97316]" : "text-stone-400"}`} />
+                <span>{tab.label}</span>
               </button>
             );
           })}
         </div>
-      </div>
 
-      {/* 3. MAIN CONTENT CONTAINER */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-6">
         {/* ========================================================================= */}
         {/* TAB 1: THEORY & LESSONS (Unabridged)                                      */}
         {/* ========================================================================= */}
@@ -1716,33 +1720,24 @@ export default function CybersecurityIAM() {
         )}
 
         {/* 5. FOOTER NAVIGATION (PREVIOUS & NEXT MODULE) */}
-        <div className="mt-10 pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
           <button
             onClick={() => navigate("/learning/cybersecurity/os-security")}
-            className="flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-bold text-stone-700 hover:border-orange-400 transition cursor-pointer"
+            className="flex items-center gap-2 rounded-2xl border border-stone-200 bg-white px-5 py-3 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Previous: Module 10 (OS Security & Hardening)</span>
           </button>
 
-          <div className="text-right">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-400">
-              Up Next · Module 12
-            </span>
-            <h4 className="text-sm sm:text-base font-extrabold text-[#18181b]">
-              Web Security Fundamentals, OWASP Top 10 & Application Testing
-            </h4>
-          </div>
-
           <button
             onClick={() => navigate("/learning/cybersecurity/web-security")}
-            className="flex items-center gap-2 rounded-xl bg-[#18181b] px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 transition cursor-pointer"
+            className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Proceed to Module 12</span>
+            <span>Next: Module 12 (Web Security & OWASP)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

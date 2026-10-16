@@ -534,60 +534,67 @@ export default function CybersecurityNetworkSecurity() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased">
-      {/* 1. TOP HEADER & METADATA */}
-      <header className="border-b border-stone-200 bg-white/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-8 py-3.5 shadow-xs">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-orange-600/10 text-orange-600">
-              <Shield className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
-                  Prepspaces Cybersecurity Masterclass · Module 9
-                </span>
-                <span className="text-[10px] bg-stone-100 text-stone-600 px-2 py-0.5 rounded-full font-medium">
-                  Intermediate
-                </span>
-                <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-medium">
-                  Network Defense
-                </span>
-              </div>
-              <h1 className="text-base sm:text-lg font-extrabold tracking-tight text-[#18181b]">
-                Network Security, Firewalls, IDS/IPS, and Network Segmentation
-              </h1>
-            </div>
-          </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Ambient background glows */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-12 left-1/4 w-[500px] h-[500px] bg-orange-500/[0.04] rounded-full blur-[140px]" />
+        <div className="absolute top-1/2 right-12 w-[600px] h-[600px] bg-amber-500/[0.04] rounded-full blur-[160px]" />
+      </div>
 
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-100 text-stone-600 text-xs font-mono">
-              <Clock className="w-3.5 h-3.5 text-stone-400" />
-              10–14 Hours
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-50 text-orange-700 text-xs font-mono font-medium">
-              <BookOpen className="w-3.5 h-3.5 text-orange-600" />
-              NIST SP 800-41 / 94 / 207 / 215
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-sky-50 text-sky-700 text-xs font-mono font-medium">
-              <Activity className="w-3.5 h-3.5 text-sky-600" />
-              Suricata & Zeek
-            </span>
-          </div>
-        </div>
-      </header>
-
-      {/* 2. SUB-NAVIGATION & TOPIC CAROUSEL */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-4">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+        {/* TOP NAVIGATION & MODULE SWITCHER */}
         <ModuleNav
-          currentTopic={selectedTopic}
-          onSelectTopic={(t) => {
-            setSelectedTopic(t);
-          }}
+          track="cybersecurity"
+          currentModuleId="network-security"
         />
 
-        {/* Primary Tabs */}
-        <div className="flex border-b border-stone-200 mt-4 overflow-x-auto gap-1">
+        {/* HERO BANNER CARD */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white/85 p-6 sm:p-8 backdrop-blur-xl shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c]">
+              <Shield size={12} className="text-[#f97316]" />
+              Prepspaces Cybersecurity Masterclass
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-medium text-stone-600">
+              Module 9 of 24
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-medium text-stone-600">
+              NIST SP 800-41 / 94 / 207 / 215 · Suricata & Zeek
+            </span>
+            <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[11px] font-mono font-bold text-emerald-700">
+              Intermediate · 10–14 Hours
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#18181b]">
+            Network Security, Firewalls, IDS/IPS, and Network Segmentation
+          </h1>
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-4xl leading-relaxed">
+            Network security is the practice of protecting network infrastructure, communications, connected systems, and data flows against unauthorized access, misuse, disruption, and compromise. Progress from security boundaries and firewall policy design to intrusion detection and prevention, network segmentation, monitoring, and zero-trust principles.
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-stone-200/80">
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Duration</span>
+              <span className="text-sm font-bold text-stone-900">10–14 Hours</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Track</span>
+              <span className="text-sm font-bold text-stone-900">Network Defense</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Standards</span>
+              <span className="text-sm font-bold text-stone-900">NIST SP 800-41 / 207</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-stone-50/80 border border-stone-200/70">
+              <span className="font-mono text-[11px] text-stone-500 uppercase block font-semibold">Hands-on Labs</span>
+              <span className="text-sm font-bold text-stone-900">6 Interactive Labs</span>
+            </div>
+          </div>
+        </header>
+
+        {/* WORKSPACE NAVIGATION TABS */}
+        <div className="mb-8 flex flex-wrap items-center gap-2 border-b border-stone-200 pb-3">
           {[
             { id: "theory", label: "Theory & Frameworks", icon: BookOpen },
             { id: "labs", label: "Interactive Labs (1–6)", icon: Terminal },
@@ -601,22 +608,19 @@ export default function CybersecurityNetworkSecurity() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-bold border-b-2 transition whitespace-nowrap cursor-pointer ${
+                className={`flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition shadow-xs cursor-pointer ${
                   isActive
-                    ? "border-orange-600 text-orange-600 bg-orange-50/50"
-                    : "border-transparent text-stone-500 hover:text-stone-800 hover:border-stone-300"
+                    ? "bg-[#18181b] text-white shadow-stone-900/10"
+                    : "bg-white text-stone-700 hover:bg-stone-100/80 border border-stone-200/70"
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? "text-orange-600" : "text-stone-400"}`} />
-                {tab.label}
+                <Icon className={`w-4 h-4 ${isActive ? "text-[#f97316]" : "text-stone-400"}`} />
+                <span>{tab.label}</span>
               </button>
             );
           })}
         </div>
-      </div>
 
-      {/* 3. MAIN CONTENT CONTAINER */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-6">
         {/* ========================================================================= */}
         {/* TAB 1: THEORY & LESSONS (Unabridged)                                      */}
         {/* ========================================================================= */}
@@ -2460,33 +2464,24 @@ export default function CybersecurityNetworkSecurity() {
         )}
 
         {/* 5. FOOTER NAVIGATION (PREVIOUS & NEXT MODULE) */}
-        <div className="mt-10 pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
           <button
             onClick={() => navigate("/learning/cybersecurity/vulnerability-assessment")}
-            className="flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-bold text-stone-700 hover:border-orange-400 transition cursor-pointer"
+            className="flex items-center gap-2 rounded-2xl border border-stone-200 bg-white px-5 py-3 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Previous: Module 8 (Vulnerability Assessment & CVSS)</span>
+            <span>Previous: Module 8 (Vulnerability Assessment)</span>
           </button>
-
-          <div className="text-right">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-400">
-              Up Next · Module 10
-            </span>
-            <h4 className="text-sm sm:text-base font-extrabold text-[#18181b]">
-              Operating System Security, Hardening, Permissions & Privilege Management
-            </h4>
-          </div>
 
           <button
             onClick={() => navigate("/learning/cybersecurity/os-security")}
-            className="flex items-center gap-2 rounded-xl bg-[#18181b] px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 transition cursor-pointer"
+            className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Proceed to Module 10</span>
+            <span>Next: Module 10 (OS Security & Hardening)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
