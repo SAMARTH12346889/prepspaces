@@ -55,6 +55,7 @@ import NetworkSecurityArchitecture from "./Componets/NetworkSecurityArchitecture
 import NetworkFinalCapstone from "./Componets/NetworkFinalCapstone";
 
 import CybersecurityIntro from "./Componets/CybersecurityIntro";
+import CybersecurityNetworking from "./Componets/CybersecurityNetworking";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -726,6 +727,14 @@ function App() {
             <Route path="/learning/cybersecurity/ethical-hacking" element={<CybersecurityIntro />} />
             <Route path="/learn/cybersecurity" element={<CybersecurityIntro />} />
             <Route path="/learn/cybersecurity/intro" element={<CybersecurityIntro />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 2: NETWORKING FUNDAMENTALS, TCP/IP, DNS, HTTP/HTTPS */}
+            <Route path="/learning/cybersecurity/networking" element={<CybersecurityNetworking />} />
+            <Route path="/learning/cybersecurity/module-2" element={<CybersecurityNetworking />} />
+            <Route path="/learning/cybersecurity/protocols" element={<CybersecurityNetworking />} />
+            <Route path="/learning/cybersecurity/tcp-ip" element={<CybersecurityNetworking />} />
+            <Route path="/learning/cybersecurity/dns-http" element={<CybersecurityNetworking />} />
+            <Route path="/learn/cybersecurity/networking" element={<CybersecurityNetworking />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
