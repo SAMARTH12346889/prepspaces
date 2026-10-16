@@ -62,6 +62,7 @@ import CybersecurityMethodology from "./Componets/CybersecurityMethodology";
 import CybersecurityOSINT from "./Componets/CybersecurityOSINT";
 import CybersecurityRecon from "./Componets/CybersecurityRecon";
 import CybersecurityVulnerabilityAssessment from "./Componets/CybersecurityVulnerabilityAssessment";
+import CybersecurityNetworkSecurity from "./Componets/CybersecurityNetworkSecurity";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -789,6 +790,17 @@ function App() {
             <Route path="/learn/cybersecurity/vulnerability-assessment" element={<CybersecurityVulnerabilityAssessment />} />
             <Route path="/learn/cybersecurity/module-8" element={<CybersecurityVulnerabilityAssessment />} />
             <Route path="/learn/cybersecurity/cve-cvss" element={<CybersecurityVulnerabilityAssessment />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 9: NETWORK SECURITY, FIREWALLS, IDS/IPS & SEGMENTATION */}
+            <Route path="/learning/cybersecurity/network-security" element={<CybersecurityNetworkSecurity />} />
+            <Route path="/learning/cybersecurity/module-9" element={<CybersecurityNetworkSecurity />} />
+            <Route path="/learning/cybersecurity/firewalls" element={<CybersecurityNetworkSecurity />} />
+            <Route path="/learning/cybersecurity/ids-ips" element={<CybersecurityNetworkSecurity />} />
+            <Route path="/learning/cybersecurity/segmentation" element={<CybersecurityNetworkSecurity />} />
+            <Route path="/learning/cybersecurity/network-defense" element={<CybersecurityNetworkSecurity />} />
+            <Route path="/learn/cybersecurity/network-security" element={<CybersecurityNetworkSecurity />} />
+            <Route path="/learn/cybersecurity/module-9" element={<CybersecurityNetworkSecurity />} />
+            <Route path="/learn/cybersecurity/firewalls" element={<CybersecurityNetworkSecurity />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
