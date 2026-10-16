@@ -59,6 +59,7 @@ import CybersecurityNetworking from "./Componets/CybersecurityNetworking";
 import CybersecuritySystems from "./Componets/CybersecuritySystems";
 import CybersecurityThreatModeling from "./Componets/CybersecurityThreatModeling";
 import CybersecurityMethodology from "./Componets/CybersecurityMethodology";
+import CybersecurityOSINT from "./Componets/CybersecurityOSINT";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -760,6 +761,13 @@ function App() {
             <Route path="/learning/cybersecurity/rules-of-engagement" element={<CybersecurityMethodology />} />
             <Route path="/learning/cybersecurity/ethical-hacking-methodology" element={<CybersecurityMethodology />} />
             <Route path="/learn/cybersecurity/methodology" element={<CybersecurityMethodology />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 6: OPEN-SOURCE INTELLIGENCE (OSINT) & PASSIVE RECONNAISSANCE */}
+            <Route path="/learning/cybersecurity/osint" element={<CybersecurityOSINT />} />
+            <Route path="/learning/cybersecurity/module-6" element={<CybersecurityOSINT />} />
+            <Route path="/learning/cybersecurity/passive-reconnaissance" element={<CybersecurityOSINT />} />
+            <Route path="/learning/cybersecurity/open-source-intelligence" element={<CybersecurityOSINT />} />
+            <Route path="/learn/cybersecurity/osint" element={<CybersecurityOSINT />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
