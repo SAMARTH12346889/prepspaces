@@ -58,6 +58,7 @@ import CybersecurityIntro from "./Componets/CybersecurityIntro";
 import CybersecurityNetworking from "./Componets/CybersecurityNetworking";
 import CybersecuritySystems from "./Componets/CybersecuritySystems";
 import CybersecurityThreatModeling from "./Componets/CybersecurityThreatModeling";
+import CybersecurityMethodology from "./Componets/CybersecurityMethodology";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -751,6 +752,14 @@ function App() {
             <Route path="/learning/cybersecurity/security-engineering" element={<CybersecurityThreatModeling />} />
             <Route path="/learning/cybersecurity/risk-management" element={<CybersecurityThreatModeling />} />
             <Route path="/learn/cybersecurity/threat-modeling" element={<CybersecurityThreatModeling />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 5: ETHICAL HACKING METHODOLOGY, SCOPE & RULES OF ENGAGEMENT */}
+            <Route path="/learning/cybersecurity/methodology" element={<CybersecurityMethodology />} />
+            <Route path="/learning/cybersecurity/module-5" element={<CybersecurityMethodology />} />
+            <Route path="/learning/cybersecurity/scope-roe" element={<CybersecurityMethodology />} />
+            <Route path="/learning/cybersecurity/rules-of-engagement" element={<CybersecurityMethodology />} />
+            <Route path="/learning/cybersecurity/ethical-hacking-methodology" element={<CybersecurityMethodology />} />
+            <Route path="/learn/cybersecurity/methodology" element={<CybersecurityMethodology />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

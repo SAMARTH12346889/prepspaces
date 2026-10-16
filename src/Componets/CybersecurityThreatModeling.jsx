@@ -2430,12 +2430,12 @@ export default function CybersecurityThreatModeling() {
               Up Next · Module 5
             </span>
             <h4 className="text-sm sm:text-base font-extrabold text-[#18181b]">
-              Cryptography, Hashes, Public Key Infrastructure (PKI) & TLS
+              Ethical Hacking Methodology, Scope Definition & Rules of Engagement
             </h4>
           </div>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/cryptography")}
+            onClick={() => navigate("/learning/cybersecurity/methodology")}
             className="flex items-center gap-2 rounded-xl bg-[#18181b] px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 transition cursor-pointer"
           >
             <span>Proceed to Module 5</span>
