@@ -61,6 +61,7 @@ import SystemDesignArchitecture from "./Componets/SystemDesignArchitecture";
 import SystemDesignDatabases from "./Componets/SystemDesignDatabases";
 import SystemDesignCaching from "./Componets/SystemDesignCaching";
 import SystemDesignReplication from "./Componets/SystemDesignReplication";
+import SystemDesignStorage from "./Componets/SystemDesignStorage";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -508,6 +509,16 @@ function App() {
             <Route path="/learning/system-design/sharding" element={<SystemDesignReplication />} />
             <Route path="/learning/system-design/partitioning" element={<SystemDesignReplication />} />
             <Route path="/learning/system-design/module-7" element={<SystemDesignReplication />} />
+
+            {/* SYSTEM DESIGN MASTERCLASS - MODULE 8: OBJECT STORAGE, FILE SYSTEMS, SEARCH ENGINES & DATA PIPELINES */}
+            <Route path="/learning/system-design/storage" element={<SystemDesignStorage />} />
+            <Route path="/learning/system-design/object-storage" element={<SystemDesignStorage />} />
+            <Route path="/learning/system-design/file-systems" element={<SystemDesignStorage />} />
+            <Route path="/learning/system-design/search-engines" element={<SystemDesignStorage />} />
+            <Route path="/learning/system-design/data-pipelines" element={<SystemDesignStorage />} />
+            <Route path="/learning/system-design/module-8" element={<SystemDesignStorage />} />
+            <Route path="/learn/system-design/storage" element={<SystemDesignStorage />} />
+            <Route path="/learn/system-design/module-8" element={<SystemDesignStorage />} />
 
             {/* SYSTEM DESIGN MASTERCLASS - MODULE 9: DISTRIBUTED SYSTEMS, CLOCKS & TIMEOUTS */}
             <Route path="/learning/system-design/distributed-systems" element={<SystemDesignDistributedSystems />} />

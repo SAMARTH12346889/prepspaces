@@ -342,6 +342,11 @@ const routeMeta = {
     description: "Master horizontal sharding, consistent hashing, single-leader vs multi-leader replication, and failover topologies.",
     canonical: `${BASE_URL}/learning/system-design/replication`,
   },
+  "/learning/system-design/storage": {
+    title: "Object Storage, File Systems, Search Engines & Data Pipelines — PrepSpaces",
+    description: "Master cloud object storage, distributed file systems, inverted index search engines, batch and streaming data pipelines, and modern lakehouse architecture.",
+    canonical: `${BASE_URL}/learning/system-design/storage`,
+  },
   "/learning/system-design/distributed-systems": {
     title: "Distributed Systems, Clocks & Network Partitions — PrepSpaces",
     description: "Understand physical vs logical clocks (Lamport, Vector), network latency, timeouts, and CAP theorem nuances.",

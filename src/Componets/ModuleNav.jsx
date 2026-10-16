@@ -44,6 +44,7 @@ export const SYSTEM_DESIGN_MODULES = [
   { id: "databases", name: "5. Databases & Indexing", route: "/learning/system-design/databases" },
   { id: "caching", name: "6. Caching & Invalidation", route: "/learning/system-design/caching" },
   { id: "replication", name: "7. Replication & Sharding", route: "/learning/system-design/replication" },
+  { id: "storage", name: "8. Object Storage & Data Pipelines", route: "/learning/system-design/storage" },
   { id: "distributed-systems", name: "9. Distributed Systems & Time", route: "/learning/system-design/distributed-systems" },
   { id: "consistency", name: "10. Consistency & Quorums", route: "/learning/system-design/consistency" },
   { id: "consensus", name: "11. Consensus & Coordination", route: "/learning/system-design/consensus" },

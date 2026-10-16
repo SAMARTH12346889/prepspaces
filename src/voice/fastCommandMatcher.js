@@ -64,6 +64,7 @@ const REGISTERED_ROUTES = {
   "system-design-databases": { route: "/learning/system-design/databases", label: "System Design Databases & Indexing" },
   "system-design-caching": { route: "/learning/system-design/caching", label: "System Design Caching & Invalidation" },
   "system-design-replication": { route: "/learning/system-design/replication", label: "System Design Replication & Sharding" },
+  "system-design-storage": { route: "/learning/system-design/storage", label: "System Design Object Storage & Data Pipelines" },
   "system-design-distributed-systems": { route: "/learning/system-design/distributed-systems", label: "System Design Distributed Systems & Time" },
   "system-design-consistency": { route: "/learning/system-design/consistency", label: "System Design Consistency & Quorums" },
   "system-design-consensus": { route: "/learning/system-design/consensus", label: "System Design Consensus & Leader Election" },
@@ -122,6 +123,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(replication|sharding|partitioning|distributed database|distributed databases|system design replication|system design sharding|system design module 7)$/i,
     destination: "system-design-replication",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(object storage|distributed storage|data pipelines|lakehouse|parquet|system design storage|system design module 8)$/i,
+    destination: "system-design-storage",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(distributed systems|clocks|timeouts|circuit breaker|failure models|system design distributed systems|system design module 9)$/i,
