@@ -67,6 +67,7 @@ import CybersecurityOSSecurity from "./Componets/CybersecurityOSSecurity";
 import CybersecurityIAM from "./Componets/CybersecurityIAM";
 import CybersecurityCryptography from "./Componets/CybersecurityCryptography";
 import CybersecurityWebSecurity from "./Componets/CybersecurityWebSecurity";
+import CybersecurityOWASPTop10 from "./Componets/CybersecurityOWASPTop10";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -848,6 +849,16 @@ function App() {
             <Route path="/learn/cybersecurity/web-security" element={<CybersecurityWebSecurity />} />
             <Route path="/learn/cybersecurity/module-13" element={<CybersecurityWebSecurity />} />
             <Route path="/learn/cybersecurity/browser-security" element={<CybersecurityWebSecurity />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 14: OWASP TOP 10, INJECTION VULNERABILITIES & SECURE INPUT HANDLING */}
+            <Route path="/learning/cybersecurity/owasp-top-10" element={<CybersecurityOWASPTop10 />} />
+            <Route path="/learning/cybersecurity/module-14" element={<CybersecurityOWASPTop10 />} />
+            <Route path="/learning/cybersecurity/injection" element={<CybersecurityOWASPTop10 />} />
+            <Route path="/learning/cybersecurity/secure-coding" element={<CybersecurityOWASPTop10 />} />
+            <Route path="/learning/cybersecurity/input-validation" element={<CybersecurityOWASPTop10 />} />
+            <Route path="/learn/cybersecurity/owasp-top-10" element={<CybersecurityOWASPTop10 />} />
+            <Route path="/learn/cybersecurity/module-14" element={<CybersecurityOWASPTop10 />} />
+            <Route path="/learn/cybersecurity/injection" element={<CybersecurityOWASPTop10 />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

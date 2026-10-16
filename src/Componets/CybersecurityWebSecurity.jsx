@@ -1675,10 +1675,10 @@ if (nextUrl.startsWith('/') && !nextUrl.startsWith('//')) {
           </button>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/burp-suite")}
+            onClick={() => navigate("/learning/cybersecurity/owasp-top-10")}
             className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Next: Module 14 (Web PenTesting & Burp Suite)</span>
+            <span>Next: Module 14 (OWASP Top 10 & Injection Prevention)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
