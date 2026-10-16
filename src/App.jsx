@@ -61,6 +61,7 @@ import CybersecurityThreatModeling from "./Componets/CybersecurityThreatModeling
 import CybersecurityMethodology from "./Componets/CybersecurityMethodology";
 import CybersecurityOSINT from "./Componets/CybersecurityOSINT";
 import CybersecurityRecon from "./Componets/CybersecurityRecon";
+import CybersecurityVulnerabilityAssessment from "./Componets/CybersecurityVulnerabilityAssessment";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -777,6 +778,17 @@ function App() {
             <Route path="/learning/cybersecurity/port-scanning" element={<CybersecurityRecon />} />
             <Route path="/learning/cybersecurity/service-enumeration" element={<CybersecurityRecon />} />
             <Route path="/learn/cybersecurity/recon" element={<CybersecurityRecon />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 8: VULNERABILITY ASSESSMENT, CVES, CVSS & SECURITY PRIORITIZATION */}
+            <Route path="/learning/cybersecurity/vulnerability-assessment" element={<CybersecurityVulnerabilityAssessment />} />
+            <Route path="/learning/cybersecurity/module-8" element={<CybersecurityVulnerabilityAssessment />} />
+            <Route path="/learning/cybersecurity/cve-cvss" element={<CybersecurityVulnerabilityAssessment />} />
+            <Route path="/learning/cybersecurity/cvss" element={<CybersecurityVulnerabilityAssessment />} />
+            <Route path="/learning/cybersecurity/security-prioritization" element={<CybersecurityVulnerabilityAssessment />} />
+            <Route path="/learning/cybersecurity/scanning" element={<CybersecurityVulnerabilityAssessment />} />
+            <Route path="/learn/cybersecurity/vulnerability-assessment" element={<CybersecurityVulnerabilityAssessment />} />
+            <Route path="/learn/cybersecurity/module-8" element={<CybersecurityVulnerabilityAssessment />} />
+            <Route path="/learn/cybersecurity/cve-cvss" element={<CybersecurityVulnerabilityAssessment />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

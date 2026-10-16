@@ -125,7 +125,7 @@ export const CYBERSECURITY_MODULES = [
   { id: "methodology", name: "5. Methodology, Scope & RoE", route: "/learning/cybersecurity/methodology" },
   { id: "osint", name: "6. OSINT & Passive Recon", route: "/learning/cybersecurity/osint" },
   { id: "recon", name: "7. Active Recon & Enumeration", route: "/learning/cybersecurity/recon" },
-  { id: "scanning", name: "8. Vulnerability Scanning & Nmap", route: "/learning/cybersecurity/scanning" },
+  { id: "vulnerability-assessment", name: "8. Vulnerability Assessment & CVSS", route: "/learning/cybersecurity/vulnerability-assessment" },
   { id: "web-security", name: "9. Web Security & OWASP", route: "/learning/cybersecurity/web-security" },
   { id: "burp-suite", name: "10. Web PenTesting (Burp Suite)", route: "/learning/cybersecurity/burp-suite" },
   { id: "api-security", name: "11. API Security & Microservices", route: "/learning/cybersecurity/api-security" },
