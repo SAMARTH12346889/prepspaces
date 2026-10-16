@@ -63,6 +63,7 @@ import CybersecurityOSINT from "./Componets/CybersecurityOSINT";
 import CybersecurityRecon from "./Componets/CybersecurityRecon";
 import CybersecurityVulnerabilityAssessment from "./Componets/CybersecurityVulnerabilityAssessment";
 import CybersecurityNetworkSecurity from "./Componets/CybersecurityNetworkSecurity";
+import CybersecurityOSSecurity from "./Componets/CybersecurityOSSecurity";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -801,6 +802,16 @@ function App() {
             <Route path="/learn/cybersecurity/network-security" element={<CybersecurityNetworkSecurity />} />
             <Route path="/learn/cybersecurity/module-9" element={<CybersecurityNetworkSecurity />} />
             <Route path="/learn/cybersecurity/firewalls" element={<CybersecurityNetworkSecurity />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 10: OPERATING SYSTEM SECURITY, HARDENING & PRIVILEGE MANAGEMENT */}
+            <Route path="/learning/cybersecurity/os-security" element={<CybersecurityOSSecurity />} />
+            <Route path="/learning/cybersecurity/module-10" element={<CybersecurityOSSecurity />} />
+            <Route path="/learning/cybersecurity/hardening" element={<CybersecurityOSSecurity />} />
+            <Route path="/learning/cybersecurity/permissions" element={<CybersecurityOSSecurity />} />
+            <Route path="/learning/cybersecurity/privilege-management" element={<CybersecurityOSSecurity />} />
+            <Route path="/learn/cybersecurity/os-security" element={<CybersecurityOSSecurity />} />
+            <Route path="/learn/cybersecurity/module-10" element={<CybersecurityOSSecurity />} />
+            <Route path="/learn/cybersecurity/hardening" element={<CybersecurityOSSecurity />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
