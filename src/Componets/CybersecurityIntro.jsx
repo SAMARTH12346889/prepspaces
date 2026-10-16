@@ -50,6 +50,8 @@ import {
   XCircle,
   Download,
   Info,
+  ListChecks,
+  FileCheck,
 } from "lucide-react";
 import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
@@ -658,6 +660,18 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             <Award size={14} />
             <span>Assessment & Quiz (10 Questions)</span>
           </button>
+
+          <button
+            onClick={() => setActiveTab("assignment")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+              activeTab === "assignment"
+                ? "bg-[#ea580c] text-white shadow-xs"
+                : "bg-white/80 text-stone-600 hover:bg-white hover:text-stone-900 border border-[#e7e3da]"
+            }`}
+          >
+            <ListChecks size={14} />
+            <span>Capstone Assignment & Rubric (Part O)</span>
+          </button>
         </div>
 
         {/* ------------------------------------------------------------------ */}
@@ -665,6 +679,33 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
         {/* ------------------------------------------------------------------ */}
         {activeTab === "theory" && (
           <div className="space-y-8">
+            {/* Quick In-Page Subtopic Navigation Bar */}
+            <div className="p-3 rounded-2xl bg-white border border-[#e7e3da] shadow-2xs flex items-center gap-2 overflow-x-auto scrollbar-none">
+              <span className="text-[11px] font-bold text-stone-500 uppercase font-mono px-2 shrink-0">
+                Jump to Part:
+              </span>
+              {[
+                { id: "part-a", label: "A: Cybersecurity & Mindset" },
+                { id: "part-b", label: "B: CIA Triad & Controls" },
+                { id: "part-c", label: "C: Assets & Risk Math" },
+                { id: "part-d", label: "D: Threat Actors" },
+                { id: "part-e", label: "E: Attack Surface" },
+                { id: "part-f", label: "F: STRIDE Modeling" },
+                { id: "part-g", label: "G: Defensive Principles" },
+                { id: "part-h", label: "H: Frameworks (NIST/OWASP)" },
+                { id: "part-i-j", label: "I & J: Ethics & Law in India" },
+                { id: "part-k", label: "K: Security Toolkit & Sandbox" },
+                { id: "part-p", label: "P: University References" },
+              ].map((sub) => (
+                <a
+                  key={sub.id}
+                  href={`#${sub.id}`}
+                  className="px-2.5 py-1 rounded-lg text-[11px] font-semibold text-stone-600 hover:bg-orange-50 hover:text-[#ea580c] transition whitespace-nowrap border border-transparent hover:border-orange-200"
+                >
+                  {sub.label}
+                </a>
+              ))}
+            </div>
             {/* Overview Card: Learning Objectives */}
             <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
@@ -705,7 +746,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART A: Understanding Cybersecurity */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-a" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <Shield size={14} />
                 <span>Part A — Understanding Cybersecurity</span>
@@ -848,7 +889,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART B: Core Security Principles (CIA Triad & Beyond) */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-b" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <Lock size={14} />
                 <span>Part B — Core Security Principles & The CIA Triad</span>
@@ -989,7 +1030,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART C: Assets, Threats, Vulnerabilities, and Risk */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-c" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <AlertTriangle size={14} />
                 <span>Part C — Assets, Threats, Vulnerabilities & Risk</span>
@@ -1064,7 +1105,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART D: Threat Actors and the Threat Landscape */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-d" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <UserCheck size={14} />
                 <span>Part D — Threat Actors and the Threat Landscape</span>
@@ -1119,7 +1160,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART E: Attack Surfaces & Trust Boundaries */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-e" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <Layers size={14} />
                 <span>Part E — Attack Surfaces, Entry Points & Trust Boundaries</span>
@@ -1168,7 +1209,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART F: Threat Modeling & STRIDE */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-f" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <Workflow size={14} />
                 <span>Part F — Threat Modeling with the STRIDE Framework</span>
@@ -1200,7 +1241,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART G: Fundamental Defensive Principles (Saltzer & Schroeder) */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-g" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <ShieldCheck size={14} />
                 <span>Part G — Fundamental Defensive Principles</span>
@@ -1279,7 +1320,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART H: Industry Frameworks (NIST CSF 2.0, OWASP Top 10, MITRE ATT&CK) */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-h" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <Compass size={14} />
                 <span>Part H — Industry Security Frameworks</span>
@@ -1346,7 +1387,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
             </section>
 
             {/* PART I & J: Ethical Hacking, Law, & Ethics in India */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+            <section id="part-i-j" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
                 <FileCode size={14} />
                 <span>Part I & J — Ethical Hacking, Law & Responsible Disclosure</span>
@@ -1397,6 +1438,233 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
                     Mandatory Golden Rule: Never scan, probe, fuzz, or test any live public website or service simply because it is accessible on the internet. Testing without explicit written authorization is illegal. All lab work must occur in authorized, instructor-provided sandboxes.
                   </div>
                 </div>
+              </div>
+            </section>
+
+            {/* PART K: Security Tools: Purpose Before Operation */}
+            <section id="part-k" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
+                <Terminal size={14} />
+                <span>Part K — Security Tools: Purpose Before Operation</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-[#18181b]">
+                Lesson 11.1 & 11.2: The Core Security Toolkit & Safe Sandboxes
+              </h2>
+              <p className="mt-3 text-sm text-stone-600 leading-relaxed">
+                A dangerous beginner anti-pattern is downloading automated tools (like Burp Suite or Nmap) and running them blindly without understanding underlying protocols or application states. <strong>Students must learn each tool's diagnostic purpose, input requirements, output interpretation, and fundamental limitations before running commands:</strong>
+              </p>
+
+              {/* Tools Purpose Matrix */}
+              <div className="mt-6 overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr className="border-b border-stone-200 bg-stone-100/70 text-stone-700 font-bold">
+                      <th className="p-3">Tool</th>
+                      <th className="p-3">Core Purpose</th>
+                      <th className="p-3">Primary Inputs & Outputs</th>
+                      <th className="p-3">Critical Limitation</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-stone-200">
+                    <tr>
+                      <td className="p-3 font-semibold text-[#18181b]">Linux CLI (Bash)</td>
+                      <td className="p-3 text-stone-600">File inspection, permission audits, process monitoring, grep text extraction</td>
+                      <td className="p-3 text-stone-600">Shell commands, piping, grep, awk → Structured console streams</td>
+                      <td className="p-3 text-stone-600">Requires understanding UNIX permissions, process states, and filesystem hierarchy</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold text-[#18181b]">Browser DevTools</td>
+                      <td className="p-3 text-stone-600">Inspecting DOM structure, cookies, storage, client JS, and HTTP request headers</td>
+                      <td className="p-3 text-stone-600">Live web page → Network waterfall, headers, cookies, console logs</td>
+                      <td className="p-3 text-stone-600">Restricted to client execution; cannot view backend code or server logic</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold text-[#18181b]">Wireshark</td>
+                      <td className="p-3 text-stone-600">Deep packet analysis, decapsulation, protocol dissection, timing analysis</td>
+                      <td className="p-3 text-stone-600">Live NIC traffic or PCAP capture file → Frame decapsulation tree</td>
+                      <td className="p-3 text-stone-600">Cannot inspect encrypted TLS payloads without premaster session secret keys</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold text-[#18181b]">Nmap</td>
+                      <td className="p-3 text-stone-600">Network exploration, host discovery, open port enumeration, service fingerprinting</td>
+                      <td className="p-3 text-stone-600">Target IP or CIDR block → Open TCP/UDP ports, service banners</td>
+                      <td className="p-3 text-stone-600">Active SYN probes can trigger IDS alarms or be dropped by stateful firewalls</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold text-[#18181b]">Burp Suite / OWASP ZAP</td>
+                      <td className="p-3 text-stone-600">Intercepting HTTP proxy, parameter tampering, session token modification, API analysis</td>
+                      <td className="p-3 text-stone-600">Client HTTP/S traffic → Intercepted requests, payloads, response diffs</td>
+                      <td className="p-3 text-stone-600">Requires root CA certificate installation in browser to inspect HTTPS traffic</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold text-[#18181b]">Docker Sandboxes</td>
+                      <td className="p-3 text-stone-600">Isolated, ephemeral, reproducible security lab environments and targets</td>
+                      <td className="p-3 text-stone-600">Dockerfile / Compose YAML → Isolated container sandbox with synthetic data</td>
+                      <td className="p-3 text-stone-600">Containers share host kernel; requires correct network bridge configuration</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold text-[#18181b]">Git & Version Control</td>
+                      <td className="p-3 text-stone-600">Auditing code diffs, tracking commits, detecting committed credentials or API keys</td>
+                      <td className="p-3 text-stone-600">Repository commits, diffs → Change history, commit authorship, secret flags</td>
+                      <td className="p-3 text-stone-600">Cannot prevent secrets from being pushed unless pre-commit hooks are enforced</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Danger of Tool-First Thinking Warning Box */}
+              <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50/70 p-4 text-xs text-amber-950">
+                <span className="font-bold flex items-center gap-1.5 text-amber-900 mb-1">
+                  <AlertTriangle size={15} className="text-amber-600" />
+                  The Danger of Tool-First Thinking & Automated Scanners:
+                </span>
+                <p className="leading-relaxed">
+                  A tool's output is not proof of a vulnerability. Automated scanners produce significant false positives, miss deep business-logic flaws (like IDOR or flawed workflows), and misinterpret application context. An ethical security assessor treats tool outputs merely as <em>hypotheses</em> requiring rigorous, safe, manual verification within scope.
+                </p>
+              </div>
+
+              {/* Lesson 11.2: The First Practical Environment */}
+              <div className="mt-8 pt-6 border-t border-stone-200">
+                <h3 className="text-lg font-extrabold text-[#18181b] mb-2 flex items-center gap-2">
+                  <Play size={18} className="text-[#ea580c]" />
+                  <span>Lesson 11.2: The First Practical Environment: OWASP Juice Shop on Localhost</span>
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  The internationally recognized gold standard for ethical web security learning is the <strong>OWASP Juice Shop</strong>. It simulates a modern e-commerce application with realistic architectural weaknesses in an authorized, instructor-guided sandbox:
+                </p>
+
+                <div className="mt-4 p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs border border-stone-800">
+                  <div className="flex items-center justify-between text-stone-400 pb-2 border-b border-stone-800 mb-2">
+                    <span className="font-bold text-emerald-400">SAFE LOCALHOST DOCKER DEPLOYMENT</span>
+                    <button
+                      onClick={() => copyCode("docker run --rm -p 3000:3000 bkimminich/juice-shop", "docker-cmd")}
+                      className="text-stone-400 hover:text-white flex items-center gap-1 cursor-pointer"
+                    >
+                      {copiedCodeId === "docker-cmd" ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                      <span>{copiedCodeId === "docker-cmd" ? "Copied" : "Copy"}</span>
+                    </button>
+                  </div>
+                  <pre className="text-stone-300">docker run --rm -p 3000:3000 bkimminich/juice-shop</pre>
+                  <div className="mt-2 text-[11px] text-stone-400">
+                    Runs locally on http://localhost:3000. Completely isolated from external networks with zero route to production data.
+                  </div>
+                </div>
+
+                <div className="mt-4 rounded-2xl border border-stone-200 bg-stone-50 p-4">
+                  <span className="text-xs font-bold text-[#18181b] block mb-2">
+                    Prepspaces 7-Point Lab Safety Checklist (Before Any Exercise):
+                  </span>
+                  <div className="grid gap-2 sm:grid-cols-2 text-[11px] text-stone-600">
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                      <span>1. Confirm target is owned or explicitly authorized in writing.</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                      <span>2. Establish exact permitted ports, endpoints, and rate limits.</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                      <span>3. Use synthetic accounts only; never use personal credentials.</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                      <span>4. Ensure complete network isolation from production databases.</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                      <span>5. Maintain a 1-command reset or container teardown procedure.</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                      <span>6. Cease testing immediately if any service degradation occurs.</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 sm:col-span-2">
+                      <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                      <span>7. Document findings responsibly without hoarding or retaining private payloads.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* PART P: Recommended Learning Resources & Academic Citations */}
+            <section id="part-p" className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
+                <BookOpen size={14} />
+                <span>Part P — Recommended University Resources & Standard Citations</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-[#18181b]">
+                Academic Foundations & Official Standards
+              </h2>
+              <p className="mt-3 text-sm text-stone-600 leading-relaxed">
+                The curriculum of this foundational module is synthesized from publicly available university materials and international standards bodies:
+              </p>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  {
+                    inst: "MIT OpenCourseWare",
+                    course: "6.858: Computer Systems Security",
+                    focus: "Threat models, buffer overflows, isolation, web security, privilege separation.",
+                    url: "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/",
+                  },
+                  {
+                    inst: "Carnegie Mellon University",
+                    course: "15-330 / 18-730: Intro to Computer Security",
+                    focus: "Security principles, Saltzer-Schroeder design, authentication, network defense.",
+                    url: "https://www.csd.cmu.edu/course/15330/s26",
+                  },
+                  {
+                    inst: "Stanford University",
+                    course: "CS155: Computer and Network Security",
+                    focus: "Web security, cryptography fundamentals, defensive engineering, browser models.",
+                    url: "https://cs155.stanford.edu/syllabus.html",
+                  },
+                  {
+                    inst: "NIST (National Institute of Standards)",
+                    course: "Cybersecurity Framework 2.0 (CSF 2.0)",
+                    focus: "The six core functions: Govern, Identify, Protect, Detect, Respond, Recover.",
+                    url: "https://www.nist.gov/cyberframework",
+                  },
+                  {
+                    inst: "OWASP Foundation",
+                    course: "OWASP Top 10:2025 Web Application Security",
+                    focus: "Industry-standard consensus on critical web vulnerabilities and remediations.",
+                    url: "https://top10.owasp.org/2025/",
+                  },
+                  {
+                    inst: "MITRE Corporation",
+                    course: "MITRE ATT&CK® Enterprise Framework",
+                    focus: "Adversary tactics, techniques, and common knowledge based on real-world observations.",
+                    url: "https://attack.mitre.org/",
+                  },
+                  {
+                    inst: "CERT-In (Govt. of India)",
+                    course: "Responsible Vulnerability Disclosure Policy (RVDCP)",
+                    focus: "Official Indian policy for reporting and remediating vulnerabilities legally.",
+                    url: "https://www.cert-in.org.in/RVDCP.jsp",
+                  },
+                ].map((res, idx) => (
+                  <div key={idx} className="p-4 rounded-2xl border border-stone-200 bg-stone-50/70 flex flex-col justify-between">
+                    <div>
+                      <span className="text-[11px] font-mono font-bold text-[#ea580c] uppercase">{res.inst}</span>
+                      <h3 className="text-xs font-extrabold text-[#18181b] mt-1">{res.course}</h3>
+                      <p className="text-[11px] text-stone-600 mt-2 leading-relaxed">{res.focus}</p>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-stone-200">
+                      <a
+                        href={res.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-800 hover:text-[#ea580c] transition"
+                      >
+                        <span>Explore Syllabus</span>
+                        <ExternalLink size={12} />
+                      </a>
+                    </div>
+                  </div>
+                ))}
               </div>
             </section>
           </div>
@@ -1974,6 +2242,35 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
                 )}
               </div>
 
+              {/* Assessment Weighting Table */}
+              <div className="mb-6 p-4 rounded-2xl bg-stone-50 border border-stone-200 text-xs">
+                <span className="font-bold text-stone-800 block mb-2 font-mono uppercase text-[11px]">
+                  Suggested Module 1 Evaluation Weighting
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-[11px]">
+                  <div className="bg-white p-2 rounded-xl border border-stone-200">
+                    <span className="text-stone-500 block">Theory & Terms</span>
+                    <strong className="text-stone-900 font-mono">20%</strong>
+                  </div>
+                  <div className="bg-white p-2 rounded-xl border border-stone-200">
+                    <span className="text-stone-500 block">CIA & Risk</span>
+                    <strong className="text-stone-900 font-mono">20%</strong>
+                  </div>
+                  <div className="bg-white p-2 rounded-xl border border-stone-200">
+                    <span className="text-stone-500 block">Threat Modeling</span>
+                    <strong className="text-[#ea580c] font-mono">25%</strong>
+                  </div>
+                  <div className="bg-white p-2 rounded-xl border border-stone-200">
+                    <span className="text-stone-500 block">Ethical RoE</span>
+                    <strong className="text-stone-900 font-mono">15%</strong>
+                  </div>
+                  <div className="bg-white p-2 rounded-xl border border-stone-200 col-span-2 sm:col-span-1">
+                    <span className="text-stone-500 block">Case Study</span>
+                    <strong className="text-stone-900 font-mono">20%</strong>
+                  </div>
+                </div>
+              </div>
+
               {/* Quiz Questions List */}
               <div className="space-y-6">
                 {quizQuestions.map((q) => {
@@ -2081,6 +2378,144 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
                     <span>Retake Quiz</span>
                   </button>
                 )}
+              </div>
+            </section>
+          </div>
+        )}
+
+        {/* ------------------------------------------------------------------ */}
+        {/* TAB 6: CAPSTONE ASSIGNMENT & RUBRIC (PART O)                        */}
+        {/* ------------------------------------------------------------------ */}
+        {activeTab === "assignment" && (
+          <div className="space-y-8">
+            <section className="rounded-3xl border border-[#e7e3da] bg-white/90 p-6 sm:p-8 shadow-xs">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-1">
+                <ListChecks size={14} />
+                <span>Part O — Final Assignment & Completion Criteria</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-[#18181b]">
+                Foundation Security Assessment Deliverable
+              </h2>
+              <p className="mt-2 text-sm text-stone-600 leading-relaxed">
+                Students receive a fictional web application architecture and business specification. Before any active or offensive testing is permitted, they must produce a professional, formal Preliminary Security Assessment Report.
+              </p>
+
+              {/* Required Deliverables Checklist */}
+              <div className="mt-6 rounded-2xl border border-stone-200 bg-stone-50/70 p-5">
+                <h3 className="text-sm font-bold text-[#18181b] mb-3 flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-[#ea580c]" />
+                  <span>The Ten Required Assessment Deliverables:</span>
+                </h3>
+                <div className="grid gap-2 sm:grid-cols-2 text-xs text-stone-700">
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">1.</span>
+                    <span>Executive Summary explaining business context, scope, and key risks.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">2.</span>
+                    <span>Asset Inventory with 4-tier data classification and owner mapping.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">3.</span>
+                    <span>System Architecture Diagram clearly labeling all trust boundaries.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">4.</span>
+                    <span>STRIDE Threat Register containing at least 5 plausible attack scenarios.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">5.</span>
+                    <span>Quantitative / Qualitative Risk Matrix with justified ratings.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">6.</span>
+                    <span>Actionable Defensive Controls mapped to individual threat scenarios.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">7.</span>
+                    <span>Proposed Verification & Retesting Plan with expected defensive outcomes.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">8.</span>
+                    <span>Signed Authorization and Rules of Engagement (RoE) charter document.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">9.</span>
+                    <span>Coordinated Responsible Vulnerability Disclosure & incident triage plan.</span>
+                  </div>
+                  <div className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-stone-200">
+                    <span className="font-bold text-[#ea580c] font-mono">10.</span>
+                    <span>Explicit Statement of Assumptions, testing boundaries, and limitations.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Grading Rubric Table */}
+              <div className="mt-8">
+                <h3 className="text-sm font-bold text-[#18181b] mb-3">
+                  Formal Academic Grading Rubric (100% Total)
+                </h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr className="border-b border-stone-200 bg-stone-100/70 text-stone-700 font-bold">
+                        <th className="p-3">Criterion</th>
+                        <th className="p-3 text-center">Weight</th>
+                        <th className="p-3">Distinction Standard (85–100%)</th>
+                        <th className="p-3">Pass Standard (50–69%)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-200">
+                      <tr>
+                        <td className="p-3 font-semibold text-[#18181b]">Security Concepts & Terminology</td>
+                        <td className="p-3 text-center font-mono font-bold text-[#ea580c]">15%</td>
+                        <td className="p-3 text-stone-600">Flawless precision distinguishing assets, threats, vulnerabilities, and CIA properties with zero conflation.</td>
+                        <td className="p-3 text-stone-500">Correctly uses common terms but occasionally confuses threat vectors with vulnerabilities.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-semibold text-[#18181b]">Asset Identification & Classification</td>
+                        <td className="p-3 text-center font-mono font-bold text-[#ea580c]">15%</td>
+                        <td className="p-3 text-stone-600">Comprehensive catalog of 8+ assets with rigorous business justifications and 4-tier data classification.</td>
+                        <td className="p-3 text-stone-500">Lists basic database and credentials with generic classification rationale.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-semibold text-[#18181b]">Threat Model & Architecture</td>
+                        <td className="p-3 text-center font-mono font-bold text-[#ea580c]">20%</td>
+                        <td className="p-3 text-stone-600">Complete architectural diagram with clearly defined trust boundaries and all 6 STRIDE threat categories analyzed.</td>
+                        <td className="p-3 text-stone-500">Architecture is partially diagrammed; STRIDE analysis misses 2 or more threat categories.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-semibold text-[#18181b]">Risk Prioritization</td>
+                        <td className="p-3 text-center font-mono font-bold text-[#ea580c]">15%</td>
+                        <td className="p-3 text-stone-600">Likelihood and impact scores are quantitatively justified with realistic exploitation and financial harm context.</td>
+                        <td className="p-3 text-stone-500">Scores assigned subjectively without clear distinction between impact and exploitability.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-semibold text-[#18181b]">Mitigation Quality</td>
+                        <td className="p-3 text-center font-mono font-bold text-[#ea580c]">15%</td>
+                        <td className="p-3 text-stone-600">Concrete, implementable defensive recommendations (Saltzer-Schroeder principles, code snippets, WAF rules).</td>
+                        <td className="p-3 text-stone-500">Recommends generic high-level fixes (e.g. "make it secure") without implementation detail.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-semibold text-[#18181b]">Ethics, RoE & Data Handling</td>
+                        <td className="p-3 text-center font-mono font-bold text-[#ea580c]">10%</td>
+                        <td className="p-3 text-stone-600">Strict adherence to Indian IT Act 2000, DPDP Act 2023, clear stop conditions, and synthetic data guidelines.</td>
+                        <td className="p-3 text-stone-500">Mentions ethics but omits stop conditions or Indian legal compliance nuances.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-semibold text-[#18181b]">Documentation & Reporting</td>
+                        <td className="p-3 text-center font-mono font-bold text-[#ea580c]">10%</td>
+                        <td className="p-3 text-stone-600">Professional, executive-ready formatting, concise executive summary, and clear verification steps.</td>
+                        <td className="p-3 text-stone-500">Informal report structure lacking clear executive summary or verification criteria.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Completion Standard */}
+              <div className="mt-6 rounded-2xl border border-stone-200 bg-stone-100/70 p-4 text-xs text-stone-700 leading-relaxed">
+                <strong>Completion Standard:</strong> A learner must demonstrate that they can reason like a defensive security engineer before they act like a penetration tester. Merely knowing the names of automated tools without being able to connect a finding to an asset, assess business risk, and formulate a verifiable mitigation will not earn a passing practical grade.
               </div>
             </section>
           </div>
