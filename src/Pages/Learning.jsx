@@ -12,11 +12,32 @@ import {
   Compass,
   Cpu,
   Globe,
+  Shield,
 } from "lucide-react";
 import { useSafeBack } from "../utils/navigation";
 import Logo from "../Componets/Logo";
 
 const learningTracks = [
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity Masterclass",
+    tagline: "University-Informed Security Engineering & Ethical Hacking",
+    description:
+      "Master information security, adversarial threat modeling, secure system design, ethical vulnerability assessment, OWASP Top 10, NIST CSF 2.0, MITRE ATT&CK, and practical defense based on MIT, Stanford, CMU, and UC Berkeley curricula.",
+    icon: Shield,
+    route: "/learning/cybersecurity",
+    tag: "Security & Defense",
+    modulesCount: "24 Comprehensive Modules",
+    color: "from-stone-900 via-orange-950 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "Adversarial Mindset & CIA Triad",
+      "STRIDE & Architectural Threat Modeling",
+      "OWASP Top 10:2025 & Web Security",
+      "Ethical Hacking Lifecycle & Scoping Rules",
+      "Safe Hands-On Lab Security Observations",
+    ],
+  },
   {
     id: "system-design",
     title: "System Design Masterclass",

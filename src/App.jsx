@@ -54,6 +54,8 @@ import NetworkAdvancedRouting from "./Componets/NetworkAdvancedRouting";
 import NetworkSecurityArchitecture from "./Componets/NetworkSecurityArchitecture";
 import NetworkFinalCapstone from "./Componets/NetworkFinalCapstone";
 
+import CybersecurityIntro from "./Componets/CybersecurityIntro";
+
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
 import SystemDesignNetworking from "./Componets/SystemDesignNetworking";
@@ -716,6 +718,14 @@ function App() {
             <Route path="/learning/devops/capstone" element={<DevOpsCapstone />} />
             <Route path="/learning/devops/project" element={<DevOpsCapstone />} />
             <Route path="/learning/devops/final" element={<DevOpsCapstone />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 1: INTRODUCTION TO CYBERSECURITY & ETHICAL HACKING */}
+            <Route path="/learning/cybersecurity" element={<CybersecurityIntro />} />
+            <Route path="/learning/cybersecurity/intro" element={<CybersecurityIntro />} />
+            <Route path="/learning/cybersecurity/module-1" element={<CybersecurityIntro />} />
+            <Route path="/learning/cybersecurity/ethical-hacking" element={<CybersecurityIntro />} />
+            <Route path="/learn/cybersecurity" element={<CybersecurityIntro />} />
+            <Route path="/learn/cybersecurity/intro" element={<CybersecurityIntro />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

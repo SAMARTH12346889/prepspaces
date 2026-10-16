@@ -117,6 +117,33 @@ export const NETWORKS_MODULES = [
   { id: "final-capstone", name: "24. Final Capstone: Network Engineering Lab", route: "/learning/networks/final-capstone" },
 ];
 
+export const CYBERSECURITY_MODULES = [
+  { id: "intro", name: "1. Intro & Ethical Hacking", route: "/learning/cybersecurity" },
+  { id: "networking", name: "2. Networking for Cyber", route: "/learning/cybersecurity/networking" },
+  { id: "systems", name: "3. OS Internals & Hardening", route: "/learning/cybersecurity/systems" },
+  { id: "cryptography", name: "4. Cryptography & PKI", route: "/learning/cybersecurity/cryptography" },
+  { id: "iam", name: "5. Identity & Access Control", route: "/learning/cybersecurity/iam" },
+  { id: "web-security", name: "6. Web Security & OWASP", route: "/learning/cybersecurity/web-security" },
+  { id: "api-security", name: "7. API Security & Microservices", route: "/learning/cybersecurity/api-security" },
+  { id: "recon", name: "8. Reconnaissance & OSINT", route: "/learning/cybersecurity/recon" },
+  { id: "scanning", name: "9. Vulnerability Scanning & Nmap", route: "/learning/cybersecurity/scanning" },
+  { id: "burp-suite", name: "10. Web PenTesting (Burp Suite)", route: "/learning/cybersecurity/burp-suite" },
+  { id: "exploitation", name: "11. Exploitation & Metasploit", route: "/learning/cybersecurity/exploitation" },
+  { id: "privilege-escalation", name: "12. Privilege Escalation", route: "/learning/cybersecurity/privilege-escalation" },
+  { id: "active-directory", name: "13. Active Directory Security", route: "/learning/cybersecurity/active-directory" },
+  { id: "wireless", name: "14. Wireless & Mobile Security", route: "/learning/cybersecurity/wireless" },
+  { id: "cloud-security", name: "15. Cloud Security (AWS/Azure/GCP)", route: "/learning/cybersecurity/cloud-security" },
+  { id: "container-security", name: "16. Container & K8s Security", route: "/learning/cybersecurity/container-security" },
+  { id: "devsecops", name: "17. DevSecOps & Secure SDLC", route: "/learning/cybersecurity/devsecops" },
+  { id: "soc-siem", name: "18. Defensive Ops & SOC/SIEM", route: "/learning/cybersecurity/soc-siem" },
+  { id: "threat-hunting", name: "19. Endpoint Detection & Hunting", route: "/learning/cybersecurity/threat-hunting" },
+  { id: "dfir", name: "20. Digital Forensics & Incident Response", route: "/learning/cybersecurity/dfir" },
+  { id: "malware-analysis", name: "21. Malware Analysis & Reverse Eng", route: "/learning/cybersecurity/malware-analysis" },
+  { id: "threat-intel", name: "22. Threat Intel & MITRE ATT&CK", route: "/learning/cybersecurity/threat-intel" },
+  { id: "red-blue-team", name: "23. Red Teaming vs Blue Teaming", route: "/learning/cybersecurity/red-blue-team" },
+  { id: "capstone", name: "24. Final Capstone: Security Assessment", route: "/learning/cybersecurity/capstone" },
+];
+
 export default function ModuleNav({
   track = "cloud",
   currentModuleId = "cloud",
@@ -135,10 +162,12 @@ export default function ModuleNav({
       ? OS_MODULES
       : track === "networks"
       ? NETWORKS_MODULES
+      : track === "cybersecurity"
+      ? CYBERSECURITY_MODULES
       : CLOUD_MODULES;
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : "cloud")
+    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : "cloud")
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
@@ -148,6 +177,8 @@ export default function ModuleNav({
       ? "/learning/os"
       : track === "networks"
       ? "/learning/networks"
+      : track === "cybersecurity"
+      ? "/learning/cybersecurity"
       : "/learning/cloud";
 
   const { goBack } = useSafeBack(defaultFallback);
@@ -212,6 +243,8 @@ export default function ModuleNav({
                   ? "Operating Systems"
                   : track === "networks"
                   ? "Computer Networks"
+                  : track === "cybersecurity"
+                  ? "Cybersecurity"
                   : "Cloud"
               }
             />
