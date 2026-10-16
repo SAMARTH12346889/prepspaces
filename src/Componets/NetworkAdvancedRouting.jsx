@@ -17,6 +17,7 @@ import {
   Copy,
   Check,
   FileText,
+  FileCode,
   HelpCircle,
   Network,
   Layers,

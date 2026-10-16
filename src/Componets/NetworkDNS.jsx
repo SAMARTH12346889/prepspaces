@@ -1033,7 +1033,7 @@ prepspaces.com.         300     IN  AAAA 2606:4700:3037::ac43:80b5
                       Dan Kaminsky discovered that an attacker could query a target resolver for randomly generated non-existent subdomains (e.g. <code>random123.bank.com</code>). While the resolver was querying the authoritative server, the attacker flooded the resolver with thousands of forged responses guessing the 16-bit Transaction ID. Once a forged response hit the matching ID, the attacker included an authoritative delegation record hijacking the entire <code>bank.com</code> domain in the resolver's cache!
                     </p>
                     <p className="text-red-900 font-bold">
-                      Mitigation: Source Port Randomization (SPR) utilizing all 16 bits of the UDP source port alongside the 16-bit Transaction ID (expanding attack entropy to $2^{32} \approx 4\text{ billion}$ combinations).
+                      Mitigation: Source Port Randomization (SPR) utilizing all 16 bits of the UDP source port alongside the 16-bit Transaction ID (expanding attack entropy to 2<sup>32</sup> &asymp; 4 billion combinations).
                     </p>
                   </div>
 

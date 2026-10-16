@@ -693,7 +693,7 @@ Conclusion: SRTF optimizes turnaround; Round Robin optimizes response.`;
                     <strong>Type:</strong> Non-preemptive. Provably optimal for minimizing average waiting time under known bursts.
                   </p>
                   <p className="text-amber-800 bg-amber-50 p-2 rounded border border-amber-200">
-                    <strong>Predicting Bursts:</strong> Real kernels cannot know future bursts in advance; they estimate via exponential smoothing: $\tau_{n+1} = \alpha t_n + (1-\alpha)\tau_n$.
+                    <strong>Predicting Bursts:</strong> Real kernels cannot know future bursts in advance; they estimate via exponential smoothing: &tau;<sub>n+1</sub> = &alpha;t<sub>n</sub> + (1 - &alpha;)&tau;<sub>n</sub>.
                   </p>
                 </div>
 
