@@ -69,6 +69,7 @@ import CybersecurityCryptography from "./Componets/CybersecurityCryptography";
 import CybersecurityWebSecurity from "./Componets/CybersecurityWebSecurity";
 import CybersecurityOWASPTop10 from "./Componets/CybersecurityOWASPTop10";
 import CybersecurityAuthAPISecurity from "./Componets/CybersecurityAuthAPISecurity";
+import CybersecuritySecureCodeReview from "./Componets/CybersecuritySecureCodeReview";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -871,6 +872,17 @@ function App() {
             <Route path="/learn/cybersecurity/auth-api-security" element={<CybersecurityAuthAPISecurity />} />
             <Route path="/learn/cybersecurity/module-15" element={<CybersecurityAuthAPISecurity />} />
             <Route path="/learn/cybersecurity/api-security" element={<CybersecurityAuthAPISecurity />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 16: SECURE CODE REVIEW, TESTING & REMEDIATION */}
+            <Route path="/learning/cybersecurity/secure-code-review" element={<CybersecuritySecureCodeReview />} />
+            <Route path="/learning/cybersecurity/module-16" element={<CybersecuritySecureCodeReview />} />
+            <Route path="/learning/cybersecurity/code-review" element={<CybersecuritySecureCodeReview />} />
+            <Route path="/learning/cybersecurity/sast-dast" element={<CybersecuritySecureCodeReview />} />
+            <Route path="/learning/cybersecurity/remediation-validation" element={<CybersecuritySecureCodeReview />} />
+            <Route path="/learning/cybersecurity/devsecops" element={<CybersecuritySecureCodeReview />} />
+            <Route path="/learn/cybersecurity/secure-code-review" element={<CybersecuritySecureCodeReview />} />
+            <Route path="/learn/cybersecurity/module-16" element={<CybersecuritySecureCodeReview />} />
+            <Route path="/learn/cybersecurity/devsecops" element={<CybersecuritySecureCodeReview />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
