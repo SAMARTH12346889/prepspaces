@@ -73,6 +73,7 @@ import CybersecuritySecureCodeReview from "./Componets/CybersecuritySecureCodeRe
 import CybersecurityWirelessSecurity from "./Componets/CybersecurityWirelessSecurity";
 import CybersecurityCloudSecurity from "./Componets/CybersecurityCloudSecurity";
 import CybersecurityMalwareAnalysis from "./Componets/CybersecurityMalwareAnalysis";
+import CybersecuritySOCSIEM from "./Componets/CybersecuritySOCSIEM";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -923,6 +924,19 @@ function App() {
             <Route path="/learn/cybersecurity/malware-analysis" element={<CybersecurityMalwareAnalysis />} />
             <Route path="/learn/cybersecurity/module-19" element={<CybersecurityMalwareAnalysis />} />
             <Route path="/learn/cybersecurity/ransomware-defense" element={<CybersecurityMalwareAnalysis />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 20: SECURITY MONITORING, SIEM, INCIDENT RESPONSE & FORENSICS */}
+            <Route path="/learning/cybersecurity/soc-siem" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learning/cybersecurity/module-20" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learning/cybersecurity/security-monitoring" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learning/cybersecurity/siem" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learning/cybersecurity/incident-response" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learning/cybersecurity/forensics" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learning/cybersecurity/digital-forensics" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learning/cybersecurity/soc" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learn/cybersecurity/soc-siem" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learn/cybersecurity/module-20" element={<CybersecuritySOCSIEM />} />
+            <Route path="/learn/cybersecurity/security-monitoring" element={<CybersecuritySOCSIEM />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
