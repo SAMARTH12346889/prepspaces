@@ -142,13 +142,6 @@ export const CYBERSECURITY_MODULES = [
   { id: "red-blue-purple-teams", name: "22. Red, Blue & Purple Team Ops", route: "/learning/cybersecurity/red-blue-purple-teams" },
   { id: "pentest-reports", name: "23. Pentest Reports, CVSS v4 & Retesting", route: "/learning/cybersecurity/pentest-reports" },
   { id: "final-capstone", name: "24. Final Capstone: Security Assessment & Defense", route: "/learning/cybersecurity/final-capstone" },
-
-
-
-
-
-
-
 ];
 
 export default function ModuleNav({
