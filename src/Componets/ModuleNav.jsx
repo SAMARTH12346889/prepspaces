@@ -141,14 +141,14 @@ export const CYBERSECURITY_MODULES = [
   { id: "pentest-planning", name: "21. Pentest Planning, RoE & Evidence", route: "/learning/cybersecurity/pentest-planning" },
   { id: "red-blue-purple-teams", name: "22. Red, Blue & Purple Team Ops", route: "/learning/cybersecurity/red-blue-purple-teams" },
   { id: "pentest-reports", name: "23. Pentest Reports, CVSS v4 & Retesting", route: "/learning/cybersecurity/pentest-reports" },
-  { id: "privilege-escalation", name: "24. Privilege Escalation", route: "/learning/cybersecurity/privilege-escalation" },
-  { id: "active-directory", name: "25. Active Directory Security", route: "/learning/cybersecurity/active-directory" },
-  { id: "threat-hunting", name: "26. Endpoint Detection & Threat Hunting", route: "/learning/cybersecurity/threat-hunting" },
-  { id: "dfir", name: "27. Digital Forensics & Incident Response", route: "/learning/cybersecurity/dfir" },
-  { id: "threat-intel", name: "28. Threat Intel & MITRE ATT&CK", route: "/learning/cybersecurity/threat-intel" },
-  { id: "red-blue-team", name: "29. Red Teaming vs Blue Teaming", route: "/learning/cybersecurity/red-blue-team" },
-  { id: "incident-response", name: "30. Incident Response & Crisis Ops", route: "/learning/cybersecurity/incident-response" },
-  { id: "capstone", name: "31. Final Capstone: Security Assessment", route: "/learning/cybersecurity/capstone" },
+  { id: "final-capstone", name: "24. Final Capstone: Security Assessment & Defense", route: "/learning/cybersecurity/final-capstone" },
+
+
+
+
+
+
+
 ];
 
 export default function ModuleNav({

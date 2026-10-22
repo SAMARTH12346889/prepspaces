@@ -77,6 +77,7 @@ import CybersecuritySOCSIEM from "./Componets/CybersecuritySOCSIEM";
 import CybersecurityPentestPlanning from "./Componets/CybersecurityPentestPlanning";
 import CybersecurityRedBluePurple from "./Componets/CybersecurityRedBluePurple";
 import CybersecurityPentestReports from "./Componets/CybersecurityPentestReports";
+import CybersecurityFinalCapstone from "./Componets/CybersecurityFinalCapstone";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -974,6 +975,15 @@ function App() {
             <Route path="/learn/cybersecurity/module-23" element={<CybersecurityPentestReports />} />
             <Route path="/learn/cybersecurity/remediation-retesting" element={<CybersecurityPentestReports />} />
             <Route path="/learn/cybersecurity/cvss-v4" element={<CybersecurityPentestReports />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 24: FINAL CAPSTONE (ASSESS, DOCUMENT, SECURE, RETEST & DEFEND) */}
+            <Route path="/learning/cybersecurity/final-capstone" element={<CybersecurityFinalCapstone />} />
+            <Route path="/learning/cybersecurity/module-24" element={<CybersecurityFinalCapstone />} />
+            <Route path="/learning/cybersecurity/capstone" element={<CybersecurityFinalCapstone />} />
+            <Route path="/learning/cybersecurity/project" element={<CybersecurityFinalCapstone />} />
+            <Route path="/learn/cybersecurity/final-capstone" element={<CybersecurityFinalCapstone />} />
+            <Route path="/learn/cybersecurity/module-24" element={<CybersecurityFinalCapstone />} />
+            <Route path="/learn/cybersecurity/capstone" element={<CybersecurityFinalCapstone />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
