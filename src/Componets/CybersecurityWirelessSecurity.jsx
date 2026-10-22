@@ -1838,10 +1838,10 @@ export default function CybersecurityWirelessSecurity() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/burp-suite")}
+            onClick={() => navigate("/learning/cybersecurity/cloud-security")}
             className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Next: Module 18 (Web PenTesting & Burp Suite)</span>
+            <span>Next: Module 18 (Cloud Security, Containers & IAM)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

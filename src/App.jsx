@@ -71,6 +71,7 @@ import CybersecurityOWASPTop10 from "./Componets/CybersecurityOWASPTop10";
 import CybersecurityAuthAPISecurity from "./Componets/CybersecurityAuthAPISecurity";
 import CybersecuritySecureCodeReview from "./Componets/CybersecuritySecureCodeReview";
 import CybersecurityWirelessSecurity from "./Componets/CybersecurityWirelessSecurity";
+import CybersecurityCloudSecurity from "./Componets/CybersecurityCloudSecurity";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -896,6 +897,18 @@ function App() {
             <Route path="/learn/cybersecurity/module-17" element={<CybersecurityWirelessSecurity />} />
             <Route path="/learn/cybersecurity/wifi" element={<CybersecurityWirelessSecurity />} />
             <Route path="/learn/cybersecurity/wireless" element={<CybersecurityWirelessSecurity />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 18: CLOUD SECURITY, CONTAINERS, IAM POLICIES & MISCONFIGURATION ASSESSMENT */}
+            <Route path="/learning/cybersecurity/cloud-security" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learning/cybersecurity/module-18" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learning/cybersecurity/cloud" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learning/cybersecurity/containers" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learning/cybersecurity/kubernetes" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learning/cybersecurity/iam-policies" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learning/cybersecurity/misconfiguration" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learn/cybersecurity/cloud-security" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learn/cybersecurity/module-18" element={<CybersecurityCloudSecurity />} />
+            <Route path="/learn/cybersecurity/containers" element={<CybersecurityCloudSecurity />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
