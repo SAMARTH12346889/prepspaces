@@ -140,7 +140,7 @@ export const CYBERSECURITY_MODULES = [
   { id: "soc-siem", name: "20. Security Monitoring, SIEM & Forensics", route: "/learning/cybersecurity/soc-siem" },
   { id: "pentest-planning", name: "21. Pentest Planning, RoE & Evidence", route: "/learning/cybersecurity/pentest-planning" },
   { id: "red-blue-purple-teams", name: "22. Red, Blue & Purple Team Ops", route: "/learning/cybersecurity/red-blue-purple-teams" },
-  { id: "exploitation", name: "23. Exploitation & Metasploit", route: "/learning/cybersecurity/exploitation" },
+  { id: "pentest-reports", name: "23. Pentest Reports, CVSS v4 & Retesting", route: "/learning/cybersecurity/pentest-reports" },
   { id: "privilege-escalation", name: "24. Privilege Escalation", route: "/learning/cybersecurity/privilege-escalation" },
   { id: "active-directory", name: "25. Active Directory Security", route: "/learning/cybersecurity/active-directory" },
   { id: "threat-hunting", name: "26. Endpoint Detection & Threat Hunting", route: "/learning/cybersecurity/threat-hunting" },

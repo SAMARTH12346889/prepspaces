@@ -76,6 +76,7 @@ import CybersecurityMalwareAnalysis from "./Componets/CybersecurityMalwareAnalys
 import CybersecuritySOCSIEM from "./Componets/CybersecuritySOCSIEM";
 import CybersecurityPentestPlanning from "./Componets/CybersecurityPentestPlanning";
 import CybersecurityRedBluePurple from "./Componets/CybersecurityRedBluePurple";
+import CybersecurityPentestReports from "./Componets/CybersecurityPentestReports";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -962,6 +963,17 @@ function App() {
             <Route path="/learn/cybersecurity/purple-team" element={<CybersecurityRedBluePurple />} />
             <Route path="/learn/cybersecurity/module-22" element={<CybersecurityRedBluePurple />} />
             <Route path="/learn/cybersecurity/detection-engineering" element={<CybersecurityRedBluePurple />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 23: PROFESSIONAL PENETRATION TESTING REPORTS, RISK RATINGS, REMEDIATION & RETESTING */}
+            <Route path="/learning/cybersecurity/pentest-reports" element={<CybersecurityPentestReports />} />
+            <Route path="/learning/cybersecurity/module-23" element={<CybersecurityPentestReports />} />
+            <Route path="/learning/cybersecurity/cvss-v4" element={<CybersecurityPentestReports />} />
+            <Route path="/learning/cybersecurity/remediation-retesting" element={<CybersecurityPentestReports />} />
+            <Route path="/learning/cybersecurity/penetration-testing-reports" element={<CybersecurityPentestReports />} />
+            <Route path="/learn/cybersecurity/pentest-reports" element={<CybersecurityPentestReports />} />
+            <Route path="/learn/cybersecurity/module-23" element={<CybersecurityPentestReports />} />
+            <Route path="/learn/cybersecurity/remediation-retesting" element={<CybersecurityPentestReports />} />
+            <Route path="/learn/cybersecurity/cvss-v4" element={<CybersecurityPentestReports />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

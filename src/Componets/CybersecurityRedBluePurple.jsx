@@ -2264,7 +2264,7 @@ THEN
           </button>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/burp-suite")}
+            onClick={() => navigate("/learning/cybersecurity/pentest-reports")}
             className="flex items-center gap-2 rounded-2xl bg-purple-600 px-5 py-3 text-xs font-bold text-white hover:bg-purple-700 transition shadow-xs cursor-pointer"
           >
             <span>Next: Module 23 (Penetration Testing Reports, Risk Ratings &amp; Retesting)</span>
