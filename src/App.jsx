@@ -68,6 +68,7 @@ import CybersecurityIAM from "./Componets/CybersecurityIAM";
 import CybersecurityCryptography from "./Componets/CybersecurityCryptography";
 import CybersecurityWebSecurity from "./Componets/CybersecurityWebSecurity";
 import CybersecurityOWASPTop10 from "./Componets/CybersecurityOWASPTop10";
+import CybersecurityAuthAPISecurity from "./Componets/CybersecurityAuthAPISecurity";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -859,6 +860,17 @@ function App() {
             <Route path="/learn/cybersecurity/owasp-top-10" element={<CybersecurityOWASPTop10 />} />
             <Route path="/learn/cybersecurity/module-14" element={<CybersecurityOWASPTop10 />} />
             <Route path="/learn/cybersecurity/injection" element={<CybersecurityOWASPTop10 />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 15: AUTHENTICATION FLAWS, ACCESS CONTROL & API SECURITY */}
+            <Route path="/learning/cybersecurity/auth-api-security" element={<CybersecurityAuthAPISecurity />} />
+            <Route path="/learning/cybersecurity/module-15" element={<CybersecurityAuthAPISecurity />} />
+            <Route path="/learning/cybersecurity/api-security" element={<CybersecurityAuthAPISecurity />} />
+            <Route path="/learning/cybersecurity/access-control" element={<CybersecurityAuthAPISecurity />} />
+            <Route path="/learning/cybersecurity/bola-idor" element={<CybersecurityAuthAPISecurity />} />
+            <Route path="/learning/cybersecurity/jwt-security" element={<CybersecurityAuthAPISecurity />} />
+            <Route path="/learn/cybersecurity/auth-api-security" element={<CybersecurityAuthAPISecurity />} />
+            <Route path="/learn/cybersecurity/module-15" element={<CybersecurityAuthAPISecurity />} />
+            <Route path="/learn/cybersecurity/api-security" element={<CybersecurityAuthAPISecurity />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
