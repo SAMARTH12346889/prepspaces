@@ -134,11 +134,12 @@ export const CYBERSECURITY_MODULES = [
   { id: "owasp-top-10", name: "14. OWASP Top 10 & Injection Prevention", route: "/learning/cybersecurity/owasp-top-10" },
   { id: "auth-api-security", name: "15. Auth Flaws, Access Control & API Security", route: "/learning/cybersecurity/auth-api-security" },
   { id: "secure-code-review", name: "16. Secure Code Review & Testing", route: "/learning/cybersecurity/secure-code-review" },
-  { id: "burp-suite", name: "17. Web PenTesting (Burp Suite)", route: "/learning/cybersecurity/burp-suite" },
-  { id: "exploitation", name: "18. Exploitation & Metasploit", route: "/learning/cybersecurity/exploitation" },
-  { id: "privilege-escalation", name: "19. Privilege Escalation", route: "/learning/cybersecurity/privilege-escalation" },
-  { id: "active-directory", name: "20. Active Directory Security", route: "/learning/cybersecurity/active-directory" },
-  { id: "wireless", name: "21. Wireless & Mobile Security", route: "/learning/cybersecurity/wireless" },
+  { id: "wireless-security", name: "17. Wireless Security & Wi-Fi Defense", route: "/learning/cybersecurity/wireless-security" },
+  { id: "burp-suite", name: "18. Web PenTesting (Burp Suite)", route: "/learning/cybersecurity/burp-suite" },
+  { id: "exploitation", name: "19. Exploitation & Metasploit", route: "/learning/cybersecurity/exploitation" },
+  { id: "privilege-escalation", name: "20. Privilege Escalation", route: "/learning/cybersecurity/privilege-escalation" },
+  { id: "active-directory", name: "21. Active Directory Security", route: "/learning/cybersecurity/active-directory" },
+
   { id: "cloud-security", name: "22. Cloud Security (AWS/Azure/GCP)", route: "/learning/cybersecurity/cloud-security" },
   { id: "container-security", name: "23. Container & K8s Security", route: "/learning/cybersecurity/container-security" },
 

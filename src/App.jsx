@@ -70,6 +70,7 @@ import CybersecurityWebSecurity from "./Componets/CybersecurityWebSecurity";
 import CybersecurityOWASPTop10 from "./Componets/CybersecurityOWASPTop10";
 import CybersecurityAuthAPISecurity from "./Componets/CybersecurityAuthAPISecurity";
 import CybersecuritySecureCodeReview from "./Componets/CybersecuritySecureCodeReview";
+import CybersecurityWirelessSecurity from "./Componets/CybersecurityWirelessSecurity";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -883,6 +884,18 @@ function App() {
             <Route path="/learn/cybersecurity/secure-code-review" element={<CybersecuritySecureCodeReview />} />
             <Route path="/learn/cybersecurity/module-16" element={<CybersecuritySecureCodeReview />} />
             <Route path="/learn/cybersecurity/devsecops" element={<CybersecuritySecureCodeReview />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 17: WIRELESS NETWORK SECURITY & WI-FI DEFENSE */}
+            <Route path="/learning/cybersecurity/wireless-security" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learning/cybersecurity/module-17" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learning/cybersecurity/wifi" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learning/cybersecurity/wireless" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learning/cybersecurity/wpa3" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learning/cybersecurity/wids-wips" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learn/cybersecurity/wireless-security" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learn/cybersecurity/module-17" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learn/cybersecurity/wifi" element={<CybersecurityWirelessSecurity />} />
+            <Route path="/learn/cybersecurity/wireless" element={<CybersecurityWirelessSecurity />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

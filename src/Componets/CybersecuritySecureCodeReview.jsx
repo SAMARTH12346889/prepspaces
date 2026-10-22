@@ -1966,10 +1966,10 @@ export default function CybersecuritySecureCodeReview() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/burp-suite")}
+            onClick={() => navigate("/learning/cybersecurity/wireless-security")}
             className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Next: Module 17 (Web PenTesting & Burp Suite)</span>
+            <span>Next: Module 17 (Wireless Security & Wi-Fi Defense)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
