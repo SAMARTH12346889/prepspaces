@@ -2488,10 +2488,10 @@ CMD ["node", "server.js"]`}
           </button>
 
           <button
-            onClick={() => navigate("/learning/cybersecurity/burp-suite")}
+            onClick={() => navigate("/learning/cybersecurity/malware-analysis")}
             className="flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-xs font-bold text-white hover:bg-orange-600 transition shadow-xs cursor-pointer"
           >
-            <span>Next: Module 19 (Web PenTesting & Burp Suite)</span>
+            <span>Next: Module 19 (Malware Analysis & Ransomware Defense)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

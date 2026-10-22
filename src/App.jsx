@@ -72,6 +72,7 @@ import CybersecurityAuthAPISecurity from "./Componets/CybersecurityAuthAPISecuri
 import CybersecuritySecureCodeReview from "./Componets/CybersecuritySecureCodeReview";
 import CybersecurityWirelessSecurity from "./Componets/CybersecurityWirelessSecurity";
 import CybersecurityCloudSecurity from "./Componets/CybersecurityCloudSecurity";
+import CybersecurityMalwareAnalysis from "./Componets/CybersecurityMalwareAnalysis";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -909,6 +910,19 @@ function App() {
             <Route path="/learn/cybersecurity/cloud-security" element={<CybersecurityCloudSecurity />} />
             <Route path="/learn/cybersecurity/module-18" element={<CybersecurityCloudSecurity />} />
             <Route path="/learn/cybersecurity/containers" element={<CybersecurityCloudSecurity />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 19: MALWARE ANALYSIS, RANSOMWARE DEFENSE & THREAT INTELLIGENCE */}
+            <Route path="/learning/cybersecurity/malware-analysis" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learning/cybersecurity/module-19" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learning/cybersecurity/ransomware-defense" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learning/cybersecurity/threat-intelligence" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learning/cybersecurity/malware" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learning/cybersecurity/ransomware" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learning/cybersecurity/threat-intel" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learning/cybersecurity/yara" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learn/cybersecurity/malware-analysis" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learn/cybersecurity/module-19" element={<CybersecurityMalwareAnalysis />} />
+            <Route path="/learn/cybersecurity/ransomware-defense" element={<CybersecurityMalwareAnalysis />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />
