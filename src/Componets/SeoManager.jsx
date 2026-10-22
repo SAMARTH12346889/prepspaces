@@ -283,22 +283,23 @@ const routeMeta = {
   "/learn/system-design": {
     title: "System Design Course for Beginners | PrepSpaces",
     description: "Master large-scale distributed systems, architectural thinking, capacity estimation, microservices, and system design interview questions.",
-    canonical: `${BASE_URL}/learn/system-design`,
+    canonical: `${BASE_URL}/learning/system-design`,
   },
   "/learn/cloud-computing": {
     title: "Cloud Computing Course and Interview Preparation | PrepSpaces",
     description: "Master enterprise public cloud architecture, AWS, Azure, GCP, VPC networking, compute, storage, and cloud engineering interview questions.",
-    canonical: `${BASE_URL}/learn/cloud-computing`,
+    canonical: `${BASE_URL}/learning/cloud`,
   },
   "/learn/devops": {
     title: "DevOps Course and Interview Preparation | PrepSpaces",
     description: "Master modern production infrastructure, Linux systems, Docker, Kubernetes, CI/CD pipelines, and SRE interview preparation.",
-    canonical: `${BASE_URL}/learn/devops`,
+    canonical: `${BASE_URL}/learning/devops/linux`,
   },
   "/interview": {
     title: "Technical Mock Interview Platform — PrepSpaces",
     description: "Practice technical and behavioral software engineering mock interviews. Status and roadmap updates for automated interview rooms.",
     canonical: `${BASE_URL}/interview`,
+    robots: "noindex, follow",
   },
 
   // System Design Masterclass
@@ -561,6 +562,138 @@ const routeMeta = {
     description: "Deploy an end-to-end cloud-native microservices cluster with complete CI/CD, Terraform IaC, and monitoring stack.",
     canonical: `${BASE_URL}/learning/devops/capstone`,
   },
+  // Cybersecurity Masterclass (24 Modules)
+  "/learning/cybersecurity": {
+    title: "Cybersecurity Masterclass — Ethical Hacking & Systems Defense | PrepSpaces",
+    description: "Master university-informed cybersecurity engineering: CIA triad, threat modeling, ethical hacking, OWASP Top 10, NIST CSF 2.0, MITRE ATT&CK, and practical defense.",
+    canonical: `${BASE_URL}/learning/cybersecurity`,
+  },
+  "/learning/cybersecurity/intro": {
+    title: "Module 1: Introduction to Cybersecurity & Ethical Hacking | PrepSpaces",
+    description: "Understand the adversarial mindset, threat actors, attack surfaces, vulnerability classifications, and legal boundaries of ethical hacking.",
+    canonical: `${BASE_URL}/learning/cybersecurity`,
+  },
+  "/learning/cybersecurity/networking": {
+    title: "Module 2: Computer Networking for Cybersecurity Engineers | PrepSpaces",
+    description: "Deep-dive into network protocol security, TCP/IP attacks, ARP spoofing, DNS cache poisoning, TLS inspection, and firewall architecture.",
+    canonical: `${BASE_URL}/learning/cybersecurity/networking`,
+  },
+  "/learning/cybersecurity/systems": {
+    title: "Module 3: Operating System Internals & Systems Hardening | PrepSpaces",
+    description: "Kernel privilege rings, system calls, memory safety, ASLR, DEP, process isolation, and Linux/Windows host hardening.",
+    canonical: `${BASE_URL}/learning/cybersecurity/systems`,
+  },
+  "/learning/cybersecurity/threat-modeling": {
+    title: "Module 4: Threat Modeling, Risk Assessment & Security Architecture | PrepSpaces",
+    description: "STRIDE methodology, DREAD scoring, attack trees, trust boundaries, and risk mitigation strategies for modern software systems.",
+    canonical: `${BASE_URL}/learning/cybersecurity/threat-modeling`,
+  },
+  "/learning/cybersecurity/methodology": {
+    title: "Module 5: Ethical Hacking Methodology, Scoping & Rules of Engagement | PrepSpaces",
+    description: "PTES, NIST SP 800-115, OSSTMM standards, legal authorizations, scopes of work, and professional rules of engagement.",
+    canonical: `${BASE_URL}/learning/cybersecurity/methodology`,
+  },
+  "/learning/cybersecurity/osint": {
+    title: "Module 6: Open-Source Intelligence (OSINT) & Passive Reconnaissance | PrepSpaces",
+    description: "Recon-ng, Shodan, certificate transparency logs, DNS enumeration, WHOIS, and threat intelligence gathering techniques.",
+    canonical: `${BASE_URL}/learning/cybersecurity/osint`,
+  },
+  "/learning/cybersecurity/recon": {
+    title: "Module 7: Active Reconnaissance, Port Scanning & Enumeration | PrepSpaces",
+    description: "Nmap scanning techniques, service enumeration, banner grabbing, NSE scripts, and network perimeter mapping.",
+    canonical: `${BASE_URL}/learning/cybersecurity/recon`,
+  },
+  "/learning/cybersecurity/vulnerability-assessment": {
+    title: "Module 8: Vulnerability Assessment, CVEs & CVSS Scoring | PrepSpaces",
+    description: "Vulnerability management lifecycles, automated scanning, CVE database analysis, CVSS v3.1/v4.0 scoring, and prioritization.",
+    canonical: `${BASE_URL}/learning/cybersecurity/vulnerability-assessment`,
+  },
+  "/learning/cybersecurity/network-security": {
+    title: "Module 9: Network Security Architecture, Firewalls & IDS/IPS | PrepSpaces",
+    description: "Stateful inspection, packet filtering, DMZs, Snort/Suricata IDS/IPS, network segmentation, and zero-trust perimeter defense.",
+    canonical: `${BASE_URL}/learning/cybersecurity/network-security`,
+  },
+  "/learning/cybersecurity/os-security": {
+    title: "Module 10: Operating System Security, Hardening & Integrity | PrepSpaces",
+    description: "Linux & Windows benchmark hardening (CIS), AppArmor, SELinux, auditd, PAM authentication, and file integrity monitoring.",
+    canonical: `${BASE_URL}/learning/cybersecurity/os-security`,
+  },
+  "/learning/cybersecurity/iam": {
+    title: "Module 11: Identity, Authentication & Access Control (IAM) | PrepSpaces",
+    description: "OAuth 2.0, OpenID Connect, SAML 2.0, Multi-Factor Authentication (MFA), RBAC, ABAC, and privilege management.",
+    canonical: `${BASE_URL}/learning/cybersecurity/iam`,
+  },
+  "/learning/cybersecurity/cryptography": {
+    title: "Module 12: Applied Cryptography, PKI & TLS Architecture | PrepSpaces",
+    description: "Symmetric vs asymmetric encryption (AES, RSA, ECC), hashing, digital signatures, X.509 certificates, PKI, and TLS 1.3 handshakes.",
+    canonical: `${BASE_URL}/learning/cybersecurity/cryptography`,
+  },
+  "/learning/cybersecurity/web-security": {
+    title: "Module 13: Web Application Architecture, Sessions & Browser Security | PrepSpaces",
+    description: "HTTP security headers, CSP, CORS, SameSite cookies, session tokens, DOM security models, and client-side defense.",
+    canonical: `${BASE_URL}/learning/cybersecurity/web-security`,
+  },
+  "/learning/cybersecurity/owasp-top-10": {
+    title: "Module 14: OWASP Top 10, Injection Vulnerabilities & Secure Input | PrepSpaces",
+    description: "SQL injection, command injection, XSS, SSRF, IDOR, input validation, and parameterized query defenses.",
+    canonical: `${BASE_URL}/learning/cybersecurity/owasp-top-10`,
+  },
+  "/learning/cybersecurity/auth-api-security": {
+    title: "Module 15: Authentication Flaws, Access Control & API Security | PrepSpaces",
+    description: "BOLA, BFLA, JWT vulnerabilities, mass assignment, rate limiting, and API security best practices (OWASP API Top 10).",
+    canonical: `${BASE_URL}/learning/cybersecurity/auth-api-security`,
+  },
+  "/learning/cybersecurity/secure-code-review": {
+    title: "Module 16: Secure Code Review, SAST/DAST & Remediation Validation | PrepSpaces",
+    description: "Manual code audits, static and dynamic application security testing (SAST/DAST), software supply chain analysis, and automated CI/CD gating.",
+    canonical: `${BASE_URL}/learning/cybersecurity/secure-code-review`,
+  },
+  "/learning/cybersecurity/wireless-security": {
+    title: "Module 17: Wireless Security & Wi-Fi Defense | PrepSpaces",
+    description: "WPA2/WPA3 protocols, 802.11 frames, 4-way handshakes, evil twin detection, rogue AP mitigation, and enterprise WLAN defense.",
+    canonical: `${BASE_URL}/learning/cybersecurity/wireless-security`,
+  },
+  "/learning/cybersecurity/cloud-security": {
+    title: "Module 18: Cloud Security, Containers, IAM Policies & K8s | PrepSpaces",
+    description: "Shared responsibility model, AWS/Azure/GCP IAM least privilege, container vulnerability scanning, Kubernetes RBAC, and cloud posture management.",
+    canonical: `${BASE_URL}/learning/cybersecurity/cloud-security`,
+  },
+  "/learning/cybersecurity/malware-analysis": {
+    title: "Module 19: Malware Analysis Fundamentals & Threat Intelligence | PrepSpaces",
+    description: "Static and dynamic malware analysis, sandboxing, reverse engineering basics, ransomware defense, and indicators of compromise (IOCs).",
+    canonical: `${BASE_URL}/learning/cybersecurity/malware-analysis`,
+  },
+  "/learning/cybersecurity/soc-siem": {
+    title: "Module 20: Security Monitoring, SIEM, Incident Response & Forensics | PrepSpaces",
+    description: "SOC workflows, log collection, SIEM rule engineering, NIST SP 800-61 incident response, disk/memory artifact preservation, and chain of custody.",
+    canonical: `${BASE_URL}/learning/cybersecurity/soc-siem`,
+  },
+  "/learning/cybersecurity/pentest-planning": {
+    title: "Module 21: Penetration Testing Planning, RoE & Evidence Collection | PrepSpaces",
+    description: "Scoping charters, rules of engagement, risk minimization, evidentiary integrity, chain of custody, and safe assessment execution.",
+    canonical: `${BASE_URL}/learning/cybersecurity/pentest-planning`,
+  },
+  "/learning/cybersecurity/red-blue-purple-teams": {
+    title: "Module 22: Red Team, Blue Team Operations & Purple Team Exercises | PrepSpaces",
+    description: "Adversary emulation, MITRE ATT&CK mapping, detection engineering, telemetry gap analysis, and collaborative purple teaming.",
+    canonical: `${BASE_URL}/learning/cybersecurity/red-blue-purple-teams`,
+  },
+  "/learning/cybersecurity/pentest-reports": {
+    title: "Module 23: Penetration Testing Reports, CVSS v4 & Retesting | PrepSpaces",
+    description: "Executive and technical reporting, CVSS v4.0 calculator integration, prioritized remediation lifecycles, and verified retesting.",
+    canonical: `${BASE_URL}/learning/cybersecurity/pentest-reports`,
+  },
+  "/learning/cybersecurity/final-capstone": {
+    title: "Module 24: Final Capstone — Security Assessment & Defense | PrepSpaces",
+    description: "End-to-end cybersecurity project: Assess, Document, Secure, Retest, and Defend an enterprise lab environment.",
+    canonical: `${BASE_URL}/learning/cybersecurity/final-capstone`,
+  },
+  "/learn/cybersecurity": {
+    title: "Cybersecurity Masterclass — Ethical Hacking & Systems Defense | PrepSpaces",
+    description: "Master university-informed cybersecurity engineering: CIA triad, threat modeling, ethical hacking, OWASP Top 10, NIST CSF 2.0, MITRE ATT&CK, and practical defense.",
+    canonical: `${BASE_URL}/learning/cybersecurity`,
+  },
+
 };
 
 /**
@@ -662,7 +795,7 @@ export default function SeoManager() {
 
     // 2. Update Standard Meta
     updateMetaTag("name", "description", meta.description);
-    updateMetaTag("name", "robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+    updateMetaTag("name", "robots", meta.robots || "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
 
     // 3. Update Canonical Link
     updateCanonicalUrl(meta.canonical);

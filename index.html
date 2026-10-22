@@ -9,7 +9,17 @@
       content="Prepare for technical interviews with structured learning resources, System Design masterclasses, DevOps, Cloud Computing, and interview practice tools from PrepSpaces."
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <link rel="canonical" href="https://prepspaces.com/" />
+    <!-- Dynamic Canonical Initialization: avoids raw-HTML root canonical mismatch on subpages -->
+    <script>
+      (function() {
+        var base = "https://prepspaces.com";
+        var path = window.location.pathname.replace(/\/+$/, "") || "";
+        var link = document.createElement("link");
+        link.rel = "canonical";
+        link.href = base + (path === "" ? "/" : path);
+        document.head.appendChild(link);
+      })();
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -79,6 +89,22 @@
   </head>
   <body class="font-sans antialiased bg-[#f6f4ee] text-[#1c1917]">
     <div id="root"></div>
+    <noscript>
+      <header>
+        <h1>PrepSpaces — Technical Interview Preparation & Architecture Masterclasses</h1>
+        <p>Comprehensive interactive university-informed curricula for software engineers.</p>
+      </header>
+      <nav aria-label="Curriculum Tracks">
+        <ul>
+          <li><a href="/learning/system-design">System Design Masterclass (24 Modules)</a></li>
+          <li><a href="/learning/cloud">Cloud Computing Architecture (13 Modules)</a></li>
+          <li><a href="/learning/devops/linux">DevOps &amp; Site Reliability Engineering (12 Modules)</a></li>
+          <li><a href="/learning/os">Operating Systems Master Course (24 Modules)</a></li>
+          <li><a href="/learning/networks">Computer Networks &amp; Internet Engineering (24 Modules)</a></li>
+          <li><a href="/learning/cybersecurity">Cybersecurity &amp; Ethical Hacking Masterclass (24 Modules)</a></li>
+        </ul>
+      </nav>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
