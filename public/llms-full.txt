@@ -1,0 +1,660 @@
+# prepspaces — Complete Technical Curriculum Manifest
+
+> Website: https://prepspaces.com/
+> Description: Comprehensive open educational curriculum covering 6 core systems engineering disciplines across 121 technical modules, architectural blueprints, interactive labs, and diagnostic frameworks.
+
+---
+
+# Track 1: System Design Masterclass
+
+**Track Hub:** https://prepspaces.com/learning/system-design
+**Scope:** Comprehensive curriculum on large-scale distributed systems, high availability, database replication, microservices, consensus, traffic control, and architectural trade-offs.
+**Total Modules:** 24
+
+## Module 1: System Design Course & Architecture Interview Preparation
+- **Canonical URL:** https://prepspaces.com/learning/system-design
+- **Topic Summary:** Complete guide to designing scalable distributed systems, high availability, microservices, and system design interview questions.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 2: Requirements & Capacity Estimation Guide
+- **Canonical URL:** https://prepspaces.com/learning/system-design/requirements
+- **Topic Summary:** Learn how to estimate throughput (QPS/RPS), storage volumes, bandwidth, and memory caches during system design interviews.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 3: Networking, APIs & Communication Protocols
+- **Canonical URL:** https://prepspaces.com/learning/system-design/networking
+- **Topic Summary:** Deep dive into REST, gRPC, WebSockets, HTTP/2, HTTP/3, and TCP/UDP communication patterns in modern architectures.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 4: Monoliths vs Microservices Architecture
+- **Canonical URL:** https://prepspaces.com/learning/system-design/architecture
+- **Topic Summary:** Compare monolithic architectures, modular monoliths, and microservices decomposition with real-world trade-off criteria.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 5: Relational Databases, NoSQL & Indexing Internals
+- **Canonical URL:** https://prepspaces.com/learning/system-design/databases
+- **Topic Summary:** Master B-Trees, LSM-Trees, SQL indexing, NoSQL document/key-value stores, and database query optimization.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 6: Distributed Caching, Redis & CDN Strategies
+- **Canonical URL:** https://prepspaces.com/learning/system-design/caching
+- **Topic Summary:** Master cache-aside, write-through, write-behind, LRU/LFU eviction, and distributed caching invalidation strategies.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 7: Database Replication, Partitioning & Sharding
+- **Canonical URL:** https://prepspaces.com/learning/system-design/replication
+- **Topic Summary:** Master horizontal sharding, consistent hashing, single-leader vs multi-leader replication, and failover topologies.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 8: Object Storage, File Systems, Search Engines & Data Pipelines
+- **Canonical URL:** https://prepspaces.com/learning/system-design/storage
+- **Topic Summary:** Master cloud object storage, distributed file systems, inverted index search engines, batch and streaming data pipelines, and modern lakehouse architecture.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 9: Distributed Systems, Clocks & Network Partitions
+- **Canonical URL:** https://prepspaces.com/learning/system-design/distributed-systems
+- **Topic Summary:** Understand physical vs logical clocks (Lamport, Vector), network latency, timeouts, and CAP theorem nuances.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 10: Consistency Models, Linearizability & Quorum Systems
+- **Canonical URL:** https://prepspaces.com/learning/system-design/consistency
+- **Topic Summary:** Deep dive into strict consistency, sequential consistency, causal consistency, eventual consistency, and quorum math (R+W > N).
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 11: Distributed Consensus & Raft Protocol
+- **Canonical URL:** https://prepspaces.com/learning/system-design/consensus
+- **Topic Summary:** Interactive breakdown of distributed consensus, Paxos vs Raft, leader election, log replication, and split-brain defenses.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 12: Message Queues, Kafka & Event-Driven Architecture
+- **Canonical URL:** https://prepspaces.com/learning/system-design/messaging
+- **Topic Summary:** Understand message brokers, RabbitMQ vs Apache Kafka, consumer groups, partitions, event sourcing, and delivery semantics.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 13: Distributed Transactions, 2PC & Saga Orchestration
+- **Canonical URL:** https://prepspaces.com/learning/system-design/transactions
+- **Topic Summary:** Learn how to manage transactions across distributed microservices using Two-Phase Commit (2PC) and Saga patterns.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 14: Load Balancing, Rate Limiting & Traffic Management
+- **Canonical URL:** https://prepspaces.com/learning/system-design/traffic
+- **Topic Summary:** Master L4/L7 load balancing algorithms, Token Bucket, Leaky Bucket rate limiting, circuit breakers, and backpressure.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 15: Scalability & Performance Modeling
+- **Canonical URL:** https://prepspaces.com/learning/system-design/scalability
+- **Topic Summary:** Analyze system bottlenecks, vertical vs horizontal scaling, Amdahl's law, Universal Scalability Law, and performance tuning.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 16: Multi-Region Deployments & Disaster Recovery
+- **Canonical URL:** https://prepspaces.com/learning/system-design/multi-region
+- **Topic Summary:** Design active-passive and active-active multi-region architectures, calculating RTO (Recovery Time Objective) and RPO.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 17: Reliability Engineering & Observability
+- **Canonical URL:** https://prepspaces.com/learning/system-design/reliability
+- **Topic Summary:** Master metrics, distributed tracing, structured logging, SLA/SLO/SLI calculation, and high-availability design.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 18: System Design Security & Multi-Tenancy
+- **Canonical URL:** https://prepspaces.com/learning/system-design/security
+- **Topic Summary:** Architect zero-trust networks, OAuth2/OIDC token verification, RBAC/ABAC authorization, and data isolation at scale.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 19: Real-Time Systems, WebSockets & Presence Servers
+- **Canonical URL:** https://prepspaces.com/learning/system-design/realtime
+- **Topic Summary:** Design live presence platforms, collaborative editing architectures, and scalable WebSocket connection managers.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 20: Search Engines, Inverted Index & Vector Feeds
+- **Canonical URL:** https://prepspaces.com/learning/system-design/search
+- **Topic Summary:** Understand inverted index engines (Elasticsearch), full-text retrieval, relevance ranking, and activity feed generation.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 21: AI Systems Design & Inference Serving at Scale
+- **Canonical URL:** https://prepspaces.com/learning/system-design/ai-systems
+- **Topic Summary:** Architect production machine learning systems, model serving pipelines, GPU scheduling, vector databases, and RAG architectures.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 22: System Design Case Studies (URL Shortener, Chat, Feed)
+- **Canonical URL:** https://prepspaces.com/learning/system-design/case-studies
+- **Topic Summary:** Full end-to-end architectural case studies: TinyURL shortener, real-time WhatsApp-style chat, and Twitter feed algorithms.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 23: Advanced System Design Case Studies (Uber, Netflix, Stripe)
+- **Canonical URL:** https://prepspaces.com/learning/system-design/advanced-case-studies
+- **Topic Summary:** High-scale engineering deep dives: Ride-hailing dispatch, global video streaming CDN, and financial payment platforms.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 24: System Design Architecture Capstone Project
+- **Canonical URL:** https://prepspaces.com/learning/system-design/capstone
+- **Topic Summary:** Synthesize all distributed system principles into a complete, enterprise-grade architecture specification and design doc.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+---
+
+# Track 2: Cloud Computing Architecture
+
+**Track Hub:** https://prepspaces.com/learning/cloud
+**Scope:** Enterprise public cloud architecture across AWS, Azure, and Google Cloud, covering VPC networking, serverless compute, storage, databases, and multi-cloud systems.
+**Total Modules:** 13
+
+## Module 1: Cloud Computing Course & Interview Preparation
+- **Canonical URL:** https://prepspaces.com/learning/cloud
+- **Topic Summary:** Master public cloud architecture, AWS, Azure, GCP, availability zones, data center topologies, and cloud interview questions.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 2: Cloud Networking: VPCs, Subnets & Gateways
+- **Canonical URL:** https://prepspaces.com/learning/cloud/networking
+- **Topic Summary:** Design enterprise VPC topologies, CIDR blocks, transit gateways, NAT gateways, and secure cloud perimeter networking.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 3: Cloud Compute: Virtual Machines to Serverless
+- **Canonical URL:** https://prepspaces.com/learning/cloud/compute
+- **Topic Summary:** Compare EC2 instances, spot instances, autoscaling groups, containers (ECS), and serverless execution models.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 4: Cloud Storage: Object, Block & File Systems
+- **Canonical URL:** https://prepspaces.com/learning/cloud/storage
+- **Topic Summary:** Deep dive into AWS S3, EBS, EFS, storage lifecycle policies, encryption at rest, and cloud data tiering.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 5: Managed Cloud Databases: RDS, DynamoDB & Aurora
+- **Canonical URL:** https://prepspaces.com/learning/cloud/databases
+- **Topic Summary:** Architect managed cloud database clusters with read replicas, multi-AZ failover, and global distributed tables.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 6: Well-Architected Cloud Framework
+- **Canonical URL:** https://prepspaces.com/learning/cloud/architecture
+- **Topic Summary:** Implement the 6 pillars of AWS/Azure Well-Architected Framework: operational excellence, security, reliability, performance, cost, sustainability.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 7: Deep AWS Engineering & Architecture Mastery
+- **Canonical URL:** https://prepspaces.com/learning/cloud/aws
+- **Topic Summary:** In-depth guide to core Amazon Web Services: IAM policies, CloudFormation, CloudWatch, and multi-account AWS Organizations.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 8: Microsoft Azure Architecture & Enterprise Cloud
+- **Canonical URL:** https://prepspaces.com/learning/cloud/azure
+- **Topic Summary:** Master Azure Resource Manager (ARM), Azure AD (Entra ID), Virtual Networks, and Azure enterprise landing zones.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 9: Google Cloud Platform (GCP) Architecture
+- **Canonical URL:** https://prepspaces.com/learning/cloud/gcp
+- **Topic Summary:** Understand Google Cloud VPCs, BigQuery architecture, Google Kubernetes Engine (GKE), and global network backbone.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 10: Multi-Cloud Strategy & Hybrid Architectures
+- **Canonical URL:** https://prepspaces.com/learning/cloud/multicloud
+- **Topic Summary:** Design portable, vendor-neutral architectures across AWS, Azure, and Google Cloud with unified governance.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 11: Cloud Security, IAM & Zero-Trust Governance
+- **Canonical URL:** https://prepspaces.com/learning/cloud/security
+- **Topic Summary:** Enforce least privilege IAM, secret rotation, key management (KMS), and automated cloud security posture management (CSPM).
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 12: Cloud Economics & FinOps Cost Optimization
+- **Canonical URL:** https://prepspaces.com/learning/cloud/economics
+- **Topic Summary:** Master FinOps lifecycle, reserved instances, savings plans, rightsizing workloads, and multi-tenant cost allocation.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 13: Advanced Cloud Systems & Edge Computing
+- **Canonical URL:** https://prepspaces.com/learning/cloud/advanced
+- **Topic Summary:** Explore edge computing runtimes, Cloudflare Workers, AWS Lambda@Edge, and geo-distributed compute topologies.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+---
+
+# Track 3: DevOps & Site Reliability Engineering (SRE)
+
+**Track Hub:** https://prepspaces.com/learning/devops/linux
+**Scope:** Production infrastructure, Linux administration, Docker containers, Kubernetes cluster management, Terraform IaC, CI/CD pipelines, SLOs, and resilience engineering.
+**Total Modules:** 12
+
+## Module 1: Linux Administration & System Internals for DevOps
+- **Canonical URL:** https://prepspaces.com/learning/devops/linux
+- **Topic Summary:** Master Linux shell scripting, file permissions, processes, systemd services, memory management, and network troubleshooting.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 2: Git Internals & Professional Branching Workflows
+- **Canonical URL:** https://prepspaces.com/learning/devops/git
+- **Topic Summary:** Deep dive into Git plumbing commands, DAG commits, trunk-based development, rebasing, and merge strategies.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 3: Docker & Containerization Mastery
+- **Canonical URL:** https://prepspaces.com/learning/devops/docker
+- **Topic Summary:** Build production Dockerfiles, multi-stage builds, container isolation, Linux namespaces/cgroups, and image security.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 4: Kubernetes Architecture & Cluster Orchestration
+- **Canonical URL:** https://prepspaces.com/learning/devops/k8s
+- **Topic Summary:** Master Pods, Deployments, StatefulSets, Services, Ingress, Helm charts, and Kubernetes control plane internals.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 5: Infrastructure as Code with Terraform
+- **Canonical URL:** https://prepspaces.com/learning/devops/iac
+- **Topic Summary:** Master Terraform HCL, state management, module reusability, remote backends, and GitOps infrastructure provisioning.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 6: CI/CD Pipelines & Continuous Delivery
+- **Canonical URL:** https://prepspaces.com/learning/devops/cicd
+- **Topic Summary:** Build robust GitHub Actions and GitLab CI pipelines with automated linting, test suites, and zero-downtime releases.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 7: Deployment Strategies: Blue/Green & Canary
+- **Canonical URL:** https://prepspaces.com/learning/devops/deployment
+- **Topic Summary:** Implement zero-downtime deployment strategies, canary releases, blue/green switching, and automated health checks.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 8: Site Reliability Engineering: SLOs & Error Budgets
+- **Canonical URL:** https://prepspaces.com/learning/devops/sre
+- **Topic Summary:** Implement Google SRE practices, define Service Level Objectives (SLOs), calculate error budgets, and incident command.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 9: Production Resilience & Chaos Engineering
+- **Canonical URL:** https://prepspaces.com/learning/devops/reliability
+- **Topic Summary:** Design fault-tolerant systems using chaos engineering principles, graceful degradation, and post-mortem analysis.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 10: DevSecOps
+- **Canonical URL:** https://prepspaces.com/learning/devops/secops
+- **Topic Summary:** Technical curriculum module.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 11: Platform Engineering & Internal Developer Portals
+- **Canonical URL:** https://prepspaces.com/learning/devops/platform
+- **Topic Summary:** Build developer platforms, self-service infrastructure blueprints, and paved-road developer experiences.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 12: DevOps & SRE Production Capstone Project
+- **Canonical URL:** https://prepspaces.com/learning/devops/capstone
+- **Topic Summary:** Deploy an end-to-end cloud-native microservices cluster with complete CI/CD, Terraform IaC, and monitoring stack.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+---
+
+# Track 4: Operating Systems Master Course
+
+**Track Hub:** https://prepspaces.com/learning/os
+**Scope:** University-informed systems engineering based on MIT, Stanford, and CMU curricula. Kernel architecture, CPU scheduling, virtual memory, concurrency, file systems, and Linux internals.
+**Total Modules:** 24
+
+## Module 1: Operating Systems Master Course
+- **Canonical URL:** https://prepspaces.com/learning/os
+- **Topic Summary:** Master operating systems internals, kernel architectures, process scheduling, virtual memory, concurrency, and Linux systems programming.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 2: Module 2: Computer Architecture for OS Engineers
+- **Canonical URL:** https://prepspaces.com/learning/os/architecture
+- **Topic Summary:** Master CPU execution, registers, privilege rings, interrupts, MMU page translation, TLBs, DMA, and system boot stages.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 3: Module 3: C Programming & Systems Programming Model
+- **Canonical URL:** https://prepspaces.com/learning/os/systems-programming
+- **Topic Summary:** Master C memory models, virtual address space layouts, ELF binaries, static and dynamic linking, AddressSanitizer, and POSIX system interfaces.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 4: Module 4: OS Interfaces, System Calls & Program Execution
+- **Canonical URL:** https://prepspaces.com/learning/os/syscalls
+- **Topic Summary:** Master system call transitions, file descriptors, fork, execvp, waitpid, process lifecycle, signals, pipes, and strace diagnostics.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 5: Module 5: Processes and Process Lifecycle
+- **Canonical URL:** https://prepspaces.com/learning/os/processes
+- **Topic Summary:** Master process abstractions, kernel task_struct (PCB), 5-state transitions, context switching, orphans, zombies, and Linux /proc exploration.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 6: Module 6: CPU Scheduling and Performance
+- **Canonical URL:** https://prepspaces.com/learning/os/scheduling
+- **Topic Summary:** Master FCFS, SJF, SRTF, Round Robin, Multilevel Feedback Queues (MLFQ), context-switch overhead, CPU affinity, and Linux EEVDF.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 7: Module 7: Threads and Multithreaded Programming
+- **Canonical URL:** https://prepspaces.com/learning/os/threads
+- **Topic Summary:** Master POSIX threads (pthreads), shared vs private state, threading models (1:1, N:1, M:N), Amdahl's Law, and cache false sharing mitigation.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 8: Module 8: Concurrency, Synchronization and Deadlocks
+- **Canonical URL:** https://prepspaces.com/learning/os/concurrency
+- **Topic Summary:** Master race conditions, critical sections, POSIX mutexes, condition variables, semaphores, C11 memory ordering, Coffman deadlock conditions, and linearizability.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 9: Module 9: Memory Hierarchy and Memory Allocation
+- **Canonical URL:** https://prepspaces.com/learning/os/memory
+- **Topic Summary:** Master virtual address spaces, stack frames, heap allocators, first-fit vs best-fit vs buddy allocation, fragmentation, and cache locality.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 10: Module 10: Virtual Memory and Address Translation
+- **Canonical URL:** https://prepspaces.com/learning/os/virtual-memory
+- **Topic Summary:** Master hardware MMU address translation, hierarchical page tables, PTE flags, TLB hit rates, Effective Access Time (EAT), and Copy-on-Write.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 11: Module 11: Demand Paging and Page Replacement
+- **Canonical URL:** https://prepspaces.com/learning/os/demand-paging
+- **Topic Summary:** Master demand paging, minor and major faults, working sets, thrashing, FIFO, Optimal, LRU, Clock, Belady's Anomaly, and Linux memory pressure.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 12: Module 12: Advanced Memory, Virtual Machines and Containers
+- **Canonical URL:** https://prepspaces.com/learning/os/virtualization
+- **Topic Summary:** Master memory-mapped I/O, huge pages, NUMA nodes, hypervisors, EPT/NPT two-stage translation, Linux namespaces, and cgroup v2 memory limits.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 13: Module 13: Filesystems and Storage Architecture
+- **Canonical URL:** https://prepspaces.com/learning/os/filesystems
+- **Topic Summary:** Master files, directories, inodes, dentries, extents, journaling, crash consistency, VFS, page cache writeback, fsync, and ext4/XFS/Btrfs design.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 14: Module 14: Storage Architecture, I/O Scheduling & Performance
+- **Canonical URL:** https://prepspaces.com/learning/os/storage
+- **Topic Summary:** Master HDDs, flash SSDs, NVMe parallel queues, Little's Law, Linux I/O schedulers, DMA, write amplification, and io_uring.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 15: Module 15: IPC, Pipes, Shared Memory & Signals
+- **Canonical URL:** https://prepspaces.com/learning/os/ipc
+- **Topic Summary:** Master interprocess communication, anonymous pipes, named FIFOs, Unix domain sockets, POSIX shared memory, semaphores, signals, and backpressure.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 16: Module 16: Crash Consistency, Durability and Recovery
+- **Canonical URL:** https://prepspaces.com/learning/os/crash-consistency
+- **Topic Summary:** Master crash consistency, page cache write ordering, fsync, atomic file replacement, journaling, copy-on-write, and disaster recovery validation.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 17: Module 17: Kernel Architecture & System Implementation
+- **Canonical URL:** https://prepspaces.com/learning/os/kernel-architecture
+- **Topic Summary:** Master kernel internals, boot flow from UEFI to PID 1, system-call dispatch tables, trap handling, spinlock interrupt safety, and MIT xv6 vs Linux.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 18: Module 18: Linux Internals & Performance Diagnostics
+- **Canonical URL:** https://prepspaces.com/learning/os/diagnostics
+- **Topic Summary:** Master Linux performance diagnostics, /proc, /sys, vmstat, iostat, perf, strace, PSI stalls, and evidence-based bottleneck triage.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 19: Module 19: OS Networking & Network I/O
+- **Canonical URL:** https://prepspaces.com/learning/os/networking
+- **Topic Summary:** Master the Linux kernel network stack, TCP/UDP sockets, non-blocking I/O, epoll event loops, socket buffers, application backpressure, and network namespaces.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 20: Module 20: OS Security, Isolation & Reliability
+- **Canonical URL:** https://prepspaces.com/learning/os/security
+- **Topic Summary:** Master Linux identities, capabilities, POSIX permissions, cgroup v2 limits, seccomp filters, Secure Boot, DoS defenses, and STRIDE threat modeling.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 21: Module 21: Advanced Synchronization & Multiprocessor Systems
+- **Canonical URL:** https://prepspaces.com/learning/os/advanced-sync
+- **Topic Summary:** Master multiprocessor synchronization, spinlocks, atomics, lock-free queues, memory ordering, cache coherence, false sharing, NUMA, and RCU.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 22: Module 22: OS Design, Testing & Failure Analysis
+- **Canonical URL:** https://prepspaces.com/learning/os/testing
+- **Topic Summary:** Master systems testing, component invariants, fault injection, ThreadSanitizer race detection, kernel panics, and performance regression gates.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 23: Module 23 Capstone: Build an OS Component (xv6/RISC-V)
+- **Canonical URL:** https://prepspaces.com/learning/os/capstone
+- **Topic Summary:** Build, extend, and test an educational operating system component using MIT xv6 on RISC-V, system call traps, and engineering verification.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 24: Module 24: Final Capstone
+- **Canonical URL:** https://prepspaces.com/learning/os/final-capstone
+- **Topic Summary:** Culminating operating systems engineering project. Implement bounded concurrent worker queues, performance diagnostic tools, or virtual memory simulators.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+---
+
+# Track 5: Computer Networks & Internet Architecture
+
+**Track Hub:** https://prepspaces.com/learning/networks
+**Scope:** University-level networking based on MIT, Stanford, UC Berkeley, CMU, and Princeton. Physical transmission, Ethernet, IPv4/IPv6, BGP routing, TCP/UDP sockets, DNS, and network security.
+**Total Modules:** 24
+
+## Module 1: Module 1: Introduction to Computer Networks & Internet Architecture
+- **Canonical URL:** https://prepspaces.com/learning/networks
+- **Topic Summary:** Master computer networks from physical signals and Ethernet switching to global BGP routing, packet switching math, TCP/IP protocols, and network security.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 2: Module 2: Network Models
+- **Canonical URL:** https://prepspaces.com/learning/networks/models
+- **Topic Summary:** Master OSI 7-layer and TCP/IP 4-layer network models, protocol encapsulation, router frame re-framing, Wireshark packet dissection, and layered troubleshooting.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 3: Module 3: Physical Layer & Data Transmission
+- **Canonical URL:** https://prepspaces.com/learning/networks/physical
+- **Topic Summary:** Master physical layer signals, Nyquist and Shannon channel capacity, optical power budgets, line coding (NRZ, Manchester, PAM-4), and ethtool transceiver diagnostics.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 4: Module 4: Data Link Layer & Ethernet Switching
+- **Canonical URL:** https://prepspaces.com/learning/networks/datalink
+- **Topic Summary:** Master Ethernet frame structures, CAM table MAC learning, ARP resolution, 802.1Q VLAN trunking, Spanning Tree Protocol (STP), and Layer 2 link security.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 5: Module 5: IPv4 Addressing, Subnetting & Enterprise Planning
+- **Canonical URL:** https://prepspaces.com/learning/networks/ipv4
+- **Topic Summary:** Master 32-bit binary arithmetic, CIDR notation, subnet calculations, VLSM address optimization, RFC 1918 private addressing, and NAT/PAT connection tracking.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 6: Module 6: IPv6 Architecture, Modern Addressing & Transition Engineering
+- **Canonical URL:** https://prepspaces.com/learning/networks/ipv6
+- **Topic Summary:** Master 128-bit hexadecimal addressing, address compression rules, Global Unicast, Link-Local, Neighbor Discovery Protocol (NDP), SLAAC autoconfiguration, DHCPv6, dual-stack networks, transition mechanisms (NAT64/DNS64), and IPv6 defense-in-depth.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 7: Module 7: Routing and Router Architecture
+- **Canonical URL:** https://prepspaces.com/learning/networks/routing
+- **Topic Summary:** Master Longest-Prefix Matching (LPM), RIB vs FIB data structures, hop-by-hop TTL frame re-encapsulation, Dijkstra link-state calculations in OSPF, BGP interdomain policy, and network fault troubleshooting.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 8: Module 8: ICMP, ARP, DHCP & Network Configuration
+- **Canonical URL:** https://prepspaces.com/learning/networks/config
+- **Topic Summary:** Master host configuration protocols, DHCP DORA lease lifecycle, ARP address resolution and spoofing, ICMP diagnostics, DNS name resolution dependencies, and tcpdump packet analysis.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 9: Module 9: TCP
+- **Canonical URL:** https://prepspaces.com/learning/networks/tcp
+- **Topic Summary:** Master TCP internals, 3-way handshake, 11 connection states, sliding windows, flow control (rwnd), congestion control (cwnd), Fast Retransmit, PMTUD black holes, BDP calculation, and SYN cookies.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 10: Module 10: UDP, QUIC & Modern Transport Protocols
+- **Canonical URL:** https://prepspaces.com/learning/networks/udp
+- **Topic Summary:** Master UDP datagrams, 8-byte headers, checksum verification, application-managed reliability, QUIC (RFC 9000), HTTP/3, 0-RTT handshakes, Head-of-Line blocking elimination, connection migration, and DDoS amplification defense.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 11: Module 11: DNS & Internet Naming Architecture
+- **Canonical URL:** https://prepspaces.com/learning/networks/dns
+- **Topic Summary:** Master global DNS hierarchy, root servers, recursive vs iterative resolution, 12-byte wire headers, resource records (A, AAAA, CNAME, MX, TXT, PTR), negative caching, DoH/DoT encryption, DNSSEC trust chains, and DNS tunneling forensics.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 12: Module 12: Application Protocols & Web Networking
+- **Canonical URL:** https://prepspaces.com/learning/networks/application-layer
+- **Topic Summary:** Master HTTP/1.1 semantics, status codes, conditional caching (ETags), TLS 1.3 handshakes, X.509 PKI certificates, reverse proxies, REST APIs, CORS, and WebSockets.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 13: Module 13: Wireless, Wi-Fi & Mobile Networking
+- **Canonical URL:** https://prepspaces.com/learning/networks/wireless
+- **Topic Summary:** Master IEEE 802.11 Wi-Fi generations (Wi-Fi 4-7), RF propagation, channel planning, WPA3-SAE, enterprise 802.1X EAP-TLS, Bluetooth LE, 5G Core, and WIPS defense.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 14: Module 14: Switching, VLANs & Enterprise LAN Design
+- **Canonical URL:** https://prepspaces.com/learning/networks/switching
+- **Topic Summary:** Master hierarchical campus networks, 802.1Q trunking, inter-VLAN routing (ROAS and SVIs), 802.1w RSTP loop prevention, LACP link aggregation, and Layer 2 switch port security.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 15: Module 15: Network Services, Firewalls & Access Control
+- **Canonical URL:** https://prepspaces.com/learning/networks/firewalls
+- **Topic Summary:** Master stateful packet inspection, conntrack, ACL rule ordering, NAT, IPsec/WireGuard VPNs, Suricata IDS/IPS, bastion jump hosts, and Linux nftables.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 16: Module 16: Enterprise, Data Center & Cloud Networking
+- **Canonical URL:** https://prepspaces.com/learning/networks/enterprise-cloud
+- **Topic Summary:** Master data center leaf-spine fabrics, ECMP routing, multi-tier cloud VPCs, Layer 4/7 load balancing, VXLAN overlays, MTU engineering, and Zero Trust.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 17: Module 17: Network Security Fundamentals & Threat Modeling
+- **Canonical URL:** https://prepspaces.com/learning/networks/threat-modeling
+- **Topic Summary:** Master the CIA triad, explicit trust boundaries, attack surface reduction, STRIDE threat modeling, TLS 1.3 AEAD cryptography, and qualitative risk assessment.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 18: Module 18: Packet Analysis & Network Reconnaissance
+- **Canonical URL:** https://prepspaces.com/learning/networks/packet-analysis
+- **Topic Summary:** Master Wireshark 3-pane dissection, display filters, tcpdump command-line capture, BPF filters, Nmap port states, and evidence integrity hashing.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 19: Module 19: Common Network Attacks & Defensive Countermeasures
+- **Canonical URL:** https://prepspaces.com/learning/networks/attacks-defenses
+- **Topic Summary:** Master network attack vectors and mitigations: ARP cache poisoning vs Dynamic ARP Inspection (DAI), DNS cache poisoning vs DNSSEC, IP spoofing vs uRPF, TCP SYN floods vs SYN cookies, and VLAN hopping defenses.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 20: Module 20: IDS/IPS, SOC Monitoring and Incident Response
+- **Canonical URL:** https://prepspaces.com/learning/networks/ids-ips-soc
+- **Topic Summary:** Master network intrusion detection and prevention: Passive IDS vs Inline IPS, Suricata and Snort 3 rule authoring, Zeek telemetry logs, multi-source IoC correlation, SIEM triage, and NIST SP 800-61 incident response.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 21: Module 21: Network Programming and Automation
+- **Canonical URL:** https://prepspaces.com/learning/networks/network-automation
+- **Topic Summary:** Master Python network programming and automation: TCP/UDP socket lifecycles, dual-stack DNS resolution with socket.getaddrinfo, HTTP client probing, ThreadPoolExecutor concurrency, RESTCONF/NETCONF idempotency, and JSONL diagnostics.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 22: Module 22: Advanced Routing, Performance and Troubleshooting
+- **Canonical URL:** https://prepspaces.com/learning/networks/advanced-routing
+- **Topic Summary:** Master BGP routing policy, OSPF link-state convergence, Bufferbloat queueing dynamics, Path MTU Discovery (PMTUD) black holes, asymmetric routing across stateful firewalls, and enterprise root-cause analysis (RCA).
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 23: Module 23: Modern Network Security Architecture
+- **Canonical URL:** https://prepspaces.com/learning/networks/security-architecture
+- **Topic Summary:** Master Zero Trust (NIST SP 800-207), microsegmentation, secure DNS (DoH/DoT/DNSSEC), TLS 1.3 certificate lifecycle, WireGuard vs IPsec cryptokey routing, Kubernetes NetworkPolicies, and Network Detection & Response (NDR).
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 24: Module 24: Final Capstone
+- **Canonical URL:** https://prepspaces.com/learning/networks/final-capstone
+- **Topic Summary:** Build and audit an enterprise-grade segmented network lab featuring 802.1Q VLAN trunking, inter-VLAN routing, stateful firewall rules, HSRP/VRRP gateway redundancy, packet captures, iperf3 benchmarks, and complete engineering reports.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+---
+
+# Track 6: Cybersecurity & Ethical Hacking Masterclass
+
+**Track Hub:** https://prepspaces.com/learning/cybersecurity
+**Scope:** Offensive and defensive cybersecurity engineering. Threat modeling (STRIDE), ethical scoping, vulnerability assessment, OWASP Top 10, cryptography, cloud security, SIEM, and verified retesting.
+**Total Modules:** 24
+
+## Module 1: Cybersecurity Masterclass
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity
+- **Topic Summary:** Master university-informed cybersecurity engineering: CIA triad, threat modeling, ethical hacking, OWASP Top 10, NIST CSF 2.0, MITRE ATT&CK, and practical defense.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 2: Module 2: Computer Networking for Cybersecurity Engineers
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/networking
+- **Topic Summary:** Deep-dive into network protocol security, TCP/IP attacks, ARP spoofing, DNS cache poisoning, TLS inspection, and firewall architecture.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 3: Module 3: Operating System Internals & Systems Hardening
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/systems
+- **Topic Summary:** Kernel privilege rings, system calls, memory safety, ASLR, DEP, process isolation, and Linux/Windows host hardening.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 4: Module 4: Threat Modeling, Risk Assessment & Security Architecture
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/threat-modeling
+- **Topic Summary:** STRIDE methodology, DREAD scoring, attack trees, trust boundaries, and risk mitigation strategies for modern software systems.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 5: Module 5: Ethical Hacking Methodology, Scoping & Rules of Engagement
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/methodology
+- **Topic Summary:** PTES, NIST SP 800-115, OSSTMM standards, legal authorizations, scopes of work, and professional rules of engagement.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 6: Module 6: Open-Source Intelligence (OSINT) & Passive Reconnaissance
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/osint
+- **Topic Summary:** Recon-ng, Shodan, certificate transparency logs, DNS enumeration, WHOIS, and threat intelligence gathering techniques.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 7: Module 7: Active Reconnaissance, Port Scanning & Enumeration
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/recon
+- **Topic Summary:** Nmap scanning techniques, service enumeration, banner grabbing, NSE scripts, and network perimeter mapping.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 8: Module 8: Vulnerability Assessment, CVEs & CVSS Scoring
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/vulnerability-assessment
+- **Topic Summary:** Vulnerability management lifecycles, automated scanning, CVE database analysis, CVSS v3.1/v4.0 scoring, and prioritization.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 9: Module 9: Network Security Architecture, Firewalls & IDS/IPS
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/network-security
+- **Topic Summary:** Stateful inspection, packet filtering, DMZs, Snort/Suricata IDS/IPS, network segmentation, and zero-trust perimeter defense.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 10: Module 10: Operating System Security, Hardening & Integrity
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/os-security
+- **Topic Summary:** Linux & Windows benchmark hardening (CIS), AppArmor, SELinux, auditd, PAM authentication, and file integrity monitoring.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 11: Module 11: Identity, Authentication & Access Control (IAM)
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/iam
+- **Topic Summary:** OAuth 2.0, OpenID Connect, SAML 2.0, Multi-Factor Authentication (MFA), RBAC, ABAC, and privilege management.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 12: Module 12: Applied Cryptography, PKI & TLS Architecture
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/cryptography
+- **Topic Summary:** Symmetric vs asymmetric encryption (AES, RSA, ECC), hashing, digital signatures, X.509 certificates, PKI, and TLS 1.3 handshakes.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 13: Module 13: Web Application Architecture, Sessions & Browser Security
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/web-security
+- **Topic Summary:** HTTP security headers, CSP, CORS, SameSite cookies, session tokens, DOM security models, and client-side defense.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 14: Module 14: OWASP Top 10, Injection Vulnerabilities & Secure Input
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/owasp-top-10
+- **Topic Summary:** SQL injection, command injection, XSS, SSRF, IDOR, input validation, and parameterized query defenses.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 15: Module 15: Authentication Flaws, Access Control & API Security
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/auth-api-security
+- **Topic Summary:** BOLA, BFLA, JWT vulnerabilities, mass assignment, rate limiting, and API security best practices (OWASP API Top 10).
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 16: Module 16: Secure Code Review, SAST/DAST & Remediation Validation
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/secure-code-review
+- **Topic Summary:** Manual code audits, static and dynamic application security testing (SAST/DAST), software supply chain analysis, and automated CI/CD gating.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 17: Module 17: Wireless Security & Wi-Fi Defense
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/wireless-security
+- **Topic Summary:** WPA2/WPA3 protocols, 802.11 frames, 4-way handshakes, evil twin detection, rogue AP mitigation, and enterprise WLAN defense.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 18: Module 18: Cloud Security, Containers, IAM Policies & K8s
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/cloud-security
+- **Topic Summary:** Shared responsibility model, AWS/Azure/GCP IAM least privilege, container vulnerability scanning, Kubernetes RBAC, and cloud posture management.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 19: Module 19: Malware Analysis Fundamentals & Threat Intelligence
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/malware-analysis
+- **Topic Summary:** Static and dynamic malware analysis, sandboxing, reverse engineering basics, ransomware defense, and indicators of compromise (IOCs).
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 20: Module 20: Security Monitoring, SIEM, Incident Response & Forensics
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/soc-siem
+- **Topic Summary:** SOC workflows, log collection, SIEM rule engineering, NIST SP 800-61 incident response, disk/memory artifact preservation, and chain of custody.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 21: Module 21: Penetration Testing Planning, RoE & Evidence Collection
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/pentest-planning
+- **Topic Summary:** Scoping charters, rules of engagement, risk minimization, evidentiary integrity, chain of custody, and safe assessment execution.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 22: Module 22: Red Team, Blue Team Operations & Purple Team Exercises
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/red-blue-purple-teams
+- **Topic Summary:** Adversary emulation, MITRE ATT&CK mapping, detection engineering, telemetry gap analysis, and collaborative purple teaming.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 23: Module 23: Penetration Testing Reports, CVSS v4 & Retesting
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/pentest-reports
+- **Topic Summary:** Executive and technical reporting, CVSS v4.0 calculator integration, prioritized remediation lifecycles, and verified retesting.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+## Module 24: Module 24: Final Capstone
+- **Canonical URL:** https://prepspaces.com/learning/cybersecurity/final-capstone
+- **Topic Summary:** End-to-end cybersecurity project: Assess, Document, Secure, Retest, and Defend an enterprise lab environment.
+- **Target Competencies:** Systems architecture, engineering trade-offs, failure modes, implementation patterns, and verification.
+
+---
+

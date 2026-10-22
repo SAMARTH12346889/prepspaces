@@ -11,8 +11,8 @@ const routeMeta = {
     canonical: `${BASE_URL}/`,
   },
   "/learning": {
-    title: "Technical Interview Preparation Curriculum & Courses — PrepSpaces",
-    description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, Cloud Computing, and Operating Systems.",
+    title: "Technical Systems Engineering Curriculum & Masterclasses — prepspaces",
+    description: "Explore comprehensive university-informed preparation tracks in System Design, Cloud Computing, DevOps & SRE, Operating Systems, Computer Networks, and Cybersecurity.",
     canonical: `${BASE_URL}/learning`,
   },
   "/learn": {

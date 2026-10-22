@@ -1,4 +1,38 @@
+# robots.txt for https://prepspaces.com/
+# Optimized for Web Search Engines, AI Answer Engines & LLM Citations
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: *
 Allow: /
 
+# Private & Dynamic App Endpoints
+Disallow: /interview
+
+# Authoritative XML Sitemap
 Sitemap: https://prepspaces.com/sitemap.xml

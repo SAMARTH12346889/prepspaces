@@ -127,7 +127,7 @@ const learningTracks = [
     icon: Globe,
     route: "/learning/networks",
     tag: "Networking & Protocols",
-    modulesCount: "University Course",
+    modulesCount: "24 Comprehensive Modules",
     color: "from-stone-900 via-zinc-800 to-orange-600",
     badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
     highlights: [
