@@ -137,6 +137,9 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   html = html.replace(/<meta\s+name="twitter:description"\s+content="[\s\S]*?"\s*\/>/, `<meta name="twitter:description" content="${meta.description.replace(/"/g, '&quot;')}" />`);
   html = html.replace(/<meta\s+name="twitter:url"\s+content="[\s\S]*?"\s*\/>/, `<meta name="twitter:url" content="${meta.canonical}" />`);
 
+  // 6b. Remove WebSite structured data from subpages (Google requires WebSite schema ONLY on the homepage)
+  html = html.replace(/<script\s+type="application\/ld\+json"\s+id="schema-website">[\s\S]*?<\/script>\s*/, '');
+
   // 7. Inject Structured Data JSON-LD
   const schemaTags = `
     <!-- Structured Data (Prerendered) -->

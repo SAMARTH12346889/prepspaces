@@ -6,8 +6,8 @@ const BASE_URL = "https://prepspaces.com";
 // Comprehensive route SEO definitions
 const routeMeta = {
   "/": {
-    title: "PrepSpaces — AI Interview Preparation & Technical Learning",
-    description: "Prepare for technical interviews with structured learning resources, System Design masterclasses, DevOps, Cloud Computing, and interview practice tools from PrepSpaces.",
+    title: "prepspaces — AI Interview Preparation & Technical Learning",
+    description: "Prepare for technical interviews with structured learning resources, System Design masterclasses, DevOps, Cloud Computing, and interview practice tools from prepspaces.",
     canonical: `${BASE_URL}/`,
   },
   "/learning": {
