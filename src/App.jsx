@@ -75,6 +75,7 @@ import CybersecurityCloudSecurity from "./Componets/CybersecurityCloudSecurity";
 import CybersecurityMalwareAnalysis from "./Componets/CybersecurityMalwareAnalysis";
 import CybersecuritySOCSIEM from "./Componets/CybersecuritySOCSIEM";
 import CybersecurityPentestPlanning from "./Componets/CybersecurityPentestPlanning";
+import CybersecurityRedBluePurple from "./Componets/CybersecurityRedBluePurple";
 
 import SystemDesignIntro from "./Componets/SystemDesignIntro";
 import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
@@ -949,6 +950,18 @@ function App() {
             <Route path="/learn/cybersecurity/pentest-planning" element={<CybersecurityPentestPlanning />} />
             <Route path="/learn/cybersecurity/module-21" element={<CybersecurityPentestPlanning />} />
             <Route path="/learn/cybersecurity/penetration-testing" element={<CybersecurityPentestPlanning />} />
+
+            {/* CYBERSECURITY MASTERCLASS - MODULE 22: RED TEAM, BLUE TEAM, DETECTION ENGINEERING & PURPLE TEAM EXERCISES */}
+            <Route path="/learning/cybersecurity/red-blue-purple-teams" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learning/cybersecurity/purple-team" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learning/cybersecurity/module-22" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learning/cybersecurity/red-team-blue-team" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learning/cybersecurity/detection-engineering" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learning/cybersecurity/adversary-emulation" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learn/cybersecurity/red-blue-purple-teams" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learn/cybersecurity/purple-team" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learn/cybersecurity/module-22" element={<CybersecurityRedBluePurple />} />
+            <Route path="/learn/cybersecurity/detection-engineering" element={<CybersecurityRedBluePurple />} />
 
             {/* INTERVIEW PAGE */}
             <Route path="/interview" element={<InterviewRoom />} />

@@ -139,7 +139,7 @@ export const CYBERSECURITY_MODULES = [
   { id: "malware-analysis", name: "19. Malware Analysis & Ransomware Defense", route: "/learning/cybersecurity/malware-analysis" },
   { id: "soc-siem", name: "20. Security Monitoring, SIEM & Forensics", route: "/learning/cybersecurity/soc-siem" },
   { id: "pentest-planning", name: "21. Pentest Planning, RoE & Evidence", route: "/learning/cybersecurity/pentest-planning" },
-  { id: "burp-suite", name: "22. Web PenTesting (Burp Suite)", route: "/learning/cybersecurity/burp-suite" },
+  { id: "red-blue-purple-teams", name: "22. Red, Blue & Purple Team Ops", route: "/learning/cybersecurity/red-blue-purple-teams" },
   { id: "exploitation", name: "23. Exploitation & Metasploit", route: "/learning/cybersecurity/exploitation" },
   { id: "privilege-escalation", name: "24. Privilege Escalation", route: "/learning/cybersecurity/privilege-escalation" },
   { id: "active-directory", name: "25. Active Directory Security", route: "/learning/cybersecurity/active-directory" },
