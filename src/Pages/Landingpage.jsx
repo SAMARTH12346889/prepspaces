@@ -17,6 +17,27 @@ import {
   Globe,
 } from "lucide-react";
 
+function InstagramIcon({ size = 16, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
 export default function Landingpage() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -435,7 +456,7 @@ export default function Landingpage() {
 
           {/* ================= SEO INTERNAL LINKING FOOTER ================= */}
           <footer className="mt-12 pt-8 border-t border-[#e7e3da] text-stone-600">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-xs">
               <div>
                 <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
                   Core Curriculum
@@ -547,15 +568,47 @@ export default function Landingpage() {
                   </li>
                 </ul>
               </div>
+              <div>
+                <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
+                  Community & Social
+                </h4>
+                <p className="text-xs text-stone-600 mb-3 leading-relaxed">
+                  Daily visual architecture breakdowns, interview scenarios &amp; engineering roadmaps.
+                </p>
+                <a
+                  href="https://www.instagram.com/prepspaces/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 px-3.5 py-2 text-xs font-bold text-white shadow-xs hover:opacity-95 transition active:scale-95 cursor-pointer"
+                  title="Follow PrepSpaces on Instagram @prepspaces"
+                >
+                  <InstagramIcon size={14} className="text-white" />
+                  <span>@prepspaces on Instagram</span>
+                </a>
+              </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-stone-200/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-500">
+            {/* Social & Legal Bottom Bar */}
+            <div className="mt-8 pt-4 border-t border-stone-200/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-500 gap-3">
               <div className="flex items-center gap-2">
                 <Logo size="xs" />
                 <span>— Technical Interview Preparation & Architecture Mastery</span>
               </div>
-              <div className="mt-2 sm:mt-0 font-mono">
-                © {new Date().getFullYear()} PrepSpaces. All rights reserved.
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://www.instagram.com/prepspaces/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-stone-600 hover:text-[#ea580c] transition font-semibold"
+                  title="Official PrepSpaces Instagram"
+                >
+                  <InstagramIcon size={13} className="text-[#ea580c]" />
+                  <span>Instagram</span>
+                </a>
+                <span className="text-stone-300">•</span>
+                <span className="font-mono">
+                  © {new Date().getFullYear()} PrepSpaces. All rights reserved.
+                </span>
               </div>
             </div>
           </footer>

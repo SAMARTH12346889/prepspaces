@@ -114,8 +114,11 @@ for (const [route, meta] of Object.entries(routeMeta)) {
     "isAccessibleForFree": true,
     "provider": {
       "@type": "Organization",
-      "name": "prepspaces",
-      "sameAs": "https://prepspaces.com",
+      "name": "PrepSpaces",
+      "url": "https://prepspaces.com",
+      "sameAs": [
+        "https://www.instagram.com/prepspaces/"
+      ]
     },
     "hasCourseInstance": {
       "@type": "CourseInstance",
@@ -134,12 +137,15 @@ for (const [route, meta] of Object.entries(routeMeta)) {
     "proficiencyLevel": "Intermediate to Advanced",
     "publisher": {
       "@type": "Organization",
-      "name": "prepspaces",
+      "name": "PrepSpaces",
       "url": "https://prepspaces.com",
       "logo": {
         "@type": "ImageObject",
         "url": "https://prepspaces.com/logo-mark.png",
       },
+      "sameAs": [
+        "https://www.instagram.com/prepspaces/"
+      ]
     },
   });
 
@@ -238,6 +244,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
             </div>
             <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
               <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">prepspaces Home</a>
+              <a href="https://www.instagram.com/prepspaces/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #c2410c; background-color: #fff7ed; border: 1px solid #fed7aa; border-radius: 0.75rem; text-decoration: none;">Follow @prepspaces on Instagram</a>
             </nav>
           </main>
         </div>
@@ -282,6 +289,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
           <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Explore Curriculum Hub</a>
             <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">prepspaces Home</a>
+            <a href="https://www.instagram.com/prepspaces/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #c2410c; background-color: #fff7ed; border: 1px solid #fed7aa; border-radius: 0.75rem; text-decoration: none;">Follow @prepspaces on Instagram</a>
           </nav>
         </main>
       </div>

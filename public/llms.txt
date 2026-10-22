@@ -5,6 +5,7 @@
 ## Overview
 - Website: https://prepspaces.com/
 - Curriculum Hub: https://prepspaces.com/learning
+- Official Instagram: https://www.instagram.com/prepspaces/ (@prepspaces)
 - Full Content Manifest: https://prepspaces.com/llms-full.txt
 - Primary Audience: Software Engineers, Systems Engineers, Computer Science Students, SREs, Security Practitioners.
 

@@ -17,6 +17,27 @@ import {
 import { useSafeBack } from "../utils/navigation";
 import Logo from "../Componets/Logo";
 
+function InstagramIcon({ size = 16, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
 const learningTracks = [
   {
     id: "cybersecurity",
@@ -278,6 +299,33 @@ export default function Learning() {
               </div>
             );
           })}
+        </div>
+
+        {/* Official Instagram Community Banner */}
+        <div className="mt-16 rounded-2xl border border-stone-200/80 bg-white p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] text-white shadow-sm">
+              <InstagramIcon size={24} />
+            </div>
+            <div>
+              <div className="text-sm font-bold text-stone-900">
+                Join the PrepSpaces Community on Instagram
+              </div>
+              <p className="text-xs text-stone-500 mt-0.5">
+                Daily technical breakdowns, interview patterns, architecture blueprints, and engineering roadmaps.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://www.instagram.com/prepspaces/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow PrepSpaces on Instagram @prepspaces"
+            className="inline-flex items-center gap-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors shrink-0"
+          >
+            <span>Follow @prepspaces</span>
+            <ArrowRight size={14} />
+          </a>
         </div>
       </div>
     </div>

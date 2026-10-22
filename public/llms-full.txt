@@ -1,6 +1,7 @@
 # prepspaces — Complete Technical Curriculum Manifest
 
 > Website: https://prepspaces.com/
+> Official Instagram: https://www.instagram.com/prepspaces/ (@prepspaces)
 > Description: Comprehensive open educational curriculum covering 6 core systems engineering disciplines across 121 technical modules, architectural blueprints, interactive labs, and diagnostic frameworks.
 
 ---
