@@ -816,6 +816,15 @@ export default function SeoManager() {
 
     // 6. Update Breadcrumbs Structured Data
     updateBreadcrumbs(pathname, meta.title);
+
+    // 7. Track SPA page views in Google Analytics (gtag.js)
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("config", "G-N10P6557MZ", {
+        page_path: pathname,
+        page_title: meta.title,
+        page_location: window.location.href,
+      });
+    }
   }, [location.pathname]);
 
   return null;
