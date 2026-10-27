@@ -31,8 +31,5 @@ Allow: /
 User-agent: *
 Allow: /
 
-# Private & Dynamic App Endpoints
-Disallow: /interview
-
 # Authoritative XML Sitemap
 Sitemap: https://prepspaces.com/sitemap.xml

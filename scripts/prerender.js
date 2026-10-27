@@ -56,17 +56,40 @@ function getTrackNameFromPath(subPath) {
   return "Engineering Curriculum";
 }
 
+// Clean up any legacy subfolder index.html files so Cloudflare Pages doesn't trigger 308 trailing-slash redirects
+function removeSubfolderIndexHtml(dir) {
+  if (!fs.existsSync(dir)) return;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      const subIndex = path.join(fullPath, "index.html");
+      if (fs.existsSync(subIndex)) {
+        fs.unlinkSync(subIndex);
+      }
+      removeSubfolderIndexHtml(fullPath);
+    }
+  }
+}
+
+removeSubfolderIndexHtml(distDir);
+
 let generatedCount = 0;
 
 for (const [route, meta] of Object.entries(routeMeta)) {
   // Skip root '/' since dist/index.html is already the root
   if (route === "/" || route === "") continue;
 
-  const cleanRoute = route.replace(/^\/+/, "");
-  const targetDir = path.resolve(distDir, cleanRoute);
-  fs.mkdirSync(targetDir, { recursive: true });
+  // Skip non-canonical aliases to avoid duplicate content & "Alternate page with proper canonical tag" issues
+  if (meta.canonical && meta.canonical !== `${BASE_URL}${route}`) {
+    continue;
+  }
 
-  const targetFile = path.resolve(targetDir, "index.html");
+  const cleanRoute = route.replace(/^\/+/, "");
+  // Output flat .html files so Cloudflare Pages serves them directly with 200 OK without trailing-slash 308 redirects
+  const targetFile = path.resolve(distDir, `${cleanRoute}.html`);
+  const targetDir = path.dirname(targetFile);
+  fs.mkdirSync(targetDir, { recursive: true });
 
   const cleanTitle = meta.title.split("—")[0].split("|")[0].trim();
   const trackName = getTrackNameFromPath(route);
@@ -197,8 +220,11 @@ for (const [route, meta] of Object.entries(routeMeta)) {
 
   // 8. Inject Semantic Content inside <div id="root"></div> for zero-JS crawlers & AI Answer Engines
   const isCurriculumHub = route === "/learning";
-  const semanticContent = isCurriculumHub
-    ? `<div id="root">
+  const isInterview = route === "/interview";
+  let semanticContent = "";
+
+  if (isCurriculumHub) {
+    semanticContent = `<div id="root">
         <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
           <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
             <a href="/" style="color: #ea580c; text-decoration: none; font-weight: 600;">Home</a> &rarr; 
@@ -248,8 +274,17 @@ for (const [route, meta] of Object.entries(routeMeta)) {
             </nav>
           </main>
         </div>
-      </div>`
-    : `<div id="root">
+      </div>`;
+  } else if (isInterview) {
+    semanticContent = `<div id="root">
+        <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 48rem; margin: 4rem auto; padding: 2rem 1.5rem; text-align: center; color: #1c1917;">
+          <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">AI Technical Interview Practice</h1>
+          <p style="font-size: 1rem; color: #57534e; margin-bottom: 2rem;">Interactive mock interview simulations with real-time speech and design feedback. Coming soon to PrepSpaces.</p>
+          <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Explore Technical Curriculum &rarr;</a>
+        </div>
+      </div>`;
+  } else {
+    semanticContent = `<div id="root">
       <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
         <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
           <a href="/" style="color: #ea580c; text-decoration: none; font-weight: 600;">Home</a> &rarr; 
@@ -294,12 +329,16 @@ for (const [route, meta] of Object.entries(routeMeta)) {
         </main>
       </div>
     </div>`;
+  }
 
   html = html.replace('<div id="root"></div>', semanticContent);
 
   fs.writeFileSync(targetFile, html, "utf8");
   generatedCount++;
 }
+
+// Clean up any subfolder index.html files again after writing flat files
+removeSubfolderIndexHtml(distDir);
 
 // 9. Sync llms.txt and llms-full.txt to dist/
 const publicDir = path.resolve(projectRoot, "public");

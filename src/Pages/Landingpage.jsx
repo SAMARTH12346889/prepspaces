@@ -186,23 +186,19 @@ export default function Landingpage() {
               <span>Overview</span>
             </button>
 
-            <button
-              onClick={() => {
-                setSidebarOpen(false);
-                navigate("/learning");
-              }}
+            <Link
+              to="/learning"
+              onClick={() => setSidebarOpen(false)}
               className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer"
             >
               <BookOpen size={18} className="text-stone-400" />
               <span>Study</span>
-            </button>
+            </Link>
 
             {/* Interviews with Coming Soon badge */}
-            <button
-              onClick={() => {
-                setSidebarOpen(false);
-                navigate("/interview");
-              }}
+            <Link
+              to="/interview"
+              onClick={() => setSidebarOpen(false)}
               className="flex w-full items-center justify-between rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer group"
             >
               <div className="flex items-center gap-3">
@@ -212,7 +208,7 @@ export default function Landingpage() {
               <span className="rounded-full bg-orange-100/80 border border-orange-200/80 px-2 py-0.5 text-[10px] font-bold text-[#ea580c]">
                 Coming Soon
               </span>
-            </button>
+            </Link>
           </nav>
         </div>
       </aside>
@@ -251,13 +247,13 @@ export default function Landingpage() {
 
           {/* Header Right Action */}
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate("/learning")}
+            <Link
+              to="/learning"
               className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-4 py-2.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer active:scale-95"
             >
               <BookOpen size={15} className="text-[#f97316]" />
               <span>Browse Tracks</span>
-            </button>
+            </Link>
           </div>
         </header>
 
@@ -286,14 +282,14 @@ export default function Landingpage() {
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => navigate("/learning")}
+                <Link
+                  to="/learning"
                   className="flex items-center gap-2.5 rounded-xl bg-[#f97316] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition hover:bg-[#ea580c] hover:scale-105 active:scale-95 cursor-pointer"
                 >
                   <BookOpen size={16} />
                   <span>Explore Learning Tracks</span>
                   <ChevronRight size={16} />
-                </button>
+                </Link>
               </div>
             </div>
           </section>
@@ -321,9 +317,9 @@ export default function Landingpage() {
                   {availableTracks.map((track) => {
                     const Icon = track.icon;
                     return (
-                      <div
+                      <Link
                         key={track.id}
-                        onClick={() => navigate(track.route)}
+                        to={track.route}
                         className="group flex items-center justify-between rounded-2xl border border-stone-200/60 bg-stone-50/70 p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs"
                       >
                         <div className="flex items-center gap-3">
@@ -348,20 +344,20 @@ export default function Landingpage() {
                             className="text-stone-400 group-hover:translate-x-0.5 group-hover:text-[#ea580c] transition"
                           />
                         </div>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
               </div>
 
               <div className="pt-3 border-t border-[#e7e3da]/70">
-                <button
-                  onClick={() => navigate("/learning")}
+                <Link
+                  to="/learning"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#ea580c] hover:text-[#c2410c] transition cursor-pointer"
                 >
                   <span>Browse all learning tracks</span>
                   <ArrowRight size={14} />
-                </button>
+                </Link>
               </div>
             </section>
 
@@ -384,9 +380,9 @@ export default function Landingpage() {
                 {/* Real Available Starter Topics */}
                 <div className="my-5 space-y-3">
                   {featuredTopics.map((topic, idx) => (
-                    <div
+                    <Link
                       key={idx}
-                      onClick={() => navigate(topic.route)}
+                      to={topic.route}
                       className="group flex items-center justify-between rounded-2xl border border-stone-200/60 bg-stone-50/70 p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs"
                     >
                       <div className="flex items-center gap-3">
@@ -411,19 +407,19 @@ export default function Landingpage() {
                           className="text-stone-400 group-hover:translate-x-0.5 group-hover:text-[#ea580c] transition"
                         />
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
 
               <div className="pt-3 border-t border-[#e7e3da]/70">
-                <button
-                  onClick={() => navigate("/learning")}
+                <Link
+                  to="/learning"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#ea580c] hover:text-[#c2410c] transition cursor-pointer"
                 >
                   <span>Explore Study section</span>
                   <ArrowRight size={14} />
-                </button>
+                </Link>
               </div>
             </section>
           </div>
@@ -443,14 +439,14 @@ export default function Landingpage() {
                 </p>
               </div>
 
-              <button
-                onClick={() => navigate("/learning")}
+              <Link
+                to="/learning"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#f97316] to-[#ea580c] px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer self-start md:self-auto"
               >
                 <BookOpen size={16} />
                 <span>Go to Study Curriculum</span>
                 <ChevronRight size={16} />
-              </button>
+              </Link>
             </div>
           </section>
 
@@ -459,27 +455,42 @@ export default function Landingpage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-xs">
               <div>
                 <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
-                  Core Curriculum
+                  Masterclass Tracks
                 </h4>
                 <ul className="space-y-2">
                   <li>
-                    <Link to="/learning" className="hover:text-[#ea580c] transition">
-                      Full Engineering Syllabus
+                    <Link to="/learning" className="hover:text-[#ea580c] transition font-semibold text-stone-800">
+                      Full Curriculum Hub
                     </Link>
                   </li>
                   <li>
-                    <Link to="/learn/system-design" className="hover:text-[#ea580c] transition">
-                      System Design Course for Beginners
+                    <Link to="/learning/system-design" className="hover:text-[#ea580c] transition">
+                      System Design (24 Modules)
                     </Link>
                   </li>
                   <li>
-                    <Link to="/learn/cloud-computing" className="hover:text-[#ea580c] transition">
-                      Cloud Computing Course
+                    <Link to="/learning/cloud" className="hover:text-[#ea580c] transition">
+                      Cloud Computing (13 Modules)
                     </Link>
                   </li>
                   <li>
-                    <Link to="/learn/devops" className="hover:text-[#ea580c] transition">
-                      DevOps Course & SRE
+                    <Link to="/learning/devops/linux" className="hover:text-[#ea580c] transition">
+                      DevOps &amp; SRE (12 Modules)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/os" className="hover:text-[#ea580c] transition">
+                      Operating Systems (24 Modules)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/networks" className="hover:text-[#ea580c] transition">
+                      Computer Networks (24 Modules)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/cybersecurity" className="hover:text-[#ea580c] transition">
+                      Cybersecurity (24 Modules)
                     </Link>
                   </li>
                 </ul>
@@ -487,7 +498,7 @@ export default function Landingpage() {
 
               <div>
                 <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
-                  System Design Tracks
+                  System Design Deep Dives
                 </h4>
                 <ul className="space-y-2">
                   <li>
@@ -497,17 +508,22 @@ export default function Landingpage() {
                   </li>
                   <li>
                     <Link to="/learning/system-design/databases" className="hover:text-[#ea580c] transition">
-                      SQL, NoSQL & B-Trees
+                      SQL, NoSQL &amp; B-Trees
                     </Link>
                   </li>
                   <li>
                     <Link to="/learning/system-design/caching" className="hover:text-[#ea580c] transition">
-                      Distributed Caching & Redis
+                      Distributed Caching &amp; Redis
                     </Link>
                   </li>
                   <li>
                     <Link to="/learning/system-design/consensus" className="hover:text-[#ea580c] transition">
-                      Consensus & Raft Protocol
+                      Consensus &amp; Raft Protocol
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/system-design/traffic" className="hover:text-[#ea580c] transition">
+                      Load Balancing &amp; Rate Limiting
                     </Link>
                   </li>
                 </ul>
@@ -515,27 +531,32 @@ export default function Landingpage() {
 
               <div>
                 <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
-                  Cloud Infrastructure
+                  Systems &amp; Security
                 </h4>
                 <ul className="space-y-2">
                   <li>
-                    <Link to="/learning/cloud" className="hover:text-[#ea580c] transition">
-                      Cloud Foundations & DC
+                    <Link to="/learning/os/processes" className="hover:text-[#ea580c] transition">
+                      Kernel &amp; Process Lifecycle
                     </Link>
                   </li>
                   <li>
-                    <Link to="/learning/cloud/networking" className="hover:text-[#ea580c] transition">
-                      VPCs, Subnets & Gateways
+                    <Link to="/learning/os/virtual-memory" className="hover:text-[#ea580c] transition">
+                      Virtual Memory &amp; Page Tables
                     </Link>
                   </li>
                   <li>
-                    <Link to="/learning/cloud/aws" className="hover:text-[#ea580c] transition">
-                      AWS Architecture Mastery
+                    <Link to="/learning/networks/tcp" className="hover:text-[#ea580c] transition">
+                      TCP/UDP Sockets &amp; Flow Control
                     </Link>
                   </li>
                   <li>
-                    <Link to="/learning/cloud/security" className="hover:text-[#ea580c] transition">
-                      IAM & Cloud Governance
+                    <Link to="/learning/cybersecurity/owasp-top-10" className="hover:text-[#ea580c] transition">
+                      OWASP Top 10 Vulnerabilities
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/cybersecurity/threat-modeling" className="hover:text-[#ea580c] transition">
+                      STRIDE Threat Modeling
                     </Link>
                   </li>
                 </ul>
@@ -543,34 +564,40 @@ export default function Landingpage() {
 
               <div>
                 <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
-                  DevOps & SRE
+                  Cloud &amp; DevOps
                 </h4>
                 <ul className="space-y-2">
                   <li>
                     <Link to="/learning/devops/linux" className="hover:text-[#ea580c] transition">
-                      Linux Administration
+                      Linux Administration &amp; Bash
                     </Link>
                   </li>
                   <li>
                     <Link to="/learning/devops/docker" className="hover:text-[#ea580c] transition">
-                      Docker Containerization
+                      Docker Containers &amp; Namespaces
                     </Link>
                   </li>
                   <li>
                     <Link to="/learning/devops/k8s" className="hover:text-[#ea580c] transition">
-                      Kubernetes Orchestration
+                      Kubernetes Pod Orchestration
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/learning/cloud/aws" className="hover:text-[#ea580c] transition">
+                      AWS Cloud Architecture
                     </Link>
                   </li>
                   <li>
                     <Link to="/learning/devops/cicd" className="hover:text-[#ea580c] transition">
-                      CI/CD Pipelines & GitOps
+                      CI/CD Pipelines &amp; GitOps
                     </Link>
                   </li>
                 </ul>
               </div>
+
               <div>
                 <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-3 text-[11px]">
-                  Community & Social
+                  Community &amp; Social
                 </h4>
                 <p className="text-xs text-stone-600 mb-3 leading-relaxed">
                   Daily visual architecture breakdowns, interview scenarios &amp; engineering roadmaps.

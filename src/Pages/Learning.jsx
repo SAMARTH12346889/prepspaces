@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   ArrowRight,
   ArrowLeft,
@@ -231,10 +231,10 @@ export default function Learning() {
             const Icon = card.icon;
 
             return (
-              <div
+              <Link
                 key={card.id}
-                onClick={() => navigate(card.route)}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#e7e3da] bg-white/90 p-7 sm:p-8 backdrop-blur-xl shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-300 hover:shadow-[0_20px_45px_rgba(249,115,22,0.12)] cursor-pointer"
+                to={card.route}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#e7e3da] bg-white/90 p-7 sm:p-8 backdrop-blur-xl shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-300 hover:shadow-[0_20px_45px_rgba(249,115,22,0.12)] cursor-pointer text-inherit no-underline"
               >
                 <div className="flex flex-col flex-1">
                   {/* Card Header with Icon, Tag and Duration */}
@@ -296,7 +296,7 @@ export default function Learning() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

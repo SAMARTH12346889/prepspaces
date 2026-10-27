@@ -10,6 +10,12 @@ const routeMeta = {
     description: "Prepare for technical interviews with structured learning resources, System Design masterclasses, DevOps, Cloud Computing, and interview practice tools from prepspaces.",
     canonical: `${BASE_URL}/`,
   },
+  "/interview": {
+    title: "AI Technical Interview Simulation — PrepSpaces",
+    description: "Interactive technical interview simulation and design evaluations from prepspaces.",
+    canonical: `${BASE_URL}/interview`,
+    robots: "noindex, follow",
+  },
   "/learning": {
     title: "Technical Systems Engineering Curriculum & Masterclasses — prepspaces",
     description: "Explore comprehensive university-informed preparation tracks in System Design, Cloud Computing, DevOps & SRE, Operating Systems, Computer Networks, and Cybersecurity.",

@@ -1,1 +1,11 @@
-/*    /index.html   200
+# Canonical redirects for legacy aliases
+/learn/*                   /learning/:splat            301
+/learn                     /learning                   301
+/learning/os/intro         /learning/os                301
+/learning/networks/intro   /learning/networks          301
+/learning/system-design/intro /learning/system-design  301
+/learning/cybersecurity/intro /learning/cybersecurity  301
+/learning/os/design-testing /learning/os/testing       301
+
+# SPA fallback
+/*                         /index.html                 200
