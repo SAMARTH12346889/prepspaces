@@ -237,7 +237,7 @@ export default function Landingpage() {
                 })}
               </p>
               <h1 className="text-lg font-black tracking-tight text-[#18181b] sm:text-2xl md:text-3xl">
-                Welcome to prepspaces
+                Welcome to PrepSpaces
               </h1>
               <p className="hidden sm:block text-xs text-stone-500 mt-0.5">
                 Technical interview preparation, structured engineering tracks, and architecture mastery.

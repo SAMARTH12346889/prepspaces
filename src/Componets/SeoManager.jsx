@@ -6,18 +6,18 @@ const BASE_URL = "https://prepspaces.com";
 // Comprehensive route SEO definitions
 const routeMeta = {
   "/": {
-    title: "prepspaces — AI Interview Preparation & Technical Learning",
-    description: "Prepare for technical interviews with structured learning resources, System Design masterclasses, DevOps, Cloud Computing, and interview practice tools from prepspaces.",
+    title: "PrepSpaces — AI Interview Preparation & Technical Learning",
+    description: "Prepare for technical interviews with structured learning resources, System Design masterclasses, DevOps, Cloud Computing, and interview practice tools from PrepSpaces.",
     canonical: `${BASE_URL}/`,
   },
   "/interview": {
     title: "AI Technical Interview Simulation — PrepSpaces",
-    description: "Interactive technical interview simulation and design evaluations from prepspaces.",
+    description: "Interactive technical interview simulation and design evaluations from PrepSpaces.",
     canonical: `${BASE_URL}/interview`,
     robots: "noindex, follow",
   },
   "/learning": {
-    title: "Technical Systems Engineering Curriculum & Masterclasses — prepspaces",
+    title: "Technical Systems Engineering Curriculum & Masterclasses — PrepSpaces",
     description: "Explore comprehensive university-informed preparation tracks in System Design, Cloud Computing, DevOps & SRE, Operating Systems, Computer Networks, and Cybersecurity.",
     canonical: `${BASE_URL}/learning`,
   },
@@ -811,7 +811,7 @@ export default function SeoManager() {
     updateMetaTag("property", "og:description", meta.description);
     updateMetaTag("property", "og:url", meta.canonical);
     updateMetaTag("property", "og:type", "website");
-    updateMetaTag("property", "og:site_name", "prepspaces");
+    updateMetaTag("property", "og:site_name", "PrepSpaces");
     updateMetaTag("property", "og:image", `${BASE_URL}/logo-mark.png`);
 
     // 5. Update Twitter Meta

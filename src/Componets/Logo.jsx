@@ -13,7 +13,7 @@ export default function Logo({
   className = "",
   onClick,
   markOnly = false,
-  alt = "prepspaces",
+  alt = "PrepSpaces",
 }) {
   const sizeClasses = {
     xs: "h-5 sm:h-6 max-w-[120px]",

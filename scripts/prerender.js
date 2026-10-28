@@ -269,7 +269,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
               </div>
             </div>
             <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">prepspaces Home</a>
+              <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">PrepSpaces Home</a>
               <a href="https://www.instagram.com/prepspaces/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #c2410c; background-color: #fff7ed; border: 1px solid #fed7aa; border-radius: 0.75rem; text-decoration: none;">Follow @prepspaces on Instagram</a>
             </nav>
           </main>
@@ -317,13 +317,13 @@ for (const [route, meta] of Object.entries(routeMeta)) {
 
             <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Source & Citation Reference</h3>
             <p style="font-size: 0.875rem; color: #78716c; line-height: 1.5;">
-              Published by <strong>prepspaces</strong> (Technical Learning Platform). Canonical URL: <a href="${meta.canonical}" style="color: #ea580c; text-decoration: underline;">${meta.canonical}</a>. Free, open curriculum for software engineers, systems practitioners, and interview candidates.
+              Published by <strong>PrepSpaces</strong> (Technical Learning Platform). Canonical URL: <a href="${meta.canonical}" style="color: #ea580c; text-decoration: underline;">${meta.canonical}</a>. Free, open curriculum for software engineers, systems practitioners, and interview candidates.
             </p>
           </article>
 
           <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Explore Curriculum Hub</a>
-            <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">prepspaces Home</a>
+            <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">PrepSpaces Home</a>
             <a href="https://www.instagram.com/prepspaces/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #c2410c; background-color: #fff7ed; border: 1px solid #fed7aa; border-radius: 0.75rem; text-decoration: none;">Follow @prepspaces on Instagram</a>
           </nav>
         </main>
