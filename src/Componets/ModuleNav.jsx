@@ -190,6 +190,15 @@ export default function ModuleNav({
     };
   }, [track]);
 
+  useEffect(() => {
+    if (scrollRef.current) {
+      const activeBtn = scrollRef.current.querySelector("[data-active='true']");
+      if (activeBtn) {
+        activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      }
+    }
+  }, [currentModuleId, modules]);
+
   const defaultFallback =
     currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : "cloud")
       ? "/learning"

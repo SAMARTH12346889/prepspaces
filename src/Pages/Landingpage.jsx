@@ -144,7 +144,7 @@ export default function Landingpage() {
 
       {/* ================= LEFT SIDEBAR ================= */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col border-r border-[#e7e3da] bg-white/80 backdrop-blur-2xl p-5 transition-transform duration-300 md:static md:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col border-r border-[#e7e3da] bg-white/80 backdrop-blur-2xl p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-300 md:static md:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -216,7 +216,7 @@ export default function Landingpage() {
       {/* ================= MAIN CONTENT AREA ================= */}
       <div className="flex-1 flex flex-col min-w-0 z-10">
         {/* Top Header */}
-        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-6 py-4 backdrop-blur-xl md:px-10">
+        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-4 sm:px-6 py-3 sm:py-4 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur-xl md:px-10">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -249,7 +249,7 @@ export default function Landingpage() {
           <div className="flex items-center gap-3">
             <Link
               to="/learning"
-              className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-4 py-2.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer active:scale-95"
+              className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer active:scale-95 shrink-0 whitespace-nowrap"
             >
               <BookOpen size={15} className="text-[#f97316]" />
               <span>Browse Tracks</span>

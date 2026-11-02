@@ -1434,13 +1434,13 @@ function InterviewRoomInner() {
       </header>
 
       {/* Main Grid: Screen Share / Camera Viewport on Left, Question & Voice Stream on Right */}
-      <main className="relative z-10 grid min-h-[calc(100vh-70px)] lg:grid-cols-[1fr_440px]">
+      <main className="relative z-10 grid min-h-[calc(100vh-70px)] min-h-[calc(100dvh-70px)] lg:grid-cols-[1fr_440px]">
         {/* ===================================================
             VIEWPORT SECTION: COMPULSORY SCREEN SHARE + PiP CAMERA
         =================================================== */}
         <section className="flex flex-col border-r border-[#e7e3da] bg-[#faf8f4]/40">
           <div className="flex-1 p-6">
-            <div className="relative flex min-h-[580px] h-full items-center justify-center overflow-hidden rounded-3xl border border-[#27272a] bg-[#18181b] shadow-2xl">
+            <div className="relative flex min-h-[260px] sm:min-h-[400px] lg:min-h-[580px] h-full items-center justify-center overflow-hidden rounded-3xl border border-[#27272a] bg-[#18181b] shadow-2xl">
               
               {/* TOP OVERLAY: Screen Share Status & Focus Switcher */}
               <div className="absolute top-4 left-4 right-4 z-30 flex items-center justify-between pointer-events-auto">
@@ -1611,7 +1611,7 @@ function InterviewRoomInner() {
           </div>
 
           {/* Controls Bar */}
-          <div className="flex h-[88px] items-center justify-center gap-4 border-t border-[#e7e3da] bg-white/80 px-6 backdrop-blur-xl">
+          <div className="flex min-h-[76px] flex-wrap sm:flex-nowrap items-center justify-center gap-2 sm:gap-4 border-t border-[#e7e3da] bg-white/80 px-3 sm:px-6 py-2.5 backdrop-blur-xl pb-[max(0.75rem,env(safe-area-inset-bottom))]">
             {/* Mic Toggle (Unified Audio & STT) */}
             <button
               onClick={toggleMic}

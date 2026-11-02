@@ -253,21 +253,21 @@ export default function VoiceEnrollmentModal({ isOpen, onClose }) {
   const allSamplesReady = samples.every(Boolean);
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/75 p-4 backdrop-blur-md animate-fade-in font-sans">
-      <div className="relative flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-stone-800 bg-[#18181b] text-white shadow-2xl">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/75 p-3 sm:p-4 backdrop-blur-md animate-fade-in font-sans pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+      <div className="relative flex max-h-[92vh] max-h-[92dvh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-stone-800 bg-[#18181b] text-white shadow-2xl">
         
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-stone-800 bg-gradient-to-r from-stone-900 to-[#18181b] p-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f97316] to-[#ea580c] text-white shadow-[0_0_20px_rgba(249,115,22,0.4)]">
-              <ShieldCheck size={22} />
+        <div className="flex items-center justify-between border-b border-stone-800 bg-gradient-to-r from-stone-900 to-[#18181b] p-4 sm:p-6">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f97316] to-[#ea580c] text-white shadow-[0_0_20px_rgba(249,115,22,0.4)]">
+              <ShieldCheck size={20} className="sm:w-[22px] sm:h-[22px]" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h2 className="text-lg font-black tracking-tight text-white">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h2 className="text-base sm:text-lg font-black tracking-tight text-white">
                   Nova Voice Lock & Identity Registration
                 </h2>
-                <span className="rounded-full bg-orange-500/10 border border-orange-500/30 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#f97316]">
+                <span className="rounded-full bg-orange-500/10 border border-orange-500/30 px-2 py-0.5 font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#f97316]">
                   Acoustic Biometrics
                 </span>
               </div>
@@ -285,7 +285,7 @@ export default function VoiceEnrollmentModal({ isOpen, onClose }) {
         </div>
 
         {/* Modal Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
           {/* Current Status Pill */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-stone-800 bg-stone-900/60 p-4 backdrop-blur-md">
             <div className="flex items-center gap-3">
@@ -590,7 +590,7 @@ export default function VoiceEnrollmentModal({ isOpen, onClose }) {
         </div>
 
         {/* Modal Footer */}
-        <div className="flex items-center justify-between border-t border-stone-800 bg-stone-950 p-4 text-xs">
+        <div className="flex items-center justify-between border-t border-stone-800 bg-stone-950 p-3 sm:p-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] text-xs">
           <div className="flex items-center gap-1.5 text-stone-400">
             {voiceLockEnabled ? (
               <span className="flex items-center gap-1 text-orange-400 font-semibold">

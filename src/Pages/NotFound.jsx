@@ -5,7 +5,7 @@ import { ArrowLeft, BookOpen, Compass, Home } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex flex-col justify-between p-6 sm:p-12 font-sans selection:bg-[#f97316] selection:text-white">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex flex-col justify-between p-4 sm:p-12 pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] font-sans selection:bg-[#f97316] selection:text-white">
       <header className="flex items-center justify-between max-w-5xl w-full mx-auto">
         <Link to="/" className="inline-block">
           <Logo size="md" />
@@ -85,7 +85,7 @@ export default function NotFound() {
       </main>
 
       <footer className="text-center text-xs text-stone-400 max-w-5xl w-full mx-auto py-4">
-        © {new Date().getFullYear()} PrepSpaces. All rights reserved.
+        &copy; {new Date().getFullYear()} PrepSpaces. All rights reserved.
       </footer>
     </div>
   );

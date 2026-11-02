@@ -9,7 +9,20 @@
   --color-card-black: #18181b;
 }
 
-html,
+/* Safe Area Insets Definition */
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   background-color: #f6f4ee;
@@ -18,6 +31,53 @@ body {
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
   touch-action: pan-x pan-y;
+  min-height: 100vh;
+}
+
+/* Dynamic Viewport Unit Support: Eliminates iOS Safari address bar jump */
+@supports (min-height: 100dvh) {
+  body,
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}
+
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh;
+  }
+}
+
+/* iOS Safari Momentum Scrolling for all scrollable containers */
+.overflow-x-auto,
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent iOS Safari auto-zoom on input focus when font-size < 16px */
+@media screen and (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Prevent code blocks and pre elements from pushing mobile viewport wide */
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  word-break: normal;
+}
+
+code {
+  word-break: break-word;
+}
+
+/* Ensure data tables on mobile scroll cleanly without breaking surrounding card */
+table {
+  max-width: 100%;
 }
 
 /* White glass surface utilities */

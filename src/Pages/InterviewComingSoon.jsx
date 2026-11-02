@@ -19,7 +19,7 @@ export default function InterviewComingSoon() {
   const { goBack } = useSafeBack("/");
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-6 py-8 md:px-12 flex flex-col justify-between antialiased selection:bg-[#f97316] selection:text-white">
+    <div className="min-h-screen min-h-[100dvh] bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-6 sm:py-8 md:px-12 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col justify-between antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
