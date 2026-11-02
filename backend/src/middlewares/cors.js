@@ -1,11 +1,17 @@
 import { cors } from "hono/cors";
 
 /**
- * Permitted origin domains for PrepSpaces frontend applications.
+ * Production frontend origins.
  */
-const ALLOWED_ORIGINS = [
+const PROD_ORIGINS = [
   "https://prepspaces.com",
   "https://www.prepspaces.com",
+];
+
+/**
+ * Local development origins (restricted to non-production environments).
+ */
+const LOCAL_ORIGINS = [
   "http://localhost:5173",
   "http://localhost:3000",
   "http://127.0.0.1:5173",
@@ -13,26 +19,36 @@ const ALLOWED_ORIGINS = [
 ];
 
 /**
- * CORS middleware configured for PrepSpaces frontend environments.
+ * CORS middleware configured for PrepSpaces.
  */
 export const prepspacesCors = cors({
-  origin: (origin) => {
+  origin: (origin, c) => {
     // Direct server-to-server or curl requests without an Origin header
     if (!origin) {
       return undefined;
     }
 
-    // Exact matches for production and local dev origins
-    if (ALLOWED_ORIGINS.includes(origin)) {
+    // 1. Authoritative production domains (always allowed)
+    if (PROD_ORIGINS.includes(origin)) {
       return origin;
     }
 
-    // Allow Cloudflare Pages preview deployments (*.pages.dev)
-    if (origin.endsWith(".pages.dev")) {
+    // 2. Approved Cloudflare Pages preview/staging deployments for PrepSpaces
+    // Strictly scoped to prepspaces.pages.dev and *.prepspaces.pages.dev
+    if (
+      origin === "https://prepspaces.pages.dev" ||
+      /^https:\/\/[a-zA-Z0-9-]+\.prepspaces\.pages\.dev$/.test(origin)
+    ) {
       return origin;
     }
 
-    // Disallow unapproved origins
+    // 3. Localhost development origins (strictly disallowed in production)
+    const isProduction = c.env?.ENVIRONMENT === "production";
+    if (!isProduction && LOCAL_ORIGINS.includes(origin)) {
+      return origin;
+    }
+
+    // Disallow all other origins
     return null;
   },
   allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
