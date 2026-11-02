@@ -1,6 +1,6 @@
-# PrepSpaces Backend — Cloudflare Workers & Hono
+# PrepSpaces Backend — Cloudflare Workers & Hono (JavaScript)
 
-Lightweight, ultra-fast, serverless backend infrastructure for PrepSpaces built on [Cloudflare Workers](https://workers.cloudflare.com/) and [Hono](https://hono.dev/).
+Lightweight, ultra-fast, serverless backend infrastructure for PrepSpaces built on [Cloudflare Workers](https://workers.cloudflare.com/) and [Hono](https://hono.dev/) using plain JavaScript (ES modules).
 
 ---
 
@@ -10,18 +10,15 @@ Lightweight, ultra-fast, serverless backend infrastructure for PrepSpaces built 
 projectx/backend/
 ├── .dev.vars.example     # Template for local environment secrets
 ├── .gitignore            # Git ignore for node_modules, wrangler cache, secrets
-├── package.json          # Dependencies (Hono, Wrangler, TypeScript)
-├── tsconfig.json         # Strict Cloudflare Worker TS configuration
+├── package.json          # Dependencies (Hono, Wrangler)
 ├── wrangler.jsonc        # Cloudflare Workers configuration & environment definitions
 └── src/
-    ├── index.ts          # Main entry point, error handling, 404, root routes
+    ├── index.js          # Main entry point, error handling, 404, root routes
     ├── middlewares/
-    │   └── cors.ts       # PrepSpaces CORS configuration for frontend domains
-    ├── routes/
-    │   ├── index.ts      # Main /api router aggregator
-    │   └── health.ts     # Health-check endpoint (/health and /api/health)
-    └── types/
-        └── env.ts        # Typed environment bindings and future Cloudflare resources
+    │   └── cors.js       # PrepSpaces CORS configuration for frontend domains
+    └── routes/
+        ├── index.js      # Main /api router aggregator
+        └── health.js     # Health-check endpoint (/health and /api/health)
 ```
 
 ---
@@ -56,9 +53,6 @@ npm install
 # Start local development server (with hot reload)
 npm run dev
 
-# Run TypeScript type check
-npm run typecheck
-
 # Deploy to Cloudflare Workers (default environment)
 npm run deploy
 
@@ -73,5 +67,5 @@ npm run deploy:staging
 
 ## Future Integrations
 
-- **Database:** Cloudflare D1 or Hyperdrive connection bindings can be added directly in `wrangler.jsonc` and typed in `src/types/env.ts`.
-- **API Modules:** New domain routers (Auth, Interviews, Courses, AI) can be added to `src/routes/` and mounted in `src/routes/index.ts`.
+- **Database:** Cloudflare D1 or Hyperdrive connection bindings can be added directly in `wrangler.jsonc` and accessed via `c.env.DB`.
+- **API Modules:** New domain routers (Auth, Interviews, Courses, AI) can be added as `.js` modules under `src/routes/` and mounted in `src/routes/index.js`.

@@ -1,8 +1,7 @@
 import { Hono } from "hono";
-import type { Env } from "../types/env";
-import { healthRouter } from "./health";
+import { healthRouter } from "./health.js";
 
-export const apiRouter = new Hono<{ Bindings: Env }>();
+export const apiRouter = new Hono();
 
 /**
  * Root API metadata endpoint

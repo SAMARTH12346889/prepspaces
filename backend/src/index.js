@@ -1,13 +1,12 @@
 import { Hono } from "hono";
-import type { Env } from "./types/env";
-import { prepspacesCors } from "./middlewares/cors";
-import { apiRouter } from "./routes";
-import { healthRouter } from "./routes/health";
+import { prepspacesCors } from "./middlewares/cors.js";
+import { apiRouter } from "./routes/index.js";
+import { healthRouter } from "./routes/health.js";
 
 /**
- * Main PrepSpaces Cloudflare Workers entry point.
+ * Main PrepSpaces Cloudflare Workers backend entry point.
  */
-const app = new Hono<{ Bindings: Env }>();
+const app = new Hono();
 
 // 1. Global Middleware
 app.use("*", prepspacesCors);

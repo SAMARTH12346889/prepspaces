@@ -1,7 +1,6 @@
 import { Hono } from "hono";
-import type { Env } from "../types/env";
 
-export const healthRouter = new Hono<{ Bindings: Env }>();
+export const healthRouter = new Hono();
 
 /**
  * Health check endpoint for uptime monitors, deployment validation, and load balancers.

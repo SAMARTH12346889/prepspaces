@@ -3,7 +3,7 @@ import { cors } from "hono/cors";
 /**
  * Permitted origin domains for PrepSpaces frontend applications.
  */
-const ALLOWED_ORIGINS: readonly string[] = [
+const ALLOWED_ORIGINS = [
   "https://prepspaces.com",
   "https://www.prepspaces.com",
   "http://localhost:5173",
@@ -13,7 +13,7 @@ const ALLOWED_ORIGINS: readonly string[] = [
 ];
 
 /**
- * CORS middleware configured for PrepSpaces environments.
+ * CORS middleware configured for PrepSpaces frontend environments.
  */
 export const prepspacesCors = cors({
   origin: (origin) => {
