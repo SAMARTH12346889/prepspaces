@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "prepspaces-backend",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-11-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "vars": {
+    "ENVIRONMENT": "development"
+  },
+  "env": {
+    "production": {
+      "name": "prepspaces-backend-production",
+      "vars": {
+        "ENVIRONMENT": "production"
+      }
+    },
+    "staging": {
+      "name": "prepspaces-backend-staging",
+      "vars": {
+        "ENVIRONMENT": "staging"
+      }
+    }
+  }
+}

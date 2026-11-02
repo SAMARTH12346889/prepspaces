@@ -1,0 +1,23 @@
+{
+  "name": "prepspaces-backend",
+  "version": "1.0.0",
+  "description": "PrepSpaces Cloudflare Workers backend powered by Hono",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "dev:prod": "wrangler dev --env production",
+    "deploy": "wrangler deploy",
+    "deploy:prod": "wrangler deploy --env production",
+    "deploy:staging": "wrangler deploy --env staging",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.7.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261102.1",
+    "typescript": "^5.7.3",
+    "wrangler": "^4.156.1"
+  }
+}
