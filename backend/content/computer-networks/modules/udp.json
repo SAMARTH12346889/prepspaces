@@ -1,0 +1,142 @@
+{
+  "id": "udp",
+  "courseId": "computer-networks",
+  "index": 10,
+  "name": "10. UDP, QUIC & Modern Transport",
+  "route": "/learning/networks/udp",
+  "componentName": "NetworkUDP",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which of the following fields are included in the standard 8-byte UDP header defined in RFC 768?",
+      "options": [
+        "Sequence Number, Acknowledgment Number, Window Size, Flags",
+        "Source Port, Destination Port, Total Length, Checksum",
+        "Source IP, Destination IP, Protocol, Hop Limit",
+        "Stream ID, Offset, Cryptographic Nonce, Frame Type"
+      ],
+      "correctIndex": 0,
+      "explanation": "RFC 768 specifies an exact 8-byte minimal header consisting of four 16-bit fields: Source Port (16 bits), Destination Port (16 bits), Length (16 bits), and Checksum (16 bits)."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary difference regarding the UDP checksum requirement between IPv4 and IPv6?",
+      "options": [
+        "In IPv4 the checksum is mandatory, whereas in IPv6 it is completely omitted to optimize forwarding speed.",
+        "In IPv4 the checksum is optional (a value of 0x0000 means disabled), whereas in IPv6 it is mandatory for integrity across the header and pseudo-header.",
+        "Both IPv4 and IPv6 calculate a 32-bit CRC checksum for cryptographic non-repudiation.",
+        "IPv6 replaces the UDP checksum with a TLS 1.3 message authentication code (MAC)."
+      ],
+      "correctIndex": 0,
+      "explanation": "In IPv4, calculating the UDP checksum is optional (all zeros in the checksum field indicates no checksum was computed). In IPv6 (RFC 8200), because the IPv6 header lacks a header checksum, the UDP checksum is mandatory to prevent corrupted datagram delivery."
+    },
+    {
+      "id": 3,
+      "question": "In HTTP/2 over TCP, why does a single dropped packet cause Head-of-Line (HoL) blocking across all concurrent streams?",
+      "options": [
+        "Because HTTP/2 compresses headers with HPACK, and losing one packet destroys the decompression dictionary permanently.",
+        "Because TCP provides an ordered byte stream abstraction at the transport layer, forcing the OS receive buffer to stall all higher stream bytes until the missing segment is retransmitted.",
+        "Because HTTP/2 uses UDP port 80 without acknowledgement timers.",
+        "Because routers drop all TCP streams automatically upon detecting a CRC error."
+      ],
+      "correctIndex": 0,
+      "explanation": "TCP abstracts the entire connection as a single linear byte stream. If segment #3 is dropped, TCP cannot deliver segments #4, #5, or #6 to the application—even if they belong to unrelated HTTP/2 request streams. This is transport-layer head-of-line blocking."
+    },
+    {
+      "id": 4,
+      "question": "How does QUIC (RFC 9000) eliminate transport-layer Head-of-Line blocking?",
+      "options": [
+        "By disabling packet retransmissions entirely and accepting corrupt application data.",
+        "By maintaining independent, per-stream byte-stream state machines within a single UDP connection, allowing unaffected streams to be delivered immediately.",
+        "By enforcing a separate TCP connection for every parallel image or asset.",
+        "By sending all web assets exclusively over UDP multicast."
+      ],
+      "correctIndex": 0,
+      "explanation": "QUIC implements stream multiplexing natively at the transport layer over UDP datagrams. Each stream has its own independent offset counter and state machine, so packet loss on Stream 1 does not delay in-order delivery of data for Stream 2 or Stream 3."
+    },
+    {
+      "id": 5,
+      "question": "What enables QUIC connection migration when a client moves from Wi-Fi to a cellular 5G network without dropping active downloads?",
+      "options": [
+        "Static public IP assignments on mobile devices that never change across cell towers.",
+        "QUIC uses Connection IDs (CIDs) rather than the IP/Port 4-tuple to identify transport sessions, validating new network paths with PATH_CHALLENGE frames.",
+        "BGP Anycast routing forces all cell carriers to route traffic to the user's home router.",
+        "TCP SYN-ACK packets are tunneled through DNS TXT records."
+      ],
+      "correctIndex": 0,
+      "explanation": "TCP binds connections strictly to the (SrcIP, SrcPort, DstIP, DstPort) 4-tuple. When a mobile device changes networks, the IP address changes, causing an RST. QUIC decouples the connection from the network tuple using Connection IDs (CIDs) and verifies the new path via PATH_CHALLENGE / PATH_RESPONSE."
+    },
+    {
+      "id": 6,
+      "question": "Why is a typical QUIC connection establishment faster than traditional TCP + TLS 1.3?",
+      "options": [
+        "QUIC skips cryptographic authentication and certificate verification entirely.",
+        "QUIC combines the transport connection setup and TLS 1.3 cryptographic key negotiation into a single 1-RTT handshake (or 0-RTT on resumption).",
+        "QUIC runs over raw optical fiber without IP routing.",
+        "QUIC uses UDP port 0 to bypass firewall state tables."
+      ],
+      "correctIndex": 0,
+      "explanation": "In TCP + TLS 1.3, you need 1 RTT for the TCP 3-way handshake followed by 1 RTT for the TLS 1.3 handshake (total 2 RTTs). QUIC merges transport parameters inside the TLS 1.3 ClientHello, achieving a fully authenticated, encrypted connection in only 1 RTT (and 0-RTT on session resumption)."
+    },
+    {
+      "id": 7,
+      "question": "What security risk is specifically associated with QUIC 0-RTT Early Data, and how must applications protect against it?",
+      "options": [
+        "Buffer overflow in the kernel socket layer.",
+        "Replay attacks, where an on-path attacker captures and replays early data; applications must restrict 0-RTT strictly to idempotent requests (e.g. GET queries without side-effects).",
+        "Private key extraction via side-channel cache attacks.",
+        "ARP cache poisoning over public Wi-Fi networks."
+      ],
+      "correctIndex": 0,
+      "explanation": "Because 0-RTT data is transmitted before the server's freshness handshake completes, an adversary can replay the initial packet flight. RFC 9001 and RFC 9114 stipulate that 0-RTT must only be permitted for safe, idempotent operations (such as HTTP GET), never for non-idempotent actions like financial transfers or POST requests."
+    },
+    {
+      "id": 8,
+      "question": "Why is UDP frequently weaponized by attackers in Distributed Denial of Service (DDoS) reflection/amplification attacks?",
+      "options": [
+        "UDP packets carry a digital signature that forces servers to consume maximum CPU validating RSA keys.",
+        "UDP is stateless and connectionless, allowing attackers to trivially spoof the victim's source IP address and exploit servers that send responses much larger than the request.",
+        "UDP headers are 60 bytes long, consuming excessive transit bandwidth.",
+        "Operating systems do not permit firewalls to inspect UDP ports below 1024."
+      ],
+      "correctIndex": 0,
+      "explanation": "Because UDP does not perform a handshake (like TCP's SYN/ACK), a sender can forge any arbitrary source IP in the IP header. The reflector service receives the request and sends the response to the spoofed victim. When the response is tens or thousands of times larger than the request (amplification), the victim is flooded."
+    },
+    {
+      "id": 9,
+      "question": "What is BCP 38 (RFC 2827) and how does it prevent UDP reflection attacks at the root source?",
+      "options": [
+        "It mandates that all UDP datagrams be encrypted with AES-256-GCM.",
+        "It defines Network Ingress Filtering, requiring Internet Service Providers to verify that outbound packets have source IP addresses belonging to the customer's allocated IP prefix.",
+        "It forces DNS servers to answer only TCP queries over port 853.",
+        "It disables UDP checksum calculations in enterprise routers."
+      ],
+      "correctIndex": 0,
+      "explanation": "Best Current Practice 38 (BCP 38 / RFC 2827) specifies Ingress Filtering: an ISP or border router will discard any outbound packet whose source IP does not match the IP prefix assigned to that interface. This stops IP address spoofing at the perimeter."
+    },
+    {
+      "id": 10,
+      "question": "In real-time audio communication (e.g., VoIP or WebRTC using RTP over UDP), why is late packet retransmission generally undesirable?",
+      "options": [
+        "Because UDP does not allow sockets to send data twice.",
+        "Because conversational human speech requires sub-150ms round-trip latency; an audio packet arriving after its playback deadline is useless and produces audio glitches.",
+        "Because VoIP codecs only operate when packet loss is exactly zero percent.",
+        "Because routers drop UDP packets whenever an ACK is transmitted."
+      ],
+      "correctIndex": 0,
+      "explanation": "Human conversation requires an interactive latency budget under 150-200ms. If an audio packet is dropped, waiting for a retransmission would take 1 to 2 RTTs (often 100-300ms), by which time the playout deadline has passed. Modern media engines prefer packet loss concealment (PLC) over late retransmission."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2083,
+    "fileSizeBytes": 128166,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "id": "architecture",
+  "courseId": "operating-systems",
+  "index": 2,
+  "name": "2. Computer Architecture",
+  "route": "/learning/os/architecture",
+  "componentName": "OSArchitecture",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which register identifies the current instruction stream on x86-64?",
+      "options": [
+        "RSP",
+        "RIP",
+        "CR3",
+        "RFLAGS"
+      ],
+      "correctIndex": 1,
+      "explanation": "On x86-64, the Instruction Pointer (RIP) holds the 64-bit virtual address of the next instruction to be fetched and executed by the CPU. (On AArch64, the equivalent register is PC). RSP is the stack pointer, CR3 points to the page table root, and RFLAGS stores CPU condition codes."
+    },
+    {
+      "id": 2,
+      "question": "Why does an ordinary application use a system call to request protected kernel services?",
+      "options": [
+        "The CPU cannot execute arithmetic in user mode",
+        "Hardware privilege mechanisms restrict direct privileged operations",
+        "Every function call enters the kernel",
+        "System calls automatically create new processes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Processors enforce hardware privilege rings (Ring 3 vs Ring 0). Unprivileged user-mode code is prohibited from executing privileged CPU instructions (such as disabling interrupts or modifying page tables) or accessing physical device controllers directly. System calls provide a hardware-gated interface to request supervisor services."
+    },
+    {
+      "id": 3,
+      "question": "What distinguishes a context switch from a mode switch?",
+      "options": [
+        "A context switch changes the executing thread; a mode switch changes privilege level",
+        "They are always identical",
+        "A mode switch always changes the physical CPU",
+        "A context switch only occurs during boot"
+      ],
+      "correctIndex": 0,
+      "explanation": "A mode switch transitions the current CPU between privilege states (e.g. Ring 3 user mode to Ring 0 kernel mode for a syscall) while continuing the exact same thread of execution. A context switch saves the architectural state of one thread and restores that of another, switching which task is running."
+    },
+    {
+      "id": 4,
+      "question": "Which statement about page faults is correct?",
+      "options": [
+        "Every page fault means invalid memory access",
+        "Every page fault reads data from an SSD",
+        "Some page faults are handled successfully by the OS",
+        "A page fault is the same as a TLB miss"
+      ],
+      "correctIndex": 2,
+      "explanation": "Page faults are a standard mechanism of virtual memory. Many page faults are completely routine and resolved successfully by the kernel, such as demand paging (allocating zeroed physical pages on first touch) and copy-on-write (COW) page duplication during fork()."
+    },
+    {
+      "id": 5,
+      "question": "What does DMA primarily allow?",
+      "options": [
+        "A CPU to skip all device management",
+        "A device or controller to transfer data to or from memory without CPU copying every byte",
+        "An application to bypass memory protection",
+        "An SSD to replace RAM"
+      ],
+      "correctIndex": 1,
+      "explanation": "Direct Memory Access (DMA) enables high-speed peripheral controllers (such as NVMe SSDs, 100GbE NICs, and GPUs) to transfer data directly into or out of system DRAM over the PCIe bus without requiring the CPU to execute programmed I/O loops copying every byte."
+    },
+    {
+      "id": 6,
+      "question": "Which component commonly loads the Linux kernel during a PC boot?",
+      "options": [
+        "The CPU cache",
+        "A bootloader such as GRUB",
+        "The shell",
+        "The application linker"
+      ],
+      "correctIndex": 1,
+      "explanation": "On PC systems, after UEFI or BIOS firmware initializes fundamental hardware, it invokes a bootloader such as GRUB (or systemd-boot). The bootloader loads the compressed Linux kernel image (vmlinuz) and initial ramdisk (initramfs) into memory and transfers control to the kernel entry point."
+    },
+    {
+      "id": 7,
+      "question": "What is the primary purpose of a TLB?",
+      "options": [
+        "Store the entire operating system",
+        "Cache address translations to reduce translation overhead",
+        "Store all persistent files",
+        "Schedule CPU threads"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Translation Lookaside Buffer (TLB) is an on-chip associative cache inside the MMU that stores recent virtual-to-physical address mappings. A TLB hit resolves an address translation in ~1 clock cycle, avoiding costly 4-level or 5-level page table memory walks."
+    },
+    {
+      "id": 8,
+      "question": "What does a hardware timer help an OS achieve?",
+      "options": [
+        "Permanent CPU ownership by one process",
+        "Preemptive scheduling and time-related operations",
+        "Automatic compilation of every program",
+        "Elimination of device interrupts"
+      ],
+      "correctIndex": 1,
+      "explanation": "A programmable hardware timer (such as the APIC timer or HPET) periodically sends hardware interrupts to the CPU. This allows the operating system kernel to regain control from CPU-bound tasks, update time slices, and enforce preemptive multitasking."
+    }
+  ],
+  "topics": null,
+  "commands": {
+    "gcc -Wall -Wextra -O0 hello.c -o hello": "[Compiled hello.c -> ELF 64-bit binary 'hello' with 0 warnings]",
+    "gcc -Wall -Wextra -O0 hello.c -o hello && ./hello": "Hello from the operating system!\nProcess ID: 12450",
+    "./hello": "Hello from the operating system!\nProcess ID: 12452",
+    "file hello": "hello: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=a1b2c3d4, for GNU/Linux 3.2.0, not stripped",
+    "ls -lh hello": "-rwxr-xr-x 1 prepspaces prepspaces 16K Oct 15 11:20 hello",
+    "readelf -h hello": "ELF Header:\n  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00\n  Class:                             ELF64\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  Type:                              DYN (Position-Independent Executable)\n  Machine:                           Advanced Micro Devices X86-64\n  Version:                           0x1\n  Entry point address:               0x1060\n  Start of program headers:          64 (bytes into file)\n  Start of section headers:          13968 (bytes into file)\n  Flags:                             0x0\n  Size of this header:               64 (bytes)\n  Size of program headers:           56 (bytes)\n  Number of program headers:         13\n  Size of section headers:           64 (bytes)\n  Number of section headers:         31",
+    "readelf -l hello": "Elf file type is DYN (Position-Independent Executable file)\nEntry point 0x1060\nThere are 13 program headers, starting at offset 64\n\nProgram Headers:\n  Type           Offset             VirtAddr           PhysAddr           FileSiz            MemSiz              Flags  Align\n  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040 0x00000000000002d8 0x00000000000002d8  R      0x8\n  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318 0x000000000000001c 0x000000000000001c  R      0x1\n      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]\n  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000 0x0000000000000608 0x0000000000000608  R      0x1000\n  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000 0x00000000000001c5 0x00000000000001c5  R E    0x1000\n  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000 0x0000000000000150 0x0000000000000150  R      0x1000\n  LOAD           0x0000000000002db0 0x0000000000003db0 0x0000000000003db0 0x0000000000000260 0x0000000000000268  RW     0x1000",
+    "objdump -d hello | grep -A 20 '<main>:'": "0000000000001149 <main>:\n    1149:\tf3 0f 1e fa          \tendbr64 \n    114d:\t55                   \tpush   %rbp\n    114e:\t48 89 e5             \tmov    %rsp,%rbp\n    1151:\t48 8d 05 ac 0e 00 00 \tlea    0xeac(%rip),%rax        # 2004 <_IO_stdin_used+0x4>\n    1158:\t48 89 c7             \tmov    %rax,%rdi\n    115b:\te8 e0 fe ff ff       \tcall   1040 <puts@plt>\n    1160:\te8 db fe ff ff       \tcall   1040 <getpid@plt>\n    1165:\t48 89 c6             \tmov    %rax,%rsi\n    1168:\t48 8d 05 b9 0e 00 00 \tlea    0xeb9(%rip),%rax        # 2028 <_IO_stdin_used+0x28>\n    116f:\t48 89 c7             \tmov    %rax,%rdi\n    1172:\tb8 00 00 00 00       \tmov    $0x0,%eax\n    1177:\te8 d4 fe ff ff       \tcall   1050 <printf@plt>\n    117c:\tb8 00 00 00 00       \tmov    $0x0,%eax\n    1181:\t5d                   \tpop    %rbp\n    1182:\tc3                   \tret",
+    "objdump -d hello": "0000000000001149 <main>:\n    1149:\tpush   %rbp\n    114a:\tmov    %rsp,%rbp\n    114d:\tlea    0xeac(%rip),%rdi        # 'Hello from the operating system!'\n    1154:\tcall   puts@plt\n    1159:\tcall   getpid@plt\n    115e:\tmov    %rax,%rsi\n    1161:\tlea    0xeb9(%rip),%rdi        # 'Process ID: %ld\\n'\n    1168:\tmov    $0x0,%eax\n    116d:\tcall   printf@plt\n    1172:\tmov    $0x0,%eax\n    1177:\tpop    %rbp\n    1178:\tret",
+    "gcc -Wall -Wextra -O0 inspect.c -o inspect && ./inspect": "PID: 12460\n[Process 12460 sleeping for 30s. Inspecting live memory maps...]",
+    "ps -p 12460 -o pid,ppid,stat,%cpu,%mem,cmd": "    PID    PPID STAT %CPU %MEM CMD\n  12460   10240 S+    0.0  0.0 ./inspect",
+    "cat /proc/12460/status | head -n 12": "Name:\tinspect\nUmask:\t0002\nState:\tS (sleeping)\nTgid:\t12460\nNgid:\t0\nPid:\t12460\nPPid:\t10240\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t1000 4 24 27 30 46 110",
+    "cat /proc/12460/maps": "55a1b2000000-55a1b2001000 r--p 00000000 08:01 131075  /home/prepspaces/inspect (Code Read-Only)\n55a1b2001000-55a1b2002000 r-xp 00001000 08:01 131075  /home/prepspaces/inspect (Text / Executable)\n55a1b2002000-55a1b2003000 r--p 00002000 08:01 131075  /home/prepspaces/inspect (RODATA)\n55a1b2003000-55a1b2004000 rw-p 00003000 08:01 131075  /home/prepspaces/inspect (DATA / BSS)\n55a1b3800000-55a1b3821000 rw-p 00000000 00:00 0       [heap]\n7f94c0a00000-7f94c0a28000 r--p 00000000 08:01 524290  /lib/x86_64-linux-gnu/libc.so.6\n7f94c0a28000-7f94c0bbd000 r-xp 00028000 08:01 524290  /lib/x86_64-linux-gnu/libc.so.6 (glibc text)\n7f94c0bbd000-7f94c0c15000 r--p 001bd000 08:01 524290  /lib/x86_64-linux-gnu/libc.so.6\n7f94c0c15000-7f94c0c19000 rw-p 00215000 08:01 524290  /lib/x86_64-linux-gnu/libc.so.6\n7ffd8a420000-7ffd8a441000 rw-p 00000000 00:00 0       [stack] (User stack grows down)\n7ffd8a4f0000-7ffd8a4f4000 r--p 00000000 00:00 0       [vvar]\n7ffd8a4f4000-7ffd8a4f6000 r-xp 00000000 00:00 0       [vdso] (Virtual Dynamic Shared Object)",
+    "strace ./hello": "execve(\"./hello\", [\"./hello\"], 0x7ffd58) = 0\nbrk(NULL)                               = 0x55d4a1b000\naccess(\"/etc/ld.so.preload\", R_OK)      = -1 ENOENT (No such file or directory)\nopenat(AT_FDCWD, \"/etc/ld.so.cache\", O_RDONLY|O_CLOEXEC) = 3\nfstat(3, {st_mode=S_IFREG|0644, st_size=68124, ...}) = 0\nmmap(NULL, 68124, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f81a2b00000\nclose(3)                                = 0\nopenat(AT_FDCWD, \"/lib/x86_64-linux-gnu/libc.so.6\", O_RDONLY|O_CLOEXEC) = 3\nread(3, \"\\177ELF\\2\\1\\1\\3\\0\\0\\0\\0\\0\\0\\0\\0\", 832) = 832\nmmap(NULL, 2228224, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f81a2800000\nclose(3)                                = 0\ngetpid()                                = 12450\nwrite(1, \"Hello from the operating system!\\n\", 33) = 33\nwrite(1, \"Process ID: 12450\\n\", 19)     = 19\nexit_group(0)                           = ?\n+++ exited with 0 +++",
+    "strace -e trace=process,memory,file ./hello": "execve(\"./hello\", [\"./hello\"], 0x7ffd58) = 0\nopenat(AT_FDCWD, \"/etc/ld.so.cache\", O_RDONLY|O_CLOEXEC) = 3\nmmap(NULL, 68124, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f81a2b00000\nopenat(AT_FDCWD, \"/lib/x86_64-linux-gnu/libc.so.6\", O_RDONLY|O_CLOEXEC) = 3\nmmap(NULL, 2228224, PROT_READ|PROT_EXEC, MAP_PRIVATE, 3, 0) = 0x7f81a2800000\ngetpid()                                = 12450\nexit_group(0)                           = ?\n+++ exited with 0 +++",
+    "getconf PAGE_SIZE": "4096",
+    "uname -m": "x86_64",
+    "cat /proc/cpuinfo | grep 'model name' | head -n 1": "model name\t: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.80GHz",
+    "help": "Supported Lab 2 diagnostic commands:\n• gcc -Wall -Wextra -O0 hello.c -o hello && ./hello\n• file hello, ls -lh hello\n• readelf -h hello, readelf -l hello\n• objdump -d hello | grep -A 20 '<main>:'\n• gcc -Wall -Wextra -O0 inspect.c -o inspect && ./inspect\n• ps -p 12460 -o pid,ppid,stat,%cpu,%mem,cmd\n• cat /proc/12460/maps, cat /proc/12460/status | head -n 12\n• strace ./hello\n• strace -e trace=process,memory,file ./hello\n• getconf PAGE_SIZE, uname -m\n• clear"
+  },
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1513,
+    "fileSizeBytes": 92358,
+    "questionCount": 8,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": true,
+    "hasScenarios": false
+  }
+}

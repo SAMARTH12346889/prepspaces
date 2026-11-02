@@ -1,0 +1,118 @@
+{
+  "id": "ai-systems",
+  "courseId": "system-design",
+  "index": 21,
+  "name": "21. AI Systems & Inference Serving",
+  "route": "/learning/system-design/ai-systems",
+  "componentName": "SystemDesignAIServing",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "1. What are the two main phases of autoregressive LLM generation?",
+      "options": [
+        "Indexing and replication",
+        "Prefill and decoding",
+        "Compilation and deployment",
+        "Authentication and authorization"
+      ],
+      "correctIndex": 1,
+      "explanation": "Autoregressive LLM generation consists of (1) Prefill: parallel attention processing over the input prompt to initialize the KV cache, and (2) Decoding: sequential, token-by-token autoregressive generation."
+    },
+    {
+      "id": "q2",
+      "question": "2. What is a major benefit of continuous batching?",
+      "options": [
+        "It eliminates every form of model latency",
+        "It allows compatible active and incoming requests to share compute more efficiently",
+        "It makes model weights unnecessary",
+        "It guarantees zero queueing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Unlike static batching where the GPU idles until the slowest sequence finishes, continuous batching (iteration-level scheduling) evicts finished requests and admits incoming requests at every iteration step."
+    },
+    {
+      "id": "q3",
+      "question": "3. Why is model weight size not enough to calculate inference memory requirements?",
+      "options": [
+        "Weights never use device memory",
+        "KV cache and runtime allocations also consume memory",
+        "The number of parameters does not matter at all",
+        "Inference always executes on the CPU"
+      ],
+      "correctIndex": 1,
+      "explanation": "Total VRAM requires: Model Weights + Dynamic KV Cache (proportional to concurrency * context length) + PyTorch/CUDA runtime buffers. KV cache can easily exceed weight size under high concurrency."
+    },
+    {
+      "id": "q4",
+      "question": "4. What is the primary purpose of embeddings in a RAG pipeline?",
+      "options": [
+        "Assign users administrative roles",
+        "Compress every document into a text summary only",
+        "Represent content as vectors that support semantic retrieval",
+        "Replace the need for source permissions"
+      ],
+      "correctIndex": 2,
+      "explanation": "Embeddings map textual passages into a high-dimensional vector space where semantically similar concepts cluster together, enabling conceptual retrieval beyond literal keyword matches."
+    },
+    {
+      "id": "q5",
+      "question": "5. What does approximate nearest-neighbor search trade?",
+      "options": [
+        "Authentication for encryption",
+        "Potential recall for improved retrieval efficiency",
+        "Data ownership for access control",
+        "Model accuracy for unlimited context"
+      ],
+      "correctIndex": 1,
+      "explanation": "ANN search (like HNSW or IVFFlat) trades a small fraction of perfect recall (e.g. 98% vs 100%) in exchange for orders-of-magnitude faster sub-10ms query execution across millions of vectors."
+    },
+    {
+      "id": "q6",
+      "question": "6. Why should tenant filtering be integrated into vector retrieval?",
+      "options": [
+        "Vector databases cannot store metadata",
+        "Unauthorized content must not be supplied to the model as context",
+        "Tenant filtering always improves recall automatically",
+        "Embeddings encrypt documents by default"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vector proximity is not an authorization model. Without strict pre-filtering by tenant ID, semantically relevant documents belonging to another company can be retrieved and leaked into the model context."
+    },
+    {
+      "id": "q7",
+      "question": "7. What is a useful optimization when many LLM requests share a stable prompt prefix?",
+      "options": [
+        "Automatically increase all output limits",
+        "Disable authentication",
+        "Use prefix caching where supported and safely configured",
+        "Store every user's full prompt in a public cache"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prefix caching stores precomputed KV-cache blocks for invariant prompt prefixes (system instructions, evaluation rubrics), completely bypassing the expensive prefill phase for repeated headers."
+    },
+    {
+      "id": "q8",
+      "question": "8. Why can a RAG system still be vulnerable to prompt injection?",
+      "options": [
+        "Vector search always executes SQL",
+        "Retrieved documents can contain malicious instructions that influence the model",
+        "Chunking guarantees incorrect results",
+        "The model cannot read retrieved content"
+      ],
+      "correctIndex": 1,
+      "explanation": "Indirect prompt injection occurs when untrusted documents (resumes, web pages, code snippets) contain hidden adversarial instructions that trick the LLM into ignoring system rules or exfiltrating data."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1383,
+    "fileSizeBytes": 78080,
+    "questionCount": 8,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

@@ -1,0 +1,571 @@
+{
+  "id": "k8s",
+  "courseId": "devops",
+  "index": 4,
+  "name": "Kubernetes",
+  "route": "/learning/devops/k8s",
+  "componentName": "DevOpsK8s",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is a container not simply a small virtual machine in Kubernetes?",
+      "options": [
+        "Containers share the host operating system kernel and isolate processes using Linux namespaces and cgroups, whereas VMs run a dedicated guest OS kernel atop a hypervisor.",
+        "Containers only run Python applications while VMs run C++.",
+        "Containers are managed by Docker while VMs are managed by Git.",
+        "VMs can only exist on physical tape drives."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "What roles do namespaces and cgroups play in Linux containerization within Kubernetes nodes?",
+      "options": [
+        "Namespaces isolate what a container can see (PID, network, mounts, IPC, UTS, user), while cgroups control how many resources a container can consume (CPU, RAM, disk I/O, PIDs).",
+        "Namespaces manage cloud billing while cgroups manage Git branches.",
+        "They are obsolete features replaced by Kubernetes YAML manifests.",
+        "cgroups manage DNS records and namespaces manage port forwarding."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "How do the API server, etcd, scheduler, controller-manager, and kubelet coordinate to run a Deployment?",
+      "options": [
+        "User applies manifest to API server -> state stored in etcd -> Deployment controller creates ReplicaSet -> Scheduler assigns pods to nodes -> Kubelet reads PodSpec and commands container runtime to launch containers.",
+        "Kubelet directly writes to etcd without using the API server.",
+        "The scheduler creates containers and the API server runs the network.",
+        "etcd communicates directly with Docker Desktop on worker nodes."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "How does the ordering of Dockerfile instructions affect build caching and Kubernetes image rollout speed?",
+      "options": [
+        "Docker caches layers sequentially; changing an instruction invalidates its cache and forces all subsequent layers to rebuild. Copying dependencies before code maximizes cache hits and speeds up node image pulls.",
+        "Kubernetes automatically ignores Dockerfile layers during rollouts.",
+        "Layer ordering only matters when running on Windows worker nodes.",
+        "Putting instructions at the top makes them rebuild slower."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Why would an SRE engineer choose a StatefulSet over a Deployment for a database like PostgreSQL?",
+      "options": [
+        "StatefulSets provide stable ordinal network identities (e.g., db-0), deterministic startup/teardown order, and dedicated volumeClaimTemplates that bind a persistent disk exclusively to that specific replica across restarts.",
+        "Deployments cannot run SQL queries.",
+        "StatefulSets automatically encrypt all database tables.",
+        "StatefulSets do not require Linux kernel memory."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "When should an engineer use a PersistentVolumeClaim (PVC) rather than an emptyDir or hostPath?",
+      "options": [
+        "Use PVCs for durable application data that must survive Pod restarts, evictions, and node reboots; use emptyDir for transient caches and hostPath only for node-level daemon agents.",
+        "Use hostPath for production databases across all cloud nodes.",
+        "emptyDir is permanent and survives cluster deletion.",
+        "PVCs can only store HTML files."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "What is the critical operational difference between a container's internal port and a Kubernetes Service port?",
+      "options": [
+        "The containerPort (targetPort) is where the process listens inside the pod; the Service port is the stable virtual port on the ClusterIP that forwards traffic to targetPort across ready backends.",
+        "Service ports use UDP while container ports only use TCP.",
+        "They must always be the exact same number or the Linux kernel panics.",
+        "Service ports are only accessible from outside the cloud VPC."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "Why should an application container NOT need its database Service published as a NodePort or LoadBalancer?",
+      "options": [
+        "Because internal application Pods can reach the database using its internal ClusterIP or DNS name (db:5432) over the overlay network, avoiding unnecessary exposure to the host network or public internet.",
+        "Because databases cannot bind to network sockets inside Kubernetes.",
+        "Because publishing ports makes databases run out of memory.",
+        "Because Kubernetes automatically deletes published database ports."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "Why is a mutable tag (like :latest or :1.0) less reliable than an image digest (@sha256:...) in production Kubernetes manifests?",
+      "options": [
+        "Tags are mutable references that can be overwritten in the registry, resulting in different nodes pulling different code versions; digests are immutable cryptographic hashes guaranteeing identical binaries.",
+        "Tags cannot be read by Kubernetes worker nodes.",
+        "Digests change every time a container restarts.",
+        "Tags can only have 5 characters while digests have 64."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "Why is placing a secret in a Pod's 'env' or Dockerfile 'ARG' considered a security hazard?",
+      "options": [
+        "Environment variables can leak into process inspection tools (/proc/<pid>/environ), crash dumps, and application logs; ARG values persist in immutable image layer metadata.",
+        "Because environment variables cause the Linux kernel to crash.",
+        "Because secrets in env variables are automatically emailed to Docker Hub.",
+        "Because Kubernetes cannot read environment variables."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "What does a Readiness Probe establish, and what does it NOT guarantee?",
+      "options": [
+        "It verifies whether a Pod is currently ready to receive traffic (controlling EndpointSlice registration); it does not guarantee that the application will not crash or fail under future concurrent load.",
+        "It guarantees 100% bug-free code forever.",
+        "It proves that the container is running on Kubernetes.",
+        "It guarantees that the database has infinite disk space."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "How would an SRE diagnose an application Pod displaying 'Running' while users receive HTTP 500 errors?",
+      "options": [
+        "Inspect application stdout/stderr logs via 'kubectl logs', verify database readiness via /readyz probe, inspect downstream connection pools, and check recent ConfigMap/Secret changes.",
+        "Restart the Kubernetes cluster immediately.",
+        "Delete the namespace and re-install kind.",
+        "Change the container name to 'root'."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "How can you prove that PostgreSQL database data survives both Pod recreation and node failure?",
+      "options": [
+        "Write a record to PostgreSQL, delete the database Pod (kubectl delete pod postgres-0), wait for the StatefulSet to recreate it, and verify the record is still present from the mounted PVC.",
+        "Take a screenshot of the terminal.",
+        "Delete the PVC and check if the database crashes.",
+        "Restart kind without volumes."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "What evidence should an SRE review before promoting a Kubernetes workload manifest to production?",
+      "options": [
+        "Resource requests and limits configured, startup/readiness/liveness probes defined, non-root securityContext enforced, secrets externalized, rolling update strategy validated, and PDB configured.",
+        "Only the number of replicas in the YAML file.",
+        "Whether the manifest has comments on every line.",
+        "Confirmation that the code was generated by an AI model."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": [
+    {
+      "id": "concept-k8s",
+      "number": "01",
+      "title": "Why Kubernetes Exists & The Control Loop Model",
+      "badge": "Reconciliation & etcd Quorum",
+      "summary": "The limit of manual container management. Desired state vs Observed actual state. The control loop in action: API server, etcd, controllers, scheduler, and kubelet. High availability multi-master topologies.",
+      "details": [
+        {
+          "heading": "The Multi-Container Operational Wall",
+          "body": "In Module 3, you ran containers with Docker Compose. But when applications grow to dozens of services, hundreds of replicas, and require self-healing, rolling updates, multi-host scheduling, and automated bin-packing, single-host Docker engines collapse. Kubernetes orchestrates containers across a fleet of physical or virtual machines, providing an abstraction layer over compute, storage, and networking."
+        },
+        {
+          "heading": "Declarative Desired State vs. Observed Actual State",
+          "body": "In Kubernetes, you never imperatively tell the cluster: 'Go start 3 processes right now.' Instead, you submit a declarative manifest describing your desired state:\n`spec: { replicas: 3 }`\nThe Kubernetes control plane continuously runs reconciliation loops that observe the actual cluster state, compare it against the desired state in `etcd`, and execute corrective actions to eliminate discrepancies."
+        },
+        {
+          "heading": "The Distributed Systems Foundation: etcd & Raft Quorum",
+          "body": "As taught in MIT 6.824 and Cambridge Concurrent Systems, all cluster state is stored in `etcd`, a strongly consistent, distributed key-value store using the Raft consensus algorithm. To prevent split-brain partition failures, production clusters require an odd number of etcd members ($2N+1$, typically 3 or 5 nodes), allowing the cluster to survive $N$ node failures while maintaining quorum."
+        },
+        {
+          "heading": "Control Plane Architecture",
+          "body": "The control plane consists of four core components:\n1. `kube-apiserver`: The only component that talks to `etcd`; exposes the REST API.\n2. `kube-scheduler`: Assigns unscheduled Pods to suitable worker nodes based on resource filtering and scoring.\n3. `kube-controller-manager`: Executes control loops (Deployment, ReplicaSet, Node, EndpointSlice controllers).\n4. `cloud-controller-manager`: Optional cloud integration for external load balancers and storage volumes."
+        }
+      ],
+      "codeSnippet": "# Inspect cluster health and control plane components\nkubectl cluster-info\nkubectl get componentstatuses\nkubectl get nodes -o wide\n\n# View etcd member list and health (from control plane node)\netcdctl endpoint health --cluster"
+    },
+    {
+      "id": "cluster-anatomy",
+      "number": "02",
+      "title": "Cluster Anatomy: Control Plane & Worker Node Internals",
+      "badge": "Kubelet, CRI & Data Planes",
+      "summary": "How worker nodes execute workloads. The kubelet node agent, Container Runtime Interface (CRI), and networking data plane (kube-proxy vs eBPF CNI).",
+      "details": [
+        {
+          "heading": "The Worker Node Architecture",
+          "body": "Worker nodes are the workhorses of the cluster where application containers run. Each worker node runs three fundamental components:\n1. `kubelet`: The primary node supervisor agent. It watches the API server for PodSpecs assigned to its node and ensures the declared containers are running and healthy.\n2. Container Runtime: The low-level runtime (containerd or CRI-O) that pulls images and runs container processes via the Container Runtime Interface (CRI).\n3. Network Implementation (`kube-proxy` / CNI): Configures iptables, IPVS, or eBPF routes to forward Service traffic to container network namespaces."
+        },
+        {
+          "heading": "The Kubelet Lifecycle Loop",
+          "body": "The kubelet communicates with the container runtime through gRPC over the CRI socket. It periodically polls the runtime status, executes startup/readiness/liveness probes, monitors cgroup memory/CPU usage, and streams status heartbeats back to the API server. If a container crashes, the kubelet restarts it according to its `restartPolicy`."
+        },
+        {
+          "heading": "Network Data Plane: iptables vs. IPVS vs. eBPF",
+          "body": "- Legacy iptables: `kube-proxy` writes sequential packet filtering rules. At 10,000+ Services, iptables rule evaluation slows network throughput.\n- IPVS: Hash-table based L4 load balancing with $O(1)$ lookup performance.\n- Modern eBPF (Cilium): Bypasses iptables entirely by attaching eBPF programs directly to Linux network sockets, providing line-rate throughput and cryptographic mutual TLS."
+        }
+      ],
+      "codeSnippet": "# Inspect node telemetry and kubelet status\nkubectl describe node <node-name>\nkubectl get pods -n kube-system -o wide\n\n# Check kubelet systemd journal on worker node\njournalctl -u kubelet -f --no-pager"
+    },
+    {
+      "id": "pods-deployments",
+      "number": "03",
+      "title": "Pods, Deployments & Declarative Rolling Updates",
+      "badge": "Zero-Downtime Rollouts",
+      "summary": "Pods as the atomic scheduling unit. Multi-container sidecar patterns. Deployments managing ReplicaSets. Rolling update surge/unavailable mechanics and rollbacks.",
+      "details": [
+        {
+          "heading": "The Pod: Atomic Scheduling Unit",
+          "body": "A Pod is the smallest deployable unit in Kubernetes. It encapsulates one or more closely coupled containers that share:\n1. The same Network namespace (all containers in a Pod share the same IP and communicate over `localhost`).\n2. The same IPC namespace (shared POSIX memory).\n3. Shared storage volumes mounted into container filesystems.\nNever manage individual Pods directly in production; always manage them through workload controllers."
+        },
+        {
+          "heading": "Deployments & ReplicaSets",
+          "body": "A Deployment provides declarative updates for Pods and ReplicaSets. When you create a Deployment, it creates a ReplicaSet, which creates the Pods. If a worker node crashes, the Deployment controller detects the missing replicas and creates replacement Pods on surviving nodes."
+        },
+        {
+          "heading": "Zero-Downtime Rolling Update Mechanics",
+          "body": "When you update an image tag, the Deployment executes a rolling update controlled by two parameters:\n- `maxSurge` (default 25%): The maximum number of Pods that can be created ABOVE the desired replica count.\n- `maxUnavailable` (default 25%): The maximum number of Pods that can be offline during the update.\nKubernetes starts new pods, waits for their readiness probes to pass, shifts traffic, and then terminates old pods."
+        },
+        {
+          "heading": "Instant Rollbacks",
+          "body": "If a new release contains a fatal bug, run `kubectl rollout undo deployment/web`. Kubernetes instantly reverses the Deployment spec back to the previous stable ReplicaSet revision."
+        }
+      ],
+      "codeSnippet": "# Production Deployment Manifest\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: notes-api\nspec:\n  replicas: 3\n  strategy:\n    type: RollingUpdate\n    rollingUpdate:\n      maxSurge: 1\n      maxUnavailable: 0\n  selector:\n    matchLabels:\n      app: notes-api\n  template:\n    metadata:\n      labels:\n        app: notes-api\n    spec:\n      containers:\n        - name: api\n          image: notes-api:1.0.0\n          ports:\n            - containerPort: 8000"
+    },
+    {
+      "id": "services-endpoints",
+      "number": "04",
+      "title": "Services, EndpointSlices & Cluster Networking",
+      "badge": "Virtual IPs & CoreDNS",
+      "summary": "The ephemeral Pod IP dilemma. Virtual IPs (ClusterIP). Label selector routing. EndpointSlices tracking ready backends. Service types: ClusterIP, NodePort, LoadBalancer.",
+      "details": [
+        {
+          "heading": "The Ephemeral IP Dilemma",
+          "body": "Pod IP addresses are dynamic and ephemeral. When a Pod restarts or scales, it receives a brand-new IP address. Direct communication between Pods using IP addresses is an operational anti-pattern that leads to immediate breakage."
+        },
+        {
+          "heading": "The Service Abstraction & Virtual IPs",
+          "body": "A Kubernetes Service provides a permanent, stable virtual IP (ClusterIP) and a stable DNS record (`notes-api.default.svc.cluster.local`). Traffic sent to the Service IP is automatically load-balanced across matching Pods. The Service IP never changes throughout the lifetime of the application."
+        },
+        {
+          "heading": "EndpointSlices: Scalable Backend Tracking",
+          "body": "Historically, Kubernetes tracked service backends in a single `Endpoints` resource, which caused network storms on large clusters. Modern Kubernetes uses `EndpointSlices`, which group up to 100 backend Pod endpoints per slice. When a Pod fails its readiness probe, the EndpointSlice controller immediately strips its IP from the slice, preventing failed requests."
+        },
+        {
+          "heading": "Service Types Matrix",
+          "body": "- `ClusterIP` (Default): Exposes the Service on an internal cluster-only virtual IP.\n- `NodePort`: Exposes the Service on each node's IP at a static port (range 30000–32767).\n- `LoadBalancer`: Provisions an external cloud load balancer (AWS NLB/ALB, GCP Cloud LB) pointing to NodePorts.\n- `ExternalName`: Maps the Service to a CNAME DNS record outside the cluster."
+        }
+      ],
+      "codeSnippet": "# Production ClusterIP Service\napiVersion: v1\nkind: Service\nmetadata:\n  name: notes-api\nspec:\n  type: ClusterIP\n  selector:\n    app: notes-api\n  ports:\n    - name: http\n      port: 80\n      targetPort: 8000\n\n# Inspect Endpoints & EndpointSlices\nkubectl get service notes-api\nkubectl get endpointslices -l kubernetes.io/service-name=notes-api"
+    },
+    {
+      "id": "configs-secrets",
+      "number": "05",
+      "title": "Configuration, Secrets & Namespaces",
+      "badge": "KMS Encryption & RBAC Scoping",
+      "summary": "Decoupling config from images with ConfigMaps. Secrets: Base64 encoding vs etcd encryption at rest. Scoping workloads and policies with Namespaces.",
+      "details": [
+        {
+          "heading": "ConfigMaps: Externalizing Application Configuration",
+          "body": "Applications should never be re-built merely because an environment variable changes. A ConfigMap stores non-confidential configuration (log levels, database hosts, timeouts). Pods consume ConfigMaps as environment variables (`envFrom`) or mounted configuration files in a volume."
+        },
+        {
+          "heading": "Secrets: The Base64 Misconception",
+          "body": "CRITICAL SECURITY FACT: Base64 is NOT encryption! By default, Kubernetes Secrets are stored in plaintext Base64 encoding inside `etcd`. Anyone with read access to etcd or cluster-admin RBAC can decode secrets with `echo '<base64>' | base64 -d`. In production, clusters MUST enable Encryption at Rest in etcd using a KMS provider (AWS KMS, HashiCorp Vault)."
+        },
+        {
+          "heading": "Injecting Secrets Safely",
+          "body": "Prefer mounting Secrets as read-only files (`volumeMounts`) over environment variables. Environment variables often leak into process crash dumps, Docker inspect logs, and child subprocess environments. Mounted secret files update dynamically when the Secret changes."
+        },
+        {
+          "heading": "Namespaces: Logical Boundaries vs. Security Boundaries",
+          "body": "Namespaces partition resources, quotas, and RBAC permissions across teams (e.g., `development`, `staging`, `production`). WARNING: A namespace is NOT an automatic network or security boundary! Without NetworkPolicies, Pods in `development` can communicate freely with Pods in `production`."
+        }
+      ],
+      "codeSnippet": "# Create ConfigMap and Secret\nkubectl create configmap app-config --from-literal=LOG_LEVEL=info\nkubectl create secret generic db-secret --from-literal=password=SuperSecret123!\n\n# Consuming Secret as a volume mount in Pod spec\nvolumeMounts:\n  - name: secret-volume\n    mountPath: /run/secrets\n    readOnly: true\nvolumes:\n  - name: secret-volume\n    secret:\n      secretName: db-secret"
+    },
+    {
+      "id": "ingress-gateway",
+      "number": "06",
+      "title": "Ingress & The Next-Gen Gateway API",
+      "badge": "HTTPRoute & Layer 7 Routing",
+      "summary": "Routing internet traffic to Services. The Ingress API and Ingress Controllers. Why Ingress is frozen: Introducing the Gateway API (GatewayClass, Gateway, HTTPRoute).",
+      "details": [
+        {
+          "heading": "Layer 7 Ingress Routing",
+          "body": "While Services operate at Layer 4 (TCP/UDP), Ingress operates at Layer 7 (HTTP/HTTPS). An Ingress resource defines host-based routing (`api.company.com`) and path-based routing (`/v1/notes`). An Ingress Controller (Nginx, Traefik, HAProxy) monitors the API server and programs the reverse proxy data plane."
+        },
+        {
+          "heading": "Why the Ingress API is Frozen",
+          "body": "The Kubernetes networking SIG froze the Ingress API because it suffered from structural architectural limitations: it lacked role separation (infrastructure admins vs application developers), relied on non-standardized vendor annotations (`nginx.ingress.kubernetes.io/rewrite-target`), and lacked native support for canary routing, header matching, and gRPC."
+        },
+        {
+          "heading": "The Modern Kubernetes Gateway API",
+          "body": "Gateway API is the modern successor to Ingress, providing role-oriented decoupled resources:\n1. `GatewayClass`: Defined by infrastructure providers (e.g., AWS, Cilium, Envoy).\n2. `Gateway`: Created by cluster operators; defines ports, TLS certificates, and network attachments.\n3. `HTTPRoute` / `GRPCRoute`: Created by application developers; defines URI routing, path rewrites, header injection, and traffic splitting across multiple Services."
+        }
+      ],
+      "codeSnippet": "# Modern Gateway API HTTPRoute Example\napiVersion: gateway.networking.k8s.io/v1\nkind: HTTPRoute\nmetadata:\n  name: notes-route\nspec:\n  parentRefs:\n    - name: prod-gateway\n  hostnames:\n    - \"notes.infrastructure.io\"\n  rules:\n    - matches:\n        - path:\n            type: PathPrefix\n            value: /api\n      backendRefs:\n        - name: notes-api\n          port: 80"
+    },
+    {
+      "id": "stateful-workloads",
+      "number": "07",
+      "title": "Advanced Workloads: StatefulSets, DaemonSets & Jobs",
+      "badge": "Ordinal Storage & Batch Schedulers",
+      "summary": "StatefulSets: Stable network identity (db-0, db-1) and dedicated volumeClaimTemplates. DaemonSets for node agents. Jobs & CronJobs for batch tasks.",
+      "details": [
+        {
+          "heading": "StatefulSets for Persistent Infrastructure",
+          "body": "Deployments treat Pods as interchangeable cattle. StatefulSets are designed for stateful databases (PostgreSQL, Kafka, Cassandra) where each replica requires:\n1. A stable, predictable ordinal identity (`db-0`, `db-1`, `db-2`).\n2. Stable network identity using a Headless Service (`clusterIP: None`).\n3. Dedicated, persistent storage provisioned via `volumeClaimTemplates` that attaches exclusively to that specific ordinal Pod across reboots."
+        },
+        {
+          "heading": "Storage Subsystem: PV, PVC & StorageClasses",
+          "body": "- `PersistentVolume` (PV): A piece of actual storage in the cluster provisioned by an admin or CSI driver (AWS EBS, Ceph, local disk).\n- `PersistentVolumeClaim` (PVC): A user's request for storage (e.g. 'Give me 10Gi ReadWriteOnce').\n- `StorageClass`: Defines the dynamic storage provisioner and disk performance tier (SSD vs HDD)."
+        },
+        {
+          "heading": "DaemonSets: Node-Local Agents",
+          "body": "A DaemonSet ensures that an exact copy of a Pod runs on every single eligible node in the cluster (or a subset selected via nodeSelectors). As new nodes are added to the cluster, the DaemonSet controller automatically schedules the pod onto them. Used exclusively for logging agents (Fluentbit), monitoring collectors (Node Exporter), and CNI networking agents."
+        },
+        {
+          "heading": "Jobs & CronJobs",
+          "body": "Jobs run a batch workload to completion (`restartPolicy: OnFailure`). CronJobs execute Jobs on a scheduled interval (e.g. `0 2 * * *` for nightly backups). Always configure `concurrencyPolicy: Forbid` on database backup CronJobs to prevent simultaneous conflicting backup processes."
+        }
+      ],
+      "codeSnippet": "# StatefulSet with VolumeClaimTemplate\napiVersion: apps/v1\nkind: StatefulSet\nmetadata:\n  name: postgres\nspec:\n  serviceName: \"postgres-headless\"\n  replicas: 1\n  selector:\n    matchLabels:\n      app: postgres\n  template:\n    metadata:\n      labels:\n        app: postgres\n    spec:\n      containers:\n        - name: postgres\n          image: postgres:18\n          volumeMounts:\n            - name: data\n              mountPath: /var/lib/postgresql\n  volumeClaimTemplates:\n    - metadata:\n        name: data\n      spec:\n        accessModes: [\"ReadWriteOnce\"]\n        resources:\n          requests:\n            storage: 10Gi"
+    },
+    {
+      "id": "rbac-security",
+      "number": "08",
+      "title": "RBAC, Pod Security Standards & Hardening",
+      "badge": "Restricted PSS & Least Privilege",
+      "summary": "Role-Based Access Control: Roles vs ClusterRoles, RoleBindings vs ClusterRoleBindings. Pod Security Standards (Restricted). Hardening with securityContext.",
+      "details": [
+        {
+          "heading": "RBAC Architecture & The Principle of Least Privilege",
+          "body": "Kubernetes authorization evaluates every API request using Role-Based Access Control:\n- `Role`: Sets allowed verbs (`get`, `list`, `watch`, `create`, `delete`) on resources within a namespace.\n- `ClusterRole`: Defines permissions across the entire cluster (nodes, namespaces, PVs).\n- `RoleBinding`: Binds a Role to a User, Group, or ServiceAccount in a namespace.\n- `ClusterRoleBinding`: Binds a ClusterRole cluster-wide (WARNING: Never grant `cluster-admin` casually!)."
+        },
+        {
+          "heading": "ServiceAccount Hardening",
+          "body": "By default, Kubernetes mounts a ServiceAccount API token inside every container at `/var/run/secrets/kubernetes.io/serviceaccount/token`. If your application does not query the Kubernetes API, ALWAYS disable this token mount to prevent credential theft if the container is compromised:\n`automountServiceAccountToken: false`"
+        },
+        {
+          "heading": "Pod Security Standards (PSS)",
+          "body": "Kubernetes enforces three Pod Security admission profiles:\n1. Privileged: Completely unconstrained (root, host network, host mounts).\n2. Baseline: Minimally restrictive; prevents known privilege escalation.\n3. Restricted: Hardened production standard; mandates non-root execution, drops capabilities, and enforces read-only root filesystems."
+        },
+        {
+          "heading": "Production Workload securityContext",
+          "body": "Every production Pod should declare:\n`runAsNonRoot: true`\n`runAsUser: 10001`\n`allowPrivilegeEscalation: false`\n`readOnlyRootFilesystem: true`\n`capabilities: { drop: [\"ALL\"] }`"
+        }
+      ],
+      "codeSnippet": "# Production RBAC Role for Read-Only Pod Inspection\napiVersion: rbac.authorization.k8s.io/v1\nkind: Role\nmetadata:\n  namespace: devops-lab\n  name: pod-reader\nrules:\n  - apiGroups: [\"\"]\n    resources: [\"pods\", \"pods/log\"]\n    verbs: [\"get\", \"list\", \"watch\"]\n---\napiVersion: rbac.authorization.k8s.io/v1\nkind: RoleBinding\nmetadata:\n  namespace: devops-lab\n  name: read-pods-binding\nsubjects:\n  - kind: ServiceAccount\n    name: auditor-sa\nroleRef:\n  kind: Role\n  name: pod-reader\n  apiGroup: rbac.authorization.k8s.io"
+    },
+    {
+      "id": "scheduling-probes",
+      "number": "09",
+      "title": "Scheduling, Requests, Limits & Health Probes",
+      "badge": "CFS Throttling & Probe Triad",
+      "summary": "Scheduler mechanics: Filtering & scoring. Requests (scheduling guarantee) vs Limits (enforced ceiling). The Probe Triad: Startup, Readiness, and Liveness.",
+      "details": [
+        {
+          "heading": "Two-Phase Scheduling: Predicates & Priorities",
+          "body": "The `kube-scheduler` selects nodes in two phases:\n1. Filtering (Predicates): Eliminates nodes that do not meet hard constraints (insufficient CPU/memory requests, untolerated taints, missing nodeSelectors).\n2. Scoring (Priorities): Ranks surviving nodes to find the best fit (spreading pods across failure domains, maximizing resource balance)."
+        },
+        {
+          "heading": "Requests vs. Limits & Quality of Service (QoS)",
+          "body": "- CPU Request: Guaranteed CPU share used to schedule the Pod.\n- CPU Limit: Maximum CPU quota enforced via Linux CFS; excess usage results in CPU throttling (latency spikes).\n- Memory Request: Guaranteed RAM allocation.\n- Memory Limit: Hard ceiling; excess usage triggers the kernel OOM killer (Exit Code 137).\nQoS Classes: `Guaranteed` (requests == limits), `Burstable` (requests < limits), `BestEffort` (no requests/limits; evicted first under memory pressure)."
+        },
+        {
+          "heading": "The Health Probe Triad",
+          "body": "- Startup Probe: Gives slow-starting applications time to boot. While active, it disables liveness and readiness checks, preventing premature restart loops.\n- Readiness Probe: Determines if the container is ready to accept user traffic. When it fails, the Pod is removed from Service EndpointSlices (does NOT restart the container).\n- Liveness Probe: Detects if the process has deadlocked or entered an unrecoverable state. When it fails repeatedly, the kubelet restarts the container."
+        }
+      ],
+      "codeSnippet": "# Production Resource & Probe Configuration\nresources:\n  requests:\n    cpu: 100m\n    memory: 128Mi\n  limits:\n    cpu: 500m\n    memory: 256Mi\n\nstartupProbe:\n  httpGet:\n    path: /healthz\n    port: 8000\n  failureThreshold: 30\n  periodSeconds: 5\n\nreadinessProbe:\n  httpGet:\n    path: /readyz\n    port: 8000\n  periodSeconds: 5\n\nlivenessProbe:\n  httpGet:\n    path: /healthz\n    port: 8000\n  periodSeconds: 10"
+    },
+    {
+      "id": "autoscaling-sre",
+      "number": "10",
+      "title": "Autoscaling & SRE Production Troubleshooting",
+      "badge": "HPA v2 & Incident Triage",
+      "summary": "Horizontal Pod Autoscaling (HPA) vs Node Autoscaling. The SRE triage playbook: Debugging Pending, CrashLoopBackOff, ImagePullBackOff, and OOMKilled.",
+      "details": [
+        {
+          "heading": "Horizontal Pod Autoscaler (HPA v2)",
+          "body": "The HPA controller queries the Kubernetes Metrics Server every 15 seconds. It computes the desired replica count based on observed metrics:\n`desiredReplicas = ceil[ currentReplicas * ( currentMetricValue / targetMetricValue ) ]`\nIf average CPU exceeds 60% of requested CPU, HPA scales up replicas up to `maxReplicas`."
+        },
+        {
+          "heading": "HPA vs. Cluster Autoscaler",
+          "body": "HPA only scales the number of Pod replicas. It CANNOT create physical or virtual machines! If the cluster runs out of CPU capacity, new pods created by HPA will sit in `Pending` state. The Cluster Autoscaler or Karpenter monitors unschedulable Pending pods and calls cloud APIs to launch additional worker nodes."
+        },
+        {
+          "heading": "The SRE Troubleshooting Doctrine",
+          "body": "When an outage occurs, follow the 4-step triage sequence:\n1. `kubectl get pods -o wide`: Identify failing pods and host node placement.\n2. `kubectl describe pod <name>`: Read the Events table at the bottom (identifies scheduling, volume, image, and probe failures).\n3. `kubectl logs <name> --previous`: Inspect stdout/stderr of the crashed container before it restarted.\n4. `kubectl get events --sort-by=.metadata.creationTimestamp`: Review cluster-wide event timeline."
+        }
+      ],
+      "codeSnippet": "# HorizontalPodAutoscaler Manifest\napiVersion: autoscaling/v2\nkind: HorizontalPodAutoscaler\nmetadata:\n  name: notes-api-hpa\nspec:\n  scaleTargetRef:\n    apiVersion: apps/v1\n    kind: Deployment\n    name: notes-api\n  minReplicas: 2\n  maxReplicas: 10\n  metrics:\n    - type: Resource\n      resource:\n        name: cpu\n        target:\n          type: Utilization\n          averageUtilization: 60"
+    }
+  ],
+  "commands": null,
+  "scenarios": [
+    {
+      "id": "inc-1",
+      "title": "Incident 1: CrashLoopBackOff: Missing Database Password Secret",
+      "symptom": "All API pods fail immediately upon start with status CrashLoopBackOff. Restarts counter is incrementing rapidly.",
+      "codeSnippet": "$ kubectl describe pod notes-api-7b8f9-x2k9\nEvents:\n  Type     Reason     Age                From               Message\n  Normal   Scheduled  2m                 default-scheduler  Successfully assigned default/notes-api to worker-1\n  Warning  Failed     1m (x4 over 2m)    kubelet            Error: secret \"db-credentials\" not found\n  Warning  BackOff    15s (x8 over 2m)   kubelet            Back-off restarting failed container",
+      "question": "What is the root cause of this CrashLoopBackOff, and what is the proper SRE remediation?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "The worker node ran out of disk space. Re-run 'docker prune' on the node.",
+          "correct": false,
+          "explanation": "The event log explicitly states: 'Error: secret \"db-credentials\" not found'. Disk space has nothing to do with this failure."
+        },
+        {
+          "id": "opt-b",
+          "label": "The Pod manifest references a Secret named 'db-credentials' that does not exist in the namespace. Fix: Create the secret via 'kubectl create secret generic db-credentials --from-file=password=...' in that namespace.",
+          "correct": true,
+          "explanation": "Authoritative Kubernetes troubleshooting: When a container references a secretKeyRef or secret volume that does not exist, the kubelet cannot start the container runtime and places the pod into CrashLoopBackOff. Creating the Secret allows the kubelet to immediately proceed."
+        },
+        {
+          "id": "opt-c",
+          "label": "Delete the deployment and switch to Docker Swarm.",
+          "correct": false,
+          "explanation": "Unconstructive action that doesn't address the missing configuration object."
+        }
+      ]
+    },
+    {
+      "id": "inc-2",
+      "title": "Incident 2: Pending Pod: Unsatisfiable Resource Requests",
+      "symptom": "API Pods are stuck indefinitely in 'Pending' state. Nodes are Ready and network is healthy.",
+      "codeSnippet": "$ kubectl get pods\nNAME                         READY   STATUS    RESTARTS   AGE\nnotes-api-5c94d-h8z12        0/1     Pending   0          8m\n\n$ kubectl describe pod notes-api-5c94d-h8z12\nEvents:\n  Warning  FailedScheduling  8m (x3 over 8m)  default-scheduler\n  0/3 nodes are available: 1 node(s) had untolerated taint, 2 Insufficient cpu.\n  preemption: 0/3 nodes are available: 3 No preemption victims found for incoming pod.",
+      "question": "Why did the kube-scheduler fail to place the pod on any worker node?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "The container image is corrupted in the registry.",
+          "correct": false,
+          "explanation": "Image pulling occurs after scheduling. The pod hasn't even been assigned to a node."
+        },
+        {
+          "id": "opt-b",
+          "label": "The Pod's 'resources.requests.cpu' exceeds the remaining allocatable CPU capacity on all worker nodes. Fix: Lower the CPU request to realistic workload requirements or autoscale cluster nodes.",
+          "correct": true,
+          "explanation": "Exact scheduler mechanics: The kube-scheduler's Predicate Filter compares the Pod's CPU and Memory 'requests' against the allocatable capacity of each node. If the requested CPU cannot be satisfied without starving guaranteed workloads, the pod remains Pending indefinitely."
+        },
+        {
+          "id": "opt-c",
+          "label": "Increase CPU limits to 16 cores.",
+          "correct": false,
+          "explanation": "Increasing limits does not help; scheduling is determined strictly by 'requests', not 'limits'."
+        }
+      ]
+    },
+    {
+      "id": "inc-3",
+      "title": "Incident 3: Container OOMKilled with Exit Code 137",
+      "symptom": "API Pod restarts intermittently under traffic spikes. Container termination state shows Reason: OOMKilled and Exit Code 137.",
+      "codeSnippet": "$ kubectl describe pod notes-api-7b8f9-4k91a\nContainers:\n  notes-api:\n    State:          Waiting\n      Reason:       CrashLoopBackOff\n    Last State:     Terminated\n      Reason:       OOMKilled\n      Exit Code:    137\n    Limits:\n      memory:       64Mi\n    Requests:\n      memory:       32Mi",
+      "question": "What does Exit Code 137 mean in Kubernetes, and how should it be remediated?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Exit Code 137 represents 128 + 9 (SIGKILL). The Linux kernel cgroup memory controller terminated the process because its memory footprint exceeded the 64Mi limit. Fix: Profile application memory and increase memory limit.",
+          "correct": true,
+          "explanation": "Exact Linux kernel and container mechanism: Exit code 137 = 128 + signal 9 (SIGKILL). When a container process exceeds its configured memory limit in its cgroup, the kernel Out-Of-Memory killer terminates the process immediately. Remediate by sizing realistic memory limits based on profiling."
+        },
+        {
+          "id": "opt-b",
+          "label": "Exit 137 means a syntax error occurred in Python.",
+          "correct": false,
+          "explanation": "Syntax errors in Python produce exit code 1."
+        },
+        {
+          "id": "opt-c",
+          "label": "Restart the node to flush all memory caches.",
+          "correct": false,
+          "explanation": "Flushing host caches does not resolve an undersized container cgroup limit."
+        }
+      ]
+    },
+    {
+      "id": "inc-4",
+      "title": "Incident 4: ImagePullBackOff & ErrImagePull",
+      "symptom": "Pods cannot start. Status shows ImagePullBackOff. Kubelet events report unauthorized access.",
+      "codeSnippet": "$ kubectl describe pod notes-api-9f1b-rt8x\nEvents:\n  Warning  Failed   2m (x2 over 2m)   kubelet  Failed to pull image \"corp-registry.internal/apps/notes-api:1.0.0\":\n  rpc error: code = Unknown desc = failed to pull and unpack image:\n  failed to resolve reference: unexpected status code 401 Unauthorized\n  Warning  Failed   2m (x2 over 2m)   kubelet  Error: ImagePullBackOff",
+      "question": "How should an SRE resolve this private registry authentication failure in Kubernetes?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Create a 'kubernetes.io/dockerconfigjson' secret with registry credentials and attach it to the Deployment via 'imagePullSecrets'.",
+          "correct": true,
+          "explanation": "Standard Kubernetes pattern: Accessing private registries requires a Docker registry secret in the workload namespace, referenced in the Pod spec via 'imagePullSecrets: [{name: regcred}]' or configured on the namespace default ServiceAccount."
+        },
+        {
+          "id": "opt-b",
+          "label": "Disable authentication on the corporate container registry.",
+          "correct": false,
+          "explanation": "Disabling security on enterprise registries violates corporate security compliance."
+        },
+        {
+          "id": "opt-c",
+          "label": "Add --privileged to the pod security context.",
+          "correct": false,
+          "explanation": "Privileged mode controls host kernel capabilities; it has no effect on registry image pulling."
+        }
+      ]
+    },
+    {
+      "id": "inc-5",
+      "title": "Incident 5: Service 503 / Connection Refused: Label Selector Mismatch",
+      "symptom": "Pods are 1/1 Running and healthy, but 'curl http://service-ip' fails with Connection Refused or empty reply. 'kubectl get endpoints' shows <none>.",
+      "codeSnippet": "# Service manifest:\napiVersion: v1\nkind: Service\nmetadata:\n  name: notes-service\nspec:\n  selector:\n    app: web   <-- Note selector!\n\n# Deployment manifest:\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: notes-api\nspec:\n  template:\n    metadata:\n      labels:\n        app: notes-api  <-- Note Pod label!",
+      "question": "Why does the Service have zero endpoints, and how is it resolved?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "The Service selector (app: web) does not match the Pod template label (app: notes-api). The EndpointSlice controller finds 0 matching pods. Fix: Update Service selector to app: notes-api.",
+          "correct": true,
+          "explanation": "Crucial Service discovery mechanic: Kubernetes Services route traffic strictly by matching label selectors against Pod labels. A mismatch between 'app: web' and 'app: notes-api' results in empty EndpointSlices (<none>), meaning no traffic can reach the Pods."
+        },
+        {
+          "id": "opt-b",
+          "label": "The Service must be upgraded to a LoadBalancer type.",
+          "correct": false,
+          "explanation": "Service type does not fix an internal label selector mismatch."
+        },
+        {
+          "id": "opt-c",
+          "label": "Delete the cluster and rebuild with flannel.",
+          "correct": false,
+          "explanation": "CNI plugins do not cause label selector mismatches in EndpointSlices."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1764,
+    "fileSizeBytes": 96588,
+    "questionCount": 14,
+    "hasQuiz": true,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

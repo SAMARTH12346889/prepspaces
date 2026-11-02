@@ -1,0 +1,142 @@
+{
+  "id": "firewalls",
+  "courseId": "computer-networks",
+  "index": 15,
+  "name": "15. Firewalls & Access Control",
+  "route": "/learning/networks/firewalls",
+  "componentName": "NetworkFirewalls",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the primary operational difference between stateful and stateless packet filtering?",
+      "options": [
+        "Stateful filtering encrypts all IP headers, while stateless filtering leaves them unencrypted.",
+        "Stateful filtering maintains a connection state table to automatically permit valid return traffic, while stateless filtering evaluates each packet individually.",
+        "Stateless filtering guarantees complete immunity against DDoS attacks.",
+        "Stateful filtering only works on wireless local area networks."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q2",
+      "question": "In Linux nftables, what does the rule 'ct state established,related accept' accomplish?",
+      "options": [
+        "It opens an unrestricted public web server on port 443.",
+        "It permits packets that belong to or are associated with previously allowed, tracked outgoing connections.",
+        "It disables all connection tracking to maximize CPU throughput.",
+        "It converts TCP packets into UDP datagrams."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q3",
+      "question": "Why is firewall rule ordering critical in first-match-wins security engines?",
+      "options": [
+        "If a broad permit rule is placed above a specific deny rule, the deny rule becomes 'shadowed' and is never executed.",
+        "Rules placed at the bottom of the table consume 10x more power.",
+        "Rule order dictates the physical speed of the Ethernet link.",
+        "Firewalls only evaluate rules on the first day of every month."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q4",
+      "question": "Why is Network Address Translation (NAT) NOT a substitute for a stateful firewall?",
+      "options": [
+        "NAT only works with IPv6 addresses.",
+        "NAT merely translates IP and port header fields; without an explicit firewall policy, unauthorized traffic could still be routed or forwarded.",
+        "NAT automatically disables all encryption.",
+        "NAT cannot translate TCP packets."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q5",
+      "question": "Why is outbound egress filtering a critical component of enterprise defense-in-depth?",
+      "options": [
+        "It prevents external hackers from sending email to staff.",
+        "It prevents compromised internal endpoints from communicating with Command & Control (C2) servers or exfiltrating data over unauthorized ports.",
+        "It doubles the download speed of video conferences.",
+        "It replaces the need for local endpoint antivirus software."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q6",
+      "question": "What is the primary functional difference between an Intrusion Detection System (IDS) and an Intrusion Prevention System (IPS)?",
+      "options": [
+        "An IDS runs in the cloud, while an IPS only runs on smart home routers.",
+        "An IDS passively monitors traffic out-of-band and generates alerts, whereas an IPS sits inline and can actively drop malicious packets.",
+        "An IDS uses hardware, while an IPS is always pure software.",
+        "An IPS cannot inspect TCP traffic."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q7",
+      "question": "Why should remote-access VPN users NOT be placed directly onto a flat, unrestricted internal corporate subnet?",
+      "options": [
+        "VPN encryption slows down if more than 5 users connect.",
+        "Remote laptops are unmanaged or exposed to home networks; granting them flat corporate access allows malware to pivot laterally into databases and domain controllers.",
+        "IPsec cannot route traffic across subnets.",
+        "VPN clients are legally required to have their own private internet connection."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q8",
+      "question": "What is the primary security role of a Bastion Host (Jump Server) in an enterprise architecture?",
+      "options": [
+        "To store employee passwords in plaintext for fast access.",
+        "To provide a single, hardened, heavily audited gateway for administrative access (SSH/RDP) to internal servers, preventing direct public exposure.",
+        "To replace the perimeter firewall.",
+        "To boost the physical Wi-Fi signal in the server room."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q9",
+      "question": "What failure symptom typically occurs when a firewall's state table (conntrack table) is completely exhausted?",
+      "options": [
+        "The firewall automatically switches to 10 Gbps mode.",
+        "New legitimate connection attempts (ct state new) are dropped or rejected because the firewall cannot allocate memory for new state tracking.",
+        "All existing TCP connections immediately become unencrypted.",
+        "The physical Ethernet ports turn off permanently."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q10",
+      "question": "A network engineer tests a firewall rule by pinging a server. The ping fails. Why does this test alone NOT prove that web traffic is blocked?",
+      "options": [
+        "Ping uses ICMP (type 8/0), whereas web traffic uses TCP port 80/443; a firewall rule may block ICMP while permitting TCP.",
+        "Ping packets are always encrypted with TLS 1.3.",
+        "Ethernet switches cannot forward ping packets across VLANs.",
+        "Ping only works if the client has a public IP address."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2007,
+    "fileSizeBytes": 113814,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getCoursesCatalog } from "../services/courseContentService";
 import { useNavigate, Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -164,6 +165,19 @@ const learningTracks = [
 export default function Learning() {
   const navigate = useNavigate();
   const { goBack } = useSafeBack("/");
+  const [courses, setCourses] = useState(learningTracks);
+
+  useEffect(() => {
+    let isMounted = true;
+    getCoursesCatalog().then((catalog) => {
+      if (isMounted && catalog && catalog.length > 0) {
+        setCourses(catalog);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-6 py-8 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
@@ -227,7 +241,7 @@ export default function Learning() {
 
         {/* LEARNING TRACKS GRID - Spacious, Balanced 2-Column Layout */}
         <div className="grid gap-6 md:grid-cols-2 items-stretch">
-          {learningTracks.map((card) => {
+          {courses.map((card) => {
             const Icon = card.icon;
 
             return (

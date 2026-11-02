@@ -1,0 +1,202 @@
+{
+  "id": "platform",
+  "courseId": "devops",
+  "index": 11,
+  "name": "Platform Engineering",
+  "route": "/learning/devops/platform",
+  "componentName": "DevOpsPlatform",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is Platform Engineering described as a discipline that complements DevOps rather than replaces it?",
+      "options": [
+        "Platform Engineering is designed only for legacy mainframe applications.",
+        "It provides standardized, self-service infrastructure workflows that scale DevOps practices across large teams without cognitive overload.",
+        "DevOps was formally deprecated by the CNCF in 2024.",
+        "Platform Engineering replaces all automated testing with manual reviews."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "What is the primary architectural difference between an Internal Developer Platform (IDP) and a Developer Portal (e.g. Backstage)?",
+      "options": [
+        "An IDP is written in React, while Backstage is written in Python.",
+        "The developer portal is the frontend discovery UI and catalog; the IDP is the full underlying system of automation, platform APIs, infrastructure, and delivery pipelines.",
+        "There is no difference; they are synonymous vendor buzzwords.",
+        "Developer portals only work on bare-metal servers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "What is the primary purpose of a 'Golden Path' in an engineering organization?",
+      "options": [
+        "To force all developers to write code exclusively in JavaScript.",
+        "To provide a supported, documented, and automated self-service path for common tasks that makes the secure and reliable way the easiest way.",
+        "To prevent developers from pushing code on weekends.",
+        "To replace cloud infrastructure with local SQLite databases."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "Why must golden paths be treated and maintained like internal products?",
+      "options": [
+        "Because templates become outdated as base images, dependencies, and cloud APIs evolve, requiring active maintenance and upgrades.",
+        "So that the platform team can sell subscriptions to internal developers.",
+        "To satisfy quarterly financial accounting audits.",
+        "Because Kubernetes requires templates to be refreshed every 24 hours."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "What critical service information is captured in a Backstage catalog-info.yaml file?",
+      "options": [
+        "Only the developer's home Wi-Fi password.",
+        "Service metadata including component name, owning team, lifecycle status, API contracts, upstream dependencies, and runbook links.",
+        "The complete binary machine code of the application.",
+        "The monthly credit card billing statements of the cloud provider."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "How does a Platform API (e.g. via Crossplane or Kubernetes CRDs) differ from exposing raw Terraform variables to developers?",
+      "options": [
+        "Platform APIs hide low-level provider variables behind high-level business capabilities (e.g. WebServiceRequest) with built-in guardrails.",
+        "Terraform variables are encrypted; Platform APIs are unencrypted.",
+        "Platform APIs require zero cloud resources to run.",
+        "Raw Terraform variables are strictly prohibited by the Linux kernel."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "Why does deploying raw Kubernetes clusters alone NOT constitute a complete developer platform?",
+      "options": [
+        "Kubernetes cannot run Python or Node.js applications.",
+        "Without platform abstraction, developers must still master ingress, network policies, service accounts, resource limits, and secrets management.",
+        "Kubernetes requires Windows Server to function.",
+        "Kubernetes is only an operating system kernel."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "What role does GitOps (e.g. Argo CD) play within an Internal Developer Platform architecture?",
+      "options": [
+        "It compiles Python source code into native binary executables.",
+        "It acts as the declarative delivery engine, reconciling desired infrastructure and application state from Git without direct cluster access.",
+        "It replaces the need for a container registry.",
+        "It monitors developer keystrokes for productivity tracking."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "How can a platform team balance developer self-service with organizational security and least privilege?",
+      "options": [
+        "By granting all developers cloud AdministratorAccess.",
+        "By using scoped platform APIs and service templates with pre-approved instance sizes, regions, and guardrails, requiring approvals only for high-risk actions.",
+        "By requiring every pull request to be signed by the CEO.",
+        "By disabling all cloud networking firewalls."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "What is the primary danger of building an elaborate developer portal before interviewing developers and understanding their bottlenecks?",
+      "options": [
+        "Building sophisticated tools that fail to solve actual developer pain points, leading to low platform adoption and wasted investment.",
+        "Overheating the data center servers.",
+        "Violating open-source licensing agreements.",
+        "Causing git merge conflicts on feature branches."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "Which metric best reflects whether an Internal Developer Platform is genuinely delivering effective self-service?",
+      "options": [
+        "The number of YAML files in the repository.",
+        "Self-service completion rate and provisioning lead time (completing workflows without filing manual support tickets).",
+        "The total lines of code written by the platform engineers.",
+        "The number of Slack channels created by the team."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "In Team Topologies, what is the primary objective of a Platform Team?",
+      "options": [
+        "To complete all bug fixes for stream-aligned feature teams.",
+        "To enable stream-aligned teams to deliver work autonomously by providing a compelling, easy-to-use internal product.",
+        "To manage the company's human resources payroll software.",
+        "To act as a gatekeeper approving all production deployments manually."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "Why might platform adoption remain low even after all required CI/CD and Kubernetes tools are installed?",
+      "options": [
+        "Developers are fundamentally opposed to software automation.",
+        "Poor developer experience, lack of documentation, complex configuration interfaces, or existing templates that don't match team workflows.",
+        "Cloud providers block connections from developer portals.",
+        "Kubernetes pods cannot communicate across subnets."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "How should operational ownership be shared between application teams and platform teams?",
+      "options": [
+        "Application teams throw code over the wall, and platform teams run all 24/7 on-call operations.",
+        "Platform teams own the platform reliability and templates; application teams own their application logic, data behavior, and service SLOs.",
+        "Neither team is responsible for production incidents.",
+        "Only the cloud provider is responsible for operations."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "How does the 'Platform as a Product' mindset guide feature prioritization?",
+      "options": [
+        "By prioritizing whatever tool is currently trending on Hacker News.",
+        "By gathering developer feedback, measuring workflow friction points, and prioritizing capabilities that unlock the highest productivity gains.",
+        "By allowing the most senior manager to decide all features arbitrarily.",
+        "By refusing to add any new features once Backstage is deployed."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1713,
+    "fileSizeBytes": 89058,
+    "questionCount": 15,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

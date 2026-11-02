@@ -1,0 +1,214 @@
+{
+  "id": "capstone",
+  "courseId": "devops",
+  "index": 12,
+  "name": "Capstone Project",
+  "route": "/learning/devops/capstone",
+  "componentName": "DevOpsCapstone",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "In the final capstone architecture, why is the application split into an API deployment, an asynchronous worker, and a scheduled CronJob?",
+      "options": [
+        "Because Kubernetes does not allow running more than one container per cluster.",
+        "To separate interactive user-facing requests from long-running background tasks and maintenance, isolating resource pools and preventing worker spikes from blocking HTTP latency.",
+        "To satisfy Docker licensing restrictions.",
+        "Because Python cannot execute background threads."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "Why must the CI/CD pipeline update the GitOps deployment repository using the container's immutable SHA256 digest rather than a tag like ':latest'?",
+      "options": [
+        "Digest pulls are 50% faster than tag pulls.",
+        "Mutable tags can be overwritten or drift, whereas immutable digests guarantee the exact bit-for-bit container that passed SAST, Trivy, and Cosign verification is deployed.",
+        "Git repositories reject commits that contain alphanumeric tags.",
+        "Kubernetes removes images with tags every 12 hours."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "What is the primary role of Argo Rollouts in the capstone deployment strategy?",
+      "options": [
+        "To compile TypeScript code into WebAssembly.",
+        "To provide automated progressive canary delivery with metric-based analysis, shifting traffic in stages and automatically aborting if error rates breach thresholds.",
+        "To replace the PostgreSQL database during releases.",
+        "To compress container images before deployment."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "Why is a scheduled container that copies database files to an S3 bucket NOT considered an enterprise disaster recovery plan for PostgreSQL?",
+      "options": [
+        "S3 does not support storing SQL files.",
+        "File copy backups taken while PostgreSQL is running produce corrupted, inconsistent snapshots. Enterprise DR requires managed WAL archiving, point-in-time recovery (PITR), and periodic restore verification.",
+        "CronJobs cannot run more than once per week.",
+        "PostgreSQL requires tape drives for valid backups."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "In the capstone SRE operating model, how are Multi-Window Multi-Burn-Rate alerts used to prevent alert fatigue?",
+      "options": [
+        "They mute all alerts permanently during business hours.",
+        "They require both a long window (e.g. 1 hour) and a short confirmation window (e.g. 5 minutes) to consume error budget rapidly before paging the on-call engineer.",
+        "They convert all alerts into SMS messages sent to all employees.",
+        "They only trigger when the CPU reaches 100%."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of the OpenTelemetry Collector in the capstone observability pipeline?",
+      "options": [
+        "To act as a reverse proxy load balancer for incoming HTTP requests.",
+        "To provide a vendor-neutral telemetry proxy that receives, filters, batches, and exports metrics, logs, and distributed traces to storage backends.",
+        "To format Python code before git commit.",
+        "To automatically restart failing Kubernetes nodes."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "How does the Transactional Outbox pattern maintain consistency between PostgreSQL writes and asynchronous worker events?",
+      "options": [
+        "It stores all application data in memory instead of disk.",
+        "It writes the business record and the outbound event message within the exact same database transaction, ensuring events are never published if the database rollback occurs.",
+        "It disables database transactions entirely.",
+        "It uses WebSockets to bypass the database."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "Why does the capstone enforce the Kubernetes Pod Security Standard 'Restricted' profile?",
+      "options": [
+        "To restrict container network bandwidth to 10 Mbps.",
+        "To enforce non-root execution (UID 10001), drop all Linux kernel capabilities, make the root filesystem read-only, and filter syscalls with seccomp to mitigate container breakouts.",
+        "To prevent developers from logging into Kubernetes via SSH.",
+        "Because Kubernetes will not start without it."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "What role does Sigstore Cosign play in the software supply-chain defense of the capstone?",
+      "options": [
+        "It compiles Python bytecode into machine code.",
+        "It cryptographically signs the built container image digest using GitHub Actions OIDC identity, enabling admission controllers to reject unsigned or tampered images.",
+        "It scans source code for syntax errors.",
+        "It generates SSL certificates for web browsers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "What is the primary difference between Recovery Time Objective (RTO) and Recovery Point Objective (RPO)?",
+      "options": [
+        "RTO measures cloud cost; RPO measures network latency.",
+        "RTO is the maximum tolerable duration of system downtime; RPO is the maximum tolerable amount of data loss measured in time.",
+        "RTO applies to CI/CD pipelines; RPO applies to Terraform.",
+        "There is no difference; they are interchangeable terms."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "Why must Terraform state files never be committed to Git repositories?",
+      "options": [
+        "Because Git cannot handle JSON files larger than 100 KB.",
+        "State files frequently contain plain-text sensitive values (database passwords, private keys) and concurrent edits without remote state locking cause state corruption.",
+        "Because HashiCorp enforces a copyright restriction on state files.",
+        "Git commits invalidate cloud provider credentials."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "In an incident response lifecycle, what is the role of the Incident Commander (IC)?",
+      "options": [
+        "To write all the code fixes while on the call.",
+        "To lead the response, coordinate roles, delegate investigation tasks, maintain command hygiene, and ensure clear internal and external communication.",
+        "To manage customer billing accounts.",
+        "To assign blame to the developer who introduced the bug."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "What is the core principle of a Blameless Postmortem?",
+      "options": [
+        "To find out which engineer made the mistake and publicly reprimand them.",
+        "To assume that engineers acted in good faith with the information available, focusing on system vulnerabilities, missing safeguards, and process improvements rather than personal fault.",
+        "To delete all incident logs to avoid liability.",
+        "To claim that the cloud provider was entirely responsible for the failure."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "How does Course 1 (Cloud Computing) and Course 2 (DevOps + SRE) complement each other in this capstone?",
+      "options": [
+        "Course 1 is for managers; Course 2 is for programmers.",
+        "Course 1 provides foundational cloud architecture and infrastructure design; Course 2 provides the delivery automation, SRE reliability, and platform engineering needed to operate it reliably.",
+        "Course 1 was theoretical; Course 2 completely replaces it.",
+        "Course 1 focuses on hardware; Course 2 focuses on marketing."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "What is the final definition of success for the SRE/DevOps Capstone Project?",
+      "options": [
+        "Deploying 50 different microservices using every available CNCF tool.",
+        "Demonstrating an end-to-end deployable, observable, secured, and recoverable platform that can take a code change safely to production and recover gracefully when components fail.",
+        "Passing a multiple-choice exam without writing any code.",
+        "Running the entire system on a single laptop without cloud infrastructure."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 16,
+      "question": "Why is an automated rollback mechanism essential when deploying canary releases?",
+      "options": [
+        "Because Kubernetes deletes old container images after 5 minutes.",
+        "To limit the blast radius of a faulty deployment by automatically reverting traffic to the stable version before users experience widespread service degradation.",
+        "To avoid paying cloud data transfer costs.",
+        "Because canary releases cannot be stopped manually."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1693,
+    "fileSizeBytes": 90062,
+    "questionCount": 16,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

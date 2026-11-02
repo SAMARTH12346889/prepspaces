@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { getCourseModules } from "../services/courseContentService";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Sparkles, ChevronRight, ChevronLeft } from "lucide-react";
 import { useSafeBack } from "../utils/navigation";
@@ -153,7 +154,7 @@ export default function ModuleNav({
 }) {
   const navigate = useNavigate();
   const scrollRef = useRef(null);
-  const modules =
+  const initialModules =
     track === "devops"
       ? DEVOPS_MODULES
       : track === "system-design"
@@ -165,6 +166,29 @@ export default function ModuleNav({
       : track === "cybersecurity"
       ? CYBERSECURITY_MODULES
       : CLOUD_MODULES;
+
+  const [modules, setModules] = useState(initialModules);
+
+  useEffect(() => {
+    let isMounted = true;
+    const courseIdMap = {
+      os: "operating-systems",
+      networks: "computer-networks",
+      cybersecurity: "cybersecurity",
+      "system-design": "system-design",
+      cloud: "cloud",
+      devops: "devops",
+    };
+    const courseId = courseIdMap[track] || track;
+    getCourseModules(courseId).then((data) => {
+      if (isMounted && data && Array.isArray(data) && data.length > 0) {
+        setModules(data);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, [track]);
 
   const defaultFallback =
     currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : "cloud")

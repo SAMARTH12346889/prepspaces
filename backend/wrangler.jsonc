@@ -6,6 +6,10 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
+  "assets": {
+    "directory": "./content",
+    "binding": "ASSETS"
+  },
   "routes": [
     {
       "pattern": "api.prepspaces.com",

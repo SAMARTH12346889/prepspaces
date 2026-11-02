@@ -1,0 +1,195 @@
+{
+  "id": "ipv4",
+  "courseId": "computer-networks",
+  "index": 5,
+  "name": "5. IPv4 Addressing & Subnetting",
+  "route": "/learning/networks/ipv4",
+  "componentName": "NetworkIPv4",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Given the host IP address 172.16.45.14 and subnet mask 255.255.240.0 (/20), what is the calculated network address?",
+      "options": [
+        "172.16.45.0",
+        "172.16.32.0",
+        "172.16.40.0",
+        "172.16.48.0"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "How many conventional usable host IP addresses are available on a standard /27 IPv4 subnet?",
+      "options": [
+        "32 hosts",
+        "30 hosts",
+        "28 hosts",
+        "62 hosts"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "What is the special purpose of an RFC 3021 /31 subnet prefix on point-to-point router links?",
+      "options": [
+        "It provides 4 usable addresses for redundant VRRP gateways.",
+        "It allocates exactly 2 addresses (network and broadcast are omitted) to eliminate IPv4 address waste on dedicated two-node router links.",
+        "It enables automatic link-local APIPA addressing.",
+        "It acts as a loopback interface identifier."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "Which of the following IPv4 address blocks is designated by RFC 1918 for private non-Internet-routable enterprise networks?",
+      "options": [
+        "100.64.0.0/10",
+        "172.16.0.0/12 (172.16.0.0 – 172.31.255.255)",
+        "169.254.0.0/16",
+        "192.0.2.0/24"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "When an engineer designs a network using Variable Length Subnet Masking (VLSM), what is the first critical rule to avoid address overlap?",
+      "options": [
+        "Allocate point-to-point /30 links first before any host subnets.",
+        "Sort the subnet requirements in descending order by the number of hosts needed, and allocate the largest blocks first on aligned boundaries.",
+        "Use classful Class C /24 boundaries for all departments.",
+        "Assign broadcast addresses before computing network addresses."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "What is the function of Port Address Translation (PAT), also known as NAT Overload?",
+      "options": [
+        "It assigns one static public IP address permanently to each internal client.",
+        "It maps multiple private IP addresses to a single public IP address by tracking unique Layer 4 source port numbers in a translation table.",
+        "It encrypts payload data using IPsec ESP.",
+        "It converts IPv4 packets into IPv6 packets using dual-stack translation."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "A client workstation boots up and automatically assigns itself the IP address 169.254.88.12. What does this indicate?",
+      "options": [
+        "The computer has successfully obtained a lease from a public DHCP server.",
+        "The DHCP server on the local network was unreachable or failed to respond, causing the operating system to fall back to an Automatic Private IP Addressing (APIPA) link-local address.",
+        "The computer is connected to a Carrier-Grade NAT provider.",
+        "The network card is malfunctioning and must be replaced."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "What bitwise operation does a host computer perform between its own IP address and its configured subnet mask to determine its local network prefix?",
+      "options": [
+        "Bitwise XOR",
+        "Bitwise AND",
+        "Bitwise OR",
+        "Bitwise NOT"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "What is the broadcast address for the subnet 10.20.30.128/25?",
+      "options": [
+        "10.20.30.255",
+        "10.20.30.191",
+        "10.20.31.255",
+        "10.20.30.127"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "Why is it an engineering error to assign the IP address 192.168.1.192 with a /26 subnet mask to a host workstation interface?",
+      "options": [
+        "Because 192.168.1.192 is an RFC 1918 private address.",
+        "Because for a /26 mask, 192.168.1.192 is the network address identifier for that subnet, and cannot be assigned to an individual host interface.",
+        "Because /26 masks can only be used on Class B networks.",
+        "Because 192 is an odd number in binary."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": [
+    {
+      "id": "sec-5-1",
+      "name": "5.1 IPv4 Fundamentals & Binary Structure"
+    },
+    {
+      "id": "sec-5-2",
+      "name": "5.2 Historical Address Classes"
+    },
+    {
+      "id": "sec-5-3",
+      "name": "5.3 CIDR Notation & Subnet Masks"
+    },
+    {
+      "id": "sec-5-4",
+      "name": "5.4 Network, Broadcast & Host Ranges"
+    },
+    {
+      "id": "sec-5-5",
+      "name": "5.5 Fast Subnetting & Block-Size Math"
+    },
+    {
+      "id": "sec-5-6",
+      "name": "5.6 Fixed-Length Subnet Masking (FLSM)"
+    },
+    {
+      "id": "sec-5-7",
+      "name": "5.7 Variable Length Subnet Masking (VLSM)"
+    },
+    {
+      "id": "sec-5-8",
+      "name": "5.8 Private, Public, Loopback & Link-Local"
+    },
+    {
+      "id": "sec-5-9",
+      "name": "5.9 NAT & Port Address Translation (PAT)"
+    },
+    {
+      "id": "sec-5-10",
+      "name": "5.10 Enterprise IP Addressing & IPAM"
+    },
+    {
+      "id": "sec-5-11",
+      "name": "5.11 Common Subnetting Errors & Triage"
+    },
+    {
+      "id": "sec-5-12",
+      "name": "5.12 Hands-on Laboratory Sequence"
+    },
+    {
+      "id": "sec-5-13",
+      "name": "5.13 Capstone & Assessment"
+    }
+  ],
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2236,
+    "fileSizeBytes": 118172,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

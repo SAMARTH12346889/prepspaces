@@ -1,0 +1,145 @@
+[
+  {
+    "id": "cloud",
+    "courseId": "cloud",
+    "index": 1,
+    "name": "Foundations",
+    "route": "/learning/cloud",
+    "questionCount": 0,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "networking",
+    "courseId": "cloud",
+    "index": 2,
+    "name": "Networking",
+    "route": "/learning/cloud/networking",
+    "questionCount": 0,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "compute",
+    "courseId": "cloud",
+    "index": 3,
+    "name": "Compute",
+    "route": "/learning/cloud/compute",
+    "questionCount": 0,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "storage",
+    "courseId": "cloud",
+    "index": 4,
+    "name": "Storage",
+    "route": "/learning/cloud/storage",
+    "questionCount": 0,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "databases",
+    "courseId": "cloud",
+    "index": 5,
+    "name": "Databases",
+    "route": "/learning/cloud/databases",
+    "questionCount": 0,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "architecture",
+    "courseId": "cloud",
+    "index": 6,
+    "name": "Architecture",
+    "route": "/learning/cloud/architecture",
+    "questionCount": 0,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "aws",
+    "courseId": "cloud",
+    "index": 7,
+    "name": "AWS",
+    "route": "/learning/cloud/aws",
+    "questionCount": 0,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "azure",
+    "courseId": "cloud",
+    "index": 8,
+    "name": "Azure",
+    "route": "/learning/cloud/azure",
+    "questionCount": 0,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "gcp",
+    "courseId": "cloud",
+    "index": 9,
+    "name": "Google Cloud",
+    "route": "/learning/cloud/gcp",
+    "questionCount": 0,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "multicloud",
+    "courseId": "cloud",
+    "index": 10,
+    "name": "Multi-Cloud",
+    "route": "/learning/cloud/multicloud",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "security",
+    "courseId": "cloud",
+    "index": 11,
+    "name": "Security",
+    "route": "/learning/cloud/security",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "economics",
+    "courseId": "cloud",
+    "index": 12,
+    "name": "Economics",
+    "route": "/learning/cloud/economics",
+    "questionCount": 16,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "advanced",
+    "courseId": "cloud",
+    "index": 13,
+    "name": "Advanced Systems",
+    "route": "/learning/cloud/advanced",
+    "questionCount": 21,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+]

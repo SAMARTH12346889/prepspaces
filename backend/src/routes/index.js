@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { healthRouter } from "./health.js";
+import { courseRouter } from "./courseRoutes.js";
 
 export const apiRouter = new Hono();
 
@@ -14,12 +15,13 @@ apiRouter.get("/", (c) => {
     environment: c.env.ENVIRONMENT || "development",
     endpoints: {
       health: "/api/health",
+      courses: "/api/courses",
     },
   });
 });
 
 /**
  * Mount sub-routers
- * Future route modules (e.g. auth, users, interviews) will be registered here.
  */
 apiRouter.route("/health", healthRouter);
+apiRouter.route("/courses", courseRouter);

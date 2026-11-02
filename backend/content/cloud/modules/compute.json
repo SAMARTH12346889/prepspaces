@@ -1,0 +1,154 @@
+{
+  "id": "compute",
+  "courseId": "cloud",
+  "index": 3,
+  "name": "Compute",
+  "route": "/learning/cloud/compute",
+  "componentName": "CloudCompute",
+  "quiz": [],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Event 1: User Traffic Doubles in 10 Minutes",
+      "context": "Your e-commerce application is running on two 4-vCPU virtual machines behind an Application Load Balancer. CPU utilization jumps from 40% to 80%.",
+      "question": "What is the best architectural move to handle this sustained increase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stop both running VMs, resize them to 8 vCPUs (vertical scale), and reboot them.",
+          "verdict": "Incorrect & Causes Downtime",
+          "explanation": "Vertical scaling of running VMs typically requires stopping instances and rebooting, which causes immediate downtime during peak business hours!",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Trigger horizontal scale-out: The Auto Scaling Group launches two additional 4-vCPU instances behind the load balancer.",
+          "verdict": "Correct! Stateless Horizontal Scaling",
+          "explanation": "Horizontal scaling adds capacity dynamically with zero downtime. Traffic distributes across all 4 VMs, bringing average CPU load back to a healthy 40%.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Event 2: Flash-Crowd Viral Surge (Traffic Jumps 10×)",
+      "context": "A celebrity tweets about your product. Request rate skyrockets from 2,000 RPS to 20,000 RPS in 45 seconds.",
+      "question": "Why might standard VM autoscaling lag and drop requests during this sudden spike?",
+      "options": [
+        {
+          "id": "A",
+          "text": "VM boot, OS initialization, and application startup take 3 to 7 minutes to provision.",
+          "verdict": "Correct! Cold Boot Latency Lag",
+          "explanation": "Full virtual machines take minutes to boot and pass health checks. During that lag, existing VMs become overwhelmed. Pre-warmed headroom, fast container scaling (ECS/Cloud Run), or queue buffering are required for flash surges.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The cloud provider automatically disables autoscaling during traffic spikes.",
+          "verdict": "Incorrect",
+          "explanation": "Cloud providers do not disable autoscaling; the delay is purely physical OS and application initialization time.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Event 3: Application Server VM1 Experiences Hardware Failure",
+      "context": "The physical motherboard hosting VM1 suffers a component failure. VM1 stops responding.",
+      "question": "What architectural mechanism detects and resolves this automatically?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Load Balancer health check marks VM1 unhealthy, and the Auto Scaling Group terminates VM1 and launches a healthy replacement.",
+          "verdict": "Correct! Automated Self-Healing",
+          "explanation": "The ALB routes 100% of user traffic to VM2 within seconds. The Auto Scaling Group detects that current capacity (1) is less than desired capacity (2) and automatically provisions a new replacement VM.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The cloud provider physically replaces the server motherboard in 10 seconds without rebooting.",
+          "verdict": "Incorrect",
+          "explanation": "Hardware repair takes hours. The software control plane replaces the instance on a different healthy physical host.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Event 4: Downstream Database Saturated Bottleneck",
+      "context": "Your web servers autoscale from 10 to 80 instances. Suddenly, user requests begin timing out with HTTP 500 errors across all 80 instances.",
+      "question": "What is the primary architectural cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The 80 web instances exhausted the relational database connection pool, locking the database.",
+          "verdict": "Correct! The Downstream Cascade Trap",
+          "explanation": "Autoscaling web servers simply shifts the bottleneck downstream. 80 instances opening hundreds of database connections caused connection pool exhaustion and lock contention. Connection pooling (RDS Proxy) and read caching (Redis) are essential.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The web servers ran out of physical hard disk space.",
+          "verdict": "Incorrect",
+          "explanation": "Stateless web servers rarely run out of disk space during traffic spikes; database connection limits are the canonical culprit.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Event 5: 10 Million Nightly Image Resizing Jobs Arrive",
+      "context": "At midnight, your application must process and resize 10 million catalog images. The operation must finish before 6:00 AM.",
+      "question": "Which compute architecture is most cost-effective and resilient?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Resize images synchronously on the user-facing web servers as requests arrive.",
+          "verdict": "Disastrous Architecture",
+          "explanation": "Processing 10 million heavy CPU image jobs on user-facing web servers will saturate CPU and crash live customer checkout traffic!",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Asynchronous SQS Queue + AWS Batch / Container Workers running on Spot Instances.",
+          "verdict": "Correct! Workload Isolation & 80% Cost Savings",
+          "explanation": "Separating batch from interactive traffic prevents outages. Using Spot instances saves 70–90% on compute costs for interruptible batch processing.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Event 6: Spot Worker Evicted Mid-Calculation",
+      "context": "A Spot worker processing a 500MB video transcoding job receives a 2-minute interruption notice from the cloud provider.",
+      "question": "What design ensures the job completes without corrupting data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The job periodically checkpoints progress to S3; when interrupted, the SQS message visibility expires and a new Spot worker resumes from the checkpoint.",
+          "verdict": "Correct! Fault-Tolerant Idempotency",
+          "explanation": "Because the architecture anticipated interruption, the job was retryable and checkpointed. The workload tolerated physical host reclamation with zero data loss.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Cancel the entire 10-million job pipeline and send error emails to customers.",
+          "verdict": "Incorrect",
+          "explanation": "A well-architected cloud system expects failure and recovers automatically.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1886,
+    "fileSizeBytes": 102965,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "id": "tcp",
+  "courseId": "computer-networks",
+  "index": 9,
+  "name": "9. TCP — Reliable Transport",
+  "route": "/learning/networks/tcp",
+  "componentName": "NetworkTCP",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "A sender transmits 500 bytes of data starting at Sequence Number 1,000. Assuming in-order arrival, what cumulative acknowledgment number should the receiver return?",
+      "options": [
+        "999",
+        "1000",
+        "1500",
+        "1501"
+      ],
+      "correctIndex": 0,
+      "explanation": "The sender transmits bytes 1000 through 1499 (500 bytes total). TCP acknowledgments are cumulative, indicating the next byte expected. Therefore, the receiver returns ACK = 1500 + 1 = 1501."
+    },
+    {
+      "id": 2,
+      "question": "Why do the SYN and FIN control flags consume one sequence number in the TCP stream, even when they carry 0 bytes of payload?",
+      "options": [
+        "To satisfy Ethernet 64-byte minimum frame size padding",
+        "To allow the peer to explicitly acknowledge their receipt (ACK = ISN + 1) and guarantee reliable state transition",
+        "Because TCP headers are always padded to 32-bit boundaries",
+        "They do not; SYN and FIN never increment sequence numbers"
+      ],
+      "correctIndex": 0,
+      "explanation": "Because SYN and FIN establish and terminate connection state, they must be acknowledged reliably. Consuming 1 sequence number ensures the receiver's ACK explicitly confirms their arrival."
+    },
+    {
+      "id": 3,
+      "question": "What is the difference between receiver flow control (rwnd) and network congestion control (cwnd)?",
+      "options": [
+        "rwnd protects against overloading the network; cwnd protects against overwhelming the receiver",
+        "rwnd protects against overwhelming the receiver buffer; cwnd protects against overwhelming intermediate network routers",
+        "rwnd is measured in packets; cwnd is measured in milliseconds",
+        "There is no difference; rwnd and cwnd are synonyms in RFC 9293"
+      ],
+      "correctIndex": 0,
+      "explanation": "Flow control (rwnd) is advertised by the receiver to prevent a fast sender from exhausting its memory buffer. Congestion control (cwnd) is dynamically calculated by the sender to prevent overloading the network path. Effective Window ≈ min(rwnd, cwnd)."
+    },
+    {
+      "id": 4,
+      "question": "How does traditional TCP Fast Retransmit detect packet loss before the Retransmission Timeout (RTO) timer expires?",
+      "options": [
+        "By receiving an ICMP Source Quench message from a core router",
+        "By receiving three duplicate acknowledgments (Dup ACKs) for the same missing sequence number",
+        "By querying DNS for alternative server routes",
+        "By measuring jitter on the local network card"
+      ],
+      "correctIndex": 0,
+      "explanation": "When an out-of-order segment arrives, the receiver immediately generates an ACK for the last contiguous in-order byte. The arrival of 3 duplicate ACKs is an unambiguous signal of isolated packet loss, triggering Fast Retransmit immediately."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary function of the TIME-WAIT state on the endpoint that initiates an active close?",
+      "options": [
+        "To wait for DNS cache entries to expire",
+        "To ensure the final ACK was received by the peer and prevent old delayed duplicate segments from corrupting future connections on the same 4-tuple",
+        "To renegotiate TLS session tickets",
+        "To perform a port scan against the remote peer"
+      ],
+      "correctIndex": 0,
+      "explanation": "TIME-WAIT (2MSL, typically 60 seconds) ensures the final ACK is received (retransmitting if the peer resends FIN) and guarantees all stray packets from the closed connection expire before the 4-tuple can be reused."
+    },
+    {
+      "id": 6,
+      "question": "On a link with a 1,500-byte MTU, what is the standard Maximum Segment Size (MSS) for IPv4 TCP without optional header extensions?",
+      "options": [
+        "1500 bytes",
+        "1460 bytes",
+        "1440 bytes",
+        "1492 bytes"
+      ],
+      "correctIndex": 0,
+      "explanation": "MSS = MTU - (IP Header 20 bytes) - (TCP Header 20 bytes) = 1500 - 40 = 1460 bytes. For IPv6 (40-byte base header), standard MSS is 1440 bytes."
+    },
+    {
+      "id": 7,
+      "question": "What causes a Path MTU Discovery (PMTUD) Black Hole?",
+      "options": [
+        "A router with a smaller MTU drops an oversized packet (DF=1) and attempts to return ICMP Fragmentation Needed, but intermediate firewalls block the ICMP message",
+        "The server runs out of disk storage for packet logging",
+        "The client sets the SYN flag without an ACK flag",
+        "DNS records contain both IPv4 and IPv6 addresses"
+      ],
+      "correctIndex": 0,
+      "explanation": "When a packet exceeds a tunnel or link MTU with Don't Fragment (DF) set, the router drops it and generates ICMP Type 3 Code 4. If firewalls drop all ICMP, the sender never learns of the smaller MTU and repeatedly retransmits oversized packets that hang indefinitely."
+    },
+    {
+      "id": 8,
+      "question": "What is the Bandwidth-Delay Product (BDP) for a 100 Mbps link with a 40 ms round-trip time (RTT)?",
+      "options": [
+        "4,000 bits (500 bytes)",
+        "4,000,000 bits (500,000 bytes / ~500 KB)",
+        "100 MB",
+        "40 KB"
+      ],
+      "correctIndex": 0,
+      "explanation": "BDP = Bandwidth × RTT = 100,000,000 bps × 0.040 s = 4,000,000 bits. In bytes: 4,000,000 / 8 = 500,000 bytes (~500 KB). This is the buffer capacity required to saturate the pipe."
+    },
+    {
+      "id": 9,
+      "question": "How do SYN Cookies (RFC 4987) defend a server against SYN Flood denial-of-service attacks?",
+      "options": [
+        "By blocking all TCP connections on port 80 and 443",
+        "By encoding connection parameters into a cryptographically hashed Initial Sequence Number (ISN), eliminating the need to allocate memory in the SYN_RECV backlog queue",
+        "By automatically restarting the Apache or Nginx daemon every 10 seconds",
+        "By banning client IP addresses using firewall geo-IP blocks"
+      ],
+      "correctIndex": 0,
+      "explanation": "Under attack, the server generates an ISN containing a cryptographic hash of the 4-tuple and timestamp. When the client returns the final ACK, the server validates the cookie and creates the socket, allocating zero memory for incomplete handshakes."
+    },
+    {
+      "id": 10,
+      "question": "Which TCP flag is immediately sent by an operating system when a client attempts to connect to a port where no application is listening?",
+      "options": [
+        "FIN",
+        "PSH",
+        "RST (Reset)",
+        "URG"
+      ],
+      "correctIndex": 0,
+      "explanation": "When an incoming TCP SYN arrives at a closed port, the host's networking stack actively rejects the connection by returning an immediate TCP RST (Reset), indicating 'Port Closed / Connection Refused'."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1965,
+    "fileSizeBytes": 105439,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

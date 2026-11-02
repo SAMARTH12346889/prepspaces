@@ -1,0 +1,20 @@
+{
+  "id": "system-design",
+  "title": "System Design Masterclass",
+  "tagline": "Architecture, Scalability & Resilience at Production Scale",
+  "description": "Master large-scale distributed systems, architectural thinking, capacity planning, monoliths vs microservices, high availability, fault tolerance, and trade-off analysis from foundational principles to production-grade engineering.",
+  "icon": "Network",
+  "route": "/learning/system-design",
+  "tag": "Architecture & Scale",
+  "modulesCount": "24 In-Depth Modules",
+  "totalModules": 24,
+  "color": "from-zinc-900 via-stone-800 to-orange-600",
+  "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
+  "highlights": [
+    "Distributed Consensus & Raft",
+    "Multi-Region Replication & DR",
+    "Kafka Streaming & Sagas",
+    "AI Serving & Vector Retrieval",
+    "Final Engineering Capstone"
+  ]
+}

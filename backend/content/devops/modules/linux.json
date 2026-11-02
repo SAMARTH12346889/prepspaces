@@ -1,0 +1,416 @@
+{
+  "id": "linux",
+  "courseId": "devops",
+  "index": 1,
+  "name": "Linux Administration",
+  "route": "/learning/devops/linux",
+  "componentName": "DevOpsLinux",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the precise difference between free storage capacity (df -h) and free inodes (df -i)?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "Why does a directory require the execute (+x) permission bit for users to read files inside it?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "What is an uninterruptible sleep state (D-state) in Linux, and why can't `kill -9` terminate it?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "What is a zombie process (Z-state), and does it consume memory or CPU resources?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Explain the difference between binding to 127.0.0.1:8080 and 0.0.0.0:8080.",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "Why is running `chmod -R 777` considered a catastrophic administrative anti-pattern?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "What does `sudo systemctl daemon-reload` do, and why doesn't it restart the service?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between `apt remove` and `apt purge` on Debian/Ubuntu systems?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "Why is `set -u -o pipefail` critical in production Bash automation scripts?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "What does Load Average actually measure, and why can high load occur with low CPU utilization?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "Why does OpenSSH require private keys to have mode 600 (-rw-------)?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "Why is a restart an operational action rather than a root-cause diagnosis?",
+      "options": [],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "title": "The Linux Filesystem, FHS Architecture & Storage Inodes",
+      "week": "Filesystems & Storage",
+      "focus": "Filesystem Hierarchy Standard (FHS), Path Resolution, Inodes vs Block Storage",
+      "badge": "Filesystems",
+      "theory": "Linux unifies all physical storage devices, virtual filesystems, and kernel interfaces under a single hierarchical tree rooted at '/'. Unlike Windows drive letters (C:, D:), devices are mounted into directory mount points. Three paths are critical in 24/7 DevOps operations: (1) /etc holds configuration files; (2) /var/lib holds persistent service state (e.g. database data files); (3) /var/log holds traditional system and application logs. Modifying /etc alters configuration, whereas deleting /var/lib destroys live application state. A storage device can fail in two distinct ways: Block Capacity Exhaustion (no bytes remaining, checked via `df -h`) and Inode Exhaustion (no metadata pointers remaining, checked via `df -i`). An inode stores file metadata (permissions, ownership, file size, timestamps, data block pointers), excluding file name and file content. A million 1-byte files will completely exhaust inodes while leaving 99% of raw disk space free.",
+      "diagram": "THE LINUX FILESYSTEM HIERARCHY STANDARD (FHS) & INODE ANATOMY:\n=============================================================================\n/ (Root Directory)\n├── etc/         System & application configuration (nginx.conf, hosts, fstab)\n├── var/         Variable runtime data\n│   ├── log/     System logs (syslog, auth.log, nginx/)\n│   └── lib/     Persistent application state (mysql/, docker/, postgresql/)\n├── usr/         User utilities & shared libraries (/usr/bin, /usr/lib)\n├── proc/        Virtual pseudo-filesystem: live kernel & process memory structures\n├── sys/         Virtual pseudo-filesystem: kernel device & hardware subsystem trees\n└── dev/         Device nodes (sda, nvme0n1, null, urandom)\n-----------------------------------------------------------------------------\nINODE STRUCTURE (Metadata Pointer vs Data Blocks):\n[ DIRECTORY ENTRY ]  maps  \"app.log\"  ----->  [ INODE #410291 ]\n                                              ├── File Type: Regular File\n                                              ├── Permissions: -rw-r----- (640)\n                                              ├── Owner: devops (UID 1000)\n                                              ├── File Size: 14.2 MB\n                                              └── Data Block Pointers -> [Block 102] [Block 103] ...\n=============================================================================",
+      "keyTakeaways": [
+        "Never confuse /etc (stateless config), /var/lib (persistent state), and /var/log (disposable logs).",
+        "A disk can be full even if `df -h` shows 50GB free: always verify inode capacity with `df -i`.",
+        "Directory traversal requires the execute (+x) bit; file read requires the read (+r) bit.",
+        "`findmnt` and `lsblk` reveal block device hierarchy and mount options across physical & virtual volumes."
+      ],
+      "codeExample": "# Production Shell Commands: Storage Diagnosis & Inode Inspection\n# 1. Check disk block capacity\ndf -h\n\n# 2. Check inode capacity (Detects million-file exhaustion traps)\ndf -i\n\n# 3. Find top 10 space-consuming directories on root mount\nsudo du -xhd1 /var 2>/dev/null | sort -h | tail -n 10\n\n# 4. Count files in directories to pinpoint inode hoarders\nsudo find /tmp -xdev -type f | cut -d \"/\" -f 2,3 | sort | uniq -c | sort -nr | head -n 5"
+    },
+    {
+      "id": 2,
+      "title": "Processes, Signals, CPU Scheduling & Memory Analysis",
+      "week": "Process Management",
+      "focus": "Process Anatomy (PID/PPID), States (R, S, D, Z), Signals & Load Average",
+      "badge": "Process Management",
+      "theory": "A program is static code stored on disk; a process is an active executing instance with virtual memory, open file descriptors, security credentials, and scheduling state. Linux processes exist in distinct kernel states: R (Running/Runnable on CPU queue), S (Interruptible Sleep: waiting for event/network), D (Uninterruptible Sleep: waiting for synchronous disk I/O, immune to signals), T (Stopped/Traced), and Z (Zombie: terminated process whose exit code has not yet been collected by its parent via waitpid()). Load Average measures the average number of runnable tasks (R) plus uninterruptible tasks (D) over 1, 5, and 15 minutes; high load with low CPU indicates an I/O disk bottleneck. Graceful process termination sends SIGTERM (Signal 15), giving the application time to flush buffers, finish transactions, and close database connections. SIGKILL (Signal 9) cannot be caught or handled and causes abrupt termination without cleanup.",
+      "diagram": "LINUX PROCESS LIFECYCLE & KERNEL SCHEDULING STATES:\n=============================================================================\n         [ fork() / execve() ]\n                  |\n                  v\n          +---------------+    Dispatched by CPU Scheduler    +---------------+\n          |   READY (R)   | --------------------------------> |  RUNNING (R)  |\n          +---------------+ <-------------------------------- +---------------+\n                  ^             Preempted / Time slice expired         |\n                  |                                                    |\n          I/O completes                                   Waiting on Network / Event\n                  |                                                    v\n          +-------------------------------+                   +---------------+\n          |  UNINTERRUPTIBLE SLEEP (D)    |                   |   SLEEP (S)   |\n          |  (Waiting on Disk I/O, Immune)|                   +---------------+\n          +-------------------------------+                            |\n                  |                                                    |\n                  +-----------------------+----------------------------+\n                                          |\n                                    Process exits\n                                          v\n                              +-----------------------+\n                              |      ZOMBIE (Z)       |  (Defunct: waiting for parent)\n                              +-----------------------+\n                                          | Parent calls waitpid()\n                                          v\n                                    [ REAPED / DEAD ]\n=============================================================================",
+      "keyTakeaways": [
+        "Load average reflects CPU-runnable processes PLUS disk-waiting processes in D-state.",
+        "Zombie processes consume zero CPU and RAM, but consume valuable PID table entries.",
+        "Always send SIGTERM (15) first; only resort to SIGKILL (9) when a process is genuinely unrecoverable.",
+        "`free -h` breakdown: 'available' memory includes buff/cache that the kernel can instantly evict for apps."
+      ],
+      "codeExample": "# Process Inspection & Resource Diagnostics in DevOps\n# 1. Snapshot top 5 CPU-consuming processes\nps -eo pid,ppid,user,stat,%cpu,%mem,cmd --sort=-%cpu | head -n 6\n\n# 2. Inspect a specific process with full memory and thread details\nps -p 1204 -o pid,ppid,user,stat,%cpu,%mem,etime,cmd\n\n# 3. Check live virtual memory statistics (1-second intervals)\nvmstat 1 5\n\n# 4. Graceful termination followed by verified kill\nkill -TERM 1204\nsleep 3\n# If process is still in ps table, escalate:\nkill -KILL 1204"
+    },
+    {
+      "id": 3,
+      "title": "Users, Groups, Permissions & Secure Access Control",
+      "week": "Security & Identity",
+      "focus": "Identity (UID/GID), Symbolic & Numeric Modes, Directory Traversal, SUID & sudo",
+      "badge": "Access Control",
+      "theory": "Linux enforces discretionary access control (DAC) based on User (Owner), Group, and Other (World). Permissions are represented as a 10-character string (e.g. `-rw-r-----`) or a 3-digit octal number (`640`). For ordinary files, Read (`r` = 4) permits viewing contents, Write (`w` = 2) permits editing, and Execute (`x` = 1) permits running as code. For directories, Execute (`x`) represents directory traversal/search: without `+x`, a user cannot `cd` into the directory or access any files inside it, even if the internal file permissions are 777! The dangerous anti-pattern `chmod -R 777` grants universal modification privileges to local attackers and must never be used. Advanced permissions include SUID (`4xxx`: executes with owner privileges), SGID (`2xxx`: executes with group privileges or inherits group on new files), and the Sticky Bit (`1xxx`: prevents users from deleting files they do not own, used on `/tmp`).",
+      "diagram": "PERMISSION STRING DISSECTION & DIRECTORY TRAVERSAL MECHANICS:\n=============================================================================\nType   Owner (u)      Group (g)      Others (o)\n -     r  w  -        r  -  -        -  -  -\n |     |  |  |        |  |  |        |  |  |\n File  4 + 2 + 0      4 + 0 + 0      0 + 0 + 0  ===>  Octal Mode: 640\n-----------------------------------------------------------------------------\nTHE DIRECTORY TRAVERSAL RULE (Why directory 'x' matters):\n  Directory: /srv/app/ (Owner: appuser, Permissions: drwxr-x--- [750])\n  File:      /srv/app/config.yaml (Permissions: -rw-r--r-- [644])\n\n  User: 'guest'\n  Can guest read config.yaml?\n  1. Inspect /srv/app/ permissions for Others -> Mode is '---' (0). No 'x' traversal bit!\n  2. Kernel immediately blocks access with: 'Permission denied'.\n  3. The 644 permission on config.yaml is NEVER evaluated!\n=============================================================================",
+      "keyTakeaways": [
+        "Directory 'x' bit means search/traversal; without it, internal files are completely unreachable.",
+        "SSH private keys require mode 600 (-rw-------); OpenSSH strictly refuses keys readable by others.",
+        "`usermod -aG <group> <user>` appends groups; omitting `-a` accidentally wipes all existing supplementary groups!",
+        "Apply the principle of least privilege: production microservices must run as unprivileged service accounts."
+      ],
+      "codeExample": "# User Administration & Safe Permissions Hardening\n# 1. Create a dedicated unprivileged service account with disabled login\nsudo useradd -r -s /usr/sbin/nologin -d /srv/api apiuser\n\n# 2. Assign ownership to application directory\nsudo chown -R apiuser:apiuser /srv/api\n\n# 3. Apply secure production directory and file permissions\n# Directories: 750 (traversal for group, isolated from world)\nsudo find /srv/api -type d -exec chmod 750 {} +\n\n# Files: 640 (read/write for owner, read for group, isolated from world)\nsudo find /srv/api -type f -exec chmod 640 {} +\n\n# Sensitive credentials (API tokens, private keys): 600\nchmod 600 /srv/api/.env"
+    },
+    {
+      "id": 4,
+      "title": "Linux Networking, Ports, Sockets & The 6-Layer Debugging Sequence",
+      "week": "Networking",
+      "focus": "Routing, Interfaces, Sockets (ss), Loopback vs Wildcard & Connectivity",
+      "badge": "Networking",
+      "theory": "Troubleshooting network reachability requires separating address resolution, routing, socket binding, firewall rules, transport handshakes, and application protocol responses. The Linux kernel uses `ip address` to manage interface IPs and `ip route` to manage routing tables. The socket utility `ss -lntp` reports listening TCP sockets. A common architectural trap is binding to the Loopback interface (`127.0.0.1:8080`): this socket only accepts packets originating from inside the local OS kernel; external packets arriving on `eth0` are immediately dropped. To accept external traffic, the process must bind to the Wildcard address (`0.0.0.0:8080`). Connectivity must be verified layer by layer: `ping` tests ICMP reachability, but firewalls often drop ICMP while allowing TCP; therefore, `curl -v` or `nc -zv` must be used to test actual application transport connectivity.",
+      "diagram": "THE 6-LAYER SYSTEMATIC LINUX NETWORK DEBUGGING SEQUENCE:\n=============================================================================\n[ 1. Name Resolution ]       -> getent hosts api.internal\n                                (Verifies /etc/hosts & DNS resolver in /etc/resolv.conf)\n        |\n        v\n[ 2. Route & Interface ]     -> ip route get 10.0.1.50\n                                (Verifies default gateway and outbound eth0 interface)\n        |\n        v\n[ 3. Listening Socket ]      -> sudo ss -lntp 'sport = :8080'\n                                (Distinguishes 127.0.0.1 [Local Only] from 0.0.0.0 [All IPs])\n        |\n        v\n[ 4. Local Firewall / ACL ]  -> sudo iptables -S  OR  sudo ufw status\n                                (Verifies kernel packet filter rules)\n        |\n        v\n[ 5. Transport TCP Handshake]-> nc -zv 10.0.1.50 8080\n                                (SYN -> SYN-ACK -> ACK completes successfully)\n        |\n        v\n[ 6. Application Protocol ]  -> curl -v https://10.0.1.50:8080/health\n                                (HTTP Status 200 OK + payload returned)\n=============================================================================",
+      "keyTakeaways": [
+        "`127.0.0.1:8080` listens ONLY to localhost; `0.0.0.0:8080` listens to all IPv4 network interfaces.",
+        "Ping failure does NOT prove service failure: ICMP is frequently blocked while HTTP/HTTPS is healthy.",
+        "`ss -lntp` is the modern replacement for netstat; it extracts socket state directly from kernel memory.",
+        "Follow the 6-layer sequence systematically before modifying production firewall or cloud security groups."
+      ],
+      "codeExample": "# Network Diagnostics & Socket Inspection Script\n# 1. Inspect listening ports and the processes holding them\nsudo ss -lntp\n\n# 2. Test specific port listener\nsudo ss -lntp 'sport = :8080'\n\n# 3. Test DNS name lookup resolution path\ngetent hosts google.com\n\n# 4. Test end-to-end HTTP connection with timing and headers\ncurl -Iv https://httpbin.org/status/200\n\n# 5. Check route path to remote server\nip route get 1.1.1.1"
+    },
+    {
+      "id": 5,
+      "title": "systemd, Service Architecture & Daemon Lifecycle",
+      "week": "Service Management",
+      "focus": "Unit File Architecture, systemctl Commands, Restart Policies & daemon-reload",
+      "badge": "Service Architecture",
+      "theory": "systemd is the standard init system and service manager on modern enterprise Linux distributions (Ubuntu, Debian, RHEL, Fedora). It initializes the user space, starts services in parallel, tracks processes using Linux cgroups, and restarts crashed applications. A service is declared in a `.service` unit file containing three sections: `[Unit]` (metadata and startup dependencies like `After=network.target`), `[Service]` (execution binary, unprivileged User/Group, working directory, environment variables, and `Restart=on-failure`), and `[Install]` (`WantedBy=multi-user.target` for boot enablement). Modifying a unit file requires executing `sudo systemctl daemon-reload` so systemd re-parses configuration from disk into memory; `daemon-reload` does NOT restart the application. Common startup failures stem from: missing executables, syntax errors in config, port collisions, and insufficient file permissions.",
+      "diagram": "SYSTEMD SERVICE UNIT FILE ARCHITECTURE & LIFECYCLE:\n=============================================================================\n/etc/systemd/system/myapp.service\n+---------------------------------------------------------------------------+\n| [Unit]                                                                    |\n| Description=Production Go Checkout API                                   |\n| After=network.target postgresql.service                                   |\n|                                                                           |\n| [Service]                                                                 |\n| Type=simple                                                               |\n| User=appuser                                                              |\n| Group=appgroup                                                            |\n| WorkingDirectory=/srv/myapp                                               |\n| ExecStart=/srv/myapp/bin/server --config=/srv/myapp/config.yaml           |\n| Restart=on-failure                                                        |\n| RestartSec=5s                                                             |\n| LimitNOFILE=65536                                                         |\n|                                                                           |\n| [Install]                                                                 |\n| WantedBy=multi-user.target                                                |\n+---------------------------------------------------------------------------+\n                                   |\n                +------------------+------------------+\n                v                                     v\n   sudo systemctl daemon-reload           sudo systemctl restart myapp\n   (Rereads unit file into systemd memory) (Restarts actual worker process)\n=============================================================================",
+      "keyTakeaways": [
+        "`systemctl restart` is an operational action, NOT a root-cause diagnosis.",
+        "Always run `sudo systemctl daemon-reload` after modifying any unit file under `/etc/systemd/system/`.",
+        "`Restart=on-failure` with `RestartSec=5s` prevents runaway CPU crash loops.",
+        "`systemctl --failed` immediately lists all units that failed during system boot."
+      ],
+      "codeExample": "# Managing & Troubleshooting systemd Services\n# 1. Check detailed status, PID, memory, and recent journal output\nsystemctl status nginx.service\n\n# 2. Enable for auto-start on boot AND start immediately\nsudo systemctl enable --now nginx.service\n\n# 3. Reload configuration without dropping live TCP connections\nsudo systemctl reload nginx.service\n\n# 4. Check all units in failed state\nsystemctl --failed\n\n# 5. After editing /etc/systemd/system/myapp.service:\nsudo systemctl daemon-reload\nsudo systemctl restart myapp.service"
+    },
+    {
+      "id": 6,
+      "title": "Logs, Journalctl & Incident Root Cause Timelines",
+      "week": "Observability & Logs",
+      "focus": "journalctl Filters, Kernel dmesg, /var/log & Incident Timeline Reconstruction",
+      "badge": "Incident Investigation",
+      "theory": "Systematic debugging requires reconstructing what the server and application reported over time, rather than guessing. Modern Linux stores binary structured logs in the systemd journal, queried via `journalctl`. Key filtering options include: `-b` (current boot only), `-u <unit>` (filter by specific service), `-p err` (filter by priority level: emerg, alert, crit, err), `--since '1 hour ago'`, and `-k` (kernel ring buffer messages, equivalent to `dmesg`). When analyzing an outage, always construct an Incident Timeline: the initial root cause (e.g. disk capacity filling up at 14:02) occurs minutes before the visible symptom (application crash at 14:05) and subsequent restart loops (14:06).",
+      "diagram": "INCIDENT TIMELINE RECONSTRUCTION (Distinguishing Root Cause from Symptoms):\n=============================================================================\nTIME     SUBSYSTEM     EVENT / LOG OUTPUT                            CLASSIFICATION\n-----------------------------------------------------------------------------\n14:00    Kernel        [Disk Controller] nvme0n1: write buffer busy   Early Warning\n14:02    Storage       [cron:db_backup] Disk space reaches 100% full  ROOT CAUSE!\n14:04    PostgreSQL    [FATAL] could not write to WAL: No space left   First Failure\n14:05    Nginx         [error] 502 Bad Gateway: Connection refused     Visible Symptom\n14:06    systemd       [service:myapp] Restarting service (attempt 1) Downstream Effect\n14:06    systemd       [service:myapp] CrashLoop: main process exited  Cascading Loop\n=============================================================================\nLESSON: The administrator sees the 14:05 Nginx 502 error, but the fix is\nresolving the 14:02 disk exhaustion event!",
+      "keyTakeaways": [
+        "`journalctl -u <service> -b --no-pager` isolates service logs from the current operating system boot.",
+        "`journalctl -p err` immediately highlights critical failures and kernel panics.",
+        "Distinguish root cause (storage/memory failure) from downstream symptoms (502 Bad Gateway).",
+        "Combine `journalctl -k` with `dmesg -T` to detect Out-Of-Memory (OOM) killer terminations."
+      ],
+      "codeExample": "# Production Log Filtering & Timeline Construction\n# 1. View logs for a specific service in the last 30 minutes\njournalctl -u myapp --since \"30 minutes ago\" --no-pager\n\n# 2. Follow live log stream in real time (tail -f equivalent)\njournalctl -u myapp -f\n\n# 3. Filter for errors and critical warnings only\njournalctl -u myapp -p err -b\n\n# 4. Check kernel dmesg for OOM killer executions (Killed process)\nsudo dmesg -T | grep -i -E \"oom|out of memory|killed process\""
+    },
+    {
+      "id": 7,
+      "title": "SSH, Cryptographic Keys & Secure Remote Server Administration",
+      "week": "Remote Administration",
+      "focus": "Asymmetric Cryptography, Ed25519 Keys, rsync, scp & SSH Hardening",
+      "badge": "Remote Access",
+      "theory": "Secure Shell (SSH) provides cryptographically encrypted remote shell sessions, command execution, and file transfer. Modern DevOps standardizes on Ed25519 elliptic-curve keypairs (`ssh-keygen -t ed25519 -C 'devops-key'`), offering higher security and performance than legacy RSA 2048. Asymmetric cryptography guarantees that the server verifies client identity using the public key (`~/.ssh/authorized_keys`) without the private key ever leaving the client machine. Strict filesystem permissions are mandatory: `chmod 700 ~/.ssh` and `chmod 600 ~/.ssh/authorized_keys` on the server, and `chmod 600` on the local private key. `rsync -av` provides efficient delta synchronization over SSH, transferring only changed bytes compared to naive `scp` which copies entire files repeatedly.",
+      "diagram": "SSH ASYMMETRIC KEYPAIR AUTHENTICATION PROTOCOL:\n=============================================================================\nLOCAL WORKSTATION                                       REMOTE CLOUD SERVER\n~/.ssh/id_ed25519 (Private Key: 600)                    ~/.ssh/authorized_keys (600)\n    |                                                         |\n    |---- (1) Client initiates SSH connection (TCP 22) ------>|\n    |<--- (2) Server sends random cryptographic challenge ----|\n    |                                                         |\n[ Signs challenge with local Private Key ]                    |\n    |                                                         |\n    |---- (3) Sends cryptographic signature ----------------->|\n    |                                            [ Verifies signature with Public Key ]\n    |<--- (4) Authentication Approved! Shell session opened --|\n=============================================================================",
+      "keyTakeaways": [
+        "Ed25519 is the modern cryptographic standard for SSH keys; deprecate weak RSA 1024/2048 keys.",
+        "Never share private keys; install only the public key into `~/.ssh/authorized_keys`.",
+        "Use `ssh -v` for verbose connection debugging to pinpoint permission, key, or cipher rejections.",
+        "`rsync -avz` synchronizes directory trees over SSH using delta algorithms, minimizing network bandwidth."
+      ],
+      "codeExample": "# Secure SSH Operations & Remote Automation\n# 1. Generate modern Ed25519 SSH keypair\nssh-keygen -t ed25519 -C \"devops-production\" -f ~/.ssh/devops_ed25519\n\n# 2. Copy public key to remote server securely\nssh-copy-id -i ~/.ssh/devops_ed25519.pub deploy@10.0.1.50\n\n# 3. Connect using explicit private key and verbose debugging\nssh -v -i ~/.ssh/devops_ed25519 deploy@10.0.1.50\n\n# 4. Synchronize project directory with remote server using rsync\nrsync -avz --delete -e \"ssh -i ~/.ssh/devops_ed25519\" ./dist/ deploy@10.0.1.50:/srv/myapp/"
+    },
+    {
+      "id": 8,
+      "title": "Bash Scripting, Streams, Redirection & Idempotency",
+      "week": "Automation",
+      "focus": "Streams (0, 1, 2), Pipes, set -u -o pipefail, Defensive Scripting & Idempotency",
+      "badge": "Shell Scripting",
+      "theory": "Bash connects Unix utilities through three standard streams: stdin (fd 0), stdout (fd 1), and stderr (fd 2). Output redirection overwrites with `>`, appends with `>>`, and redirects errors with `2>`. Pipes (`|`) pass stdout of one process into stdin of the next. Production DevOps scripts require defensive initialization: `set -u` (fails on unset variables) and `set -o pipefail` (fails if any command in a pipeline errors). Always quote variable expansions (`\"$var\"`) to prevent word splitting and globbing attacks. The defining property of reliable automation is Idempotency: running a script multiple times must yield the exact same target state without side effects (e.g. using `mkdir -p` or verifying file existence before appending lines).",
+      "diagram": "STANDARD STREAMS, REDIRECTION & IDEMPOTENT EXECUTION:\n=============================================================================\n                   [ Standard Input (stdin: fd 0) ]\n                                |\n                                v\n                       [ UNIX / BASH PROCESS ]\n                        /                   \\\n                       v                     v\n[ Standard Output (stdout: fd 1) ]   [ Standard Error (stderr: fd 2) ]\n        |                                     |\n        v                                     v\n   output.log (> / >>)                  error.log (2> / 2>>)\n-----------------------------------------------------------------------------\nNON-IDEMPOTENT (BUGGY)               IDEMPOTENT (PRODUCTION SAFE)\necho \"export NODE_ENV=prod\" >> /etc/env   grep -q \"NODE_ENV=prod\" /etc/env || \\\n(Adds duplicate line every run!)           echo \"export NODE_ENV=prod\" >> /etc/env\n                                         (Only appends if not already present!)\n=============================================================================",
+      "keyTakeaways": [
+        "`set -u -o pipefail` catches unset variables and hidden pipeline failures early.",
+        "Always double-quote variables (`\"$filename\"`) to prevent destructive word-splitting bugs.",
+        "Idempotency invariant: automation must ensure required state, not blindly repeat mutations.",
+        "Check exit codes (`$?`): zero denotes success; non-zero denotes error."
+      ],
+      "codeExample": "#!/usr/bin/env bash\n# Production Defensive Bash Script Template\nset -u\nset -o pipefail\n\nLOG_FILE=\"/var/log/backup.log\"\nTARGET_DIR=\"/srv/myapp\"\n\nlog_message() {\n    local msg=\"$1\"\n    printf '%s [%s]: %s\n' \"$(date -Is)\" \"$(hostname)\" \"$msg\" | tee -a \"$LOG_FILE\"\n}\n\n# Idempotent directory creation\nif [[ ! -d \"$TARGET_DIR\" ]]; then\n    mkdir -p \"$TARGET_DIR\"\n    log_message \"Created target directory $TARGET_DIR\"\nelse\n    log_message \"Directory $TARGET_DIR already exists; skipping\"\nfi"
+    },
+    {
+      "id": 9,
+      "title": "Package Management, Change Control & Rollbacks (APT & DNF)",
+      "week": "Package Management",
+      "focus": "APT vs DNF, apt update vs upgrade, Package Pinning & Controlled Upgrades",
+      "badge": "Package Control",
+      "theory": "Linux distributions package software with dependency trees, checksums, and update channels. In Debian/Ubuntu, `apt update` refreshes repository index metadata, while `apt upgrade` installs newer package versions. For automation scripts, Ubuntu recommends using `apt-get` rather than interactive `apt`. In production, package installations must be deterministic: use version pinning to prevent unexpected dependency upgrades from breaking APIs. Before removing packages, distinguish `apt remove` (deletes binaries, preserves configuration) from `apt purge` (deletes binaries AND `/etc` configuration files). Red Hat/Fedora systems utilize `dnf`, which provides automated transaction history rollback (`dnf history undo`).",
+      "diagram": "APT PACKAGE MANAGEMENT PIPELINE & REPOSITORY SYNCHRONIZATION:\n=============================================================================\n[ REMOTE REPOSITORY (archive.ubuntu.com) ]\n                  |\n                  |  sudo apt update\n                  v\n[ LOCAL PACKAGE CACHE (/var/lib/apt/lists/) ]  <- Index of available versions\n                  |\n                  |  sudo apt install nginx=1.24.0-2ubuntu1\n                  v\n[ DPNG DATABASE (/var/lib/dpkg/status) ]      <- Tracks installed packages\n                  |\n                  +---> Extracts binaries to /usr/sbin/nginx\n                  +---> Generates default config in /etc/nginx/\n                  +---> Registers systemd service in /lib/systemd/system/\n=============================================================================",
+      "keyTakeaways": [
+        "`apt update` only downloads metadata indexes; `apt upgrade` executes actual package updates.",
+        "In automation pipelines, use `DEBIAN_FRONTEND=noninteractive apt-get -y install` to prevent blocking on prompts.",
+        "`apt remove` retains configuration files; `apt purge` permanently deletes config files in `/etc`.",
+        "Test package upgrades in staging environments before applying kernel or library upgrades to production nodes."
+      ],
+      "codeExample": "# Non-Interactive, Deterministic Package Installation in CI/CD\n# 1. Update package index non-interactively\nsudo apt-get update -qq\n\n# 2. Install specific pinned version without interactive prompts\nsudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends   nginx=1.24.*\n\n# 3. Verify installed package details and origin\ndpkg -l nginx\napt-cache policy nginx\n\n# 4. Safe removal preserving configuration\nsudo apt-get remove -y nginx"
+    },
+    {
+      "id": 10,
+      "title": "The 10 Universities Academic Backbone & Integrated Troubleshooting",
+      "week": "Academic Synthesis",
+      "focus": "MIT, Stanford, Cambridge Foundations & 5-Step Diagnostic Protocol",
+      "badge": "Academic Foundations",
+      "theory": "The curriculum synthesizes the operating-systems principles taught across the top 10 global universities: MIT (kernels, virtual memory, IPC), Imperial College (resource scheduling & I/O), Stanford CS111 (system calls & crash recovery), Oxford (digital architecture), Harvard CS1610 (process hierarchy & disk caching), Cambridge (protection & storage), Caltech CS124 (concurrency & virtual memory), ETH Zurich (hardware foundations), UCL (shell automation), and NUS CS2106 (UNIX protection). The unified troubleshooting doctrine is: (1) Define symptom, (2) Inspect service state (`systemctl`, `ps`), (3) Check resource telemetry (`df`, `free`, `uptime`), (4) Check permissions & sockets (`id`, `ss -lntp`), (5) Apply controlled fix and verify. Never execute destructive commands or blind restarts without evidence.",
+      "diagram": "THE 5-STEP INTEGRATED LINUX TROUBLESHOOTING DOCTRINE:\n=============================================================================\nSTEP 1: DEFINE SYMPTOM   -> What fails? When did it start? What changed?\n              |\n              v\nSTEP 2: SERVICE & PROCESS -> systemctl status myapp  |  ps aux | grep myapp\n              |              (Is PID alive? Did systemd record exit code?)\n              v\nSTEP 3: LOGS & RESOURCES  -> journalctl -u myapp -n 20  |  df -h  |  free -h\n              |              (Examine error logs, verify disk space & memory)\n              v\nSTEP 4: ACCESS & NETWORK  -> namei -l /path/to/file  |  ss -lntp\n              |              (Verify directory traversal & listening interfaces)\n              v\nSTEP 5: CONTROLLED FIX    -> Apply atomic change  ->  Verify recovery  ->  Document\n=============================================================================",
+      "keyTakeaways": [
+        "Always gather evidence before acting: a restart without diagnosis destroys volatile evidence.",
+        "The top 10 university operating systems courses share common primitives: virtual memory, system calls, and scheduling.",
+        "Check logs, storage capacity, and port listeners systematically to eliminate guesswork.",
+        "Document root-cause post-mortems to prevent repeated system failures."
+      ],
+      "codeExample": "# Rapid Production Linux Health Check Diagnostic Script\n#!/usr/bin/env bash\nset -u\n\necho \"=== 1. SYSTEM UPTIME & LOAD ===\"\nuptime\n\necho -e \"\n=== 2. MEMORY UTILIZATION ===\"\nfree -h\n\necho -e \"\n=== 3. DISK SPACE & INODES ===\"\ndf -h /\ndf -i /\n\necho -e \"\n=== 4. FAILED SYSTEMD SERVICES ===\"\nsystemctl --failed --no-legend\n\necho -e \"\n=== 5. LISTENING TCP PORTS ===\"\nsudo ss -lntp | grep -E \"LISTEN\""
+    }
+  ],
+  "commands": {
+    "whoami": "devops",
+    "id": "uid=1000(devops) gid=1000(devops) groups=1000(devops),4(adm),27(sudo),110(lxd)",
+    "hostname": "ubuntu-devops-node-01",
+    "uname -a": "Linux ubuntu-devops-node-01 5.15.0-1049-aws #54-Ubuntu SMP x86_64 x86_64 GNU/Linux",
+    "uptime": " 21:30:15 up 42 days,  4:12,  2 users,  load average: 0.18, 0.24, 0.31",
+    "pwd": "/home/devops",
+    "date": "Mon, 02 Nov 2026 11:00:10 GMT",
+    "df -h": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/root        50G   18G   32G  36% /\n/dev/nvme0n1p15 105M  6.1M   99M   6% /boot/efi\ntmpfs           3.9G     0  3.9G   0% /dev/shm\ntmpfs           1.6G  1.2M  1.6G   1% /run",
+    "df -i": "Filesystem       Inodes  IUsed   IFree IUse% Mounted on\n/dev/root       6553600 241080 6312520    4% /\n/dev/nvme0n1p15       0      0       0     - /boot/efi\ntmpfs           1014120      1 1014119    1% /dev/shm",
+    "free -h": "               total        used        free      shared  buff/cache   available\nMem:           7.7Gi       1.8Gi       3.1Gi        12Mi       2.8Gi       5.6Gi\nSwap:          2.0Gi          0B       2.0Gi",
+    "lsblk": "NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS\nloop0          7:0    0  63.9M  1 loop /snap/core20/2105\nloop1          7:1    0  40.4M  1 loop /snap/snapd/20671\nnvme0n1      259:0    0    50G  0 disk \n├─nvme0n1p1  259:1    0  49.9G  0 part /\n└─nvme0n1p15 259:2    0   105M  0 part /boot/efi",
+    "ss -lntp": "State    Recv-Q   Send-Q     Local Address:Port      Peer Address:Port  Process\nLISTEN   0        128              0.0.0.0:22             0.0.0.0:*      users:((\"sshd\",pid=842,fd=3))\nLISTEN   0        511            127.0.0.1:8080           0.0.0.0:*      users:((\"node\",pid=1980,fd=19))\nLISTEN   0        128                 [::]:22                [::]:*      users:((\"sshd\",pid=842,fd=4))",
+    "systemctl status nginx": "● nginx.service - A high performance web server and a reverse proxy server\n     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)\n     Active: active (running) since Thu 2026-10-08 14:02:10 UTC; 7h ago\n   Main PID: 1204 (nginx)\n      Tasks: 3 (limit: 9474)\n     Memory: 6.8M\n        CPU: 184ms\n     CGroup: /system.slice/nginx.service\n             ├─1204 \"nginx: master process /usr/sbin/nginx -g daemon on; master_process on;\"\n             ├─1205 \"nginx: worker process\"\n             └─1206 \"nginx: worker process\"",
+    "journalctl -u nginx -n 3": "-- Journal begins at Wed 2026-09-01 00:00:00 UTC, ends at Thu 2026-10-08 21:30:00 UTC. --\nOct 08 14:02:10 ubuntu systemd[1]: Starting A high performance web server...\nOct 08 14:02:10 ubuntu systemd[1]: Started A high performance web server.\nOct 08 14:02:11 ubuntu nginx[1204]: 2026/10/08 14:02:11 [notice] 1204#1204: start worker processes",
+    "ps aux | head -n 5": "USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot           1  0.0  0.1 169348 13244 ?        Ss   Sep18   0:14 /sbin/init\nroot           2  0.0  0.0      0     0 ?        S    Sep18   0:00 [kthreadd]\nsystemd+     712  0.0  0.1  25892 12140 ?        Ss   Sep18   0:02 /lib/systemd/systemd-resolved\nroot         842  0.0  0.1  15888  9184 ?        Ss   Sep18   0:01 sshd: /usr/sbin/sshd [listener]",
+    "cat /etc/os-release": "NAME=\"Ubuntu\"\nVERSION=\"24.04 LTS (Noble Numbat)\"\nID=ubuntu\nID_LIKE=debian\nPRETTY_NAME=\"Ubuntu 24.04 LTS\"\nVERSION_ID=\"24.04\"\nHOME_URL=\"https://www.ubuntu.com/\"",
+    "ip route": "default via 172.31.16.1 dev eth0 proto dhcp src 172.31.24.180 metric 100 \n172.31.16.0/20 dev eth0 proto kernel scope link src 172.31.24.180 metric 100"
+  },
+  "scenarios": [
+    {
+      "id": "inc-1",
+      "title": "Incident 1: API Returns 502 Bad Gateway — Inode Exhaustion (ENOSPC)",
+      "symptom": "The web service crashes with 'No space left on device'. You run `df -h /` and see 35 GB available (only 30% disk capacity used). Developers are baffled.",
+      "question": "What is the true underlying Linux storage bottleneck and how do you confirm it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The hard disk has physical bad sectors; immediately reboot into single-user mode and run fsck.",
+          "isCorrect": false,
+          "rationale": "Incorrect. Modern cloud EBS/NVMe drives rarely present raw bad sector errors of this form without kernel I/O panic."
+        },
+        {
+          "id": "B",
+          "text": "Run `df -i /` to inspect inode capacity. The filesystem has exhausted available inodes due to millions of zero-byte session/cache files.",
+          "isCorrect": true,
+          "rationale": "Correct! Free storage capacity (df -h) and free inodes (df -i) are distinct resources. A directory with millions of tiny session or spool files exhausts inode metadata pointers even when gigabytes of disk space remain."
+        },
+        {
+          "id": "C",
+          "text": "Execute `chmod -R 777 /var` to give the process more room to write buffers.",
+          "isCorrect": false,
+          "rationale": "Dangerous Anti-Pattern! Changing permissions has zero effect on disk capacity or inode quotas, and destroys server security."
+        }
+      ]
+    },
+    {
+      "id": "inc-2",
+      "title": "Incident 2: Service Fails to Start — Port 5432 Already Occupied",
+      "symptom": "`systemctl start postgresql` fails with status=1/FAILURE. The service was functioning before an administrator attempted a manual restart.",
+      "question": "Which disciplined diagnostic sequence reveals why the service refused to bind?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Inspect `journalctl -u postgresql -b` to see error logs, then run `sudo ss -lntp 'sport = :5432'` to find the zombie or orphan process holding the port.",
+          "isCorrect": true,
+          "rationale": "Correct! Restarting without diagnosing masks the root cause. `journalctl` identifies the bind failure error, and `ss -lntp` pinpoints the conflicting PID holding TCP port 5432."
+        },
+        {
+          "id": "B",
+          "text": "Immediately run `killall -9 postgres` and delete the PostgreSQL database directory.",
+          "isCorrect": false,
+          "rationale": "Disastrous! Deleting database directories destroys all committed application state."
+        },
+        {
+          "id": "C",
+          "text": "Modify `/etc/hosts` and map localhost to a public AWS IP address.",
+          "isCorrect": false,
+          "rationale": "Incorrect. The issue is a local socket port collision, not DNS resolution."
+        }
+      ]
+    },
+    {
+      "id": "inc-3",
+      "title": "Incident 3: Nginx Returns 403 Forbidden — Missing Directory Traversal (+x)",
+      "symptom": "Nginx returns 403 Forbidden when serving `/var/www/my-app/index.html`. You check `ls -l /var/www/my-app/index.html` and verify permissions are `-rw-r--r--` (644).",
+      "question": "Why can't the `www-data` user read `index.html` despite 644 file permissions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nginx requires index.html to have the executable bit (+x) enabled on the file itself.",
+          "isCorrect": false,
+          "rationale": "Incorrect. HTML files must never be marked executable; execution is for binaries and scripts."
+        },
+        {
+          "id": "B",
+          "text": "A parent directory in the path (e.g. `/var/www/my-app` or `/var/www`) lacks execute permissions (+x) for others, preventing directory traversal.",
+          "isCorrect": true,
+          "rationale": "Correct! For ordinary files, `x` means execute. But for directories, `x` grants traversal/search permission! Without `+x` on every ancestor directory, a process cannot descend into the path to read an internal file."
+        },
+        {
+          "id": "C",
+          "text": "Nginx can only read files located in `/tmp` for security reasons.",
+          "isCorrect": false,
+          "rationale": "Incorrect. Nginx standard web roots reside under `/var/www` or `/usr/share/nginx/html`."
+        }
+      ]
+    },
+    {
+      "id": "inc-4",
+      "title": "Incident 4: SSH Connection Rejected — Unprotected Private Key Warning",
+      "symptom": "Running `ssh -i ~/.ssh/prod_key deploy@10.0.1.50` fails with: 'Permissions 0644 for prod_key are too open. It is required that your private key files are NOT accessible by others.'",
+      "question": "What is the correct, minimal permission fix required by the OpenSSH client?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Run `chmod 600 ~/.ssh/prod_key` so only the owner has read/write access.",
+          "isCorrect": true,
+          "rationale": "Correct! The OpenSSH client strictly rejects private keys readable by group or others. Mode 600 (-rw-------) guarantees private key confidentiality."
+        },
+        {
+          "id": "B",
+          "text": "Run `chmod 777 ~/.ssh/prod_key` so all users can execute the key.",
+          "isCorrect": false,
+          "rationale": "Incorrect. OpenSSH will reject the key even harder with permissions 777."
+        },
+        {
+          "id": "C",
+          "text": "Delete the private key and connect using plain text telnet.",
+          "isCorrect": false,
+          "rationale": "Catastrophic! Telnet transmits all credentials in unencrypted plain text."
+        }
+      ]
+    },
+    {
+      "id": "inc-5",
+      "title": "Incident 5: API Unreachable Remotely Despite 200 OK on Localhost",
+      "symptom": "Inside the server, `curl http://127.0.0.1:8080/health` returns 200 OK. However, traffic from the cloud load balancer fails with connection timed out. Security groups and firewalls allow port 8080.",
+      "question": "What does `ss -lntp` reveal as the root architectural misconfiguration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The application is bound to the loopback interface (`127.0.0.1:8080`) instead of all interfaces (`0.0.0.0:8080`), ignoring external network packets.",
+          "isCorrect": true,
+          "rationale": "Correct! `127.0.0.1` binds exclusively to the local loopback device. To accept requests routed across physical/virtual network interfaces (eth0), server applications must bind to `0.0.0.0` (wildcard)."
+        },
+        {
+          "id": "B",
+          "text": "The server CPU has entered an uninterruptible sleep state (D-state).",
+          "isCorrect": false,
+          "rationale": "Incorrect. The local curl succeeded, proving the process is actively executing."
+        },
+        {
+          "id": "C",
+          "text": "The Linux kernel ran out of PIDs.",
+          "isCorrect": false,
+          "rationale": "Incorrect. PID exhaustion prevents creating new processes, not routing to an existing socket."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1630,
+    "fileSizeBytes": 97319,
+    "questionCount": 12,
+    "hasQuiz": true,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  }
+}

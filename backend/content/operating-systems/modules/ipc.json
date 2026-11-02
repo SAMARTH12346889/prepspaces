@@ -1,0 +1,94 @@
+{
+  "id": "ipc",
+  "courseId": "operating-systems",
+  "index": 15,
+  "name": "15. IPC, Pipes & Shared Memory",
+  "route": "/learning/os/ipc",
+  "componentName": "OSIPC",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does an anonymous pipe transfer between processes?",
+      "options": [
+        "Only discrete, complete application messages",
+        "An ordered, unidirectional byte stream without inherent message boundaries",
+        "Directly mapped physical memory frames",
+        "Signals carrying arbitrary 64-bit user payloads"
+      ],
+      "correctIndex": 1,
+      "explanation": "A pipe is a unidirectional byte stream. The kernel manages an ordered stream of bytes; it does not preserve write boundaries. The reading process must define a framing protocol if discrete messages are required."
+    },
+    {
+      "id": 2,
+      "question": "When does a process reading from a pipe receive EOF (read() returns 0)?",
+      "options": [
+        "Whenever the writing process pauses or sleeps",
+        "When the kernel pipe buffer becomes more than 50% full",
+        "After all file descriptors referring to the write end have been closed AND buffered data is consumed",
+        "Immediately after the child process forks"
+      ],
+      "correctIndex": 2,
+      "explanation": "A pipe reader only receives EOF (read returns 0) when every copy of the write-end file descriptor across all processes has been closed and any remaining bytes in the kernel buffer have been read."
+    },
+    {
+      "id": 3,
+      "question": "Which IPC mechanism is optimal for transferring massive bulk data (such as 4K video frames or ML tensors) between local processes?",
+      "options": [
+        "Signals with sigqueue()",
+        "POSIX Shared Memory (shm_open + mmap)",
+        "SIGCHLD notifications",
+        "A FIFO pathname without an application buffer"
+      ],
+      "correctIndex": 1,
+      "explanation": "POSIX Shared Memory allows processes to map identical physical RAM frames into their respective address spaces, eliminating the double-copy overhead of kernel socket or pipe buffers."
+    },
+    {
+      "id": 4,
+      "question": "Why must a stream-socket (SOCK_STREAM) receiver implement application-level message framing?",
+      "options": [
+        "Stream reads are guaranteed to preserve individual send() boundaries",
+        "A single recv() call may return a partial message, a full message, or fragments of multiple messages",
+        "Unix domain sockets cannot transfer binary bytes",
+        "Framing turns off kernel TCP/IP checksum calculation"
+      ],
+      "correctIndex": 1,
+      "explanation": "SOCK_STREAM delivers an arbitrary byte stream. Network or kernel buffers can fragment or coalesce messages; the receiving application must use length prefixes, delimiters, or fixed sizes to reconstruct complete requests."
+    },
+    {
+      "id": 5,
+      "question": "What is an async-signal-safe strategy for handling SIGINT or SIGTERM to request a graceful shutdown?",
+      "options": [
+        "Call printf() and malloc() repeatedly inside the signal handler",
+        "Invoke waitpid() in a blocking loop inside the handler",
+        "Set a volatile sig_atomic_t flag in the handler and handle cleanup in the main event loop",
+        "Close all database connections and flush disk buffers directly inside the signal handler"
+      ],
+      "correctIndex": 2,
+      "explanation": "Signal handlers interrupt arbitrary execution and can cause deadlocks if they invoke non-reentrant functions (like printf or malloc). Setting a volatile sig_atomic_t flag allows the normal program loop to safely initiate cleanup."
+    },
+    {
+      "id": 6,
+      "question": "What is backpressure in an IPC architecture?",
+      "options": [
+        "An unbounded queue that grows infinitely to avoid slowing the producer",
+        "A flow-control mechanism that throttles or blocks fast producers when slow consumers cannot keep up",
+        "A specific Unix signal sent when disk space is exhausted",
+        "A kernel method that terminates processes with broken pipes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Backpressure prevents fast producers from overwhelming slow consumers. By capping queue capacity and blocking writers (or returning 429/busy errors), it prevents memory exhaustion and unconstrained latency spikes."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1913,
+    "fileSizeBytes": 97872,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

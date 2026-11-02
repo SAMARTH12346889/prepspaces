@@ -1,0 +1,88 @@
+{
+  "id": "requirements",
+  "courseId": "system-design",
+  "index": 2,
+  "name": "2. Requirements & Capacity",
+  "route": "/learning/system-design/requirements",
+  "componentName": "SystemDesignRequirements",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "1. Which statement best describes a requirement?",
+      "options": [
+        "A mandatory choice of framework",
+        "A statement of needed behavior or a constraint that can be evaluated",
+        "A server count calculated from intuition"
+      ],
+      "correctIndex": 0,
+      "explanation": "A requirement defines an observable outcome, needed system capability, or operational constraint that can be objectively tested and verified, rather than premature technology choices."
+    },
+    {
+      "id": 2,
+      "question": "2. Which is the strongest performance requirement?",
+      "options": [
+        "The platform must be very fast",
+        "The database should be modern",
+        "Under a defined workload, 95% of course reads must complete within a specified latency threshold"
+      ],
+      "correctIndex": 0,
+      "explanation": "A well-written performance requirement explicitly identifies the workload, metric, percentile threshold (p95), operation scope, and measurement boundary."
+    },
+    {
+      "id": 3,
+      "question": "3. A system receives 8,640,000 requests per day. What is its average RPS?",
+      "options": [
+        "100",
+        "1,000",
+        "10"
+      ],
+      "correctIndex": 0,
+      "explanation": "Average RPS = Daily requests / 86,400 seconds. 8,640,000 / 86,400 = 100 requests per second."
+    },
+    {
+      "id": 4,
+      "question": "4. A service has average request latency of 0.2 seconds and a stable arrival rate of 400 requests per second. What is the average number of requests in progress?",
+      "options": [
+        "20",
+        "80",
+        "2,000"
+      ],
+      "correctIndex": 0,
+      "explanation": "By Little's Law (L = λ × W), L = 400 requests/sec × 0.2 seconds = 80 requests in progress concurrently on average."
+    },
+    {
+      "id": 5,
+      "question": "5. What should you do before choosing an instance count from a capacity estimate?",
+      "options": [
+        "Deploy as many instances as possible",
+        "Assume all endpoints have equal cost",
+        "Benchmark representative workload and verify latency, errors, and dependencies"
+      ],
+      "correctIndex": 0,
+      "explanation": "Capacity formulas provide starting assumptions; reliable infrastructure sizing requires running representative load tests to measure CPU, memory, and database saturation under real concurrency."
+    },
+    {
+      "id": 6,
+      "question": "6. What does an RPO specify?",
+      "options": [
+        "The acceptable data-loss window in a defined recovery scenario",
+        "The maximum API response time",
+        "The number of replicas in a database"
+      ],
+      "correctIndex": 0,
+      "explanation": "Recovery Point Objective (RPO) specifies the maximum acceptable data loss measured in time (e.g., max 5 minutes of data loss) after a disruptive failure."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1683,
+    "fileSizeBytes": 97046,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

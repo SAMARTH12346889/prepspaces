@@ -1,0 +1,166 @@
+{
+  "id": "threat-modeling",
+  "courseId": "cybersecurity",
+  "index": 4,
+  "name": "4. Threat Modeling & Risk",
+  "route": "/learning/cybersecurity/threat-modeling",
+  "componentName": "CybersecurityThreatModeling",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the main purpose of threat modeling?",
+      "options": [
+        "Guarantee the system has no vulnerabilities",
+        "Identify plausible threats and decide how to address them",
+        "Replace all security testing",
+        "List security products that must be installed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Threat modeling is a structured, proactive methodology to understand system architecture, identify plausible threats, and select appropriate defensive controls before deployment. It does not guarantee zero vulnerabilities nor replace security testing."
+    },
+    {
+      "id": 2,
+      "question": "Which term describes a weakness that may be exploited?",
+      "options": [
+        "Asset",
+        "Vulnerability",
+        "Risk appetite",
+        "Control owner"
+      ],
+      "correctIndex": 1,
+      "explanation": "A vulnerability is a weakness or flaw in system design, implementation, configuration, or operational process that can be exploited by an adversary to violate a security policy."
+    },
+    {
+      "id": 3,
+      "question": "In STRIDE, what does information disclosure primarily threaten?",
+      "options": [
+        "Confidentiality",
+        "Availability only",
+        "CPU scheduling",
+        "Network bandwidth only"
+      ],
+      "correctIndex": 0,
+      "explanation": "In the STRIDE model, Information Disclosure directly violates Confidentiality—the property that sensitive information is accessible only to authorized entities."
+    },
+    {
+      "id": 4,
+      "question": "What is the main purpose of a trust boundary in a threat model?",
+      "options": [
+        "To show a visual separation for decoration",
+        "To identify where different security assumptions or trust contexts meet",
+        "To list every software dependency",
+        "To measure application performance"
+      ],
+      "correctIndex": 1,
+      "explanation": "A trust boundary represents a perimeter or transition where components, data, or control cross between different privilege levels or security assumptions (e.g., untrusted client browser crossing into the private backend API)."
+    },
+    {
+      "id": 5,
+      "question": "Which statement about attack surfaces is correct?",
+      "options": [
+        "Every exposed endpoint is automatically vulnerable",
+        "Attack surface includes interfaces and pathways through which a system can be accessed or affected",
+        "Only public websites have attack surfaces",
+        "An attack surface is the same as a risk score"
+      ],
+      "correctIndex": 1,
+      "explanation": "An attack surface is the totality of reachable interfaces, endpoints, protocols, and pathways through which an adversary can interact with or influence a system. An exposed interface is not automatically a vulnerability if properly authenticated and authorized."
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between inherent and residual risk?",
+      "options": [
+        "They are identical terms",
+        "Inherent risk considers the risk before relevant controls; residual risk is what remains after controls are considered",
+        "Residual risk always equals zero",
+        "Inherent risk only applies to network devices"
+      ],
+      "correctIndex": 1,
+      "explanation": "Inherent risk is the raw risk level assessed prior to considering defensive safeguards. Residual risk is the risk that remains after existing or planned security controls are applied."
+    },
+    {
+      "id": 7,
+      "question": "Which NIST CSF 2.0 function was added to emphasize organizational cybersecurity governance?",
+      "options": [
+        "Protect",
+        "Detect",
+        "Govern",
+        "Recover"
+      ],
+      "correctIndex": 2,
+      "explanation": "NIST CSF 2.0 introduced 'Govern' (GV) as a brand new sixth core function to explicitly establish organizational risk management strategy, policies, oversight, and executive accountability."
+    },
+    {
+      "id": 8,
+      "question": "An application hides an admin button but its backend still permits an ordinary user to perform the action. Which principle is most directly violated?",
+      "options": [
+        "Complete mediation and server-side authorization",
+        "Packet switching",
+        "Network redundancy",
+        "Data compression"
+      ],
+      "correctIndex": 0,
+      "explanation": "Complete Mediation requires that every access request must be validated against security policies on the server side on every invocation. Hiding a button in the frontend is a cosmetic UI convenience, not a security control."
+    },
+    {
+      "id": 9,
+      "question": "What does risk transfer or sharing mean?",
+      "options": [
+        "The underlying risk and every legal responsibility disappear",
+        "Some financial or contractual consequences may be allocated to another party, without necessarily removing the underlying risk",
+        "The organization must ignore the risk",
+        "The system must be taken offline permanently"
+      ],
+      "correctIndex": 1,
+      "explanation": "Risk transfer or sharing (e.g., cyber insurance or outsourcing to managed cloud providers) allocates certain financial or operational burdens to a third party. However, it does not magically eliminate the underlying vulnerability or absolve statutory legal liabilities."
+    },
+    {
+      "id": 10,
+      "question": "A vulnerability scanner reports a serious issue. What should the analyst do next?",
+      "options": [
+        "Assume exploitation is confirmed",
+        "Validate the evidence and assess the affected asset, exposure, impact and existing controls",
+        "Assign maximum risk without investigation",
+        "Publish confidential details immediately"
+      ],
+      "correctIndex": 1,
+      "explanation": "Scanners generate false positives and lack environmental context. A professional security analyst safely verifies the report, evaluates reachability, affected assets, business impact, and existing compensating controls before assigning risk priority."
+    },
+    {
+      "id": 11,
+      "question": "Which activity primarily maps components, data stores, data flows and trust boundaries?",
+      "options": [
+        "Data-flow diagramming",
+        "Password rotation alone",
+        "Software licensing review alone",
+        "Asset depreciation calculation"
+      ],
+      "correctIndex": 0,
+      "explanation": "Data-Flow Diagramming (DFD) visually decomposes a system into external entities, processes, data stores, data flows, and trust boundaries to support structured threat modeling."
+    },
+    {
+      "id": 12,
+      "question": "Which is a suitable example of residual risk?",
+      "options": [
+        "A risk remaining after controls have been implemented and evaluated",
+        "A vulnerability name without context",
+        "A backup that has never been tested",
+        "A firewall rule before configuration"
+      ],
+      "correctIndex": 0,
+      "explanation": "Residual risk is the risk that persists after all existing or planned controls (such as MFA, encryption, and firewalls) have been designed, implemented, and evaluated."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2443,
+    "fileSizeBytes": 147641,
+    "questionCount": 12,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

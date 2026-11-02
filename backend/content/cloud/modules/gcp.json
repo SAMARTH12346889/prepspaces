@@ -1,0 +1,391 @@
+{
+  "id": "gcp",
+  "courseId": "cloud",
+  "index": 9,
+  "name": "Google Cloud",
+  "route": "/learning/cloud/gcp",
+  "componentName": "CloudGCP",
+  "quiz": [],
+  "topics": [
+    {
+      "id": 0,
+      "title": "The Google Cloud Mental Model & 6 Well-Architected Pillars",
+      "week": "Foundations",
+      "focus": "Resource Hierarchy, Control Planes, Global VPCs & The 6 Pillars",
+      "badge": "Architecture Foundation",
+      "theory": "Google Cloud organizes resources through a strict administrative and IAM inheritance hierarchy: Organization → Folders → Projects → Resources. Unlike other clouds, Google Cloud VPCs are global resources containing regional subnets connected across Google's private fiber backbone. Architecture in GCP is evaluated through the 6 Well-Architected Framework Pillars: Operational Excellence, Security, Reliability, Cost Optimization, Performance Optimization, and Sustainability (added as a 6th pillar in January 2026).",
+      "diagram": "GOOGLE CLOUD RESOURCE HIERARCHY & PLANES\n+-------------------------------------------------------------------------+\n| ORGANIZATION (e.g. acme-corp.com - Root Identity & Policy Domain)       |\n|                                                                         |\n| +---------------------------------------------------------------------+ |\n| | FOLDERS (Organizational Boundaries: Compliance, Departments)        | |\n| | ├── Production Folder (Strict IAM, Hierarchical Firewall Policies) | |\n| | └── Development Folder (Sandbox Quotas, Developer Roles)           | |\n| +---------------------------------------------------------------------+ |\n|                                                                         |\n| +---------------------------------------------------------------------+ |\n| | PROJECTS (Billing, Quotas, API Enablement & IAM Boundary)           | |\n| | ├── prj-commerce-prod-core                                          | |\n| | │   ├── Global VPC: 10.20.0.0/16                                    | |\n| | │   │   ├── Regional Subnet: us-central1 (10.20.10.0/24)            | |\n| | │   │   └── Regional Subnet: europe-west1 (10.20.20.0/24)          | |\n| | │   ├── Compute: Cloud Run, GKE Autopilot, Regional MIGs           | |\n| | │   └── Data: Cloud Storage, Cloud SQL, BigQuery, Pub/Sub          | |\n| +---------------------------------------------------------------------+ |\n+-------------------------------------------------------------------------+\n\nTHE 3 OPERATIONAL PLANES:\n1. Control / Identity Plane: IAM, Resource Hierarchy, Service Accounts, Workload Identity.\n2. Network Plane: Global VPC, Regional Subnets, Routes, Hierarchical Firewalls, Cloud NAT.\n3. Workload / Data Plane: Cloud Run, GKE, Compute Engine, Cloud SQL, GCS, BigQuery, Pub/Sub.",
+      "keyTakeaways": [
+        "A Project is the primary unit of resource creation, billing tracking, and API activation in Google Cloud.",
+        "IAM permissions inherit downwards: granting a role at the Organization or Folder level grants access to all descendant projects.",
+        "A Google Cloud VPC is global by default; subnets are regional. Regional subnets in Europe and the US communicate privately without VPNs.",
+        "Global networking does NOT equal global data: a global VPC does not magically make a regional Cloud SQL instance active-active."
+      ],
+      "codeExample": "# Google Cloud CLI: Create a Project and attach it to an Organization Folder\ngcloud projects create prj-commerce-prod-2026 \\\n  --folder=\"739182947192\" \\\n  --labels=environment=production,tier=backend\n\n# Link project to central Cloud Billing Account\ngcloud billing projects link prj-commerce-prod-2026 \\\n  --billing-account=\"01A2B3-C4D5E6-F7G8H9\""
+    },
+    {
+      "id": 1,
+      "title": "Google Cloud IAM & Workload Identity Federation",
+      "week": "Foundations",
+      "focus": "Service Accounts, Zero Keys Best Practice & Cross-Cloud STS",
+      "badge": "Identity & Security",
+      "theory": "Google Cloud IAM binds Principals (Users, Groups, Service Accounts) to Roles (collections of permissions) on Resources. Service Accounts represent non-human workload identities. Google Cloud explicitly mandates avoiding long-lived service account JSON keys. Instead, workloads inside GKE use GKE Workload Identity Federation, and external workloads (in AWS, Azure, or on-premises) use Workload Identity Federation to exchange trusted OIDC tokens for short-lived Google Cloud credentials.",
+      "diagram": "WORKLOAD IDENTITY FEDERATION (ZERO JSON KEYS)\nEXTERNAL WORKLOAD (AWS Lambda / EC2)        KUBERNETES WORKLOAD (GKE Pod)\n           |                                              |\n           | (1) AWS STS / OIDC Token                     | (1) K8s Projected Token\n           v                                              v\n+-------------------------------------------------------------------------+\n| GOOGLE SECURITY TOKEN SERVICE (STS) & WORKLOAD IDENTITY FEDERATION      |\n| Validates OIDC JWT signature against external Identity Provider (JWKS)  |\n+-------------------------------------------------------------------------+\n                                 |\n                                 | (2) Exchanges for Short-Lived GCP Access Token\n                                 v\n+-------------------------------------------------------------------------+\n| GOOGLE SERVICE ACCOUNT (sa-order-processor@prj.iam.gserviceaccount.com) |\n| IAM Role: roles/pubsub.publisher + roles/storage.objectViewer           |\n+-------------------------------------------------------------------------+\n                                 |\n                                 v\n          [ GOOGLE CLOUD APIS: Pub/Sub & Cloud Storage ]\n          Result: Zero static JSON credential files stored or leaked!",
+      "keyTakeaways": [
+        "Never create or download service account JSON private keys; enforce `iam.disableServiceAccountKeyCreation` via Organization Policy.",
+        "Workload Identity Federation enables AWS, Azure, and GitHub Actions to authenticate to GCP APIs via short-lived OIDC exchange.",
+        "In GKE, Workload Identity Federation binds a Kubernetes ServiceAccount directly to a Google Service Account via annotations.",
+        "Apply least-privilege dedicated service accounts per microservice rather than sharing the Default Compute Engine Service Account."
+      ],
+      "codeExample": "# Bicep/Terraform: Bind Kubernetes ServiceAccount to Google Service Account\nresource \"google_service_account_iam_member\" \"workload_identity_user\" {\n  service_account_id = google_service_account.order_sa.name\n  role               = \"roles/iam.workloadIdentityUser\"\n  member             = \"serviceAccount:prj-commerce-prod-2026.svc.id.goog[production/order-service-sa]\"\n}\n\n# Kubernetes ServiceAccount manifest in GKE:\n# apiVersion: v1\n# kind: ServiceAccount\n# metadata:\n#   name: order-service-sa\n#   namespace: production\n#   annotations:\n#     iam.gke.io/gcp-service-account: sa-order-processor@prj-commerce-prod-2026.iam.gserviceaccount.com"
+    },
+    {
+      "id": 2,
+      "title": "Global VPC Networking: Subnets, Firewalls & Cloud NAT",
+      "week": "Foundations",
+      "focus": "Global CIDR Topology, Hierarchical Firewall Policies & Distributed NAT",
+      "badge": "Global VPC",
+      "theory": "In Google Cloud, the VPC is a global construct spanning all regions worldwide, while subnets are strictly regional. Resources in different regions communicate across Google's private software-defined Andromeda network using internal RFC 1918 IPs without traversing the public internet. Firewall rules are stateful packet filters applied via network tags or service accounts, supplemented by Organization-level Hierarchical Firewall Policies. Cloud NAT provides software-defined outbound egress for private nodes.",
+      "diagram": "GLOBAL VPC NETWORK TOPOLOGY WITH MULTI-REGION SUBNETS\n+-------------------------------------------------------------------------+\n| GLOBAL VPC: vpc-commerce-prod (Custom Mode)                             |\n|                                                                         |\n| REGION: us-central1 (Iowa)              REGION: europe-west1 (Belgium)   |\n| +-----------------------------------+   +-----------------------------+ |\n| | Subnet: snet-app-us (10.20.10.0/24)|   | Subnet: snet-app-eu (10.21.10.0)|\n| | [ Cloud Run / GKE / MIG Nodes ]   |   | [ Cloud Run / GKE / MIG Nodes]  |\n| | Private IP: 10.20.10.15           |   | Private IP: 10.21.10.15     |\n| +-----------------+-----------------+   +--------------+--------------+ |\n|                   |                                    |                |\n|                   +=============== Google Private =====+                |\n|                                    Fiber Backbone                       |\n|                                                                         |\n| HIERARCHICAL FIREWALL POLICY: Deny Inbound Port 22/3389 from 0.0.0.0/0  |\n| CLOUD NAT (us-central1): Outbound package updates without public IPs    |\n+-------------------------------------------------------------------------+\n\nROUTES vs FIREWALL RULES IN GCP:\n- Routes determine packet path: \"Where should traffic destined for 10.21.10.0/24 go?\"\n- Firewalls determine packet permission: \"Is TCP port 8080 allowed between these tags?\"",
+      "keyTakeaways": [
+        "A Google Cloud VPC is global; subnets are regional. No complex inter-region peering or transit gateways are required.",
+        "Hierarchical Firewall Policies enforce immutable security baselines across all projects from the Organization level.",
+        "Cloud NAT is fully managed and software-defined: it does not use choke-point proxy VMs or have bandwidth bottleneck appliances.",
+        "Never assign external public IP addresses to database instances or Kubernetes nodes; use Cloud NAT for outbound internet needs."
+      ],
+      "codeExample": "# gcloud CLI: Create a Global Custom-Mode VPC and Regional Subnets\ngcloud compute networks create vpc-commerce-prod --subnet-mode=custom\n\n# Create Regional Subnet in Iowa (us-central1)\ngcloud compute networks subnets create snet-commerce-us \\\n  --network=vpc-commerce-prod \\\n  --region=us-central1 \\\n  --range=10.20.10.0/24 \\\n  --enable-private-ip-google-access\n\n# Create Cloud NAT Gateway for private egress\ngcloud compute routers create router-nat-us --network=vpc-commerce-prod --region=us-central1\ngcloud compute routers nats create nat-gateway-us \\\n  --router=router-nat-us \\\n  --region=us-central1 \\\n  --auto-allocate-nat-external-ips \\\n  --nat-all-subnet-ip-ranges"
+    },
+    {
+      "id": 3,
+      "title": "Compute Engine & Regional Managed Instance Groups (MIG)",
+      "week": "Foundations",
+      "focus": "Instance Templates, Zonal vs Regional MIGs & 50% Overprovisioning",
+      "badge": "Elastic Compute",
+      "theory": "Compute Engine provides IaaS virtual machines. For resilient workloads, Google Cloud mandates Regional Managed Instance Groups (MIGs). A Regional MIG creates VMs from a declarative Instance Template and distributes them evenly across 3 Availability Zones. Regional MIGs provide autohealing via application health checks and metric-driven autoscaling. Google Cloud specifically recommends 50% capacity overprovisioning in 3-zone configurations to guarantee full serving capacity upon losing an entire zone.",
+      "diagram": "REGIONAL MANAGED INSTANCE GROUP (3-ZONE RESILIENCE)\n                        [ REGIONAL MIG CONTROLLER ]\n               Instance Template: e2-standard-4 + Startup Script\n                                    |\n          +-------------------------+-------------------------+\n          |                         |                         |\n          v                         v                         v\n+-------------------+     +-------------------+     +-------------------+\n| ZONE us-central1-a|     | ZONE us-central1-b|     | ZONE us-central1-c|\n| [ VM-1 ] [ VM-2 ] |     | [ VM-3 ] [ VM-4 ] |     | [ VM-5 ] [ VM-6 ] |\n+-------------------+     +-------------------+     +-------------------+\n          |                         |                         |\n          +-------------------------+-------------------------+\n                                    |\n            *ZONE us-central1-a SUFFERS TOTAL POWER OUTAGE!*\n                                    |\n                                    v\nSurviving Zones (b & c) have 4 instances. With 50% overprovisioning,\nthe surviving instances absorb 100% of serving traffic without CPU collapse!",
+      "keyTakeaways": [
+        "Regional MIGs spread instances across multiple zones, protecting workloads against local datacenter failures.",
+        "Overprovisioning invariant: For 3 zones, provision 50% extra capacity so losing 1 zone leaves sufficient serving headroom.",
+        "MIG Autohealing continuously queries an application HTTP health check, automatically replacing unresponsive instances.",
+        "Autoscaling functions as a closed feedback-control loop: Telemetry → Desired Capacity → VM Provisioning → System Telemetry."
+      ],
+      "codeExample": "# gcloud CLI: Create an Instance Template and Regional MIG with Autohealing\ngcloud compute instance-templates create template-commerce-worker \\\n  --machine-type=e2-standard-4 \\\n  --network=vpc-commerce-prod \\\n  --subnet=snet-commerce-us \\\n  --service-account=sa-worker@prj-commerce-prod-2026.iam.gserviceaccount.com \\\n  --tags=worker-node\n\ngcloud compute instance-groups managed create mig-commerce-regional \\\n  --template=template-commerce-worker \\\n  --size=6 \\\n  --region=us-central1 \\\n  --health-check=hc-worker-http \\\n  --initial-delay=180"
+    },
+    {
+      "id": 4,
+      "title": "Cloud Storage: Consistency, Storage Classes & Durability",
+      "week": "Foundations",
+      "focus": "Strong Read-After-Write Consistency, Storage Classes & Versioning",
+      "badge": "Object Storage",
+      "theory": "Google Cloud Storage (GCS) provides massively scalable object storage with strong read-after-write consistency for all upload, metadata, and listing operations globally. Storage classes trade storage cost against access frequency: Standard, Nearline (30-day min), Coldline (90-day min), and Archive (365-day min). Replication across dual/multi-regions protects against datacenter disasters, but protecting against human or application logical corruption requires Object Versioning, Retention Policies, and Soft Delete.",
+      "diagram": "CLOUD STORAGE ACCESS CLASSES & OBJECT VERSIONING\n[ UPLOAD: contract-2026.pdf ] -> (Strong Read-After-Write Consistency!)\n       |\n       v\n+-------------------------------+  Day 0: Active serving\n| STANDARD STORAGE CLASS        |  Lowest access cost, millisecond latency\n+---------------+---------------+\n                |\n                v 30 Days (Lifecycle Rule)\n+-------------------------------+  Day 30: Accessed < once / month\n| NEARLINE STORAGE CLASS        |  Lower storage cost, per-GB access fee\n+---------------+---------------+\n                |\n                v 90 Days (Lifecycle Rule)\n+-------------------------------+  Day 90: Accessed < once / quarter\n| COLDLINE STORAGE CLASS        |  Very low storage cost, compliance data\n+---------------+---------------+\n                |\n                v 365 Days (Lifecycle Rule)\n+-------------------------------+  Day 365+: Archival compliance\n| ARCHIVE STORAGE CLASS         |  Lowest storage cost ($0.0012/GB/mo)\n+-------------------------------+\n\nOBJECT VERSIONING & LOGICAL RECOVERY:\nBug overwrites contract-2026.pdf with 0 bytes!\n- Live Version: Generation #171829102 (0 Bytes)\n- Prior Version: Generation #171829001 (Original 14 MB document safely preserved!)",
+      "keyTakeaways": [
+        "Cloud Storage guarantees strong consistency: an upload or delete is immediately visible to all subsequent read and list requests.",
+        "Replication is NOT backup: an accidental file overwrite or delete replicates immediately to all secondary locations.",
+        "Enable Object Versioning and Soft Delete to ensure recovery from accidental file deletions or ransomware encryption.",
+        "Store media assets in Cloud Storage rather than local VM disks to maintain completely stateless, auto-scalable compute."
+      ],
+      "codeExample": "# Cloud Storage Bucket Lifecycle Configuration (JSON)\n{\n  \"rule\": [\n    {\n      \"action\": { \"type\": \"SetStorageClass\", \"storageClass\": \"NEARLINE\" },\n      \"condition\": { \"age\": 30, \"matchesPrefix\": [\"exports/\"] }\n    },\n    {\n      \"action\": { \"type\": \"SetStorageClass\", \"storageClass\": \"ARCHIVE\" },\n      \"condition\": { \"age\": 90, \"matchesPrefix\": [\"exports/\"] }\n    },\n    {\n      \"action\": { \"type\": \"Delete\" },\n      \"condition\": { \"numNewerVersions\": 3 }\n    }\n  ]\n}"
+    },
+    {
+      "id": 5,
+      "title": "Cloud SQL: Regional High Availability vs Cross-Region DR",
+      "week": "Foundations",
+      "focus": "Zonal Failover, Cross-Region Read Replicas & The Authoritative Write Reality",
+      "badge": "Relational DB",
+      "theory": "Cloud SQL provides managed PostgreSQL, MySQL, and SQL Server instances. In Cloud SQL, High Availability (HA) handles intra-region zonal hardware faults via automated synchronous replication and shared persistent storage failover with zero data loss. Disaster Recovery (DR), however, handles catastrophic regional outages: Cloud SQL is fundamentally regional and requires asynchronous cross-region read replicas with a deliberate failover state machine to promote replicas and manage RTO/RPO trade-offs.",
+      "diagram": "CLOUD SQL REGIONAL HIGH AVAILABILITY (HA) vs CROSS-REGION DR\n\n1. INTRA-REGION HIGH AVAILABILITY (Zonal Failover in us-central1):\n   [ Primary Node (Zone us-central1-a) ]\n                   | Synchronous Block Replication\n                   v\n   [ Standby Node (Zone us-central1-b) ]\n   (Zonal crash triggers automated DNS failover in <60s with 0 data loss!)\n\n2. CROSS-REGION DISASTER RECOVERY (Regional Severance):\n   REGION: us-central1 (Primary Region)          REGION: us-east4 (DR Region)\n   +------------------------------------+        +-----------------------------+\n   | Cloud SQL Primary Writer Instance  | =====> | Cross-Region Read Replica   |\n   +------------------------------------+ Async  +-----------------------------+\n                     |                    Log                   |\n        *REGION us-central1 DIES!*        Stream     [ PROMOTE REPLICA TO WRITER ]\n                                                                |\n                                                                v\n                                                     [ Standalone Production DB ]\n                                                     (RPO: Replication Lag ~1-5s)\n                                                     (RTO: Promotion time ~3-8 mins)",
+      "keyTakeaways": [
+        "Cloud SQL Regional HA protects against zonal outages; it does NOT protect against a full regional datacenter disaster.",
+        "A cross-region read replica is read-only: it does NOT provide multi-master active-active writes across regions.",
+        "In a regional disaster, failover requires a state machine: stop writes, promote the read replica, update application connection strings.",
+        "Continuous Point-in-Time Recovery (PITR) writes transaction write-ahead logs (WAL) to Cloud Storage, enabling restore to any second."
+      ],
+      "codeExample": "# gcloud CLI: Deploy a Regional HA Cloud SQL PostgreSQL Instance with Cross-Region Replica\ngcloud sql instances create db-commerce-primary \\\n  --database-version=POSTGRES_15 \\\n  --tier=db-custom-8-32768 \\\n  --region=us-central1 \\\n  --availability-type=REGIONAL \\\n  --enable-bin-log \\\n  --backup-start-time=02:00\n\n# Create Cross-Region Read Replica in us-east4 for Disaster Recovery\ngcloud sql instances create db-commerce-replica-east4 \\\n  --master-instance-name=db-commerce-primary \\\n  --region=us-east4 \\\n  --tier=db-custom-8-32768"
+    },
+    {
+      "id": 6,
+      "title": "BigQuery: Serverless Analytical Architecture & Slot Mechanics",
+      "week": "Distributed Systems",
+      "focus": "OLTP vs OLAP, Columnar Storage, Slot Compute & Partition Pruning",
+      "badge": "Analytics Engine",
+      "theory": "BigQuery is a fully managed, serverless enterprise data warehouse designed for massive analytical queries (OLAP), cleanly separating columnar storage from distributed SQL compute. Compute is measured in 'slots' (virtual CPUs). While Cloud SQL handles transactional row updates, BigQuery ingests billions of analytical events. In BigQuery on-demand pricing ($6.25/TB), queries scan columnar blocks: date partitioning and clustering are critical architectural controls to prune scans and avoid the *BigQuery Cost Explosion*.",
+      "diagram": "BIGQUERY COLUMNAR DECOUPLED ARCHITECTURE & SLOTS\nOLTP (Cloud SQL): Single-record row transactions  |  OLAP (BigQuery): Billion-row aggregations\n\"Write Order #9901\"                                |  \"Calculate total revenue by region in 2026\"\n\nBIGQUERY DISTRIBUTED COMPUTATION:\n[ User SQL Query ]\n       |\n       v\n[ BIGQUERY QUERY PLANNER ]\n       |\n       v Distributes execution across hundreds of dynamic Slots\n+-------------------------------------------------------------------------+\n| BIGQUERY COMPUTE SLOTS (Dremel Execution Engine)                        |\n| [ Slot 1 ] [ Slot 2 ] [ Slot 3 ] [ Slot 4 ] ... [ Slot 500 ]           |\n+-------------------------------------------------------------------------+\n       |                                          |\n       | Jupiter High-Speed Network               | (Columnar Read)\n       v                                          v\n+-------------------------------------------------------------------------+\n| COLOSSUS DISTRIBUTED COLUMNAR STORAGE (Capacitor File Format)           |\n| Partition: 2026-10-08 | Cluster: customer_id = \"cust_901\"               |\n| *Partition Pruning skips 99% of unneeded historical data blocks!*       |\n+-------------------------------------------------------------------------+",
+      "keyTakeaways": [
+        "BigQuery is an analytical engine (OLAP), not a transactional operational database (OLTP); never use it for low-latency point writes.",
+        "In BigQuery on-demand pricing, cost is determined by the volume of bytes scanned; always apply partition pruning filters in WHERE clauses.",
+        "Clustering sorts data within partitions by specified columns (e.g. `customer_id`), further reducing byte scanning costs.",
+        "Set `maximum_bytes_billed` on queries as an automated circuit breaker to prevent accidental multi-thousand-dollar runaway queries."
+      ],
+      "codeExample": "# BigQuery SQL: Table Creation with Date Partitioning and Clustering\nCREATE TABLE `prj-commerce-prod-2026.analytics.sales_events`\n(\n  order_id STRING,\n  customer_id STRING,\n  amount NUMERIC,\n  event_timestamp TIMESTAMP\n)\nPARTITION BY DATE(event_timestamp)\nCLUSTER BY customer_id\nOPTIONS(\n  partition_expiration_days = 730,\n  description = \"Partitioned sales events with customer clustering\"\n);\n\n-- Cost-optimized query: scans only 1 day of data instead of full 50 TB!\nSELECT customer_id, SUM(amount) AS total_spent\nFROM `prj-commerce-prod-2026.analytics.sales_events`\nWHERE DATE(event_timestamp) = '2026-10-08'\nGROUP BY customer_id;"
+    },
+    {
+      "id": 7,
+      "title": "Cloud Pub/Sub: Global Asynchronous Decoupling & Replay",
+      "week": "Distributed Systems",
+      "focus": "Decoupling Time & Scale, At-Least-Once Semantics, DLQs & Replay",
+      "badge": "Event Messaging",
+      "theory": "Google Cloud Pub/Sub provides horizontally scalable asynchronous messaging. Pub/Sub decouples systems in both time (producers finish immediately without waiting for consumers) and scale (buffers 100k msg/s bursts for consumers processing at 10k msg/s). Pub/Sub guarantees at-least-once delivery; consumers must be idempotent. Subscriptions feature configurable message retention (up to 31 days) allowing historical replay after software bug fixes, alongside Dead-Letter Queues (DLQ).",
+      "diagram": "PUB/SUB ASYNCHRONOUS FANOUT, DLQ & HISTORICAL REPLAY\n                    [ Order Checkout Service ]\n                                |\n                                v\n                [ TOPIC: order-placed-events ]\n              /                 |               \\\n             v                  v                v\n[ Sub: Inventory ]      [ Sub: Billing ]    [ Sub: Analytics Export ]\n(Cloud Run Worker)      (GKE Worker)        (BigQuery Subscription)\n        |                       |\n        v                       v Repeated Failure (5x)\n[ Process Inventory ]           |\n                                v\n               [ DEAD-LETTER TOPIC: billing-poison-dlq ]\n\nHISTORICAL REPLAY MECHANISM:\nBug found in billing worker at 14:00 UTC -> Bug patched at 16:00 UTC.\nExecute: gcloud pubsub subscriptions seek Sub:Billing --time=14:00\nPub/Sub replays all messages from the last 2 hours to the repaired workers!",
+      "keyTakeaways": [
+        "Pub/Sub decouples time and scale: producers and consumers operate independently at their own optimal throughput rates.",
+        "Pub/Sub guarantees at-least-once delivery; downstream consumer applications must be idempotent.",
+        "Configure Dead-Letter Topics with `maxDeliveryAttempts=5` to isolate poison-pill messages from blocking processing queues.",
+        "Pub/Sub message retention allows seeking subscriptions backward in time (up to 31 days) to replay messages after outage recovery."
+      ],
+      "codeExample": "# Python: Pub/Sub Pull Consumer with Dead-Letter Handling and Idempotency\nfrom google.cloud import pubsub_v1\nimport json\n\nsubscriber = pubsub_v1.SubscriberClient()\nsubscription_path = subscriber.subscription_path(\"prj-commerce-prod-2026\", \"sub-orders\")\n\ndef callback(message):\n    try:\n        data = json.loads(message.data.decode(\"utf-8\"))\n        order_id = data.get(\"order_id\")\n        \n        # Idempotency check in Redis or Cloud SQL\n        if process_order_idempotent(order_id, data):\n            message.ack()\n    except Exception as ex:\n        print(f\"Error processing order: {ex}\")\n        message.nack() # Re-expose message for retry\n\nstreaming_pull_future = subscriber.subscribe(subscription_path, callback=callback)\nstreaming_pull_future.result()"
+    },
+    {
+      "id": 8,
+      "title": "Cloud Run: Serverless Containers, Concurrency & VPC Egress",
+      "week": "Distributed Systems",
+      "focus": "Container Serverless, Per-Instance Concurrency & Direct VPC Egress",
+      "badge": "Modern Serverless",
+      "theory": "Cloud Run executes stateless container images on Google's fully managed serverless infrastructure. Unlike function platforms, Cloud Run supports per-instance request concurrency (up to 1,000 concurrent requests per instance), significantly lowering cold starts and resource overhead. It scales to zero when idle and scales up dynamically during traffic surges. Modern Cloud Run utilizes Direct VPC egress to connect securely to internal VPC resources (Cloud SQL, Memorystore) without public internet transit.",
+      "diagram": "CLOUD RUN CONCURRENCY & DIRECT VPC EGRESS\n[ INCOMING TRAFFIC: 50,000 RPS ]\n               |\n               v\n[ CLOUD RUN MANAGED PLATFORM ]\nScales to N Instances based on Concurrency Target (e.g. 80 requests/container)\n+-------------------------------------------------------------------------+\n| CLOUD RUN INSTANCE 1                                                    |\n| ├── Request 1 ──┐                                                       |\n| ├── Request 2 ──┼── Concurrent Event Loop (e.g. Node.js / Go)           |\n| └── Request 80 ─┘                                                       |\n+-------------------------------------------------------------------------+\n       |\n       v (DIRECT VPC EGRESS: No Connector Bottlenecks!)\n+-------------------------------------------------------------------------+\n| INTERNAL GLOBAL VPC NETWORK (10.20.0.0/16)                             |\n| Private IP Path: 10.20.10.25 (Private Cloud SQL PostgreSQL)            |\n+-------------------------------------------------------------------------+\n\nTHE SERVERLESS DATABASE TRAP:\nIf Cloud Run scales to 1,000 instances, each opening 5 DB connections,\nCloud SQL receives 5,000 connections! Use Cloud SQL Auth Proxy connection pooling.",
+      "keyTakeaways": [
+        "Cloud Run handles multiple requests concurrently within a single container, drastically reducing instance count compared to single-concurrency functions.",
+        "Direct VPC egress is the recommended standard: faster throughput, lower latency, and zero Serverless VPC connector infrastructure.",
+        "Configure `max-instances` on Cloud Run services to act as an intentional circuit breaker against overloading downstream databases.",
+        "Configure `min-instances >= 1` for latency-sensitive production APIs to eliminate cold-start penalties."
+      ],
+      "codeExample": "# gcloud CLI: Deploy a Cloud Run Service with Direct VPC Egress and Concurrency Tuning\ngcloud run deploy svc-commerce-checkout \\\n  --image=gcr.io/prj-commerce-prod-2026/checkout:v2 \\\n  --region=us-central1 \\\n  --concurrency=80 \\\n  --min-instances=2 \\\n  --max-instances=150 \\\n  --network=vpc-commerce-prod \\\n  --subnet=snet-commerce-us \\\n  --vpc-egress=private-ranges-only \\\n  --service-account=sa-checkout@prj-commerce-prod-2026.iam.gserviceaccount.com"
+    },
+    {
+      "id": 9,
+      "title": "GKE Autopilot: Managed Kubernetes & Workload Identity",
+      "week": "Distributed Systems",
+      "focus": "GKE Autopilot vs Standard, Automated Node Ops & Workload Identity",
+      "badge": "Managed Kubernetes",
+      "theory": "Google Kubernetes Engine (GKE) is Google's managed Kubernetes platform. GKE Autopilot represents the modern production-ready default: Google manages the underlying nodes, security baselines, OS patching, and Karpenter-style autoscaling according to pod resource requests. Workload Identity Federation for GKE is mandatory: it links Kubernetes ServiceAccounts directly to Google Cloud Service Accounts, eliminating static private key files inside pods.",
+      "diagram": "GKE AUTOPILOT vs GKE STANDARD ARCHITECTURE\n+-----------------------------+------------------------------------+------------------------------------+\n| ARCHITECTURAL ATTRIBUTE     | GKE AUTOPILOT (2026 Default)       | GKE STANDARD                       |\n+-----------------------------+------------------------------------+------------------------------------+\n| Node Fleet Management       | Google-managed, automated provision| Customer manages Node Pools & OS   |\n| Billing Model               | Per pod vCPU, Memory & GPU request | Per underlying Compute Engine VM   |\n| Security Hardening          | Built-in CIS benchmarks enforced   | User-configured Pod Security / OPA |\n| Cluster Version Upgrades    | Automated rolling maintenance      | User-scheduled upgrade channels    |\n| Operational Overhead        | Minimal: Focus entirely on Pods    | Moderate to High                   |\n+-----------------------------+------------------------------------+------------------------------------+\n\nGKE WORKLOAD IDENTITY FEDERATION:\n[ Pod in GKE Autopilot ]\n       |\n       | Token projected to /var/run/secrets/tokens/gcp-ksa/token\n       v\n[ GKE Metadata Server: 169.254.169.254 ]\n       |\n       v Exchanges token with Google Security Token Service (STS)\n[ Google IAM Service Account: sa-gke-worker@prj.iam.gserviceaccount.com ]\n       |\n       v Access allowed to Cloud Storage, BigQuery, and Pub/Sub without static keys!",
+      "keyTakeaways": [
+        "GKE Autopilot eliminates node pool management; you pay strictly for the CPU and RAM requested by your pods.",
+        "Workload Identity Federation for GKE is the only architecturally compliant authentication pattern for production pods.",
+        "GKE Autopilot enforces security baselines: privileged containers and host path volume mounts are restricted by default.",
+        "Use Horizontal Pod Autoscaler (HPA) to scale pods based on metrics; Autopilot automatically provisions physical node capacity."
+      ],
+      "codeExample": "# gcloud CLI: Provision a Production GKE Autopilot Cluster\ngcloud container clusters create-auto cluster-commerce-prod \\\n  --region=us-central1 \\\n  --network=vpc-commerce-prod \\\n  --subnetwork=snet-commerce-us \\\n  --release-channel=regular\n\n# Verify Workload Identity Federation is enabled by default on GKE Autopilot\ngcloud container clusters describe cluster-commerce-prod \\\n  --region=us-central1 \\\n  --format=\"value(workloadIdentityConfig.workloadPool)\""
+    },
+    {
+      "id": 10,
+      "title": "Global External Application Load Balancer & Cloud Armor",
+      "week": "Production Systems",
+      "focus": "Anycast Frontend IP, Intelligent Backend Routing & DDoS/WAF Defense",
+      "badge": "Global Edge Ingress",
+      "theory": "Google Cloud's Global External Application Load Balancer provides Layer-7 HTTP/HTTPS traffic routing across multi-region backends (Cloud Run, GKE, MIGs) through a single Anycast public IP address. User requests enter Google's global fiber edge network at the Point of Presence (PoP) closest to the user. Cloud Armor provides enterprise WAF inspection, IP rate limiting, and Layer-7 DDoS defense directly at the edge before traffic ever touches application compute.",
+      "diagram": "GLOBAL ANYCAST LOAD BALANCER & MULTI-REGION ROUTING\n                    [ GLOBAL CLIENTS WORLDWIDE ]\n           (India)             (Europe)              (USA)\n              \\                   |                   /\n               v                  v                  v\n+-------------------------------------------------------------------------+\n| GOOGLE ANYCAST EDGE POP NETWORK (Single Global IP: 34.120.50.10)        |\n| - Edge TLS Termination & HTTP/3 Support                                 |\n| - Cloud Armor: WAF Rules, Geo-Fencing, Rate Limiting, DDoS Shield       |\n+-------------------------------------------------------------------------+\n                                   |\n           Intelligent Health-Based & Latency-Optimized Routing\n                                   |\n         +-------------------------+-------------------------+\n         |                                                   |\n         v                                                   v\n[ REGION: us-central1 ]                             [ REGION: europe-west1 ]\nBackend Service: neg-run-us                         Backend Service: neg-run-eu\n├── Cloud Run Checkout API                          ├── Cloud Run Checkout API\n└── GKE Pod Microservices                           └── GKE Pod Microservices\n\nCRITICAL INVARIANT: Global routing ≠ Global data consistency!\nIf Cloud SQL primary in us-central1 fails, the global load balancer can route to europe-west1,\nbut europe-west1 must have an operational, promoted database writer!",
+      "keyTakeaways": [
+        "A single global Anycast IP address serves users worldwide, eliminating complex multi-region DNS failover latency.",
+        "Cloud Armor mitigates OWASP Top 10 web vulnerabilities and executes rate limiting directly at the global edge network.",
+        "Serverless Network Endpoint Groups (NEGs) allow the Global Load Balancer to route directly to Cloud Run services.",
+        "Backend services continuously monitor region health; if a region experiences an outage, traffic shifts automatically to healthy regions."
+      ],
+      "codeExample": "# gcloud CLI: Create Cloud Armor Security Policy with Rate Limiting\ngcloud compute security-policies create sec-policy-commerce-edge \\\n  --description=\"Protect commerce edge against Layer 7 volumetric attacks\"\n\n# Add Rate Limiting Rule: Block clients exceeding 500 requests per minute\ngcloud compute security-policies rules create 1000 \\\n  --security-policy=sec-policy-commerce-edge \\\n  --expression=\"true\" \\\n  --action=rate-based-ban \\\n  --rate-limit-threshold-count=500 \\\n  --rate-limit-threshold-interval-sec=60 \\\n  --ban-duration-sec=600"
+    },
+    {
+      "id": 11,
+      "title": "Production Capstone: GlobalCommerce GCP Blueprint & 3-Cloud Translation",
+      "week": "Production Systems",
+      "focus": "10M-User Platform, AWS/Azure/GCP Translation & 12 Lab Sequence",
+      "badge": "Capstone Blueprint",
+      "theory": "The Module 9 Capstone synthesizes all principles into GlobalCommerce GCP: an enterprise-grade multi-region platform engineered for 10 million users, 100,000 peak RPS, 99.99% availability, RPO ≤ 1 min, and RTO ≤ 15 min. The system integrates Global Load Balancing, Cloud Armor, Multi-Region Cloud Run, GKE Autopilot, Cloud SQL Regional HA + Cross-Region Replica, Cloud Storage, Pub/Sub, BigQuery, Secret Manager, and Cloud Monitoring SLOs. Includes the complete AWS vs Azure vs GCP architecture equivalence matrix.",
+      "diagram": "GLOBALCOMMERCE GCP END-TO-END PRODUCTION BLUEPRINT\n[ GLOBAL USERS ]\n       |\n       v\n[ GLOBAL APPLICATION LOAD BALANCER + CLOUD ARMOR ] -> (Single Anycast Global IP)\n       |\n       +-----------------------+-----------------------+\n       | Private Path          | Private Path          |\n       v                       v                       v\n[ REGION A: us-central1 ] [ REGION B: europe-west1 ][ REGION C: asia-south1 ]\n├── Cloud Run API         ├── Cloud Run API         ├── Cloud Run API\n└── GKE Autopilot Pods    └── GKE Autopilot Pods    └── GKE Autopilot Pods\n       |                       |                       |\n       +-----------------------+-----------------------+\n                               |\n             +-----------------+-----------------+\n             |                                   |\n             v                                   v\n[ CLOUD SQL POSTGRESQL ]               [ CLOUD STORAGE (GCS) ]\n- Primary Regional HA (us-central1)    - Product Media, Invoices\n- Cross-Region DR Replica (us-east4)   - Object Versioning & Soft Delete\n             |\n   (Transactional Events)\n             |\n             v\n   [ CLOUD PUB/SUB TOPIC ]\n             |\n     +-------+-------+\n     |               |\n     v               v\n[ Cloud Run Workers ] [ BigQuery Subscription Pipeline ]\n(Idempotent Consumers)       |\n                             v\n                     [ BIGQUERY ANALYTICS WAREHOUSE ]\n                     - Date Partitioned & Clustered\n                     - BI Dashboards & ML Forecasting\nCROSS-CUTTING: IAM Service Accounts • Workload Identity Fed • Cloud Monitoring SLOs • Secret Manager",
+      "keyTakeaways": [
+        "Architecture is about distributed-system invariants: identity, networking boundaries, compute scaling, and data durability.",
+        "The 3-Cloud equivalence: AWS VPC = Azure VNet = GCP Global VPC; EC2 = Azure VM = Compute Engine; S3 = Blob = GCS.",
+        "Cloud Monitoring alerts must be anchored to user-impacting SLOs (error budgets, latency p95), not raw host CPU graphs.",
+        "Always design failover procedures as tested state machines: database promotion, connection redirection, and capacity verification."
+      ],
+      "codeExample": "# AWS -> Azure -> GCP Complete Architectural Equivalence Reference Matrix:\n# Identity:         AWS IAM / Identity Center  ---> Azure Entra ID + RBAC       ---> GCP Cloud IAM\n# Workload Auth:    AWS IAM Roles (STS)        ---> Azure Managed Identities     ---> GCP Workload Identity Fed\n# Private Network:  AWS Regional VPC           ---> Azure Regional VNet         ---> GCP Global VPC (Regional Subnets)\n# Compute Fleet:    AWS Auto Scaling Groups    ---> Azure VM Scale Sets (VMSS)  ---> GCP Managed Instance Groups (MIG)\n# Serverless Apps:  AWS Lambda                 ---> Azure Functions Flex Plan   ---> GCP Cloud Run (Containers)\n# Managed K8s:      AWS EKS (Auto Mode)        ---> Azure AKS (Automatic)       ---> GCP GKE (Autopilot)\n# Object Storage:   AWS Amazon S3              ---> Azure Blob Storage          ---> GCP Cloud Storage (GCS)\n# Relational DB:    AWS RDS / Aurora           ---> Azure SQL Database          ---> GCP Cloud SQL\n# Analytical OLAP:  AWS Amazon Redshift        ---> Azure Synapse / Fabric      ---> GCP BigQuery (Decoupled Slots)\n# Async Messaging:  AWS SQS & SNS / EventBridge---> Azure Service Bus & Evt Grid---> GCP Cloud Pub/Sub\n# Global Ingress:   AWS CloudFront + ALB       ---> Azure Front Door            ---> GCP Global External App LB\n# Secrets Vault:    AWS Secrets Manager / KMS  ---> Azure Key Vault             ---> GCP Secret Manager\n# Observability:    AWS CloudWatch             ---> Azure Monitor               ---> GCP Cloud Monitoring (SRE SLOs)"
+    }
+  ],
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Scenario 1: Compute Engine VM Crashes in Managed Instance Group (Section 59)",
+      "context": "At 08:30 UTC, a kernel panic causes instance `vm-worker-prod-a1` inside a Regional MIG to terminate abruptly. Application background processing loses 25% of its node capacity.",
+      "question": "How does Google Cloud automatically detect and heal this failure without human intervention?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Managed Instance Group (MIG) health check detects the failed VM, automatically deletes the broken instance, and launches a fresh VM from the Instance Template in an available zone.",
+          "verdict": "Correct! Self-Healing Infrastructure",
+          "explanation": "MIG auto-healing decouples node failure from service failure. The health check triggers automated replacement while the regional load balancer reroutes traffic to healthy instances.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "An engineer must SSH into the Google Cloud Console and run `gcloud compute instances reset`.",
+          "verdict": "Anti-Pattern! Manual Toil",
+          "explanation": "Manual VM resets violate Google Cloud Well-Architected Operational Excellence. Workload fleets should be declarative and self-healing.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Scenario 2: Total Datacenter Zone Outage Knocks Out us-central1-a (Section 60)",
+      "context": "A severe power failure takes down the entire `us-central1-a` zone. 33% of your serving VMs disappear immediately. Traffic volume remains at peak 45,000 requests per second.",
+      "question": "What capacity planning invariant ensures surviving zones us-central1-b and us-central1-c do not collapse?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deploy a Regional MIG with 50% capacity overprovisioning across 3 zones so the 2 surviving zones can absorb 100% of peak load without CPU starvation while autoscaling spins up new nodes.",
+          "verdict": "Correct! Zonal Failure Resilience",
+          "explanation": "Google's Well-Architected guidance explicitly recommends 50% overprovisioning for 3-zone regional MIGs. Having 3 zones is useless if surviving zones operate at 100% CPU and drop connections during failover.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Configure the autoscaler to scale from 2 instances to 500 instances in 100 milliseconds.",
+          "verdict": "Physically Impossible",
+          "explanation": "VM boot times and health check warmup take 1-3 minutes. Without baseline overprovisioning, the sudden traffic surge overloads and crashes the surviving instances.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Scenario 3: Cloud Run Traffic Surge Overwhelms Cloud SQL (Section 61)",
+      "context": "A flash sale triggers 60,000 concurrent HTTP requests to Cloud Run. Cloud Run scales horizontally to 600 container instances. Each container opens direct connections to PostgreSQL. Cloud SQL max connections is 1,000.",
+      "question": "Why is the database failing, and what architectural pattern prevents this serverless catastrophe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Compute elasticity outpaces relational data elasticity! Remediate by configuring Cloud SQL Auth Proxy connection pooling, setting Cloud Run max instance limits, and buffering writes via Pub/Sub.",
+          "verdict": "Correct! Serverless DB Starvation Defense",
+          "explanation": "Serverless containers scale faster than relational database connection pools. Rate limiting, connection multiplexing, and asynchronous queue buffering protect the stateful database layer from thrashing.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Increase Cloud Run execution timeout from 5 minutes to 60 minutes.",
+          "verdict": "Catastrophic Failure",
+          "explanation": "Increasing timeouts causes thousands of blocked container instances to accumulate and hold open socket connections, compounding database lock exhaustion.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Scenario 4: Pub/Sub Worker Dies Mid-Processing with Unacknowledged Message (Section 62)",
+      "context": "An order processing worker pulls a batch of messages from Pub/Sub, charges the customer credit card via Stripe, but suffers a process crash before executing `acknowledge()`.",
+      "question": "What happens to the message, and how must the consumer be architected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The ack deadline expires, Pub/Sub redelivers the message to another consumer. The consumer MUST be idempotent (using a unique order ID / idempotency token) to avoid double-charging.",
+          "verdict": "Correct! At-Least-Once Delivery & Idempotency",
+          "explanation": "Pub/Sub guarantees at-least-once delivery. If an ack is not received within the deadline, the message is redelivered. Consumers must check state before executing irreversible business operations.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Pub/Sub automatically rolls back the Stripe credit card charge through distributed two-phase commit.",
+          "verdict": "Impossible Distributed Fallacy",
+          "explanation": "Pub/Sub is a messaging system, not a distributed transaction manager across external third-party payment APIs.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Scenario 5: Careless BigQuery Query Triggers Runaway Cost Explosion (Section 63)",
+      "context": "A data scientist schedules a cron job running `SELECT * FROM sales_events WHERE event_type = 'purchase'` every 2 minutes against a 150 TB unpartitioned table on the On-Demand pricing tier.",
+      "question": "What is the financial impact, and how do you architecturally eliminate this failure mode?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Every run scans the entire 150 TB ($937 per query = $674,000/month!). Remediate by partitioning the table by date (`_PARTITIONDATE`), clustering by `event_type`, and enforcing maximum bytes billed limits.",
+          "verdict": "Correct! BigQuery Cost Governance",
+          "explanation": "In BigQuery on-demand, cost is proportional to bytes scanned, not rows returned. Date partitioning prunes 99% of data, and `maximum_bytes_billed` acts as an automated query circuit breaker.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Switch to a smaller Compute Engine VM so BigQuery queries run slower.",
+          "verdict": "Irrelevant",
+          "explanation": "BigQuery compute is serverless and completely decoupled from Compute Engine VMs. The VM size has zero effect on BigQuery query scan billing.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Scenario 6: Application Bug Overwrites Production Contract in Cloud Storage (Section 64)",
+      "context": "A deployment defect causes an automated pipeline to overwrite `master-contract.pdf` in a Cloud Storage bucket with an empty 0-byte file. The bucket has multi-region replication enabled.",
+      "question": "Did multi-region replication protect the document, and what is the true defense against logical corruption?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replication does NOT protect against logical corruption: the empty file replicated immediately across all regions! The true defense is Cloud Storage Object Versioning and Object Retention Lock (WORM).",
+          "verdict": "Correct! Replication vs Backup Invariant",
+          "explanation": "Replication protects against physical storage datacenter failure, not valid application write mistakes. With Object Versioning, the overwritten contract is preserved as a prior generation and can be restored in seconds.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Multi-region replication will automatically detect the file is empty and refuse to replicate it.",
+          "verdict": "Incorrect",
+          "explanation": "Storage replication faithfully synchronizes every valid API write command without inspecting file semantics.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Scenario 7: Developer Commits Service Account JSON Key to Public GitHub (Section 65)",
+      "context": "A contractor downloads a service account key `sa-commerce-admin.json` to test locally and accidentally pushes it to a public GitHub repository. The service account has 'Editor' role at the project level.",
+      "question": "What is the 2026 Google Cloud best practice that prevents this vulnerability completely?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Never create service account keys! Use Workload Identity Federation for external/local developers and GKE Workload Identity for pods; apply Organization Policy `iam.disableServiceAccountKeyCreation`.",
+          "verdict": "Correct! Zero-Trust Identity Without Keys",
+          "explanation": "Service account JSON keys are static credentials that leak easily. Workload Identity Federation exchanges short-lived tokens via OIDC, eliminating static credential files entirely.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Store the JSON key in a password-protected zip file inside the Git repository.",
+          "verdict": "Dangerous Anti-Pattern",
+          "explanation": "Storing credentials in Git repositories violates security baselines and exposes the account to brute-force compromise.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Scenario 8: Catastrophic Outage Destroys Region us-central1 (Section 66)",
+      "context": "A regional fiber backplane severance takes down `us-central1`. The Global External Application Load Balancer immediately redirects all incoming client HTTP requests to `us-east4`.",
+      "question": "Why does the application still fail if Cloud SQL was only deployed in us-central1, and what is required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Global traffic routing ≠ global data state! The application in `us-east4` cannot write because Cloud SQL primary is down. A disaster recovery plan must promote the `us-east4` cross-region read replica to primary.",
+          "verdict": "Correct! The Global Traffic vs Regional State Reality",
+          "explanation": "The Global Load Balancer routes traffic to healthy compute, but Cloud SQL is fundamentally regional. Cross-region disaster recovery requires a state machine: detect regional failure, promote the replica to standalone writer, and redirect connections.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The Global Load Balancer will automatically write transactional orders into BigQuery until Cloud SQL recovers.",
+          "verdict": "Architectural Fantasy",
+          "explanation": "Load balancers route network packets; they do not reconstruct database schemas or simulate ACID transactional engines.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1746,
+    "fileSizeBytes": 96073,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

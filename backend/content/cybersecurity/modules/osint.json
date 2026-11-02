@@ -1,0 +1,166 @@
+{
+  "id": "osint",
+  "courseId": "cybersecurity",
+  "index": 6,
+  "name": "6. OSINT & Passive Recon",
+  "route": "/learning/cybersecurity/osint",
+  "componentName": "CybersecurityOSINT",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What distinguishes OSINT from ordinary information searching?",
+      "options": [
+        "A. OSINT collects the largest possible volume of information without filtering.",
+        "B. OSINT follows a defined research question, evaluates source reliability, and analyzes information to support a security decision.",
+        "C. OSINT always involves scanning and sending probe packets to target systems.",
+        "D. OSINT proves every discovered claim with 100% certainty automatically."
+      ],
+      "correctIndex": 0,
+      "explanation": "The intelligence principle states that OSINT is the disciplined process of collecting and evaluating openly available information to answer a specific decision-oriented question, rather than mere unstructured data hoovering."
+    },
+    {
+      "id": 2,
+      "question": "Which is the clearest example of passive reconnaissance?",
+      "options": [
+        "A. Scanning a web server's ports with Nmap.",
+        "B. Attempting a login with a discovered password.",
+        "C. Reviewing an organization's publicly published technical documentation and official release notes.",
+        "D. Testing whether an API endpoint can be exploited using SQL injection payloads."
+      ],
+      "correctIndex": 0,
+      "explanation": "Passive reconnaissance gathers information without directly sending probe packets or interacting with the target's servers. Reviewing public documentation uses legitimate public records without probing target systems."
+    },
+    {
+      "id": 3,
+      "question": "What can a Certificate Transparency (CT) log record establish most directly?",
+      "options": [
+        "A. That a hostname is definitely currently online, reachable, and vulnerable.",
+        "B. That relevant certificate information was logged and recorded in a public cryptographic ledger at a particular time.",
+        "C. That the target organization owns every related cloud server host.",
+        "D. That the application deployed on that domain has zero security flaws."
+      ],
+      "correctIndex": 0,
+      "explanation": "Certificate Transparency logs prove that a certificate containing specific hostnames was issued by a Certificate Authority and logged. A historical log entry does NOT prove the server is currently live, reachable, or within assessment scope."
+    },
+    {
+      "id": 4,
+      "question": "Why is an old web-archive snapshot (e.g., Wayback Machine) useful, but inherently limited?",
+      "options": [
+        "A. It always represents the 100% accurate current configuration of the website.",
+        "B. It can show historical public content and evolution, but may not reflect the present-day state or currently deployed code.",
+        "C. It proves that a removed page contained a critical zero-day vulnerability.",
+        "D. It replaces the need for any current verification."
+      ],
+      "correctIndex": 0,
+      "explanation": "Web archives preserve historical snapshots of publicly visible pages. While helpful for tracking deprecations and historical architecture, historical presence does not prove current exposure or active production risk."
+    },
+    {
+      "id": 5,
+      "question": "What is source corroboration?",
+      "options": [
+        "A. Repeating the same claim many times in the final assessment report.",
+        "B. Checking a claim against relevant evidence, ideally obtained from independent, separate sources.",
+        "C. Removing contradictory evidence so the report looks consistent.",
+        "D. Assuming an official corporate website is always 100% correct."
+      ],
+      "correctIndex": 0,
+      "explanation": "Corroboration is the analytical practice of verifying whether an observation is supported by independent evidence from distinct origins, rather than mistaking multiple copies of the same press release for separate confirmation."
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between an observation and an inference?",
+      "options": [
+        "A. An observation is directly recorded evidence; an inference is a conclusion reasonably drawn from evidence.",
+        "B. They are identical terms and can be used interchangeably.",
+        "C. An inference is always more reliable than an observation.",
+        "D. An observation never requires a source timestamp."
+      ],
+      "correctIndex": 0,
+      "explanation": "An observation is what the source directly shows (e.g., 'DNS query returned a CNAME pointing to an ELB'). An inference is a conclusion derived from it (e.g., 'The service appears to use an AWS load balancer')."
+    },
+    {
+      "id": 7,
+      "question": "Does the presence of a public DNS record prove that a service is vulnerable?",
+      "options": [
+        "A. Yes, all public DNS records indicate exposed vulnerabilities.",
+        "B. No; it establishes a published DNS association at a particular time, not that the service is vulnerable or reachable.",
+        "C. Yes, but only if the record type is a CNAME alias.",
+        "D. Only if the DNS record uses IPv6 (AAAA) addressing."
+      ],
+      "correctIndex": 0,
+      "explanation": "A DNS record associates a name with an IP or alias under DNS rules. It is legitimate Internet infrastructure, not a vulnerability. Claiming a DNS record alone constitutes a vulnerability is a critical analytical error."
+    },
+    {
+      "id": 8,
+      "question": "Which statement best describes passive reconnaissance?",
+      "options": [
+        "A. It never involves any external network communication of any kind across the entire Internet.",
+        "B. It avoids directly probing the target infrastructure, although the researcher may interact with public third-party services (e.g., public DNS resolvers, search engines, CT logs).",
+        "C. It automatically authorizes any follow-up invasive port scan.",
+        "D. It guarantees that all collected data is current and completely accurate."
+      ],
+      "correctIndex": 0,
+      "explanation": "Passive recon queries intermediary, third-party public databases (Google, ICANN, crt.sh, Shodan cached data) rather than establishing connections directly with the target's servers."
+    },
+    {
+      "id": 9,
+      "question": "A public code repository appears to contain a live API secret key. What should an ethical security student do?",
+      "options": [
+        "A. Use the secret to log into the database and demonstrate business impact.",
+        "B. Download every related confidential database record to preserve proof.",
+        "C. Avoid using or authenticating with the secret, preserve minimal necessary location evidence, and report through an approved vulnerability disclosure channel.",
+        "D. Publish the secret on Twitter/X to publicly pressure the organization into patching."
+      ],
+      "correctIndex": 0,
+      "explanation": "Ethical red line: A public repository does not grant permission to authenticate with exposed credentials. Testers must preserve minimal evidence (URL, commit hash, redacted key) and report responsibly."
+    },
+    {
+      "id": 10,
+      "question": "Two different websites repeat the exact same news report. What should the analyst check?",
+      "options": [
+        "A. Assume there are two independent confirmations of the claim.",
+        "B. Trace whether both websites rely on and copy the same original underlying press release or source.",
+        "C. Ignore the publication dates completely.",
+        "D. Automatically elevate the finding's confidence rating to High."
+      ],
+      "correctIndex": 0,
+      "explanation": "Circular reporting occurs when multiple outlets syndicate the same single underlying press release or blog post. An analyst must verify source independence before treating them as corroborating evidence."
+    },
+    {
+      "id": 11,
+      "question": "What is the primary role of an OSINT collection plan?",
+      "options": [
+        "A. To define the research question, scope, approved sources, expected evidence, and data-minimization boundaries.",
+        "B. To authorize penetration testing against unrelated third-party systems.",
+        "C. To guarantee that every public source is 100% correct.",
+        "D. To eliminate the need for drafting a final intelligence report."
+      ],
+      "correctIndex": 0,
+      "explanation": "A collection plan defines what must be learned, which sources can legitimately answer the question, what each source can and cannot prove, and the data-minimization rules to prevent scope creep."
+    },
+    {
+      "id": 12,
+      "question": "What should a responsible OSINT report do when the collected evidence is inconclusive?",
+      "options": [
+        "A. Present the most dramatic possible interpretation as an established fact to get client attention.",
+        "B. Hide all contradictory observations from the client.",
+        "C. Transparently state uncertainty, document limitations, and identify what specific further authorized evidence is required.",
+        "D. Label the target organization's network as compromised."
+      ],
+      "correctIndex": 0,
+      "explanation": "Professional analysts avoid artificial certainty. If evidence is ambiguous, incomplete, or historical, the report must state that limitation explicitly and recommend appropriate authorized follow-up."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1678,
+    "fileSizeBytes": 94592,
+    "questionCount": 12,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "devops",
+  "title": "DevOps & SRE Track",
+  "tagline": "Infrastructure, Cloud Automation & Production Reliability",
+  "description": "Learn production-grade DevOps and Site Reliability Engineering through Linux, Git, Docker, Kubernetes, Terraform, CI/CD, GitOps, cloud-native infrastructure, observability, and incident response.",
+  "icon": "Terminal",
+  "route": "/learning/devops/linux",
+  "tag": "Infrastructure & Operations",
+  "modulesCount": "12 Practical Modules",
+  "totalModules": 12,
+  "color": "from-stone-900 via-orange-950 to-orange-600",
+  "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
+  "highlights": [
+    "Linux, Shell & Git Workflows",
+    "Docker Containers & Multi-Stage Builds",
+    "Kubernetes & Terraform IaC",
+    "CI/CD, GitOps & Production Reliability",
+    "Full Infrastructure Capstone"
+  ]
+}

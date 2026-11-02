@@ -1,0 +1,94 @@
+{
+  "id": "final-capstone",
+  "courseId": "cybersecurity",
+  "index": 24,
+  "name": "24. Final Capstone: Security Assessment & Defense",
+  "route": "/learning/cybersecurity/final-capstone",
+  "componentName": "CybersecurityFinalCapstone",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the main goal of the final capstone?",
+      "options": [
+        "Run as many security tools as possible.",
+        "Complete an authorized assessment, document findings, remediate weaknesses, retest and demonstrate defensive readiness.",
+        "Prove that every possible vulnerability has been found.",
+        "Build the largest lab architecture regardless of available resources."
+      ],
+      "correctIndex": 1,
+      "explanation": "The final capstone integrates technical assessment with risk management, root-cause remediation, detection engineering, and verified retesting across the full lifecycle: Assess → Document → Secure → Retest → Defend → Improve."
+    },
+    {
+      "id": "q2",
+      "question": "A seeded finding has not been independently reproduced. What should the assessor do?",
+      "options": [
+        "Report it as confirmed because it appears in the training scenario.",
+        "Delete it from the final report.",
+        "Record the evidence status, validate the condition where possible, and document limitations or differences in the lab.",
+        "Assign it Critical severity without further review."
+      ],
+      "correctIndex": 2,
+      "explanation": "Assessor integrity demands recording the exact empirical state. Unreproduced items must be documented with their evidence status and testing limitations rather than falsely claimed as confirmed."
+    },
+    {
+      "id": "q3",
+      "question": "What is the best way to verify an application authorization fix?",
+      "options": [
+        "Use dedicated test identities and synthetic records to check both allowed and denied access.",
+        "Trust the deployment log without testing behavior.",
+        "Test only whether the application homepage loads.",
+        "Access real user records to increase confidence."
+      ],
+      "correctIndex": 0,
+      "explanation": "Verification requires both positive testing (authorized user succeeds) and negative testing (unauthorized user receives HTTP 403) using safe, synthetic identities."
+    },
+    {
+      "id": "q4",
+      "question": "A synthetic security event exists in raw logs but the detection fails because a required field is missing. What should the team do first?",
+      "options": [
+        "Disable the alert rule permanently.",
+        "Declare the incident resolved.",
+        "Increase all alert thresholds.",
+        "Identify and correct the earliest confirmed collection, parsing or normalization failure, then retest."
+      ],
+      "correctIndex": 3,
+      "explanation": "When raw telemetry exists but detection fails due to a missing field, this is a data-quality/normalization defect. The team must trace the pipeline to find the earliest drop and patch the parser before tuning the rule."
+    },
+    {
+      "id": "q5",
+      "question": "A backup configuration exists, but no restoration test has been performed. What can be concluded?",
+      "options": [
+        "Recovery is guaranteed.",
+        "The plan exists, but successful recovery has not yet been demonstrated.",
+        "The backup should be deleted.",
+        "No recovery validation is necessary."
+      ],
+      "correctIndex": 1,
+      "explanation": "Backups are merely assumptions until proven through restoration. Having a configuration or snapshot without an empirical restore test leaves recovery unverified."
+    },
+    {
+      "id": "q6",
+      "question": "Which evidence best supports closing a remediated finding?",
+      "options": [
+        "A verbal statement that the code was fixed.",
+        "A new report with the finding omitted.",
+        "A documented retest showing the expected security behavior, along with relevant regression results and limitations.",
+        "The original scanner output alone."
+      ],
+      "correctIndex": 2,
+      "explanation": "Closure requires verifiable proof: a documented retest showing that the specific vulnerability is mitigated, neighboring functionality works without regression, and any residual limitations are recorded."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1527,
+    "fileSizeBytes": 85553,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

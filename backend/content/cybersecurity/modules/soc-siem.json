@@ -1,0 +1,94 @@
+{
+  "id": "soc-siem",
+  "courseId": "cybersecurity",
+  "index": 20,
+  "name": "20. Security Monitoring, SIEM & Forensics",
+  "route": "/learning/cybersecurity/soc-siem",
+  "componentName": "CybersecuritySOCSIEM",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "1. What is the primary purpose of a SIEM?",
+      "options": [
+        "Replace all endpoint and network security controls.",
+        "Centralize and analyze security-related data to support detection and investigation.",
+        "Automatically prove whether every alert is malicious.",
+        "Store only firewall logs and ignore other sources."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "2. An alert shows repeated failed logins followed by a successful login. What is the best next step?",
+      "options": [
+        "Declare a confirmed compromise without further checks.",
+        "Delete the account immediately without checking its role or dependencies.",
+        "Correlate authentication, identity, device and related activity, then assess the evidence.",
+        "Disable authentication logging to prevent more alerts."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "3. Why is time synchronization important in investigations?",
+      "options": [
+        "It helps establish an accurate order of events across different systems.",
+        "It eliminates the need to preserve original logs.",
+        "It guarantees that all events are related.",
+        "It automatically removes false positives."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "4. What is the primary purpose of a chain-of-custody record?",
+      "options": [
+        "Rank detection rules by severity.",
+        "Prove that the content of every evidence item is malicious.",
+        "Replace evidence-integrity checks.",
+        "Track who collected, handled, transferred and stored evidence."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "5. What should a detection engineer do about an overly noisy SIEM rule?",
+      "options": [
+        "Delete all logs from the affected source.",
+        "Analyze false positives, validate data and tune the rule against benign and suspicious test cases.",
+        "Raise the threshold until the rule never alerts.",
+        "Assume all alerts are true positives."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "6. Which statement best describes incident response?",
+      "options": [
+        "It begins and ends with deleting suspicious files.",
+        "It is only relevant after data has been publicly disclosed.",
+        "It coordinates preparation, detection, analysis, containment, eradication, recovery and improvement.",
+        "It is the same as logging and requires no communication plan."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2080,
+    "fileSizeBytes": 126705,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

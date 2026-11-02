@@ -1,0 +1,118 @@
+{
+  "id": "case-studies",
+  "courseId": "system-design",
+  "index": 22,
+  "name": "22. System Design Case Studies",
+  "route": "/learning/system-design/case-studies",
+  "componentName": "SystemDesignCaseStudies",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "1. Which strategy is commonly used to generate short URL codes from unique numeric identifiers?",
+      "options": [
+        "Base62 encoding",
+        "Password hashing as the lookup key",
+        "WebSocket frames",
+        "Feed ranking"
+      ],
+      "correctIndex": 0,
+      "explanation": "Base62 encoding (using [0-9a-zA-Z]) turns unique 64-bit auto-incrementing or Snowflake numeric IDs into compact URL-safe 7-character strings (62^7 ≈ 3.52 trillion combinations) without collisions."
+    },
+    {
+      "id": "q2",
+      "question": "2. When should a chat server acknowledge that a message has been durably accepted?",
+      "options": [
+        "Before writing the message anywhere",
+        "After the required durable persistence operation succeeds",
+        "Only after every group member reads it",
+        "Only after all devices disconnect"
+      ],
+      "correctIndex": 1,
+      "explanation": "Store-first persistence is required: a chat server must write the message to durable database/replicated storage before returning an ACK to the sender. In-memory ACKs risk silent data loss during crashes."
+    },
+    {
+      "id": "q3",
+      "question": "3. Why is exactly-once delivery difficult for notifications?",
+      "options": [
+        "Messages cannot contain IDs",
+        "The sender and provider may disagree about whether an attempt succeeded",
+        "Notifications never need retries",
+        "Database transactions automatically cover external email providers"
+      ],
+      "correctIndex": 1,
+      "explanation": "External third-party providers (APNs, SendGrid, Twilio) cannot participate in distributed 2PC transactions. Network timeouts or lost ACKs leave delivery state ambiguous, mandating at-least-once delivery with idempotency keys."
+    },
+    {
+      "id": "q4",
+      "question": "4. What is the main problem with fan-out-on-write for an account with millions of followers?",
+      "options": [
+        "It prevents any new posts",
+        "It makes all feed reads impossible",
+        "One post can trigger an enormous number of feed-entry writes",
+        "It automatically removes every cache"
+      ],
+      "correctIndex": 2,
+      "explanation": "A user with 10 million followers causes 10 million write operations in follower inboxes on every single post (write amplification), exhausting queue capacity and worker threads."
+    },
+    {
+      "id": "q5",
+      "question": "5. What is a transactional outbox used for?",
+      "options": [
+        "Making a database update and its event-publication intent durable together",
+        "Replacing every database index",
+        "Sending WebSocket heartbeats",
+        "Generating random URL codes"
+      ],
+      "correctIndex": 0,
+      "explanation": "The transactional outbox pattern commits business entity modifications and the corresponding notification event into the same database transaction, preventing split-brain inconsistencies between DB and message brokers."
+    },
+    {
+      "id": "q6",
+      "question": "6. Which API pagination approach is often suitable for large, continuously updated feeds?",
+      "options": [
+        "Unbounded result sets",
+        "Deep offsets for every request",
+        "Cursor pagination with deterministic ordering",
+        "Random result ordering"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cursor pagination (keyset pagination using (created_at, post_id) < ($timestamp, $id)) avoids missing/duplicate posts when new items arrive at the top and executes in O(1) index seek time unlike O(N) OFFSET scans."
+    },
+    {
+      "id": "q7",
+      "question": "7. Which component should remain the authoritative source for whether a private social post is accessible?",
+      "options": [
+        "A stale feed entry alone",
+        "The trusted source of current post visibility and authorization rules",
+        "A cached ranking score",
+        "The follower count"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cached feed timelines only store lightweight references (post IDs). The core post/authorization service must validate current privacy permissions and post deletion status during post hydration."
+    },
+    {
+      "id": "q8",
+      "question": "8. Which notification design is best suited to handling an external provider outage?",
+      "options": [
+        "Make every business request wait indefinitely",
+        "Persist pending work, bound retries, monitor the queue, and handle failed jobs",
+        "Delete every pending message immediately",
+        "Retry synchronously without a limit"
+      ],
+      "correctIndex": 1,
+      "explanation": "Decoupled asynchronous worker queues with exponential backoff + jitter, bounded retry thresholds, circuit breakers, and Dead-Letter Queues (DLQ) isolate external provider outages from upstream business flows."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1616,
+    "fileSizeBytes": 103416,
+    "questionCount": 8,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

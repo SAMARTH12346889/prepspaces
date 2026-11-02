@@ -1,0 +1,552 @@
+{
+  "id": "git",
+  "courseId": "devops",
+  "index": 2,
+  "name": "Git & Workflows",
+  "route": "/learning/devops/git",
+  "componentName": "DevOpsGit",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the difference between Git, GitHub, a commit, a branch, a tag and a release?",
+      "options": [
+        "Git is a local version control system; GitHub is a hosting platform; a commit is an immutable snapshot; a branch is a movable reference to a commit; a tag is a static named reference; a release is a published software version with notes/artifacts.",
+        "Git is a cloud platform; GitHub is a terminal command; a commit is a branch; a tag is a working tree.",
+        "They are all interchangeable synonyms in modern CI/CD.",
+        "Git and GitHub are identical open-source software tools run on Linux servers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "What do the working directory, staging area (index) and local repository represent?",
+      "options": [
+        "Working directory: uncommitted local files; Staging area: binary cache of files selected for the next commit snapshot; Local repository: committed permanent history stored in .git.",
+        "Working directory: cloud storage; Staging area: RAM cache; Local repository: GitHub server.",
+        "They are all identical directories inside the user's home folder.",
+        "Staging area is only used when internet connection fails."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "Why should commits represent small, logically coherent changes rather than giant unrelated updates?",
+      "options": [
+        "Because Git has a hard file size limit of 10KB per commit.",
+        "Coherent commits make code review manageable, allow precise regression tracking via git bisect, and enable clean rollbacks via git revert without unintended side effects.",
+        "To artificially inflate developer contribution metrics on GitHub profiles.",
+        "Because merge conflicts cannot occur if commits are small."
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "What is the difference between merging and rebasing, and why should shared history be treated carefully?",
+      "options": [
+        "Merging creates a 3-way merge commit preserving exact history topology; rebasing replays commits onto a new base creating linear history by rewriting commit hashes. Rewriting shared history breaks collaborators' local branch ancestry.",
+        "Merging deletes files while rebasing compresses them.",
+        "Rebase can only be used on GitHub's website; merge is only run in the terminal.",
+        "Rebasing preserves commit hashes; merging generates new hashes."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "What causes a merge conflict, and how can an SRE verify its resolution before completing the merge?",
+      "options": [
+        "A conflict occurs when two branches edit the exact same lines of a file or modify/delete the same file. Verification requires removing all conflict markers, running test suites/linters, and inspecting git diff --staged.",
+        "Conflicts are caused by server network timeouts during git push.",
+        "Conflicts only happen if .gitignore is missing.",
+        "A conflict is automatically resolved by Git deleting the older file."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "What does a Pull Request (PR) add beyond a raw 'git push'?",
+      "options": [
+        "It provides a structured collaboration framework: visual diff inspection, peer code reviews, CI/CD automated test gates, discussion threads, and policy enforcement via branch protection rules.",
+        "It speeds up internet bandwidth for large git pushes.",
+        "It converts bash scripts into compiled C binaries automatically.",
+        "It is merely a notification email with no extra tools."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "What should a professional code reviewer examine beyond simple syntax errors?",
+      "options": [
+        "Correctness, system design/architecture, unnecessary complexity, readability/maintainability, security risks (permissions/secrets), operational safety (logging/error handling), and backward compatibility.",
+        "Only code indentation, semicolons, and variable naming aesthetics.",
+        "Whether the author used spaces or tabs exclusively.",
+        "Reviewers should only verify whether the CI build passed."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "How can you undo a shared commit in production without rewriting its history?",
+      "options": [
+        "Use 'git revert <commit-hash>', which creates a new forward commit that applies the inverse diff of the faulty change.",
+        "Run 'git reset --hard HEAD~1' and 'git push --force'.",
+        "Delete the repository on GitHub and re-push from a backup USB drive.",
+        "Edit the file manually and leave commit history unchanged."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "Why is adding an accidentally committed secret to .gitignore insufficient?",
+      "options": [
+        ".gitignore only prevents untracked files from being staged in the future; it does NOT remove files already stored in the Git commit object database.",
+        "Because .gitignore is ignored by GitHub.",
+        "Because .gitignore files can be read by anyone on the internet.",
+        "Because secrets in .gitignore cause the Git compiler to crash."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "Under Semantic Versioning 2.0.0, when should a project increment MAJOR, MINOR, or PATCH?",
+      "options": [
+        "MAJOR: Incompatible/breaking API or CLI changes; MINOR: Backward-compatible new functionality; PATCH: Backward-compatible bug fixes.",
+        "MAJOR: Yearly; MINOR: Monthly; PATCH: Daily.",
+        "MAJOR: When UI changes color; MINOR: When a developer is promoted; PATCH: On weekends.",
+        "MAJOR: When database size exceeds 1TB; MINOR: 100GB; PATCH: 10GB."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "How can you determine which exact Git commit a published version tag refers to?",
+      "options": [
+        "Run 'git show <tag-name>' or 'git rev-parse <tag-name>^{commit}'.",
+        "Tags do not reference commits; they reference GitHub issues.",
+        "Check the file modification timestamp in Windows Explorer.",
+        "Download the zip file from GitHub and check the README date."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "What evidence should an SRE require before merging a PR that alters Linux service-management behavior?",
+      "options": [
+        "Proof of read-only default behavior, unit/integration test results across active/inactive/failed states, verification of systemd supervision directives, audit of required sudo permissions, and rollback test plan.",
+        "A thumbs-up emoji on Slack from the author.",
+        "Verification that the bash script is under 50 lines.",
+        "Confirmation that the code was generated by an AI model."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": [
+    {
+      "id": "concept-graph",
+      "number": "01",
+      "title": "Understand Git Before Memorizing Commands",
+      "badge": "Mental Model & DAG",
+      "summary": "Why ad-hoc scripts like 'script-final-v2.sh' fail. Git is a Directed Acyclic Graph (DAG) of immutable snapshots, not differential patch files. The 4 primary areas: Working Tree, Index (Staging), Local Repository, and Remote Repository.",
+      "details": [
+        {
+          "heading": "The Anti-Pattern of Manual Versioning",
+          "body": "Without version control, engineers fall into the trap of 'script-final.sh', 'script-final-new.sh', 'script-final-working.sh'. In production, this makes it impossible to answer: Which version worked last Tuesday? Who modified the disk health check? Why was an authorization check removed? Can we instantly roll back a broken deploy? Git answers these by recording immutable, cryptographically hashed snapshots linked in a causal graph."
+        },
+        {
+          "heading": "Git History is a Directed Acyclic Graph (DAG)",
+          "body": "Unlike older VCS tools (CVS/SVN) that stored file diffs (deltas), Git stores a sequence of snapshots. Each commit contains metadata (author, timestamp, commit message) and a cryptographic tree pointer representing the exact directory state. Crucially, each commit points backward to its parent commit(s). Branches in Git are not heavy copies of your project; a branch is merely a lightweight, 41-byte movable pointer referencing a commit SHA."
+        },
+        {
+          "heading": "The Four Areas of Everyday Git",
+          "body": "Every command navigates across 4 distinct zones:\n1. Working Directory: The actual sandbox files on your filesystem currently being edited.\n2. Staging Area (Index): The binary cache (`.git/index`) representing the exact snapshot prepared for the next commit.\n3. Local Repository: The permanent local history of committed snapshots stored in `.git/objects`.\n4. Remote Repository: The shared remote repository hosted on GitHub/GitLab used for team synchronization."
+        },
+        {
+          "heading": "Git vs. GitHub: Foundational Separation",
+          "body": "Git is a local-first distributed version control system developed by Linus Torvalds in 2005. It functions entirely offline on your workstation. GitHub is a hosted cloud platform that wraps Git repositories with collaborative engineering tools: Pull Requests, code review discussions, issue trackers, CI/CD Actions, and enterprise access permissions."
+        }
+      ],
+      "codeSnippet": "# Visualizing the 4 zones of Git\n# 1. Inspect working tree vs index (staging)\ngit status\n\n# 2. Add specific files to index (prepare snapshot)\ngit add linux-admin.sh\n\n# 3. Commit staged snapshot to local repository\ngit commit -m \"feat(diagnostics): add inode exhaustion check\"\n\n# 4. Push local commits to remote GitHub repository\ngit push origin main"
+    },
+    {
+      "id": "config-identity",
+      "number": "02",
+      "title": "Install, Configure & Secure Identity",
+      "badge": "Configuration & Hygiene",
+      "summary": "Global vs repository configuration. Author identity vs committer identity. Inspecting configuration origins. Eliminating hardcoded secrets from git configuration files.",
+      "details": [
+        {
+          "heading": "Package Installation Across Linux Distributions",
+          "body": "On modern Debian/Ubuntu servers:\n`sudo apt update && sudo apt install git -y`\nOn RHEL/CentOS/Rocky Linux:\n`sudo dnf install git -y`\nVerify installation using `git --version` (Git 2.34+ recommended for modern `switch`/`restore` primitives)."
+        },
+        {
+          "heading": "Configuring Commit Identity",
+          "body": "Git commits embed author and committer names and email addresses. Configure these globally for your user environment:\n`git config --global user.name \"Jane Doe\"`\n`git config --global user.email \"jane.doe@company.internal\"`\nGitHub also provides a privacy no-reply email (e.g., `ID+username@users.noreply.github.com`) to prevent public scraping of corporate emails."
+        },
+        {
+          "heading": "Configuration Hierarchy & Inspection",
+          "body": "Git evaluates configuration in three cascading tiers:\n1. System level (`/etc/gitconfig`): Applies to all OS users.\n2. Global level (`~/.gitconfig`): Applies to your current OS user account.\n3. Local level (`.git/config`): Repository-specific overrides.\nInspect all active keys and their file origins with:\n`git config --list --show-origin`"
+        },
+        {
+          "heading": "Security Rule: No Credentials in Configuration",
+          "body": "Never store plaintext passwords, personal access tokens (PATs), or private keys in Git configuration files. Use SSH keys registered with `ssh-agent`, or modern Git Credential Managers that store authentication tokens in secure OS keyrings (libsecret on Linux, Keychain on macOS, Credential Manager on Windows)."
+        }
+      ],
+      "codeSnippet": "# Verify Git version\ngit --version\n\n# Set global identity\ngit config --global user.name \"SRE Engineer\"\ngit config --global user.email \"sre@infrastructure.io\"\n\n# Set default primary branch to 'main'\ngit config --global init.defaultBranch main\n\n# Inspect all configurations and origins\ngit config --list --show-origin"
+    },
+    {
+      "id": "init-commits",
+      "number": "03",
+      "title": "Repository Initialization, Commits & .gitignore",
+      "badge": "Commits & Conventional Specs",
+      "summary": "Initializing projects with 'git init -b main'. Atomic commits and Conventional Commits format. The critical purpose of .gitignore and why it cannot remediate committed secrets.",
+      "details": [
+        {
+          "heading": "Project Initialization",
+          "body": "Initialize your DevOps infrastructure repository with modern default branch naming:\n`mkdir linux-admin-toolkit && cd linux-admin-toolkit`\n`git init -b main`\nThis creates the hidden `.git` directory containing object databases, refs, and the index."
+        },
+        {
+          "heading": "Atomic, Coherent Commits",
+          "body": "A commit should be atomic: a single, logically coherent unit of work that leaves the system in a compiling, testable state. Avoid the anti-pattern of 'giant Friday commit' containing 50 unrelated edits across documentation, backend logic, and config files. When changes are atomic, bugs can be easily isolated with `git bisect` and cleanly rolled back with `git revert`."
+        },
+        {
+          "heading": "The Conventional Commits Standard",
+          "body": "Adopt semantic commit prefixes to enable automated changelogs and clear history:\n- `feat:` Introduces new functionality.\n- `fix:` Patches a bug or operational defect.\n- `docs:` Modifies documentation or runbooks.\n- `test:` Adds or modifies unit/integration test suites.\n- `refactor:` Code restructuring without functional behavior changes.\n- `chore:` Maintenance tasks, dependency updates, tooling."
+        },
+        {
+          "heading": "Staging Inspection Workflow",
+          "body": "Never blind commit (`git commit -a`). Always execute the two-phase diff inspection:\n1. `git diff`: Shows changes in the working tree not yet staged.\n2. `git diff --staged`: Shows the exact diff that will be committed to the repository.\nThis inspection catches debugging print statements, temporary files, and accidental secrets before they reach the repository."
+        },
+        {
+          "heading": ".gitignore Hygiene & The Secret Committal Danger",
+          "body": "A `.gitignore` file specifies intentionally untracked patterns (e.g., `.env`, `*.log`, `__pycache__/`, `.venv/`).\nCRITICAL WARNING: `.gitignore` only prevents untracked files from being added. If a developer accidentally commits a secret (like an AWS secret or database password) and then adds `.env` to `.gitignore` in a subsequent commit, the secret REMAINS PERMANENTLY ACCESSIBLE in repository history!"
+        }
+      ],
+      "codeSnippet": "# Initialize repo with main branch\ngit init -b main\n\n# Inspect staging area\ngit status\ngit diff          # unstaged changes\ngit diff --staged # staged changes ready to commit\n\n# Commit with Conventional Commit message\ngit commit -m \"feat(storage): implement inode exhaustion threshold warning\"\n\n# View oneline decorated graph history\ngit log --oneline --graph --decorate --all"
+    },
+    {
+      "id": "branches-flow",
+      "number": "04",
+      "title": "Branches & Collaborative Development",
+      "badge": "Pointers & GitHub Flow",
+      "summary": "Branches as lightweight 41-byte pointers. Modern 'git switch -c' vs legacy checkout. Branch naming conventions. Implementing GitHub Flow in SRE teams.",
+      "details": [
+        {
+          "heading": "How Git Branches Actually Work",
+          "body": "In Git, a branch is not a directory copy or heavy container. It is literally a 41-byte text file inside `.git/refs/heads/<branch-name>` containing the 40-character SHA hash of the commit it points to. Because creating a branch merely writes a 41-byte text file, branching is instantaneous and virtually free in storage overhead."
+        },
+        {
+          "heading": "Modern Branch Switching: git switch",
+          "body": "Historically, `git checkout` was overloaded with two unrelated duties: switching branches and discarding working file modifications. Git 2.23+ introduced dedicated commands:\n- `git switch -c feature/resource-report`: Creates and switches to a new branch.\n- `git switch main`: Returns to the main branch.\n- `git restore <file>`: Discards unstaged file edits safely."
+        },
+        {
+          "heading": "SRE Branch Naming Conventions",
+          "body": "Establish consistent, hierarchical branch names across the team:\n- `feature/disk-health-json`: New telemetry capabilities.\n- `fix/nginx-socket-leak`: Defect remediation.\n- `ops/rotate-tls-certs`: Infrastructure maintenance.\n- `docs/troubleshooting-runbook`: SRE incident documentation."
+        },
+        {
+          "heading": "GitHub Flow Collaboration Model",
+          "body": "GitHub Flow is a lightweight, battle-tested branching model:\n1. Anything in the `main` branch is production-ready and deployable.\n2. To work on something new, create a descriptive branch off `main`.\n3. Commit small, logical changes locally and regularly push to the remote.\n4. Open a Pull Request targeting `main` to solicit review and run automated tests.\n5. Once approved and CI checks pass, merge into `main` and deploy immediately."
+        }
+      ],
+      "codeSnippet": "# Create and switch to a feature branch\ngit switch -c feature/systemd-service-check\n\n# Make edits and commit to the branch\ngit add linux-admin.sh\ngit commit -m \"feat(services): verify systemd unit active states\"\n\n# View local and remote tracking branches\ngit branch -avv\n\n# Switch back to primary branch\ngit switch main"
+    },
+    {
+      "id": "merge-vs-rebase",
+      "number": "05",
+      "title": "Merge vs. Rebase: Architectural Trade-offs",
+      "badge": "History Topology & Safety",
+      "summary": "3-way merges vs linear rebasing. When to use each. The Golden Rule of Rebasing: Never rebase or force-push a public/shared branch.",
+      "details": [
+        {
+          "heading": "The Merge Strategy: Context-Preserving Integration",
+          "body": "When you run `git merge feature/diagnostics` on `main`, Git performs a 3-way merge using the two branch tips and their common ancestor. If histories have diverged, Git generates a merge commit with two parent commits. Advantage: completely preserves historical context and exact timestamps without rewriting history. Disadvantage: can create tangled 'railroad track' graph histories in high-frequency teams."
+        },
+        {
+          "heading": "The Rebase Strategy: Linear Replaying",
+          "body": "Rebase replays your branch commits on top of the target branch (`origin/main`). Git sequentially extracts the diff of each commit on your branch and applies it as a brand-new commit (with a brand-new commit SHA) on the tip of the upstream branch. Advantage: produces a clean, perfectly linear commit history. Disadvantage: rewrites commit timestamps and hashes."
+        },
+        {
+          "heading": "The SRE Golden Rule of Rebasing",
+          "body": "CRITICAL SAFETY DOCTRINE: Never rebase commits that have been pushed to a public or shared remote repository! Rebasing rewrites commit IDs ($C_1 \\rightarrow C_1'$). If other team members branched off your original commit, their histories diverge catastrophically, forcing painful manual reconciliations."
+        },
+        {
+          "heading": "The Danger of git push --force",
+          "body": "Routine use of `git push --force` (`-f`) is an operational hazard that can overwrite colleagues' work. If a private feature branch history rewrite must be published, always use `git push --force-with-lease`. This flags and rejects the push if someone else pushed commits to the remote branch since your last fetch."
+        }
+      ],
+      "codeSnippet": "# Method 1: Merging (Preserves history & merge commit)\ngit switch main\ngit merge feature/resource-report\n\n# Method 2: Rebasing (Creates linear history on private branch)\ngit switch feature/resource-report\ngit fetch origin\ngit rebase origin/main\n\n# Safe force-push for private rebased feature branches\ngit push --force-with-lease origin feature/resource-report"
+    },
+    {
+      "id": "merge-conflicts",
+      "number": "06",
+      "title": "Merge Conflicts: Mechanics & Resolution",
+      "badge": "Conflict Markers & Triage",
+      "summary": "Why conflicts happen. Deconstructing conflict markers (HEAD vs incoming). Systematic resolution workflow and safe rollback via 'git merge --abort'.",
+      "details": [
+        {
+          "heading": "Anatomy of a Merge Conflict",
+          "body": "A conflict occurs when Git cannot deterministically reconcile changes because two branches modified the exact same lines of a file since their common ancestor, or one branch deleted a file that the other modified. Git pauses execution, enters a merging state, and inserts visual conflict markers directly into the affected files."
+        },
+        {
+          "heading": "Deconstructing Conflict Markers",
+          "body": "A conflict block consists of three sections:\n`<<<<<<< HEAD`: Marks the start of changes on your current branch (e.g., `main`).\n`=======`: The middle delimiter separating competing modifications.\n`>>>>>>> branch-name`: The incoming changes from the branch being integrated.\nThese markers are not valid code syntax and must be completely removed during resolution."
+        },
+        {
+          "heading": "Systematic 4-Step Resolution Workflow",
+          "body": "1. Identify: Run `git status` to locate files listed under 'Unmerged paths'.\n2. Reconcile: Open each file, analyze the intent of both changes, edit the code into the intended unified state, and delete all `<<<<<<<`, `=======`, and `>>>>>>>` markers.\n3. Validate: Run unit tests, linters, or syntax validators to ensure the merged file functions properly.\n4. Finalize: Run `git add <file>` to mark resolved, then execute `git merge --continue` (or `git commit`) to finalize the merge."
+        },
+        {
+          "heading": "The Escape Hatch: git merge --abort",
+          "body": "If a conflict is too complex or was started by mistake, never attempt manual guesswork. Run `git merge --abort`. This cleanly rolls back your working tree and index to the exact state before the merge was initiated."
+        }
+      ],
+      "codeSnippet": "# 1. Check which files are in conflict\ngit status\n\n# 2. After editing and removing conflict markers:\ngit add linux-admin.sh\n\n# 3. Complete the merge\ngit merge --continue\n\n# Emergency Escape Hatch: Cancel merge and restore previous state\ngit merge --abort"
+    },
+    {
+      "id": "remotes-prs",
+      "number": "07",
+      "title": "GitHub Remotes & The Pull Request Lifecycle",
+      "badge": "Upstreams & PR Architecture",
+      "summary": "Connecting remotes with 'git remote add origin'. Upstream tracking flags (-u). The 8-stage PR lifecycle and enterprise branch protection rules.",
+      "details": [
+        {
+          "heading": "Connecting Local Repositories to Remotes",
+          "body": "A remote is a reference to a hosted repository on GitHub. Connect an existing local repository:\n`git remote add origin https://github.com/organization/linux-admin-toolkit.git`\nVerify configured remote URLs:\n`git remote -v`\nThe `-u` (or `--set-upstream`) flag during `git push -u origin main` binds your local `main` branch to the remote `origin/main` tracking branch, allowing subsequent simple `git push` and `git pull` commands."
+        },
+        {
+          "heading": "The 8-Stage Pull Request Lifecycle",
+          "body": "A Pull Request (PR) is a formal mechanism to propose, discuss, review, and test changes before merging:\n1. Create focused feature branch from latest `main`.\n2. Commit atomic, well-tested changes.\n3. Push branch to remote.\n4. Open Pull Request on GitHub with a comprehensive description.\n5. Automated CI pipelines execute (linters, unit tests, security scans).\n6. Team peer review and discussions.\n7. Address review feedback with iterative commits.\n8. Merge approved PR into `main` and delete the feature branch."
+        },
+        {
+          "heading": "Structuring an Elite PR Description",
+          "body": "A professional PR description answers 4 questions for the reviewer:\n- Context/Problem: Why is this change necessary? (Link Jira/GitHub issue).\n- Proposed Solution: How does this change solve the issue?\n- Validation & Testing: What tests, commands, or edge cases were verified?\n- Operational Impact: Does this require downtime, migration, or permission changes?"
+        },
+        {
+          "heading": "Enterprise Branch Protection Rules",
+          "body": "To maintain production stability, GitHub repositories should enforce branch protection on `main`:\n- Require pull request reviews before merging (e.g., minimum 1 senior SRE approval).\n- Require status checks to pass before merging (CI test matrix, ShellCheck, security scanner).\n- Require conversation resolution before merging.\n- Prohibit force pushes and branch deletions on `main`."
+        }
+      ],
+      "codeSnippet": "# Add GitHub remote\ngit remote add origin https://github.com/corp/linux-admin-toolkit.git\ngit remote -v\n\n# Push branch and set upstream tracking\ngit push -u origin feature/service-diagnostics\n\n# Fetch remote updates without auto-merging\ngit fetch origin\n\n# Fast-forward pull with rebase\ngit pull --rebase origin main"
+    },
+    {
+      "id": "code-review",
+      "number": "08",
+      "title": "Google-Grade Code Review Doctrine for SREs",
+      "badge": "Google Eng Practices",
+      "summary": "Code review as a quality and knowledge-sharing engine. Google's 8 review dimensions. Operational reviews for bash & infrastructure automation. High-empathy actionable comments.",
+      "details": [
+        {
+          "heading": "The Purpose of Code Review",
+          "body": "Following Google Engineering Practices (`eng-practices`), code review is not an adversarial gatekeeping exercise or a race to find minor formatting flaws. Its purpose is to maintain and improve code health, ensure architectural alignment, prevent operational defects, and mentor team members."
+        },
+        {
+          "heading": "The SRE Review Dimension Matrix",
+          "body": "A production infrastructure reviewer evaluates changes across 8 critical dimensions:\n1. Correctness: Does the code actually perform what it claims without edge-case regressions?\n2. Design: Does it fit into the broader system architecture cleanly?\n3. Complexity: Is the code unnecessarily complicated? Can it be simplified?\n4. Readability: Will an on-call engineer at 3:00 AM understand this script during an outage?\n5. Security: Does it expose credentials, rely on untrusted input, or require excessive `sudo` privileges?\n6. Operations: Does it log meaningful error messages with timestamps, or fail silently?\n7. Testing: Are failure scenarios and non-zero exit codes tested?\n8. Backward Compatibility: Will this break existing cron jobs, APIs, or downstream scripts?"
+        },
+        {
+          "heading": "Constructive vs Destructive Review Comments",
+          "body": "Weak/Unhelpful: 'This is bad. Rewrite it.'\nConstructive/Actionable: 'This while-loop restarts Nginx every second without a backoff timer. If Nginx crashes due to a corrupt configuration, this will flood the journal logs and max CPU. Could we use systemd's built-in Restart=always directive with a RestartSec=5s delay instead?'"
+        },
+        {
+          "heading": "Distinguishing Blockers from Nits",
+          "body": "Reviewers must explicitly categorize comments:\n- Blocker: Correctness, security vulnerability, or production failure risk (must be resolved before merge).\n- `nit:` (Optional suggestion): Stylistic or minor preference that does not block merging."
+        }
+      ],
+      "codeSnippet": "# Example SRE review comment template:\n# [Category]: Blocker | Security | Operations | Nit\n# [Observation]: What specific line or pattern introduces risk\n# [Impact]: How this manifests under production failure conditions\n# [Recommendation]: Specific code replacement or architectural alternative"
+    },
+    {
+      "id": "tags-semver",
+      "number": "09",
+      "title": "Tags, Releases & Semantic Versioning (SemVer)",
+      "badge": "SemVer 2.0.0 & Immutability",
+      "summary": "Annotated tags vs lightweight tags. GitHub Releases vs Git Tags. Semantic Versioning rules: MAJOR.MINOR.PATCH. The immutability of released versions.",
+      "details": [
+        {
+          "heading": "Lightweight vs. Annotated Tags",
+          "body": "A lightweight tag is just a pointer to a commit (like a branch that doesn't move).\nAn annotated tag is stored as a full object in the Git database. It contains tagger name, email, date, GPG signature, and a release message. Releases should ALWAYS use annotated tags:\n`git tag -a v1.0.0 -m \"Release v1.0.0: Initial production release\"`\nPush specific tags using `git push origin v1.0.0`."
+        },
+        {
+          "heading": "Semantic Versioning (SemVer 2.0.0) Specification",
+          "body": "Software versions follow the format: `MAJOR.MINOR.PATCH` (e.g., `2.4.1`):\n1. MAJOR (X.0.0): Incremented when incompatible API or CLI breaking changes are introduced.\n2. MINOR (1.X.0): Incremented when functionality is added in a backward-compatible manner.\n3. PATCH (1.0.X): Incremented when backward-compatible bug fixes or security patches are made."
+        },
+        {
+          "heading": "Applied SemVer in Infrastructure Automation",
+          "body": "For our `linux-admin.sh` toolkit:\n- Bug fix: Fixing an awk column parsing bug without altering command syntax $\\rightarrow$ `1.0.1` (PATCH).\n- New Feature: Adding `--json` output flag while keeping text output default $\\rightarrow$ `1.1.0` (MINOR).\n- Breaking Change: Renaming `--check-disk` to `-d` and removing the long flag $\\rightarrow$ `2.0.0` (MAJOR)."
+        },
+        {
+          "heading": "The Release Immutability Rule",
+          "body": "Once a version tag (e.g., `v1.2.0`) is published and packaged into a release, it must be treated as immutable. Never delete and retag a published version to slip in a bug fix. If an error is discovered in `v1.2.0`, cut and publish `v1.2.1`."
+        }
+      ],
+      "codeSnippet": "# Create annotated release tag\ngit tag -a v1.0.0 -m \"Release v1.0.0: Linux admin toolkit initial release\"\n\n# Inspect tag metadata and referenced commit\ngit show v1.0.0\n\n# Push tag to GitHub remote\ngit push origin v1.0.0\n\n# Push all local tags\ngit push origin --tags"
+    },
+    {
+      "id": "disaster-recovery",
+      "number": "10",
+      "title": "Disaster Recovery: SRE Playbook & Incident Protocol",
+      "badge": "Recovery & Reflog",
+      "summary": "Undoing mistakes with 'git restore', 'git revert', and 'git reflog'. SRE Emergency Protocol: What to do when a secret is committed to Git.",
+      "details": [
+        {
+          "heading": "Recovering from Working Tree & Staging Mistakes",
+          "body": "- Unstage a file without losing edits: `git restore --staged <file>`\n- Discard unstaged working tree changes: `git restore <file>` (CAUTION: Destructive!)\n- Amend the most recent commit: `git commit --amend` (Only for private, unpushed commits!)."
+        },
+        {
+          "heading": "Undoing Shared Commits: git revert",
+          "body": "If a bad commit was already pushed to `main` and shared across the team, NEVER use `git reset --hard`! That rewrites history and breaks downstream clones. Instead, run `git revert <commit-hash>`. This creates a brand new commit that performs the exact mathematical opposite diff of the faulty commit, cleanly reversing the change while preserving auditability."
+        },
+        {
+          "heading": "The SRE Time Machine: git reflog",
+          "body": "Git records every change of HEAD in the reference log (`git reflog`). If an engineer runs `git reset --hard` and panics thinking their work was destroyed, `git reflog` shows the commit hashes before the reset. You can instantly recover the lost state with `git switch -c recovery-branch <commit-hash>`."
+        },
+        {
+          "heading": "Emergency Incident Protocol: Secret Committed to Git",
+          "body": "Scenario: An engineer committed an active AWS API key or production database password.\nProtocol:\n1. IMMEDIATE REVOCATION: Log in to AWS IAM or database console and rotate/revoke the credential immediately. Never assume the secret is safe.\n2. AUDIT: Review AWS CloudTrail / audit logs for unauthorized access.\n3. HISTORY SCRUB: Use `git-filter-repo` or BFG Repo-Cleaner to rewrite history and purge the secret from all commit trees.\n4. FORCE PUSH SANITIZED REPO: Push sanitized branches and notify all team members to re-clone the repository."
+        }
+      ],
+      "codeSnippet": "# 1. Undo staged file\ngit restore --staged linux-admin.sh\n\n# 2. Safely reverse a shared commit in production\ngit revert 8b9c0d1 -m \"revert: rollback buggy disk check\"\n\n# 3. View reference log to recover 'lost' commits\ngit reflog\n# Recover lost state from reflog:\ngit switch -c rescue-branch HEAD@{2}"
+    }
+  ],
+  "commands": null,
+  "scenarios": [
+    {
+      "id": "pr-1",
+      "prTitle": "PR #14: Add automated remediation loop for dead services",
+      "author": "alex-dev (Junior DevOps Engineer)",
+      "targetBranch": "main",
+      "sourceBranch": "feature/auto-heal-services",
+      "diffSnippet": "+ # Auto-restart loop\n+ while true; do\n+   if ! systemctl is-active --quiet nginx; then\n+     echo \"[ALERT] Nginx is down! Restarting immediately...\"\n+     systemctl restart nginx\n+   fi\n+   sleep 1\n+ done",
+      "riskSummary": "Bash infinite loop restarting a failing service every 1 second without backoff or limits.",
+      "question": "As an SRE Senior Reviewer following Google Engineering practices, what is your review decision?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Approve and Merge: It keeps Nginx running at all times automatically.",
+          "correct": false,
+          "explanation": "Dangerous in production! If Nginx is crashing due to a bad config or port conflict, restarting it every second creates a CPU storm, masks the crash loop, and prevents maintenance downtime."
+        },
+        {
+          "id": "opt-b",
+          "label": "Request Changes: Keep script read-only by default, rely on systemd Restart=always with RestartSec=5s, or add rate-limiting/circuit breakers.",
+          "correct": true,
+          "explanation": "Correct! SRE review doctrine requires read-only defaults. Process supervision belongs in systemd unit files with exponential backoff, not ad-hoc unconstrained while-loops in bash scripts."
+        },
+        {
+          "id": "opt-c",
+          "label": "Approve with Nit: Ask to change sleep 1 to sleep 2.",
+          "correct": false,
+          "explanation": "Insufficient. A 2-second sleep does not fix the architectural flaw of bypassing systemd supervision."
+        }
+      ]
+    },
+    {
+      "id": "pr-2",
+      "prTitle": "PR #15: Add cloud backup upload script",
+      "author": "sam-cloud (Cloud Engineer)",
+      "targetBranch": "main",
+      "sourceBranch": "feature/s3-backup",
+      "diffSnippet": "Commit 1: \"feat: add s3 backup script\"\n+ export AWS_ACCESS_KEY_ID=\"AKIAIOSFODNN7EXAMPLE\"\n+ export AWS_SECRET_ACCESS_KEY=\"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"\n+ aws s3 sync /var/backups s3://corp-ops-backups/\n\nCommit 2: \"chore: remove secrets and add to .gitignore\"\n- export AWS_ACCESS_KEY_ID=\"AKIAIOSFODNN7EXAMPLE\"\n- export AWS_SECRET_ACCESS_KEY=\"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"\n+ # Read from environment variables\n+ aws s3 sync /var/backups s3://corp-ops-backups/",
+      "riskSummary": "AWS credentials were committed to repository history in Commit 1, then deleted in Commit 2.",
+      "question": "The author claims .gitignore now excludes .env and the secret is deleted. How should you respond?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Approve: The secret is deleted from the latest commit so it is no longer visible in the working tree.",
+          "correct": false,
+          "explanation": "Catastrophic misconception! Git preserves full immutable snapshot history. Anyone cloning the repo or inspecting 'git log -p' or commit 1 can read the cleartext AWS Secret Key."
+        },
+        {
+          "id": "opt-b",
+          "label": "Block PR & Trigger Security Incident: Immediately revoke/rotate the AWS IAM key, inspect AWS CloudTrail for unauthorized usage, and scrub git history via git-filter-repo.",
+          "correct": true,
+          "explanation": "Authoritative security doctrine: A secret once committed to git must be assumed compromised. Deleting it in a later commit is completely ineffective. Immediate revocation & rotation is mandatory."
+        },
+        {
+          "id": "opt-c",
+          "label": "Ask author to rebase and squash both commits into one.",
+          "correct": false,
+          "explanation": "While squashing cleans local history, if this branch was pushed to GitHub remote, the commit may already be cached, indexed, or cloned. Key revocation is always step #1."
+        }
+      ]
+    },
+    {
+      "id": "pr-3",
+      "prTitle": "PR #16: Modernize CLI flags for Linux administration toolkit",
+      "author": "jordan-dev (Tools Engineer)",
+      "targetBranch": "main",
+      "sourceBranch": "refactor/cli-flags",
+      "diffSnippet": "- ./linux-admin.sh --check-disk --threshold 80\n+ ./linux-admin.sh -d -t 80\n- # Note: Long flags --check-disk and --threshold have been deleted.",
+      "riskSummary": "Existing CLI flags were deleted and replaced with short options without backward compatibility.",
+      "question": "According to Semantic Versioning 2.0.0, what release tag must this change require if merged?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Increment PATCH (e.g., v1.0.1) because it is a simple syntax cleanup.",
+          "correct": false,
+          "explanation": "PATCH is strictly reserved for backward-compatible bug fixes that do not modify the public API."
+        },
+        {
+          "id": "opt-b",
+          "label": "Increment MINOR (e.g., v1.1.0) because new flags were added.",
+          "correct": false,
+          "explanation": "MINOR requires backward compatibility. If existing automated cron jobs calling '--check-disk' break, it is not backward compatible."
+        },
+        {
+          "id": "opt-c",
+          "label": "Increment MAJOR (e.g., v2.0.0) because removing documented flags breaks existing automation and consumers of the public CLI API.",
+          "correct": true,
+          "explanation": "Exact SemVer requirement: Removing or renaming documented public interfaces/flags is a breaking change requiring a MAJOR version increment (or maintaining deprecated alias flags)."
+        }
+      ]
+    },
+    {
+      "id": "pr-4",
+      "prTitle": "PR #17: Force-pushed rebase on shared staging branch",
+      "author": "pat-ops (Infra Engineer)",
+      "targetBranch": "staging",
+      "sourceBranch": "staging",
+      "diffSnippet": "[remote rejected] staging -> staging (non-fast-forward)\n$ git push --force origin staging\n-> Forced update successful. Replaced 14 commits with rebased SHAs.",
+      "riskSummary": "Force-pushing a rebased branch to a shared environment where 5 other engineers are actively collaborating.",
+      "question": "Why does the SRE engineering doctrine strictly prohibit git push --force on shared branches?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "It breaks Git servers permanently and requires reinstalling git on GitHub.",
+          "correct": false,
+          "explanation": "GitHub handles force-pushes natively, but downstream developers' local repositories will suffer divergent history conflicts."
+        },
+        {
+          "id": "opt-b",
+          "label": "Rebasing recalculates commit hashes; force-pushing overwrites the remote graph, causing colleagues' local branches to diverge and risking silent code loss.",
+          "correct": true,
+          "explanation": "Correct! Rewriting published history forces collaborators to reconcile divergent DAG histories. Work based on overwritten commits can be silently lost during careless merges."
+        },
+        {
+          "id": "opt-c",
+          "label": "Force-pushing converts all text files to binary blobs.",
+          "correct": false,
+          "explanation": "Force-push only moves remote reference pointers; it does not change file serialization."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1715,
+    "fileSizeBytes": 97663,
+    "questionCount": 12,
+    "hasQuiz": true,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

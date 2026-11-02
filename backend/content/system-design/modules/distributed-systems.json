@@ -1,0 +1,158 @@
+{
+  "id": "distributed-systems",
+  "courseId": "system-design",
+  "index": 9,
+  "name": "9. Distributed Systems & Time",
+  "route": "/learning/system-design/distributed-systems",
+  "componentName": "SystemDesignDistributedSystems",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the main reason a remote caller cannot know that a timed-out operation failed?",
+      "options": [
+        "TCP always discards successful writes",
+        "The operation may have completed while its response was delayed or lost",
+        "A timeout automatically rolls back remote transactions"
+      ],
+      "correctIndex": 0,
+      "explanation": "In a distributed system, a timeout only indicates that the caller did not receive a response within its deadline. The request may have committed on the server, but the network connection reset or dropped the response packet during return transit."
+    },
+    {
+      "id": 2,
+      "question": "Which clock is appropriate for measuring elapsed API duration within a process?",
+      "options": [
+        "A wall-clock timestamp that may be adjusted",
+        "A monotonic elapsed-time clock",
+        "A randomly generated ID"
+      ],
+      "correctIndex": 0,
+      "explanation": "Monotonic clocks (such as `performance.now()` in Node.js or `System.nanoTime()` in Java) steadily advance based on CPU hardware ticks and are immune to NTP backward step adjustments or leap seconds."
+    },
+    {
+      "id": 3,
+      "question": "What does a Lamport clock guarantee about causally ordered events?",
+      "options": [
+        "The timestamp of the earlier causal event is less than the later one",
+        "Every timestamp is the exact UTC time",
+        "Events with increasing timestamps are always causally related"
+      ],
+      "correctIndex": 0,
+      "explanation": "If event a causally precedes event b (a -> b), then L(a) < L(b). However, the converse is not true: L(a) < L(b) does not prove that a caused b, because independent concurrent events may have lower numbers."
+    },
+    {
+      "id": 4,
+      "question": "What is the main difference between a timeout and a deadline?",
+      "options": [
+        "They always mean the same thing",
+        "A timeout limits a particular wait or operation; a deadline limits the total useful time for an operation",
+        "A deadline eliminates network failures"
+      ],
+      "correctIndex": 0,
+      "explanation": "A timeout limits an individual socket or RPC call, while a deadline establishes the end-to-end time budget across all microservice layers, propagating remaining budgets and triggering cooperative cancellation."
+    },
+    {
+      "id": 5,
+      "question": "Why use exponential backoff with jitter?",
+      "options": [
+        "To synchronize every client retry",
+        "To spread retries over time and reduce pressure on an unhealthy dependency",
+        "To ensure every request succeeds"
+      ],
+      "correctIndex": 0,
+      "explanation": "Exponential backoff increases delays between attempts, and jitter randomizes the delay to avoid thundering herds where thousands of clients retry at the exact same millisecond."
+    },
+    {
+      "id": 6,
+      "question": "What is idempotency intended to protect against?",
+      "options": [
+        "Duplicate effects from repeating the same logical operation",
+        "Every possible Byzantine failure",
+        "Clock synchronization errors"
+      ],
+      "correctIndex": 0,
+      "explanation": "Idempotency guarantees that executing the same operation multiple times with the same idempotency key produces the exact same side-effect state as executing it once, preventing duplicate billing or submissions."
+    },
+    {
+      "id": 7,
+      "question": "What does a circuit breaker primarily do?",
+      "options": [
+        "Repairs a remote service automatically",
+        "Stops repeated calls to a dependency that is likely to continue failing",
+        "Guarantees that a database replica is fully up to date"
+      ],
+      "correctIndex": 0,
+      "explanation": "A circuit breaker monitors failure rates; when a threshold is breached, it trips OPEN to fail immediately without placing additional load on the struggling dependency, protecting thread pools and preventing cascading outages."
+    },
+    {
+      "id": 8,
+      "question": "Why can a healthy process appear failed to another machine?",
+      "options": [
+        "Network delays or partitions may prevent communication",
+        "Every heartbeat proves exact physical time",
+        "Logical clocks guarantee connectivity"
+      ],
+      "correctIndex": 0,
+      "explanation": "Network congestion, packet loss, GC pauses, or asymmetric routing can prevent heartbeats from arriving, making a completely healthy service appear dead to an external observer."
+    },
+    {
+      "id": 9,
+      "question": "What is a cascading failure?",
+      "options": [
+        "An outage that always stays limited to one server",
+        "A failure that overloads or destabilizes dependent components and causes further failures",
+        "A normal successful retry"
+      ],
+      "correctIndex": 0,
+      "explanation": "A cascading failure occurs when a problem in one component (e.g. slow responses) causes callers to consume excess threads, time out, and retry, triggering a chain reaction that knocks down unrelated upstream services."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": "qa-1",
+      "title": "Why does a request timeout NOT prove that the remote operation failed?",
+      "context": "An API caller experiences an HTTP 504 Gateway Timeout while submitting an exam answer.",
+      "answer": "In a distributed system, a timeout is a unilateral local decision by the client to stop waiting. The server may have successfully received the request, begun a database transaction, and committed the record. If the return packet was dropped or delayed by a slow network, the client records a 'failure' while the database holds a 'committed' state. This is why non-idempotent blind retries cause duplicate data corruption."
+    },
+    {
+      "id": "qa-2",
+      "title": "How does Clock Skew break distributed locks and leases, and how do Fencing Tokens fix it?",
+      "context": "A worker acquires a 10-second distributed lease in Redis, but experiences a 12-second Garbage Collection pause.",
+      "answer": "If a process pauses for longer than its lease duration, its lock expires on the coordinator while the worker still believes it owns the lock. When it unfreezes, it executes writes concurrently with the newly elected leader. To prevent this, Martin Kleppmann established Fencing Tokens: every time a lease is granted, the coordinator increments a monotonic counter (e.g. token = 42). The storage engine rejects any write whose fencing token is less than the highest token observed."
+    },
+    {
+      "id": "qa-3",
+      "title": "What is Retry Amplification, and how do Retry Budgets prevent self-inflicted DDoS?",
+      "context": "A multi-tier microservice architecture (Client -> API Gateway -> Service A -> Database) where each layer independently configures 3 retries.",
+      "answer": "If each of 3 layers permits 4 attempts (1 initial + 3 retries), a single failed user request can amplify into 4 x 4 x 4 = 64 requests hitting the database! When the database slows down, the surge of amplified retries causes total collapse. To fix this: (1) Enforce retries only at the outermost caller or an explicit boundary. (2) Implement Retry Budgets (e.g., retries may account for at most 10% of total outbound requests)."
+    },
+    {
+      "id": "qa-4",
+      "title": "How do Circuit Breakers and Retries work together in production without conflict?",
+      "context": "Deciding whether an outgoing HTTP call should trigger an immediate retry or trip a circuit breaker.",
+      "answer": "Retries handle transient, short-lived blips (e.g. packet loss or a temporary 503). Circuit breakers handle persistent downstream degradation. If an endpoint fails intermittently, retries with jitter can succeed. But if failures persist and the error rate exceeds 50% across a 10-second sliding window, the Circuit Breaker trips OPEN. While OPEN, all subsequent calls fail fast in 0ms without hitting the network, giving the downstream service breathing room to recover."
+    },
+    {
+      "id": "qa-5",
+      "title": "Why is Date.now() dangerous for timeout logic, and why must performance.now() be used?",
+      "context": "Measuring timeout durations in high-throughput Node.js microservices.",
+      "answer": "Date.now() returns wall-clock time from the OS. If an NTP daemon synchronizes time, or a leap second occurs, the system clock can jump backwards (e.g. stepping back 500ms). A timeout loop using `Date.now() - start < timeout` will either freeze or fire prematurely. Monotonic clocks (`performance.now()` in Node.js or `clock_gettime(CLOCK_MONOTONIC)` in C) strictly advance at a constant rate based on CPU hardware cycles, guaranteeing accurate duration measurements."
+    },
+    {
+      "id": "qa-6",
+      "title": "What is the difference between Liveness Probes and Readiness Probes in Kubernetes?",
+      "context": "A shared database experiences high CPU load, causing backend API health checks to fail.",
+      "answer": "Liveness probes determine whether the container process should be killed and restarted. Readiness probes determine whether the container should receive incoming traffic from the load balancer. If an API cannot reach an overloaded database, failing a Liveness probe causes Kubernetes to restart the container, triggering cold start CPU spikes and making the outage worse. Instead, it should fail Readiness to shed traffic without restarting."
+    }
+  ],
+  "metadata": {
+    "lineCount": 1669,
+    "fileSizeBytes": 87652,
+    "questionCount": 9,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

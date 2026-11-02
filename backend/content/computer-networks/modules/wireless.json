@@ -1,0 +1,142 @@
+{
+  "id": "wireless",
+  "courseId": "computer-networks",
+  "index": 13,
+  "name": "13. Wireless, Wi-Fi & Mobile",
+  "route": "/learning/networks/wireless",
+  "componentName": "NetworkWireless",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the primary role of a Wi-Fi Access Point (AP) in enterprise infrastructure mode?",
+      "options": [
+        "It acts as the primary WAN router, NAT gateway, and DNS authority.",
+        "It provides radio connectivity and functions as a Layer 2 bridge mapping wireless frames to wired 802.1Q VLANs.",
+        "It assigns public IPv4 addresses directly to every client phone.",
+        "It terminates TLS connections and decrypts application-layer data for inspection."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q2",
+      "question": "Why are Channels 1, 6, and 11 standard in North American 2.4 GHz channel planning?",
+      "options": [
+        "They have the highest transmit power allowed by the FCC.",
+        "They are the only channels supported by consumer smartphone Wi-Fi chips.",
+        "They are the only three 20 MHz channels separated by 25 MHz that do not overlap spectrally.",
+        "They automatically negotiate Dynamic Frequency Selection (DFS) radar avoidance."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q3",
+      "question": "What fundamental security improvement does WPA3-Personal introduce over WPA2-Personal?",
+      "options": [
+        "It replaces passwords with biometric fingerprint scanning over the air.",
+        "It uses Simultaneous Authentication of Equals (SAE / Dragonfly) to prevent offline dictionary attacks against captured handshakes.",
+        "It provides hardware-level immunity against RF radio jamming.",
+        "It eliminates the need for access point encryption keys."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q4",
+      "question": "What is the primary vulnerability in PEAP-MSCHAPv2 enterprise deployments when client configuration is unmanaged?",
+      "options": [
+        "The RADIUS server crashes if more than 50 clients associate simultaneously.",
+        "If the client fails to validate the RADIUS server certificate and Root CA, an Evil Twin AP can harvest MS-CHAPv2 challenge-response hashes.",
+        "MS-CHAPv2 requires unencrypted 2.4 GHz channels.",
+        "EAP-PEAP disables WPA3 encryption."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q5",
+      "question": "What role does IEEE 802.11w Protected Management Frames (PMF) perform?",
+      "options": [
+        "It accelerates Wi-Fi speed from 54 Mbps to 1 Gbps.",
+        "It encrypts and cryptographically signs unicast and broadcast management frames (like Deauth and Disassociation) using BIP (AES-CMAC).",
+        "It replaces DHCP servers with peer-to-peer address negotiation.",
+        "It connects Bluetooth headsets directly to cellular towers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q6",
+      "question": "What is the function of the 5G Core User Plane Function (UPF)?",
+      "options": [
+        "Authenticating SIM card cryptographic keys with the mobile operator.",
+        "Managing gNodeB radio channel assignments across millimeter wave cells.",
+        "Forwarding, routing, and enforcing QoS on user data packets between the RAN and external Data Networks (DN).",
+        "Generating Bluetooth advertising beacons for indoor location."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q7",
+      "question": "Why is Layer 2 Client Isolation critical on enterprise Guest Wi-Fi networks?",
+      "options": [
+        "It doubles the maximum range of the 5 GHz radio.",
+        "It blocks direct station-to-station traffic, preventing malicious guests from port scanning, ARP poisoning, or laterally attacking other guests.",
+        "It compresses video streaming packets to reduce WAN bandwidth.",
+        "It prevents guests from seeing the SSID in their phone settings."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q8",
+      "question": "How do 802.11k, 802.11v, and 802.11r collectively solve 'Sticky Client' syndrome and VoIP drops?",
+      "options": [
+        "They force clients to switch to 2.4 GHz only.",
+        "802.11k provides neighbor AP lists; 802.11v suggests optimal BSS targets; 802.11r (Fast Transition) pre-authenticates keys, reducing roam latency to <50ms.",
+        "They eliminate the need for access points to be connected to switches.",
+        "They allow clients to transmit at 100 Watts to reach distant base stations."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q9",
+      "question": "What differentiates Bluetooth Low Energy (BLE) architecture from Bluetooth Classic?",
+      "options": [
+        "BLE operates on 5 GHz, while Classic operates on 2.4 GHz.",
+        "BLE uses GATT profiles with Services and Characteristics optimized for low-duty-cycle sensor data with coin-cell battery life.",
+        "BLE does not support any encryption or authentication.",
+        "BLE transmits continuous uncompressed audio streams at 10 Mbps."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "q10",
+      "question": "What initial diagnostic step should an SRE take when an unknown SSID is detected near an office building?",
+      "options": [
+        "Immediately launch a deauth DoS attack to take down the unknown device.",
+        "Trigger an enterprise-wide network shutdown and alert the press.",
+        "Correlate the observed BSSID, channel, and RSSI with internal switch MAC tables to determine if it is connected to the wired LAN before classifying it.",
+        "Connect an admin laptop to the unknown SSID to inspect its router admin page."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2801,
+    "fileSizeBytes": 166038,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

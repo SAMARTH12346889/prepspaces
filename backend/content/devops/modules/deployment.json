@@ -1,0 +1,202 @@
+{
+  "id": "deployment",
+  "courseId": "devops",
+  "index": 7,
+  "name": "Deployment Strategies",
+  "route": "/learning/devops/deployment",
+  "componentName": "DevOpsDeployment",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "How does a Kubernetes rolling update maintain serving capacity during a rollout, and under what specific conditions can it still fail?",
+      "options": [
+        "It uses maxSurge to provision replacement Pods and waits for readiness probes before terminating old Pods; it fails if cluster nodes lack memory capacity (stalling in Pending), if readiness probes are misconfigured, or if connections are dropped abruptly.",
+        "It stops the entire cluster, upgrades all nodes simultaneously, and restarts the containers.",
+        "It creates an exact duplicate virtual machine for every container in AWS.",
+        "Rolling updates never fail under any circumstances because Kubernetes guarantees 100% uptime."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "What is the operational distinction between 'maxSurge', 'maxUnavailable', and 'minReadySeconds' in a Kubernetes Deployment strategy?",
+      "options": [
+        "maxSurge sets how many extra Pods can exist above desired replicas; maxUnavailable sets how many Pods can be down below desired replicas; minReadySeconds requires a new Pod to stay ready without crashing for N seconds before it counts as available.",
+        "maxSurge controls network bandwidth; maxUnavailable controls CPU clock speed; minReadySeconds controls Docker build time.",
+        "They are deprecated settings replaced by Docker Compose.",
+        "maxSurge deletes old pods; maxUnavailable scales up databases; minReadySeconds restarts the node."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "What sequence of actions must an application process execute during graceful termination when receiving SIGTERM?",
+      "options": [
+        "Stop accepting new client connections, allow ongoing in-flight HTTP requests to complete within the grace period, finish or checkpoint background jobs, close database connection pools cleanly, and exit 0 before SIGKILL.",
+        "Immediately kill the process and drop all active TCP connections.",
+        "Reboot the physical Linux server rack.",
+        "Delete all database tables to clear disk cache."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "How does a Blue/Green deployment differ fundamentally from a Rolling Update?",
+      "options": [
+        "Blue/Green spins up a complete, separate duplicate candidate environment (Green) alongside live production (Blue) and switches traffic instantaneously at the router/service level; Rolling Updates incrementally replace Pods within the existing environment.",
+        "Blue/Green is only for databases while Rolling Updates are only for frontend apps.",
+        "Rolling updates require twice as many servers as Blue/Green.",
+        "Blue/Green deployments do not support rollback."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Why can a Canary deployment detect critical production regressions that an isolated Staging environment often misses?",
+      "options": [
+        "Staging environments lack authentic production user traffic distributions, real cache hit/miss profiles, diverse client network latencies, and high-concurrency database lock contention.",
+        "Canaries use artificial intelligence while staging uses manual testing.",
+        "Staging environments cannot run Docker containers.",
+        "Canary deployments run on faster hardware than staging."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "Why might a Canary deployment require an Ingress controller or Service Mesh rather than relying solely on Kubernetes replica counts?",
+      "options": [
+        "Replica count traffic splitting is coarse (e.g., 1 out of 3 pods = 33% minimum traffic), whereas an Ingress or Service Mesh (like Envoy/Istio) can split exact HTTP request percentages (e.g., precisely 1% or 5%) regardless of pod count.",
+        "Kubernetes cannot run more than 5 pods in a namespace.",
+        "Service meshes make Docker containers use less memory.",
+        "Ingress controllers are required to compile JavaScript."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "How do Feature Flags separate code deployment from user-facing feature release?",
+      "options": [
+        "Code is deployed to production servers in an inactive state behind a boolean condition; the feature can be toggled on/off dynamically for targeted users without rebuilding images or redeploying workloads.",
+        "Feature flags compile Python code into C++ binaries.",
+        "Feature flags replace Kubernetes with serverless functions.",
+        "Feature flags automatically fix syntax errors in code."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "Why is a client-side Feature Flag not an acceptable substitute for server-side authorization?",
+      "options": [
+        "Hiding or disabling a button in the frontend UI does not protect the underlying API; an attacker can inspect network calls and directly send unauthorized HTTP requests to the backend endpoint.",
+        "Feature flags run slower than database queries.",
+        "Frontend feature flags consume too much mobile battery.",
+        "Authorization only works on Windows operating systems."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "What is the critical operational difference between an Application Rollback, a Traffic Rollback, and Database Recovery?",
+      "options": [
+        "Traffic rollback flips network routing back to an existing old version in seconds; Application rollback redeploys previous image manifests; Database recovery requires compensating transactions or schema rollbacks to fix data state.",
+        "They are identical commands in Linux.",
+        "Database recovery can be accomplished by restarting the Kubernetes Pod.",
+        "Traffic rollback permanently deletes the container registry."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "Why can renaming a database column directly (e.g., ALTER TABLE notes RENAME COLUMN published TO status) cause an immediate production outage?",
+      "options": [
+        "Existing running application Pods (v1) still generate SQL queries referencing the old column name; the moment the column is renamed, all v1 Pods crash with 'column does not exist' errors.",
+        "PostgreSQL automatically deletes the entire database when a column is renamed.",
+        "Renaming columns changes the server IP address.",
+        "Columns can only be renamed when all servers are disconnected from the internet."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "How does the Expand-and-Contract database pattern guarantee continuous availability across old and new application versions?",
+      "options": [
+        "Phase 1 Expands the schema by adding the new column as nullable; Phase 2 Backfills data; Phase 3 Transitions the application to the new column; Phase 4 Contracts the schema by removing the old column only after old app versions are gone.",
+        "It doubles the number of database servers in AWS RDS.",
+        "It compresses all database rows into a zip file.",
+        "It requires all users to log out before database queries can run."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "In a GitOps environment with Argo CD, why does running 'kubectl rollout undo' on the live cluster fail to execute a permanent rollback?",
+      "options": [
+        "Argo CD's reconciliation loop continuously monitors the Git repository as the single source of truth; within minutes, it detects cluster drift and re-applies the faulty version declared in Git.",
+        "Kubernetes deletes the deployment when kubectl rollout undo is called.",
+        "Argo CD does not support Kubernetes deployments.",
+        "kubectl is disabled in production environments."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "What specific telemetry signals and threshold breaches should immediately halt and abort a Canary rollout?",
+      "options": [
+        "A statistically significant spike in HTTP 5xx error rate (>0.5%), unacceptable p95/p99 latency regressions (>15%), or a drop in key business metrics (such as checkout conversion rate).",
+        "The server CPU fan noise increasing.",
+        "The developer closing their laptop lid.",
+        "Reaching 5:00 PM on a Friday."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "How would an SRE prove a release had zero user-visible downtime, rather than merely relying on 'kubectl rollout status' returning success?",
+      "options": [
+        "Audit synthetic canary traffic logs, Prometheus 5xx error metrics, Ingress access logs for dropped HTTP requests, and client-side error telemetry during the rollout window.",
+        "Check that the kubectl command exited with code 0.",
+        "Ask a coworker if the website looks fast.",
+        "Check if the cloud hosting bill was paid."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "What evidence must be strictly verified before an SRE team can safely execute the 'Contract' phase to drop an old database column?",
+      "options": [
+        "Verify that 100% of old application instances, asynchronous background queue workers, reporting cron jobs, and database read replicas have migrated and zero queries touch the obsolete column.",
+        "Confirm that the deployment completed 5 minutes ago.",
+        "Check that the developer who wrote the feature is online.",
+        "Verify that the database disk is 100% full."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1802,
+    "fileSizeBytes": 97981,
+    "questionCount": 15,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

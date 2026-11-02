@@ -1,0 +1,192 @@
+{
+  "id": "intro",
+  "courseId": "computer-networks",
+  "index": 1,
+  "name": "1. Intro & Fundamentals",
+  "route": "/learning/networks",
+  "componentName": "NetworkIntro",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which of the following best describes the difference between a Layer 2 Switch and a Layer 3 Router?",
+      "options": [
+        "A switch connects multiple networks using IP addresses, while a router connects devices in a LAN using MAC addresses.",
+        "A switch forwards Ethernet frames within a single broadcast domain based on MAC addresses, while a router forwards IP packets between different networks based on IP routing tables.",
+        "A switch can only transmit analog electrical signals, while a router can only transmit digital optical signals.",
+        "A switch regenerates electrical bits on a shared bus, while a router assigns domain names via DNS."
+      ],
+      "correctIndex": 1,
+      "explanation": "Layer 2 switches operate inside a single broadcast domain, maintaining a CAM/MAC table to forward Ethernet frames between local ports. Routers operate at Layer 3, interconnecting distinct logical networks and forwarding IP packets based on routing tables (e.g. BGP, OSPF)."
+    },
+    {
+      "id": 2,
+      "question": "Why is packet switching preferred over circuit switching for general Internet traffic?",
+      "options": [
+        "Packet switching guarantees fixed zero-jitter latency for every connection.",
+        "Packet switching physically dedicates copper circuits to each user for the entire call duration.",
+        "Internet traffic is bursty, and packet switching utilizes statistical multiplexing to dynamically share link capacity among active senders.",
+        "Packet switching eliminates the need for buffers, queues, and headers."
+      ],
+      "correctIndex": 2,
+      "explanation": "Computer data traffic is inherently bursty (periods of high transmission followed by idle pauses). Packet switching uses statistical multiplexing so multiple flows share the same link on demand, whereas circuit switching reserves dedicated idle capacity, resulting in poor link utilization."
+    },
+    {
+      "id": 3,
+      "question": "Consider a 1500-byte packet transmitted across a 1 Gbps Ethernet link of length 1,000 km (propagation speed 200,000 km/s). What are the transmission delay and propagation delay?",
+      "options": [
+        "Transmission delay = 0.012 ms; Propagation delay = 5.0 ms",
+        "Transmission delay = 12.0 ms; Propagation delay = 0.5 ms",
+        "Transmission delay = 1.5 ms; Propagation delay = 1.0 ms",
+        "Transmission delay = 0.12 ms; Propagation delay = 0.005 ms"
+      ],
+      "correctIndex": 0,
+      "explanation": "Transmission delay L/R = (1500 * 8 bits) / (1,000,000,000 bps) = 12,000 / 10^9 = 0.000012 seconds = 0.012 ms. Propagation delay d/s = 1,000 km / (200,000 km/s) = 0.005 seconds = 5.0 ms."
+    },
+    {
+      "id": 4,
+      "question": "During protocol encapsulation as a message descends the TCP/IP stack from application to physical wire, in which order are Protocol Data Units (PDUs) formed?",
+      "options": [
+        "Frame -> Packet -> Segment -> Bits",
+        "Data / Stream -> Segment / Datagram (Transport) -> Packet (Internet) -> Frame (Data Link) -> Bits (Physical)",
+        "Packet -> Frame -> Segment -> Data",
+        "Bits -> Datagram -> Stream -> Frame"
+      ],
+      "correctIndex": 1,
+      "explanation": "The application layer generates Data, the transport layer adds a TCP/UDP header to create a Segment or Datagram, the internet layer adds an IP header to create a Packet, and the data link layer adds MAC headers and an FCS trailer to create a Frame, which is transmitted as Bits on the physical medium."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary architectural purpose of a Content Delivery Network (CDN) like Cloudflare or Fastly?",
+      "options": [
+        "To replace the need for TCP/IP protocol stacks on user computers.",
+        "To cache static and dynamic web content at edge locations geographically close to end users, reducing round-trip propagation delay and origin server load.",
+        "To assign public IPv4 addresses to client mobile phones without NAT.",
+        "To convert all packet-switched traffic into circuit-switched fiber lines."
+      ],
+      "correctIndex": 1,
+      "explanation": "CDNs deploy geographically distributed Points of Presence (PoPs) at Internet Exchange Points. By serving cached assets from the network edge near the client, CDNs dramatically minimize round-trip propagation latency and shield the origin server from traffic spikes."
+    },
+    {
+      "id": 6,
+      "question": "When a laptop successfully connects to local Wi-Fi and obtains an IP via DHCP, but cannot open 'https://prepspaces.com', which diagnostic step best isolates whether DNS is the culprit?",
+      "options": [
+        "Ping the loopback address 127.0.0.1",
+        "Check if 'ping 8.8.8.8' (a direct public IP) succeeds while 'ping prepspaces.com' fails with 'cannot resolve host'",
+        "Unplug the Wi-Fi router's power cable immediately",
+        "Reboot the laptop 3 times to refresh the ARP cache"
+      ],
+      "correctIndex": 1,
+      "explanation": "If pinging a known public IP address like 8.8.8.8 succeeds, the local link, default gateway, NAT, and IP routing are all healthy. If domain names cannot be resolved, the failure is isolated specifically to the DNS resolver configuration (/etc/resolv.conf, UDP port 53)."
+    },
+    {
+      "id": 7,
+      "question": "In data center networking, why have modern architectures largely replaced legacy 3-tier hierarchical trees with Leaf-Spine topologies?",
+      "options": [
+        "Leaf-spine eliminates the need for fiber optics entirely.",
+        "East-west (server-to-server) traffic dominates modern distributed workloads, and leaf-spine ensures every server is equidistant (exactly 2 hops) with predictable low latency and non-blocking equal-cost multi-path (ECMP) routing.",
+        "Leaf-spine prevents switches from learning MAC addresses.",
+        "Leaf-spine forces all traffic to route through a single core router for manual inspection."
+      ],
+      "correctIndex": 1,
+      "explanation": "Traditional 3-tier networks were optimized for north-south (client-to-server) traffic, leading to oversubscription bottlenecks at the core. In modern distributed systems, east-west microservice traffic dominates. Leaf-spine guarantees uniform 2-hop latency and high bisection bandwidth using ECMP."
+    },
+    {
+      "id": 8,
+      "question": "What does the Bandwidth-Delay Product (BDP) represent in computer networking?",
+      "options": [
+        "The total electrical power consumed by a router during peak load.",
+        "The maximum volume of data that can be 'in flight' (filling the network pipe) at any instant, calculated as Bandwidth * RTT.",
+        "The number of packet collisions per second on a shared CSMA/CD bus.",
+        "The time required for an ARP request to reach the default gateway."
+      ],
+      "correctIndex": 1,
+      "explanation": "BDP = Capacity (bps) * Round-Trip Time (seconds). It measures the volume of bits in transit through the network pipeline. To achieve line-rate throughput without stalling, the sender's TCP receive window must be at least equal to the BDP."
+    },
+    {
+      "id": 9,
+      "question": "What is the difference between Throughput and Goodput?",
+      "options": [
+        "Throughput is measured in bytes while Goodput is measured in bits.",
+        "Throughput is the gross rate of all bits delivered across a link including protocol headers and retransmissions, while Goodput is the net rate of useful application payload delivered without overhead.",
+        "Throughput only applies to UDP, while Goodput only applies to TCP.",
+        "Throughput measures propagation speed while Goodput measures transmission speed."
+      ],
+      "correctIndex": 1,
+      "explanation": "Throughput represents the raw data rate received at the link layer, including Ethernet, IP, and TCP headers as well as duplicate retransmissions. Goodput measures strictly the useful application layer data delivered to the application process per unit of time."
+    },
+    {
+      "id": 10,
+      "question": "Which of the following attacks exploits the lack of authentication in the Address Resolution Protocol (ARP) on a local network?",
+      "options": [
+        "SQL Injection",
+        "ARP Cache Poisoning / ARP Spoofing, where an attacker broadcasts unsolicited ARP replies claiming to own the IP of the default gateway to intercept local traffic",
+        "SYN Flood attack against an external web server",
+        "BGP prefix hijacking between Autonomous Systems"
+      ],
+      "correctIndex": 1,
+      "explanation": "ARP has no cryptographic authentication. An attacker on the local broadcast domain can transmit forged gratuitous ARP replies associating their own MAC address with the IP address of the default gateway. Other hosts update their ARP cache and forward all traffic through the attacker (Man-in-the-Middle)."
+    }
+  ],
+  "topics": null,
+  "commands": {
+    "ping": {
+      "cmd": "ping -c 4 8.8.8.8",
+      "description": "Test bidirectional reachability and measure round-trip time (RTT) using ICMP Echo Request / Echo Reply.",
+      "proves": "Proves network layer (L3) connectivity to destination, IP routing is functioning, and shows packet loss and latency variance.",
+      "doesNotProve": "Does NOT prove application services (e.g. HTTP on port 443) are running or responding, and does not test DNS resolution.",
+      "output": "PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.\n64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=14.2 ms\n64 bytes from 8.8.8.8: icmp_seq=2 ttl=118 time=13.8 ms\n64 bytes from 8.8.8.8: icmp_seq=3 ttl=118 time=14.5 ms\n64 bytes from 8.8.8.8: icmp_seq=4 ttl=118 time=13.9 ms\n\n--- 8.8.8.8 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 3004ms\nrtt min/avg/max/mdev = 13.812/14.101/14.520/0.274 ms"
+    },
+    "traceroute": {
+      "cmd": "traceroute -n prepspaces.com",
+      "description": "Trace the multi-hop routing path toward destination by incrementally increasing the IPv4 TTL (Time-To-Live) starting from 1.",
+      "proves": "Identifies each router hop along the path, measuring latency per hop and locating packet drops or routing blackholes.",
+      "doesNotProve": "Does NOT guarantee return path is symmetric (Internet routing is frequently asymmetric), and some hops may filter ICMP (* * *).",
+      "output": "traceroute to prepspaces.com (104.21.58.192), 30 hops max, 60 byte packets\n 1  192.168.1.1 (Gateway)  1.214 ms  1.105 ms  1.088 ms\n 2  10.240.0.1 (ISP Access Node)  4.321 ms  4.205 ms  4.112 ms\n 3  172.16.88.1 (ISP Regional Core)  8.450 ms  8.312 ms  8.289 ms\n 4  195.66.226.182 (LINX IXP Transit)  12.110 ms  12.045 ms  12.080 ms\n 5  104.21.58.192 (Cloudflare Edge Node)  13.412 ms  13.250 ms  13.310 ms"
+    },
+    "ip_addr": {
+      "cmd": "ip addr show eth0",
+      "description": "Inspect network interface card (NIC) status, MAC address (link layer), MTU, and configured IPv4/IPv6 address and CIDR prefix.",
+      "proves": "Proves physical link state (UP/LOWER_UP), MTU size, assigned IP address, broadcast address, and whether DHCP has assigned an IP.",
+      "doesNotProve": "Does NOT prove internet gateway reachability or that external DNS is functioning.",
+      "output": "2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000\n    link/ether 52:54:00:12:34:56 brd ff:ff:ff:ff:ff:ff\n    inet 192.168.1.142/24 brd 192.168.1.255 scope global dynamic eth0\n       valid_lft 86320sec preferred_lft 86320sec\n    inet6 fe80::5054:ff:fe12:3456/64 scope link\n       valid_lft forever preferred_lft forever"
+    },
+    "ip_route": {
+      "cmd": "ip route show",
+      "description": "Inspect the kernel routing table to verify default gateway and local subnet interface routes.",
+      "proves": "Shows where the kernel directs packets destined for local subnets and whether a valid default gateway (0.0.0.0/0) exists.",
+      "doesNotProve": "Does NOT prove that the default gateway router is actually online or forwarding packets to the upstream ISP.",
+      "output": "default via 192.168.1.1 dev eth0 proto dhcp metric 100\n192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.142 metric 100\n172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown"
+    },
+    "dig": {
+      "cmd": "dig +noall +answer prepspaces.com A",
+      "description": "Query DNS nameservers to resolve human-readable domain names to IPv4 A records and view DNS TTL and query latency.",
+      "proves": "Proves whether recursive DNS resolver is reachable, the domain exists, and what IP addresses are returned.",
+      "doesNotProve": "Does NOT prove the remote web server at that resolved IP address is listening or accessible on ports 80/443.",
+      "output": "; <<>> DiG 9.18.28 <<>> +noall +answer prepspaces.com A\nprepspaces.com.\t\t300\tIN\tA\t104.21.58.192\nprepspaces.com.\t\t300\tIN\tA\t172.67.182.201"
+    },
+    "arp": {
+      "cmd": "ip neigh show",
+      "description": "Inspect the Address Resolution Protocol (ARP) neighbor cache mapping L3 IP addresses to L2 hardware MAC addresses on the local link.",
+      "proves": "Shows whether local devices (e.g. gateway) have answered ARP requests and whether their MAC addresses are successfully resolved (REACHABLE).",
+      "doesNotProve": "Only applies to the local broadcast link; ARP is never forwarded across routers.",
+      "output": "192.168.1.1 dev eth0 lladdr 00:1a:2b:3c:4d:5e REACHABLE\n192.168.1.200 dev eth0 lladdr 70:85:c2:41:88:9a STALE\n192.168.1.254 dev eth0  FAILED"
+    },
+    "ss": {
+      "cmd": "ss -tulpn",
+      "description": "Inspect open local sockets, listening TCP/UDP ports, socket queues, and associated process IDs (PIDs).",
+      "proves": "Identifies which local processes (e.g. Nginx, sshd, DNS) are listening on which interfaces (0.0.0.0 vs 127.0.0.1) and port numbers.",
+      "doesNotProve": "Does NOT verify external firewall or NAT traversal policies allowing inbound traffic through intermediate appliances.",
+      "output": "Netid  State   Recv-Q  Send-Q   Local Address:Port   Peer Address:Port  Process\ntcp    LISTEN  0       511            0.0.0.0:443         0.0.0.0:*      users:((\"nginx\",pid=1204,fd=6))\ntcp    LISTEN  0       511            0.0.0.0:80          0.0.0.0:*      users:((\"nginx\",pid=1204,fd=7))\ntcp    LISTEN  0       128            0.0.0.0:22          0.0.0.0:*      users:((\"sshd\",pid=842,fd=3))\nudp    UNCONN  0       0        127.0.0.53%lo:53          0.0.0.0:*      users:((\"systemd-resolve\",pid=512,fd=13))"
+    }
+  },
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1525,
+    "fileSizeBytes": 85406,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": true,
+    "hasScenarios": false
+  }
+}

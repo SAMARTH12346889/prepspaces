@@ -1,0 +1,187 @@
+{
+  "id": "systems",
+  "courseId": "cybersecurity",
+  "index": 3,
+  "name": "3. OS Internals & Hardening",
+  "route": "/learning/cybersecurity/systems",
+  "componentName": "CybersecuritySystems",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary role of an operating-system kernel?",
+      "options": [
+        "Designing web pages",
+        "Managing core system resources and privileged operations",
+        "Replacing every application library",
+        "Storing all files in one process"
+      ],
+      "correctIndex": 1,
+      "explanation": "The kernel is the central privileged core of an operating system. It directly manages hardware resources, process scheduling, memory allocation, system calls, device drivers, and security isolation."
+    },
+    {
+      "id": 2,
+      "question": "What is the main difference between a process and a thread?",
+      "options": [
+        "A process is always a file",
+        "A thread is the basic execution unit within a process; a process provides execution resources and an address space",
+        "A thread is always an administrator",
+        "A process cannot contain multiple threads"
+      ],
+      "correctIndex": 1,
+      "explanation": "A process encapsulates a dedicated virtual address space, security token, handles, and memory. A thread is the basic scheduling unit that executes code inside that process address space."
+    },
+    {
+      "id": 3,
+      "question": "Which Linux directory commonly contains system-wide configuration files?",
+      "options": [
+        "/etc",
+        "/home",
+        "/tmp",
+        "/proc"
+      ],
+      "correctIndex": 0,
+      "explanation": "/etc is the standard hierarchy location for system-wide configuration files in Linux (e.g. /etc/passwd, /etc/hosts, /etc/ssh/sshd_config)."
+    },
+    {
+      "id": 4,
+      "question": "What does Linux mode 600 conventionally mean for a regular file?",
+      "options": [
+        "Everyone can read and write it",
+        "The owner has read/write permissions, while group and others have no mode-bit permissions",
+        "The owner can execute it only",
+        "The file is automatically encrypted"
+      ],
+      "correctIndex": 1,
+      "explanation": "Octal 600 translates to rw------- (Owner: 4+2=6, Group: 0, Others: 0). It strictly restricts read and write access to the file's owner."
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of sudo on a system configured to use it?",
+      "options": [
+        "Encrypt every command",
+        "Allow authorized users to run permitted commands with elevated privileges",
+        "Automatically install every software update",
+        "Replace system logging"
+      ],
+      "correctIndex": 1,
+      "explanation": "sudo allows approved users to execute designated commands with the security privileges of another user (typically root) based on rules defined in /etc/sudoers, providing accountability."
+    },
+    {
+      "id": 6,
+      "question": "What does the Linux pipe operator | do?",
+      "options": [
+        "Connects one command's standard output to another command's standard input",
+        "Always writes a file to disk",
+        "Restarts the shell",
+        "Changes file ownership"
+      ],
+      "correctIndex": 0,
+      "explanation": "The pipe operator (|) streams the stdout (file descriptor 1) of the preceding command directly into the stdin (file descriptor 0) of the subsequent command without requiring temporary disk files."
+    },
+    {
+      "id": 7,
+      "question": "Which Windows concept represents a principal's security identity for access-control decisions?",
+      "options": [
+        "A DNS record",
+        "A Security Identifier (SID)",
+        "A CPU working set",
+        "A drive letter"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Security Identifier (SID) is a unique, immutable variable-length string used by the Windows security subsystem (e.g., S-1-5-21-...) to identify security principals such as users and groups."
+    },
+    {
+      "id": 8,
+      "question": "What is the main purpose of Windows User Account Control?",
+      "options": [
+        "Replace all file permissions",
+        "Support the controlled use of administrative privileges",
+        "Disable every background service",
+        "Encrypt the Registry automatically"
+      ],
+      "correctIndex": 1,
+      "explanation": "User Account Control (UAC) ensures administrators run with standard user tokens by default, prompting for explicit elevation and consent before high-privilege operations can execute."
+    },
+    {
+      "id": 9,
+      "question": "Which PowerShell command is commonly used to list Windows services?",
+      "options": [
+        "Get-Service",
+        "Get-Route",
+        "Read-Registry-All",
+        "Start-Everything"
+      ],
+      "correctIndex": 0,
+      "explanation": "Get-Service queries the Windows Service Control Manager to retrieve the status, display name, and configuration of local or remote background services."
+    },
+    {
+      "id": 10,
+      "question": "A process has high CPU usage. What should an analyst conclude?",
+      "options": [
+        "It is definitely malware",
+        "It must be deleted",
+        "The observation needs context and further investigation",
+        "The operating system is certainly compromised"
+      ],
+      "correctIndex": 2,
+      "explanation": "High CPU consumption alone is an operational symptom, not proof of malice. Legitimate background tasks, video encoders, or compiling can utilize 100% CPU. Analysts must inspect parentage, binary path, and behavior."
+    },
+    {
+      "id": 11,
+      "question": "Which tool is designed to inspect processes, handles and loaded DLLs on Windows?",
+      "options": [
+        "Process Explorer",
+        "Calculator",
+        "Paint",
+        "Disk Cleanup only"
+      ],
+      "correctIndex": 0,
+      "explanation": "Process Explorer (part of Microsoft Sysinternals) provides advanced real-time process monitoring, showing loaded DLLs, open system handles, thread stacks, and security tokens."
+    },
+    {
+      "id": 12,
+      "question": "What is a safe first step when investigating an unfamiliar service?",
+      "options": [
+        "Disable it immediately",
+        "Delete its executable",
+        "Inspect its identity, purpose, path, privileges and relevant logs",
+        "Grant it administrator privileges"
+      ],
+      "correctIndex": 2,
+      "explanation": "Disabling or deleting unknown services can crash critical operating system components. The first step is non-destructive reconnaissance: inspect binary path, publisher, service account, dependencies, and logs."
+    }
+  ],
+  "topics": null,
+  "commands": [
+    {
+      "cmd": "id && whoami",
+      "desc": "Inspect current effective user identity, UID, GID, and supplementary groups.",
+      "output": "uid=1000(student) gid=1000(student) groups=1000(student),4(adm),24(cdrom),27(sudo),110(lxd)\nstudent"
+    },
+    {
+      "cmd": "ls -la /etc/passwd /etc/shadow",
+      "desc": "Inspect critical user database file metadata and permission mode bits.",
+      "output": "-rw-r--r-- 1 root root 2642 Oct 16 09:12 /etc/passwd\n-rw-r----- 1 root shadow 1480 Oct 16 09:12 /etc/shadow"
+    },
+    {
+      "cmd": "ss -tulpn",
+      "desc": "Inspect active listening TCP and UDP sockets with associated process IDs.",
+      "output": "Netid  State   Recv-Q  Send-Q   Local Address:Port   Peer Address:Port  Process\ntcp    LISTEN  0       128            0.0.0.0:22          0.0.0.0:*      users:((\"sshd\",pid=812,fd=3))\ntcp    LISTEN  0       511            0.0.0.0:80          0.0.0.0:*      users:((\"nginx\",pid=1042,fd=6))\ntcp    LISTEN  0       511            0.0.0.0:443         0.0.0.0:*      users:((\"nginx\",pid=1042,fd=7))"
+    },
+    {
+      "cmd": "journalctl -u ssh -n 5 --no-pager",
+      "desc": "Query systemd journal for recent authentication and SSH service events.",
+      "output": "Oct 16 11:14:02 prepspaces-server sshd[3921]: Accepted publickey for student from 192.168.1.25 port 52140 ssh2: ED25519 SHA256:mQ8...\nOct 16 11:14:02 prepspaces-server sshd[3921]: pam_unix(sshd:session): session opened for user student(uid=1000) by (uid=0)\nOct 16 11:20:15 prepspaces-server sshd[4102]: Failed password for invalid user admin from 203.0.113.88 port 48122 ssh2\nOct 16 11:20:18 prepspaces-server sshd[4102]: Connection closed by authenticating user 203.0.113.88 port 48122 [preauth]"
+    }
+  ],
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1343,
+    "fileSizeBytes": 74383,
+    "questionCount": 12,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": true,
+    "hasScenarios": false
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "kernel-architecture",
+  "courseId": "operating-systems",
+  "index": 17,
+  "name": "17. Kernel Architecture & xv6",
+  "route": "/learning/os/kernel-architecture",
+  "componentName": "OSKernelArchitecture",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which statement best describes a system call in an operating system?",
+      "options": [
+        "An ordinary function call that executes entirely within the application's user address space",
+        "A controlled request for a privileged kernel service that crosses the user/kernel boundary",
+        "An asynchronous hardware signal triggered by an external NVMe storage device",
+        "A mandatory context switch to another process in all execution paths"
+      ],
+      "correctIndex": 1,
+      "explanation": "A system call is an intentional, controlled interface mechanism by which user-space programs request services from the privileged operating system kernel across the hardware privilege boundary."
+    },
+    {
+      "id": 2,
+      "question": "What fundamentally distinguishes a hardware interrupt from a synchronous CPU exception?",
+      "options": [
+        "A hardware interrupt arrives asynchronously relative to the executing instruction stream",
+        "An interrupt always originates directly from user-space application code",
+        "CPU exceptions never transition into privileged kernel code",
+        "They are completely identical in origin, timing, and vector routing on all CPU architectures"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hardware interrupts are generated asynchronously by external hardware components (timers, network cards, disks) regardless of what instruction the CPU is currently executing. Exceptions are synchronous and caused by the execution of the current instruction (page faults, division by zero)."
+    },
+    {
+      "id": 3,
+      "question": "Why must the kernel strictly validate all user-supplied pointers during a system call?",
+      "options": [
+        "Because user memory automatically becomes read-only upon entering the kernel",
+        "Because user pointers may be invalid, unmapped, point to kernel memory, or be concurrently modified to cause security exploits",
+        "Because pointers are automatically converted to physical addresses by hardware at syscall entry",
+        "Validation is only required for filesystem operations, never for memory buffers"
+      ],
+      "correctIndex": 1,
+      "explanation": "User pointers cannot be trusted. If the kernel blindly dereferenced user pointers without verification (or without copy_from_user), malicious user code could read or overwrite arbitrary kernel memory, bypassing all OS isolation."
+    },
+    {
+      "id": 4,
+      "question": "What is the primary architectural danger of a bug in a Loadable Kernel Module (LKM) in Linux?",
+      "options": [
+        "It can only terminate the user process that loaded it",
+        "Because LKMs execute in privileged Ring 0, a bug can corrupt shared kernel memory or compromise the entire host system",
+        "LKMs execute in a restricted sandbox and cannot access host RAM",
+        "It affects only the specific source file of the module"
+      ],
+      "correctIndex": 1,
+      "explanation": "Linux is a monolithic kernel. Loadable kernel modules execute with full Ring 0 privileges in kernel space. A null-pointer dereference, buffer overflow, or wild write in a kernel module can corrupt any kernel data structure or trigger an immediate kernel panic."
+    },
+    {
+      "id": 5,
+      "question": "Why do microkernel architectures (such as seL4 or MINIX 3) offer superior fault isolation compared to monolithic kernels?",
+      "options": [
+        "All device drivers and filesystems execute in a single shared privileged address space",
+        "Most traditional kernel services (drivers, filesystems, networking) run as isolated user-space processes",
+        "Microkernels eliminate all CPU context switches and IPC overhead",
+        "Microkernels automatically prevent all software security vulnerabilities"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a microkernel, only core mechanisms (scheduling, basic memory primitives, IPC) remain in Ring 0. Drivers and filesystems run as ordinary unprivileged user-space processes. If a device driver crashes, it does not bring down the kernel and can simply be restarted."
+    },
+    {
+      "id": 6,
+      "question": "Why is the xv6 operating system widely studied in operating systems engineering alongside production Linux?",
+      "options": [
+        "xv6 is a binary drop-in replacement for enterprise Linux distributions",
+        "Its compact, readable codebase allows learners to trace real end-to-end kernel mechanisms that are obscured by Linux's vast complexity",
+        "The system call implementation and device driver models in xv6 are 100% identical to Linux",
+        "xv6 operates entirely in user space without requiring hardware or emulator support"
+      ],
+      "correctIndex": 1,
+      "explanation": "While Linux contains tens of millions of lines of code with complex architecture-specific optimizations, MIT's xv6 implements core Unix principles (processes, paging, system calls, spinlocks, filesystems) in under 10,000 lines of clean C, making kernel mechanisms directly readable and traceable."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1443,
+    "fileSizeBytes": 74725,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

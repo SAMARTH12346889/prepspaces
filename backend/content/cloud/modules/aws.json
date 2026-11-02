@@ -1,0 +1,413 @@
+{
+  "id": "aws",
+  "courseId": "cloud",
+  "index": 7,
+  "name": "AWS",
+  "route": "/learning/cloud/aws",
+  "componentName": "CloudAWS",
+  "quiz": [],
+  "topics": [
+    {
+      "id": 0,
+      "title": "The AWS Mental Model & Well-Architected Framework",
+      "week": "Foundations",
+      "focus": "Planes, Accounts, Regions, AZs & The 6 Architecture Pillars",
+      "badge": "Architecture Foundation",
+      "theory": "AWS is not a random catalog of 200 disconnected services. It is a unified cloud operating environment structured around management planes, data planes, accounts, regions, and availability zones. Architecture in AWS is the deliberate evaluation of trade-offs among the 6 Well-Architected Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability.",
+      "diagram": "AWS GLOBAL INFRASTRUCTURE & CONTROL PLANES\n+--------------------------------------------------------------------------+\n|                            AWS ACCOUNT                                   |\n| +----------------------------------------------------------------------+ |\n| | MANAGEMENT PLANE: IAM Identity Center | Organizations | Billing      | |\n| +----------------------------------------------------------------------+ |\n|                                                                          |\n| REGION: us-east-1 (N. Virginia)                                          |\n| +----------------------------------------------------------------------+ |\n| | DATA PLANE: Multi-AZ Virtual Private Cloud (10.0.0.0/16)            | |\n| |                                                                      | |\n| |  AZ-1a (Zone 1)              AZ-1b (Zone 2)           AZ-1c (Zone 3)  | |\n| |  [Datacenter Cluster]        [Datacenter Cluster]     [Datacenter]   | |\n| |  - Public Subnet (IGW)       - Public Subnet (IGW)    - Public       | |\n| |  - Private App Subnet        - Private App Subnet     - Private App  | |\n| |  - Private DB Subnet         - Private DB Subnet      - Private DB   | |\n| +----------------------------------------------------------------------+ |\n+--------------------------------------------------------------------------+\n\nTHE 6 WELL-ARCHITECTED PILLARS (AWS 2026 BENCHMARK):\n1. Operational Excellence: Run workloads as code, make frequent reversible changes, evolve from telemetry.\n2. Security: Apply least-privilege, encrypt in transit and at rest, automate incident response.\n3. Reliability: Automatically recover from failure, scale horizontally to limit blast radius, test recovery.\n4. Performance Efficiency: Match instance families to workloads, democratize advanced technologies.\n5. Cost Optimization: Measure efficiency, eliminate unattached EBS volumes, match capacity with demand.\n6. Sustainability: Maximize resource utilization, choose modern Graviton (ARM) silicon, minimize idle runtime.",
+      "keyTakeaways": [
+        "Regions are physically isolated geographic areas containing 3 or more independent Availability Zones (AZs).",
+        "Availability Zones are one or more discrete data centers with redundant power, networking, and connectivity.",
+        "Management Plane handles configuration requests (e.g. CreateBucket, RunInstances); Data Plane handles actual live throughput (e.g. S3 GetObject, EC2 network packet forwarding).",
+        "No single architectural design is universally optimal; every design is a calculated trade-off between the 6 pillars."
+      ],
+      "codeExample": "# AWS CLI v2: Verify identity and list multi-AZ subnets\naws sts get-caller-identity\n\n# Query VPC subnets with Availability Zone mappings using JMESPath\naws ec2 describe-subnets \\\n  --filters \"Name=vpc-id,Values=vpc-0a1b2c3d4e5f6g7h8\" \\\n  --query \"Subnets[*].{ID:SubnetId,CIDR:CidrBlock,AZ:AvailabilityZone,Public:MapPublicIpOnLaunch}\" \\\n  --output table"
+    },
+    {
+      "id": 1,
+      "title": "IAM Deep Dive: Identities, Roles, Policies & Least Privilege",
+      "week": "Foundations",
+      "focus": "Authentication vs Authorization, Identity Center, Trust Policies & STS",
+      "badge": "Identity & Access",
+      "theory": "Every single AWS architectural question ultimately resolves to identity: 'Who or what is allowed to do this under what conditions?' AWS IAM controls access through authentication (who are you?) and authorization (what are you allowed to do?). Modern 2026 AWS best practices mandate AWS IAM Identity Center and temporary STS credentials for human users, strictly forbidding long-lived IAM user secret keys in application code.",
+      "diagram": "AWS IAM IDENTITY & EVALUATION ENGINE\nHUMAN WORKER (Single Sign-On)           WORKLOAD (EC2 / ECS / Lambda)\n           |                                          |\n           v                                          v\n+-----------------------+                  +-----------------------+\n|  IAM Identity Center  |                  |    Workload Instance  |\n|  (SAML 2.0 / OIDC)    |                  |    Metadata Service   |\n+-----------------------+                  +-----------------------+\n           |                                          |\n           +--------------------+---------------------+\n                                |\n                                v\n               [ AWS STS: AssumeRole Request ]\n                                |\n                                v\n        +-----------------------------------------------+\n        |                   IAM ROLE                    |\n        |  1. TRUST POLICY: Who can assume this role?   |\n        |     (e.g., Principal: { Service: \"ec2\" })     |\n        |  2. PERMISSIONS POLICY: What can it perform?  |\n        |     (e.g., Allow s3:GetObject on bucket/*)    |\n        +-----------------------------------------------+\n                                |\n                                v\n              TEMPORARY CREDENTIALS (15m - 12h)\n        [ AccessKeyId, SecretAccessKey, SessionToken ]\n                                |\n                                v\n         EVALUATION: Explicit Deny > Explicit Allow > Default Deny",
+      "keyTakeaways": [
+        "Never bake permanent IAM User Access Keys into application source code, Docker images, or Git repositories.",
+        "A Role consists of two distinct policies: Trust Policy (who can assume it) and Permission Policy (what it can do).",
+        "Permission Boundaries and Service Control Policies (SCPs) define the maximum allowable boundary of permissions.",
+        "IAM Evaluation Logic: Any Explicit Deny immediately overrides any and all Allow statements."
+      ],
+      "codeExample": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowAppBucketReadWrite\",\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"s3:GetObject\",\n        \"s3:PutObject\",\n        \"s3:ListBucket\"\n      ],\n      \"Resource\": [\n        \"arn:aws:s3:::prod-order-receipts-2026\",\n        \"arn:aws:s3:::prod-order-receipts-2026/*\"\n      ],\n      \"Condition\": {\n        \"Bool\": { \"aws:SecureTransport\": \"true\" }\n      }\n    }\n  ]\n}"
+    },
+    {
+      "id": 2,
+      "title": "VPC Networking: Subnets, Route Tables, NAT & Endpoints",
+      "week": "Foundations",
+      "focus": "Multi-AZ Subnet Partitioning, Security Groups, NACLs & PrivateLink",
+      "badge": "VPC Networking",
+      "theory": "Amazon Virtual Private Cloud (VPC) provides the isolated software-defined network for your cloud infrastructure. A subnet is made 'public' strictly by virtue of having a route to an Internet Gateway (`0.0.0.0/0 → igw-xxx`) in its associated route table. Private subnets utilize NAT Gateways for outbound internet connectivity (e.g. package updates) or VPC Endpoints for private, high-speed access to AWS services without traversing the public internet.",
+      "diagram": "PRODUCTION MULTI-AZ VPC TOPOLOGY (10.20.0.0/16)\n+---------------------------------------------------------------------------+\n| INTERNET GATEWAY (igw-0123)                                              |\n|   ^                                                                       |\n|   | 0.0.0.0/0                                                             |\n| +---------------------------+   +---------------------------+             |\n| | PUBLIC SUBNET (AZ-A)      |   | PUBLIC SUBNET (AZ-B)      |             |\n| | 10.20.1.0/24              |   | 10.20.2.0/24              |             |\n| | [ALB Public] [NAT-GW A]   |   | [ALB Public] [NAT-GW B]   |             |\n| +-------------+-------------+   +-------------+-------------+             |\n|               |                               |                           |\n|               v 0.0.0.0/0                     v 0.0.0.0/0                 |\n| +-------------+-------------+   +-------------+-------------+             |\n| | PRIVATE APP SUBNET (AZ-A) |   | PRIVATE APP SUBNET (AZ-B) |             |\n| | 10.20.11.0/24             |   | 10.20.12.0/24             |             |\n| | [ECS / EC2 Workloads]     |   | [ECS / EC2 Workloads]     |             |\n| +-------------+-------------+   +-------------+-------------+             |\n|               |                               |                           |\n|               v Internal TCP 5432             v Internal TCP 5432         |\n| +-------------+-------------+   +-------------+-------------+             |\n| | PRIVATE DB SUBNET (AZ-A)  |   | PRIVATE DB SUBNET (AZ-B)  |             |\n| | 10.20.21.0/24             |   | 10.20.22.0/24             |             |\n| | [Aurora Primary Writer]   |---| [Aurora Reader Standby]   |             |\n| +---------------------------+   +---------------------------+             |\n|                                                                           |\n| VPC ENDPOINTS (PrivateLink): Gateway (S3/DynamoDB) | Interface (SQS/KMS)  |\n+---------------------------------------------------------------------------+",
+      "keyTakeaways": [
+        "A subnet is public ONLY if its route table points 0.0.0.0/0 to an Internet Gateway (IGW).",
+        "Deploy redundant NAT Gateways per Availability Zone so an AZ outage doesn't sever outbound traffic for surviving zones.",
+        "Security Groups are stateful virtual firewalls evaluated at the elastic network interface (ENI) level.",
+        "VPC Gateway Endpoints for S3 and DynamoDB route traffic over private AWS backbones with zero data processing fees."
+      ],
+      "codeExample": "# Terraform: Secure 3-Tier Security Group Chaining\nresource \"aws_security_group\" \"alb_sg\" {\n  name        = \"alb-public-sg\"\n  vpc_id      = aws_vpc.main.id\n  ingress {\n    from_port   = 443\n    to_port     = 443\n    protocol    = \"tcp\"\n    cidr_blocks = [\"0.0.0.0/0\"]\n  }\n}\n\nresource \"aws_security_group\" \"app_sg\" {\n  name   = \"app-private-sg\"\n  vpc_id = aws_vpc.main.id\n  ingress {\n    description     = \"Allow HTTPS from ALB only\"\n    from_port       = 8080\n    to_port         = 8080\n    protocol        = \"tcp\"\n    security_groups = [aws_security_group.alb_sg.id] # Chained SG reference!\n  }\n}"
+    },
+    {
+      "id": 3,
+      "title": "EC2 & Compute: AMIs, Instance Types, EBS & Auto Scaling",
+      "week": "Foundations",
+      "focus": "Nitro Hypervisor, EBS vs Instance Store, Launch Templates & ASGs",
+      "badge": "Elastic Compute",
+      "theory": "Amazon EC2 provides scalable compute capacity powered by the AWS Nitro System. Instances are selected based on resource requirements (General Purpose M-series, Compute Optimized C-series, Memory Optimized R-series, and GPU P-series). Storage is split between network-attached persistent Elastic Block Store (EBS) and ephemeral local NVMe Instance Store. Auto Scaling Groups (ASGs) ensure fleet availability across multiple AZs and dynamically resize based on target metrics.",
+      "diagram": "ANATOMY OF AN EC2 INSTANCE (NITRO ARCHITECTURE)\n+-----------------------------------------------------------------------+\n| EC2 VIRTUAL MACHINE                                                   |\n| +-------------------------------------------------------------------+ |\n| | AMI: Amazon Linux 2026 (Kernel 6.x + Hardened Base Image)         | |\n| | Instance Family: c7g.2xlarge (8 vCPU Graviton3 ARM, 16 GiB RAM)   | |\n| | ENI: Elastic Network Interface (Private IP: 10.20.11.45)          | |\n| | IAM Role: AppWorkloadRole (Attached via Instance Profile)         | |\n| +-------------------------------------------------------------------+ |\n|         |                                              |              |\n|         v Network Bus (Nitro NVMe Controller)           v PCIe Bus     |\n| +-----------------------------------+     +-------------------------+ |\n| | EBS VOLUME (gp3)                  |     | INSTANCE STORE (NVMe)   | |\n| | - Network-attached persistent     |     | - Physically on host    | |\n| | - IOPS: 3,000 baseline            |     | - Ephemeral, high IOPS  | |\n| | - Survives instance reboot & stop |     | - Wiped on Stop/Term!   | |\n| +-----------------------------------+     +-------------------------+ |\n+-----------------------------------------------------------------------+\n\nAUTO SCALING GROUP (ASG) DYNAMICS:\nTarget Tracking Policy: Keep ALB Target Response Time <= 80ms OR Avg CPU <= 65%\nLaunch Template -> Health Checks (EC2 + ALB Target) -> Replacement on Failure",
+      "keyTakeaways": [
+        "EBS volumes are network-attached block devices bound to a single AZ; take automated snapshots to S3 for durability.",
+        "Instance Store provides raw microsecond NVMe IOPS, but is ephemeral—data is permanently lost if the instance stops.",
+        "Auto Scaling Groups automatically replace unhealthy instances and maintain fleet distribution evenly across AZs.",
+        "Always attach IAM Roles via Instance Profiles rather than hardcoding AWS credentials in config files."
+      ],
+      "codeExample": "# AWS CLI: Create an Auto Scaling Group with Multi-AZ distribution\naws autoscaling create-auto-scaling-group \\\n  --auto-scaling-group-name prod-api-asg \\\n  --launch-template \"LaunchTemplateName=prod-api-lt,Version=$Latest\" \\\n  --min-size 3 \\\n  --max-size 15 \\\n  --desired-capacity 6 \\\n  --vpc-zone-identifier \"subnet-01aaa,subnet-02bbb,subnet-03ccc\" \\\n  --health-check-type \"ELB\" \\\n  --health-check-grace-period 300 \\\n  --target-group-arns \"arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/prod-api-tg/1a2b3c\""
+    },
+    {
+      "id": 4,
+      "title": "S3 Object Storage: Consistency, Lifecycle & Object Lock",
+      "week": "Foundations",
+      "focus": "11 9s Durability, Storage Classes, Versioning & Immutability",
+      "badge": "Object Storage",
+      "theory": "Amazon S3 is a globally distributed object store offering 99.999999999% (11 9s) of durability and strong read-after-write consistency for PUT and DELETE requests. Objects consist of data, metadata, and a key. S3 provides tiered storage economics from S3 Standard down to Glacier Deep Archive, automated lifecycle transitions, Cross-Region Replication (CRR), and WORM (Write Once, Read Many) compliance via S3 Object Lock.",
+      "diagram": "S3 OBJECT LIFECYCLE & STORAGE TIER HIERARCHY\n[ PUT Object: data.parquet ] \n        |\n        v\n+-------------------------------+  Day 0: High-frequency reads\n| S3 Standard / Intelligent-Tier|  Millisecond latency, active analytical queries\n+---------------+---------------+\n                |\n                v 30 Days (Lifecycle Rule)\n+-------------------------------+  Day 30: Infrequently accessed\n| S3 Standard-IA (Infrequent)   |  Lower storage cost, per-GB retrieval fee\n+---------------+---------------+\n                |\n                v 90 Days (Lifecycle Rule)\n+-------------------------------+  Day 90: Archive tier\n| S3 Glacier Instant Retrieval  |  Sub-second retrieval, long-term retention\n+---------------+---------------+\n                |\n                v 180 Days (Lifecycle Rule)\n+-------------------------------+  Day 180+: Cold compliance archive\n| S3 Glacier Deep Archive       |  Lowest cost ($0.00099/GB/mo), 12-48h retrieval\n+-------------------------------+\n\nS3 SECURITY & IMMUTABILITY:\n- S3 Block Public Access (BPA): Account-wide circuit breaker against accidental public leaks\n- S3 Object Lock: Compliance Mode prevents deletion even by AWS Account Root until retention expires\n- S3 Versioning: Protects against accidental deletes via soft-delete markers",
+      "keyTakeaways": [
+        "S3 offers strong read-after-write consistency: immediate GET after PUT/DELETE returns the newest state.",
+        "S3 Intelligent-Tiering automatically moves objects between access tiers with zero operational overhead or retrieval fees.",
+        "Replication is NOT a backup: without Versioning and Object Lock, an accidental batch DELETE replicates to the replica!",
+        "Enable S3 Block Public Access (BPA) at the account level as an inviolable security baseline."
+      ],
+      "codeExample": "# AWS S3 Bucket Lifecycle Configuration (JSON)\n{\n  \"Rules\": [\n    {\n      \"ID\": \"MoveLogsToColdArchive\",\n      \"Status\": \"Enabled\",\n      \"Filter\": { \"Prefix\": \"logs/\" },\n      \"Transitions\": [\n        { \"Days\": 30, \"StorageClass\": \"STANDARD_IA\" },\n        { \"Days\": 90, \"StorageClass\": \"GLACIER_IR\" },\n        { \"Days\": 365, \"StorageClass\": \"DEEP_ARCHIVE\" }\n      ],\n      \"NoncurrentVersionExpiration\": { \"NoncurrentDays\": 30 }\n    }\n  ]\n}"
+    },
+    {
+      "id": 5,
+      "title": "Relational Databases: RDS Multi-AZ vs Aurora Distributed Storage",
+      "week": "Foundations",
+      "focus": "Storage Quorum, Automated Failover, Cluster Endpoints & PITR",
+      "badge": "Relational DB",
+      "theory": "Amazon RDS automates relational database operations (PostgreSQL, MySQL). Standard RDS Multi-AZ uses synchronous block-level storage replication to a passive standby in another AZ with a 60-120 second failover window. Amazon Aurora redesigns relational architecture by decoupling compute from storage: Aurora replicates log records 6 ways across 3 AZs using a 4/6 write quorum and 3/6 read quorum, enabling sub-30-second automated failover without storage replay.",
+      "diagram": "RDS MULTI-AZ vs AURORA DISTRIBUTED LOG-STRUCTURED STORAGE\n\n1. STANDARD RDS MULTI-AZ (Block-Level Physical Replication):\n[ Primary Writer (AZ-A) ] ==== Synchronous Block Sync ====> [ Passive Standby (AZ-B) ]\n         |                                                            |\n    [ EBS Volume ]                                               [ EBS Volume ]\n    (Standby CANNOT serve read queries! Automated failover takes 60-120s via DNS shift)\n\n2. AMAZON AURORA (Decoupled Compute & 6-Way Distributed Storage Quorum):\n[ Writer Instance (AZ-A) ]            [ Reader Replica 1 (AZ-B) ]   [ Reader Replica 2 (AZ-C) ]\n          \\                                      |                              /\n           ======================================================================\n                                          | Shared Cluster Storage Bus\n                                          v\n   +--------------------------------------------------------------------------+\n   | AURORA SHARED STORAGE FLEET: 6 Storage Copies Across 3 AZs (10GB Segments)|\n   | AZ-A: [ Copy 1 ] [ Copy 2 ] | AZ-B: [ Copy 3 ] [ Copy 4 ] | AZ-C: [ 5 ] [6] |\n   | Write Quorum: 4 of 6 nodes must acknowledge log record write             |\n   | Read Quorum: 3 of 6 nodes reconstruct state                              |\n   +--------------------------------------------------------------------------+\nFailover: Any Reader promoted to Writer in <30s. Zero storage sync delay!",
+      "keyTakeaways": [
+        "In standard RDS Multi-AZ, the standby instance is passive and cannot serve read traffic.",
+        "Aurora Read Replicas share the exact same underlying storage as the writer; replication lag is typically under 10ms.",
+        "Always configure applications with the Aurora Cluster Writer Endpoint and Reader Endpoint, never individual instance IPs.",
+        "Point-in-Time Recovery (PITR) continuously uploads write logs to S3, enabling restoration to any second within retention."
+      ],
+      "codeExample": "# Node.js: Connecting to Aurora with Cluster Writer & Reader Endpoints\nconst { Pool } = require('pg');\n\n// Writer Pool for INSERT / UPDATE / DELETE transactions\nconst writerPool = new Pool({\n  host: 'prod-aurora-cluster.cluster-c1a2b3c4d5.us-east-1.rds.amazonaws.com',\n  database: 'commerce',\n  user: 'app_user',\n  max: 20, // Keep connection pool bounded!\n});\n\n// Reader Pool for SELECT queries (auto-load balanced across replicas)\nconst readerPool = new Pool({\n  host: 'prod-aurora-cluster.cluster-ro-c1a2b3c4d5.us-east-1.rds.amazonaws.com',\n  database: 'commerce',\n  user: 'app_user',\n  max: 50,\n});"
+    },
+    {
+      "id": 6,
+      "title": "DynamoDB & ElastiCache: Single-Table Design & In-Memory Speed",
+      "week": "App & Data Services",
+      "focus": "Query-First Modeling, GSIs, Hot Partitions, Streams & Cache-Aside",
+      "badge": "NoSQL & Caching",
+      "theory": "Amazon DynamoDB is a fully managed NoSQL database delivering consistent single-digit millisecond latency at any scale. Unlike SQL, DynamoDB schema design begins with query access patterns, frequently employing Single-Table Design with composite Partition Keys (PK) and Sort Keys (SK). Amazon ElastiCache (Valkey, Redis OSS) provides sub-millisecond in-memory caching utilizing the Cache-Aside pattern to prevent database saturation.",
+      "diagram": "DYNAMODB SINGLE-TABLE DESIGN & ELASTICACHE CACHE-ASIDE PATTERN\n\n1. DYNAMODB SINGLE-TABLE SCHEMA:\n+----------------------+--------------------+------------------------------------+\n| PARTITION KEY (PK)   | SORT KEY (SK)      | ATTRIBUTES (Payload Data)          |\n+----------------------+--------------------+------------------------------------+\n| USER#usr_101         | PROFILE            | { name: \"Aditi\", email: \"...\" }    |\n| USER#usr_101         | ORDER#2026-10-01   | { total: 1499, status: \"SHIPPED\" } |\n| USER#usr_101         | ORDER#2026-10-08   | { total: 4999, status: \"PENDING\" } |\n| PRODUCT#sku_99       | METADATA           | { title: \"MacBook Pro\", stock: 12} |\n+----------------------+--------------------+------------------------------------+\nQuery: PK = \"USER#usr_101\" AND SK begins_with(\"ORDER#\") fetches all user orders!\n\n2. CACHE-ASIDE PATTERN FLOW:\nApplication ---> (1) GET user:101 ---> [ ElastiCache Valkey ]\n    |                                            |\n    | (Cache Hit) <--- Return Cached JSON <------+\n    |\n    +-----> (Cache Miss) ---> [ DynamoDB / Aurora ]\n                                     |\n    <------- Return DB Record <------+\n    |\n    +-----> (2) SET user:101 (TTL: 300s) ---> [ ElastiCache ]",
+      "keyTakeaways": [
+        "In DynamoDB, design your tables around queries, not around entities or relational normal forms.",
+        "A bad Partition Key (e.g. static status 'PENDING') concentrates all traffic onto one storage partition, triggering throttles.",
+        "DynamoDB Streams records every INSERT/MODIFY/DELETE in real-time with a 24-hour retention window for event triggers.",
+        "Cache-Aside pattern shields databases; always apply sensible TTLs and jitter to prevent cache stampedes."
+      ],
+      "codeExample": "# DynamoDB Boto3 Python: Single-Table Query with Composite Key\nimport boto3\nfrom boto3.dynamodb.conditions import Key\n\ndynamodb = boto3.resource('dynamodb', region_name='us-east-1')\ntable = dynamodb.Table('ProductionCommerceTable')\n\n# Query user profile and orders in a single high-speed roundtrip\nresponse = table.query(\n    KeyConditionExpression=Key('PK').eq('USER#usr_101') & Key('SK').begins_with('ORDER#')\n)\norders = response['Items']"
+    },
+    {
+      "id": 7,
+      "title": "Edge & Traffic: Route 53, CloudFront & Application Load Balancers",
+      "week": "App & Data Services",
+      "focus": "Routing Policies, Health Checks, Cache Behaviors & Layer-7 Rules",
+      "badge": "Traffic Routing",
+      "theory": "Global internet ingress in AWS is orchestrated across three layers: Amazon Route 53 provides highly available DNS with latency-based, geo-proximity, and health-checked failover routing. Amazon CloudFront caches static and dynamic content at edge Points of Presence (PoPs) worldwide. Application Load Balancers (ALBs) provide Layer-7 HTTP/HTTPS traffic inspection, path routing, and target health evaluation across Multi-AZ container fleets.",
+      "diagram": "GLOBAL INGRESS TRAFFIC PIPELINE\n                     [ GLOBAL USER BROWSER ]\n                                |\n                                v\n               [ ROUTE 53: Latency & Health DNS ]\n              Resolves to lowest latency CloudFront Edge\n                                |\n                                v\n               [ CLOUDFRONT EDGE DISTRIBUTION ]\n          /                                          \\\n (Cache Hit / Static)                       (Cache Miss / Dynamic API)\n         |                                           |\n         v                                           v\n[ S3 Origin: Assets ]                    [ APPLICATION LOAD BALANCER ]\n                                         (Layer-7 Path-Based Routing)\n                                        /                             \\\n                            Path: /api/checkout/*             Path: /api/catalog/*\n                                     |                                 |\n                                     v                                 v\n                         [ Target Group: Checkout ]        [ Target Group: Catalog ]\n                         (ECS Fargate Tasks AZ-A/B)        (ECS Fargate Tasks AZ-A/B)",
+      "keyTakeaways": [
+        "Route 53 Alias records map domain names directly to AWS resources (CloudFront, ALB, S3) with zero DNS query fees.",
+        "Route 53 Health Checks automatically divert global DNS traffic away from impaired regions.",
+        "CloudFront Cache Behaviors map URL paths (e.g. `/static/*` to S3, `/api/*` to ALB) with custom headers and TTL policies.",
+        "ALB operates at Layer 7: routes based on HTTP methods, host headers, URL paths, and query string parameters."
+      ],
+      "codeExample": "# CloudFront Custom Cache Policy (Terraform)\nresource \"aws_cloudfront_cache_policy\" \"api_optimized\" {\n  name        = \"ApiDynamicNoCachePolicy\"\n  default_ttl = 0\n  max_ttl     = 0\n  min_ttl     = 0\n  parameters_in_cache_key_and_forwarded_to_origin {\n    cookies_config { cookie_behavior = \"all\" }\n    headers_config { header_behavior = \"whitelist\", headers { items = [\"Authorization\", \"Host\"] } }\n    query_strings_config { query_string_behavior = \"all\" }\n  }\n}"
+    },
+    {
+      "id": 8,
+      "title": "Containers & Serverless: ECS Fargate, EKS Auto Mode & Lambda",
+      "week": "App & Data Services",
+      "focus": "ECS vs EKS, Serverless Compute, EKS Access Entries & Concurrency",
+      "badge": "Modern Compute",
+      "theory": "AWS compute spans serverless functions (AWS Lambda), AWS-native container management (Amazon ECS with Fargate), and enterprise Kubernetes (Amazon EKS). Modern 2026 EKS leverages EKS Auto Mode for automated node lifecycle and EKS Access Entries for fine-grained IAM authentication. AWS Lambda offers automated scaling, but requires reserved concurrency caps and RDS Proxy connection multiplexing to avoid exhausting backend databases.",
+      "diagram": "CONTAINER & SERVERLESS DECISION MATRIX\n+-------------------+-----------------------------------+-----------------------------------+\n| DIMENSION         | AWS LAMBDA                        | AMAZON ECS (FARGATE)              | AMAZON EKS (AUTO MODE)            |\n+-------------------+-----------------------------------+-----------------------------------+\n| Execution Model   | Event-driven ephemeral function   | Long-running microservice tasks   | Standardized Kubernetes Pods      |\n| Max Duration      | 15 minutes hard timeout           | Indefinite                        | Indefinite                        |\n| Cold Start Impact | 50ms - 800ms (mitigate w/ Prov)  | Minutes on initial container pull | Seconds with pre-warmed nodes     |\n| Operations        | Zero infrastructure management    | Serverless task definitions       | Managed K8s control plane + Helm  |\n| Ideal Workload    | Webhooks, queues, batch ETL, S3   | Web APIs, background consumers    | Multi-cloud K8s, complex meshes   |\n+-------------------+-----------------------------------+-----------------------------------+\n\nTHE LAMBDA DATABASE STARVATION TRAP:\n40,000 RPS Surge ---> [ Lambda Autoscales to 4,000 Pods ] \n                               | (4,000 Direct TCP Connections)\n                               v\n                     [ RDS / Aurora DB (Max Conns = 1,500) ]\n                     STATUS: THREAD EXHAUSTION & CRASH!\nREMEDY: Lambda -> [ AWS RDS Proxy (Multiplexed Pool) ] -> Aurora DB",
+      "keyTakeaways": [
+        "Use ECS when you want containers with AWS-native simplicity; use EKS when Kubernetes portability is a hard requirement.",
+        "Fargate Spot offers up to 70% cost savings for fault-tolerant background workers with a 2-minute interruption notice.",
+        "Reserved Concurrency guarantees execution capacity for critical functions while acting as a blast-radius limiter.",
+        "Provisioned Concurrency initializes execution environments in advance, eliminating cold start latency for interactive APIs."
+      ],
+      "codeExample": "# AWS SAM / Serverless Template: Lambda with Reserved Concurrency & RDS Proxy\nAWSTemplateFormatVersion: '2010-09-09'\nTransform: AWS::Serverless-2016-10-31\nResources:\n  PaymentProcessingFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      Handler: index.handler\n      Runtime: nodejs20.x\n      ReservedConcurrentExecutions: 500 # Caps concurrency to protect RDS!\n      VpcConfig:\n        SecurityGroupIds: [sg-01a2b3c4d5e6]\n        SubnetIds: [subnet-app-a, subnet-app-b]\n      Environment:\n        Variables:\n          DB_PROXY_ENDPOINT: prod-rds-proxy.proxy-c1a2b3.us-east-1.rds.amazonaws.com"
+    },
+    {
+      "id": 9,
+      "title": "Distributed Messaging: SQS, SNS & EventBridge Architectures",
+      "week": "App & Data Services",
+      "focus": "Standard vs FIFO, Visibility Timeout, DLQs, Fanout & Event Buses",
+      "badge": "Event Messaging",
+      "theory": "Asynchronous decoupling prevents cascading failures across distributed microservices. Amazon SQS provides pull-based message queuing with Visibility Timeout and Dead-Letter Queues (DLQs). Amazon SNS provides push-based 1-to-N pub/sub fanout with subscription attribute filtering. Amazon EventBridge serves as an enterprise serverless event bus with declarative schema pattern matching and point-to-point EventBridge Pipes.",
+      "diagram": "MESSAGING ARCHITECTURE: SNS PUB/SUB FANOUT TO SQS QUEUES\n                     [ Order Checkout Service ]\n                                 |\n                                 v\n                   [ SNS TOPIC: OrderPlaced.fifo ]\n                 /               |               \\\n (Filter: region=IN)             |                (Filter: VIP=true)\n        |                        v                       |\n        v               [ SQS Queue: Billing ]           v\n[ SQS Queue: Inventory ]         |               [ SQS Queue: Priority ]\n        |                        v                       |\n        v               [ Billing Workers ]              v\n[ Inventory Workers ]     (Idempotent!)          [ Priority Dispatch ]\n        |\n   (If 3 Retries Fail)\n        |\n        v\n[ SQS Dead-Letter Queue (DLQ) ] ---> CloudWatch Alarm ---> PagerDuty Alert\n\nSQS VISIBILITY TIMEOUT:\nWorker Receives Message -> Message becomes invisible for 30s.\n- Worker succeeds -> Calls DeleteMessage -> Message removed.\n- Worker crashes -> 30s expires -> Message becomes visible again!",
+      "keyTakeaways": [
+        "Standard SQS guarantees at-least-once delivery; consumer workers MUST be designed to be idempotent.",
+        "FIFO SQS guarantees exact ordering and exactly-once processing (up to 3,000 msg/sec with high-throughput batching).",
+        "Visibility Timeout hides a message while being processed; set it to 6x your maximum function processing duration.",
+        "Use Dead-Letter Queues (DLQs) with maxReceiveCount=3 to prevent poison-pill messages from blocking processing forever."
+      ],
+      "codeExample": "# Python SQS Consumer with Idempotency & Explicit Message Deletion\nimport boto3\nimport json\n\nsqs = boto3.client('sqs', region_name='us-east-1')\nqueue_url = 'https://sqs.us-east-1.amazonaws.com/123456789012/order-queue'\n\ndef poll_and_process():\n    response = sqs.receive_message(\n        QueueUrl=queue_url,\n        MaxNumberOfMessages=10,\n        WaitTimeSeconds=20, # Long polling reduces empty-response API costs!\n        VisibilityTimeout=45\n    )\n    for msg in response.get('Messages', []):\n        body = json.loads(msg['Body'])\n        order_id = body['order_id']\n        \n        # Idempotency check in DynamoDB\n        if process_order_idempotent(order_id, body):\n            sqs.delete_message(QueueUrl=queue_url, ReceiptHandle=msg['ReceiptHandle'])"
+    },
+    {
+      "id": 10,
+      "title": "Observability & Cryptography: CloudWatch & AWS KMS",
+      "week": "Distributed Systems",
+      "focus": "SLOs, Metrics, Logs Insights, Envelope Encryption & Key Policies",
+      "badge": "Security & Ops",
+      "theory": "Production systems require deep observability and zero-trust cryptography. Amazon CloudWatch provides telemetry across metrics, centralized logs, composite alarms, and Service Level Objectives (SLOs) with error budget tracking. AWS Key Management Service (KMS) protects sensitive data using Hardware Security Modules (HSMs) and envelope encryption: a Customer Managed Key (CMK) protects a local Data Key that encrypts massive data sets locally.",
+      "diagram": "AWS KMS ENVELOPE ENCRYPTION & CLOUDWATCH SRE OBSERVABILITY\n\n1. ENVELOPE ENCRYPTION WORKFLOW:\nApplication ---> (1) kms:GenerateDataKey ---> [ AWS KMS (CMK in HSM) ]\n    |                                                |\n    | <--- Plaintext Data Key + Encrypted Data Key <-+\n    |\n    v (2) Encrypt 10 GB file in RAM using Plaintext Data Key\n[ Ciphertext Data ] + [ Encrypted Data Key (Metadata) ]\n    |\n    v (3) Erase Plaintext Data Key from RAM! Store Ciphertext to S3.\n\n2. CLOUDWATCH SRE TELEMETRY STACK:\n[ ECS / Lambda Workloads ] ---> OpenTelemetry / CloudWatch Agent\n                                        |\n      +---------------------------------+-------------------------------+\n      |                                 |                               |\n      v                                 v                               v\n[ CLOUDWATCH METRICS ]         [ CLOUDWATCH LOGS ]            [ CLOUDWATCH TRACES ]\n- ALB TargetResponseTime       - CloudWatch Logs Insights     - X-Ray / OTel Spans\n- SQS ApproximateAgeOfOldest   - Log Metric Filters           - End-to-End Latency\n      |                                 |                               |\n      +---------------------------------+-------------------------------+\n                                        v\n                    [ COMPOSITE ALARM & SRE SLO ]\n              SLO: 99.95% successful requests over 30 days\n             Alert on Error Budget Burn Rate > 2% per hour!",
+      "keyTakeaways": [
+        "In CloudWatch, do not alert on raw CPU; alert on user-impacting symptoms (p95 latency, error rates, queue age).",
+        "SLOs track reliability targets and error budgets, separating critical pages from minor transient spikes.",
+        "KMS Key Policies are the primary access control mechanism; an IAM policy alone cannot grant KMS access if the Key Policy denies it.",
+        "Envelope encryption allows encrypting multi-gigabyte files locally without sending raw datasets over the network to KMS."
+      ],
+      "codeExample": "# AWS KMS Key Policy Snippet granting least privilege to an App Role\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowAppRoleDecryptOnly\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"AWS\": \"arn:aws:iam::123456789012:role/ProductionPaymentRole\"\n      },\n      \"Action\": [\n        \"kms:Decrypt\",\n        \"kms:DescribeKey\"\n      ],\n      \"Resource\": \"*\",\n      \"Condition\": {\n        \"StringEquals\": {\n          \"kms:ViaService\": \"s3.us-east-1.amazonaws.com\"\n        }\n      }\n    }\n  ]\n}"
+    },
+    {
+      "id": 11,
+      "title": "Capstone Architecture Blueprint: 10M-User E-Commerce System",
+      "week": "Distributed Systems",
+      "focus": "End-to-End Multi-AZ System, Request Lifecycle & 14 Lab Progression",
+      "badge": "Capstone Blueprint",
+      "theory": "The Module 7 Capstone integrates every architectural concept into a production blueprint engineered for 10 million users, 100,000 peak RPS, 99.99% availability, Multi-AZ resilience, and sub-second checkout latencies. The design utilizes Route 53, CloudFront edge caching, ALB Layer-7 routing, ECS Fargate containers, ElastiCache Valkey, polyglot persistence (Aurora PostgreSQL + DynamoDB), asynchronous SQS/SNS fanout, and KMS encryption.",
+      "diagram": "PRODUCTION AWS COMMERCE PLATFORM (10M USERS / 100K PEAK RPS)\n[ GLOBAL USERS ]\n       |\n       v\n[ ROUTE 53 DNS ] -> (Geo-Proximity / Latency Routing)\n       |\n       v\n[ CLOUDFRONT CDN + AWS WAF ]\n   /                      \\\n (Static S3 Assets)       (Dynamic API / HTTPS 443)\n                          |\n                          v\n         [ APPLICATION LOAD BALANCER (Multi-AZ) ]\n                 /                   \\\n         (AZ-A / Subnet)             (AZ-B / Subnet)\n                |                           |\n                v                           v\n     [ ECS FARGATE API ]         [ ECS FARGATE API ]\n             \\                            /\n              +-------------+------------+\n                            |\n         +------------------+------------------+\n         |                                     |\n         v                                     v\n[ ELASTICACHE VALKEY ]               [ POLYGLOT PERSISTENCE ]\n- Product Catalog Cache             - Aurora PostgreSQL (Cluster Writer + Readers)\n- User Sessions (TTL: 1h)           - DynamoDB (Orders, Shopping Cart, Single-Table)\n                                               |\n                                     (DynamoDB Streams / CDC)\n                                               |\n                                               v\n                                  [ EVENTBRIDGE / SNS FANOUT ]\n                                  /            |             \\\n                                 v             v              v\n                           [ SQS: Pay ]  [ SQS: Ship ]  [ SQS: Email ]\n                                 |             |              |\n                                 v             v              v\n                           [ Lambda ]    [ Lambda ]     [ Lambda ]\n                                 |             |              |\n                                 +-------------+--------------+\n                                               |\n                                               v\n                                  [ S3 DATA LAKE + KMS + CLOUDWATCH ]",
+      "keyTakeaways": [
+        "Polyglot persistence allocates workloads to optimal engines: Aurora for ACID financial ledgers; DynamoDB for high-velocity carts.",
+        "Event-driven decoupling ensures checkout succeeds in <100ms: payment, shipping, and email notifications execute asynchronously via SQS.",
+        "CloudWatch Application Signals and OpenTelemetry traces pinpoint microsecond latency regressions across distributed microservices.",
+        "RPO <= 1 minute and RTO <= 15 minutes are guaranteed through Aurora continuous PITR and multi-AZ self-healing ECS tasks."
+      ],
+      "codeExample": "# Complete 14-Step Progressive AWS Mastery Sequence:\n# Lab 1: IAM Identity Center & Custom STS Role Delegation\n# Lab 2: Multi-AZ VPC with Public/Private Subnets & Dual NAT Gateways\n# Lab 3: Hardened EC2 Launch Templates with Auto Scaling Groups\n# Lab 4: Secure S3 Bucket with Object Lock, Versioning & Lifecycle Rules\n# Lab 5: Amazon Aurora Multi-AZ Cluster with Read Replica Offloading\n# Lab 6: DynamoDB Single-Table Design with Composite Keys & GSIs\n# Lab 7: ElastiCache Valkey Cluster with Cache-Aside Acceleration\n# Lab 8: Route 53 DNS Failover + CloudFront CDN + ALB L7 Routing\n# Lab 9: Serverless AWS Lambda with Reserved Concurrency & RDS Proxy\n# Lab 10: Amazon ECS Fargate Container Deployment with Health Checks\n# Lab 11: Amazon EKS Cluster with EKS Auto Mode & Access Entries\n# Lab 12: Asynchronous SQS Standard/FIFO Queues with DLQ Redrive & SNS Fanout\n# Lab 13: Amazon CloudWatch Composite Alarms, SLOs & KMS Envelope Encryption\n# Lab 14: Final Capstone: 10M-User Production E-Commerce Platform Stress Test"
+    }
+  ],
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Scenario 1: EC2 Application Task Crashes in Production",
+      "context": "At 14:02 UTC, an unhandled NullPointerException causes container PID 1 to crash inside an ECS task in Availability Zone A. User requests to that container immediately fail with connection reset errors.",
+      "question": "What is the architecturally sound AWS mechanism that automatically detects and resolves this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ECS Service Desired Count manager detects task exit via container agent, invokes task replacement, while ALB health checks immediately deregister the crashed target.",
+          "verdict": "Correct! Self-Healing Microservice",
+          "explanation": "The ALB stops routing traffic to the dead task within seconds of failed health checks. Concurrently, the ECS service maintains desired count and launches a fresh container in a healthy AZ.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "SSH into the underlying EC2 instance and run `systemctl restart docker` to revive the crashed process.",
+          "verdict": "Anti-Pattern! Manual Toil",
+          "explanation": "Manual SSH into production violates AWS Well-Architected Operational Excellence. Workloads should be immutable and self-healing.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Scenario 2: Catastrophic Datacenter Outage Knocks Out AZ-1a",
+      "context": "A power grid failure severs connectivity to AWS Availability Zone us-east-1a. 50% of your ECS container fleet and the primary NAT Gateway located in AZ-1a become completely unreachable.",
+      "question": "How should a production AWS architecture survive this with zero downtime?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Application Load Balancer cross-zone load balancing distributes ingress strictly to healthy targets in AZ-1b and AZ-1c; each AZ has its own independent NAT Gateway.",
+          "verdict": "Correct! Multi-AZ Fault Isolation",
+          "explanation": "By deploying subnets, workloads, and NAT Gateways independently across at least 2 (ideally 3) AZs, the loss of an entire physical datacenter zone is absorbed seamlessly.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Route 53 DNS records must be manually updated to point away from the AWS region to a local on-premises server.",
+          "verdict": "Incorrect Architecture",
+          "explanation": "AZ failures are designed to be handled intra-region via multi-AZ redundancy without requiring emergency cross-cloud DNS migrations.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Scenario 3: Aurora Primary Writer Node Suffers Hardware Failure",
+      "context": "The EC2 host running the Aurora PostgreSQL primary writer instance experiences a hardware hypervisor panic. The database is in the middle of processing 12,000 checkout transactions per second.",
+      "question": "Which database endpoint must your application connect to, and how does Aurora recover?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The application uses the Aurora Cluster Writer Endpoint. Aurora automatically promotes a reader replica to writer in <30s and shifts the CNAME DNS record to the new writer.",
+          "verdict": "Correct! Aurora Storage Quorum & Failover",
+          "explanation": "Because Aurora storage is shared across 6 copies in 3 AZs independent of compute, no storage replication replay is needed. The Cluster Writer Endpoint automatically points to the newly promoted replica.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The application hardcodes the private IP of the instance and waits for the engineer on call to attach a new EBS volume.",
+          "verdict": "Catastrophic Anti-Pattern",
+          "explanation": "Hardcoding database IP addresses or relying on single-instance disk attachments destroys Aurora's high-availability design.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Scenario 4: DynamoDB Massive Flash Sale Causes Hot Partition Throttling",
+      "context": "During a Diwali flash sale, 200,000 users attempt to purchase an iPhone at the exact same second. Your table uses `PK = 'SALE_STATUS'` and `SK = timestamp`. CloudWatch alarms fire on `ProvisionedThroughputExceededException`.",
+      "question": "What is the architectural root cause and permanent remediation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Low-cardinality partition key caused all write traffic to hit a single physical DynamoDB storage partition (1,000 WCU limit). Remediate by sharding/salting the partition key (`SALE#<random_0-99>`).",
+          "verdict": "Correct! Partition Key Distribution",
+          "explanation": "DynamoDB scales horizontally by hashing the Partition Key. A low-cardinality key bottles all traffic into one storage node regardless of total provisioned or on-demand table capacity.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Switch DynamoDB from On-Demand mode to Provisioned mode with 500 WCU.",
+          "verdict": "Incorrect",
+          "explanation": "Provisioning fewer capacity units on a hot partition will exacerbate throttling, not solve key skew.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Scenario 5: Serverless Lambda Surge Exhausts Aurora DB Connections",
+      "context": "A marketing push sends 40,000 concurrent requests to an API Gateway backed by AWS Lambda. Lambda scales up to 4,000 concurrent execution environments, each opening 1-2 Postgres connections. Aurora maximum connections is 1,500.",
+      "question": "Why is the database failing, and what are the two essential AWS architectural remedies?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deploy AWS RDS Proxy between Lambda and Aurora to pool/multiplex connections, and configure Reserved Concurrency on the Lambda function to cap concurrency bursts.",
+          "verdict": "Correct! Concurrency & Connection Pooling",
+          "explanation": "Serverless compute scales faster than relational database connection pools. RDS Proxy multiplexes thousands of ephemeral Lambda connections into a compact pool of persistent Aurora connections.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Increase Lambda timeout from 3 seconds to 15 minutes so functions can wait indefinitely for connections to free up.",
+          "verdict": "Disastrous Failure",
+          "explanation": "Increasing timeouts during a connection starvation event causes incoming Lambda instances to queue and pile up, magnifying thread exhaustion and leading to cascading cluster death.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Scenario 6: SQS Worker Worker Crashes Halfway Through Payment Processing",
+      "context": "A background billing worker pulls an `OrderPayment` message from SQS, debits the user's credit card via Stripe, but crashes before issuing `DeleteMessage` back to SQS.",
+      "question": "What happens to the message in SQS, and how must the consumer be architected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When the SQS Visibility Timeout expires, the message reappears in the queue and another worker consumes it. The worker MUST be idempotent using a transaction/idempotency key.",
+          "verdict": "Correct! SQS Visibility Timeout & Idempotency",
+          "explanation": "SQS guarantees at-least-once delivery. If `DeleteMessage` is never called, SQS re-exposes the message. Without an idempotency check, the customer would be charged a second time!",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "SQS immediately deletes the message the millisecond it is received by the worker.",
+          "verdict": "Incorrect",
+          "explanation": "SQS never auto-deletes received messages; it hides them for the duration of the Visibility Timeout.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Scenario 7: An OrderCreated Event Matches Three EventBridge Rules",
+      "context": "An e-commerce order service publishes an `OrderCreated` event to the default EventBridge bus. Rule 1 targets Payment Lambda, Rule 2 targets Inventory SQS, and Rule 3 targets Analytics Kinesis Firehose.",
+      "question": "Can multiple rules trigger simultaneously for a single event in EventBridge?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes. EventBridge evaluates all active rules independently against the event envelope; each matching rule routes the event payload to its configured downstream targets.",
+          "verdict": "Correct! True Event-Driven Decoupling",
+          "explanation": "EventBridge rules allow seamless 1-to-N decoupled event distribution without modifying the publisher's code or requiring multiple separate API calls.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "No. EventBridge uses first-match routing; only the first rule defined in alphabetical order executes.",
+          "verdict": "Incorrect",
+          "explanation": "EventBridge is an event bus, not an if-else chain. All matching rules fire concurrently.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Scenario 8: CloudFront Serves Old Product Prices After S3 Catalog Update",
+      "context": "Your deployment pipeline updates `products.json` in an S3 origin bucket with new discounted pricing. However, global customers in Tokyo and London still view the old higher price for the next 24 hours.",
+      "question": "Is S3 data inconsistent, and how do you resolve the price lag?",
+      "options": [
+        {
+          "id": "A",
+          "text": "S3 has strong read-after-write consistency, but CloudFront Edge caches respect `Cache-Control: max-age=86400`. Submit a CloudFront Invalidation for `/products.json` or use versioned object URLs (`products-v2.json`).",
+          "verdict": "Correct! CDN Edge Caching vs Origin Consistency",
+          "explanation": "The edge cache POP is deliberately shielding S3 from origin requests. Immediate propagation requires either an invalidation request or modern immutable cache-busting filenames.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "S3 replication is slow and takes 24 hours to replicate data across global regions.",
+          "verdict": "Incorrect",
+          "explanation": "S3 offers immediate strong read-after-write consistency. The staleness is occurring at the CDN edge cache layer.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Scenario 9: S3 GetObject Fails with HTTP 403 Access Denied (KMS Enigma)",
+      "context": "An EC2 instance has an IAM Role with `s3:GetObject` permission explicitly granted for `arn:aws:s3:::confidential-finance/*`. Yet every download request receives `403 Access Denied`.",
+      "question": "What is the missing authorization layer in an encrypted AWS infrastructure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The S3 bucket is encrypted with a Customer Managed KMS Key (SSE-KMS). The IAM role lacks `kms:Decrypt` permission on the KMS key, or the KMS Key Policy does not grant access to the role.",
+          "verdict": "Correct! Layered KMS Authorization",
+          "explanation": "SSE-KMS requires dual authorization: authorization on the S3 resource AND cryptographic authorization on the KMS key policy. Both must evaluate to ALLOW.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "The EC2 instance forgot to configure an SSL certificate in its local `/etc/hosts` file.",
+          "verdict": "Irrelevant",
+          "explanation": "AWS API authentication uses SigV4 and IAM credentials, completely independent of local OS hosts files.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1802,
+    "fileSizeBytes": 95928,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

@@ -1,0 +1,567 @@
+{
+  "id": "docker",
+  "courseId": "devops",
+  "index": 3,
+  "name": "Docker & Containers",
+  "route": "/learning/devops/docker",
+  "componentName": "DevOpsDocker",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is a container not simply a small virtual machine?",
+      "options": [
+        "Containers share the host operating system kernel and isolate processes using kernel namespaces and cgroups, whereas VMs run a dedicated guest OS kernel atop a hypervisor.",
+        "Containers are written in Python while VMs are written in C.",
+        "Containers do not use memory or CPU on the host computer.",
+        "VMs can only run Windows while containers only run Linux."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "What specific roles do namespaces and cgroups play in Linux containerization?",
+      "options": [
+        "Namespaces isolate what a container can see (PID, network, mounts, IPC, UTS, user), while cgroups control how many resources a container can consume (CPU, RAM, disk I/O, PIDs).",
+        "Namespaces compress images while cgroups upload them to Docker Hub.",
+        "cgroups manage DNS names and namespaces manage file permissions.",
+        "They are obsolete Linux features replaced by Docker Desktop."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "How do a Dockerfile, an image, a container, and a registry relate to one another?",
+      "options": [
+        "A Dockerfile is the build recipe; an image is the compiled immutable multi-layered snapshot; a container is an active running instance of an image; a registry stores and distributes images.",
+        "An image builds a Dockerfile; a container is a registry; a Dockerfile is a VM.",
+        "They are four different commands in Docker Compose with identical behavior.",
+        "A registry runs containers, an image is a script, and a Dockerfile is a network."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "How does the ordering of Dockerfile instructions affect layers and build caching?",
+      "options": [
+        "Docker caches layers sequentially; changing an instruction invalidates its cache and forces all subsequent layers to rebuild. Copying dependencies before code maximizes cache hits.",
+        "Docker builds all instructions in random parallel order without caching.",
+        "Order does not matter because Docker automatically detects which files changed inside scripts.",
+        "Putting instructions at the top makes them rebuild slower."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Why would an SRE engineer use a multi-stage build?",
+      "options": [
+        "To separate the build environment (compilers, build tools, dev libraries) from the runtime environment, drastically reducing final image size and attack surface.",
+        "To run multiple containers inside a single image simultaneously.",
+        "Because single-stage builds cannot run Python.",
+        "To automatically generate HTML documentation for the application."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "When should an engineer use a named volume rather than a bind mount?",
+      "options": [
+        "Use named volumes for persistent application data managed by Docker (like database storage); use bind mounts when mounting host source code into containers for local development.",
+        "Use bind mounts for production databases and named volumes for README files.",
+        "Named volumes only work on Windows; bind mounts only work on Linux.",
+        "Named volumes are destroyed when containers stop; bind mounts are permanent."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "What is the difference between a container's internal port and a published host port?",
+      "options": [
+        "The internal port is where the process listens inside the container's network namespace; the published host port is bound on the host OS interface and forwarded by Docker to the container.",
+        "Internal ports use TCP while published ports use UDP.",
+        "They must always be the exact same port number or Docker fails to start.",
+        "Internal ports are public to the internet while host ports are private."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "Why should an application container not need its database container's port published to the host?",
+      "options": [
+        "Because both containers can communicate directly over a shared private Docker bridge network using internal DNS, keeping the database port inaccessible from external networks.",
+        "Because databases cannot bind to network sockets inside Docker.",
+        "Because publishing ports makes databases run out of memory.",
+        "Because Docker Compose automatically deletes published database ports."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "Why is a tag less precise than an image digest for identifying a particular image?",
+      "options": [
+        "Tags are mutable pointers that can be overwritten by new image builds, whereas a digest is an immutable cryptographic SHA-256 hash of the image manifest.",
+        "Tags can only have 5 characters while digests have 10.",
+        "Digests change every time a container restarts.",
+        "Tags are only used locally and cannot be pushed to registries."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "Why is placing a secret in a Dockerfile 'ARG' or 'ENV' potentially unsafe?",
+      "options": [
+        "Because ARG and ENV values persist permanently in image layer metadata and can be extracted by anyone running 'docker history' or inspecting the image.",
+        "Because ARG and ENV variables crash the Linux kernel.",
+        "Because secrets in ENV variables are automatically emailed to Docker Hub.",
+        "Because Dockerfiles cannot process strings longer than 8 characters."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "What does a container health check establish, and what does it NOT guarantee?",
+      "options": [
+        "It verifies that a specific test probe passes at that moment; it does not guarantee that the application can handle high concurrent load or will not crash under future requests.",
+        "It guarantees 100% bug-free code forever.",
+        "It proves that the container is running on Kubernetes.",
+        "It guarantees that the database has infinite disk space."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "How would an SRE diagnose an application that runs locally but cannot connect to its database container?",
+      "options": [
+        "Verify network membership in user-defined bridge, test service-name DNS resolution, check port 5432 availability, verify database health check status, and check credentials.",
+        "Restart the host computer 3 times.",
+        "Delete the Dockerfile and reinstall Python.",
+        "Change the container name to 'root'."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "How can you demonstrate that database data survives container recreation?",
+      "options": [
+        "Write a record to the database, run 'docker compose down' to stop and delete containers, run 'docker compose up -d' to recreate them, and query the record to verify persistence.",
+        "Take a screenshot of the terminal.",
+        "Delete the volume and check if the database crashes.",
+        "Restart Docker Desktop and read the Dockerfile."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "What evidence should an SRE review before promoting a container image to a production release?",
+      "options": [
+        "Vulnerability scan results (Docker Scout/Trivy), non-root execution validation, SBOM provenance, pinned base image digest, test pass logs, and absence of baked secrets.",
+        "Only the image size in megabytes.",
+        "Whether the Dockerfile has comments on every line.",
+        "A confirmation email from the developer."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": [
+    {
+      "id": "concept-containers",
+      "number": "01",
+      "title": "Containers vs. Virtual Machines & Kernel Primitives",
+      "badge": "Kernel Namespaces & cgroups",
+      "summary": "The 'it works on my machine' trap. Containers share the host Linux kernel via namespaces and control groups (cgroups), whereas VMs run an entire guest OS kernel atop a hypervisor. The 4 core terms: Dockerfile, Image, Container, and Registry.",
+      "details": [
+        {
+          "heading": "The Container Paradigm vs. Heavy Hypervisors",
+          "body": "In traditional virtualization, Type-2 hypervisors (VirtualBox, VMware) emulate virtual CPU, RAM, and hardware devices to boot an entire independent Guest OS kernel (consuming gigabytes of memory and taking 30–60 seconds to boot). In contrast, a container is simply a standard Linux process running directly on the host kernel, isolated through kernel boundaries. Containers start in milliseconds and share the host kernel page cache."
+        },
+        {
+          "heading": "The Academic Operating System Foundation: Namespaces",
+          "body": "As taught in MIT Operating System Engineering, Stanford CS111, and Cambridge OS coursework, Linux process isolation relies on 6 fundamental kernel namespaces:\n- PID Namespace: Provides an isolated process ID space (container process sees itself as PID 1).\n- NET Namespace: Dedicated virtual network interfaces, routing tables, and port spaces.\n- MNT Namespace: Isolated filesystem mount points (hiding host disk hierarchies).\n- IPC Namespace: Isolates inter-process shared memory and POSIX message queues.\n- UTS Namespace: Dedicated hostname and domain names.\n- USER Namespace: Maps container-internal root (UID 0) to an unprivileged host UID."
+        },
+        {
+          "heading": "Control Groups (cgroups): Resource Throttling & OOM Protection",
+          "body": "While namespaces control WHAT a container can see, Control Groups (cgroups v1/v2) control HOW MUCH resource it can consume. cgroups enforce strict limits on CPU shares, memory ceilings, disk I/O bandwidth, and maximum process counts (PID limits). If a container exceeds its memory cgroup limit, the Linux kernel Out-Of-Memory (OOM) killer terminates processes inside that container without crashing the host OS."
+        },
+        {
+          "heading": "The Four Fundamental Terms",
+          "body": "1. Dockerfile: Declarative text script describing how to construct a filesystem snapshot.\n2. Image: Immutable, cryptographically hashed, read-only multi-layered template containing dependencies and code.\n3. Container: A runnable, isolated process instance created from an image with an ephemeral writable layer.\n4. Registry: A centralized service (Docker Hub, AWS ECR, GitHub Container Registry) that stores and distributes versioned images."
+        }
+      ],
+      "codeSnippet": "# Verify Docker engine and kernel capabilities\ndocker --version\ndocker info\n\n# Run your first diagnostic container\ndocker run --rm hello-world\n\n# Inspect container process isolation from host\ndocker run -d --name web-test -p 127.0.0.1:8080:80 nginx\ndocker inspect --format '{{.State.Pid}}' web-test  # Shows host PID!\ndocker top web-test                               # Shows running processes"
+    },
+    {
+      "id": "dockerfile-mechanics",
+      "number": "02",
+      "title": "Dockerfiles & Core Instruction Architecture",
+      "badge": "Syntax & PID 1 Supervision",
+      "summary": "Deconstructing Dockerfile instructions: FROM, WORKDIR, COPY, RUN, ENV, ARG, USER, EXPOSE, ENTRYPOINT, and CMD. Exec form vs shell form and PID 1 signal handling.",
+      "details": [
+        {
+          "heading": "Core Dockerfile Instructions",
+          "body": "- FROM: Initializes a new build stage and sets the Base Image.\n- WORKDIR: Sets the working directory for subsequent instructions (automatically creates directory if missing).\n- COPY: Copies files from the build context into the container filesystem (always prefer COPY over ADD).\n- RUN: Executes commands during image build time and commits the result as a new image layer.\n- ENV: Sets persistent environment variables available during build and at runtime.\n- ARG: Defines build-time-only variables (never bake secrets into ARG!).\n- USER: Drops root privileges and switches to an unprivileged user UID/GID.\n- EXPOSE: Documents intended ports (pure metadata; does not publish to host)."
+        },
+        {
+          "heading": "ENTRYPOINT vs. CMD",
+          "body": "- ENTRYPOINT defines the default binary or executable for the container (e.g., `ENTRYPOINT [\"python\"]`).\n- CMD supplies default parameters or arguments that can be overridden by CLI arguments when running `docker run`.\nWhen used together, `ENTRYPOINT [\"python\"]` and `CMD [\"app.py\"]` allows the user to override `app.py` with `test.py` via `docker run my-image test.py`."
+        },
+        {
+          "heading": "Exec Form vs. Shell Form: The PID 1 Signal Trap",
+          "body": "There are two syntax forms for CMD and ENTRYPOINT:\n1. Shell Form: `CMD python app.py` $\\rightarrow$ Spawns `/bin/sh -c 'python app.py'`. The shell becomes PID 1 and DOES NOT forward signals like `SIGTERM`. When stopping the container, Python never receives the shutdown signal, hangs for 10 seconds, and gets killed abruptly by `SIGKILL`.\n2. Exec Form (MANDATORY): `CMD [\"python\", \"app.py\"]` $\\rightarrow$ Runs Python directly as PID 1, receiving signals cleanly."
+        },
+        {
+          "heading": "EXPOSE vs. -p (Host Port Publishing)",
+          "body": "`EXPOSE 8000` is documentation only; it does not bind to host interfaces. To make a container port reachable from your computer, you must explicitly publish it using `-p <host-ip>:<host-port>:<container-port>`, such as `-p 127.0.0.1:8000:8000`."
+        }
+      ],
+      "codeSnippet": "# Production Python Dockerfile\nFROM python:3.13-slim\n\nWORKDIR /app\n\n# Security: Create non-root system user\nRUN groupadd --system app && useradd --system --gid app --home-dir /app app\n\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\n\nCOPY --chown=app:app app.py .\n\nUSER app\n\nEXPOSE 8000\n\n# Exec form ensures proper signal forwarding\nCMD [\"python\", \"app.py\"]"
+    },
+    {
+      "id": "layers-caching",
+      "number": "03",
+      "title": "Image Layers, OverlayFS & Build Cache Optimization",
+      "badge": "OverlayFS & Layer Invalidation",
+      "summary": "How union filesystems (OverlayFS) work. Ordering instructions to maximize build cache hits. Preventing build context bloat with .dockerignore.",
+      "details": [
+        {
+          "heading": "How OverlayFS & Union Mounts Work",
+          "body": "Docker images are composed of stacked read-only layers using the Linux OverlayFS storage driver. Each instruction in a Dockerfile that modifies files (`RUN`, `COPY`, `ADD`) creates a new immutable layer (`diff` directory). When a container runs, Docker attaches a thin, read-write 'container layer' on top. Any file modifications made during runtime are captured in this ephemeral upper layer using copy-on-write (CoW)."
+        },
+        {
+          "heading": "Instruction Ordering & Cache Invalidation",
+          "body": "Docker evaluates instructions sequentially from top to bottom. If an instruction's inputs have not changed, Docker reuses the cached layer from a previous build.\nCRITICAL RULE: If a layer changes, that layer and ALL SUBSEQUENT LAYERS ARE INVALIDATED!\nAnti-Pattern: Running `COPY . .` before `RUN pip install -r requirements.txt`. Any small edit to `README.md` or `app.py` invalidates `COPY . .`, forcing Docker to re-download and re-install all Python dependencies every single build!"
+        },
+        {
+          "heading": "The Golden Dependency Caching Pattern",
+          "body": "Always copy dependency declarations (`package.json`, `requirements.txt`, `go.mod`) first, execute dependency installation, and only THEN copy application source code. Since dependencies change much less frequently than application code, 95% of your builds will hit the cache in < 1 second."
+        },
+        {
+          "heading": ".dockerignore Hygiene",
+          "body": "When you run `docker build .`, the Docker CLI sends the entire directory ('build context') to the Docker daemon. Unfiltered build contexts send huge git histories (`.git`), virtual environments (`.venv`), local secrets (`.env`), and compiled bytecode (`__pycache__`), slowing down builds and risking accidental secret leakage. Always configure a strict `.dockerignore` file."
+        }
+      ],
+      "codeSnippet": "# Inspect layer composition and sizes\ndocker image history my-app:1.0\n\n# Recommended .dockerignore\n.git\n.github\n.env\n.env.*\nsecrets/\n.venv/\nvenv/\n__pycache__/\n*.pyc\n*.log"
+    },
+    {
+      "id": "multistage-builds",
+      "number": "04",
+      "title": "Multi-Stage Builds: Production-Grade Artifacts",
+      "badge": "Attack Surface Minimization",
+      "summary": "Separating build toolchains (compilers, build headers) from runtime artifacts. Copying outputs with 'COPY --from=builder'. Slashing image size from 900MB to 120MB.",
+      "details": [
+        {
+          "heading": "The Problem with Single-Stage Builds",
+          "body": "Compiling native C extensions (like `psycopg`, `cryptography`, or Go/Rust binaries) requires installing `gcc`, `make`, `g++`, and OS header packages (`libpq-dev`). In a single-stage build, these compiler tools and package caches remain permanently baked into the final image, swelling image size by 700MB+ and dramatically expanding the container's CVE security attack surface."
+        },
+        {
+          "heading": "The Multi-Stage Build Architecture",
+          "body": "Introduced by Docker to eliminate intermediate build scripts, Multi-Stage Builds allow multiple `FROM` instructions in a single Dockerfile:\n1. Builder Stage: Uses a complete SDK image, installs compilers, builds dependencies into an isolated directory (e.g. `/install`).\n2. Runtime Stage: Starts from a pristine, minimal base image (`python:3.13-slim` or distroless). Copies ONLY the compiled artifacts using `COPY --from=builder /install /usr/local`.\nAll compilers, dev headers, and build caches are completely discarded!"
+        },
+        {
+          "heading": "Operational & Security Benefits",
+          "body": "- 85% Image Size Reduction: Faster network pulls across CI/CD runners and Kubernetes nodes.\n- Attack Surface Minimization: Attackers who achieve remote code execution inside the container find no compilers or build tools to compile privilege escalation exploits."
+        }
+      ],
+      "codeSnippet": "# Production Multi-Stage Dockerfile\nFROM python:3.13-slim AS builder\n\nWORKDIR /build\nCOPY requirements.txt .\n\n# Install dependencies into dedicated prefix\nRUN pip install --no-cache-dir --prefix=/install -r requirements.txt\n\n# Final Pristine Runtime Stage\nFROM python:3.13-slim AS runtime\n\nWORKDIR /app\n# Copy only the compiled Python packages\nCOPY --from=builder /install /usr/local\nCOPY app.py .\n\nCMD [\"python\", \"app.py\"]"
+    },
+    {
+      "id": "storage-volumes",
+      "number": "05",
+      "title": "Volumes, Bind Mounts & Persistent Storage",
+      "badge": "Storage Drivers & PostgreSQL 18",
+      "summary": "The ephemeral container layer vs. Named Volumes vs. Bind Mounts vs. tmpfs. Why PostgreSQL data disappears if misconfigured. The PostgreSQL 18 mount path update.",
+      "details": [
+        {
+          "heading": "The Ephemeral Writable Layer Trap",
+          "body": "Any data written to a container's default filesystem resides in its ephemeral writable layer. When a container is deleted (`docker rm`), that writable layer is destroyed instantly. Production databases (PostgreSQL, MySQL, Redis) must NEVER store state in the container writable layer."
+        },
+        {
+          "heading": "The Three Types of Mounts",
+          "body": "1. Named Volumes (`--mount type=volume,source=my_data,target=/data`): Managed exclusively by Docker inside `/var/lib/docker/volumes/`. Isolated from host OS direct access; survives container removal; best for databases and stateful services.\n2. Bind Mounts (`--mount type=bind,source=$PWD,target=/app`): Maps an exact directory or file from the host filesystem into the container. Excellent for local code hot-reloading during development.\n3. tmpfs Mounts (`--mount type=tmpfs,target=/tmp`): Persisted purely in host RAM. Never written to disk; ideal for sensitive in-memory secrets and transient caches on read-only containers."
+        },
+        {
+          "heading": "Critical 2026/PostgreSQL 18 Update: Volume Target",
+          "body": "For years, earlier PostgreSQL images documented `/var/lib/postgresql/data` as the volume target. Official Docker documentation for PostgreSQL 18 specifies that `/var/lib/postgresql` is the volume target. If an engineer mounts to the legacy `/data` subpath on PostgreSQL 18, database files are written to the container's ephemeral layer and disappear upon container recreation!"
+        }
+      ],
+      "codeSnippet": "# Create and inspect a named volume\ndocker volume create postgres_data\ndocker volume inspect postgres_data\n\n# Run PostgreSQL with persistent named volume\ndocker run -d \\\n  --name db \\\n  -e POSTGRES_PASSWORD=secret \\\n  -v postgres_data:/var/lib/postgresql \\\n  postgres:18\n\n# Read-only bind mount for development\ndocker run --rm -v \"$(pwd)\":/app:ro python:3.13-slim ls -la /app"
+    },
+    {
+      "id": "networking-dns",
+      "number": "06",
+      "title": "Docker Networking & Embedded Service Discovery",
+      "badge": "Bridge Networks & DNS 127.0.0.11",
+      "summary": "Default bridge vs User-defined bridge networks. Embedded DNS service discovery by container name. Network isolation: Internal networks and securing database ports.",
+      "details": [
+        {
+          "heading": "Default Bridge vs. User-Defined Bridge Networks",
+          "body": "When Docker starts without custom configuration, containers attach to the legacy default `bridge`. The default bridge DOES NOT support automatic DNS resolution between containers (requiring fragile IP addresses or legacy `--link` flags). User-defined bridge networks (`docker network create app-net`) automatically enable Docker's embedded DNS server (`127.0.0.11`), allowing containers to resolve peer services by container name (e.g. `ping db`)."
+        },
+        {
+          "heading": "Host Port Binding: 127.0.0.1 vs. 0.0.0.0",
+          "body": "When publishing ports via `-p 8080:8000`, Docker binds to `0.0.0.0:8080` (all public network interfaces) by default, exposing the container to the local LAN or public internet. In local development or multi-tier architectures, always bind explicitly to loopback: `-p 127.0.0.1:8080:8000` to prevent unintended external exposure."
+        },
+        {
+          "heading": "Network Segmentation Principle",
+          "body": "Never put all containers on a single flat network. Modern microservices use segmented networks:\n- `frontend` network: API container and reverse proxy (Nginx/Traefik).\n- `backend` network (`internal: true`): API container and PostgreSQL database.\nThe database has NO published host port and NO external internet route. Only the API can connect to port 5432."
+        }
+      ],
+      "codeSnippet": "# Create isolated application network\ndocker network create --driver bridge app-network\n\n# Run database on app-network without publishing ports to host\ndocker run -d --name db --network app-network postgres:18\n\n# Run API connected to app-network (resolves 'db' via Docker DNS)\ndocker run -d --name api --network app-network -p 127.0.0.1:8000:8000 notes-api:1.0.0"
+    },
+    {
+      "id": "registries-tags",
+      "number": "07",
+      "title": "Registries, Tags, Immutability & Image Security",
+      "badge": "Digest Pinning & Docker Scout",
+      "summary": "Registry taxonomy: registry/namespace/repo:tag. Why tags are mutable pointers. Pinning immutable SHA-256 digests. Generating SBOMs and scanning with Docker Scout.",
+      "details": [
+        {
+          "heading": "The Structure of an Image Reference",
+          "body": "Every container image reference conforms to the standard specification:\n`[registry_host[:port]/][namespace/]repository[:tag|@digest]`\nFor example, `docker.io/library/nginx:latest` or `ghcr.io/company/api:1.0.0`.\nIf registry is omitted, Docker defaults to Docker Hub (`docker.io`)."
+        },
+        {
+          "heading": "The Peril of Mutable Tags vs. Immutable Digests",
+          "body": "A Docker tag is merely a movable text alias. The tag `python:3.13-slim` or `latest` changes whenever upstream maintains an update. In production CI/CD pipelines, relying on mutable tags means two builds on different days can produce different binaries. For absolute reproducibility, pin base images by their immutable cryptographic SHA-256 digest:\n`FROM python:3.13-slim@sha256:7f3a92...`"
+        },
+        {
+          "heading": "Software Bill of Materials (SBOM) & Vulnerability Scanning",
+          "body": "Modern DevSecOps mandates visibility into every package installed in an image:\n- `docker scout cves <image>`: Scans image layers for known CVE vulnerabilities.\n- `docker sbom <image>`: Generates a complete Software Bill of Materials in SPDX or CycloneDX format, cataloging every OS and language dependency."
+        }
+      ],
+      "codeSnippet": "# Authenticate and tag image\ndocker tag notes-api:1.0.0 myorg/notes-api:1.0.0\ndocker login\ndocker push myorg/notes-api:1.0.0\n\n# Pinning by immutable cryptographic digest in Dockerfile:\n# FROM python:3.13-slim@sha256:32662c90a184f4f346db3b...\n\n# Inspect image vulnerabilities with Docker Scout\ndocker scout quickview notes-api:1.0.0"
+    },
+    {
+      "id": "container-security",
+      "number": "08",
+      "title": "Production Docker Security & Hardening Doctrine",
+      "badge": "Non-Root & Capability Dropping",
+      "summary": "Running non-root (`USER app`). Eliminating hardcoded secrets. Read-only root filesystem with tmpfs. Dropping all Linux capabilities (`cap_drop: ALL`).",
+      "details": [
+        {
+          "heading": "Rule 1: Never Run as Root Inside Containers",
+          "body": "By default, processes inside containers run as UID 0 (root). If an attacker achieves command injection or finds a kernel privilege escalation vulnerability, running as root makes breakout much easier. Always create a dedicated system user:\n`RUN groupadd -r app && useradd -r -g app app`\n`USER app`"
+        },
+        {
+          "heading": "Rule 2: Read-Only Root Filesystem with tmpfs",
+          "body": "Configure `read_only: true` on application containers. This prevents an attacker from downloading malicious payloads, installing rootkits, or modifying application source files. Provide write access only to transient memory directories via `tmpfs: [/tmp, /run]`."
+        },
+        {
+          "heading": "Rule 3: Drop All Linux Kernel Capabilities",
+          "body": "Linux divides root privileges into fine-grained capabilities (`CAP_NET_RAW`, `CAP_SYS_ADMIN`, `CAP_CHOWN`). Standard application containers do not need these capabilities. Follow least privilege:\n`cap_drop: [ALL]`\n`security_opt: [no-new-privileges:true]`"
+        },
+        {
+          "heading": "Rule 4: Never Mount the Docker Socket",
+          "body": "Never mount `/var/run/docker.sock` into an application container! Access to the Docker socket allows any container process to communicate with the Docker daemon and launch privileged containers on the host, granting instant root host takeover."
+        }
+      ],
+      "codeSnippet": "# Production Security Hardening in compose.yaml\nservices:\n  api:\n    image: notes-api:1.0.0\n    read_only: true\n    tmpfs:\n      - /tmp\n    cap_drop:\n      - ALL\n    security_opt:\n      - no-new-privileges:true\n    pids_limit: 100"
+    },
+    {
+      "id": "docker-compose",
+      "number": "09",
+      "title": "Docker Compose: Multi-Service Architecture",
+      "badge": "Declarative YAML & Health Checks",
+      "summary": "Composing multi-tier applications. Declarative YAML syntax. Health checks with 'condition: service_healthy'. File-backed secrets.",
+      "details": [
+        {
+          "heading": "Declarative Multi-Service Definition",
+          "body": "Docker Compose defines the desired state of your entire application stack in a single `compose.yaml` file: services, volumes, networks, secrets, and environment configurations. This enables team members to boot an entire production-replica stack with a single command: `docker compose up -d`."
+        },
+        {
+          "heading": "The Dependency Ordering Race Condition",
+          "body": "A common beginner bug: `depends_on: [db]`. By default, `depends_on` only waits until the `db` container starts executing, NOT until PostgreSQL is ready to accept socket connections! The API boots, tries to query tables, crashes immediately, and enters a restart loop. Solution: Use health check dependencies:\n`depends_on:\n  db:\n    condition: service_healthy`"
+        },
+        {
+          "heading": "Configuring Robust Health Checks",
+          "body": "Health checks run periodic diagnostic probes inside the container:\n- Database health check: `pg_isready -U appuser -d appdb`\n- API health check: HTTP probe against `/readyz`\nCompose monitors health check status (`starting`, `healthy`, `unhealthy`) and orchestrates start order safely."
+        },
+        {
+          "heading": "File-Backed Compose Secrets",
+          "body": "Compose secrets provide sensitive credentials (like database passwords) via files mounted into `/run/secrets/` in tmpfs memory. The secret is never baked into image layers or logged in environment variables (`docker inspect`)."
+        }
+      ],
+      "codeSnippet": "# Dependency synchronization with health check\nservices:\n  api:\n    build: .\n    depends_on:\n      db:\n        condition: service_healthy\n  db:\n    image: postgres:18\n    healthcheck:\n      test: [\"CMD-SHELL\", \"pg_isready -U appuser -d appdb\"]\n      interval: 5s\n      timeout: 3s\n      retries: 5"
+    },
+    {
+      "id": "sre-troubleshooting",
+      "number": "10",
+      "title": "SRE Diagnostics: Triage Doctrine & Failure Playbook",
+      "badge": "Production Failure Matrix",
+      "summary": "Systematic container triage. Diagnosing immediate exits, network timeouts, persistent data loss, and layer bloat.",
+      "details": [
+        {
+          "heading": "Immediate Container Exit Triage",
+          "body": "When a container terminates immediately after launch:\n1. Run `docker ps -a` to inspect the exit code (e.g., `Exit 1`, `Exit 137` = OOM killer, `Exit 127` = missing binary/command not found).\n2. Run `docker logs <container-id>` to inspect stdout/stderr tracebacks.\n3. Run `docker inspect <container-id>` to review entrypoint and environment variables."
+        },
+        {
+          "heading": "Database Connectivity Triage",
+          "body": "If an API cannot connect to the database:\n1. Verify both containers are members of the same user-defined bridge network (`docker network inspect <net>`).\n2. Verify the API connects to the service name `db`, not `localhost` or `127.0.0.1`.\n3. Verify the database health check is passing (`docker compose ps`).\n4. Verify credentials match the secret file."
+        },
+        {
+          "heading": "Container Resource Monitoring",
+          "body": "Run `docker stats` to view real-time CPU %, Memory usage, memory limits, network I/O, and block I/O across all active containers. Pinpoint memory leaks before cgroups trigger the OOM killer."
+        }
+      ],
+      "codeSnippet": "# SRE Diagnostic Commands\ndocker ps -a --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\"\ndocker logs --tail 50 --timestamps <container>\ndocker stats --no-stream\ndocker exec -it <container> sh"
+    }
+  ],
+  "commands": null,
+  "scenarios": [
+    {
+      "id": "inc-1",
+      "title": "Incident 1: Plaintext Secret Leaked in Image Layer History",
+      "symptom": "Security scan by Docker Scout flagged a hardcoded AWS_SECRET_ACCESS_KEY inside image layer sha256:7f8a9.",
+      "codeSnippet": "# Dockerfile inspection:\nFROM python:3.13-slim\nENV AWS_SECRET_ACCESS_KEY=\"AKIAIOSFODNN7EXAMPLESECRET\"\nRUN aws s3 cp s3://internal-bucket/config.json /app/config.json\nENV AWS_SECRET_ACCESS_KEY=\"\"  <-- Author tried to 'delete' the secret",
+      "question": "The author argues that setting the variable to empty string in the next line deleted the secret. Is the image safe to push?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Yes: Since the final container environment shows an empty string, the key is gone.",
+          "correct": false,
+          "explanation": "Dangerous misconception! Each Dockerfile instruction generates an immutable filesystem layer. Anyone running 'docker history' or extracting the layer tarball can read the full secret key in layer 2."
+        },
+        {
+          "id": "opt-b",
+          "label": "No: Image layers are immutable. Use BuildKit secret mounts (--mount=type=secret) or runtime secrets, revoke the exposed key immediately, and rebuild without secrets in instructions.",
+          "correct": true,
+          "explanation": "Correct! Docker explicitly states that ENV and ARG instructions persist in image metadata. Secrets must be mounted ephemerally using BuildKit secret mounts or supplied at container runtime via Docker secrets."
+        },
+        {
+          "id": "opt-c",
+          "label": "Yes, but only if you tag the image as 'private'.",
+          "correct": false,
+          "explanation": "Tagging does not alter layer immutability or protect against authorized users reading the plaintext metadata."
+        }
+      ]
+    },
+    {
+      "id": "inc-2",
+      "title": "Incident 2: API Crash: Read-Only Root Filesystem with tmpfs Missing",
+      "symptom": "When deployed with 'read_only: true', Gunicorn fails immediately with: [Errno 30] Read-only file system: '/tmp/gunicorn.pid'.",
+      "codeSnippet": "# compose.yaml snippet:\nservices:\n  api:\n    image: notes-api:1.0.0\n    read_only: true\n    # Notice: No tmpfs mount configured for temporary process files!",
+      "question": "How should an SRE remediate this failure while maintaining the security benefit of a read-only root filesystem?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Disable read_only: true and run the container with full root write permissions.",
+          "correct": false,
+          "explanation": "This destroys the principle of least privilege and increases container compromise blast radius."
+        },
+        {
+          "id": "opt-b",
+          "label": "Add a 'tmpfs: [/tmp, /run]' mount to compose.yaml so transient runtime caches use memory, keeping the OS root immutable.",
+          "correct": true,
+          "explanation": "Exact SRE pattern: Combine 'read_only: true' with an in-memory tmpfs mounted at /tmp or /run. This allows Gunicorn and Python to write ephemeral pid and cache files without compromising container immutability."
+        },
+        {
+          "id": "opt-c",
+          "label": "Change the container user to root so it can override the read-only flag.",
+          "correct": false,
+          "explanation": "Root users cannot bypass an OS-level read-only mount and violates container security standards."
+        }
+      ]
+    },
+    {
+      "id": "inc-3",
+      "title": "Incident 3: Missing Ingress: Loopback 127.0.0.1 vs Wildcard 0.0.0.0 Listener",
+      "symptom": "Container is running and healthy, but 'curl http://localhost:8000' from the host returns 'Connection refused' or empty reply.",
+      "codeSnippet": "# Inside start.sh:\nexec gunicorn --bind 127.0.0.1:8000 app:app\n\n# Host command:\ndocker run -p 127.0.0.1:8000:8000 notes-api:1.0.0",
+      "question": "Why does binding Gunicorn to 127.0.0.1 inside the container prevent host access via '-p 8000:8000'?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Because port 8000 is reserved by the Linux kernel for audio drivers.",
+          "correct": false,
+          "explanation": "Port 8000 is a standard unprivileged user port."
+        },
+        {
+          "id": "opt-b",
+          "label": "Inside a container's network namespace, 127.0.0.1 is the container's isolated loopback interface. Host-forwarded packets arrive on eth0 (virtual bridge), requiring the process to bind to 0.0.0.0.",
+          "correct": true,
+          "explanation": "Fundamental Linux network namespace principle: 127.0.0.1 only accepts packets generated inside that container's loopback namespace. To receive traffic forwarded from the Docker bridge/host, the application must bind to 0.0.0.0 (all interfaces)."
+        },
+        {
+          "id": "opt-c",
+          "label": "Docker Desktop requires all web servers to run on port 80.",
+          "correct": false,
+          "explanation": "Docker can map any unprivileged host port to any container port."
+        }
+      ]
+    },
+    {
+      "id": "inc-4",
+      "title": "Incident 4: Shutdown Hang: 10-Second Delay and SIGKILL Termination",
+      "symptom": "Running 'docker stop api' always hangs for exactly 10 seconds before terminating with exit code 137.",
+      "codeSnippet": "# Dockerfile instruction:\nCMD python app.py   <-- Note: Shell form (not Exec form!)\n\n# Process list inside container:\nPID 1 -> /bin/sh -c python app.py\nPID 7 -> python app.py",
+      "question": "Why does shell form cause the container to hang for 10 seconds on shutdown, and how do you fix it?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "Shell form launches /bin/sh as PID 1, which does not forward SIGTERM to child processes. Docker waits 10s timeout, then sends SIGKILL. Fix: Use exec form CMD [\"python\", \"app.py\"].",
+          "correct": true,
+          "explanation": "Authoritative process supervision mechanic: When using shell form, /bin/sh becomes PID 1. Standard shells do not forward signals like SIGTERM to child processes. Docker's grace period (10s) expires, forcing an ungraceful SIGKILL. Exec form (or using 'exec' in start.sh) runs Python as PID 1, allowing graceful termination."
+        },
+        {
+          "id": "opt-b",
+          "label": "Python scripts cannot receive Linux signals.",
+          "correct": false,
+          "explanation": "Python handles SIGTERM and SIGINT natively when running as PID 1 or when wrapped properly."
+        },
+        {
+          "id": "opt-c",
+          "label": "Add 'kill -9' to .dockerignore.",
+          "correct": false,
+          "explanation": ".dockerignore only affects build context file copying, not process termination."
+        }
+      ]
+    },
+    {
+      "id": "inc-5",
+      "title": "Incident 5: PostgreSQL 18 Volume Target Migration Data Loss",
+      "symptom": "A team upgraded to the official postgres:18 image using volume target '/var/lib/postgresql/data'. Upon container restart, all database records disappeared.",
+      "codeSnippet": "# Faulty compose.yaml:\nservices:\n  db:\n    image: postgres:18\n    volumes:\n      - pg_data:/var/lib/postgresql/data  <-- Pre-v18 legacy path!",
+      "question": "Why did data persistence fail in PostgreSQL 18 with this configuration?",
+      "options": [
+        {
+          "id": "opt-a",
+          "label": "PostgreSQL 18 disabled named volume support.",
+          "correct": false,
+          "explanation": "Named volumes are a core Docker feature independent of database engine."
+        },
+        {
+          "id": "opt-b",
+          "label": "Official postgres:18 updated its default PGDATA location to '/var/lib/postgresql'. Mounting to the legacy '/data' subdirectory left the actual data directory in the ephemeral container layer.",
+          "correct": true,
+          "explanation": "Exact Docker official image documentation update: PostgreSQL 18 changed the base data target to /var/lib/postgresql. Mounting the volume to the old /data path meant actual database files were written to the container's ephemeral writable layer and discarded upon recreation."
+        },
+        {
+          "id": "opt-c",
+          "label": "PostgreSQL 18 requires mounting directly to /etc/postgresql.",
+          "correct": false,
+          "explanation": "/etc/postgresql stores configuration files, not the database cluster table blocks."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1718,
+    "fileSizeBytes": 97224,
+    "questionCount": 14,
+    "hasQuiz": true,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

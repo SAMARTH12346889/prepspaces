@@ -1,0 +1,328 @@
+{
+  "id": "cicd",
+  "courseId": "devops",
+  "index": 6,
+  "name": "CI/CD & GitOps",
+  "route": "/learning/devops/cicd",
+  "componentName": "DevOpsCICD",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary difference between Continuous Delivery and Continuous Deployment?",
+      "options": [
+        "Continuous Delivery prepares a tested, deployable release candidate awaiting approval; Continuous Deployment automatically promotes qualifying changes to production without manual intervention.",
+        "Continuous Delivery only works for Docker containers while Continuous Deployment works for virtual machines.",
+        "Continuous Delivery requires Jenkins while Continuous Deployment requires GitLab.",
+        "They are interchangeable synonyms in software engineering."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "What is the fundamental pipeline invariant that distinguishes a secure CI/CD pipeline from a simple shell script?",
+      "options": [
+        "A pipeline must proceed only when the required previous stage succeeded and produced verified evidence (tests pass before build, scans pass before publish, deployment references immutable digest).",
+        "A pipeline must execute all shell commands in parallel regardless of exit codes.",
+        "A pipeline must be written in Bash rather than YAML.",
+        "A pipeline must never fail under any circumstances."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "Why is a container image tag like 'ghcr.io/org/notes-api:latest' unsafe for production releases compared to an image digest?",
+      "options": [
+        "Tags are mutable references that can be overwritten or drift across cluster nodes; SHA-256 digests mathematically identify bit-for-bit immutable image contents.",
+        "Tags cannot be read by Kubernetes Kubelets.",
+        "Tags cost extra subscription fees on GitHub Container Registry.",
+        "Digests make container images run twice as fast."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "What is the critical distinction between a CI Cache and a Build Artifact?",
+      "options": [
+        "A cache is an optional performance optimization to speed up subsequent jobs (e.g. downloaded Python wheels); an artifact is a durable, verified output produced by the build (e.g. image or test report).",
+        "Artifacts are only for frontend files while caches are only for databases.",
+        "Caches are permanently retained forever while artifacts expire after 5 minutes.",
+        "They are identical concepts with different names."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Why should default GitHub Actions workflow tokens be scoped to 'permissions: contents: read'?",
+      "options": [
+        "To enforce the principle of least privilege, preventing compromised build steps or third-party actions from modifying repository code or publishing unauthorized packages.",
+        "Because GitHub Actions does not support writing to repositories.",
+        "To make Python unit tests run faster.",
+        "Because read-only permissions reduce cloud hosting costs."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "What dangerous security vulnerability arises from using 'on: pull_request_target' with an untrusted PR checkout?",
+      "options": [
+        "It executes untrusted PR code in the context of the base repository with access to repository secrets and a read-write GITHUB_TOKEN, enabling credential exfiltration.",
+        "It causes Docker containers to run out of memory.",
+        "It deletes the Git branch permanently.",
+        "It prevents developers from submitting code reviews."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "How does OpenID Connect (OIDC) federation improve security over static cloud credentials in CI/CD pipelines?",
+      "options": [
+        "It eliminates long-lived, static access keys by exchanging short-lived, cryptographically signed JWT tokens with cloud STS for temporary, scoped IAM credentials.",
+        "It encrypts git commit messages using RSA 4096-bit keys.",
+        "It requires developers to enter an SMS one-time password on every push.",
+        "It replaces Kubernetes with cloud virtual machines."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "In an enterprise GitOps deployment model with Argo CD, why should the application source code and deployment manifests be kept in separate repositories?",
+      "options": [
+        "It cleanly decouples CI (testing, building, scanning) from CD (environment manifests, staging/prod overlays), preventing circular build triggers and isolating release access.",
+        "Git does not support storing YAML files and Python files in the same repository.",
+        "Argo CD requires all repositories to be completely empty.",
+        "It allows developers to bypass code review for production changes."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "What role does 'pip-audit' play in the Notes API CI pipeline?",
+      "options": [
+        "It inspects installed Python dependencies against known CVE databases (PyPI Advisory & OSV) to block releases containing known security flaws.",
+        "It measures Python function execution time in milliseconds.",
+        "It formats Python code to conform to PEP 8 standards.",
+        "It compiles Python into machine-native binary code."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "In Jenkins, why is running builds on the Jenkins Controller ('agent any' on master) considered a major security and operational hazard?",
+      "options": [
+        "Workloads executing on the Controller can exhaust Controller memory, access Jenkins master credentials on disk, and compromise the entire automation server.",
+        "The Controller only runs on macOS operating systems.",
+        "Agents cannot communicate with Docker daemons.",
+        "The Controller does not support running Python tests."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "In GitLab CI, what is the key performance benefit of Directed Acyclic Graph (DAG) execution with 'needs:'?",
+      "options": [
+        "Jobs execute the exact second their specific upstream prerequisites finish, ignoring sequential stage boundaries and preventing slow unrelated tests from blocking builds.",
+        "It converts Python code into WebAssembly.",
+        "It deletes all automated tests to achieve 10-second builds.",
+        "It automatically provisions multi-cloud VPCs."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "What is an SBOM (Software Bill of Materials) and how does it support software supply-chain security?",
+      "options": [
+        "A formal, machine-readable inventory of all third-party libraries, transitive dependencies, and licenses inside an artifact, allowing instant identification of affected images when new CVEs are disclosed.",
+        "A receipt showing how much cloud compute was spent on the build.",
+        "A diagram showing network routes between Kubernetes pods.",
+        "A list of all engineers who approved the pull request."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "In Argo CD, what is the consequence of enabling 'prune: true' in an Application's syncPolicy?",
+      "options": [
+        "Argo CD automatically deletes live Kubernetes resources that have been removed from the tracked Git repository, ensuring the cluster does not retain orphaned workloads.",
+        "Argo CD deletes all container images older than 7 days from the registry.",
+        "Argo CD shuts down the Kubernetes cluster every weekend.",
+        "Argo CD removes all user comments from pull requests."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "Why must third-party GitHub Actions be pinned to full 40-character commit SHAs rather than mutable tags like '@v3'?",
+      "options": [
+        "Tags are mutable Git refs that a compromised maintainer or attacker can overwrite with malicious code; commit SHAs are mathematically immutable cryptographic hashes.",
+        "Tags do not support Linux runners.",
+        "GitHub Actions charges an extra subscription fee when using tags.",
+        "Commit SHAs run twice as fast in runner caches."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "How should an SRE team manage database schema migrations within a continuous deployment GitOps pipeline?",
+      "options": [
+        "Use backward-compatible expand/contract database changes with Kubernetes pre-sync hooks or init containers that complete successfully before the new application pods start.",
+        "Run raw destructive SQL ALTER statements manually in the production database during business hours.",
+        "Recreate the entire database from scratch on every git push.",
+        "Never perform database changes in production."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": "unpinned_action",
+      "title": "Incident 1: Compromised Third-Party GitHub Action (Supply-Chain Exploit)",
+      "severity": "CRITICAL",
+      "badge": "Supply Chain",
+      "situation": "A popular community GitHub Action `thirdparty/notify-slack@v2` was hijacked when the maintainer's account was compromised. The attacker updated the mutable git tag `v2` to inject code that exfiltrates `ACTIONS_ID_TOKEN_REQUEST_TOKEN` and repository environment secrets to a remote C2 server.",
+      "impact": "Cloud credentials and repository secrets leaked to unauthorized third party.",
+      "remediationChoices": [
+        {
+          "text": "Pin all third-party actions to immutable full 40-character commit SHAs (e.g., uses: thirdparty/notify-slack@a1b2c3d...) and run StepSecurity audit.",
+          "correct": true,
+          "explanation": "Tags like @v2 or @main are mutable Git refs that attackers can overwrite at any moment. Pinning actions to immutable commit SHAs guarantees you run the exact audited code. Additionally, configuring GitHub Actions token permissions to `permissions: contents: read` restricts token blast radius."
+        },
+        {
+          "text": "Change the repository to private so the action cannot be downloaded.",
+          "correct": false,
+          "explanation": "Private repositories still execute external community actions and are fully vulnerable to supply chain injection."
+        },
+        {
+          "text": "Add a 10-second sleep before executing the notification step.",
+          "correct": false,
+          "explanation": "Adding a delay has zero impact on malicious code execution."
+        }
+      ]
+    },
+    {
+      "id": "critical_cve",
+      "title": "Incident 2: Dependency Vulnerability Audit Failure (pip-audit Gate)",
+      "severity": "HIGH",
+      "badge": "Vulnerability Gate",
+      "situation": "The security team enabled a hard blocking gate in CI using pip-audit (`pip-audit -r requirements.txt`). A critical remote code execution vulnerability (CVSS 9.8) in an outdated urllib3 dependency is flagged, immediately halting the pipeline before container image compilation.",
+      "impact": "Release is blocked because the pipeline enforces the core invariant: vulnerable code cannot proceed to build.",
+      "remediationChoices": [
+        {
+          "text": "Upgrade urllib3 to the patched secure version in requirements.txt, verify pytest passes, and re-run the pipeline.",
+          "correct": true,
+          "explanation": "The invariant worked as designed: security checks must block unsafe releases before deployment. Resolving the vulnerability by pinning the patched library in requirements.txt unblocks the gate cleanly."
+        },
+        {
+          "text": "Remove pip-audit from .github/workflows/ci.yml so the pipeline turns green.",
+          "correct": false,
+          "explanation": "Removing security scanners allows known remote code execution vulnerabilities to be packaged into container images and deployed to production."
+        },
+        {
+          "text": "Re-run the build repeatedly hoping the scanner passes by chance.",
+          "correct": false,
+          "explanation": "Deterministic vulnerability scanners evaluate known package manifests; repeating the build without updating requirements.txt will always fail."
+        }
+      ]
+    },
+    {
+      "id": "webhook_loop",
+      "title": "Incident 3: Mutating Webhook Drift Flapping Loop in Argo CD",
+      "severity": "MEDIUM",
+      "badge": "GitOps Drift",
+      "situation": "After deploying the Notes API with Argo CD, the application perpetually toggles between `Synced` and `OutOfSync` every 30 seconds. An Istio Service Mesh mutating admission webhook in the Kubernetes cluster automatically injects sidecar proxy containers and annotations (`sidecar.istio.io/status`) that do not exist in the Git repository.",
+      "impact": "Argo CD logs are flooded, continuous reconciliation consumes API server CPU, and selfHeal triggers endless restart loops.",
+      "remediationChoices": [
+        {
+          "text": "Configure Argo CD 'ignoreDifferences' in the Application CRD to tell Argo CD to ignore the mutated annotations and sidecar containers injected by the cluster webhook.",
+          "correct": true,
+          "explanation": "Argo CD provides the `spec.ignoreDifferences` field specifically for cluster-mutated fields (e.g. Istio sidecars, HPA replica counts, mutating webhooks). This allows the live cluster to maintain dynamic operational fields without flagging OutOfSync drift against declarative Git."
+        },
+        {
+          "text": "Commit the cluster-generated sidecar JSON strings directly into the Git repository every minute.",
+          "correct": false,
+          "explanation": "Storing ephemeral cluster-generated tokens and injected sidecar statuses in Git pollutes the repository and creates infinite commit loops."
+        },
+        {
+          "text": "Delete the Istio service mesh from the production cluster.",
+          "correct": false,
+          "explanation": "Removing the service mesh destroys mutual TLS (mTLS), observability, and ingress routing for the entire company."
+        }
+      ]
+    },
+    {
+      "id": "untrusted_pr_token",
+      "title": "Incident 4: Insecure pull_request_target Token Exfiltration",
+      "severity": "CRITICAL",
+      "badge": "Pipeline Security",
+      "situation": "A developer configured `.github/workflows/ci.yml` with `on: pull_request_target` and checked out the pull request head commit (`actions/checkout with ref: ${{ github.event.pull_request.head.sha }}`). An external contributor opened a PR containing malicious code that read the default read-write GITHUB_TOKEN.",
+      "impact": "External untrusted PR code gained write access to the repository and published fake packages.",
+      "remediationChoices": [
+        {
+          "text": "Use standard 'on: pull_request' for untrusted code execution (which receives read-only tokens and zero secrets), and restrict workflow permissions to 'contents: read'.",
+          "correct": true,
+          "explanation": "The OWASP CI/CD Cheat Sheet explicitly warns against running untrusted PR code in the context of `pull_request_target`. Standard `pull_request` runs in an isolated fork context with a read-only token and no access to repository secrets."
+        },
+        {
+          "text": "Encrypt the repository with a password.",
+          "correct": false,
+          "explanation": "Password encryption does not prevent GitHub Actions execution token theft."
+        },
+        {
+          "text": "Disable all pull requests permanently.",
+          "correct": false,
+          "explanation": "Disabling pull requests prevents open-source and team collaboration."
+        }
+      ]
+    },
+    {
+      "id": "runner_cache_poison",
+      "title": "Incident 5: CI Cache Poisoning & Untrusted Runner Contamination",
+      "severity": "HIGH",
+      "badge": "CI Infrastructure",
+      "situation": "An enterprise configured self-hosted GitHub Actions runners on persistent shared virtual machines to speed up builds. A malicious pull request from a public fork executed a build script that inserted a backdoor into the shared `~/.cache/pip` directory. Subsequent builds on `main` compiled packages from the poisoned local cache.",
+      "impact": "Untrusted PR code successfully contaminated production build artifacts.",
+      "remediationChoices": [
+        {
+          "text": "Adopt ephemeral disposable runners (via Actions Runner Controller / ARC in Kubernetes) where every job runs in a pristine throwaway container destroyed after completion, and restrict pull_request permissions.",
+          "correct": true,
+          "explanation": "Production CI/CD runners must be strictly ephemeral: provisioned dynamically for a single job and immediately destroyed upon termination. This completely prevents persistent cache poisoning and cross-job credential theft."
+        },
+        {
+          "text": "Manually SSH into the runner VM every evening and run rm -rf on the cache folder.",
+          "correct": false,
+          "explanation": "Manual daily cleanups leave a 24-hour window for attackers to compromise every production build that executes in between."
+        },
+        {
+          "text": "Turn off all tests and builds for pull requests entirely.",
+          "correct": false,
+          "explanation": "Disabling CI on pull requests destroys code review verification and allows broken code to be merged undetected."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 2311,
+    "fileSizeBytes": 118878,
+    "questionCount": 15,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

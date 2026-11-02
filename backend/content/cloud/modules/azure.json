@@ -1,0 +1,369 @@
+{
+  "id": "azure",
+  "courseId": "cloud",
+  "index": 8,
+  "name": "Azure",
+  "route": "/learning/cloud/azure",
+  "componentName": "CloudAzure",
+  "quiz": [],
+  "topics": [
+    {
+      "id": 0,
+      "title": "The Azure Mental Model & 5 Well-Architected Pillars",
+      "week": "Foundations",
+      "focus": "Tenants, Management Groups, Subscriptions, Resource Groups & 5 Pillars",
+      "badge": "Architecture Foundation",
+      "theory": "Azure organizes resources across strict administrative, billing, and technical boundaries: Microsoft Entra Tenant (Identity) → Management Groups (Governance) → Subscriptions (Quota & Billing) → Resource Groups (Lifecycle Management) → Resources. Placing resources within the same Resource Group does NOT grant automatic technical trust. Architecture in Azure is evaluated through the 5 Well-Architected Framework Pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency.",
+      "diagram": "AZURE RESOURCE HIERARCHY & CONTROL PLANE\n+-------------------------------------------------------------------------+\n| MICROSOFT ENTRA TENANT (Identity Boundary: SAML / OIDC / MFA)           |\n|                                                                         |\n| +---------------------------------------------------------------------+ |\n| | MANAGEMENT GROUPS (Governance & Policy Inheritance)                 | |\n| | - Root Management Group                                             | |\n| |   ├── Landing Zones (Corp / Online)                                 | |\n| |   └── Sandboxes / Decommissioned                                    | |\n| +---------------------------------------------------------------------+ |\n|                                                                         |\n| +---------------------------------------------------------------------+ |\n| | SUBSCRIPTIONS (Billing, Quotas & IAM Scope Boundary)                | |\n| | ├── Production Subscription (Enterprise Agreement / MCA)            | |\n| | └── Development Subscription                                        | |\n| +---------------------------------------------------------------------+ |\n|                                                                         |\n| +---------------------------------------------------------------------+ |\n| | RESOURCE GROUPS (Lifecycle & Deployment Grouping)                   | |\n| | ├── rg-commerce-prod-eastus                                         | |\n| | │   ├── VNet (Private Network Boundary)                             | |\n| | │   ├── AKS Cluster (Compute Fleet)                                 | |\n| | │   ├── Key Vault (Cryptographic Boundary)                         | |\n| | │   └── Azure SQL (Database Engine)                                 | |\n| |     *NOTE: Resources in same RG do NOT automatically trust each other!*|\n| +---------------------------------------------------------------------+ |\n+-------------------------------------------------------------------------+\n\nAZURE WELL-ARCHITECTED FRAMEWORK (5 PILLARS):\n1. Reliability: Multi-region failover, zone redundancy, self-healing circuits.\n2. Security: Defense in depth, zero-trust, Entra managed identities, Private Link.\n3. Cost Optimization: Right-sizing, reservation discounts, cold blob archiving.\n4. Operational Excellence: Infrastructure as Code (Bicep/Terraform), automated telemetry.\n5. Performance Efficiency: Horizontal scaling (VMSS/AKS), Redis caching, CDN edge.",
+      "keyTakeaways": [
+        "A Tenant is an identity boundary; a Subscription is a quota and billing boundary; a Resource Group is a lifecycle boundary.",
+        "Administrative grouping (Resource Group) does NOT equal technical network or authorization trust.",
+        "Azure RBAC permissions inherit downwards: Root Management Group → Subscription → Resource Group → Individual Resource.",
+        "Always evaluate trade-offs across all 5 Azure Well-Architected Pillars rather than optimizing purely for raw compute power."
+      ],
+      "codeExample": "# Azure CLI: Create Resource Group and apply Azure Policy tag enforcement\naz group create \\\n  --name \"rg-commerce-prod-eastus\" \\\n  --location \"eastus2\" \\\n  --tags Environment=Production Department=Engineering Workload=Commerce\n\n# Query resource group resources with Microsoft Graph & Azure Resource Graph\naz graph query -q \"Resources | where resourceGroup =~ 'rg-commerce-prod-eastus' | project name, type, location\" -o table"
+    },
+    {
+      "id": 1,
+      "title": "Microsoft Entra ID & Managed Identities",
+      "week": "Foundations",
+      "focus": "AuthN vs AuthZ, Azure RBAC Scopes & Entra Workload Identity",
+      "badge": "Identity & Security",
+      "theory": "Microsoft Entra ID (formerly Azure Active Directory) is the cloud identity and access management plane. Authentication (AuthN - 'Are you really Sam?') proves identity, while Authorization (AuthZ - 'What can Sam do?') evaluates permissions via Azure RBAC. Managed Identities eliminate credentials in source code: Azure automatically handles token acquisition and rotation via the Instance Metadata Service (IMDS). Modern AKS workloads utilize Microsoft Entra Workload Identity via OIDC federation.",
+      "diagram": "MANAGED IDENTITY AUTHENTICATION FLOW (ZERO HARDCODED SECRETS)\n+------------------------+\n|   AZURE VM / AKS POD   |\n+------------------------+\n            |\n            | (1) GET http://169.254.169.254/metadata/identity/oauth2/token\n            |     (Instance Metadata Service - IMDS)\n            v\n+------------------------+\n|  MICROSOFT ENTRA ID    |\n+------------------------+\n            |\n            | (2) Returns OAuth 2.0 JWT Access Token (Valid for 24h, auto-rotated)\n            v\n+------------------------+\n|   AZURE VM / AKS POD   |\n+------------------------+\n            |\n            | (3) HTTPS Request with Header: \"Authorization: Bearer <JWT>\"\n            v\n+------------------------+\n| AZURE KEY VAULT / BLOB |\n+------------------------+\n            |\n            v\nEVALUATION: Entra ID validates Token Signature -> Azure RBAC checks Role Assignment\nScope: /subscriptions/.../resourceGroups/rg-prod/providers/Microsoft.KeyVault/...\nResult: ALLOW sops-decrypt OR DENY",
+      "keyTakeaways": [
+        "Never store client secrets, passwords, or connection strings in configuration files or container environment variables.",
+        "System-Assigned Managed Identity is tied to the lifecycle of a single resource; User-Assigned Identity is an independent reusable asset.",
+        "Azure RBAC defines: Principal (Who) + Role (What) + Scope (Where: Subscription, RG, or Resource).",
+        "Entra Workload Identity allows Kubernetes Service Accounts to project Entra tokens directly into pods via OIDC."
+      ],
+      "codeExample": "# Bicep: Assign 'Key Vault Secrets User' role to a User-Assigned Managed Identity\nresource appIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {\n  name: 'id-commerce-api-prod'\n  location: resourceGroup().location\n}\n\n// Built-in 'Key Vault Secrets User' Role Definition ID\nvar kvSecretsUserRoleId = '4633458b-17de-408a-b874-0445c86b69e6'\n\nresource rbacAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {\n  name: guid(appIdentity.id, kvSecretsUserRoleId, keyVault.id)\n  scope: keyVault\n  properties: {\n    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', kvSecretsUserRoleId)\n    principalId: appIdentity.properties.principalId\n    principalType: 'ServicePrincipal'\n  }\n}"
+    },
+    {
+      "id": 2,
+      "title": "Azure Virtual Networks: Subnets, NSGs & Private Endpoints",
+      "week": "Foundations",
+      "focus": "VNet Architecture, Stateful NSG Rules, Service Endpoints vs Private Link",
+      "badge": "VNet Networking",
+      "theory": "Azure Virtual Network (VNet) provides isolated private networking. Subnets segment the address space (e.g. Ingress, App, Data). Network Security Groups (NSGs) act as stateful packet filters evaluated at the subnet or NIC level. While Service Endpoints route traffic across the Azure backbone, Private Endpoints (Azure Private Link) project a private IP address into your VNet for PaaS services (SQL, Storage, Key Vault), ensuring zero internet exposure.",
+      "diagram": "SECURE 3-TIER VNET ARCHITECTURE WITH PRIVATE ENDPOINTS (10.20.0.0/16)\n+--------------------------------------------------------------------------+\n| AZURE VNET: vnet-commerce-prod (10.20.0.0/16)                            |\n|                                                                          |\n| +----------------------------------------------------------------------+ |\n| | SUBNET 1: Ingress Subnet (10.20.1.0/24)                              | |\n| | [ Application Gateway v2 (WAF) ] - Public IP (HTTPS 443)             | |\n| | NSG: Allow 443 from Internet; Deny all other inbound                 | |\n| +-----------------------------------+----------------------------------+ |\n|                                     | Private TCP 8080                   |\n|                                     v                                    |\n| +----------------------------------------------------------------------+ |\n| | SUBNET 2: Application Subnet (10.20.2.0/24)                          | |\n| | [ AKS Nodes / VMSS Microservices ]                                   | |\n| | NSG: Allow TCP 8080 from Ingress Subnet; Deny Internet Inbound       | |\n| +-----------------------------------+----------------------------------+ |\n|                                     | Private TCP 1433 / 443             |\n|                                     v                                    |\n| +----------------------------------------------------------------------+ |\n| | SUBNET 3: Data & Private Endpoints Subnet (10.20.3.0/24)             | |\n| | [ Private Endpoint: 10.20.3.15 ] ---> Azure SQL Database             | |\n| | [ Private Endpoint: 10.20.3.20 ] ---> Azure Blob Storage             | |\n| | [ Private Endpoint: 10.20.3.25 ] ---> Azure Key Vault                | |\n| | NSG: Allow inbound strictly from Application Subnet                  | |\n| +----------------------------------------------------------------------+ |\n+--------------------------------------------------------------------------+\n\nSERVICE ENDPOINTS vs PRIVATE ENDPOINTS:\n- Service Endpoint: Uses public IP space over Azure backbone; not assigned a private VNet IP.\n- Private Endpoint: Allocates private VNet IP (NIC); true private isolation via Private Link!",
+      "keyTakeaways": [
+        "Network Security Groups (NSGs) are stateful: return traffic for an allowed outbound request is automatically permitted.",
+        "Never connect application workloads directly to public database endpoints; always use Private Endpoints.",
+        "Private DNS Zones (`privatelink.database.windows.net`) resolve the public FQDN to the local private VNet IP seamlessly.",
+        "Chain NSG rules by specifying source and destination subnet CIDR blocks or application security groups."
+      ],
+      "codeExample": "# Azure CLI: Create Private Endpoint for Azure SQL Database\naz network private-endpoint create \\\n  --name \"pe-commerce-sql-prod\" \\\n  --resource-group \"rg-commerce-prod-eastus\" \\\n  --vnet-name \"vnet-commerce-prod\" \\\n  --subnet \"snet-data-private\" \\\n  --private-connection-resource-id \"/subscriptions/.../servers/sql-commerce-prod\" \\\n  --group-id \"sqlServer\" \\\n  --connection-name \"conn-sql-pe\"\n\n# Link Private DNS Zone to automatically resolve SQL FQDN to Private IP\naz network private-dns link vnet create \\\n  --resource-group \"rg-commerce-prod-eastus\" \\\n  --zone-name \"privatelink.database.windows.net\" \\\n  --name \"link-sql-vnet\" \\\n  --virtual-network \"vnet-commerce-prod\" \\\n  --registration-enabled false"
+    },
+    {
+      "id": 3,
+      "title": "Azure Compute: VMs, VM Scale Sets & Autoscaling Loops",
+      "week": "Foundations",
+      "focus": "Fault Domains, Availability Zones, Metric-Based & Predictive Scaling",
+      "badge": "Elastic Compute",
+      "theory": "Azure compute ranges from standalone IaaS Virtual Machines to Virtual Machine Scale Sets (VMSS). Two VMs in the same region do not provide high availability unless they reside in distinct Availability Zones (physically separated datacenters) and Fault Domains (distinct power and cooling). Autoscaling in VMSS operates as a closed feedback-control loop: Telemetry → Scaling Policy Evaluation → Capacity Adjustment → System Feedback.",
+      "diagram": "VM SCALE SETS (VMSS) MULTI-ZONE AUTOSCALING CONTROL LOOP\n                    [ INCOMING USER LOAD ]\n                              |\n                              v\n                  [ Application Gateway v2 ]\n                /             |             \\\n               v              v              v\n     +--------------+  +--------------+  +--------------+\n     | AZ-1 (Zone 1)|  | AZ-2 (Zone 2)|  | AZ-3 (Zone 3)|\n     | [ VMSS VM-1 ]|  | [ VMSS VM-2 ]|  | [ VMSS VM-3 ]|\n     +--------------+  +--------------+  +--------------+\n            |                 |                 |\n            +-----------------+-----------------+\n                              |\n                              v Telemetry Metrics\n                     [ AZURE MONITOR ]\n                     - Avg CPU > 70% for 5 min\n                     - Request Count Per Target > 500\n                              |\n                              v Feedback Control Loop\n                     [ AUTOSCALE ENGINE ]\n                     Scale Out: +3 Instances (1 per Zone)\n                     Cooldown: 300 seconds",
+      "keyTakeaways": [
+        "Never deploy standalone VMs for production workloads without distributing across at least 2 Availability Zones.",
+        "VMSS automatically balances instance provisioning evenly across Availability Zones and fault domains.",
+        "Autoscaling control loops require cooldown periods (e.g. 5 minutes) to avoid thrashing (rapid scale-out followed by immediate scale-in).",
+        "Enable Automatic OS Image Upgrades on VMSS to patch host vulnerabilities with zero application downtime."
+      ],
+      "codeExample": "# Terraform: VMSS with Zone-Redundant Autoscale Configuration\nresource \"azurerm_orchestrated_virtual_machine_scale_set\" \"api_vmss\" {\n  name                = \"vmss-commerce-api\"\n  resource_group_name = \"rg-commerce-prod-eastus\"\n  location            = \"eastus2\"\n  zones               = [\"1\", \"2\", \"3\"]\n  sku_name            = \"Standard_D4ds_v5\"\n  instances           = 6\n\n  automatic_instance_repair {\n    enabled = true\n    grace_period = \"PT10M\"\n  }\n}"
+    },
+    {
+      "id": 4,
+      "title": "Azure Blob Storage: Consistency, Access Tiers & Durability",
+      "week": "Foundations",
+      "focus": "Hot/Cool/Cold/Archive Tiers, Soft Delete, Versioning & Immutability",
+      "badge": "Object Storage",
+      "theory": "Azure Blob Storage provides massive object storage for unstructured data and data lakes (ADLS Gen2). Storage accounts offer 4 access tiers: Hot (frequently accessed), Cool (infrequent, lower storage cost, retrieval fee), Cold (rare, lowest cost online tier), and Archive (offline, hours retrieval time). Replication protects infrastructure availability, but accidental overwrites or malicious deletions require Soft Delete, Versioning, and Immutable Blob Storage (WORM).",
+      "diagram": "BLOB ACCESS TIERS & DATA PROTECTION LIFECYCLE\n[ PUT Blob: catalog.parquet ]\n        |\n        v\n+-------------------------------+  Day 0: High-frequency access\n| HOT ACCESS TIER               |  Lowest transaction cost, highest storage fee\n+---------------+---------------+\n                |\n                v 30 Days (Lifecycle Policy)\n+-------------------------------+  Day 30: Infrequently accessed\n| COOL ACCESS TIER              |  Lower storage cost, per-GB access fee\n+---------------+---------------+\n                |\n                v 90 Days (Lifecycle Policy)\n+-------------------------------+  Day 90: Rarely accessed\n| COLD ACCESS TIER              |  Sub-second access, lowest online storage cost\n+---------------+---------------+\n                |\n                v 180 Days (Lifecycle Policy)\n+-------------------------------+  Day 180+: Cold compliance archive\n| ARCHIVE ACCESS TIER           |  Lowest cost, offline status (rehydrate takes 1-15h)\n+-------------------------------+\n\nBLOB DURABILITY INVARIANT:\nReplication (LRS/ZRS/GRS) protects against hardware disaster.\nSoft Delete + Versioning + Immutable WORM protects against logical corruption & ransomware!",
+      "keyTakeaways": [
+        "Replication is NOT a backup: an accidental deletion replicates immediately across all geographical secondary regions!",
+        "Enable Soft Delete (retains deleted blobs for N days) and Blob Versioning on all production storage accounts.",
+        "Archive tier blobs are offline; reading an archive blob requires a rehydration process taking 1 to 15 hours.",
+        "Use Azure Data Lake Storage (ADLS) Gen2 hierarchical namespace for big data analytics (Spark, Synapse, Databricks)."
+      ],
+      "codeExample": "# Azure Storage Lifecycle Management Policy (JSON)\n{\n  \"rules\": [\n    {\n      \"enabled\": true,\n      \"name\": \"ArchiveAndPurgeOrderDocuments\",\n      \"type\": \"Lifecycle\",\n      \"definition\": {\n        \"filters\": { \"blobTypes\": [ \"blockBlob\" ], \"prefixMatch\": [ \"invoices/\" ] },\n        \"actions\": {\n          \"baseBlob\": {\n            \"tierToCool\": { \"daysAfterModificationGreaterThan\": 30 },\n            \"tierToCold\": { \"daysAfterModificationGreaterThan\": 90 },\n            \"tierToArchive\": { \"daysAfterModificationGreaterThan\": 180 },\n            \"delete\": { \"daysAfterModificationGreaterThan\": 2555 }\n          }\n        }\n      }\n    }\n  ]\n}"
+    },
+    {
+      "id": 5,
+      "title": "Azure SQL Database: High Availability vs Disaster Recovery",
+      "week": "Foundations",
+      "focus": "Zone Redundancy, Active Geo-Replication, Auto-Failover Groups & PITR",
+      "badge": "Relational DB",
+      "theory": "Azure SQL Database is a managed relational PaaS database. Architecture requires distinguishing High Availability (HA - surviving local datacenter hardware faults) from Disaster Recovery (DR - surviving catastrophic regional outages). Zone-redundant HA automatically replicates transactions across Availability Zones. For regional disaster recovery, Auto-Failover Groups provide continuous asynchronous geo-replication and a unified read/write DNS listener endpoint.",
+      "diagram": "AZURE SQL HIGH AVAILABILITY (HA) vs DISASTER RECOVERY (DR)\n\n1. INTRA-REGION HIGH AVAILABILITY (Zone-Redundant Premium/Business Critical):\n   [ Primary Writer Node (AZ-1) ]\n         \\             // Synchronous Quorum Commit\n          v           v\n   [ Secondary (AZ-2) ] [ Secondary (AZ-3) ] (Automatic failover in <15s with zero data loss!)\n\n2. CROSS-REGION DISASTER RECOVERY (Auto-Failover Groups):\n   REGION A (Primary - East US)               REGION B (Secondary - West US)\n   +---------------------------------+        +---------------------------------+\n   | Primary Database                |        | Read-Only Geo-Replica           |\n   | [ Read/Write Listener Endpoint] | =====> | [ Read-Scale Out Endpoint ]     |\n   +---------------------------------+ Async  +---------------------------------+\n                    |                  Log\n                    v                 Stream\n   Connection String: \"tcp:commerce-failover.database.windows.net,1433\"\n   (Stable DNS listener automatically redirects to Region B during disaster failover!)",
+      "keyTakeaways": [
+        "HA protects against local component failures; DR protects against complete geographic region severance.",
+        "Auto-Failover Groups maintain stable DNS endpoints (`*.database.windows.net`), preventing application connection string updates during DR.",
+        "Point-in-Time Recovery (PITR) continuously streams database transaction logs to paired storage, enabling second-granularity restore.",
+        "Configure Read-Scale Out to offload heavy analytical reporting queries to the geo-secondary without impacting primary writer CPU."
+      ],
+      "codeExample": "# Azure CLI: Create an Auto-Failover Group across two Azure Regions\naz sql failover-group create \\\n  --name \"fg-commerce-prod\" \\\n  --resource-group \"rg-commerce-prod-eastus\" \\\n  --server \"sql-commerce-primary-eastus\" \\\n  --partner-server \"sql-commerce-secondary-westus\" \\\n  --failover-policy \"Automatic\" \\\n  --grace-period 60 \\\n  --add-db \"db-commerce-core\""
+    },
+    {
+      "id": 6,
+      "title": "Azure Cosmos DB: Horizontal Partitioning & 5 Consistency Levels",
+      "week": "Distributed Applications",
+      "focus": "Logical vs Physical Partitions, Hot Partitions & The 5 Consistency Models",
+      "badge": "NoSQL & Distributed Systems",
+      "theory": "Azure Cosmos DB is a globally distributed NoSQL database delivering single-digit millisecond latency at the 99th percentile. Horizontal scaling is driven by Partition Keys: logical partitions map onto physical partition sets (each capped at 50 GB storage and 10,000 RU/s). Cosmos DB offers 5 well-defined consistency levels trading consistency against latency, availability, and throughput: Strong, Bounded Staleness, Session (default), Consistent Prefix, and Eventual.",
+      "diagram": "COSMOS DB PARTITIONING & 5 CONSISTENCY LEVELS SPECTRUM\nPARTITION KEY HORIZONTAL SCALING:\nLogical Partitions (PK = /userId)           Physical Storage Partition (Max 10k RU/s)\n[ usr_101 ] [ usr_102 ] [ usr_103 ] =====> [ Physical Partition 1: Replica Set A-B-C-D ]\n[ usr_201 ] [ usr_202 ] [ usr_203 ] =====> [ Physical Partition 2: Replica Set E-F-G-H ]\n*Even distribution ensures each partition stays within 10,000 RU/s throughput limit!*\n\nTHE 5 CONSISTENCY LEVELS SPECTRUM:\n+---------------------------------------------------------------------------------+\n| STRONG               BOUNDED STALENESS    SESSION           CONSISTENT PREFIX    EVENTUAL   |\n+---------------------------------------------------------------------------------+\n| Synchronous Quorum   Max K or T lag window Monotonic Read   Ordered Commits      Unordered  |\n| Highest Latency      Bound on Staleness   Read-Own-Writes   No Out-of-Order      Lowest Lat |\n| 2x RU Cost Reads     2x RU Cost Reads     1x RU Cost        1x RU Cost           1x RU Cost |\n+---------------------------------------------------------------------------------+\nTrade-off: Strong consistency guarantees linearizability but increases read latency and restricts writes to a single region.",
+      "keyTakeaways": [
+        "In Cosmos DB, partition keys must have high cardinality; low-cardinality keys (e.g. `/country`) cause fatal hot partition throttling.",
+        "A physical partition throttles with HTTP 429 (RequestRateTooLarge) when traffic exceeds 10,000 RU/s, regardless of total cluster scale.",
+        "Session consistency is the optimal default for web apps: users read their own writes immediately without paying a 2x RU penalty.",
+        "Different domain entities warrant different consistency: financial ledgers require Strong; social likes use Eventual."
+      ],
+      "codeExample": "// C# .NET: Query Cosmos DB with Session Consistency Token\nCosmosClient client = new CosmosClient(endpoint, tokenCredential, new CosmosClientOptions() {\n    ConsistencyLevel = ConsistencyLevel.Session\n});\n\nContainer container = client.GetContainer(\"CommerceDB\", \"Orders\");\n\n// High-speed point read targeting specific physical partition\nItemResponse<Order> response = await container.ReadItemAsync<Order>(\n    id: \"ord_9901\",\n    partitionKey: new PartitionKey(\"usr_101\")\n);\nConsole.WriteLine($\"Request Charge: {response.RequestCharge} RUs, Latency: {response.Diagnostics.GetClientElapsedTime().TotalMilliseconds}ms\");"
+    },
+    {
+      "id": 7,
+      "title": "In-Memory Caching: Azure Managed Redis & Cache-Aside Resilience",
+      "week": "Distributed Applications",
+      "focus": "2026 Managed Redis Enterprise, Cache Stampede & Thundering Herd Defense",
+      "badge": "In-Memory Acceleration",
+      "theory": "Azure Managed Redis (powered by Redis Enterprise) is the modern 2026 standard for sub-millisecond in-memory caching (older Azure Cache for Redis tiers are retiring). The Cache-Aside pattern accelerates reads by checking cache before querying the database. However, cache failure creates extreme vulnerability: if Redis fails or keys expire simultaneously, hundreds of thousands of requests stampede the database, causing cascading backend failure.",
+      "diagram": "CACHE-ASIDE PATTERN & CACHE STAMPEDE MITIGATION\n1. NORMAL CACHE-ASIDE FLOW:\nApplication ---> (1) GET product:101 ---> [ Azure Managed Redis ]\n    |                                              |\n    | (Cache Hit) <--- Return Cached JSON <--------+\n    |\n    +-----> (Cache Miss) ---> [ Azure SQL / Cosmos DB ]\n                                       |\n    <------- Return DB Record <--------+\n    |\n    +-----> (2) SET product:101 (TTL: 300s + Jitter) ---> [ Azure Managed Redis ]\n\n2. THE CACHE STAMPEDE (THUNDERING HERD) PROBLEM:\nKey 'flash_sale_deals' expires ---> 100,000 Concurrent Requests Discover Miss!\n                                            |\n           +--------------------------------+-------------------------------+\n           v                                v                               v\n     [ DB Query 1 ]                   [ DB Query 2 ]                 [ DB Query 100,000 ]\n     STATUS: DATABASE CPU AT 100%, THREAD POOL EXHAUSTION & CRASH!\n\nDEFENSE ARCHITECTURE:\n- Request Coalescing (Single-Flight): Only 1 thread queries the DB; others await that single promise.\n- Jittered TTLs: Add random offset (e.g. 300s + rand(0, 30s)) so keys don't expire simultaneously.\n- Circuit Breaker: Shed excess read load and return cached stale data during database saturation.",
+      "keyTakeaways": [
+        "New architectures must use Azure Managed Redis; older Azure Cache for Redis Basic/Standard tiers are scheduled for retirement.",
+        "Always apply TTL jitter (random variations in expiration timestamps) to prevent bulk simultaneous cache key invalidation.",
+        "Implement request coalescing (single-flight) to ensure a cache miss triggers only a single backend database query.",
+        "Cache is an accelerator, never the authoritative system-of-record; databases must remain consistent."
+      ],
+      "codeExample": "# Node.js: Cache-Aside with Single-Flight Promise Coalescing\nconst inflightQueries = new Map();\n\nasync function getProductWithCoalescing(productId) {\n  // 1. Try Azure Managed Redis\n  const cached = await redisClient.get(`product:${productId}`);\n  if (cached) return JSON.parse(cached);\n\n  // 2. Coalesce concurrent duplicate requests\n  if (inflightQueries.has(productId)) {\n    return await inflightQueries.get(productId);\n  }\n\n  const queryPromise = (async () => {\n    try {\n      const dbRecord = await queryDatabaseForProduct(productId);\n      const jitterTtl = 300 + Math.floor(Math.random() * 30); // 300-330s jitter\n      await redisClient.set(`product:${productId}`, JSON.stringify(dbRecord), 'EX', jitterTtl);\n      return dbRecord;\n    } finally {\n      inflightQueries.delete(productId);\n    }\n  })();\n\n  inflightQueries.set(productId, queryPromise);\n  return await queryPromise;\n}"
+    },
+    {
+      "id": 8,
+      "title": "Global Ingress: Azure Front Door vs Application Gateway",
+      "week": "Distributed Applications",
+      "focus": "Global Layer-7 Anycast Edge vs Regional Layer-7 Ingress & WAF",
+      "badge": "Ingress Traffic",
+      "theory": "Azure splits traffic distribution into two distinct tiers: Azure Front Door (Global Layer-7 Anycast edge router, CDN, and global WAF) and Application Gateway v2 (Regional Layer-7 reverse proxy and URL path router). Front Door terminates TLS at the global edge closest to the user, inspects WAF rules, and uses Private Link to forward clean traffic directly to regional Application Gateways or AKS clusters, preventing direct internet origin exposure.",
+      "diagram": "GLOBAL FRONT DOOR + REGIONAL APPLICATION GATEWAY TOPOLOGY\n                       [ GLOBAL INTERNET USERS ]\n                                   |\n                                   v\n             [ AZURE FRONT DOOR (Standard / Premium) ]\n             - Anycast Edge POPs Worldwide\n             - Global WAF & DDoS Protection\n             - Edge Dynamic Caching & SSL Termination\n            /                                         \\\n  (Lowest Latency Edge)                      (Failover / Overflow)\n           |                                           |\n           v                                           v\n[ REGION A: Central US ]                    [ REGION B: East US ]\n+------------------------------+            +------------------------------+\n| Application Gateway v2 (WAF) |            | Application Gateway v2 (WAF) |\n| Path: /api/checkout/*        |            | Path: /api/checkout/*        |\n| Private Link Origin Target   |            | Private Link Origin Target   |\n+--------------+---------------+            +--------------+---------------+\n               |                                           |\n               v                                           v\n     [ AKS Microservice Fleet ]                  [ AKS Microservice Fleet ]\n\nFRONT DOOR vs APPLICATION GATEWAY DECISION MATRIX:\n- Front Door: Global scope, edge caching, cross-region health failover, Anycast IP.\n- Application Gateway v2: Regional scope, internal VNet routing, cookie-based affinity, URL path rewrite.",
+      "keyTakeaways": [
+        "Do not confuse Front Door (global Anycast edge) with Application Gateway (regional intra-VNet Layer 7 proxy).",
+        "Protect backend origins: use Front Door Premium with Private Link so origins accept traffic exclusively through Front Door.",
+        "Application Gateway v1 SKUs retired on April 28, 2026; all production workloads must deploy v2 SKUs.",
+        "Front Door health probes evaluate backend regional response codes, automatically routing traffic away from degraded regions."
+      ],
+      "codeExample": "# Bicep: Azure Front Door Premium Route targeting Regional App Gateway via Private Link\nresource frontDoorRoute 'Microsoft.Cdn/profiles/afdEndpoints/routes@2023-05-01' = {\n  parent: frontDoorEndpoint\n  name: 'route-api-traffic'\n  properties: {\n    originGroup: { id: frontDoorOriginGroup.id }\n    supportedProtocols: ['Https']\n    patternsToMatch: ['/*']\n    forwardingProtocol: 'HttpsOnly'\n    linkToDefaultDomain: 'Enabled'\n    httpsRedirect: 'Enabled'\n  }\n}"
+    },
+    {
+      "id": 9,
+      "title": "Modern Compute: AKS Automatic & Azure Functions Flex Consumption",
+      "week": "Distributed Applications",
+      "focus": "AKS Automatic Production Defaults, Flex Consumption & Concurrency Limits",
+      "badge": "Modern Compute",
+      "theory": "Modern 2026 Azure compute embraces managed operations. AKS Automatic is Microsoft's production-ready Kubernetes default, automating node provisioning, Karpenter-style workload scaling, security guardrails, and cluster repair without cluster management overhead. Azure Functions Flex Consumption delivers pay-as-you-go serverless with fast cold-starts, VNet integration, and per-function concurrency limits to prevent the *Serverless Database Starvation Trap*.",
+      "diagram": "AKS AUTOMATIC vs AKS STANDARD ARCHITECTURE\n+-----------------------------+------------------------------------+------------------------------------+\n| DIMENSION                   | AKS AUTOMATIC (2026 Default)       | AKS STANDARD                       |\n+-----------------------------+------------------------------------+------------------------------------+\n| Node Management             | Workload-driven automated provision| Manual Node Pools & OS image mgmt  |\n| Security & Best Practices   | Turnkey baseline security policies | Manually configured Pod Security   |\n| Autoscaling Engine          | Built-in cluster autoscaling       | Manual Karpenter / Cluster Autoscal|\n| Upgrades & Self-Healing     | Automated safe rolling upgrades    | User-scheduled maintenance windows |\n| Ideal Workload              | Production microservices & APIs    | Specialized kernel/GPU custom mods |\n+-----------------------------+------------------------------------+------------------------------------+\n\nAZURE FUNCTIONS PER-FUNCTION CONCURRENCY (FLEX CONSUMPTION):\nIncoming Burst: 20,000 HTTP Requests\nFunction A (Checkout) ---> Capped at 200 concurrent instances ---> Safe: Max 200 DB Connections!\nFunction B (Thumbnail) ---> Scales to 1,500 concurrent instances (Stateless Blob operations)\n*Per-function concurrency caps protect downstream relational databases from saturation!*",
+      "keyTakeaways": [
+        "AKS Automatic is the recommended default for container workloads, removing complex node lifecycle maintenance.",
+        "Azure Functions Flex Consumption provides true per-function scaling rather than binding all functions to one instance scale.",
+        "Uncontrolled serverless scaling destroys relational databases: always configure function concurrency caps or message queue buffers.",
+        "Integrate Entra Workload Identity in AKS so pods authenticate to Azure services using temporary short-lived tokens."
+      ],
+      "codeExample": "# Azure Functions host.json: Concurrency Throttling Configuration\n{\n  \"version\": \"2.0\",\n  \"concurrency\": {\n    \"dynamicConcurrencyEnabled\": true,\n    \"snapshotPersistenceEnabled\": true\n  },\n  \"extensions\": {\n    \"http\": {\n      \"maxConcurrentRequests\": 100,\n      \"maxOutstandingRequests\": 200\n    }\n  }\n}"
+    },
+    {
+      "id": 10,
+      "title": "Enterprise Messaging: Azure Service Bus vs Event Grid",
+      "week": "Messaging & Observability",
+      "focus": "Commands vs Events, Dead-Letter Queues, Duplicate Detection & Push Delivery",
+      "badge": "Event Messaging",
+      "theory": "Distributed applications decouple components via messaging and events. The foundational rule is: COMMANDS ('Please process this order') go to Azure Service Bus; EVENTS ('A blob was created') go to Azure Event Grid. Service Bus provides enterprise queuing, topics/subscriptions, transactions, duplicate detection windows, and Dead-Letter Queues (DLQ). Event Grid provides high-throughput push-based serverless event routing with retry policies and dead-letter blob storage.",
+      "diagram": "SERVICE BUS (COMMANDS) vs EVENT GRID (EVENTS) ARCHITECTURE\n\n1. AZURE SERVICE BUS (Enterprise Command Queue with DLQ):\n[ Order Service ] ===> (1) Send 'ProcessPayment' ===> [ Service Bus Topic ]\n                                                              /              \\\n                                                             v                v\n                                                   [ Sub: Billing ]   [ Sub: Fulfillment ]\n                                                           |\n                                                (Worker Fails 5x)\n                                                           |\n                                                           v\n                                            [ Dead-Letter Queue (DLQ) ] ---> Alert DevOps\n\n2. AZURE EVENT GRID (Reactive Event Broadcast):\n[ Blob Storage ] ---> \"BlobCreated: invoice.pdf\" ---> [ Event Grid Topic ]\n                                                              /        |        \\\n                                                             v         v         v\n                                                        [Function]  [LogicApp] [Webhook]\n                                                     (Push-based, sub-10ms delivery!)",
+      "keyTakeaways": [
+        "Rule of Thumb: COMMANDS belong in Service Bus; EVENTS belong in Event Grid.",
+        "A Dead-Letter Queue (DLQ) is an operational recovery mechanism, not a trash can: inspect, debug, and safely replay.",
+        "Enable Duplicate Detection on Service Bus (Standard/Premium) to discard duplicate sends within a configured time window.",
+        "Event Grid does not guarantee strict sequential message ordering; downstream consumers must be idempotent."
+      ],
+      "codeExample": "# Python: Azure Service Bus Consumer with DLQ Dead-Letter Handling\nfrom azure.servicebus import ServiceBusClient, ServiceBusReceivedMessage\n\nconnection_str = \"Endpoint=sb://sb-commerce-prod.servicebus.windows.net/;...\"\nclient = ServiceBusClient.from_connection_string(connection_str)\n\nwith client.get_queue_receiver(\"order-processing-queue\") as receiver:\n    messages = receiver.receive_messages(max_message_count=10, max_wait_time=5)\n    for msg in messages:\n        try:\n            process_order_idempotent(msg.body)\n            receiver.complete_message(msg)\n        except PoisonMessageException as ex:\n            # Move unrecoverable poison message directly to Dead-Letter Queue\n            receiver.dead_letter_message(msg, reason=\"InvalidOrderSchema\", error_description=str(ex))\n        except Exception:\n            receiver.abandon_message(msg) # Re-expose message for retry"
+    },
+    {
+      "id": 11,
+      "title": "Production Capstone: AzureShop 10M-User Platform & AWS Translation",
+      "week": "Messaging & Observability",
+      "focus": "End-to-End Multi-Region Blueprint, AWS Translation & 12 Lab Sequence",
+      "badge": "Capstone Blueprint",
+      "theory": "The Module 8 Capstone brings all primitives together into AzureShop: a production-grade global commerce platform engineered for 10 million users, 100,000 peak RPS, 99.99% availability, sub-second latency, and multi-region resilience. The architecture features Azure Front Door, Application Gateway v2, AKS Automatic, Azure Managed Redis, polyglot persistence (Azure SQL + Cosmos DB), Service Bus queuing, Event Grid eventing, Key Vault cryptography, and Azure Monitor full-stack observability.",
+      "diagram": "PRODUCTION AZURESHOP ARCHITECTURE (10M USERS / 100K PEAK RPS)\n[ GLOBAL CLIENTS ]\n       |\n       v\n[ AZURE FRONT DOOR + WAF ] -> (Global Anycast Edge / Failover Routing)\n       |\n       +-----------------------+-----------------------+\n       | Private Link          | Private Link          |\n       v                       v                       v\n[ REGION A: East US ]    [ REGION B: West US ]   [ REGION C: Europe ]\n+----------------------+ +---------------------+ +--------------------+\n| App Gateway v2 (WAF) | |App Gateway v2 (WAF) | |App Gateway v2 (WAF)|\n+----------+-----------+ +----------+----------+ +---------+----------+\n           |                        |                      |\n           v                        v                      v\n    [ AKS Automatic ]        [ AKS Automatic ]      [ AKS Automatic ]\n    (Pods / Microservices)   (Pods / Microservices) (Pods / Microservices)\n           |                        |                      |\n           +------------------------+----------------------+\n                                    |\n          +-------------------------+-------------------------+\n          |                                                   |\n          v                                                   v\n[ AZURE MANAGED REDIS ]                             [ POLYGLOT PERSISTENCE ]\n- Product Catalog Cache (300s TTL)                  - Azure SQL Database (Auto-Failover Group)\n- Session Acceleration (Active-Active)              - Cosmos DB (Shopping Carts, Orders NoSQL)\n                                                              |\n                                                    (Change Feed CDC)\n                                                              |\n                                                              v\n                                              [ EVENT GRID / SERVICE BUS ]\n                                              /             |            \\\n                                             v              v             v\n                                       [ SvcBus: Pay ] [ SvcBus: Ship ] [ Grid: Notify ]\n                                             |              |             |\n                                             v              v             v\n                                       [ Functions ]  [ Functions ]  [ Functions ]\n                                             +--------------+-------------+\n                                                            |\n                                                            v\n                                            [ BLOB STORAGE + KEY VAULT + MONITOR ]",
+      "keyTakeaways": [
+        "Multi-region architecture is incomplete unless the surviving region has provisioned capacity to absorb 100% of the failed region's load.",
+        "Polyglot data tiering: Azure SQL handles strict ACID financial ledgers; Cosmos DB handles horizontally sharded shopping carts.",
+        "Azure Monitor SLO dashboards track error budget burn rates rather than reacting to transient single-server CPU alarms.",
+        "AWS to Azure translation: VPC → VNet, IAM Role → Managed Identity, S3 → Blob, RDS → Azure SQL, DynamoDB → Cosmos DB, SQS → Service Bus."
+      ],
+      "codeExample": "# AWS to Azure Architectural Translation Reference Matrix:\n# AWS IAM / Identity Center  ---> Microsoft Entra ID + Azure RBAC\n# AWS IAM Role / STS        ---> User-Assigned Managed Identity / Entra Workload ID\n# AWS VPC / Security Group  ---> Azure Virtual Network (VNet) + Network Security Group (NSG)\n# AWS EC2 / Auto Scaling    ---> Azure Virtual Machines + VM Scale Sets (VMSS)\n# AWS S3 (Simple Storage)   ---> Azure Blob Storage (ADLS Gen2)\n# AWS RDS / Aurora          ---> Azure SQL Database (Business Critical / Hyperscale)\n# AWS DynamoDB              ---> Azure Cosmos DB (NoSQL API)\n# AWS ElastiCache           ---> Azure Managed Redis (Enterprise)\n# AWS CloudFront CDN        ---> Azure Front Door (Standard / Premium)\n# AWS Application Load Bal  ---> Azure Application Gateway v2\n# AWS Lambda                ---> Azure Functions (Flex Consumption Plan)\n# AWS ECS / EKS             ---> Azure Kubernetes Service (AKS Automatic)\n# AWS SQS (Simple Queue)    ---> Azure Service Bus (Queues)\n# AWS SNS (Pub/Sub)         ---> Azure Service Bus (Topics & Subscriptions)\n# AWS EventBridge           ---> Azure Event Grid (Namespaces & System Topics)\n# AWS KMS / Secrets Manager ---> Azure Key Vault\n# AWS CloudWatch            ---> Azure Monitor (Metrics, Logs, Application Insights)"
+    }
+  ],
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Scenario 1: Regional Application Gateway Node Dies (Section 48)",
+      "context": "At 11:15 UTC, a hardware rack fault in East US takes down the active compute node for your regional Application Gateway. Incoming checkout traffic to `/api/orders` experiences immediate TCP resets.",
+      "question": "What is the architectural design that eliminates this single point of failure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deploy Application Gateway v2 with Zone Redundancy (minimum 2 instances spread across Availability Zones), backed globally by Azure Front Door with automated health probes.",
+          "verdict": "Correct! Resilient Multi-Layer Ingress",
+          "explanation": "Zone-redundant Application Gateway v2 automatically absorbs intra-region datacenter faults. Concurrently, Azure Front Door detects regional gateway impairment within seconds and diverts global traffic to Region B.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Manually reconfigure public DNS A records to route users directly to the private IP address of an AKS worker node.",
+          "verdict": "Anti-Pattern! Dangerous Exposure",
+          "explanation": "Exposing private AKS node IPs breaks TLS termination, circumvents WAF security, and causes DNS caching delays that prolong downtime.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Scenario 2: AKS Pod Crashes Under Memory Pressure (Section 49)",
+      "context": "A memory leak in the product search service causes Kubernetes to send a SIGKILL (OOMKilled) to Pod-3 in the `search-api` deployment. 15% of active user search queries terminate abruptly.",
+      "question": "How should a production AKS architecture handle pod crashes invisibly?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Configure Kubernetes liveness and readiness probes with a ReplicaSet count >= 3. The service endpoint immediately stops routing traffic to the dying pod while AKS launches a replacement.",
+          "verdict": "Correct! Self-Healing Microservices",
+          "explanation": "Readiness probes inform the internal kube-proxy and Ingress controller to drain traffic from unhealthy pods before replacement, preventing end-user dropped connections.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Log into the Azure Portal and click 'Restart AKS Cluster'.",
+          "verdict": "Catastrophic Anti-Pattern",
+          "explanation": "Restarting the entire Kubernetes cluster terminates all healthy workloads and causes an immediate total outage.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Scenario 3: Azure Managed Redis Instance Disappears (Section 50)",
+      "context": "The primary Azure Managed Redis cache cluster restarts due to an unexpected hypervisor crash. 80,000 requests per second that previously hit Redis cache miss simultaneously and hammer the backend database.",
+      "question": "What distributed failure mode is occurring, and how do you protect the database?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cache Stampede (Thundering Herd). Mitigate by implementing request coalescing (single-flight), jittered TTLs, and a circuit breaker with stale-while-revalidate fallback.",
+          "verdict": "Correct! Cache-Aside Resilience",
+          "explanation": "When cache vanishes, thousands of concurrent requests must not all query the database simultaneously. Request coalescing collapses duplicate queries into a single DB lookup, while circuit breakers shed excess load.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Increase Azure SQL max compute size to 128 vCPUs so it can indefinitely absorb 80,000 un-cached queries per second.",
+          "verdict": "Financially Wasteful & Fragile",
+          "explanation": "Over-provisioning relational database scale to handle ephemeral cache outages is cost-prohibitive and fails when traffic doubles during flash sales.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Scenario 4: Complete Regional Outage Knocks Out Azure SQL in Region A (Section 51)",
+      "context": "A severe regional fiber cut severs Region A (Central India). The primary Azure SQL database is totally offline. The business SLA specifies RPO <= 1 minute and RTO <= 15 minutes.",
+      "question": "Which Azure SQL business continuity architecture achieves this SLA?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure SQL Auto-Failover Groups with Active Geo-Replication to Region B (South India). The read-write listener endpoint automatically reroutes client connections to the secondary.",
+          "verdict": "Correct! Automated Disaster Recovery",
+          "explanation": "Failover Groups provide a stable DNS connection string (`*.database.windows.net`) that automatically redirects client traffic to the promoted secondary in Region B without updating application configuration strings.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Rely on Geo-Restore from weekly automated backup blobs in Geo-Redundant Storage (GRS).",
+          "verdict": "SLA Violation!",
+          "explanation": "Geo-Restore from backup blobs takes several hours (RTO > 4 hours) and can lose up to 1 hour of data (RPO > 1h), violating strict business commitments.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Scenario 5: Cosmos DB Severe Hot Partition Bottleneck (Section 52)",
+      "context": "An e-commerce order table partitions by `/country`. During an Indian holiday sale, 70% of total traffic targets `country = 'India'`. CloudWatch/Azure Monitor reports high HTTP 429 throttling even though overall database CPU is only 35%.",
+      "question": "Why is the database failing despite low overall utilization, and what is the fix?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Distributed systems fail on localized bottlenecks! The physical partition holding 'India' exceeds its 10,000 RU/s limit. Fix by choosing a high-cardinality key like `/userId` or a composite key (`/country_orderId`).",
+          "verdict": "Correct! Horizontal Partition Key Design",
+          "explanation": "Aggregate metrics hide partition skew. A low-cardinality key bottles the entire workload into one physical replica set. High-cardinality keys distribute reads/writes evenly across all cluster nodes.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Change Cosmos DB consistency level from Session to Strong consistency.",
+          "verdict": "Incorrect",
+          "explanation": "Changing consistency to Strong increases read latency and doubles RU consumption, worsening the partition bottleneck.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Scenario 6: Azure Service Bus Consumer Crashes Repeatedly (Section 53)",
+      "context": "A payment processing worker reads a message from a Service Bus queue, attempts to parse a malformed JSON payload, crashes with an unhandled exception, and never calls `CompleteAsync()`.",
+      "question": "What happens to the message, and how do you prevent an infinite crash loop?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When the message lock duration expires, Service Bus re-exposes the message. After reaching `MaxDeliveryCount` (e.g. 5 retries), Service Bus moves the poison message to the Dead-Letter Queue (DLQ).",
+          "verdict": "Correct! Poison Pill Isolation",
+          "explanation": "Dead-Letter Queues prevent poison messages from consuming CPU cycles in an infinite retry storm. The DLQ holds the offending message for diagnostic investigation without halting the worker pipeline.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Service Bus permanently deletes the message immediately when the worker crashes.",
+          "verdict": "Incorrect",
+          "explanation": "Service Bus Peek-Lock mode guarantees that unacknowledged messages are safely preserved and redelivered.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Scenario 7: Serverless Azure Function Surge Overwhelms Azure SQL (Section 54)",
+      "context": "An Event Grid burst triggers 15,000 concurrent Azure Function instances. Each function immediately opens a direct connection to an Azure SQL Database. The database connection pool hits 100% capacity, queries time out, and functions retry aggressively.",
+      "question": "What architectural component must be inserted between serverless functions and relational databases?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Insert an Azure Service Bus queue as an asynchronous backpressure buffer, or use per-function concurrency caps on the Flex Consumption plan to regulate database connection demand.",
+          "verdict": "Correct! Backpressure & Rate Regulation",
+          "explanation": "Serverless compute scales faster than relational database connection pools. Queues decouple rapid burst intake from steady relational persistence, preventing cascading system death.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Increase Azure Function execution timeout from 5 minutes to 60 minutes.",
+          "verdict": "Disastrous Failure",
+          "explanation": "Extending timeouts causes blocked functions to linger and accumulate, exhausting socket resources and compounding the database lock contention.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1776,
+    "fileSizeBytes": 98015,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

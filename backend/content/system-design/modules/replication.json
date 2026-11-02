@@ -1,0 +1,158 @@
+{
+  "id": "replication",
+  "courseId": "system-design",
+  "index": 7,
+  "name": "7. Replication & Sharding",
+  "route": "/learning/system-design/replication",
+  "componentName": "SystemDesignReplication",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the main purpose of replication?",
+      "options": [
+        "Divide one table into monthly partitions",
+        "Maintain copies of data for availability, recovery, read scaling, or geographic access",
+        "Automatically make every query faster"
+      ],
+      "correctIndex": 0,
+      "explanation": "Replication maintains copies of data across multiple database nodes to provide high availability, failover redundancy, read workload distribution, and regional access. It does not partition tables or automatically optimize query execution plans."
+    },
+    {
+      "id": 2,
+      "question": "What is the main difference between table partitioning and sharding?",
+      "options": [
+        "Partitioning divides a logical dataset; sharding distributes data across database nodes or stores",
+        "Partitioning always requires multiple servers",
+        "Sharding only creates replicas"
+      ],
+      "correctIndex": 0,
+      "explanation": "Table partitioning divides a single logical table into sub-tables within one database engine for query pruning and retention. Sharding distributes dataset subsets across independently managed, separate database servers or clusters."
+    },
+    {
+      "id": 3,
+      "question": "What is a major risk of asynchronous replication during failover?",
+      "options": [
+        "The primary can never accept writes",
+        "Some committed transactions may not have reached the promoted replica",
+        "Every read must scan every shard"
+      ],
+      "correctIndex": 0,
+      "explanation": "Because the primary acknowledges transactions without waiting for asynchronous standbys to confirm disk persistence, any un-replicated WAL records are permanently lost if the primary abruptly dies before transmitting them."
+    },
+    {
+      "id": 4,
+      "question": "Which partitioning strategy is a natural candidate for a large time-series table with frequent date-bounded queries?",
+      "options": [
+        "Range partitioning by timestamp",
+        "List partitioning by random description text",
+        "Replication without partitioning"
+      ],
+      "correctIndex": 0,
+      "explanation": "Range partitioning by timestamp (`created_at`) enables the query planner to prune untouched historical months completely, accelerating date-filtered queries and enabling instant retention drops via `DROP TABLE ... PARTITION`."
+    },
+    {
+      "id": 5,
+      "question": "What is a hot shard?",
+      "options": [
+        "A shard that receives disproportionately high traffic or resource demand",
+        "A shard with the most backups",
+        "A shard that contains only old records"
+      ],
+      "correctIndex": 0,
+      "explanation": "A hot shard is a database node that receives an excessive concentration of reads or writes due to low-cardinality keys or popular institutional tenants, becoming a bottleneck even when the rest of the cluster is idle."
+    },
+    {
+      "id": 6,
+      "question": "Why can scatter-gather queries become expensive?",
+      "options": [
+        "They never return results",
+        "They access multiple shards and must coordinate or combine their results",
+        "They automatically disable indexes"
+      ],
+      "correctIndex": 0,
+      "explanation": "Scatter-gather queries broadcast requests across all participating shards, generating high network fan-out and waiting for the single slowest tail-latency shard before merging and aggregating results."
+    },
+    {
+      "id": 7,
+      "question": "What does the simplified quorum condition R + W > N express?",
+      "options": [
+        "A sufficient overlap between read and write replica sets under specific quorum assumptions",
+        "The number of shards a SQL query must contact",
+        "A universal guarantee for every distributed database"
+      ],
+      "correctIndex": 0,
+      "explanation": "By the pigeonhole principle, if the number of read nodes (R) plus write nodes (W) exceeds the replication factor (N), at least one node in the read set is guaranteed to have participated in the latest acknowledged write."
+    },
+    {
+      "id": 8,
+      "question": "What is a primary purpose of a shard key?",
+      "options": [
+        "Determine where a record is stored and help route queries to the appropriate shard",
+        "Replace all indexes",
+        "Guarantee that every transaction remains local"
+      ],
+      "correctIndex": 0,
+      "explanation": "The shard key (e.g. `user_id`) is hashed or evaluated by the router to map rows to specific physical nodes, enabling fast single-shard targeted queries without contacting other cluster members."
+    },
+    {
+      "id": 9,
+      "question": "What is the difference between RPO and RTO?",
+      "options": [
+        "RPO concerns the acceptable data-loss window; RTO concerns the target time to restore service",
+        "RPO measures query latency; RTO measures database storage size",
+        "They mean the same thing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Recovery Point Objective (RPO) is the maximum tolerated duration of lost transactions during a disaster (e.g. at most 5 seconds of lost writes). Recovery Time Objective (RTO) is the target duration required to bring the system back online."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": "qa-1",
+      "title": "How do you solve the Read-After-Write inconsistency when using Read Replicas?",
+      "context": "A student submits an assignment or edits their profile, but when redirected to the dashboard, their update is missing because the read query hit a lagging replica.",
+      "answer": "Production systems resolve this using one of three standard strategies: (1) Primary Read Routing: Route the user's subsequent reads to the Primary DB for a bounded time window (e.g. 5 seconds via a session flag or cookie). (2) Replication Position Tracking (Causal Consistency): The primary returns the committed LSN (Log Sequence Number). The application queries the replica with `WHERE pg_last_wal_replay_lsn() >= :committed_lsn` or waits until it catches up. (3) Bounded Staleness: Health checks immediately drain replicas from the pool if replay lag exceeds 100ms."
+    },
+    {
+      "id": "qa-2",
+      "title": "Why does Two-Phase Commit (2PC) introduce high latency and lock contention?",
+      "context": "A financial or checkout workflow requires updating multiple independent shards simultaneously.",
+      "answer": "In 2PC, every participant shard must acquire exclusive row locks during the 'Prepare' phase and hold them across network round-trips until the Coordinator decides to 'Commit'. If network latency between shards is 15ms, locks are held for at least 30–50ms per transaction. This drastically reduces throughput, risks distributed deadlocks, and if the Coordinator crashes between phases, participants remain blocked in a doubtful state indefinitely."
+    },
+    {
+      "id": "qa-3",
+      "title": "How does Consistent Hashing with Virtual Nodes prevent data cascading during resharding?",
+      "context": "Moving from 4 shards to 5 shards using naive `hash(key) % N` causes ~80% of all existing keys to map to different physical nodes.",
+      "answer": "Naive modulo sharding invalidates nearly the entire cluster when N increments. Consistent hashing places both nodes and keys on a circular 32-bit or 64-bit ring. When a new node is added, it only takes ownership of keys from its immediate neighbor (moving only $K/N$ keys). Assigning 100–256 'Virtual Nodes' (vnodes) per physical machine ensures that incoming keys and partition migration loads are distributed uniformly across all existing nodes rather than burdening a single neighbor."
+    },
+    {
+      "id": "qa-4",
+      "title": "How do distributed SQL engines like Google Cloud Spanner and CockroachDB preserve external consistency?",
+      "context": "Executing serializable ACID transactions across multiple geographic regions without centralized lock managers.",
+      "answer": "Google Cloud Spanner uses TrueTime (atomic clocks and GPS receivers with bounded uncertainty $\\epsilon \\le 7\\text{ms}$) to assign globally monotonic commit timestamps. If transaction T2 starts after T1 commits in real time, T2's timestamp is guaranteed to be strictly greater than T1's. Concurrently, data tables are dynamically divided into 'Splits' (ranges) and replicated across Paxos consensus groups. CockroachDB implements a similar hybrid logical clock (HLC) with Multi-Raft consensus per range."
+    },
+    {
+      "id": "qa-5",
+      "title": "What is Split-Brain syndrome, and how does STONITH / Quorum prevent it?",
+      "context": "A network partition isolates the Primary from the Standby, and both nodes claim to be the authoritative write leader.",
+      "answer": "Split-brain occurs when two nodes simultaneously accept writes for the same logical records, causing irreversible data divergence. High-availability clusters prevent this via Quorum Consensus (requiring $(N/2)+1$ votes, e.g. 3 nodes minimum) so an isolated node cannot win an election. Furthermore, automated failover engines (e.g. Patroni, Pacemaker) execute STONITH ('Shoot The Other Node In The Head') via IPMI or cloud API calls to forcefully terminate the old primary before promoting the standby."
+    },
+    {
+      "id": "qa-6",
+      "title": "When should you NOT shard a database, even if table row counts exceed 50 million?",
+      "context": "An engineering team prematurely proposes horizontal sharding for an analytics or catalog database.",
+      "answer": "You should not shard if: (1) The dataset fits in memory on a single high-memory instance (e.g. AWS `r6g.16xlarge` with 512GB RAM). (2) Declarative table partitioning by range or list provides sufficient query pruning and maintenance drops. (3) The workload is read-heavy and can be offloaded to read replicas and distributed caching (Redis). Sharding introduces cross-shard join overhead, distributed transaction complexity, resharding operational debt, and difficult backups. It is a last resort for extreme write concurrency or massive data volume."
+    }
+  ],
+  "metadata": {
+    "lineCount": 1768,
+    "fileSizeBytes": 95449,
+    "questionCount": 9,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

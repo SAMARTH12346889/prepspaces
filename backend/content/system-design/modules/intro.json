@@ -1,0 +1,77 @@
+{
+  "id": "intro",
+  "courseId": "system-design",
+  "index": 1,
+  "name": "1. Architectural Thinking",
+  "route": "/learning/system-design",
+  "componentName": "SystemDesignIntro",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "1. A team has three developers and no demonstrated need for independent service scaling. Which is usually the best starting point?",
+      "options": [
+        "Twelve microservices",
+        "A modular monolith",
+        "A multi-region distributed database"
+      ],
+      "correctIndex": 0,
+      "explanation": "A modular monolith maintains clean internal module boundaries while keeping operational, networking, and deployment overhead minimal for a small team."
+    },
+    {
+      "id": 2,
+      "question": "2. Which is a non-functional requirement?",
+      "options": [
+        "Students can submit assignments",
+        "Teachers can create courses",
+        "95% of course API requests complete within a defined latency target"
+      ],
+      "correctIndex": 0,
+      "explanation": "Non-functional requirements describe how well the system must perform (latency, availability, security) rather than specific user actions (functional requirements)."
+    },
+    {
+      "id": 3,
+      "question": "3. An application has three instances but all depend on one database. What remains a potential single point of failure?",
+      "options": [
+        "The shared database",
+        "Every client browser",
+        "The number of frontend components"
+      ],
+      "correctIndex": 0,
+      "explanation": "While compute instances are horizontally duplicated, if the central database fails, the entire application becomes unavailable, making it a critical single point of failure."
+    },
+    {
+      "id": 4,
+      "question": "4. An API receives 600 requests per second and takes an average of 0.1 seconds per request. What is the approximate average number of requests in progress?",
+      "options": [
+        "6",
+        "60",
+        "6000"
+      ],
+      "correctIndex": 0,
+      "explanation": "By Little's Law (L = λ × W), L = 600 req/sec × 0.1 sec = 60 concurrent requests in flight on average."
+    },
+    {
+      "id": 5,
+      "question": "5. A successful database write is followed by a lost response, and the client retries. Which concept helps prevent a duplicate operation?",
+      "options": [
+        "Vertical scaling",
+        "Idempotency",
+        "Increasing the payload size"
+      ],
+      "correctIndex": 0,
+      "explanation": "Idempotency ensures that repeating an identical operation (e.g., using an idempotency key) produces the exact same result without duplicate state mutations."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1755,
+    "fileSizeBytes": 106540,
+    "questionCount": 5,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

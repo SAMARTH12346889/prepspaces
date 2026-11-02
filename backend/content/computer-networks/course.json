@@ -1,0 +1,20 @@
+{
+  "id": "computer-networks",
+  "title": "Computer Networks Masterclass",
+  "tagline": "Internet Protocols, Packet Analysis & Distributed Infrastructure",
+  "description": "Master computer networks from OSI & TCP/IP models, physical transmission, IPv4/IPv6, routing protocols, and transport mechanics (TCP/UDP/QUIC) to network security, Wireshark packet analysis, and cloud network architecture.",
+  "icon": "Globe",
+  "route": "/learning/networks",
+  "tag": "Protocols & Infrastructure",
+  "modulesCount": "24 In-Depth Modules",
+  "totalModules": 24,
+  "color": "from-zinc-900 via-stone-800 to-orange-600",
+  "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
+  "highlights": [
+    "OSI & TCP/IP Protocol Stack",
+    "IPv4/IPv6 Subnetting & BGP/OSPF Routing",
+    "TCP Sliding Windows, Congestion & QUIC",
+    "Packet Recon, Wireshark & Threat Modeling",
+    "Final Network Engineering Capstone"
+  ]
+}

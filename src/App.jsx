@@ -728,6 +728,8 @@ function App() {
             <Route path="/learning/devops/production-reliability" element={<DevOpsReliability />} />
 
             {/* DEVOPS & SRE TRACK - MODULE 11: DEVSECOPS & SUPPLY CHAIN SECURITY */}
+            <Route path="/learning/devops/secops" element={<DevOpsSecOps />} />
+            <Route path="/learn/devops/secops" element={<DevOpsSecOps />} />
             <Route path="/learning/devops/devsecops" element={<DevOpsSecOps />} />
             <Route path="/learning/devops/security" element={<DevOpsSecOps />} />
             <Route path="/learning/devops/supply-chain" element={<DevOpsSecOps />} />

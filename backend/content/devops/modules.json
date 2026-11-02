@@ -1,0 +1,134 @@
+[
+  {
+    "id": "linux",
+    "courseId": "devops",
+    "index": 1,
+    "name": "Linux Administration",
+    "route": "/learning/devops/linux",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "git",
+    "courseId": "devops",
+    "index": 2,
+    "name": "Git & Workflows",
+    "route": "/learning/devops/git",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "docker",
+    "courseId": "devops",
+    "index": 3,
+    "name": "Docker & Containers",
+    "route": "/learning/devops/docker",
+    "questionCount": 14,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "k8s",
+    "courseId": "devops",
+    "index": 4,
+    "name": "Kubernetes",
+    "route": "/learning/devops/k8s",
+    "questionCount": 14,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "iac",
+    "courseId": "devops",
+    "index": 5,
+    "name": "Terraform IaC",
+    "route": "/learning/devops/iac",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "cicd",
+    "courseId": "devops",
+    "index": 6,
+    "name": "CI/CD & GitOps",
+    "route": "/learning/devops/cicd",
+    "questionCount": 15,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  },
+  {
+    "id": "deployment",
+    "courseId": "devops",
+    "index": 7,
+    "name": "Deployment Strategies",
+    "route": "/learning/devops/deployment",
+    "questionCount": 15,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  },
+  {
+    "id": "sre",
+    "courseId": "devops",
+    "index": 8,
+    "name": "Site Reliability (SRE)",
+    "route": "/learning/devops/sre",
+    "questionCount": 15,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  },
+  {
+    "id": "reliability",
+    "courseId": "devops",
+    "index": 9,
+    "name": "Production Reliability",
+    "route": "/learning/devops/reliability",
+    "questionCount": 15,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  },
+  {
+    "id": "secops",
+    "courseId": "devops",
+    "index": 10,
+    "name": "DevSecOps",
+    "route": "/learning/devops/secops",
+    "questionCount": 16,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  },
+  {
+    "id": "platform",
+    "courseId": "devops",
+    "index": 11,
+    "name": "Platform Engineering",
+    "route": "/learning/devops/platform",
+    "questionCount": 15,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  },
+  {
+    "id": "capstone",
+    "courseId": "devops",
+    "index": 12,
+    "name": "Capstone Project",
+    "route": "/learning/devops/capstone",
+    "questionCount": 16,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+]

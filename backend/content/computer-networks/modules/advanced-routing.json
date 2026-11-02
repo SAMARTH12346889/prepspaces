@@ -1,0 +1,142 @@
+{
+  "id": "advanced-routing",
+  "courseId": "computer-networks",
+  "index": 22,
+  "name": "22. Advanced Routing & Troubleshooting",
+  "route": "/learning/networks/advanced-routing",
+  "componentName": "NetworkAdvancedRouting",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which BGP attribute is evaluated FIRST in the standard 13-step BGP decision tree?",
+      "options": [
+        "AS_PATH length",
+        "Weight (Cisco proprietary) / LOCAL_PREF",
+        "Multi-Exit Discriminator (MED)",
+        "Origin Code (IGP vs Incomplete)"
+      ],
+      "correctIndex": 1,
+      "explanation": "BGP path selection begins with the highest Weight (router-local) followed immediately by the highest LOCAL_PREF across the Autonomous System. AS_PATH length is only evaluated if LOCAL_PREF is equal."
+    },
+    {
+      "id": 2,
+      "question": "What causes a Path MTU Discovery (PMTUD) black hole on the Internet?",
+      "options": [
+        "A router corrupting the TCP checksum on packets over 1500 bytes",
+        "A firewall dropping ICMP Type 3 Code 4 ('Fragmentation Needed and DF set') packets",
+        "A switch failing to negotiate LACP link aggregation on VLAN trunks",
+        "BGP next-hop-self being omitted on iBGP edge border routers"
+      ],
+      "correctIndex": 1,
+      "explanation": "When an upstream packet exceeds a link's MTU and has DF=1 (Don't Fragment), the router drops it and emits an ICMP Type 3 Code 4 packet back to the sender. If an over-zealous firewall blocks this ICMP message, the sender never knows to reduce its MSS, hanging the TCP session indefinitely."
+    },
+    {
+      "id": 3,
+      "question": "In OSPF, what is the default reference bandwidth used to compute interface cost (Cost = 10^8 / bandwidth), and what problem does it cause on modern 10Gbps/100Gbps links?",
+      "options": [
+        "10 Mbps; it prevents Gigabit links from forming OSPF Full adjacency",
+        "100 Mbps; 100M, 1G, 10G, and 100G links all calculate to an identical minimum cost of 1",
+        "1 Gbps; it causes Dijkstra SPF to loop between Area 0 and NSSA stub areas",
+        "10 Gbps; it requires manual static metric redistribution into BGP"
+      ],
+      "correctIndex": 1,
+      "explanation": "The legacy OSPF reference bandwidth is 100 Mbps (100,000,000 bps). Any link speed of 100 Mbps or higher yields cost = 1. Engineers must issue 'auto-cost reference-bandwidth 1000000' (or higher) to properly distinguish 1G, 10G, 40G, and 100G paths."
+    },
+    {
+      "id": 4,
+      "question": "Why does asymmetric routing cause stateful packet firewalls to drop legitimate return traffic?",
+      "options": [
+        "Asymmetric paths violate BGP split-horizon loop prevention rules",
+        "Firewall B receives return SYN-ACK or ACK packets without having seen the initiating SYN in its conntrack table",
+        "Traceroute ICMP packets lose their TTL hop count during reverse transit",
+        "Path MTU discovery forces both firewalls to fragment Layer 2 Ethernet headers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stateful firewalls maintain a connection tracking table (conntrack). If the outbound TCP SYN traversed Firewall A, Firewall B has no state record for that flow. When the server's SYN-ACK returns via Firewall B, it is dropped as an out-of-state/invalid TCP packet unless state synchronization (e.g., conntrackd/pfsync) is deployed."
+    },
+    {
+      "id": 5,
+      "question": "What does Little's Law (L = lambda * W) demonstrate regarding router queueing buffers and congestion?",
+      "options": [
+        "Network latency is inversely proportional to packet payload length",
+        "The average number of packets in a buffer equals the arrival rate multiplied by the average waiting time",
+        "TCP congestion window size is bounded by the optical cable propagation speed",
+        "BGP convergence time decreases linearly with the number of route reflectors"
+      ],
+      "correctIndex": 1,
+      "explanation": "Little's Law states that the long-term average number of items in a stationary queueing system (L) equals the arrival rate (lambda) multiplied by the average waiting time spent in the system (W). Oversized buffers cause packet waiting time to surge under sustained load, causing Bufferbloat."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary role of RPKI (Resource Public Key Infrastructure) Route Origin Validation (ROV)?",
+      "options": [
+        "Encrypting all inter-AS BGP payload data with AES-256-GCM",
+        "Cryptographically verifying that an AS announcing an IP prefix is authorized by the registered IP holder",
+        "Preventing OSPF Area 0 LSAs from leaking into external BGP Autonomous Systems",
+        "Enforcing TCP MSS clamping on all Border Gateway interfaces automatically"
+      ],
+      "correctIndex": 1,
+      "explanation": "RPKI allows IP address holders to publish cryptographically signed Route Origin Authorizations (ROAs). BGP routers perform Route Origin Validation (ROV) to verify that the announcing AS is authorized, stopping accidental or malicious BGP prefix hijacks."
+    },
+    {
+      "id": 7,
+      "question": "What is the difference between Traffic Policing and Traffic Shaping?",
+      "options": [
+        "Policing buffers packets during bursts; shaping drops packets immediately",
+        "Policing drops or re-marks packets exceeding the CIR; shaping delays and buffers bursty packets to output a smooth rate",
+        "Policing is applied to Layer 2 VLANs; shaping is applied strictly to BGP attributes",
+        "Policing uses FQ-CoDel; shaping uses legacy DropTail FIFO"
+      ],
+      "correctIndex": 1,
+      "explanation": "Traffic Policing monitors packet arrival rate against a Committed Information Rate (CIR) and drops or re-marks excess packets abruptly. Traffic Shaping buffers excess packets in memory and transmits them at a steady rate, smoothing traffic without packet loss at the cost of slight queueing delay."
+    },
+    {
+      "id": 8,
+      "question": "How does the Bandwidth-Delay Product (BDP) dictate the required TCP Receive Window (`rwnd`) for maximum throughput?",
+      "options": [
+        "rwnd must equal exactly half of the MTU size",
+        "rwnd must be at least BDP (Bandwidth &times; RTT) to keep the pipeline full without stalling for ACKs",
+        "rwnd must be smaller than the router's physical buffer depth to prevent bufferbloat",
+        "rwnd is only used in UDP streaming and is ignored by TCP BBR and CUBIC"
+      ],
+      "correctIndex": 1,
+      "explanation": "BDP represents the volume of unacknowledged data in transit required to fill the end-to-end pipe. If the TCP receive window is smaller than BDP, the sender stalls and waits for ACKs before transmitting more packets, severely bottlenecking throughput regardless of available bandwidth."
+    },
+    {
+      "id": 9,
+      "question": "When redistributing routes between OSPF and BGP across multiple boundary routers, what prevents mutual routing loops?",
+      "options": [
+        "Disabling OSPF Hello packets on all internal interfaces",
+        "Assigning route tags at redistribution and filtering tagged routes on the opposite boundary router",
+        "Setting the BGP LOCAL_PREF to 0 for all external subnets",
+        "Increasing the Ethernet MTU to 9000 bytes (Jumbo Frames)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Route tagging attaches administrative tags (e.g., Tag 100) to routes redistributed from OSPF into BGP. When BGP redistributes back into OSPF on a secondary boundary router, a route-map drops any prefix matching Tag 100, preventing route feedback loops."
+    },
+    {
+      "id": 10,
+      "question": "In SRE incident root-cause analysis (RCA), what is the difference between a proximate cause and an underlying systematic cause?",
+      "options": [
+        "Proximate causes are hardware failures; systematic causes are software bugs",
+        "The proximate cause is the immediate trigger that tripped the system; the systematic cause is the deeper architectural vulnerability or process failure that allowed the incident to occur",
+        "Proximate causes are internal; systematic causes originate from external DDoS attacks",
+        "Proximate causes are covered by SLAs; systematic causes are excluded from error budget calculations"
+      ],
+      "correctIndex": 1,
+      "explanation": "The proximate cause is the immediate trigger (e.g., an engineer typed an incorrect prefix-list sequence). The underlying systematic cause is the missing validation pipeline, lack of automated syntax validation, absence of canary testing, or poor change review that allowed an invalid rule to enter production."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1823,
+    "fileSizeBytes": 97471,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

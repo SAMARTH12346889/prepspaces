@@ -1,0 +1,176 @@
+{
+  "id": "architecture",
+  "courseId": "cloud",
+  "index": 6,
+  "name": "Architecture",
+  "route": "/learning/cloud/architecture",
+  "componentName": "CloudArchitecture",
+  "quiz": [],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Failure 1: Search Service Becomes Slow (p99 latency jumps from 40ms to 4,500ms)",
+      "context": "An unindexed Elasticsearch query causes the Search Microservice to stall. Customer checkout requests also invoke the Search service to display product thumbnails.",
+      "question": "How should the architecture isolate this failure so checkout never fails?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Trip a Circuit Breaker on the Search dependency and gracefully degrade the checkout page by omitting thumbnails or serving cached images.",
+          "verdict": "Correct! Fault Isolation & Graceful Degradation",
+          "explanation": "Search is non-critical to payment processing. Tripping the circuit breaker stops upstream checkout threads from blocking on Search, allowing purchases to succeed with zero downtime.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Configure the Checkout service to wait up to 60 seconds for Search to respond.",
+          "verdict": "Incorrect & Causes Full Outage",
+          "explanation": "Waiting 60 seconds exhausts all HTTP worker threads on the Checkout service, turning a minor search glitch into a company-wide revenue outage.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Failure 2: Third-Party Payment Gateway Latency Spikes to 8,000ms",
+      "context": "Your external credit card payment processor is experiencing network degradation. Outgoing payment requests are timing out.",
+      "question": "What resilience mechanisms prevent duplicate customer charges and thread exhaustion?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Enforce a 2,500ms timeout, supply a unique Idempotency Key with every charge request, and retry with Exponential Backoff and Full Jitter.",
+          "verdict": "Correct! Idempotency & Bounded Backoff",
+          "explanation": "The timeout prevents thread hanging; the idempotency key guarantees the customer is never charged twice on retry; jitter prevents overwhelming the payment processor.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Immediately retry failed requests 10 times in a tight while-loop without delay.",
+          "verdict": "Incorrect & Triggers Retry Storm",
+          "explanation": "Tight retry loops trigger thundering herds and risk charging customer credit cards multiple times if requests succeeded partially.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Failure 3: Customer Email Notification Service Completely Dies",
+      "context": "The SendGrid / SMTP email notification service is returning HTTP 500 errors. 10,000 customers per minute are placing orders.",
+      "question": "Should customer order creation fail because the confirmation email cannot be sent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No. Decouple notification using the Transactional Outbox pattern and an asynchronous message queue (SQS/Kafka). Order commits immediately; emails are sent when SendGrid recovers.",
+          "verdict": "Correct! Asynchronous Decoupling",
+          "explanation": "Email notification is not part of the critical transactional commit path. The Outbox pattern ensures emails are safely buffered and sent once the external service recovers.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Yes. Reject all customer checkouts with HTTP 500 until email delivery is 100% guaranteed.",
+          "verdict": "Incorrect & Destroys Revenue",
+          "explanation": "Making checkout fate-share with email delivery is a severe architectural failure. Customers can view their order status in the app while emails lag.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Failure 4: Database Read Latency Increases 5× During Flash Sale",
+      "context": "During a product drop, read latency on PostgreSQL jumps from 3ms to 85ms. 90% of requests are reading the exact same 10 product catalog items.",
+      "question": "What is the most effective architectural scaling solution?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Implement a Distributed Cache-Aside layer (Amazon ElastiCache Redis) in front of the database with TTL caching for hot product items.",
+          "verdict": "Correct! Read-Workload Offloading",
+          "explanation": "Caching repetitive reads in Redis in-memory RAM absorbs 90%+ of catalog traffic, reducing database CPU load and dropping latency back to sub-millisecond speeds.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Add 20 more application server virtual machines.",
+          "verdict": "Incorrect",
+          "explanation": "The bottleneck is database read saturation. Adding more application servers simply opens more database connections, worsening lock contention.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Failure 5: Transformer Fire Destroys Datacenter in Availability Zone 1",
+      "context": "AZ us-east-1a goes completely offline. Your application runs across AZs 1a, 1b, and 1c.",
+      "question": "What architectural condition allows the application to continue serving 100% of traffic without degradation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multi-AZ stateless compute with N+1 capacity headroom: Remaining AZs (1b and 1c) are pre-scaled to absorb the lost AZ's traffic without CPU saturation.",
+          "verdict": "Correct! Static Stability & Headroom",
+          "explanation": "Multi-AZ ensures redundancy, but static stability requires pre-warmed capacity. If surviving AZs cannot handle the redirected traffic, an AZ failure cascades into a full outage.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Launch new instances in Germany manually using SSH.",
+          "verdict": "Incorrect",
+          "explanation": "Manual cross-continental provisioning takes hours and causes catastrophic customer downtime.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Failure 6: Complete Cloud Region Outage (US-East-1 Severed)",
+      "context": "A fiber severance isolates the entire US-East-1 region. Your business mandate specifies RPO ≤ 1 minute and RTO ≤ 15 minutes.",
+      "question": "Which Disaster Recovery strategy meets these strict requirements?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multi-Region Warm Standby in US-West-2: Continuous asynchronous database replication, Route 53 DNS failover, and automated infrastructure scale-up scripts.",
+          "verdict": "Correct! Warm Standby DR Architecture",
+          "explanation": "Continuous asynchronous replication keeps RPO under 1 minute. Automated Route 53 health-check DNS flipping and autoscaling in US-West-2 brings service online in <15 minutes.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Restore from yesterday's daily tape backup stored in an on-premise vault.",
+          "verdict": "Incorrect (Violates RPO & RTO)",
+          "explanation": "Restoring a multi-terabyte tape backup takes 12-24 hours (violating the 15-minute RTO) and loses 24 hours of data (violating the 1-minute RPO).",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Failure 7: New Software Release Spikes Production Error Rate From 0.1% to 15%",
+      "context": "A deployment containing a subtle null-pointer exception goes live. User errors surge immediately.",
+      "question": "What deployment architecture detects and neutralizes this before all users are impacted?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Automated Canary Deployment: The new version is routed to only 1% of users; automated metric gating detects the 5xx spike and triggers instant rollback within 60 seconds.",
+          "verdict": "Correct! Canary Gating & Blast Radius Containment",
+          "explanation": "By exposing only 1% of users and coupling deployments to automated health monitors, 99% of customers are shielded, and the bad release is rolled back with zero human delay.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Deploy directly to 100% of production servers at 2:00 PM on Friday and monitor Twitter complaints.",
+          "verdict": "Incorrect & Worst Practice",
+          "explanation": "Deploying to 100% of servers without canary gating creates catastrophic platform-wide outages and damages user trust.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1735,
+    "fileSizeBytes": 109972,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

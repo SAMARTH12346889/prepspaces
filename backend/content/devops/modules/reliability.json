@@ -1,0 +1,202 @@
+{
+  "id": "reliability",
+  "courseId": "devops",
+  "index": 9,
+  "name": "Production Reliability",
+  "route": "/learning/devops/reliability",
+  "componentName": "DevOpsReliability",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is an unjittered exponential backoff policy dangerous when thousands of clients experience a simultaneous dependency failure?",
+      "options": [
+        "It increases CPU load because calculating 2^n requires floating-point hardware.",
+        "Clients remain synchronized and retry in synchronized spikes, creating repeating 'thundering herd' traffic waves that knock out the recovering service.",
+        "TCP sockets cannot handle exponential delays longer than 1,000 milliseconds.",
+        "Downstream databases reject requests that contain exponential backoff headers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "What is the key difference between a client timeout and the cancellation of an operation on a backend database?",
+      "options": [
+        "Client timeouts automatically send a TCP RST packet that forces the database server to abort the running query.",
+        "A client timeout only causes the client to stop waiting; the database may continue executing the expensive query, wasting CPU and I/O on unneeded work.",
+        "Database engines ignore client timeouts unless gRPC is used.",
+        "Timeouts only apply to network switches, not software drivers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "Under AWS Full Jitter guidance, how is the delay before retry attempt n calculated?",
+      "options": [
+        "Delay = BaseDelay * 2^n",
+        "Delay = Uniform(0, min(MaxDelay, BaseDelay * 2^n))",
+        "Delay = BaseDelay + Random(0, MaxDelay)",
+        "Delay = min(MaxDelay, BaseDelay * n)"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "What is the primary danger of allowing retries at multiple layers (e.g. frontend, API gateway, microservice client)?",
+      "options": [
+        "It triggers a nested retry multiplier (e.g. 3 x 3 x 3 = 27 attempts), generating an enormous self-inflicted retry storm during an outage.",
+        "Kubernetes pods crash with an OutOfMemory error immediately upon the third retry.",
+        "HTTP 200 responses are converted into HTTP 500 errors by the ingress controller.",
+        "Clients run out of ephemeral port numbers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Which of the following HTTP status codes should typically NOT be retried automatically with identical payload?",
+      "options": [
+        "HTTP 503 Service Unavailable",
+        "HTTP 504 Gateway Timeout",
+        "HTTP 400 Bad Request",
+        "HTTP 429 with Retry-After header"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "What is the primary role of an Idempotency Key in write-heavy HTTP APIs?",
+      "options": [
+        "To encrypt the payload during transit across untrusted networks.",
+        "To allow clients to safely retry a write request after a timeout without creating duplicate records or double-charging.",
+        "To bypass database foreign key constraints during peak traffic.",
+        "To speed up database indexing on primary keys."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "What are the three canonical states of a Circuit Breaker, and what happens in the HALF-OPEN state?",
+      "options": [
+        "READY, RUNNING, STOPPED; it runs memory profiling.",
+        "CLOSED, OPEN, HALF-OPEN; it permits a bounded number of canary probe requests to test whether the dependency has recovered.",
+        "ACTIVE, IDLE, TERMINATED; it drains active TCP connections.",
+        "GREEN, YELLOW, RED; it sheds 50% of incoming traffic."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "How does the Bulkhead pattern protect a mission-critical service from being overwhelmed by an optional feature?",
+      "options": [
+        "It caches all responses in Redis for 24 hours.",
+        "It reserves separate, isolated concurrency/worker pools so that optional or slow tasks cannot exhaust resources needed by critical operations.",
+        "It automatically deploys 10 additional replicas when latency increases.",
+        "It converts synchronous REST requests into asynchronous WebSockets."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "What is the fundamental difference between Rate Limiting and Load Shedding?",
+      "options": [
+        "Rate limiting is implemented in Python, while load shedding is implemented in Go.",
+        "Rate limiting enforces quotas based on caller identity/policy, while load shedding drops requests based on overall internal system overload to preserve critical work.",
+        "Rate limiting returns HTTP 500, while load shedding returns HTTP 404.",
+        "There is no difference; they are synonymous terms."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "Why is average CPU utilization alone an insufficient metric for triggering load shedding?",
+      "options": [
+        "CPU utilization cannot be measured inside containerized environments.",
+        "A system can experience fatal thread exhaustion, database connection pool lockups, or queue latency spikes while average CPU remains low.",
+        "Linux kernels report average CPU inverted (100% means idle).",
+        "Load balancers only inspect memory bandwidth."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "What is an essential correctness rule when implementing Graceful Degradation on write operations?",
+      "options": [
+        "Never return an HTTP 200/201 success to the user if the write was not durably committed or safely queued.",
+        "Always write data to local /tmp files if PostgreSQL is unavailable.",
+        "Convert failed write requests into read requests automatically.",
+        "Silently drop failed writes without logging an error."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "In Kubernetes, why is a preStop hook containing 'sleep 5' recommended before sending SIGTERM to an application container?",
+      "options": [
+        "To allow the CPU clock to sync with the Kubernetes control plane.",
+        "To give kube-proxy, Ingress controllers, and cloud load balancers time to remove the terminating pod from endpoint lists before it stops accepting connections.",
+        "To flush memory pages to physical disk storage.",
+        "To allow Docker daemon to download the new container image."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "What is the distinction between Recovery Time Objective (RTO) and Recovery Point Objective (RPO)?",
+      "options": [
+        "RTO measures financial cost; RPO measures latency.",
+        "RTO is the maximum acceptable duration of service downtime; RPO is the maximum acceptable amount of data loss measured in time.",
+        "RTO applies only to databases; RPO applies only to Kubernetes clusters.",
+        "RTO is defined by developers; RPO is defined by cloud providers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "Which Disaster Recovery strategy maintains a minimal, running copy of your infrastructure in a secondary region with continuous data replication?",
+      "options": [
+        "Backup & Restore",
+        "Warm Standby",
+        "Cold Standby",
+        "Multi-Cloud Sharding"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "Why must Disaster Recovery procedures be tested periodically in a staging or disaster drill environment?",
+      "options": [
+        "Cloud providers automatically delete backups if they are not restored within 30 days.",
+        "Untested backups frequently fail due to missing secrets, schema drift, network routing gaps, or permission errors during a real emergency.",
+        "It is required by the Linux kernel to maintain snapshot validity.",
+        "Database indexes become corrupt if left in cold storage."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2581,
+    "fileSizeBytes": 137024,
+    "questionCount": 15,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

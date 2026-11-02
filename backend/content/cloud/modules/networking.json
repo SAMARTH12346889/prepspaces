@@ -1,0 +1,161 @@
+{
+  "id": "networking",
+  "courseId": "cloud",
+  "index": 2,
+  "name": "Networking",
+  "route": "/learning/cloud/networking",
+  "componentName": "CloudNetworking",
+  "quiz": [],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Scenario A: The Full HTTPS Request Sequence",
+      "context": "A user enters 'https://shop.example.com' into their browser. In what exact order do network events take place?",
+      "question": "Which of the following represents the correct systems execution order?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP Handshake → HTTP GET → DNS Lookup → Database Query → TLS Handshake",
+          "verdict": "Incorrect",
+          "explanation": "You cannot open a TCP connection before resolving the domain name into an IP address via DNS.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "DNS Lookup → TCP 3-Way Handshake → TLS 1.3 Cryptographic Handshake → HTTP GET Request → Database Query",
+          "verdict": "Correct! Clean Systems Layering",
+          "explanation": "1) DNS resolves the IP address. 2) TCP establishes the transport connection. 3) TLS negotiates symmetric encryption keys. 4) HTTP sends the encrypted GET request. 5) Backend queries database.",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "TLS Handshake → DNS Lookup → TCP Handshake → HTTP GET",
+          "verdict": "Incorrect",
+          "explanation": "TLS operates on top of TCP; it cannot negotiate before TCP is established.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Scenario B: DNS Resolves, but TCP Connection Fails",
+      "context": "Your browser executes 'curl https://api.example.com'. DNS lookup succeeds and returns '203.0.113.25'. However, the command hangs for 30 seconds and fails with 'Connection timed out'.",
+      "question": "Will the server's application receive an HTTP request?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No. Because the Layer 4 TCP connection never established, zero application Layer 7 bytes were ever transmitted.",
+          "verdict": "Correct! Layer Dependency Principle",
+          "explanation": "Higher layer protocols strictly depend on lower layers. If the TCP 3-way handshake fails (SYN packet dropped by a firewall or routing black hole), HTTP cannot exist.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Yes, HTTP requests are sent over UDP as fallback automatically.",
+          "verdict": "Incorrect",
+          "explanation": "Standard HTTPS does not magically fall back to UDP unless specifically configured for HTTP/3 QUIC, which still requires reachability.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Scenario C: TCP Connects, but TLS Certificate is Invalid",
+      "context": "The TCP 3-way handshake succeeds on port 443. During the TLS handshake, the server presents a certificate for 'internal.corp' instead of 'shop.example.com'.",
+      "question": "What happens to the user's connection?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The browser ignores the domain mismatch and proceeds with normal HTTP data transfer.",
+          "verdict": "Incorrect & Dangerous",
+          "explanation": "Browsers enforce strict PKI hostname validation to prevent Man-in-the-Middle (MITM) impersonation attacks.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "The browser terminates the TLS handshake and displays a critical SSL/TLS Certificate Mismatch security warning.",
+          "verdict": "Correct! PKI Authentication Enforced",
+          "explanation": "TLS authentication requires that the Subject Alternative Name (SAN) on the signed certificate exactly matches the hostname in the URL.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Scenario D: ALB Works, App Security Group Blocks Inbound 8080",
+      "context": "The Load Balancer is healthy in the public subnet. However, a developer accidentally removed port 8080 from the App Server's Security Group.",
+      "question": "What error code does the user receive from the Application Load Balancer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HTTP 502 Bad Gateway / 504 Gateway Timeout from the ALB.",
+          "verdict": "Correct! ALB Target Failure",
+          "explanation": "The ALB is reachable by the client, but when it attempts to forward the request to the backend VM, the packet is silently dropped by the App Security Group. The ALB times out and returns HTTP 504/502.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "HTTP 404 Not Found.",
+          "verdict": "Incorrect",
+          "explanation": "A 404 is generated by the web application when a URL path doesn't exist. Here, the web server was never reached!",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Scenario E: NAT Gateway in AZ-A Goes Down",
+      "context": "The managed NAT Gateway in AZ-A suffers an unexpected outage. Public users are browsing the website through the public Application Load Balancer.",
+      "question": "Can external users still view the website?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes! Inbound user traffic arrives via the Internet Gateway → ALB → Private App VMs and does NOT touch the NAT Gateway.",
+          "verdict": "Correct! Inbound vs Outbound Independence",
+          "explanation": "NAT Gateways are ONLY used for outbound connections initiated by private instances. Inbound user traffic enters through the Internet Gateway and Load Balancer! (However, if the app needs to call third-party APIs during checkout, those outbound API calls will fail).",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "No, all traffic into the VPC instantly ceases.",
+          "verdict": "Incorrect",
+          "explanation": "A common beginner misconception. NAT Gateways do not handle inbound ingress traffic from the public internet.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Scenario F: Route Table vs Firewall Permission Confusion",
+      "context": "Subnet Route Table contains '10.20.0.0/16 → local'. App VM (10.20.10.15) sends TCP SYN to Database (10.20.32.20) on port 5432. Database Security Group only allows port 5432 from 10.20.99.0/24.",
+      "question": "Why does the connection fail?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because routing is broken; a new route is required.",
+          "verdict": "Incorrect",
+          "explanation": "Routing is fully operational! The '10.20.0.0/16 → local' route knows exactly which virtual switch port holds the database.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "The path exists in the route table, but the packet is blocked at the destination by the Database Security Group firewall policy.",
+          "verdict": "Correct! Route (Path) ≠ Security (Permission)",
+          "explanation": "A route table only answers: 'WHERE CAN THIS GO?' A Security Group answers: 'IS THIS PERMITTED?' Both must be properly configured for communication.",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1973,
+    "fileSizeBytes": 108272,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

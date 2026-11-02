@@ -1,0 +1,94 @@
+{
+  "id": "diagnostics",
+  "courseId": "operating-systems",
+  "index": 18,
+  "name": "18. Linux Internals & Diagnostics",
+  "route": "/learning/os/diagnostics",
+  "componentName": "OSPerformanceDiagnostics",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does the Linux Load Average metric primarily represent?",
+      "options": [
+        "The instantaneous percentage of CPU utilization across all cores",
+        "The average number of tasks that are runnable (R) or in uninterruptible sleep (D) over time",
+        "The percentage of free physical RAM remaining in the system",
+        "The rate of disk write throughput in megabytes per second"
+      ],
+      "correctIndex": 1,
+      "explanation": "Linux load average is not a CPU percentage. It measures the average demand for compute resources, counting tasks currently executing, waiting on CPU runqueues (R), and blocked on uninterruptible kernel I/O (D)."
+    },
+    {
+      "id": 2,
+      "question": "Which virtual filesystem interface exposes per-process memory mappings, open file descriptors, and runtime status?",
+      "options": [
+        "/dev",
+        "/sys only",
+        "/proc/<PID>",
+        "/boot"
+      ],
+      "correctIndex": 2,
+      "explanation": "/proc is a virtual pseudo-filesystem created dynamically by the kernel. Subdirectories named after process IDs (/proc/<PID>) expose status, fd, maps, and I/O counters for that specific process."
+    },
+    {
+      "id": 3,
+      "question": "Which tool is best suited for sampling CPU instruction hot spots and call stacks with minimal performance overhead?",
+      "options": [
+        "perf",
+        "journalctl only",
+        "free",
+        "ls"
+      ],
+      "correctIndex": 0,
+      "explanation": "Linux perf uses hardware performance monitoring counters (PMUs) and kernel tracepoints to sample instruction execution and call stacks with low overhead, generating statistical flame graphs and symbol profiles."
+    },
+    {
+      "id": 4,
+      "question": "What does sustained swap-in/out activity (si/so in vmstat) combined with high Memory PSI stalls indicate?",
+      "options": [
+        "The physical CPU hardware has a broken core",
+        "Severe memory pressure and active page thrashing",
+        "The filesystem is always physically corrupted",
+        "A multi-threaded deadlock is definitively proven"
+      ],
+      "correctIndex": 1,
+      "explanation": "When active anonymous application memory exceeds physical RAM, the kernel is forced to swap pages out to disk and read them back in on demand (si/so). Combined with high PSI memory stalls, this proves active memory thrashing."
+    },
+    {
+      "id": 5,
+      "question": "What does strace primarily observe during an application's execution?",
+      "options": [
+        "Every single CPU assembly instruction executed in user space",
+        "System calls crossing the user/kernel boundary and received signals",
+        "Only motherboard and disk drive temperature sensors",
+        "Only kernel boot timestamps"
+      ],
+      "correctIndex": 1,
+      "explanation": "strace intercepts and records system calls made by a process and signals received, capturing system call names, arguments, return codes, and elapsed execution duration."
+    },
+    {
+      "id": 6,
+      "question": "Why should an engineer correlate multiple diagnostic tools before concluding that storage I/O is the bottleneck?",
+      "options": [
+        "Because all Linux performance tools always output identical data",
+        "Because high device utilization (%util) alone does not prove an application bottleneck without measuring request latency and blocked tasks",
+        "Because correlating tools completely removes all measurement overhead",
+        "Because modern SSDs cannot experience hardware degradation"
+      ],
+      "correctIndex": 1,
+      "explanation": "A single metric can be misleading. High disk %util on modern NVMe drives may simply indicate parallel queue saturation without latency spikes. Engineers correlate iostat (await), vmstat (b, wa), and strace (-T) to confirm that the application is actually waiting on I/O."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1539,
+    "fileSizeBytes": 76599,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

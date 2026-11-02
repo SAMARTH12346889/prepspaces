@@ -1,0 +1,142 @@
+{
+  "id": "routing",
+  "courseId": "computer-networks",
+  "index": 7,
+  "name": "7. Routing & Router Architecture",
+  "route": "/learning/networks/routing",
+  "componentName": "NetworkRouting",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which route normally wins when multiple installed prefixes match a destination in the Forwarding Information Base (FIB)?",
+      "options": [
+        "The route with the shortest prefix length (least specific)",
+        "The route with the longest matching prefix (most specific)",
+        "The default route always takes precedence",
+        "The route with the highest hop count"
+      ],
+      "correctIndex": 0,
+      "explanation": "Longest-Prefix Matching (LPM) is the fundamental IP forwarding rule. When multiple prefixes match an IP address, the router selects the entry with the greatest number of matching leading bits (longest prefix)."
+    },
+    {
+      "id": 2,
+      "question": "Which route type is automatically installed in the routing table when an IP address is configured on an operational interface?",
+      "options": [
+        "BGP Path-Vector Route",
+        "Directly Connected Route",
+        "Floating Static Route",
+        "Autonomous External Route"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Connected route is created when an IP network is assigned to an interface and that interface is up/up in link status. It requires no static configuration or routing protocol."
+    },
+    {
+      "id": 3,
+      "question": "What happens to the IPv4 TTL (or IPv6 Hop Limit) field when a router forwards an IP packet?",
+      "options": [
+        "It is incremented by 1 to record the hop count",
+        "It remains strictly unchanged between source and destination",
+        "It is decremented by at least 1; if it reaches 0, the packet is discarded with an ICMP Time Exceeded message",
+        "It is reset to 255 at every routing hop"
+      ],
+      "correctIndex": 0,
+      "explanation": "Every forwarding router decrements TTL (IPv4) or Hop Limit (IPv6) by at least 1. If it reaches 0, the packet is dropped to prevent packets from endlessly looping in cyclic topologies, and an ICMP Time Exceeded (Type 11) is returned."
+    },
+    {
+      "id": 4,
+      "question": "Which routing protocol operates as a link-state interior gateway protocol using Dijkstra's SPF algorithm?",
+      "options": [
+        "BGP (Border Gateway Protocol)",
+        "RIP (Routing Information Protocol)",
+        "OSPF (Open Shortest Path First)",
+        "ARP (Address Resolution Protocol)"
+      ],
+      "correctIndex": 0,
+      "explanation": "OSPF (and IS-IS) are link-state IGPs. They flood Link-State Advertisements (LSAs) across an area so every router holds an identical Link-State Database (LSDB), then run Dijkstra's SPF algorithm independently."
+    },
+    {
+      "id": 5,
+      "question": "Why can an ICMP Ping from PC-A to PC-C fail even if the Echo Request successfully reaches PC-C's network card?",
+      "options": [
+        "The return route from Router R3 back to PC-A's network is missing or misconfigured",
+        "IPv4 addresses are stripped and cannot cross router boundaries",
+        "All intermediate routers are required to run BGP",
+        "TTL is doubled on return packets, causing immediate buffer overflow"
+      ],
+      "correctIndex": 0,
+      "explanation": "IP routing is hop-by-hop and directional. A packet can successfully arrive at a remote host, but if the destination router has no route back to the source network, the Echo Reply is dropped into a black hole."
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between the Routing Information Base (RIB) and the Forwarding Information Base (FIB)?",
+      "options": [
+        "The RIB handles Layer 2 MAC addresses, while the FIB handles Layer 3 IP addresses",
+        "The RIB stores all candidate routes learned from protocols/static configs in the control plane; the FIB is an optimized hardware-lookup table in the data plane used for line-rate forwarding",
+        "The RIB is used exclusively for IPv6, and the FIB is used for IPv4",
+        "There is no difference; they are identical synonyms in all router operating systems"
+      ],
+      "correctIndex": 0,
+      "explanation": "The RIB resides in the router's control plane (CPU memory) containing all candidate routes. The FIB is compiled from the best RIB routes and downloaded into fast memory (ASICs / TCAM) in the data plane for line-rate lookups."
+    },
+    {
+      "id": 7,
+      "question": "In an OSPF network with interface costs R1-R2 (10), R2-R4 (25), R1-R3 (30), and R3-R4 (10), which path will OSPF install for traffic from R1 to R4?",
+      "options": [
+        "Path via R2: R1 -> R2 -> R4 (Total Cost = 35)",
+        "Path via R3: R1 -> R3 -> R4 (Total Cost = 40)",
+        "Both paths simultaneously via ECMP because hop count is equal (2 hops each)",
+        "The packet is dropped because cost must be identical to form an adjacency"
+      ],
+      "correctIndex": 0,
+      "explanation": "Path via R2 has a total metric of 10 + 25 = 35. Path via R3 has 30 + 10 = 40. OSPF selects the lowest accumulated metric (35 < 40), regardless of hop counts."
+    },
+    {
+      "id": 8,
+      "question": "What transport protocol and port number does BGP use to establish peering sessions between autonomous systems?",
+      "options": [
+        "UDP port 520",
+        "TCP port 179",
+        "IP Protocol 89 (raw OSPF)",
+        "ICMP port 0"
+      ],
+      "correctIndex": 0,
+      "explanation": "BGP establishes reliable peering sessions over TCP port 179. This enables BGP to operate across non-directly connected peers and rely on TCP for retransmission and congestion control."
+    },
+    {
+      "id": 9,
+      "question": "Which BGP path attribute is used within an Autonomous System to express which outbound exit point is preferred, where higher values win?",
+      "options": [
+        "AS_PATH",
+        "MED (Multi-Exit Discriminator)",
+        "LOCAL_PREF",
+        "COMMUNITY"
+      ],
+      "correctIndex": 0,
+      "explanation": "LOCAL_PREF is a well-known discretionary attribute propagated only within an iBGP AS. The route with the highest LOCAL_PREF is chosen as the outbound path for all routers in that AS."
+    },
+    {
+      "id": 10,
+      "question": "How does the classic traceroute diagnostic tool discover intermediate router hops along an IP path?",
+      "options": [
+        "It sends SNMP queries to every public router in the global routing table",
+        "It sends probes with progressively incrementing TTL values (1, 2, 3...), inducing ICMP Time Exceeded replies from each successive router",
+        "It inspects the BGP AS_PATH header embedded inside ordinary HTTP requests",
+        "It broadcasts ARP requests across the entire Internet backbone"
+      ],
+      "correctIndex": 0,
+      "explanation": "Traceroute initiates packets with TTL=1. Router 1 drops it and returns ICMP Time Exceeded. Then it sends TTL=2, causing Router 2 to respond. By progressively incrementing TTL, it maps every layer-3 hop on the path."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2258,
+    "fileSizeBytes": 126751,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

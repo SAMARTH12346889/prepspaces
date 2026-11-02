@@ -1,0 +1,214 @@
+{
+  "id": "secops",
+  "courseId": "devops",
+  "index": 10,
+  "name": "DevSecOps",
+  "route": "/learning/devops/secops",
+  "componentName": "DevOpsSecOps",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does Static Application Security Testing (SAST) examine, and how does it differ from dependency scanning (SCA)?",
+      "options": [
+        "SAST executes the application in staging; SCA checks network latency.",
+        "SAST analyzes source code for insecure constructs and injection risks; SCA inspects third-party dependencies and libraries for known CVEs.",
+        "SAST scans container operating systems; SCA tests Kubernetes ingress controllers.",
+        "There is no difference; SAST and SCA are interchangeable terms."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "Why is scanning the final container image critical even if Python dependency checks (pip-audit) report zero vulnerabilities?",
+      "options": [
+        "Python packages cannot be trusted unless converted into Debian packages.",
+        "The final image contains operating-system packages (glibc, OpenSSL, curl, bash) and system libraries that do not exist in the Python requirements file.",
+        "Container registries reject images that haven't been scanned twice.",
+        "Pip-audit only inspects Go dependencies."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "Why does deleting a committed credential from a file in Git fail to make it safe to use again?",
+      "options": [
+        "Git retains historical commits in its object database, and the credential remains visible in commit history, clones, logs, and forks.",
+        "The Linux kernel permanently caches committed text files in physical memory.",
+        "Cloud providers automatically lock credentials when they are edited.",
+        "Git branches are immutable and cannot be modified."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "Why are Dockerfile ARG and ENV instructions unsuitable for build-time secrets?",
+      "options": [
+        "Docker daemon refuses to build images that contain ARG commands.",
+        "Values passed to ARG or ENV are recorded in image layer metadata and can be easily extracted using 'docker history'.",
+        "ARG and ENV values are converted to uppercase automatically.",
+        "They slow down container build times by 500%."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "How does OpenID Connect (OIDC) federation reduce the need for permanent cloud credentials in CI/CD?",
+      "options": [
+        "It eliminates the need for passwords on developer laptops.",
+        "It allows CI jobs to exchange a short-lived, digitally signed JWT token for temporary cloud credentials, eliminating static stored secrets.",
+        "It stores root AWS passwords in public GitHub repositories.",
+        "It converts HTTP requests into SSH tunnels."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "What is the key difference between a Software Bill of Materials (SBOM), build provenance, and a digital signature?",
+      "options": [
+        "SBOM inventories what components are inside; Provenance records how and where it was built; Signature verifies identity and integrity.",
+        "SBOM signs images; Provenance scans code; Signature generates SBOMs.",
+        "All three are identical terms created by NIST.",
+        "SBOM is for hardware; Provenance is for operating systems; Signature is for web pages."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "What does a digital signature (e.g. via Cosign) actually prove, and what does it NOT prove?",
+      "options": [
+        "It proves the code is completely bug-free and secure.",
+        "It proves the artifact's cryptographic integrity and the identity of the signer; it does NOT prove the code is free of vulnerabilities or logic flaws.",
+        "It proves the container will run with zero memory usage.",
+        "It proves the application conforms to GDPR regulations."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "Why must a Kubernetes deployment reference the exact immutable image digest (@sha256:...) rather than a mutable tag like :latest?",
+      "options": [
+        "Kubernetes cannot pull images that have alphanumeric tags.",
+        "Mutable tags can be overwritten in the registry, meaning the deployed image might not be the artifact that passed scanning and signing.",
+        "Digest pulls consume less network bandwidth.",
+        "Docker tags are deprecated by the OCI standard."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "What supply-chain risk does full commit-SHA pinning of GitHub Actions protect against?",
+      "options": [
+        "It prevents network timeouts during git checkout.",
+        "It protects against a compromised action maintainer or tag mutation injecting malicious code into your CI/CD runner.",
+        "It eliminates the need for unit testing.",
+        "It encrypts the GitHub Actions workflow file."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "How can an unvetted third-party GitHub Action compromise the entire software supply chain?",
+      "options": [
+        "It can run arbitrary code on the CI runner, steal secrets (API tokens, OIDC tokens), and back-door built artifacts before they are signed.",
+        "It can increase repository size beyond GitHub limits.",
+        "It causes markdown files to render incorrectly.",
+        "It disables git rebase commands."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "Why is running a container as a non-root user (e.g. UID 10001) a critical defense-in-depth measure?",
+      "options": [
+        "It speeds up container startup time by bypassing PAM authentication.",
+        "If an attacker escapes the container through a kernel vulnerability, they do not automatically obtain root privileges on the underlying host node.",
+        "Non-root containers use less CPU cache.",
+        "Kubernetes cannot assign IP addresses to root containers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "What is the foundational principle of Zero Trust Architecture (NIST SP 800-207)?",
+      "options": [
+        "Trust all traffic originating from within the internal corporate VPN.",
+        "Never trust, always verify: make access decisions based on identity, permissions, and context rather than network perimeter location.",
+        "Disable all firewall rules to allow transparent proxying.",
+        "Never allow developers to access production logs."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "How should an engineering team handle a High-severity vulnerability in a dependency when the upstream maintainer has not yet released a patch?",
+      "options": [
+        "Delete the scanner configuration to silence the alert.",
+        "Document an auditable security exception detailing the business justification, mitigating controls, assigned owner, and an explicit review expiration date.",
+        "Immediately rewrite the entire dependency from scratch in assembly language.",
+        "Ignore it because unpatched vulnerabilities cannot be exploited."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "How can a platform engineer demonstrate that an unapproved container artifact cannot reach production?",
+      "options": [
+        "By asking developers to promise they will only push approved images.",
+        "By attempting to deploy an unsigned image or an image signed by an untrusted identity, verifying that the Kubernetes admission controller (Kyverno/Gatekeeper) blocks pod creation.",
+        "By deleting the container registry completely.",
+        "By running Trivy once a month on production servers."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "What runtime telemetry should be collected when investigating a suspected container compromise?",
+      "options": [
+        "Only the container CPU utilization graph in Grafana.",
+        "Kernel syscall events (Falco), container process execution logs, Kubernetes audit logs, authentication records, and network egress connection logs.",
+        "The git commit history of the repository.",
+        "The physical serial number of the server rack."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 16,
+      "question": "In the DevSecOps operating model, what is meant by 'shifting left'?",
+      "options": [
+        "Moving all servers to the Western cloud region.",
+        "Introducing automated security scans, dependency audits, and policy checks as early as possible in the development lifecycle (IDE & PR) rather than delaying until production.",
+        "Assigning security tasks exclusively to junior developers.",
+        "Running CI pipelines in reverse chronological order."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1991,
+    "fileSizeBytes": 107452,
+    "questionCount": 16,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

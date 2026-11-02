@@ -1,0 +1,110 @@
+{
+  "id": "networking",
+  "courseId": "system-design",
+  "index": 3,
+  "name": "3. APIs & Networking",
+  "route": "/learning/system-design/networking",
+  "componentName": "SystemDesignNetworking",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "1. What does DNS primarily help a client do?",
+      "options": [
+        "Authorize a student to access a course",
+        "Resolve a domain name into records used to locate services",
+        "Guarantee that an HTTP request succeeds"
+      ],
+      "correctIndex": 0,
+      "explanation": "DNS translates human-readable domain names (such as api.prepspaces.example) into IP addresses (such as 203.0.113.10) and service records so network packets can be routed across the Internet."
+    },
+    {
+      "id": 2,
+      "question": "2. What does TCP provide that ordinary UDP does not provide by itself?",
+      "options": [
+        "Reliable, ordered byte-stream delivery",
+        "Automatic user authentication",
+        "A complete REST API"
+      ],
+      "correctIndex": 0,
+      "explanation": "TCP establishes a connection via a 3-way handshake and guarantees reliable, in-order byte delivery with automatic packet retransmission, flow control, and congestion avoidance."
+    },
+    {
+      "id": 3,
+      "question": "3. Which statement about HTTP/2 is correct?",
+      "options": [
+        "It requires every request to use a new TCP connection",
+        "It supports multiplexed HTTP exchanges over a TCP connection",
+        "It removes the need for HTTP status codes"
+      ],
+      "correctIndex": 0,
+      "explanation": "HTTP/2 uses binary framing to multiplex multiple concurrent bidirectional request/response streams over a single shared TCP connection, eliminating HTTP/1.1 connection head-of-line blocking."
+    },
+    {
+      "id": 4,
+      "question": "4. A request to save a submission times out, but the database may have committed the write. What is the safest design response?",
+      "options": [
+        "Assume no write occurred and blindly retry",
+        "Use a defined idempotency and result-recovery mechanism",
+        "Return success without checking the operation"
+      ],
+      "correctIndex": 0,
+      "explanation": "An HTTP timeout means the response was lost or delayed, not that the write failed. Using an Idempotency-Key allows the client to retry safely while the backend returns the committed record without duplicating operations."
+    },
+    {
+      "id": 5,
+      "question": "5. What does CORS control?",
+      "options": [
+        "Which cross-origin browser requests are permitted to expose responses to scripts",
+        "Whether every caller is authenticated",
+        "Whether the server can access its database"
+      ],
+      "correctIndex": 0,
+      "explanation": "CORS is a browser security mechanism that restricts web applications from reading responses to cross-origin HTTP requests unless the server explicitly permits that origin with Access-Control-Allow-Origin headers."
+    },
+    {
+      "id": 6,
+      "question": "6. Which communication model is best suited to continuous two-way interactive messaging?",
+      "options": [
+        "Ordinary one-off HTTP requests only",
+        "WebSockets",
+        "DNS A records"
+      ],
+      "correctIndex": 0,
+      "explanation": "WebSockets establish a persistent, full-duplex TCP communication channel allowing both client and server to exchange real-time frames with minimal overhead, ideal for chat and collaborative editing."
+    },
+    {
+      "id": 7,
+      "question": "7. Which method is typically appropriate for retrieving a resource without requesting a state change?",
+      "options": [
+        "GET",
+        "POST",
+        "PATCH"
+      ],
+      "correctIndex": 0,
+      "explanation": "GET is defined by RFC 9110 as a 'safe' and 'idempotent' method intended solely for reading representation data without triggering side effects or mutations on the server."
+    },
+    {
+      "id": 8,
+      "question": "8. Why might an API use SSE instead of polling?",
+      "options": [
+        "SSE allows the server to stream events over a persistent HTTP connection",
+        "SSE automatically authenticates all users",
+        "SSE eliminates network failures"
+      ],
+      "correctIndex": 0,
+      "explanation": "Server-Sent Events (SSE) opens a single persistent HTTP connection (text/event-stream) through which the server pushes real-time updates as they occur, avoiding repeated wasteful polling requests."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1843,
+    "fileSizeBytes": 115527,
+    "questionCount": 8,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

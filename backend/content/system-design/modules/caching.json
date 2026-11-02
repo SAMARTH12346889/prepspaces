@@ -1,0 +1,158 @@
+{
+  "id": "caching",
+  "courseId": "system-design",
+  "index": 6,
+  "name": "6. Caching & Invalidation",
+  "route": "/learning/system-design/caching",
+  "componentName": "SystemDesignCaching",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "1. What is a cache hit?",
+      "options": [
+        "The data is absent from the cache",
+        "The requested entry is present and may be reused under its validity rules",
+        "The database has crashed"
+      ],
+      "correctIndex": 0,
+      "explanation": "A cache hit occurs when the requested resource exists in the cache store and satisfies all freshness and validity criteria, allowing the application to completely bypass the authoritative source."
+    },
+    {
+      "id": 2,
+      "question": "2. What is the primary distinction between TTL and eviction?",
+      "options": [
+        "TTL is time-based expiration; eviction removes entries to manage capacity or according to a cache policy",
+        "They are exactly the same mechanism",
+        "Eviction occurs only after a database restart"
+      ],
+      "correctIndex": 0,
+      "explanation": "TTL (Time-To-Live) removes entries based on time elapsed. Eviction removes entries (often under LRU or LFU policies) to free memory when the cache approaches its configured maxmemory limit."
+    },
+    {
+      "id": 3,
+      "question": "3. Which pattern loads data into the cache after a cache miss?",
+      "options": [
+        "Cache-aside",
+        "Write-behind",
+        "DNS delegation"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cache-aside (lazy loading) checks the cache first; on a miss, the application loads data from the database and writes it into the cache for future callers."
+    },
+    {
+      "id": 4,
+      "question": "4. Why might LFU be useful for a read-heavy workload?",
+      "options": [
+        "It always keeps every key forever",
+        "It favors entries with higher estimated access frequency",
+        "It prevents all stale reads"
+      ],
+      "correctIndex": 0,
+      "explanation": "Least Frequently Used (LFU) preserves items that receive consistent, repeated access over time, protecting popular core items from being evicted by sudden bursts of transient one-off keys."
+    },
+    {
+      "id": 5,
+      "question": "5. What is a cache stampede?",
+      "options": [
+        "A burst of concurrent requests that all refresh the same missing or expired value",
+        "An HTTP redirect",
+        "A permanent database backup"
+      ],
+      "correctIndex": 0,
+      "explanation": "A cache stampede (thundering herd) occurs when a popular key expires and hundreds or thousands of simultaneous incoming requests all query the primary database concurrently, causing database overload."
+    },
+    {
+      "id": 6,
+      "question": "6. What does Cache-Control: no-cache mean?",
+      "options": [
+        "The response can never be stored",
+        "Stored responses must be revalidated before reuse",
+        "All CDN caches must be deleted instantly"
+      ],
+      "correctIndex": 0,
+      "explanation": "In HTTP semantics, 'no-cache' does NOT mean 'do not store'. It instructs caches that they may store the response, but they MUST revalidate it with the origin server (using ETag or If-Modified-Since) before each reuse. 'no-store' is what forbids storage."
+    },
+    {
+      "id": 7,
+      "question": "7. Why is shared caching of personalized user responses dangerous?",
+      "options": [
+        "It makes JSON invalid",
+        "The cache may reuse one user's response for another user if identity and cache rules are wrong",
+        "It always increases database write throughput"
+      ],
+      "correctIndex": 0,
+      "explanation": "If a response containing sensitive student data (grades, private progress) is stored in a shared proxy or CDN cache, subsequent requests from other users can be served that cached data, causing severe privacy breaches."
+    },
+    {
+      "id": 8,
+      "question": "8. A database update succeeds, but cache invalidation fails. What is the main concern?",
+      "options": [
+        "The database update is guaranteed to roll back",
+        "A stale cache entry may remain usable until recovery or expiration",
+        "The HTTP protocol stops working"
+      ],
+      "correctIndex": 0,
+      "explanation": "If the database commits but the cache DEL command fails (due to network timeout or client error), the old cached value remains served until its TTL expires or another invalidation succeeds."
+    },
+    {
+      "id": 9,
+      "question": "9. Why can a cache outage cause a database outage?",
+      "options": [
+        "Every cache automatically deletes the database",
+        "A sudden wave of cache misses can redirect too much work to the database",
+        "Cache hits write all values to SQL"
+      ],
+      "correctIndex": 0,
+      "explanation": "If a system normally runs with a 95% cache hit ratio, a complete cache outage redirects 20x more read traffic directly to the primary database, immediately exhausting database connection pools and CPU."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": "qa-1",
+      "title": "Why did a team 'cache everything and make the system worse'?",
+      "context": "A team added Redis to every API endpoint and watched their application become slower and crash during peak hours.",
+      "answer": "Caching has an overhead: JSON serialization, network round-trips to Redis, and memory management. If a database query already takes 0.8ms from the PostgreSQL buffer pool, adding a 2.5ms Redis network call actually triples latency! Furthermore, caching write-heavy endpoints creates constant cache invalidation thrashing. Only cache queries that are computationally expensive or read orders of magnitude more frequently than written."
+    },
+    {
+      "id": "qa-2",
+      "title": "How do you implement Single-Flight (Request Coalescing) in Node.js?",
+      "context": "Preventing 1,000 concurrent cache misses from executing 1,000 identical SQL queries.",
+      "answer": "Maintain an in-memory Map of in-flight Promises: `const inFlight = new Map()`. When a request for `course:101` misses Redis, check `inFlight.has('course:101')`. If true, simply `return await inFlight.get('course:101')`. If false, create the database fetch Promise, store it in the Map, and in the `.finally()` block delete the key from the Map. This guarantees only 1 database query executes regardless of concurrency."
+    },
+    {
+      "id": "qa-3",
+      "title": "What is TTL Jitter, and why is it mandatory for bulk cache population?",
+      "context": "10,000 courses are cached at midnight with a 1-hour TTL. At 1:00 AM, the database crashes.",
+      "answer": "When keys share the exact same TTL, they all expire simultaneously, causing a massive synchronized cache stampede. Fix this with TTL Jitter: `ttl = baseTTL + Math.floor(Math.random() * jitterWindow)`. For example, `3600 + Math.floor(Math.random() * 600)` spreads expirations evenly across a 10-minute window, smoothing out database load."
+    },
+    {
+      "id": "qa-4",
+      "title": "How does Stale-While-Revalidate protect against cascading downstream outages?",
+      "context": "PostgreSQL is experiencing high load or a temporary brownout.",
+      "answer": "Stale-While-Revalidate (SWR) decouples the client response from the database refresh. When a key's Soft TTL expires, Redis immediately returns the cached value to the client (<2ms). It then asynchronously spawns a background worker to query PostgreSQL. If PostgreSQL is temporarily down or slow, users still get fast responses instead of 504 timeouts, preventing cascading failures."
+    },
+    {
+      "id": "qa-5",
+      "title": "What are the security risks of HTTP Cache-Control and CDN Edge Caching?",
+      "context": "A student logs into PrepSpaces and sees another student's assignment feedback.",
+      "answer": "This occurs when private personalized endpoints emit `Cache-Control: public` or omit the `Vary: Authorization, Cookie` header. Shared CDNs (Cloudflare, Fastly) cache the response based on URL alone. Always use `Cache-Control: private, no-store` for authenticated personalized payloads, and restrict `public, s-maxage` solely to truly universal content."
+    },
+    {
+      "id": "qa-6",
+      "title": "How should you design a cache fallback policy when Redis completely crashes?",
+      "context": "Redis instance undergoes a network split or runs out of memory.",
+      "answer": "Implement circuit breakers and bounded concurrency. Wrap Redis calls in a 50ms timeout with a circuit breaker (e.g. Opossum). When the breaker trips open, fall back to PostgreSQL with a strict concurrency semaphore or token bucket. Shed non-critical traffic (e.g. recommendations) to prevent the surge from crashing the database."
+    }
+  ],
+  "metadata": {
+    "lineCount": 1487,
+    "fileSizeBytes": 77603,
+    "questionCount": 9,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

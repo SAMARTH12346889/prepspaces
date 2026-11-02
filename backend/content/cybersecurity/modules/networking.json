@@ -1,0 +1,167 @@
+{
+  "id": "networking",
+  "courseId": "cybersecurity",
+  "index": 2,
+  "name": "2. Networking for Cyber",
+  "route": "/learning/cybersecurity/networking",
+  "componentName": "CybersecurityNetworking",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which OSI layer is primarily responsible for logical addressing and routing?",
+      "options": [
+        "Physical",
+        "Data Link",
+        "Network",
+        "Application"
+      ],
+      "correctIndex": 2,
+      "explanation": "Layer 3 (the Network layer) handles logical addressing (IPv4, IPv6) and inter-network routing, allowing routers to forward packets across distinct network segments."
+    },
+    {
+      "id": 2,
+      "question": "What is a MAC address primarily used for?",
+      "options": [
+        "Identifying a local-link interface for frame delivery",
+        "Encrypting HTTPS data",
+        "Resolving every Internet domain",
+        "Assigning a TCP port"
+      ],
+      "correctIndex": 0,
+      "explanation": "A MAC (Media Access Control) address is a 48-bit link-layer hardware identifier used by Ethernet and Wi-Fi to deliver frames locally across a single broadcast segment or switch."
+    },
+    {
+      "id": 3,
+      "question": "What does TCP provide to an application?",
+      "options": [
+        "Guaranteed Internet availability",
+        "A reliable, ordered byte stream",
+        "Automatic encryption in every connection",
+        "DNS record validation"
+      ],
+      "correctIndex": 1,
+      "explanation": "TCP provides a connection-oriented, reliable, ordered byte stream through sequence numbers, acknowledgments, retransmission, and flow/congestion control."
+    },
+    {
+      "id": 4,
+      "question": "Which statement about UDP is correct?",
+      "options": [
+        "It guarantees delivery and order",
+        "It always uses lower latency than TCP",
+        "It has no built-in delivery or ordering guarantee",
+        "It can only carry DNS queries"
+      ],
+      "correctIndex": 2,
+      "explanation": "UDP is a connectionless, lightweight datagram protocol that does not provide built-in retransmissions, acknowledgments, or sequence ordering."
+    },
+    {
+      "id": 5,
+      "question": "Which DNS record type associates a name with IPv4 address data?",
+      "options": [
+        "AAAA",
+        "MX",
+        "A",
+        "PTR"
+      ],
+      "correctIndex": 2,
+      "explanation": "An 'A' (Address) record maps a fully qualified domain name (FQDN) to a 32-bit IPv4 address. 'AAAA' maps to a 128-bit IPv6 address."
+    },
+    {
+      "id": 6,
+      "question": "What does a DNS record's TTL primarily influence?",
+      "options": [
+        "How long a response may be cached",
+        "The encryption strength of HTTPS",
+        "The number of TCP ports available",
+        "The server's CPU speed"
+      ],
+      "correctIndex": 0,
+      "explanation": "TTL (Time to Live) in DNS specifies the number of seconds a recursive resolver or client is permitted to cache the DNS record before re-querying the authoritative nameserver."
+    },
+    {
+      "id": 7,
+      "question": "What does HTTPS use to protect HTTP communication in transit?",
+      "options": [
+        "ARP",
+        "TLS",
+        "DHCP",
+        "NAT"
+      ],
+      "correctIndex": 1,
+      "explanation": "HTTPS encapsulates HTTP application traffic inside a Transport Layer Security (TLS) cryptographic session (currently TLS 1.3), providing confidentiality, integrity, and server authentication."
+    },
+    {
+      "id": 8,
+      "question": "How many total IPv4 addresses are in a conventional /26 prefix?",
+      "options": [
+        "16",
+        "32",
+        "64",
+        "256"
+      ],
+      "correctIndex": 2,
+      "explanation": "A /26 prefix leaves 32 - 26 = 6 host bits. 2^6 = 64 total addresses (with 62 conventionally usable host addresses after subtracting network and broadcast)."
+    },
+    {
+      "id": 9,
+      "question": "What does an HTTP 403 response generally indicate?",
+      "options": [
+        "The request was refused",
+        "DNS successfully resolved the hostname",
+        "The server has no IP address",
+        "TLS is always broken"
+      ],
+      "correctIndex": 0,
+      "explanation": "An HTTP 403 Forbidden status indicates the server understood the request and authenticated identity, but refuses to fulfill it because permissions or authorization policies were not met."
+    },
+    {
+      "id": 10,
+      "question": "Which is a correct interpretation of a successful ping?",
+      "options": [
+        "HTTPS is certainly working",
+        "All application security controls are effective",
+        "ICMP reachability succeeded for that test",
+        "The hostname's certificate is valid"
+      ],
+      "correctIndex": 2,
+      "explanation": "A successful ping only proves that ICMP Echo Request and Reply succeeded at the network layer (L3). It does NOT verify that TCP, TLS, web services, or application security controls are operational."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": "scen-1",
+      "title": "Fault A: Client Cannot Reach Local Gateway",
+      "symptom": "Student laptop cannot access intranet portal or ping default gateway 192.168.20.1.",
+      "cliOutput": "PS C:\\Users\\Student> ipconfig /all\n   IPv4 Address. . . . . . . . . . . : 192.168.20.140\n   Subnet Mask . . . . . . . . . . . : 255.255.255.192\n   Default Gateway . . . . . . . . . : 192.168.20.1\n\nPS C:\\Users\\Student> ping 192.168.20.1\nPinging 192.168.20.1 with 32 bytes of data:\nDestination host unreachable.",
+      "analysis": "SUBNET MISMATCH: With /26 (mask 255.255.255.192), host 192.168.20.140 sits in subnet 192.168.20.128/26 (range .129 - .190). The configured gateway 192.168.20.1 sits in subnet 192.168.20.0/26. The client assumes the gateway is on its local broadcast domain, but ARP cannot cross subnet boundaries.",
+      "fix": "Configure the gateway IP to 192.168.20.129, or reassign the student host to 192.168.20.25 within Subnet 1."
+    },
+    {
+      "id": "scen-2",
+      "title": "Fault B: DNS Resolution Succeeds, But HTTP 403 Forbidden",
+      "symptom": "Learner attempts to download their interview report, but receives an HTTP 403 status code.",
+      "cliOutput": "PS C:\\Users\\Student> nslookup learn.example.com\nServer:  1.1.1.1\nAddress: 1.1.1.1#53\n\nNon-authoritative answer:\nName:    learn.example.com\nAddress: 104.21.58.192\n\nPS C:\\Users\\Student> curl -I https://learn.example.com/api/reports/1048\nHTTP/1.1 403 Forbidden\nContent-Type: application/json; charset=utf-8\nX-Security-Alert: Unauthorized access attempt",
+      "analysis": "APPLICATION AUTHORIZATION FAILURE: DNS resolution and TCP/TLS handshakes succeeded perfectly. The 403 Forbidden status indicates that the web server understood the request, but the client identity lacks authorization to view Report #1048.",
+      "fix": "Verify user session permissions; ensure the requesting student owns the record or has been granted academic mentor permissions on the server."
+    },
+    {
+      "id": "scen-3",
+      "title": "Fault C: TLS Certificate Domain Name Mismatch",
+      "symptom": "Browser flags connection as dangerous; command line returns SSL peer certificate error.",
+      "cliOutput": "PS C:\\Users\\Student> curl -I https://internal.learnsphere.org\ncurl: (60) SSL: no alternative certificate subject name matches target host name 'internal.learnsphere.org'\nMore details here: https://curl.se/docs/sslcerts.html",
+      "analysis": "CERTIFICATE VALIDATION FAILURE: The TLS certificate presented by the server has Subject Alternative Name (SAN) configured only for 'api.learnsphere.org' and 'learnsphere.org', missing 'internal.learnsphere.org'.",
+      "fix": "Re-issue the TLS certificate via Let's Encrypt / DigiCert with 'internal.learnsphere.org' or '*.learnsphere.org' included in the Subject Alternative Name (SAN) extensions."
+    }
+  ],
+  "metadata": {
+    "lineCount": 1472,
+    "fileSizeBytes": 80770,
+    "questionCount": 10,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "cloud",
+  "title": "Cloud Computing Track",
+  "tagline": "Modern Multi-Cloud Architecture & Scalable Infrastructure",
+  "description": "Master cloud architecture, core compute models, virtual networking, managed storage, databases, multi-cloud strategy, cloud security posture, FinOps economics, and disaster-resilient cloud engineering.",
+  "icon": "Cloud",
+  "route": "/learning/cloud",
+  "tag": "Cloud Engineering",
+  "modulesCount": "13 In-Depth Modules",
+  "totalModules": 13,
+  "color": "from-zinc-900 via-stone-800 to-orange-600",
+  "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
+  "highlights": [
+    "IaaS, PaaS, Serverless & Edge",
+    "Cloud VPC & Global Networking",
+    "AWS, Azure & GCP Comparisons",
+    "FinOps & Multi-Cloud Architecture",
+    "Consensus, Quorums & Fault Tolerance"
+  ]
+}

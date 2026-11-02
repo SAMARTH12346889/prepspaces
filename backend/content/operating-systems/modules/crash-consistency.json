@@ -1,0 +1,94 @@
+{
+  "id": "crash-consistency",
+  "courseId": "operating-systems",
+  "index": 16,
+  "name": "16. Crash Consistency & Durability",
+  "route": "/learning/os/crash-consistency",
+  "componentName": "OSCrashConsistency",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does a successful write() system call guarantee by itself on Linux?",
+      "options": [
+        "The data is safely stored on persistent physical flash/magnetic media",
+        "The kernel accepted the bytes into memory (e.g. page cache), unless an error was returned",
+        "The directory entry and file name have been synchronized to non-volatile storage",
+        "The file update is guaranteed crash-consistent across power loss"
+      ],
+      "correctIndex": 1,
+      "explanation": "A successful write() merely confirms that the operating system kernel accepted the bytes into volatile memory (the page cache). It does NOT guarantee that data has been flushed to persistent storage media."
+    },
+    {
+      "id": 2,
+      "question": "In a crash-safe file replacement protocol, why must you synchronize the temporary file (fsync) before calling rename()?",
+      "options": [
+        "To prevent other concurrent processes from opening the containing directory",
+        "To ensure the complete new file contents and inode metadata are durable on disk before publishing the new name",
+        "To disable filesystem journal transactions during the update",
+        "To force the Linux virtual memory manager to evict the page cache"
+      ],
+      "correctIndex": 1,
+      "explanation": "If you rename before fsync(), a sudden crash can leave the new directory entry pointing to unwritten, empty, or garbage blocks on disk. Synchronizing first ensures that the contents are durable before the namespace pointer is switched."
+    },
+    {
+      "id": 3,
+      "question": "What is the purpose of performing fsync() on the containing directory descriptor after an atomic rename?",
+      "options": [
+        "To synchronize the directory-entry change (dentry namespace link) to persistent storage",
+        "To recalculate SHA-256 checksums for every file in the directory",
+        "To purge all inactive file buffers from RAM",
+        "To allow the rename syscall to work across different filesystems"
+      ],
+      "correctIndex": 0,
+      "explanation": "Directories are themselves files containing directory entries (dentries). While rename() is atomic in RAM, calling fsync() on the directory file descriptor requests that the directory block update is flushed to persistent storage."
+    },
+    {
+      "id": 4,
+      "question": "What does filesystem journaling (such as in ext4 or XFS) primarily protect?",
+      "options": [
+        "It guarantees that every multi-file application transaction is ACID-compliant",
+        "It allows the filesystem to quickly restore structural consistency (inodes, bitmaps, directory trees) after a crash",
+        "It eliminates the possibility of physical storage hardware degradation",
+        "It eliminates the need for periodic backups"
+      ],
+      "correctIndex": 1,
+      "explanation": "Journaling protects filesystem structural invariants (free lists, inode tables, directory links) so that the filesystem can mount quickly without a lengthy fsck scan. It does NOT automatically make application-level business transactions consistent."
+    },
+    {
+      "id": 5,
+      "question": "Why is an active restore drill an indispensable part of a production backup strategy?",
+      "options": [
+        "It guarantees that data will never be corrupted in the future",
+        "It verifies that the backup files can actually be restored into working, consistent application state",
+        "It replaces the need for filesystem checksums and RAID arrays",
+        "It automatically reduces the Recovery Time Objective (RTO) to zero seconds"
+      ],
+      "correctIndex": 1,
+      "explanation": "Untested backups frequently fail due to missing encryption keys, incompatible database versions, corrupted media, or missing configuration files. A backup is only as good as a proven, successful restore drill."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary limitation of simulated crash testing that uses process exceptions or signal kills?",
+      "options": [
+        "It cannot model application-level state transitions",
+        "It does not reproduce real storage-controller cache loss, power failure, or kernel writeback reordering",
+        "It is unable to compute cryptographic hashes like SHA-256",
+        "It requires a raw unpartitioned NVMe drive to run"
+      ],
+      "correctIndex": 1,
+      "explanation": "An exception or process kill leaves the operating system kernel and hardware running, allowing dirty page cache pages to be flushed normally. Real power loss stops the CPU immediately, exposing volatile cache data loss and device reordering."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1642,
+    "fileSizeBytes": 83997,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

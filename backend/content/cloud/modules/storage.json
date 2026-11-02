@@ -1,0 +1,176 @@
+{
+  "id": "storage",
+  "courseId": "cloud",
+  "index": 4,
+  "name": "Storage",
+  "route": "/learning/cloud/storage",
+  "componentName": "CloudStorage",
+  "quiz": [],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Incident 1: Accidental 5 TB Production Folder Deletion",
+      "context": "A junior DevOps engineer runs `aws s3 rm s3://company-prod-assets/media --recursive` by mistake, wiping out 5 Terabytes of active customer uploads.",
+      "question": "Which pre-configured storage safeguard allows instant recovery without downtime?",
+      "options": [
+        {
+          "id": "A",
+          "text": "S3 Object Versioning: The delete operation merely created a 'Delete Marker'; removing the markers restores all original objects immediately.",
+          "verdict": "Correct! Zero-Data-Loss Instant Restoration",
+          "explanation": "When Object Versioning is active, a simple delete does not erase underlying bytes; it only places a lightweight Delete Marker on top. Deleting the Delete Marker instantly brings back the previous version!",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Submit a high-priority ticket to AWS Support asking them to restore the datacenter tape drive.",
+          "verdict": "Incorrect & Futile",
+          "explanation": "Cloud providers do not maintain private tape backups of customer object deletions. Without bucket versioning or independent backups, deleted objects are permanently gone.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Incident 2: Ransomware Attack Encrypts Corporate File Storage",
+      "context": "An infected internal laptop compromises an SMB file share on Azure Files and encrypts 200,000 files with an AES-256 ransomware key, demanding $500,000 in Bitcoin.",
+      "question": "What architectural safeguard best neutralizes this attack without paying the ransom?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pay the ransom immediately because cloud storage cannot be rolled back.",
+          "verdict": "Incorrect & High Risk",
+          "explanation": "Never pay ransoms. Proper cloud storage architecture includes immutable snapshots and versioning.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Restore from Azure Files Share Snapshots (or immutable WORM backups) taken prior to the ransomware execution timestamp.",
+          "verdict": "Correct! Point-in-Time Snapshot Recovery",
+          "explanation": "Share Snapshots are read-only point-in-time differential copies of file shares. Even if current files are encrypted, snapshots cannot be modified by the infected client and can be restored in minutes.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Incident 3: Production Database Stalls During Flash Sale",
+      "context": "During a Black Friday spike, a MySQL database on an AWS EC2 instance with an older 500GB gp2 EBS volume experiences query latency jumping from 2ms to 1,800ms.",
+      "question": "What is the root cause and immediate online remediation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The gp2 burst balance credit pool was exhausted; immediately modify the EBS volume to gp3 with provisioned 12,000 IOPS and 500 MB/s throughput online without rebooting.",
+          "verdict": "Correct! Burst Depletion & Elastic Volume Upgrade",
+          "explanation": "Older gp2 volumes rely on burst balances that drop to a baseline 3 IOPS/GB (1,500 IOPS for 500GB) once depleted. Modern EBS Elastic Volumes allow upgrading to gp3 online with dedicated provisioned IOPS without downtime.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Reboot the virtual machine to reset the CPU clock.",
+          "verdict": "Incorrect",
+          "explanation": "The bottleneck is disk I/O latency due to burst credit starvation, not CPU clock speed. Rebooting causes downtime without solving the underlying disk saturation.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Incident 4: Catastrophic Datacenter Fire Destroys AZ-1",
+      "context": "A major transformer fire destroys a physical datacenter housing Availability Zone us-east-1a. Your application uses AWS S3 Standard and Azure ZRS.",
+      "question": "What happens to your object storage data stored in that region?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All data is permanently lost because one of the physical datacenters burned down.",
+          "verdict": "Incorrect",
+          "explanation": "Standard multi-AZ object storage replicates across 3 independent availability zones.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Zero data is lost and service remains available because S3 Standard and Azure ZRS automatically store redundant fragments across at least 3 distinct Availability Zones.",
+          "verdict": "Correct! Zone-Redundant Fault Tolerance",
+          "explanation": "S3 Standard and Azure ZRS distribute data across 3 separate AZs separated by meaningful physical distance. The total loss of one full AZ causes zero data loss and no interruption in HTTP availability.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Incident 5: Strict Regulatory 7-Year Tamper-Proof Audit Mandate",
+      "context": "The SEC mandates that financial transaction logs must be stored immutably for 7 years: no entity, not even company executives or system administrators, may delete them.",
+      "question": "Which cloud storage configuration guarantees compliance with federal law?",
+      "options": [
+        {
+          "id": "A",
+          "text": "S3 Object Lock in Compliance Mode with a 7-year retention period.",
+          "verdict": "Correct! WORM Compliance Immutability",
+          "explanation": "In Compliance Mode, AWS enforces Write-Once-Read-Many (WORM) immutability. No IAM user—including the root account owner—can delete locked objects or shorten the retention period until the 7 years elapse.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Ask sysadmins to sign an NDA promising not to delete any files from the bucket.",
+          "verdict": "Incorrect",
+          "explanation": "Regulatory bodies require cryptographic and architectural immutability guarantees, not informal policy promises.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Incident 6: 500-Node GPU Cluster Starved of Shared Training Data",
+      "context": "An AI team launches 500 GPU worker instances to train a large vision model. All workers attempt to read a 100 TB image dataset from a single standard NFS share, causing massive I/O timeouts.",
+      "question": "What high-performance storage architecture resolves this parallel I/O bottleneck?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Switch to a parallel cluster filesystem such as AWS FSx for Lustre or GCP Parallelstore linked directly to S3.",
+          "verdict": "Correct! Clustered High-Performance File System",
+          "explanation": "Lustre is designed for supercomputing and AI training. It strips data across hundreds of storage targets, providing hundreds of gigabytes per second of concurrent read throughput to thousands of GPU compute nodes.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Instruct all 500 GPU nodes to download the entire 100 TB dataset to their local EBS disks simultaneously.",
+          "verdict": "Incorrect",
+          "explanation": "Downloading 500 copies of 100 TB would saturate the network (50 Petabytes transferred!), incur huge costs, and exceed local disk capacity.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Incident 7: Shock $12,000 Bill From Storing 50 Million 1 KB Files in Glacier",
+      "context": "A team moved 50 million small IoT sensor logs (1 KB each) from S3 Standard to S3 Glacier Flexible to save money, but the next month's bill skyrocketed unexpectedly.",
+      "question": "Why did the bill increase and how should the architecture be corrected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Glacier enforces a 32 KB billable metadata minimum per object, plus transition API fees. Consolidate small records into 64 MB - 256 MB Parquet/Tar archives before archiving.",
+          "verdict": "Correct! FinOps Compaction Architecture",
+          "explanation": "Glacier adds 32 KB of billable metadata per object (and S3-IA bills at 128 KB minimum). For 1 KB files, the metadata exceeds the data by 32x! Furthermore, 50 million transition API calls cost $2,500. Compacting files into larger archives completely eliminates this penalty.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Glacier is known to have billing bugs; dispute the charges with customer support.",
+          "verdict": "Incorrect",
+          "explanation": "This is documented hyperscaler pricing behavior, not a billing bug. Architects must design compaction pipelines for small objects.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1805,
+    "fileSizeBytes": 112162,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

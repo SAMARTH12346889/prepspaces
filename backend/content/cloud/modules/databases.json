@@ -1,0 +1,198 @@
+{
+  "id": "databases",
+  "courseId": "cloud",
+  "index": 5,
+  "name": "Databases",
+  "route": "/learning/cloud/databases",
+  "componentName": "CloudDatabases",
+  "quiz": [],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Event 1: Primary Database Host Experiences Motherboard Failure",
+      "context": "Your PostgreSQL database on AWS RDS Multi-AZ experiences an unrecoverable hardware crash on its primary node in Availability Zone A.",
+      "question": "What sequence of events restores service, and what is your data loss (RPO)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RDS automatically detects the failed health check, flips the database DNS record to the synchronous standby in AZ-B, and resumes writes within 60-120 seconds with ZERO data loss (RPO = 0).",
+          "verdict": "Correct! Synchronous Multi-AZ Failover",
+          "explanation": "Because Multi-AZ uses synchronous physical block-level replication, the standby in AZ-B possesses all committed transactions. Failover is automatic via DNS flipping with zero data loss.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Restore the latest daily backup snapshot to a new instance, resulting in 12 hours of lost data.",
+          "verdict": "Incorrect & Severe Downtime",
+          "explanation": "Restoring from a backup snapshot is for disaster recovery, not high availability. Multi-AZ standby handles this automatically.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Event 2: Primary Crashes While Asynchronous Replica Lags by 10 Minutes",
+      "context": "A primary database crashes. You have an asynchronous read replica in a secondary region that is lagging by 10 minutes due to a heavy batch job.",
+      "question": "If you force an emergency failover to this replica right now, what is your RPO?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Up to 10 minutes of committed transactions are permanently lost (RPO = 10 minutes).",
+          "verdict": "Correct! Asynchronous Lag Reality",
+          "explanation": "In asynchronous replication, transactions committed on the primary during the lag window have not yet reached the replica. Promoting the replica means those 10 minutes of transactions are lost.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Zero data loss because cloud databases use magic consensus algorithms to recover missing logs.",
+          "verdict": "Incorrect",
+          "explanation": "If the primary hardware is dead and the log was not transmitted across the network, the data cannot be recovered on the replica.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Event 3: Junior Engineer Executes `DELETE FROM orders;` Without WHERE Clause",
+      "context": "At 14:15, a script accidentally deletes 2 million rows from the production orders table. Multi-AZ replication is enabled.",
+      "question": "Why does Multi-AZ replication fail to protect you, and how do you recover?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multi-AZ replicated the destructive DELETE statement to the standby in 5 milliseconds. You must perform Point-in-Time Recovery (PITR) to restore state to 14:14:59.",
+          "verdict": "Correct! Replication ≠ Backup",
+          "explanation": "Replication faithfully duplicates all commands, including logical corruption and accidental drops! PITR replays base backup + WAL logs to the second prior to the incident.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Immediately failover to the Multi-AZ standby, which automatically filters out destructive DELETE queries.",
+          "verdict": "Incorrect & Dangerous",
+          "explanation": "Standbys do not inspect or filter SQL queries; they replicate physical block changes. The standby is also wiped.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Event 4: Database Server Hits 98% CPU Saturation During Traffic Surge",
+      "context": "Your database VM is pinned at 98% CPU. Profiling shows 85% of queries are read-only `SELECT` statements, and 15% are writes.",
+      "question": "What is the best immediate architectural horizontal scaling remedy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Provision 2 Read Replicas and update application read queries to use the Read Replica endpoints.",
+          "verdict": "Correct! Read-Workload Offloading",
+          "explanation": "Since 85% of queries are reads, offloading them to read replicas immediately relieves CPU pressure on the primary writer node.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Migrate the entire relational database to MongoDB without changing application code.",
+          "verdict": "Incorrect",
+          "explanation": "Database migration takes months of architectural refactoring and does not resolve immediate production saturation.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Event 5: Database Query Latency Spikes From 2ms to 850ms (I/O Bottleneck)",
+      "context": "The CPU is only at 20%, but query latency has surged to 850ms. CloudWatch shows Disk Queue Depth is 64 and Buffer Pool Cache Hit Ratio has dropped to 65%.",
+      "question": "What is the root cause and optimal remediation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The working set exceeds Buffer Pool RAM, forcing constant synchronous disk reads. Increase VM RAM (or tune indexes) to restore >99% cache hit ratio.",
+          "verdict": "Correct! Buffer Pool Starvation",
+          "explanation": "A 65% hit ratio means 35% of page requests trigger disk I/O. Because RAM is 10,000x faster than disk, cache misses saturate disk queues. Sizing RAM to fit the working set eliminates disk reads.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Upgrade to a 64-core CPU.",
+          "verdict": "Incorrect",
+          "explanation": "CPU utilization is only 20%. The bottleneck is disk I/O latency, not computational processing power.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Event 6: Orders Table Reaches 12 Terabytes, Exceeding Single Disk Performance",
+      "context": "Your single PostgreSQL orders table has reached 12 TB. Sequential queries are slow and index maintenance is causing prolonged lock contention.",
+      "question": "Which database architectural technique should you apply first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Implement Table Partitioning (e.g. partition by month/year `orders_2026_q1`), enabling Partition Pruning and isolated index trees.",
+          "verdict": "Correct! Horizontal Table Partitioning",
+          "explanation": "Partitioning divides the giant table into smaller sub-tables. Queries filtering on date only scan the relevant partition (partition pruning), and maintenance tasks run independently per partition.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Delete 50% of customer orders randomly to free up disk space.",
+          "verdict": "Incorrect",
+          "explanation": "Deleting production order records violates financial compliance and business integrity.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Event 7: AWS US-East-1 Suffers a Catastrophic Regional Outage",
+      "context": "A hurricane causes total power and network loss across all 3 Availability Zones in us-east-1. Your business requires resuming service in us-west-2.",
+      "question": "Does an in-region Multi-AZ deployment keep you online?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No. Multi-AZ only protects against single-zone failure. You need Cross-Region Disaster Recovery (Aurora Global Database / Azure Failover Groups) in us-west-2.",
+          "verdict": "Correct! HA vs Regional DR",
+          "explanation": "Multi-AZ synchronous replication is confined to a single geographic region. When the entire region goes dark, only cross-region replicas or geo-backups can restore service.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Yes, because Multi-AZ automatically routes traffic to Europe when America fails.",
+          "verdict": "Incorrect",
+          "explanation": "Multi-AZ is strictly zonal within a single cloud region; it does not replicate across continents automatically.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Event 8: 10,000 Serverless Lambda Functions Connect to PostgreSQL Simultaneously",
+      "context": "A sudden viral marketing campaign triggers 10,000 concurrent AWS Lambda invocations. Each Lambda opens a direct PostgreSQL connection, causing database crash with 'FATAL: sorry, too many clients already'.",
+      "question": "What intermediate architectural layer resolves this connection exhaustion?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deploy a Connection Pooler (AWS RDS Proxy or PgBouncer) to multiplex thousands of client requests over a fixed pool of warm database connections.",
+          "verdict": "Correct! Connection Pooling Architecture",
+          "explanation": "PostgreSQL allocates a dedicated OS process (~10 MB RAM) per connection. 10,000 connections exhaust memory and CPU scheduling. RDS Proxy pools and reuses connections efficiently.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Configure PostgreSQL `max_connections = 100,000` in `postgresql.conf`.",
+          "verdict": "Incorrect & Causes Out-Of-Memory Crash",
+          "explanation": "Setting max_connections to 100,000 causes the OS kernel to run out of RAM and collapse under process context-switching overhead.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 1847,
+    "fileSizeBytes": 119789,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

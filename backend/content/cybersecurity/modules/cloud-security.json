@@ -1,0 +1,94 @@
+{
+  "id": "cloud-security",
+  "courseId": "cybersecurity",
+  "index": 18,
+  "name": "18. Cloud Security, Containers & IAM",
+  "route": "/learning/cybersecurity/cloud-security",
+  "componentName": "CybersecurityCloudSecurity",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "1. What is the primary purpose of the principle of least privilege?",
+      "options": [
+        "Give all developers administrator access for convenience.",
+        "Grant only the access necessary for an identity's task.",
+        "Disable all cloud identities.",
+        "Rely on network firewalls instead of access policies."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "2. An IAM policy allows every action on every resource (\"Action\": \"*\", \"Resource\": \"*\"). What is the main concern?",
+      "options": [
+        "It always blocks legitimate applications.",
+        "It applies only to public storage.",
+        "It grants excessively broad permissions, increasing potential impact.",
+        "It automatically encrypts all resources."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "3. Which identity design is generally preferable for an application that accesses cloud storage?",
+      "options": [
+        "A dedicated workload identity with narrowly scoped permissions.",
+        "A shared human administrator's permanent access key.",
+        "A single administrator identity shared by all applications.",
+        "An identity that can modify all organization policies."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "4. Why is removing a secret from the latest container filesystem not necessarily enough?",
+      "options": [
+        "Container filesystems cannot contain text.",
+        "Every container automatically revokes credentials.",
+        "Docker images do not have historical layers.",
+        "The secret may remain in earlier image layers or other artifacts."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "5. A reporting workload only needs to read ConfigMaps in one Kubernetes namespace. What is the best starting design?",
+      "options": [
+        "Bind the workload to cluster-admin.",
+        "Use a namespace-scoped role with only required read permissions.",
+        "Give all users edit access to every namespace.",
+        "Disable Kubernetes authorization."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "6. A storage resource is found to have an unintended public-access setting. What should the assessor do?",
+      "options": [
+        "Delete all storage immediately without investigation.",
+        "Ignore it if encryption is enabled.",
+        "Verify the exposure, follow the approved containment process, investigate impact, remediate and retest.",
+        "Disable all logging to reduce noise."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 2501,
+    "fileSizeBytes": 143343,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}

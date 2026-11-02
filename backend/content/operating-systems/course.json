@@ -1,0 +1,20 @@
+{
+  "id": "operating-systems",
+  "title": "Operating Systems Masterclass",
+  "tagline": "Systems Architecture, Concurrency & Kernel Internals",
+  "description": "Master operating systems engineering from computer architecture, systems programming in C, kernel execution, virtual memory, filesystems, and crash consistency to advanced multiprocessor synchronization.",
+  "icon": "Cpu",
+  "route": "/learning/os",
+  "tag": "Systems & Internals",
+  "modulesCount": "24 In-Depth Modules",
+  "totalModules": 24,
+  "color": "from-stone-900 via-orange-950 to-orange-600",
+  "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
+  "highlights": [
+    "Computer Architecture & C Programming",
+    "Processes, Threads & Concurrency",
+    "Virtual Memory & File Systems",
+    "Kernel Internals & Linux Diagnostics",
+    "Final Engineering Capstone"
+  ]
+}

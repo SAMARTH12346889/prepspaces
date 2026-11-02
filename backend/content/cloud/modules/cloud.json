@@ -1,0 +1,160 @@
+{
+  "id": "cloud",
+  "courseId": "cloud",
+  "index": 1,
+  "name": "Foundations",
+  "route": "/learning/cloud",
+  "componentName": "CloudComputing",
+  "quiz": [],
+  "topics": null,
+  "commands": null,
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Event 1: Application VM 1 Crashes Unexpectedly",
+      "context": "Your system has an Application Load Balancer routing 50/50 traffic to App VM 1 (AZ-1) and App VM 2 (AZ-2). Suddenly, VM 1's physical host experiences memory ECC failure and VM 1 crashes.",
+      "question": "What happens to live user requests and what architectural mechanism handles this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The whole site crashes because VM 1 cannot respond.",
+          "verdict": "Incorrect",
+          "explanation": "Because an Application Load Balancer sits in front of redundant instances, a single VM crash does not bring down the entire system.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "ALB detects failed health checks on VM 1, stops routing traffic to it, and routes 100% of traffic to VM 2.",
+          "verdict": "Correct! Fault Tolerance in Action",
+          "explanation": "The load balancer's continuous HTTP health checks detect failure within seconds, deregister VM 1, and failover all traffic to healthy VM 2. If VM 2 has enough capacity headroom, users experience zero downtime.",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "The DNS server immediately updates its IP record to point users directly to VM 2's private IP.",
+          "verdict": "Incorrect",
+          "explanation": "DNS records point to the Load Balancer, not individual internal VMs. Furthermore, DNS caching TTLs would make DNS failover far too slow (minutes to hours).",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Event 2: Primary Database Node Crashes",
+      "context": "Traffic is flowing through the web tier, but the primary PostgreSQL relational database instance experiences a storage volume failure.",
+      "question": "If you only have a single standalone DB instance in AZ-1, what is the architectural outcome?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Web servers will automatically store data in memory and sync later without errors.",
+          "verdict": "Incorrect",
+          "explanation": "Standard web servers will throw 500 Internal Server Errors and database connection timeouts. Data cannot be magically stored safely without a persistent replica.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Complete outage. The single database was a Single Point of Failure (SPOF).",
+          "verdict": "Correct! SPOF Catastrophe",
+          "explanation": "Having redundant web servers is meaningless if your database is a Single Point of Failure. High availability requires a Multi-AZ standby replica with automated synchronous failover.",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "The cloud provider automatically creates a replica with zero data loss in 2 seconds.",
+          "verdict": "Incorrect",
+          "explanation": "Cloud providers do not automatically provision standby database replicas unless you architect and configure the database service for Multi-AZ replication.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Event 3: Complete Availability Zone (AZ-1) Blackout",
+      "context": "A severe regional construction accident cuts all utility feeds and fiber conduits entering AZ-1. The entire zone goes offline.",
+      "question": "Which architecture survives this disaster with zero manual intervention?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Four VMs running in the same datacenter rack.",
+          "verdict": "Incorrect",
+          "explanation": "All four VMs belong to the exact same failure domain. When AZ-1 loses power, all four VMs vanish simultaneously.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Stateless VMs distributed across AZ-1 and AZ-2 behind an ALB, with Multi-AZ Database failover.",
+          "verdict": "Correct! True Multi-AZ Resiliency",
+          "explanation": "Because AZ-2 has independent power, cooling, and network links, ALB shifts all traffic to AZ-2, and the database automatically promotes its AZ-2 standby to primary.",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "A single very large 128-core VM in AZ-1.",
+          "verdict": "Incorrect",
+          "explanation": "Vertical scaling does not protect against physical infrastructure failure. When the building loses power, even a 1000-core server goes dark.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Event 4: Sudden 20× Flash-Crowd Viral Traffic Surge",
+      "context": "Your e-commerce startup is featured on national TV. Request rate jumps from 500 requests/sec to 10,000 requests/sec in 60 seconds.",
+      "question": "What is the best architectural strategy to avoid total collapse?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rely solely on standard VM Auto Scaling Groups to boot 30 new VMs in real time.",
+          "verdict": "Risky: Scale Latency Lag",
+          "explanation": "Standard VM boot, OS initialization, and app deployment takes 3 to 7 minutes. During that lag, your existing VMs will be saturated, causing cascading connection timeouts.",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Pre-scale or use fast-scaling containers/serverless + asynchronous queue decoupling (SQS) + CDN edge caching for static assets.",
+          "verdict": "Correct! Systems Architecture Mastery",
+          "explanation": "Edge CDNs absorb 80% of static traffic, asynchronous message queues buffer incoming checkout writes safely, and fast-scaling container/FaaS runtimes absorb spikes without dropping requests.",
+          "isCorrect": true
+        },
+        {
+          "id": "C",
+          "text": "Immediately double the RAM of the running VMs while they process traffic.",
+          "verdict": "Impossible in Production",
+          "explanation": "Vertical scaling of a running VM typically requires stopping the instance, changing the instance type, and rebooting—causing total downtime during peak traffic!",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Event 5: Traffic Returns to Normal Baseline",
+      "context": "The TV broadcast ends. Traffic drops back from 10,000 req/s to 500 req/s. You currently have 40 instances running.",
+      "question": "What cloud characteristic prevents financial waste?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elasticity: Auto-scaling downscales excess instances automatically, stopping per-second billing.",
+          "verdict": "Correct! True Elasticity",
+          "explanation": "Elasticity works in both directions. True cloud architectures scale down during quiet hours to minimize billing.",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "Scalability: It keeps all 40 instances running forever just in case.",
+          "verdict": "Incorrect & Costly",
+          "explanation": "Paying for 40 idle instances 24/7 destroys cloud ROI. That is the definition of over-provisioned waste.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lineCount": 2308,
+    "fileSizeBytes": 120703,
+    "questionCount": 0,
+    "hasQuiz": false,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": true
+  }
+}

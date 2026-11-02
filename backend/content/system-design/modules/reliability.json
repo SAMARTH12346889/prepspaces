@@ -1,0 +1,94 @@
+{
+  "id": "reliability",
+  "courseId": "system-design",
+  "index": 17,
+  "name": "17. Reliability & Observability",
+  "route": "/learning/system-design/reliability",
+  "componentName": "SystemDesignReliability",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "1. What is the primary difference between an SLI and an SLO?",
+      "options": [
+        "An SLI is a measured indicator; an SLO is its target",
+        "An SLI is a contract; an SLO is a database",
+        "An SLI is a dashboard; an SLO is a log",
+        "They always mean the same thing"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Service Level Indicator (SLI) is a measurable quantity (e.g. 99.8% successful requests), whereas a Service Level Objective (SLO) is the target or threshold set for that indicator over time (e.g. 99.9% over 30 days)."
+    },
+    {
+      "id": "q2",
+      "question": "2. Which observability signal is most useful for following a request across multiple services?",
+      "options": [
+        "A CPU chart alone",
+        "Distributed traces",
+        "A deployment label alone",
+        "A static configuration file"
+      ],
+      "correctIndex": 1,
+      "explanation": "Distributed traces record the path of a request across services and processes, showing exact timestamps, latency breakdown, and error locations for individual spans along the execution path."
+    },
+    {
+      "id": "q3",
+      "question": "3. What is the main purpose of a circuit breaker?",
+      "options": [
+        "Retry every failed request indefinitely",
+        "Prevent repeated calls to a dependency that is likely to be failing",
+        "Guarantee zero network latency",
+        "Replace all health checks"
+      ],
+      "correctIndex": 1,
+      "explanation": "A circuit breaker detects consecutive or high failure rates to an upstream service and 'trips' open, failing fast or falling back immediately to protect both the caller and the failing dependency from cascading overload."
+    },
+    {
+      "id": "q4",
+      "question": "4. Why can retries worsen an outage?",
+      "options": [
+        "They always remove data",
+        "They can add more load to an already overloaded dependency",
+        "They reduce all request traffic to zero",
+        "They automatically improve replica consistency"
+      ],
+      "correctIndex": 1,
+      "explanation": "If a backend or database is already slowing down under peak load, blind synchronized retries from thousands of clients multiply request volume (the 'retry storm' or thundering herd), completely collapsing the struggling service."
+    },
+    {
+      "id": "q5",
+      "question": "5. What best describes graceful degradation?",
+      "options": [
+        "Shutting down every feature immediately",
+        "Pretending every dependency is healthy",
+        "Preserving essential functions when optional or dependent features fail",
+        "Removing monitoring during incidents"
+      ],
+      "correctIndex": 2,
+      "explanation": "Graceful degradation preserves the core user journeys (e.g. loading saved interview reports, viewing dashboards) when secondary or slow dependencies (such as real-time AI evaluation) fail."
+    },
+    {
+      "id": "q6",
+      "question": "6. What should a blameless postmortem prioritize?",
+      "options": [
+        "Finding one person to punish",
+        "Evidence, contributing conditions, and corrective actions",
+        "Avoiding a documented incident timeline",
+        "Removing all alerts"
+      ],
+      "correctIndex": 1,
+      "explanation": "Blameless postmortems focus on systems, environment conditions, architectural gaps, and organizational safeguards rather than pointing fingers at individuals, establishing actionable preventive engineering fixes."
+    }
+  ],
+  "topics": null,
+  "commands": null,
+  "scenarios": null,
+  "metadata": {
+    "lineCount": 1611,
+    "fileSizeBytes": 92255,
+    "questionCount": 6,
+    "hasQuiz": true,
+    "hasTopics": false,
+    "hasCommands": false,
+    "hasScenarios": false
+  }
+}
