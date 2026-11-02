@@ -1,3 +1,4 @@
+import { getLucideIcon } from "../utils/iconMap";
 import useModuleContent from "../hooks/useModuleContent";
 import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
 import ModuleErrorState from "./ModuleErrorState";
@@ -50,40 +51,6 @@ import { useSyncedTopic } from "../utils/navigation";
 /* Systems Theory: MIT 6.004 (Computation Structures), CMU 15-440 (Dist. Sys) */
 /* -------------------------------------------------------------------------- */
 
-// Icon mapping for backend string identifiers to Lucide components
-const ICON_MAP = {
-  Cloud,
-  Server,
-  Network,
-  Cpu,
-  Layers,
-  Workflow,
-  Shield,
-  Lock,
-  Globe,
-  Radio,
-  HardDrive,
-  FolderGit2,
-  GitBranch,
-  Boxes,
-  Container,
-  Terminal,
-  Activity,
-  Zap,
-  CheckCircle2,
-  FileCode,
-  Sliders,
-  Database,
-  Building2,
-  FolderTree,
-  Table,
-  Box,
-  Archive,
-  BarChart3,
-  Gauge,
-  TrendingUp,
-  Search,
-};
 
 export default function CloudCompute() {
   const { data: moduleData, loading, error, reload } = useModuleContent("cloud", "compute");
@@ -127,7 +94,7 @@ export default function CloudCompute() {
   const computeTopics = moduleData?.topics || [];
 
   const currentTopic = computeTopics[selectedTopic] || computeTopics[0] || {};
-  const CurrentIcon = typeof currentTopic?.icon === "function" ? currentTopic.icon : (ICON_MAP[currentTopic?.icon] || Cpu);
+  const CurrentIcon = getLucideIcon(currentTopic?.icon, Cpu);
   const topicNumber = String(selectedTopic + 1).padStart(2, "0");
 
   const nextTopic = () => {
@@ -280,7 +247,7 @@ return (
 
               <div className="space-y-1.5">
                 {computeTopics.map((topic, index) => {
-                  const Icon = typeof topic.icon === "function" ? topic.icon : (ICON_MAP[topic.icon] || Cpu);
+                  const Icon = getLucideIcon(topic.icon, Cpu);
                   const active = selectedTopic === index;
 
                   return (

@@ -1,3 +1,4 @@
+import { getLucideIcon } from "../utils/iconMap";
 import useModuleContent from "../hooks/useModuleContent";
 import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
 import ModuleErrorState from "./ModuleErrorState";
@@ -59,40 +60,6 @@ import { useSyncedTopic } from "../utils/navigation";
 /* Systems Theory: CMU 15-445 (Database Systems), MIT 6.5830, Berkeley CS186 */
 /* -------------------------------------------------------------------------- */
 
-// Icon mapping for backend string identifiers to Lucide components
-const ICON_MAP = {
-  Cloud,
-  Server,
-  Network,
-  Cpu,
-  Layers,
-  Workflow,
-  Shield,
-  Lock,
-  Globe,
-  Radio,
-  HardDrive,
-  FolderGit2,
-  GitBranch,
-  Boxes,
-  Container,
-  Terminal,
-  Activity,
-  Zap,
-  CheckCircle2,
-  FileCode,
-  Sliders,
-  Database,
-  Building2,
-  FolderTree,
-  Table,
-  Box,
-  Archive,
-  BarChart3,
-  Gauge,
-  TrendingUp,
-  Search,
-};
 
 export default function CloudDatabases() {
   const { data: moduleData, loading, error, reload } = useModuleContent("cloud", "databases");
@@ -223,7 +190,7 @@ export default function CloudDatabases() {
   const databaseTopics = moduleData?.topics || [];
 
   const currentTopic = databaseTopics[selectedTopic] || databaseTopics[0] || {};
-  const CurrentIcon = typeof currentTopic?.icon === "function" ? currentTopic.icon : (ICON_MAP[currentTopic?.icon] || Database);
+  const CurrentIcon = getLucideIcon(currentTopic?.icon, Database);
   const topicNumber = String(selectedTopic + 1).padStart(2, "0");
 
   const nextTopic = () => {
@@ -360,7 +327,7 @@ return (
         {/* TOPIC SELECTION PILLS */}
         <div className="mb-8 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           {databaseTopics.map((topic, index) => {
-            const Icon = typeof topic.icon === "function" ? topic.icon : (ICON_MAP[topic.icon] || Database);
+            const Icon = getLucideIcon(topic.icon, Database);
             const isSelected = selectedTopic === index;
 
             return (
