@@ -1458,7 +1458,7 @@ return (
         )}
 
         {/* Course Completion Banner & Navigation */}
-        <div className="mt-10 pt-6 border-t border-[#e7e3da] flex flex-wrap items-center justify-between gap-4">
+        <div className="module-footer-nav mt-10 pt-6 border-t border-[#e7e3da] flex flex-wrap items-center justify-between gap-4">
           <button
             onClick={() => {
               navigate("/learning/networks/security-architecture");

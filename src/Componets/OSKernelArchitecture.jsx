@@ -1344,7 +1344,7 @@ int main(void) {
         )}
 
         {/* Footer Navigation Bar */}
-        <div className="mt-12 pt-6 border-t border-[#e7e3da] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="module-footer-nav mt-12 pt-6 border-t border-[#e7e3da] flex flex-col sm:flex-row items-center justify-between gap-4">
           <button
             onClick={() => navigate("/learning/os/crash-consistency")}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-stone-300 bg-white text-stone-700 hover:bg-stone-50 font-medium text-sm transition-colors"

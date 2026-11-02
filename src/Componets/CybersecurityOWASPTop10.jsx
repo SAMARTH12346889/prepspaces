@@ -1546,7 +1546,7 @@ prepspaces-app:x:1001:1001::/home/app:/bin/bash`}
         {/* ========================================================================= */}
         {/* FOOTER NAVIGATION (PREVIOUS & NEXT MODULE)                                */}
         {/* ========================================================================= */}
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
+        <div className="module-footer-nav mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
           <button
             onClick={() => navigate("/learning/cybersecurity/web-security")}
             className="flex items-center gap-2 rounded-2xl border border-stone-200 bg-white px-5 py-3 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer"

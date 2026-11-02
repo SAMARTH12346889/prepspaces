@@ -1576,7 +1576,7 @@ Completion Score: ${Math.round((completedChecklistCount / 9) * 100)}%`;
         )}
 
         {/* Bottom Pagination */}
-        <div className="mt-8 flex items-center justify-between border-t border-stone-200 pt-6">
+        <div className="module-footer-nav mt-8 flex items-center justify-between border-t border-stone-200 pt-6">
           <button
             onClick={() => navigate("/learning/os/concurrency")}
             className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-stone-700 hover:text-stone-900 hover:bg-white rounded-xl transition border border-stone-200/80 cursor-pointer"

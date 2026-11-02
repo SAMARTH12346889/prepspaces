@@ -1948,7 +1948,7 @@ ip arp inspection vlan 10,20`}
         )}
 
         {/* Footer Navigation Bar */}
-        <div className="mt-10 pt-6 border-t border-[#e7e3da] flex flex-wrap items-center justify-between gap-4">
+        <div className="module-footer-nav mt-10 pt-6 border-t border-[#e7e3da] flex flex-wrap items-center justify-between gap-4">
           <button
             onClick={() => navigate("/learning/networks/routing")}
             className="flex items-center gap-2 px-4 py-2 rounded-xl border border-[#e7e3da] bg-white text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#ea580c] transition cursor-pointer"

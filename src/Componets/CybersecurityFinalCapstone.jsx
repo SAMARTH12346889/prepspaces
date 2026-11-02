@@ -1442,7 +1442,7 @@ return (
         {/* ========================================================================= */}
         {/* FOOTER NAVIGATION                                                         */}
         {/* ========================================================================= */}
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
+        <div className="module-footer-nav mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
           <button
             onClick={() => navigate("/learning/cybersecurity/pentest-reports")}
             className="flex items-center gap-2 rounded-2xl border border-stone-200 bg-white px-5 py-3 text-xs font-bold text-stone-700 hover:border-emerald-300 hover:text-emerald-600 transition shadow-xs cursor-pointer"

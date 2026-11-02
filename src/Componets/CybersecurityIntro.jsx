@@ -2391,7 +2391,7 @@ return (
         )}
 
         {/* Next Module Navigation Footer */}
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
+        <div className="module-footer-nav mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#e7e3da] pt-6">
           <div />
           <button
             onClick={() => navigate("/learning/cybersecurity/networking")}

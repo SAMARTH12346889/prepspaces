@@ -886,7 +886,7 @@ return (
               </div>
 
               {/* TOPIC NAVIGATION FOOTER */}
-              <div className="mt-10 flex items-center justify-between pt-6 border-t border-[#e7e3da]">
+              <div className="module-footer-nav mt-10 flex items-center justify-between pt-6 border-t border-[#e7e3da]">
                 <button
                   disabled={selectedTopic === 0}
                   onClick={() => setSelectedTopic((prev) => Math.max(0, prev - 1))}

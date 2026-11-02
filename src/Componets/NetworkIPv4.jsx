@@ -391,34 +391,61 @@ export default function NetworkIPv4() {
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Sticky Header */}
-      <header className="sticky top-0 z-40 bg-[#f6f4ee]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 py-3 sm:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
+      <header className="sticky top-0 z-40 bg-[#f6f4ee]/95 backdrop-blur-md border-b border-[#e7e3da] px-3.5 py-2.5 sm:px-8 sm:py-3 pt-[max(0.6rem,env(safe-area-inset-top))]">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
+          {/* Mobile Top Bar: Back button + Module Badge + Quiz Button */}
+          <div className="flex sm:hidden items-center justify-between gap-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <button
+                onClick={() => navigate("/learning/networks")}
+                className="p-1.5 -ml-1 rounded-xl hover:bg-stone-200/60 transition text-stone-600 hover:text-stone-900 cursor-pointer shrink-0"
+                title="Return to Computer Networks Overview"
+                aria-label="Return to Computer Networks Overview"
+              >
+                <ArrowLeft size={18} />
+              </button>
+              <span className="text-[10px] font-mono tracking-wider uppercase text-[#ea580c] font-bold truncate">
+                Networks · Module 5
+              </span>
+            </div>
+
+            <button
+              onClick={() => setActiveTab("quiz")}
+              className="px-3 py-1.5 rounded-xl text-xs font-bold bg-[#ea580c] text-white hover:bg-[#c2410c] shadow-xs transition cursor-pointer shrink-0 whitespace-nowrap active:scale-95"
+            >
+              Take Quiz
+            </button>
+          </div>
+
+          {/* Title Stack: Desktop Left Stack & Mobile Title Full Width */}
+          <div className="flex items-center gap-3 min-w-0 flex-1">
             <button
               onClick={() => navigate("/learning/networks")}
-              className="p-2 rounded-xl hover:bg-stone-200/60 transition text-stone-600 hover:text-stone-900 cursor-pointer"
+              className="hidden sm:flex p-2 rounded-xl hover:bg-stone-200/60 transition text-stone-600 hover:text-stone-900 cursor-pointer shrink-0"
               title="Return to Computer Networks Overview"
+              aria-label="Return to Computer Networks Overview"
             >
               <ArrowLeft size={18} />
             </button>
-            <div>
-              <span className="text-[10px] font-mono tracking-widest uppercase text-[#ea580c] font-bold">
+            <div className="min-w-0 flex-1">
+              <span className="hidden sm:block text-[10px] font-mono tracking-widest uppercase text-[#ea580c] font-bold">
                 Computer Networks & Internet Engineering · Module 5
               </span>
-              <h1 className="text-base sm:text-lg font-black tracking-tight text-stone-900">
+              <h1 className="text-sm sm:text-base md:text-lg font-black tracking-tight text-stone-900 leading-snug break-words">
                 IPv4 Addressing, Subnetting & Enterprise Planning
               </h1>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* Desktop Right Actions */}
+          <div className="hidden sm:flex items-center gap-2 shrink-0">
             <span className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100/80 text-emerald-800 border border-emerald-200">
               <ShieldCheck size={14} className="text-emerald-600" />
               University Core Track
             </span>
             <button
               onClick={() => setActiveTab("quiz")}
-              className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#ea580c] text-white hover:bg-[#c2410c] shadow-xs transition cursor-pointer"
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#ea580c] text-white hover:bg-[#c2410c] shadow-xs transition cursor-pointer whitespace-nowrap active:scale-95"
             >
               Take Subnetting Quiz
             </button>
@@ -434,7 +461,7 @@ return (
       </div>
 
       {/* Sub-navigation Tabs */}
-      <div className="bg-white/80 border-b border-[#e7e3da] sticky top-[57px] z-30 backdrop-blur-sm">
+      <div className="bg-white/80 border-b border-[#e7e3da] relative z-20 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex overflow-x-auto no-scrollbar gap-2 py-2.5">
           <button
             onClick={() => setActiveTab("theory")}
@@ -2079,7 +2106,7 @@ Hosts/Net: 62
         )}
 
         {/* Footer Navigation Bar */}
-        <div className="mt-10 pt-6 border-t border-[#e7e3da] flex flex-wrap items-center justify-between gap-4">
+        <div className="module-footer-nav mt-10 pt-6 border-t border-[#e7e3da] flex flex-wrap items-center justify-between gap-4">
           <button
             onClick={() => navigate("/learning/networks/datalink")}
             className="flex items-center gap-2 px-4 py-2 rounded-xl border border-[#e7e3da] bg-white text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#ea580c] transition cursor-pointer"

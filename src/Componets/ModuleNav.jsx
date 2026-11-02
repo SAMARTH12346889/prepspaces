@@ -194,7 +194,10 @@ export default function ModuleNav({
     if (scrollRef.current) {
       const activeBtn = scrollRef.current.querySelector("[data-active='true']");
       if (activeBtn) {
-        activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        const timer = setTimeout(() => {
+          activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }, 60);
+        return () => clearTimeout(timer);
       }
     }
   }, [currentModuleId, modules]);
@@ -285,29 +288,31 @@ export default function ModuleNav({
         </div>
       </div>
 
-      {/* Module Tabs Bar (Displaying Module Names Only) */}
-      <div className="relative flex items-center">
-        {/* Left Scroll Arrow for Mobile/Tablet */}
+      {/* Module Tabs Bar (Displaying Module Names Only with scroll affordance) */}
+      <div className="relative flex items-center w-full min-w-0">
+        {/* Left Scroll Arrow with responsive sizing */}
         <button
           onClick={() => scroll("left")}
           aria-label="Scroll modules left"
-          className="hidden md:flex shrink-0 h-8 w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/80 text-stone-500 hover:text-stone-900 transition mr-1.5 shadow-2xs"
+          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 transition mr-1 sm:mr-1.5 shadow-2xs active:scale-95 cursor-pointer"
         >
-          <ChevronLeft size={16} />
+          <ChevronLeft size={15} />
         </button>
 
-        {/* Scrollable Container with Only Module Names */}
+        {/* Scrollable Container with data-active tracking */}
         <div
           ref={scrollRef}
-          className="flex-1 flex items-center gap-1.5 overflow-x-auto rounded-2xl border border-[#e7e3da] bg-white/80 p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto rounded-xl sm:rounded-2xl border border-[#e7e3da] bg-white/90 p-1 sm:p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           {modules.map((mod) => {
             const isActive = mod.id === currentModuleId;
             return (
               <button
                 key={mod.id}
+                data-active={isActive ? "true" : undefined}
                 onClick={() => navigate(mod.route)}
-                className={`shrink-0 whitespace-nowrap rounded-xl px-3.5 py-2 text-xs font-bold transition-all duration-200 ${
+                className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] ${
                   isActive
                     ? "bg-[#f97316] text-white shadow-sm shadow-orange-500/25"
                     : "text-stone-600 hover:bg-stone-100/80 hover:text-stone-900"
@@ -319,13 +324,13 @@ export default function ModuleNav({
           })}
         </div>
 
-        {/* Right Scroll Arrow for Mobile/Tablet */}
+        {/* Right Scroll Arrow with responsive sizing */}
         <button
           onClick={() => scroll("right")}
           aria-label="Scroll modules right"
-          className="hidden md:flex shrink-0 h-8 w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/80 text-stone-500 hover:text-stone-900 transition ml-1.5 shadow-2xs"
+          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 transition ml-1 sm:ml-1.5 shadow-2xs active:scale-95 cursor-pointer"
         >
-          <ChevronRight size={16} />
+          <ChevronRight size={15} />
         </button>
       </div>
     </div>
