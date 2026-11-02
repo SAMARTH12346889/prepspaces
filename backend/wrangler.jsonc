@@ -6,12 +6,24 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
+  "routes": [
+    {
+      "pattern": "api.prepspaces.com",
+      "custom_domain": true
+    }
+  ],
   "vars": {
     "ENVIRONMENT": "development"
   },
   "env": {
     "production": {
       "name": "prepspaces-backend-production",
+      "routes": [
+        {
+          "pattern": "api.prepspaces.com",
+          "custom_domain": true
+        }
+      ],
       "vars": {
         "ENVIRONMENT": "production"
       }

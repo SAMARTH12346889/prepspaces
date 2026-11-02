@@ -5,6 +5,8 @@ node_modules/
 .wrangler/
 .dev.vars
 .dev.vars.*
+.env
+.env.*
 
 # Build output
 dist/
