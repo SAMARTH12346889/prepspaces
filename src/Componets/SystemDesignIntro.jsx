@@ -40,10 +40,9 @@ import {
 /* University Foundations: MIT 6.5840, CMU 15-440, C4 Model, AWS WAF, Google SRE */
 /* -------------------------------------------------------------------------- */
 
-const ASSESSMENT_QUESTIONS = moduleData?.quiz || [];
-
 export default function SystemDesignIntro() {
   const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "intro");
+  const ASSESSMENT_QUESTIONS = moduleData?.quiz || [];
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(10);
   const [showAiTutor, setShowAiTutor] = useState(false);

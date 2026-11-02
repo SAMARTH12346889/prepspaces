@@ -35,10 +35,9 @@ import { VisualDiagramComponentModule3 } from "./SystemDesignNetworkingDiagrams"
 /* University Foundations: MIT 6.829, IETF RFCs 9110/9113/9114/9293, MDN, OpenAPI 3.1 */
 /* -------------------------------------------------------------------------- */
 
-const ASSESSMENT_QUESTIONS = moduleData?.quiz || [];
-
 export default function SystemDesignNetworking() {
   const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "networking");
+  const ASSESSMENT_QUESTIONS = moduleData?.quiz || [];
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(12);
   const [showAiTutor, setShowAiTutor] = useState(false);

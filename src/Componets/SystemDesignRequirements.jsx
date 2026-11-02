@@ -39,10 +39,9 @@ import { VisualDiagramComponentModule2 } from "./SystemDesignRequirementsDiagram
 /* Penn State SWENG 886, UT Dallas, UK CS 585, ISO 29148, Google SRE, AWS WAF */
 /* -------------------------------------------------------------------------- */
 
-const ASSESSMENT_QUESTIONS = moduleData?.quiz || [];
-
 export default function SystemDesignRequirements() {
   const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "requirements");
+  const ASSESSMENT_QUESTIONS = moduleData?.quiz || [];
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(12);
   const [showAiTutor, setShowAiTutor] = useState(false);

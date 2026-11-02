@@ -155,6 +155,8 @@ function App() {
             {/* OPERATING SYSTEMS MASTER COURSE */}
             <Route path="/learning/os" element={<OSIntro />} />
             <Route path="/learning/os/intro" element={<OSIntro />} />
+            <Route path="/learning/operating-systems" element={<OSIntro />} />
+            <Route path="/learning/operating-systems/intro" element={<OSIntro />} />
             <Route path="/learning/os/module-1" element={<OSIntro />} />
             <Route path="/learning/os/architecture" element={<OSArchitecture />} />
             <Route path="/learning/os/module-2" element={<OSArchitecture />} />
@@ -300,6 +302,7 @@ function App() {
             <Route path="/learning/networks/fundamentals" element={<NetworkIntro />} />
             <Route path="/learning/networks/module-1" element={<NetworkIntro />} />
             <Route path="/learning/computer-networks" element={<NetworkIntro />} />
+            <Route path="/learning/computer-networks/intro" element={<NetworkIntro />} />
 
             {/* COMPUTER NETWORKS — MODULE 2: NETWORK MODELS (OSI & TCP/IP) */}
             <Route path="/learning/networks/models" element={<NetworkModels />} />
