@@ -107,7 +107,7 @@
           "id": "A",
           "text": "S3 Object Lock in Compliance Mode with a 7-year retention period.",
           "verdict": "Correct! WORM Compliance Immutability",
-          "explanation": "In Compliance Mode, AWS enforces Write-Once-Read-Many (WORM) immutability. No IAM user—including the root account owner—can delete locked objects or shorten the retention period until the 7 years elapse.",
+          "explanation": "In Compliance Mode, AWS enforces Write-Once-Read-Many (WORM) immutability. No IAM user\u2014including the root account owner\u2014can delete locked objects or shorten the retention period until the 7 years elapse.",
           "isCorrect": true
         },
         {
@@ -171,6 +171,16 @@
     "hasQuiz": false,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 1
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Nova AI Cloud Storage Architect Tutor",
+      "paragraphs": [
+        "Ask questions about Block vs File vs Object, Reed-Solomon Erasure Coding, S3 Object Lock, 11 Nines Durability, or Glacier FinOps traps."
+      ]
+    }
+  ]
 }

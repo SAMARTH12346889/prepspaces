@@ -89,6 +89,68 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 7
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Understanding the OWASP Top 10:2025 Architecture",
+      "paragraphs": [
+        "The OWASP Top 10 is the global consensus awareness benchmark for application security risks. The current official release, OWASP Top 10:2025 (the 8th installment), categorizes injection as A05:2025 Injection.",
+        "\"Injection flaws occur whenever an application constructs executable code or commands by concatenating untrusted data, instead of keeping instructions and data separated through parameterized interfaces.\""
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Secure Input Handling, Allowlisting, and Schema Enforcement",
+      "paragraphs": [
+        "Input validation is the first line of defense, ensuring that incoming data matches expected types, lengths, ranges, and character sets before the application attempts to process it.",
+        "Define exactly what is permitted. If an endpoint expects an interview difficulty, allow strictly [\"beginner\", \"intermediate\", \"advanced\"]. Anything else is rejected immediately.",
+        "Attempting to filter out known \"bad\" characters (like ', --, or &lt;script&gt;) is notoriously fragile. Attackers bypass blocklists via URL encoding, Unicode normalization, or alternative syntax.",
+        "A request containing &#123;&quot;reportId&quot;: &quot;report-104&quot;&#125; may be 100% syntactically valid, but that does NOT mean the requesting user is authorized to read report-104! Server-side authorization checks must always be performed independently."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "SQL Injection (SQLi) and Parameterized Database Access",
+      "paragraphs": [
+        "SQL injection occurs when untrusted input is concatenated directly into a query string, allowing user-controlled input to be parsed as executable SQL syntax by the database compiler.",
+        "{`// Vulnerable Node.js SQL const query = \\`SELECT * FROM users WHERE email = '\\${req.body.email}'\\`; // Attacker input: admin' OR '1'='1 // Resulting query: SELECT * FROM users WHERE email = 'admin' OR '1'='1'`} The syntax was altered: the OR statement evaluates to TRUE for every row, leaking the entire database!",
+        "{`// Safe Node.js (pg library) const query = \\`SELECT * FROM users WHERE email = $1\\`; const result = await pool.query(query, [req.body.email]);`} The database driver compiles the query template first. The email value is sent separately as a raw string literal, completely neutralizing injection.",
+        "Parameterized placeholders ($1 or ?) only work for values, not SQL identifiers like column names (ORDER BY column) or table names.",
+        "Solution: Map user input against a rigid server-side allowlist:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "NoSQL Injection, OS Command Injection, and Template Injection (SSTI)",
+      "paragraphs": [
+        "Occurs when JSON requests supply objects with query operators (like &#123;&quot;$ne&quot;: null&#125;) in place of expected strings.",
+        "Invoking a shell via exec(\"ping \" + host) allows attackers to chain commands with ; rm -rf /.",
+        "Dynamically concatenating user strings into template source allows code execution via {\"{{7*7}}\"}."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Secure Output Handling and Context-Aware Encoding",
+      "paragraphs": [
+        "Encoding must match the exact destination interpreter. A value safe for HTML body text is NOT safe inside an HTML attribute, JavaScript block, URL, or CSS style!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Secure Coding Patterns Across Node.js and React Applications",
+      "paragraphs": [
+        "Modern JavaScript full-stack development provides powerful safe abstractions, but developers can introduce injection through escape hatches."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Defensive Testing, Code Review, and Why WAFs Are Not the Primary Fix",
+      "paragraphs": [
+        "Web Application Firewalls (WAFs) inspect incoming HTTP packets against signature patterns. While valuable for defense in depth, a WAF is NOT a substitute for fixing vulnerable code. Attackers can bypass WAF regexes using alternative encoding, chunked transfer payloads, or novel syntax."
+      ]
+    }
+  ]
 }

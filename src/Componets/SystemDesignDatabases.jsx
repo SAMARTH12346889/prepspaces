@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -44,6 +47,7 @@ import {
 } from "./SystemDesignDatabasesDiagrams";
 
 export default function SystemDesignDatabases() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "databases");
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("lessons");
   const [activeLesson, setActiveLesson] = useState("5.1");
@@ -189,112 +193,7 @@ export default function SystemDesignDatabases() {
   // ---------------------------------------------------------------------------
   // QUIZ STATE (9 QUESTIONS VERBATIM)
   // ---------------------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. Why is an enrollment table useful in a relational learning platform?",
-      options: [
-        "It removes the need for user identifiers",
-        "It represents the many-to-many relationship between students and courses",
-        "It guarantees every query uses an index",
-      ],
-      correct: 1,
-      explanation:
-        "Students can enroll in multiple courses, and courses have multiple students. A junction table (enrollments) models this many-to-many relationship and holds relationship-specific lifecycle attributes (enrolled_at, status, expiration).",
-    },
-    {
-      id: 2,
-      question: "2. What is the main purpose of a foreign key?",
-      options: [
-        "Guarantee the fastest possible query",
-        "Enforce a relationship with referenced data",
-        "Automatically shard a table",
-      ],
-      correct: 1,
-      explanation:
-        "Foreign keys enforce referential integrity at the database layer. They ensure that child records cannot reference nonexistent parent records and prevent accidental deletion of parents with dependent children.",
-    },
-    {
-      id: 3,
-      question: "3. Which dependency is primarily addressed by 2NF?",
-      options: [
-        "An attribute depending on only part of a composite candidate key",
-        "A query with no index",
-        "A network request that times out",
-      ],
-      correct: 0,
-      explanation:
-        "Second Normal Form (2NF) requires 1NF and ensures that no non-prime attribute depends on only part of a composite candidate key (eliminating partial functional dependencies).",
-    },
-    {
-      id: 4,
-      question: "4. When is embedding data in a document often useful?",
-      options: [
-        "When related bounded data is frequently read together",
-        "Whenever the data has any relationship at all",
-        "When every query must be a relational join",
-      ],
-      correct: 0,
-      explanation:
-        "Embedding data within a document is ideal when the child dataset is strictly bounded (does not grow indefinitely) and is consistently read in a single operational access alongside the parent document.",
-    },
-    {
-      id: 5,
-      question: "5. What is a significant cost of adding too many indexes?",
-      options: [
-        "Indexes eliminate unique constraints",
-        "Every insert and relevant update must maintain affected indexes",
-        "The database can no longer execute joins",
-      ],
-      correct: 1,
-      explanation:
-        "Indexes are not free: every INSERT, UPDATE, and DELETE statement must synchronously update the B-tree nodes of all corresponding indexes, consuming CPU, disk I/O, and buffer memory.",
-    },
-    {
-      id: 6,
-      question: "6. Which PostgreSQL index type is commonly used for B-tree-supported equality, range, and ordering queries?",
-      options: ["B-tree", "GIN only", "BRIN only"],
-      correct: 0,
-      explanation:
-        "B-tree is the default and most widely used index type in PostgreSQL, supporting =, <, <=, >, >=, and ORDER BY queries efficiently in logarithmic time.",
-    },
-    {
-      id: 7,
-      question: "7. Why does an index beginning with user_id and then status often poorly support filtering by status alone?",
-      options: [
-        "A B-tree cannot store text",
-        "The leading index column does not match that filter pattern",
-        "Composite indexes cannot contain more than two columns",
-      ],
-      correct: 1,
-      explanation:
-        "B-trees are sorted by their leading column first. If a query only filters by the second column (status), the database cannot traverse the index tree hierarchy and usually resorts to a full sequential table scan.",
-    },
-    {
-      id: 8,
-      question: "8. What does EXPLAIN ANALYZE do in PostgreSQL?",
-      options: [
-        "Only parses SQL without executing it",
-        "Executes the statement and reports actual execution statistics along with the plan",
-        "Automatically creates every missing index",
-      ],
-      correct: 1,
-      explanation:
-        "While EXPLAIN only displays the optimizer's estimated plan, EXPLAIN ANALYZE actually executes the query, recording actual wall-clock execution times, memory usage, buffer hits, and actual rows processed.",
-    },
-    {
-      id: 9,
-      question: "9. What is the difference between replication and sharding?",
-      options: [
-        "Replication maintains copies; sharding distributes data across partitions or nodes",
-        "They are identical techniques",
-        "Sharding is the process of creating SQL indexes",
-      ],
-      correct: 0,
-      explanation:
-        "Replication copies the same data across multiple nodes for fault tolerance and read scaling. Sharding partitions disjoint subsets of data across different nodes to scale write capacity and memory.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -838,7 +737,14 @@ SELECT id, title FROM courses WHERE status = 'published';
 
   const currentLessonData = lessons.find((l) => l.id === activeLesson) || lessons[0];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="databases" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="databases" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-8 sm:px-8 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

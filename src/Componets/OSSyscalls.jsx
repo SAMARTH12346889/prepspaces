@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -50,6 +53,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSSyscalls() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "syscalls");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -98,107 +102,7 @@ export default function OSSyscalls() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. What is the primary purpose of a system call?",
-      options: [
-        "Compile source code",
-        "Request a service from the operating system kernel",
-        "Create a C header file",
-        "Replace a linker",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A system call is the programmatic interface that allows an unprivileged user-mode application to request services (such as file I/O, process creation, network transmission, or memory mapping) from the operating system kernel across the hardware privilege boundary.",
-    },
-    {
-      id: 2,
-      question: "2. What does fork() return in the child process when it succeeds?",
-      options: [
-        "-1",
-        "The parent's PID",
-        "0",
-        "The child's exit status",
-      ],
-      correctIndex: 2,
-      explanation:
-        "fork() returns twice: in the newly created child process, it returns 0; in the parent process, it returns the child's positive Process ID (PID). If fork() fails, it returns -1 in the parent and no child is created.",
-    },
-    {
-      id: 3,
-      question: "3. What happens when execvp() succeeds?",
-      options: [
-        "The current process image is replaced",
-        "A new child is always created",
-        "The parent automatically exits",
-        "The current process receives SIGTERM",
-      ],
-      correctIndex: 0,
-      explanation:
-        "The exec family of functions completely replaces the current process's virtual address space, machine instructions, stack, heap, and registers with a new executable program image. The process retains its PID, but never returns to the old code unless exec fails.",
-    },
-    {
-      id: 4,
-      question: "4. What does a read() return value of zero normally indicate for a regular file?",
-      options: [
-        "Permission denied",
-        "End-of-file",
-        "A successful write",
-        "The descriptor is always invalid",
-      ],
-      correctIndex: 1,
-      explanation:
-        "For regular files, read() returning 0 indicates End-Of-File (EOF). No more bytes are currently available to read from the file offset.",
-    },
-    {
-      id: 5,
-      question: "5. Why does a parent call waitpid()?",
-      options: [
-        "To compile the child",
-        "To collect child status and manage its termination",
-        "To set the child's environment automatically",
-        "To redirect the child's stdout",
-      ],
-      correctIndex: 1,
-      explanation:
-        "waitpid() suspends the parent (unless WNOHANG is passed) until the child process changes state or terminates, allowing the parent to collect its exit status code or terminating signal and preventing the child from lingering as a zombie in the kernel process table.",
-    },
-    {
-      id: 6,
-      question: "6. What is the standard descriptor number for stderr?",
-      options: ["0", "1", "2", "3"],
-      correctIndex: 2,
-      explanation:
-        "POSIX standard file descriptors are: 0 = STDIN_FILENO (standard input), 1 = STDOUT_FILENO (standard output), and 2 = STDERR_FILENO (standard error).",
-    },
-    {
-      id: 7,
-      question: "7. What is the main danger of using system() with an untrusted command string?",
-      options: [
-        "It always disables ASLR",
-        "Shell injection can cause unintended command execution",
-        "It automatically closes all files",
-        "It prevents child processes",
-      ],
-      correctIndex: 1,
-      explanation:
-        "system() invokes `/bin/sh -c <string>`. If user input contains metacharacters (such as `;`, `&&`, `|`, `` ` ``), the shell interprets them as additional arbitrary commands, allowing severe shell injection vulnerabilities. Using `execve` with an explicit argument array prevents this.",
-    },
-    {
-      id: 8,
-      question: "8. Which statement about a system-call error is correct?",
-      options: [
-        "Every failure terminates the process",
-        "errno is always zero on success",
-        "The interface's return value should be checked before interpreting errno",
-        "All errors can safely be retried",
-      ],
-      correctIndex: 2,
-      explanation:
-        "`errno` is only meaningful when a system call explicitly returns an error indicator (typically -1 or NULL). Successful system calls do not reset `errno` to 0, so examining `errno` without checking the return value first can read stale error codes from previous calls.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -314,7 +218,14 @@ Hello from a redirected process`;
     setCustomCommand("");
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="syscalls" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="syscalls" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Breadcrumb & Navigation */}
       <ModuleNav

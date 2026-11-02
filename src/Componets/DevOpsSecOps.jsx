@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -83,6 +86,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function DevOpsSecOps() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("devops", "secops");
   const navigate = useNavigate();
 
   // Navigation & UI State
@@ -739,186 +743,16 @@ spec:
   // =========================================================================
   // 16 MASTERY ASSESSMENT QUESTIONS (SECTION 16)
   // =========================================================================
-  const masteryQuestions = [
-    {
-      q: "What does Static Application Security Testing (SAST) examine, and how does it differ from dependency scanning (SCA)?",
-      options: [
-        "SAST executes the application in staging; SCA checks network latency.",
-        "SAST analyzes source code for insecure constructs and injection risks; SCA inspects third-party dependencies and libraries for known CVEs.",
-        "SAST scans container operating systems; SCA tests Kubernetes ingress controllers.",
-        "There is no difference; SAST and SCA are interchangeable terms.",
-      ],
-      c: 1,
-      a: "SAST inspects your first-party code without execution (e.g. Bandit, CodeQL). SCA inspects third-party packages, libraries, and direct/transitive dependencies for reported CVEs (e.g. pip-audit).",
-    },
-    {
-      q: "Why is scanning the final container image critical even if Python dependency checks (pip-audit) report zero vulnerabilities?",
-      options: [
-        "Python packages cannot be trusted unless converted into Debian packages.",
-        "The final image contains operating-system packages (glibc, OpenSSL, curl, bash) and system libraries that do not exist in the Python requirements file.",
-        "Container registries reject images that haven't been scanned twice.",
-        "Pip-audit only inspects Go dependencies.",
-      ],
-      c: 1,
-      a: "A container image combines your application code with a Linux base image. Critical vulnerabilities (such as OpenSSL or glibc flaws) exist in OS packages and are only visible when scanning the built container image.",
-    },
-    {
-      q: "Why does deleting a committed credential from a file in Git fail to make it safe to use again?",
-      options: [
-        "Git retains historical commits in its object database, and the credential remains visible in commit history, clones, logs, and forks.",
-        "The Linux kernel permanently caches committed text files in physical memory.",
-        "Cloud providers automatically lock credentials when they are edited.",
-        "Git branches are immutable and cannot be modified.",
-      ],
-      c: 0,
-      a: "Git is an append-only directed acyclic graph. Deleting the line in a new commit simply creates a new commit; anyone can view the old commit containing the plain-text secret. It must be revoked immediately.",
-    },
-    {
-      q: "Why are Dockerfile ARG and ENV instructions unsuitable for build-time secrets?",
-      options: [
-        "Docker daemon refuses to build images that contain ARG commands.",
-        "Values passed to ARG or ENV are recorded in image layer metadata and can be easily extracted using 'docker history'.",
-        "ARG and ENV values are converted to uppercase automatically.",
-        "They slow down container build times by 500%.",
-      ],
-      c: 1,
-      a: "ARG and ENV directives are persisted in image metadata layers. To pass build secrets safely without persisting them into layers, use Docker BuildKit secret mounts (--mount=type=secret).",
-    },
-    {
-      q: "How does OpenID Connect (OIDC) federation reduce the need for permanent cloud credentials in CI/CD?",
-      options: [
-        "It eliminates the need for passwords on developer laptops.",
-        "It allows CI jobs to exchange a short-lived, digitally signed JWT token for temporary cloud credentials, eliminating static stored secrets.",
-        "It stores root AWS passwords in public GitHub repositories.",
-        "It converts HTTP requests into SSH tunnels.",
-      ],
-      c: 1,
-      a: "OIDC allows GitHub Actions to prove its identity directly to AWS/GCP/Azure via cryptographic tokens (JWTs), receiving temporary (e.g. 15-minute) credentials rather than storing permanent static API keys.",
-    },
-    {
-      q: "What is the key difference between a Software Bill of Materials (SBOM), build provenance, and a digital signature?",
-      options: [
-        "SBOM inventories what components are inside; Provenance records how and where it was built; Signature verifies identity and integrity.",
-        "SBOM signs images; Provenance scans code; Signature generates SBOMs.",
-        "All three are identical terms created by NIST.",
-        "SBOM is for hardware; Provenance is for operating systems; Signature is for web pages.",
-      ],
-      c: 0,
-      a: "An SBOM lists all embedded components and versions. Build provenance (SLSA) documents the build environment and source commit. A digital signature (Cosign) proves the artifact's integrity and signing identity.",
-    },
-    {
-      q: "What does a digital signature (e.g. via Cosign) actually prove, and what does it NOT prove?",
-      options: [
-        "It proves the code is completely bug-free and secure.",
-        "It proves the artifact's cryptographic integrity and the identity of the signer; it does NOT prove the code is free of vulnerabilities or logic flaws.",
-        "It proves the container will run with zero memory usage.",
-        "It proves the application conforms to GDPR regulations.",
-      ],
-      c: 1,
-      a: "A signature guarantees that the image digest has not been tampered with since being signed by an approved identity. It does not certify that the code is free from vulnerabilities—a malicious actor can sign vulnerable code.",
-    },
-    {
-      q: "Why must a Kubernetes deployment reference the exact immutable image digest (@sha256:...) rather than a mutable tag like :latest?",
-      options: [
-        "Kubernetes cannot pull images that have alphanumeric tags.",
-        "Mutable tags can be overwritten in the registry, meaning the deployed image might not be the artifact that passed scanning and signing.",
-        "Digest pulls consume less network bandwidth.",
-        "Docker tags are deprecated by the OCI standard.",
-      ],
-      c: 1,
-      a: "Tags like :latest or :v1.0 can be overwritten. Deploying by immutable digest ensures the exact bit-for-bit container that passed SAST, Trivy, and Cosign verification is the one admitted into the cluster.",
-    },
-    {
-      q: "What supply-chain risk does full commit-SHA pinning of GitHub Actions protect against?",
-      options: [
-        "It prevents network timeouts during git checkout.",
-        "It protects against a compromised action maintainer or tag mutation injecting malicious code into your CI/CD runner.",
-        "It eliminates the need for unit testing.",
-        "It encrypts the GitHub Actions workflow file.",
-      ],
-      c: 1,
-      a: "Floating tags (like actions/checkout@v4) can be pointed to malicious commits if the maintainer's account is breached. Pinning the full 40-character commit SHA guarantees immutable action code.",
-    },
-    {
-      q: "How can an unvetted third-party GitHub Action compromise the entire software supply chain?",
-      options: [
-        "It can run arbitrary code on the CI runner, steal secrets (API tokens, OIDC tokens), and back-door built artifacts before they are signed.",
-        "It can increase repository size beyond GitHub limits.",
-        "It causes markdown files to render incorrectly.",
-        "It disables git rebase commands.",
-      ],
-      c: 0,
-      a: "GitHub Actions execute with the runner's full environment privileges. A compromised action can exfiltrate repository secrets, tamper with compiled binaries, or inject malicious dependencies before release.",
-    },
-    {
-      q: "Why is running a container as a non-root user (e.g. UID 10001) a critical defense-in-depth measure?",
-      options: [
-        "It speeds up container startup time by bypassing PAM authentication.",
-        "If an attacker escapes the container through a kernel vulnerability, they do not automatically obtain root privileges on the underlying host node.",
-        "Non-root containers use less CPU cache.",
-        "Kubernetes cannot assign IP addresses to root containers.",
-      ],
-      c: 1,
-      a: "UID 0 inside a container maps directly to UID 0 on the Linux host (unless user namespaces are configured). Running as non-root mitigates the severity of container breakout vulnerabilities.",
-    },
-    {
-      q: "What is the foundational principle of Zero Trust Architecture (NIST SP 800-207)?",
-      options: [
-        "Trust all traffic originating from within the internal corporate VPN.",
-        "Never trust, always verify: make access decisions based on identity, permissions, and context rather than network perimeter location.",
-        "Disable all firewall rules to allow transparent proxying.",
-        "Never allow developers to access production logs.",
-      ],
-      c: 1,
-      a: "Zero Trust rejects implicit trust based solely on network location. Every request, workload, and human identity must be authenticated, authorized, and continuously validated.",
-    },
-    {
-      q: "How should an engineering team handle a High-severity vulnerability in a dependency when the upstream maintainer has not yet released a patch?",
-      options: [
-        "Delete the scanner configuration to silence the alert.",
-        "Document an auditable security exception detailing the business justification, mitigating controls, assigned owner, and an explicit review expiration date.",
-        "Immediately rewrite the entire dependency from scratch in assembly language.",
-        "Ignore it because unpatched vulnerabilities cannot be exploited.",
-      ],
-      c: 1,
-      a: "Unfixed vulnerabilities must be handled through a formal exception process with compensatory controls (e.g. WAF rules, disabling the vulnerable feature path) and an expiration date for reassessment.",
-    },
-    {
-      q: "How can a platform engineer demonstrate that an unapproved container artifact cannot reach production?",
-      options: [
-        "By asking developers to promise they will only push approved images.",
-        "By attempting to deploy an unsigned image or an image signed by an untrusted identity, verifying that the Kubernetes admission controller (Kyverno/Gatekeeper) blocks pod creation.",
-        "By deleting the container registry completely.",
-        "By running Trivy once a month on production servers.",
-      ],
-      c: 1,
-      a: "Demonstrating security requires negative testing: attempt to deploy an image with an invalid signature or high CVEs and prove that the admission controller blocks the pod with an admission error.",
-    },
-    {
-      q: "What runtime telemetry should be collected when investigating a suspected container compromise?",
-      options: [
-        "Only the container CPU utilization graph in Grafana.",
-        "Kernel syscall events (Falco), container process execution logs, Kubernetes audit logs, authentication records, and network egress connection logs.",
-        "The git commit history of the repository.",
-        "The physical serial number of the server rack.",
-      ],
-      c: 1,
-      a: "Forensic investigation requires kernel syscall auditing (process spawns, file modifications in /etc), network flow logs, and Kubernetes audit logs to reconstruct the attacker's timeline and lateral movement.",
-    },
-    {
-      q: "In the DevSecOps operating model, what is meant by 'shifting left'?",
-      options: [
-        "Moving all servers to the Western cloud region.",
-        "Introducing automated security scans, dependency audits, and policy checks as early as possible in the development lifecycle (IDE & PR) rather than delaying until production.",
-        "Assigning security tasks exclusively to junior developers.",
-        "Running CI pipelines in reverse chronological order.",
-      ],
-      c: 1,
-      a: "Shifting left means integrating security testing and validation into the earliest phases of development (developer workstation, pull requests, automated CI) where vulnerabilities are fastest and cheapest to fix.",
-    },
-  ];
+  const masteryQuestions = moduleData?.quiz || [];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="devops" currentModuleId="secops" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="devops" currentModuleId="secops" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white">
       {/* BACKGROUND AMBIENT GLOW */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

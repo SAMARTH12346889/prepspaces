@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -43,6 +46,7 @@ import {
 } from "./SystemDesignConsensusDiagrams";
 
 export default function SystemDesignConsensus() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "consensus");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -310,81 +314,7 @@ export default function SystemDesignConsensus() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Why does a heartbeat timeout not prove that a server has crashed?",
-      options: [
-        "A. Because heartbeats are always encrypted.",
-        "B. Because network delays and slow processing can also cause missing responses.",
-        "C. Because a follower is always the leader.",
-        "D. Because a quorum does not use messages.",
-      ],
-      correct: 1, // B
-      explanation:
-        "In asynchronous distributed networks, silence is inherently ambiguous. A missing heartbeat can mean the node crashed, the network dropped or delayed packets, the node is slow, or it is experiencing a Stop-the-World garbage collection freeze.",
-    },
-    {
-      id: 2,
-      question: "In a five-voter, majority-based cluster, what is the minimum quorum?",
-      options: ["A. 1", "B. 2", "C. 3", "D. 5"],
-      correct: 2, // C
-      explanation:
-        "The strict majority quorum formula is Q = ⌊N/2⌋ + 1. For N = 5 voting nodes, Q = ⌊5/2⌋ + 1 = 2 + 1 = 3 nodes.",
-    },
-    {
-      id: 3,
-      question: "What is the purpose of the term in Raft?",
-      options: [
-        "A. To compress the log.",
-        "B. To identify an election epoch and help reject stale leadership information.",
-        "C. To replace replication.",
-        "D. To guarantee every client request succeeds immediately.",
-      ],
-      correct: 1, // B
-      explanation:
-        "Raft terms act as logical clocks (epochs). They allow nodes to detect obsolete information such as stale leaders or candidates from previous election rounds. Any node discovering a higher term immediately updates its currentTerm and steps down.",
-    },
-    {
-      id: 4,
-      question: "When should a replicated log entry be treated as committed?",
-      options: [
-        "A. As soon as any single node appends it locally.",
-        "B. As soon as any client sends the request.",
-        "C. When the applicable consensus protocol's commitment conditions have been satisfied.",
-        "D. Only when all network messages in the cluster have permanently stopped.",
-      ],
-      correct: 2, // C
-      explanation:
-        "Merely appending a log entry locally does not guarantee it will survive leader crashes. In Raft, an entry is committed only when it has been replicated across a majority quorum of voting nodes under the current leader's term.",
-    },
-    {
-      id: 5,
-      question: "What is the main purpose of a fencing token?",
-      options: [
-        "A. To encrypt the network.",
-        "B. To reject operations from older owners after a newer ownership epoch has been accepted.",
-        "C. To make elections unnecessary.",
-        "D. To guarantee that a process never pauses.",
-      ],
-      correct: 1, // B
-      explanation:
-        "A fencing token is a monotonically increasing counter issued with lock acquisition. The receiving storage service checks that the token on incoming writes is >= its highest accepted token, rejecting delayed writes from zombie or stalled former owners.",
-    },
-    {
-      id: 6,
-      question: "Why can a lease alone be insufficient for protecting a resource?",
-      options: [
-        "A. Because a process whose lease expired can resume and issue a delayed write.",
-        "B. Because leases cannot be renewed.",
-        "C. Because leases are database indexes.",
-        "D. Because leaders cannot perform writes.",
-      ],
-      correct: 0, // A
-      explanation:
-        "A lease sets a time window for ownership, but cannot physically stop a stalled worker from continuing to run. If worker A pauses for 20 seconds, its lease expires and worker B takes over; when worker A wakes up, it may send an outdated write that corrupts worker B's state without fencing.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -404,7 +334,14 @@ export default function SystemDesignConsensus() {
     setQuizSubmitted(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="consensus" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="consensus" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

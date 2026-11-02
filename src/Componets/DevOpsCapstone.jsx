@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -91,6 +94,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function DevOpsCapstone() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("devops", "capstone");
   const navigate = useNavigate();
 
   // Navigation & UI State
@@ -608,186 +612,16 @@ spec:
   // =========================================================================
   // 16 CAPSTONE DEFENSE MASTERY QUESTIONS
   // =========================================================================
-  const masteryQuestions = [
-    {
-      q: "In the final capstone architecture, why is the application split into an API deployment, an asynchronous worker, and a scheduled CronJob?",
-      options: [
-        "Because Kubernetes does not allow running more than one container per cluster.",
-        "To separate interactive user-facing requests from long-running background tasks and maintenance, isolating resource pools and preventing worker spikes from blocking HTTP latency.",
-        "To satisfy Docker licensing restrictions.",
-        "Because Python cannot execute background threads.",
-      ],
-      c: 1,
-      a: "Separating workloads applies bulkhead resource isolation. Interactive note reads/writes remain snappy on the API pods while expensive exports run on dedicated worker pods, and scheduled cleanup runs as isolated CronJobs.",
-    },
-    {
-      q: "Why must the CI/CD pipeline update the GitOps deployment repository using the container's immutable SHA256 digest rather than a tag like ':latest'?",
-      options: [
-        "Digest pulls are 50% faster than tag pulls.",
-        "Mutable tags can be overwritten or drift, whereas immutable digests guarantee the exact bit-for-bit container that passed SAST, Trivy, and Cosign verification is deployed.",
-        "Git repositories reject commits that contain alphanumeric tags.",
-        "Kubernetes removes images with tags every 12 hours.",
-      ],
-      c: 1,
-      a: "Deploying by immutable digest ensures cryptographic traceability and reproducibility. If a tag is pointed to a different build, GitOps would silently deploy unverified code.",
-    },
-    {
-      q: "What is the primary role of Argo Rollouts in the capstone deployment strategy?",
-      options: [
-        "To compile TypeScript code into WebAssembly.",
-        "To provide automated progressive canary delivery with metric-based analysis, shifting traffic in stages and automatically aborting if error rates breach thresholds.",
-        "To replace the PostgreSQL database during releases.",
-        "To compress container images before deployment.",
-      ],
-      c: 1,
-      a: "Argo Rollouts implements progressive delivery. It routes a small percentage (e.g. 10%) of traffic to the new revision, evaluates Prometheus metrics, and rolls back instantly if error rates spike.",
-    },
-    {
-      q: "Why is a scheduled container that copies database files to an S3 bucket NOT considered an enterprise disaster recovery plan for PostgreSQL?",
-      options: [
-        "S3 does not support storing SQL files.",
-        "File copy backups taken while PostgreSQL is running produce corrupted, inconsistent snapshots. Enterprise DR requires managed WAL archiving, point-in-time recovery (PITR), and periodic restore verification.",
-        "CronJobs cannot run more than once per week.",
-        "PostgreSQL requires tape drives for valid backups.",
-      ],
-      c: 1,
-      a: "Raw file copies of live database directories cause corruption due to in-flight writes. Proper DR requires engine-level WAL archiving and automated restoration drills that prove RTO and RPO targets.",
-    },
-    {
-      q: "In the capstone SRE operating model, how are Multi-Window Multi-Burn-Rate alerts used to prevent alert fatigue?",
-      options: [
-        "They mute all alerts permanently during business hours.",
-        "They require both a long window (e.g. 1 hour) and a short confirmation window (e.g. 5 minutes) to consume error budget rapidly before paging the on-call engineer.",
-        "They convert all alerts into SMS messages sent to all employees.",
-        "They only trigger when the CPU reaches 100%.",
-      ],
-      c: 1,
-      a: "Multi-window alerting eliminates single-spike noise and slow-burn delays by verifying that both a short-term burst and a sustained burn are consuming the SLO budget before waking an engineer.",
-    },
-    {
-      q: "What is the purpose of the OpenTelemetry Collector in the capstone observability pipeline?",
-      options: [
-        "To act as a reverse proxy load balancer for incoming HTTP requests.",
-        "To provide a vendor-neutral telemetry proxy that receives, filters, batches, and exports metrics, logs, and distributed traces to storage backends.",
-        "To format Python code before git commit.",
-        "To automatically restart failing Kubernetes nodes.",
-      ],
-      c: 1,
-      a: "The OTel Collector decouples applications from specific observability vendors. Microservices push OTLP data to the collector, which routes traces to Jaeger/Tempo, metrics to Prometheus, and logs to Loki.",
-    },
-    {
-      q: "How does the Transactional Outbox pattern maintain consistency between PostgreSQL writes and asynchronous worker events?",
-      options: [
-        "It stores all application data in memory instead of disk.",
-        "It writes the business record and the outbound event message within the exact same database transaction, ensuring events are never published if the database rollback occurs.",
-        "It disables database transactions entirely.",
-        "It uses WebSockets to bypass the database.",
-      ],
-      c: 1,
-      a: "The Transactional Outbox pattern guarantees that if a note is saved, its background processing event is committed in the same atomic SQL transaction, preventing phantom jobs or lost events.",
-    },
-    {
-      q: "Why does the capstone enforce the Kubernetes Pod Security Standard 'Restricted' profile?",
-      options: [
-        "To restrict container network bandwidth to 10 Mbps.",
-        "To enforce non-root execution (UID 10001), drop all Linux kernel capabilities, make the root filesystem read-only, and filter syscalls with seccomp to mitigate container breakouts.",
-        "To prevent developers from logging into Kubernetes via SSH.",
-        "Because Kubernetes will not start without it.",
-      ],
-      c: 1,
-      a: "The Restricted PSS profile is the highest security hardening tier in Kubernetes. It strips privileges, prevents root execution, and blocks unauthorized filesystem modifications.",
-    },
-    {
-      q: "What role does Sigstore Cosign play in the software supply-chain defense of the capstone?",
-      options: [
-        "It compiles Python bytecode into machine code.",
-        "It cryptographically signs the built container image digest using GitHub Actions OIDC identity, enabling admission controllers to reject unsigned or tampered images.",
-        "It scans source code for syntax errors.",
-        "It generates SSL certificates for web browsers.",
-      ],
-      c: 1,
-      a: "Cosign provides keyless signing. It binds the image digest to the specific GitHub Actions workflow identity and records it in Rekor, allowing Kubernetes to reject untrusted artifacts.",
-    },
-    {
-      q: "What is the primary difference between Recovery Time Objective (RTO) and Recovery Point Objective (RPO)?",
-      options: [
-        "RTO measures cloud cost; RPO measures network latency.",
-        "RTO is the maximum tolerable duration of system downtime; RPO is the maximum tolerable amount of data loss measured in time.",
-        "RTO applies to CI/CD pipelines; RPO applies to Terraform.",
-        "There is no difference; they are interchangeable terms.",
-      ],
-      c: 1,
-      a: "RTO defines how long the service can be down before restoration (e.g. 1 hour). RPO defines the maximum acceptable age of data that can be lost from persistent storage (e.g. 15 minutes).",
-    },
-    {
-      q: "Why must Terraform state files never be committed to Git repositories?",
-      options: [
-        "Because Git cannot handle JSON files larger than 100 KB.",
-        "State files frequently contain plain-text sensitive values (database passwords, private keys) and concurrent edits without remote state locking cause state corruption.",
-        "Because HashiCorp enforces a copyright restriction on state files.",
-        "Git commits invalidate cloud provider credentials.",
-      ],
-      c: 1,
-      a: "Terraform state contains sensitive resource attributes in plain text. Storing state in Git risks credential leakage and lacks the distributed locking mechanisms (e.g. DynamoDB/S3) needed for team collaboration.",
-    },
-    {
-      q: "In an incident response lifecycle, what is the role of the Incident Commander (IC)?",
-      options: [
-        "To write all the code fixes while on the call.",
-        "To lead the response, coordinate roles, delegate investigation tasks, maintain command hygiene, and ensure clear internal and external communication.",
-        "To manage customer billing accounts.",
-        "To assign blame to the developer who introduced the bug.",
-      ],
-      c: 1,
-      a: "The Incident Commander maintains high-level situational awareness. They do not write code or tweak infrastructure directly; they coordinate operations, manage communications, and facilitate resolution.",
-    },
-    {
-      q: "What is the core principle of a Blameless Postmortem?",
-      options: [
-        "To find out which engineer made the mistake and publicly reprimand them.",
-        "To assume that engineers acted in good faith with the information available, focusing on system vulnerabilities, missing safeguards, and process improvements rather than personal fault.",
-        "To delete all incident logs to avoid liability.",
-        "To claim that the cloud provider was entirely responsible for the failure.",
-      ],
-      c: 1,
-      a: "Blameless postmortems recognize that human error is a symptom of systemic flaws. The goal is discovering why the system permitted the failure and engineering automated safeguards to prevent recurrence.",
-    },
-    {
-      q: "How does Course 1 (Cloud Computing) and Course 2 (DevOps + SRE) complement each other in this capstone?",
-      options: [
-        "Course 1 is for managers; Course 2 is for programmers.",
-        "Course 1 provides foundational cloud architecture and infrastructure design; Course 2 provides the delivery automation, SRE reliability, and platform engineering needed to operate it reliably.",
-        "Course 1 was theoretical; Course 2 completely replaces it.",
-        "Course 1 focuses on hardware; Course 2 focuses on marketing.",
-      ],
-      c: 1,
-      a: "Course 1 builds architectural understanding of distributed cloud systems (VPCs, compute, databases, IAM); Course 2 provides the engineering methodologies (IaC, GitOps, SRE, DevSecOps) to operate them in production.",
-    },
-    {
-      q: "What is the final definition of success for the SRE/DevOps Capstone Project?",
-      options: [
-        "Deploying 50 different microservices using every available CNCF tool.",
-        "Demonstrating an end-to-end deployable, observable, secured, and recoverable platform that can take a code change safely to production and recover gracefully when components fail.",
-        "Passing a multiple-choice exam without writing any code.",
-        "Running the entire system on a single laptop without cloud infrastructure.",
-      ],
-      c: 1,
-      a: "Capstone success is demonstrating engineering judgment: taking source changes through testing and GitOps reconciliation, observing operational behavior, enforcing security gates, and proving resilience during failures.",
-    },
-    {
-      q: "Why is an automated rollback mechanism essential when deploying canary releases?",
-      options: [
-        "Because Kubernetes deletes old container images after 5 minutes.",
-        "To limit the blast radius of a faulty deployment by automatically reverting traffic to the stable version before users experience widespread service degradation.",
-        "To avoid paying cloud data transfer costs.",
-        "Because canary releases cannot be stopped manually.",
-      ],
-      c: 1,
-      a: "Automated metric analysis in canary releases detects anomalies (increased error rates, latency spikes) and rolls back without waiting for human intervention, preserving the service error budget.",
-    },
-  ];
+  const masteryQuestions = moduleData?.quiz || [];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="devops" currentModuleId="capstone" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="devops" currentModuleId="capstone" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white">
       {/* BACKGROUND AMBIENT GLOW */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

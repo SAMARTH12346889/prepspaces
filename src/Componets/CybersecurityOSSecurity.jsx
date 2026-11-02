@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -52,6 +55,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function CybersecurityOSSecurity() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "os-security");
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(10);
 
@@ -276,86 +280,7 @@ export default function CybersecurityOSSecurity() {
   // ==========================================
   // INTERACTIVE KNOWLEDGE ASSESSMENT (6 QUESTIONS)
   // ==========================================
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the main purpose of system hardening?",
-      options: [
-        "Disable as many operating system features as possible",
-        "Reduce unnecessary exposure while preserving required functionality",
-        "Grant all users administrative permissions",
-        "Replace patching with firewall rules"
-      ],
-      correct: 1,
-      explanation:
-        "System hardening is the deliberate process of reducing unnecessary system capabilities, interfaces, services, and attack surfaces while aligning security settings with the system's required operational role. Blindly disabling features without considering functionality is poor engineering."
-    },
-    {
-      id: 2,
-      question: "On a typical Linux system, what does mode 640 mean?",
-      options: [
-        "Everyone can read and write",
-        "Owner and group have full access",
-        "Owner can read/write, group can read, other users have no access through these mode bits",
-        "Only the group can execute the file"
-      ],
-      correct: 2,
-      explanation:
-        "In octal notation, 6 = Read (4) + Write (2); 4 = Read (4); 0 = No permissions (0). Thus, mode 640 grants read/write to the owner, read-only to the group, and zero access to other users."
-    },
-    {
-      id: 3,
-      question: "Why is least privilege important for service accounts?",
-      options: [
-        "It limits the damage a compromised service can cause",
-        "It ensures every service runs as root",
-        "It removes the need for audit logs",
-        "It allows services to bypass file permissions"
-      ],
-      correct: 0,
-      explanation:
-        "If a service account runs with minimal permissions (e.g. read-only on static files, no shell access, no sudo), an attacker who compromises the application cannot easily tamper with OS binaries, pivot laterally, or escalate to root."
-    },
-    {
-      id: 4,
-      question: "What is an important role of Windows UAC?",
-      options: [
-        "Automatically encrypt every file",
-        "Support standard-user operation and controlled elevation for privileged tasks",
-        "Replace NTFS permissions",
-        "Guarantee that all applications are safe"
-      ],
-      correct: 1,
-      explanation:
-        "User Account Control (UAC) ensures administrators and standard users run with filtered standard tokens by default, prompting for explicit elevation when an administrative task is required to prevent silent background system modifications."
-    },
-    {
-      id: 5,
-      question: "What is the purpose of a security baseline?",
-      options: [
-        "Guarantee that no vulnerability exists",
-        "Remove all deviations without regard to the system's role",
-        "Define a documented, approved configuration for assessing and maintaining security",
-        "Replace all change-control procedures"
-      ],
-      correct: 2,
-      explanation:
-        "A security baseline (such as CIS Benchmarks or Microsoft Security Baselines) establishes an approved, documented configuration standard against which systems can be measured, audited, and protected from configuration drift."
-    },
-    {
-      id: 6,
-      question: "What should an administrator do if an application fails after a hardening change?",
-      options: [
-        "Investigate the evidence, validate the configuration, and apply a controlled correction or rollback",
-        "Disable every security control permanently",
-        "Ignore the failure and close the change ticket",
-        "Grant the application unrestricted administrative privileges by default"
-      ],
-      correct: 0,
-      explanation:
-        "Hardening requires disciplined change control. When an unexpected regression occurs, the administrator should inspect error logs, audit records, and permissions, and either tune the specific rule or enact a documented rollback."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -373,7 +298,14 @@ export default function CybersecurityOSSecurity() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="os-security" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="os-security" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -59,6 +62,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkConfig() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "config");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -464,118 +468,7 @@ Content-Length: 4280`,
   /* -------------------------------------------------------------------------- */
   /* ASSESSMENT & QUIZ STATE                                                    */
   /* -------------------------------------------------------------------------- */
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which sequence correctly describes the four steps of the standard DHCPv4 address allocation process?",
-      options: [
-        "Request, Discover, Offer, Acknowledge",
-        "Discover, Offer, Request, Acknowledge (DORA)",
-        "Offer, Discover, Acknowledge, Request",
-        "Discover, Request, Acknowledge, Offer",
-      ],
-      correct: 1,
-      explanation:
-        "The DHCPv4 lease process follows DORA: Client broadcasts DHCPDISCOVER, server responds with DHCPOFFER, client broadcasts DHCPREQUEST accepting the offer, and server responds with DHCPACK to seal the lease.",
-    },
-    {
-      id: 2,
-      question: "Which protocol resolves a target IPv4 address to its link-layer Ethernet MAC address on a local broadcast domain?",
-      options: ["DNS (Domain Name System)", "DHCP (Dynamic Host Configuration Protocol)", "ARP (Address Resolution Protocol)", "OSPF (Open Shortest Path First)"],
-      correct: 2,
-      explanation:
-        "Address Resolution Protocol (ARP) translates a known 32-bit IPv4 address into its corresponding 48-bit Ethernet MAC address for local frame delivery.",
-    },
-    {
-      id: 3,
-      question: "What is the primary diagnostic function of an ICMP Time Exceeded (Type 11) message?",
-      options: [
-        "Assign a dynamic IP lease renewal",
-        "Report that a packet's TTL or Hop Limit expired during forwarding, used by traceroute to identify intermediate routers",
-        "Provide recursive DNS server IP addresses to the client",
-        "Resolve a local router's Ethernet MAC address",
-      ],
-      correct: 1,
-      explanation:
-        "When an intermediate router decrements an IPv4 packet's TTL (or IPv6 Hop Limit) to 0, it discards the packet and generates an ICMP Time Exceeded message back to the sender.",
-    },
-    {
-      id: 4,
-      question: "Which Linux command displays the active IPv4 routing table and default gateway?",
-      options: ["ip route show", "ip neigh show", "dig", "tcpdump"],
-      correct: 0,
-      explanation:
-        "`ip route show` (or `ip route`) displays the kernel's IPv4 routing table. `ip neigh show` inspects the ARP cache, `dig` queries DNS, and `tcpdump` captures network packets.",
-    },
-    {
-      id: 5,
-      question: "What is the primary objective of an adversary launching a DHCP Starvation attack?",
-      options: [
-        "Poison the local DNS resolver cache",
-        "Exhaust all available IP address leases in a DHCP server's scope by flooding forged MAC requests, denying service to legitimate clients",
-        "Force routers to recalculate OSPF shortest paths",
-        "Decrypt WPA3 enterprise Wi-Fi handshakes",
-      ],
-      correct: 1,
-      explanation:
-        "DHCP starvation attacks flood the broadcast domain with requests using spoofed MAC addresses, depleting the server's pool of available IP leases so legitimate users cannot obtain an IP.",
-    },
-    {
-      id: 6,
-      question: "What happens when an IPv4 host fails to obtain a DHCP lease and has no static configuration?",
-      options: [
-        "The operating system automatically assigns an APIPA link-local address in the 169.254.0.0/16 range",
-        "The host connects directly to the Internet using 0.0.0.0",
-        "The network interface card shuts down its hardware link",
-        "The router automatically provisions a public BGP ASN",
-      ],
-      correct: 0,
-      explanation:
-        "Automatic Private IP Addressing (APIPA, RFC 3927) assigns an address in the 169.254.0.0/16 range when DHCP fails. This allows local link communication but cannot route to the default gateway or Internet.",
-    },
-    {
-      id: 7,
-      question: "Why is a DHCP Relay Agent ('ip helper-address') required when a DHCP server is located in a different VLAN or subnet?",
-      options: [
-        "DHCP uses encrypted TLS tunnels that require hardware acceleration",
-        "DHCPDISCOVER packets are Layer 2 broadcasts (255.255.255.255) which routers do not forward across subnet boundaries",
-        "DHCP servers only listen on TCP port 443",
-        "Ethernet switches automatically block all UDP traffic across trunks",
-      ],
-      correct: 1,
-      explanation:
-        "Initial DHCPDISCOVER packets are broadcast locally. Routers strictly terminate broadcast domains. A DHCP Relay Agent intercepts the broadcast and forwards it as a unicast packet to the central DHCP server.",
-    },
-    {
-      id: 8,
-      question: "Which protocol is used in IPv6 for neighbor address resolution, router discovery, and duplicate address detection in place of ARP?",
-      options: ["IGMPv3", "Neighbor Discovery Protocol (NDP) via ICMPv6", "DHCPv4 Relay", "Reverse ARP (RARP)"],
-      correct: 1,
-      explanation:
-        "IPv6 completely eliminates ARP and broadcasts. Instead, it uses the Neighbor Discovery Protocol (NDP, RFC 4861), which uses ICMPv6 messages (Neighbor Solicitation / Neighbor Advertisement).",
-    },
-    {
-      id: 9,
-      question: "Which Layer 2 security mechanism inspects DHCP traffic on untrusted switch ports and creates a trusted binding database used by Dynamic ARP Inspection (DAI)?",
-      options: ["Port Fast", "DHCP Snooping", "BPDU Guard", "Spanning Tree Protocol"],
-      correct: 1,
-      explanation:
-        "DHCP Snooping acts as a firewall between untrusted switch ports and DHCP servers, dropping rogue DHCPOFFERs and compiling a snooping binding database (IP, MAC, VLAN, Port) used by Dynamic ARP Inspection (DAI) and IP Source Guard.",
-    },
-    {
-      id: 10,
-      question: "If a user reports that they can browse a website using http://192.168.30.10 but typing http://portal.corp.internal fails, what is the most likely root cause?",
-      options: [
-        "The default gateway is offline",
-        "DNS resolution is failing (misconfigured resolver, stale record, or DNS daemon down)",
-        "The Ethernet cable is unplugged",
-        "The web server has crashed",
-      ],
-      correct: 1,
-      explanation:
-        "Because connectivity to the raw IP address works, the physical link, IP addressing, gateway, ARP, and web server are all functioning. The failure to connect by name points specifically to a DNS resolution failure.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
@@ -679,7 +572,14 @@ Content-Length: 4280`,
 3. **Disable Manual Overrides:** Standardize workstation fleet on 802.1X authenticated DHCP reservations.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="config" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="config" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-200">
       {/* Module Navigation Bar */}
       <ModuleNav

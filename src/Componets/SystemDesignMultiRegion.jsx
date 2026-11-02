@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -53,6 +56,7 @@ import {
 } from "./SystemDesignMultiRegionDiagrams";
 
 export default function SystemDesignMultiRegion() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "multi-region");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -128,73 +132,7 @@ export default function SystemDesignMultiRegion() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. What does RPO describe?",
-      options: [
-        "Maximum acceptable recovery time",
-        "Maximum acceptable data-loss interval",
-        "Maximum requests per second",
-        "Maximum database connections",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Recovery Point Objective (RPO) is the maximum acceptable amount of data loss expressed as a time interval (e.g. at most 5 minutes of committed writes lost during a disaster).",
-    },
-    {
-      id: "q2",
-      question: "2. What is a principal risk of asynchronous replication?",
-      options: [
-        "Every write has global consensus",
-        "The replica may miss recent committed writes when the primary fails",
-        "It always doubles write latency",
-        "It eliminates the need for backups",
-      ],
-      correctIndex: 1,
-      explanation:
-        "In asynchronous replication, the primary acknowledges writes before the replica applies them. If the primary crashes before WAL segments are transmitted, those recent committed writes may be permanently lost upon failover.",
-    },
-    {
-      id: "q3",
-      question: "3. What is split-brain?",
-      options: [
-        "A full region outage",
-        "Two replicas both rejecting reads",
-        "Two nodes independently acting as the authoritative writer",
-        "A backup that has expired",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Split-brain occurs when a network partition or failover race causes two isolated nodes/regions to both believe they are the authoritative primary writer, producing conflicting, divergent data histories.",
-    },
-    {
-      id: "q4",
-      question: "4. Why do systems need backups even when data is replicated?",
-      options: [
-        "Replication always corrupts data",
-        "Backups make replication unnecessary",
-        "Accidental deletion or corruption may be replicated too",
-        "Backups guarantee zero downtime",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Replication propagates data changes in real time. An accidental DROP TABLE, malicious script, or software corruption replicates immediately to all live standby replicas. Independent backups and PITR are required to restore past states.",
-    },
-    {
-      id: "q5",
-      question: "5. What must be validated before promoting a database replica?",
-      options: [
-        "Only the application's HTTP status",
-        "Replication state, recoverable data, and safe writer ownership",
-        "Only the DNS TTL",
-        "Whether the original server's CPU is idle",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Before promoting a replica, you must inspect replication lag / WAL receipt, confirm the previous primary is strictly fenced to avoid split-brain, and establish unambiguous writer ownership before accepting application traffic.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -964,7 +902,14 @@ export default function SystemDesignMultiRegion() {
     },
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="multi-region" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="multi-region" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans pb-20">
       {/* Top Module Navigation Bar */}
       <ModuleNav

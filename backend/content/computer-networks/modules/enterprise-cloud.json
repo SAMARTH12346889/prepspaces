@@ -100,7 +100,7 @@
         "The IEEE standard mandates that UDP port 4789 can only transmit frames larger than 4096 bytes"
       ],
       "correctIndex": 0,
-      "explanation": "VXLAN encapsulation prepends 50 bytes of outer headers (14B Outer Ethernet + 20B Outer IP + 8B UDP + 8B VXLAN). If an inner tenant VM sends a standard 1500-byte IP packet, the total frame becomes 1550 bytes. Physical switches must support an underlay MTU of at least 1550–1600 bytes (or 9000-byte Jumbo frames) to avoid packet drops or fragmentation."
+      "explanation": "VXLAN encapsulation prepends 50 bytes of outer headers (14B Outer Ethernet + 20B Outer IP + 8B UDP + 8B VXLAN). If an inner tenant VM sends a standard 1500-byte IP packet, the total frame becomes 1550 bytes. Physical switches must support an underlay MTU of at least 1550\u20131600 bytes (or 9000-byte Jumbo frames) to avoid packet drops or fragmentation."
     },
     {
       "id": 9,
@@ -137,6 +137,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

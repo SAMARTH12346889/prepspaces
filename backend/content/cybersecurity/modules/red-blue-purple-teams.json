@@ -16,7 +16,7 @@
         "Perform unapproved tests without informing anyone responsible for safety."
       ],
       "correctIndex": 1,
-      "explanation": "Purple teaming is a collaborative method connecting simulated adversary behavior to measurable defensive improvements—testing whether telemetry, detection rules, triage, and response work together."
+      "explanation": "Purple teaming is a collaborative method connecting simulated adversary behavior to measurable defensive improvements\u2014testing whether telemetry, detection rules, triage, and response work together."
     },
     {
       "id": "q2",
@@ -126,6 +126,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -59,6 +62,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function CybersecurityWebSecurity() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "web-security");
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(13);
 
@@ -144,80 +148,7 @@ export default function CybersecurityWebSecurity() {
     setQuizAnswers((prev) => ({ ...prev, [questionId]: optionIndex }));
   };
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "Why do web applications use session identifiers?",
-      options: [
-        "To encrypt every HTTP request automatically",
-        "To associate requests with an application session and its authentication state",
-        "To replace all backend authorization checks",
-        "To prove that every request is safe"
-      ],
-      correctAnswer: 1,
-      explanation: "HTTP is a stateless protocol (RFC 9110). A session identifier allows the backend to bind subsequent requests from a browser to an established authenticated state in the database or session store."
-    },
-    {
-      id: "q2",
-      question: "What does the HttpOnly cookie attribute do?",
-      options: [
-        "Prevents the browser from ever sending the cookie",
-        "Encrypts the cookie value",
-        "Prevents ordinary JavaScript APIs from reading the cookie directly",
-        "Eliminates the need for session expiration"
-      ],
-      correctAnswer: 2,
-      explanation: "The HttpOnly flag instructs the browser that the cookie should not be accessible via client-side scripts like document.cookie, mitigating direct credential extraction during XSS attacks."
-    },
-    {
-      id: "q3",
-      question: "What is the same-origin policy designed to do?",
-      options: [
-        "Restrict certain cross-origin script interactions in the browser",
-        "Authenticate every user to every API",
-        "Encrypt all website data at rest",
-        "Replace server-side authorization"
-      ],
-      correctAnswer: 0,
-      explanation: "The Same-Origin Policy (SOP) is a foundational browser security control that isolates documents and scripts loaded from different origins (scheme, host, and port) to prevent malicious sites from reading confidential data from other sites."
-    },
-    {
-      id: "q4",
-      question: "What is the correct relationship between CORS and backend authorization?",
-      options: [
-        "CORS makes backend authorization unnecessary",
-        "CORS controls browser cross-origin response access; backend authorization must still be enforced",
-        "CORS is an alternative to HTTPS",
-        "CORS guarantees that requests cannot be sent cross-origin"
-      ],
-      correctAnswer: 1,
-      explanation: "CORS is purely a browser-enforced mechanism governing whether JavaScript can read a cross-origin response. The server still receives and processes the request, meaning robust server-side authentication and authorization must always be enforced."
-    },
-    {
-      id: "q5",
-      question: "Which is a key defense against CSRF in a stateful web application?",
-      options: [
-        "Allow state-changing actions through GET requests",
-        "Hide all buttons that change application state",
-        "Use appropriate request-intent validation such as CSRF tokens, supported by suitable cookie and origin policies",
-        "Disable authentication for API endpoints"
-      ],
-      correctAnswer: 2,
-      explanation: "CSRF defenses require validating user intent via unpredictable anti-CSRF synchronizer tokens, verified SameSite cookies (Lax or Strict), Origin/Referer headers, and ensuring state-changing actions never use safe GET methods."
-    },
-    {
-      id: "q6",
-      question: "Why is Content Security Policy useful?",
-      options: [
-        "It restricts permitted browser resource behavior and can reduce the impact of some XSS attacks",
-        "It eliminates every type of XSS vulnerability",
-        "It automatically proves that the user is authorized",
-        "It replaces all cookie security attributes"
-      ],
-      correctAnswer: 0,
-      explanation: "Content Security Policy (CSP) provides defense in depth by restricting which scripts, styles, frames, and connections the browser can execute, dramatically mitigating the impact of XSS and clickjacking."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const calculateScore = () => {
     let score = 0;
@@ -227,7 +158,14 @@ export default function CybersecurityWebSecurity() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="web-security" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="web-security" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] relative overflow-hidden selection:bg-[#ea580c] selection:text-white">
       {/* Ambient background glows */}
       <div className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-orange-100/60 blur-3xl" />

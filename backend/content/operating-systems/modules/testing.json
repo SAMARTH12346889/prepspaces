@@ -77,6 +77,120 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 13
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Proving Correctness, Robustness, and Performance in Systems Software",
+      "paragraphs": [
+        "Operating-system engineering goes far beyond implementing algorithms: engineers must define provable component guarantees, preserve strict invariants under concurrent pressure, test failure paths through controlled fault injection, diagnose kernel panics, and evaluate systems research papers using empirical evidence."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Functional &amp; Non-Functional Requirements, Constraints, and Traceability",
+      "paragraphs": [
+        "Systems engineering begins with testable, observable specifications. Vague goals like &quot;the scheduler should work correctly&quot; are untestable. Every requirement must directly link to a design decision and a verification method.",
+        "Describe what the component must explicitly do. For a process scheduler:",
+        "Describe constraints on operational behavior. Must be accompanied by verification methods:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Invariants, Design Contracts, and Opaque Interfaces",
+      "paragraphs": [
+        "An invariant is a condition that must remain true whenever a component is in a valid observable state. Preconditions, postconditions, and failure semantics form an enforceable contract.",
+        "For a bounded queue with capacity \\(C\\): 0 &le; queue_size &le; C Even under concurrent producers and consumers, size must never exceed capacity or drop below 0.",
+        "Precondition: Pointer valid, queue initialized. Success Postcondition: Item queued, size++. Failure Postcondition: Queue unchanged; zero partial updates.",
+        "Expose only pointers to incomplete struct types (e.g. struct bounded_queue;). Callers cannot access internal mutexes or buffer arrays directly, preventing abstraction leaks."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Layered Testing: Unit, Integration, Property-Based, and Fuzzing",
+      "paragraphs": [
+        "No single testing tool proves system correctness. Robust engineering requires layered testing from isolated unit tests up to automated fuzz testing.",
+        "Developing and unit-testing systems algorithms in user space allows rapid iteration with Valgrind and ASAN/TSAN. However, user-space tests cannot verify hardware interrupt context constraints, DMA coherency, or kernel-only spinlock rules."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Model-Based Testing &amp; Formal State Invariant Verification",
+      "paragraphs": [
+        "Model-based testing executes operation sequences against an abstract state machine to discover bugs that only occur after complex sequences of individually valid operations.",
+        "Test legal and illegal state transitions. The verification engine checks invariants in real time."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Controlled Fault Injection, Memory Unwinding, and Test Reproducibility",
+      "paragraphs": [
+        "Reliable systems must handle rare error conditions gracefully. Controlled fault injection verifies that error handling routines release all previously acquired resources without leaks or partially initialized objects.",
+        "Simulate partial initialization failures across a 4-stage allocation sequence.",
+        "When randomized or stress tests trigger an intermittent failure, engineers must record the exact environmental conditions to reproduce it deterministically:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Data Races, Shadow Memory, and Sanitizer Tooling",
+      "paragraphs": [
+        "Concurrency bugs are notorious for disappearing when debug print statements are added (heisenbugs). Learn how to detect unsynchronized memory accesses systematically with ThreadSanitizer (TSAN) and AddressSanitizer (ASAN).",
+        "Compare Unsynchronized Race vs POSIX Mutex vs C11 Atomic Fetch-Add across 8 threads.",
+        "-fsanitize=thread: Tracks shadow memory timestamps to find concurrent unsynchronized reads/writes without false positives.",
+        "-fsanitize=address: Surrounds memory allocations with poisoned redzones to trap buffer overflows and use-after-free instantly.",
+        "Instruments compiled x86 binaries via CPU emulation to detect uninitialized memory reads and dangling heap memory leaks."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Kernel Panics, kdump/kexec Crash Dumps, and Root-Cause Debugging",
+      "paragraphs": [
+        "When the operating system kernel encounters state corruption or unrecoverable hardware faults, it halts execution to prevent data corruption. Master the structured crash diagnostic workflow.",
+        "Null pointer dereference in kernel space (CR2: 00000000), scheduling while atomic, spinlock recursion, or failed boot device mounting (VFS panic).",
+        "When a panic occurs, kdump uses kexec to boot into a reserved capture kernel without resetting hardware, writing vmcore{\" \"} safely to disk.",
+        "journalctl -k -b -1 dmesg --level=err,warn crash vmlinux vmcore"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Reliability Metrics, Performance Regressions, and Engineering Trade-Offs",
+      "paragraphs": [
+        "Reliability is more than uptime. A component that stays online while returning corrupted results is broken. Learn how to define regression acceptance criteria and balance architectural trade-offs.",
+        "Adjust baseline vs candidate benchmark results to verify CI pass/block thresholds.",
+        "{regressionAnalysis.rationale}",
+        "Benefit: Higher multi-core throughput. Cost: Complex lock acquisition ordering hierarchies and deadlock risks.",
+        "Benefit: Immunity to thread preemption bottlenecks. Cost: Harder correctness proofs, memory reclamation complexities (ABA, hazard pointers)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Evaluating Systems Research Papers (SOSP, OSDI, EuroSys)",
+      "paragraphs": [
+        "Operating systems engineering advances through published academic and industrial research. Engineers must read systems papers critically, distinguishing between genuine breakthroughs and narrow benchmark artifacts."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Practical Lab: Systems Component Verification &amp; Failure Analysis",
+      "paragraphs": [
+        "Scenario: You are responsible for a shared counter used by worker threads in a critical systems component. Under concurrent load, the counter produces incorrect totals. Reproduce the failure, diagnose the root cause with ThreadSanitizer, implement two fixes (atomic and mutex), and build a formal test plan."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 22 OS Verification &amp; Failure Analysis Knowledge Check",
+      "paragraphs": [
+        "Validate your understanding of invariants, model testing, fault injection, and regression analysis."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 22 Systems Verification Mastery Checklist",
+      "paragraphs": [
+        "Track your conceptual and practical comprehension of testing, fault injection, and failure diagnostics."
+      ]
+    }
+  ]
 }

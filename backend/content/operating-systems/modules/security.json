@@ -89,6 +89,91 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 10
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Users, Groups, Capabilities, and Least Privilege",
+      "paragraphs": [
+        "Linux security begins with identity. The kernel associates every process with a User ID (UID), Group ID (GID), supplementary groups, and a set of cryptographic capabilities that dictate what privileged system calls and kernel operations the process is permitted to perform.",
+        "Configure process credentials, file permission bits, and kernel capabilities to evaluate privilege boundaries and attack exposure."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Permissions, ACLs, Privilege Escalation, and Attack Surfaces",
+      "paragraphs": [
+        "Discretionary Access Control (DAC) in Linux relies on 9 permission bits across owner, group, and others, augmented by special permission bits (setuid, setgid, sticky) and POSIX Access Control Lists (ACLs). Understanding where permission boundaries fail is the foundation of preventing privilege escalation.",
+        "When executed, the process assumes the effective user ID of the file's owner rather than the caller.",
+        "On directories, all newly created files inherit the parent directory's group ownership rather than the creator's primary GID.",
+        "On directories, users can only delete or rename files they own, even if the directory is world-writable (777).",
+        "Traditional Unix permissions only permit 1 owner and 1 group. POSIX ACLs allow granting explicit permissions to named users and groups without altering group memberships."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Process Isolation, Namespaces, cgroups, and seccomp",
+      "paragraphs": [
+        "Real container isolation is not a single feature; it is an orchestration of 4 independent kernel mechanisms: Namespaces (virtual views), cgroups (resource bounds), seccomp-bpf (system call filters), and LSMs (mandatory access control like AppArmor/SELinux).",
+        "Configure containment parameters and trigger malicious simulated payloads to verify sandbox defenses.",
+        "{sandboxOutcome.contained ? sandboxOutcome.defenseTrigger : sandboxOutcome.failureReason}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Secure Boot, Kernel Integrity, and Patch Management",
+      "paragraphs": [
+        "Security must be anchored in hardware. The Secure Boot trust chain guarantees that firmware, bootloaders, and kernel binaries have not been tampered with before execution begins."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Resource Exhaustion and Denial-of-Service Defenses",
+      "paragraphs": [
+        "Denial of Service (DoS) is not merely a network attack; it occurs whenever unbounded workloads exhaust CPU, RAM, file descriptors, process tables, or queue depth. Reliable operating systems implement explicit bounds and graceful load shedding.",
+        "Inject attack request traffic and observe how bounded queues, rate limiters, and CPU quotas protect availability.",
+        "The goal of system reliability is not to achieve infinite throughput under malicious floods. It is to enforce hard bounds, reject excess work with HTTP 429 / 503 errors, and guarantee that legitimate users and health-check monitoring retain system resources."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Auditing, Logs, Incident Investigation, and Recovery",
+      "paragraphs": [
+        "Security is incomplete without auditability and incident recovery. When an intrusion occurs, responders must stabilize the workload, preserve forensically sound evidence, establish an exact timeline, and execute verified restoration procedures."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Threat Modeling for Local and Server Workloads",
+      "paragraphs": [
+        "Threat modeling prevents security from being an arbitrary list of hardening commands. The STRIDE framework systematically identifies threats across Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.",
+        "Select an application architecture to evaluate trust boundaries and defense-in-depth controls."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Harden a Disposable Linux Environment",
+      "paragraphs": [
+        "Execute an end-to-end security assessment across Phase A (Baseline Inventory), Phase B (Permissions Audit), Phase C (Controlled Hardening), Phase D (8-Point Checklist Validation), and Phase E (Assessment Report).",
+        "Production service sandbox with non-root UID, dropped capabilities, restricted syscalls, and resource ceilings.",
+        "{`# /etc/systemd/system/hardened.service [Unit] Description=Hardened Secure Microservice After=network.target [Service] # Identity: Dedicated non-root account User=appsvc Group=appsvc # Filesystem Sandboxing: Strict read-only rootfs ProtectSystem=strict ProtectHome=yes ReadOnlyPaths=/ ReadWritePaths=/var/log/appsvc PrivateTmp=yes # Capabilities: Drop all superuser powers except port 80/443 binding CapabilityBoundingSet=CAP_NET_BIND_SERVICE AmbientCapabilities=CAP_NET_BIND_SERVICE NoNewPrivileges=yes # Syscall Filtering via seccomp-bpf SystemCallFilter=@system-service SystemCallFilter=~@privileged @resources # cgroup v2 Resource Ceilings MemoryMax=128M TasksMax=30 CPUQuota=50% ExecStart=/usr/local/bin/appsvc`} {/* Phase D Validation Checklist */} Phase D \u2014 8-Point Security Validation Plan {[ { title: \"1. Identity Verification\", desc: \"Confirm service uses UID 1000+ and does not execute as root.\" }, { title: \"2. File Permissions\", desc: \"Confirm unauthorized test users cannot read or modify protected configs.\" }, { title: \"3. Network Exposure\", desc: \"Verify with ss -lntup that only designated ports (e.g. 9000) listen.\" }, { title: \"4. Resource Limits\", desc: \"Verify fork-bomb payload is throttled by TasksMax=30.\" }, { title: \"5. Isolation & Sandboxing\", desc: \"Inspect PrivateTmp=yes to ensure /tmp namespace isolation.\" }, { title: \"6. Patch & Kernel Status\", desc: \"Verify kernel version with uname -r and check pending advisories.\" }, { title: \"7. Logging Verification\", desc: \"Generate harmless test event; confirm recording in journalctl -u.\" }, { title: \"8. Recovery Drill\", desc: \"Revert lab change or restore VM snapshot and verify service health.\" }, ].map((item, idx) => ( {item.title} {item.desc}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 20 Mastery Exam",
+      "paragraphs": [
+        "6 comprehensive engineering questions \u00b7 1 point each \u00b7 Instant architectural verification"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 20 Systems Engineering Mastery Checklist",
+      "paragraphs": [
+        "Track your conceptual and hands-on comprehension of Linux security and reliability."
+      ]
+    }
+  ]
 }

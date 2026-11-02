@@ -2,7 +2,7 @@
   "id": "tcp",
   "courseId": "computer-networks",
   "index": 9,
-  "name": "9. TCP — Reliable Transport",
+  "name": "9. TCP \u2014 Reliable Transport",
   "route": "/learning/networks/tcp",
   "componentName": "NetworkTCP",
   "quiz": [
@@ -40,7 +40,7 @@
         "There is no difference; rwnd and cwnd are synonyms in RFC 9293"
       ],
       "correctIndex": 0,
-      "explanation": "Flow control (rwnd) is advertised by the receiver to prevent a fast sender from exhausting its memory buffer. Congestion control (cwnd) is dynamically calculated by the sender to prevent overloading the network path. Effective Window ≈ min(rwnd, cwnd)."
+      "explanation": "Flow control (rwnd) is advertised by the receiver to prevent a fast sender from exhausting its memory buffer. Congestion control (cwnd) is dynamically calculated by the sender to prevent overloading the network path. Effective Window \u2248 min(rwnd, cwnd)."
     },
     {
       "id": 4,
@@ -100,7 +100,7 @@
         "40 KB"
       ],
       "correctIndex": 0,
-      "explanation": "BDP = Bandwidth × RTT = 100,000,000 bps × 0.040 s = 4,000,000 bits. In bytes: 4,000,000 / 8 = 500,000 bytes (~500 KB). This is the buffer capacity required to saturate the pipe."
+      "explanation": "BDP = Bandwidth \u00d7 RTT = 100,000,000 bps \u00d7 0.040 s = 4,000,000 bits. In bytes: 4,000,000 / 8 = 500,000 bytes (~500 KB). This is the buffer capacity required to saturate the pipe."
     },
     {
       "id": 9,
@@ -137,6 +137,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

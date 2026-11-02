@@ -89,6 +89,91 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 8
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. Kernel Responsibilities and Subsystem Boundaries",
+      "paragraphs": [
+        "The privileged core \u00b7 Subsystem contracts \u00b7 Monolithic address spaces \u00b7 Hardware coordination",
+        "The kernel is the privileged core of an operating system. While user-space applications are strictly isolated inside virtual address spaces, the kernel executes with unrestricted hardware access, managing CPU registers, page table roots, physical memory, and device controllers.",
+        "Maintains PCB / task_struct records, per-core runqueues, context switching, CPU affinity, and preemption.",
+        "Constructs hierarchical page tables, handles demand page faults, manages buddy physical allocators and slab/slub caches.",
+        "Translates file paths via inodes and dentries, manages dirty page writeback, and queues I/O through blk-mq.",
+        "In a monolithic operating system like Linux, subsystem boundaries (e.g. between the VFS and the NVMe driver) are enforced only by C code conventions, not by hardware isolation. A null-pointer dereference or stray pointer in a device driver can corrupt scheduling queues or filesystem state across the entire computer."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. Boot Flow and Kernel Initialization",
+      "paragraphs": [
+        "UEFI & BIOS \u00b7 GRUB Bootloader \u00b7 head_64.S \u00b7 start_kernel() \u00b7 initramfs \u00b7 Spawning PID 1",
+        "Before an application can execute, modern computer hardware and the kernel execute a coordinated sequence of transitions from bare silicon up to the first user-space init daemon.",
+        "Displays the exact boot parameters passed from GRUB to the kernel (e.g. root partition UUID, quiet, ro, console).",
+        "Verifies the ancestor of all user-space processes (PID 1), typically /sbin/init symlinked to systemd.",
+        "Step through the 7 boot milestones from CPU reset to user-space systemd execution."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. Interrupts, Exceptions, and Privilege Transitions",
+      "paragraphs": [
+        "Traps vs Syscalls vs IRQs \u00b7 x86 Ring 0/Ring 3 \u00b7 ARM EL0/EL1 \u00b7 Top-half vs Bottom-half (softirqs)",
+        "Execution transitions into privileged kernel space via three distinct architectural events:",
+        "Synchronous, intentional software requests (syscall, ecall). Application deliberately requests an OS service.",
+        "Synchronous, instruction-generated faults (e.g. Page Fault #14, Division by Zero #0). Can be recoverable or fatal (SIGSEGV).",
+        "Asynchronous electrical signals from peripherals (network packet arrival, NVMe completion, timer tick). Unrelated to current instruction.",
+        "Hardware interrupts preempt arbitrary code and must execute in microseconds with local CPU interrupts disabled. Therefore, Linux splits interrupt processing:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. System-Call Dispatch and User Memory Validation",
+      "paragraphs": [
+        "sys_call_table \u00b7 Trapframe preservation \u00b7 copy_from_user \u00b7 Error conventions (-errno vs -1)",
+        "When user code calls write(1, \"Kernel\", 6), how does the CPU jump into the kernel, execute the right C function, and safely return?",
+        "Step through the 6 stages of a write() syscall from user space registers through Ring 0 dispatch and return."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. Kernel Stacks, Synchronization, and Scheduling",
+      "paragraphs": [
+        "Kernel stack boundaries \u00b7 Spinlocks vs Mutexes \u00b7 Interrupt-safety (spin_lock_irqsave) \u00b7 Context switching",
+        "Every running process in Linux has two stacks: a large user-space stack (typically 8MB limit) and a small, fixed-size per-thread kernel stack (typically 8KB or 16KB). Because kernel stack space is precious, kernel code must never allocate large local arrays or use deep recursion.",
+        "Busy-waits in a tight CPU loop until the lock is freed. Never sleeps! Can be held in interrupt context. Critical sections must be as short as possible.",
+        "Sleeping lock. If the lock is held, the calling thread is placed on a wait queue and yields the CPU via schedule(). Strictly illegal in interrupt context!",
+        "Understand why raw spin_lock can trigger an unrecoverable kernel deadlock when interrupted by a hardware timer, and how spin_lock_irqsave prevents it."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. Kernel Architecture Models: Monolithic, Microkernel & Hybrid",
+      "paragraphs": [
+        "Linux vs seL4 / Mach \u00b7 Fault isolation blast radius \u00b7 Loadable Kernel Modules (LKMs) \u00b7 Security risks",
+        "How should the boundary between privileged and unprivileged code be drawn?",
+        "All core services (Scheduler, MM, Filesystems, Network Stacks, Device Drivers) share one Ring 0 address space. Direct C function calls make it blisteringly fast, but a single driver crash can panic the whole OS.",
+        "Ring 0 contains only IPC, basic scheduling, and hardware traps (typically &lt;10K lines of code). Filesystems, network stacks, and device drivers run as isolated user processes. A crashed driver is simply restarted.",
+        "Switch between Monolithic and Microkernel models. Click \"Inject Driver Crash\" to observe the difference between an OS-wide Kernel Panic and isolated user process recovery."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. MIT xv6 Source-Code Exploration & Linux Tracing Lab",
+      "paragraphs": [
+        "user/usys.pl \u00b7 kernel/syscall.c \u00b7 kernel/sysfile.c \u00b7 kernel/trap.c \u00b7 strace & objdump tracing",
+        "MIT\u2019s xv6-riscv teaching operating system implements the complete Unix interface in under 10,000 lines of readable C."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 17 Knowledge Check",
+      "paragraphs": [
+        "Verify your mastery of kernel boot flow, syscall dispatch, interrupts, spinlocks, and microkernels",
+        "Track your engineering competence across kernel internals, system calls, and synchronization"
+      ]
+    }
+  ]
 }

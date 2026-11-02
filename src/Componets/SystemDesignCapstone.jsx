@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -39,6 +42,7 @@ import {
 } from "./SystemDesignCapstoneDiagrams";
 
 export default function SystemDesignCapstone() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "capstone");
   const navigate = useNavigate();
 
   // Navigation tab state: "curriculum" | "simulators" | "qa" | "plan" | "assessment" | "reading"
@@ -60,112 +64,7 @@ export default function SystemDesignCapstone() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. What is the primary purpose of a vertical slice?",
-      options: [
-        "Implement every feature before testing anything",
-        "Demonstrate one complete workflow through the frontend, backend, data, and dependencies",
-        "Create an architecture diagram without code",
-        "Benchmark only the database",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A vertical slice validates the entire end-to-end integration across frontend, API gateway, persistence, and external dependencies with real transactions before adding feature breadth.",
-    },
-    {
-      id: "q2",
-      question: "2. Why should an accepted interview answer be persisted before relying on AI evaluation completion?",
-      options: [
-        "AI inference is always instantaneous",
-        "It avoids all database transactions",
-        "It protects user work when inference fails or times out",
-        "It makes authorization unnecessary",
-      ],
-      correctIndex: 2,
-      explanation:
-        "External AI models are slow and prone to network timeouts or rate limits. Persisting the answer durably first ensures candidate work is never lost, allowing asynchronous or retried evaluation.",
-    },
-    {
-      id: "q3",
-      question: "3. What does p95 latency tell you?",
-      options: [
-        "The average amount of stored data",
-        "The time within which approximately 95% of measured requests complete or fall below, according to the metric definition",
-        "The maximum possible server latency",
-        "The number of failed database writes",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Percentile latency (p95) measures tail performance: 95% of requests experience latency at or below this threshold, highlighting tail spikes that arithmetic averages completely conceal.",
-    },
-    {
-      id: "q4",
-      question: "4. When should a breakpoint test be run?",
-      options: [
-        "Against any production endpoint without permission",
-        "Before the test script has been validated",
-        "In a controlled environment with stop conditions to identify capacity limits",
-        "Only after disabling monitoring",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Breakpoint testing increases load in controlled stages within an isolated test environment with predefined stop conditions to discover the exact saturation point of the first failing component.",
-    },
-    {
-      id: "q5",
-      question: "5. A worker crashes after saving a report but before sending a notification. What is a suitable design?",
-      options: [
-        "Delete the report because the notification failed",
-        "Use recoverable event processing and idempotent notification handling",
-        "Make the report depend on an active browser connection",
-        "Retry every request indefinitely",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Decoupled event processing (via an Outbox pattern or message broker visibility timeout) allows another worker to retry notification dispatch idempotently without corrupting the completed report.",
-    },
-    {
-      id: "q6",
-      question: "6. What should happen when a user requests another tenant's report by changing its ID?",
-      options: [
-        "Return it if the ID is valid",
-        "Check only whether the user is logged in",
-        "Rely on the frontend to hide the report link",
-        "Enforce resource and tenant authorization on the backend",
-      ],
-      correctIndex: 3,
-      explanation:
-        "Never trust client-supplied IDs. The backend must enforce server-side ownership and organization tenant boundaries, returning HTTP 403 Forbidden on cross-tenant ID tampering (BOLA/IDOR prevention).",
-    },
-    {
-      id: "q7",
-      question: "7. How do you demonstrate that an optimization improved performance?",
-      options: [
-        "Compare reproducible benchmark results under the same defined workload",
-        "Assume it is faster because it uses a cache",
-        "Count the number of services added",
-        "Rely on a single successful request",
-      ],
-      correctIndex: 0,
-      explanation:
-        "Performance optimization claims must be supported by empirical evidence: running the exact same benchmark workload before and after the change and comparing p95/p99 latency, error rate, and throughput.",
-    },
-    {
-      id: "q8",
-      question: "8. What is a central goal of a technical defense?",
-      options: [
-        "Claim the system has no limitations",
-        "Use the largest possible technology stack",
-        "Explain and defend choices using requirements, trade-offs, and evidence",
-        "Avoid discussing failed experiments",
-      ],
-      correctIndex: 2,
-      explanation:
-        "An architectural defense demonstrates engineering maturity: justifying decisions with explicit requirements, empirical benchmark data, reasoned trade-offs, and an honest discussion of known limitations.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -240,7 +139,14 @@ export default function SystemDesignCapstone() {
     },
   ];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="capstone" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="capstone" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900">
       <ModuleNav track="system-design" currentModuleId="capstone" />
 

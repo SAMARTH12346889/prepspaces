@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -67,6 +70,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkDNS() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "dns");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -316,128 +320,7 @@ export default function NetworkDNS() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which component in the DNS architecture normally provides the final authoritative answer for records within its delegated zone?",
-      options: [
-        "A root server (e.g., a.root-servers.net)",
-        "An Authoritative DNS server designated by the parent zone's NS delegation",
-        "The client operating system's local hosts file",
-        "A transparent NAT gateway router",
-      ],
-      correct: 1,
-      explanation: "Authoritative nameservers hold the actual zone files containing records (A, AAAA, MX, etc.) for that specific domain. Root and TLD servers only provide referrals to the next nameserver in the hierarchy.",
-    },
-    {
-      id: 2,
-      question: "What is the difference between a Recursive query and an Iterative query in DNS resolution?",
-      options: [
-        "Recursive queries use TCP port 53, while iterative queries use UDP port 53 exclusively.",
-        "In a recursive query, the resolver assumes responsibility to find the complete answer; in an iterative query, the queried server returns the best referral it has without querying further.",
-        "Recursive queries are only used for reverse IPv6 lookups, while iterative queries resolve IPv4 addresses.",
-        "There is no difference; the terms are synonymous in RFC 1035.",
-      ],
-      correct: 1,
-      explanation: "A client stub resolver sends a recursive query (RD=1) to a recursive caching resolver. The recursive resolver then performs a series of iterative queries against root, TLD, and authoritative nameservers, following referrals until the record is found.",
-    },
-    {
-      id: 3,
-      question: "Why can a standard CNAME record generally NOT coexist with other records at the zone apex (e.g., prepspaces.com)?",
-      options: [
-        "Because CNAME records cannot exceed 16 characters in total length.",
-        "Because DNS RFC rules mandate that a CNAME owner name cannot have any other resource records, but the zone apex must contain SOA and NS records.",
-        "Because CNAME records only point to IP addresses, which conflicts with IPv6.",
-        "Because BGP routers reject routing tables with aliased root records.",
-      ],
-      correct: 1,
-      explanation: "Under RFC 1034 section 3.6.2, if a CNAME record exists at a node, no other data may exist at that node. Because every zone apex requires SOA and NS records for zone delegation, a conventional CNAME at the apex violates DNS specifications (prompting modern DNS providers to invent CNAME flattening / ALIAS records).",
-    },
-    {
-      id: 4,
-      question: "What does an NXDOMAIN response code signify compared to a NODATA response in DNS?",
-      options: [
-        "NXDOMAIN means the entire queried domain name does not exist; NODATA (NOERROR with 0 answers) means the name exists, but has no records of the requested type.",
-        "NXDOMAIN means the DNS server has crashed, while NODATA means the connection timed out.",
-        "NXDOMAIN is only returned over DNS over HTTPS, while NODATA is returned over plain UDP.",
-        "NXDOMAIN indicates the record has expired from cache, while NODATA indicates DNSSEC validation failure.",
-      ],
-      correct: 0,
-      explanation: "RCODE 3 (NXDOMAIN) asserts that the domain name itself does not exist in the zone. In contrast, a NODATA response returns RCODE 0 (NOERROR) but an empty Answer section (ANCOUNT=0), meaning the domain exists (e.g. it has an A record), but lacks the requested type (e.g. AAAA).",
-    },
-    {
-      id: 5,
-      question: "Where is the negative caching lifetime (how long resolvers may cache an NXDOMAIN) specified for a DNS zone?",
-      options: [
-        "In the TTL field of the parent zone's root server",
-        "In the MINIMUM field of the zone's Start of Authority (SOA) resource record (RFC 2308)",
-        "Hardcoded to exactly 86,400 seconds in all operating system kernels",
-        "Inside the client's DHCP lease offer",
-      ],
-      correct: 1,
-      explanation: "Per RFC 2308, negative caching duration is governed by the MINIMUM field of the authoritative SOA record (or the SOA record's own TTL, whichever is smaller). Resolvers cache negative results to avoid bombarding authorities with repeated queries for nonexistent names.",
-    },
-    {
-      id: 6,
-      question: "How does DNS over HTTPS (DoH — RFC 8484) differ from DNS over TLS (DoT — RFC 7858) operationally?",
-      options: [
-        "DoH encrypts DNS queries inside HTTPS sessions over port 443 (blending with web traffic), whereas DoT runs DNS directly over TLS on dedicated TCP port 853.",
-        "DoT requires DNSSEC keys, whereas DoH operates entirely unencrypted.",
-        "DoH is only supported on mobile Android devices, while DoT is only supported on Windows Server.",
-        "DoT disables caching, whereas DoH caches records indefinitely.",
-      ],
-      correct: 0,
-      explanation: "DoT uses a dedicated TCP port (853) with raw TLS framing, making it easy for enterprise firewalls to identify, monitor, or block. DoH tunnels DNS wire messages inside standard HTTPS (HTTP/2 or HTTP/3) requests on port 443, making it indistinguishable from regular web traffic by port number alone.",
-    },
-    {
-      id: 7,
-      question: "What security vulnerability did the Kaminsky DNS cache poisoning attack exploit, and what modern defense prevents it?",
-      options: [
-        "Buffer overflows in BIND; mitigated by compiling with AddressSanitizer.",
-        "Predictable 16-bit DNS Transaction IDs combined with fixed UDP source ports; mitigated by Source Port Randomization (SPR) and DNSSEC validation.",
-        "Weak RSA key lengths in DoT certificates; mitigated by elliptic curve Curve25519.",
-        "Lack of IP checksums in IPv6; mitigated by RFC 8200.",
-      ],
-      correct: 1,
-      explanation: "Dan Kaminsky demonstrated in 2008 that an attacker querying random subdomains could flood a recursive resolver with forged responses matching the 16-bit Transaction ID (65,536 possibilities). Modern resolvers randomize both the 16-bit Transaction ID and the 16-bit UDP source port (yielding ~4 billion entropy states) and validate cryptographic DNSSEC signatures.",
-    },
-    {
-      id: 8,
-      question: "Which of the following is a key limitation of DNSSEC (DNS Security Extensions)?",
-      options: [
-        "DNSSEC does not provide confidentiality or encrypt DNS queries in transit; an on-path observer can still read queries and answers.",
-        "DNSSEC cannot authenticate IPv6 (AAAA) records.",
-        "DNSSEC replaces the DNS hierarchy with a peer-to-peer blockchain.",
-        "DNSSEC only works if clients communicate over satellite links.",
-      ],
-      correct: 0,
-      explanation: "DNSSEC provides cryptographic data integrity and origin authentication (verifying records were not altered by an attacker) using digital signatures (RRSIG). It does NOT encrypt the query or response—passive eavesdroppers can still read DNS queries unless DoH or DoT is used.",
-    },
-    {
-      id: 9,
-      question: "In security investigations, why are repeated high-volume TXT queries to long, high-entropy subdomain labels considered an indicator of DNS tunneling?",
-      options: [
-        "Because TXT records are illegal in RFC 1035 and indicate a corrupted kernel.",
-        "Because attackers encode binary exfiltrated data or command-and-control payloads into alphanumeric subdomain labels and use TXT responses to tunnel data through recursive resolvers.",
-        "Because TXT records automatically disable firewall state tables.",
-        "Because DNS tunneling can only occur if an attacker has physical access to root servers.",
-      ],
-      correct: 1,
-      explanation: "DNS tunneling tools (e.g. dnscat2, iodine) encode stolen data or shell commands into base32/base64 labels (e.g., `<encoded-payload>.c2.attacker.com`). Because organizations permit outbound UDP 53 to their recursive resolvers, the queries bypass firewalls and reach the attacker's authoritative server.",
-    },
-    {
-      id: 10,
-      question: "When troubleshooting with `dig +trace example.com`, what does the tool specifically do?",
-      options: [
-        "It queries the local /etc/hosts file 100 times to test file I/O latency.",
-        "It mimics an iterative resolver, querying root servers ('.'), following referrals to TLD servers, and finally querying the authoritative nameservers directly from your machine.",
-        "It automatically deploys a BIND9 DNS server inside a local Docker container.",
-        "It decrypts all DoH traffic passing across the local Wi-Fi interface.",
-      ],
-      correct: 1,
-      explanation: "`dig +trace` bypasses the recursive resolver's cache. It contacts the root servers directly, receives referrals to the appropriate TLD nameservers, follows those referrals to the domain's authoritative nameservers, and prints each hierarchical delegation step.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -533,7 +416,14 @@ prepspaces.com.         300     IN  AAAA 2606:4700:3037::ac43:80b5
 4. **Mandate Encrypted DNS with Centralized Policy:** Configure enterprise-wide DoT/DoH to approved internal resolvers; block external outbound UDP/TCP 53 to prevent shadow DNS bypasses.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="dns" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="dns" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Banner & Module Navigation Header */}
       <div className="bg-[#18181b] text-white border-b border-stone-800 sticky top-0 z-50 shadow-md">

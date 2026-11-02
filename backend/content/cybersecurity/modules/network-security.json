@@ -89,6 +89,82 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 6
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Network Security Fundamentals and Defense in Depth",
+      "paragraphs": [
+        "Establishing trust boundaries, analyzing multi-layer attack surfaces, and applying least privilege across traffic flows.",
+        "A network connects users, applications, services, devices, and data. Each connection creates a possible path through which legitimate activity\u2014or unauthorized activity\u2014can occur. Network security focuses on controlling those paths and observing how they are used.",
+        "Permit only the communications needed for a documented business purpose. A database server accepts connections from the application service on its designated port; it must never accept connections from generic employee workstations.",
+        "Start with no access and explicitly permit required traffic. Default deny is far more secure than allowing everything and trying to enumerate bad traffic. A broad allow rule can destroy an otherwise restrictive posture.",
+        "Deploy complementary controls across 6 structural layers: Identity/Device $\\to$ Network Segmentation $\\to$ Firewall Enforcement $\\to$ IDS/IPS Monitoring $\\to$ Host/App Hardening $\\to$ Incident Response.",
+        "When designing security for any connection, the security engineer must answer seven foundational questions:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Firewalls and Firewall Policy Design",
+      "paragraphs": [
+        "Stateless vs stateful filtering, NGFW and WAF boundaries, building rigorous rule tables, and managing policy lifecycles under NIST SP 800-41 Rev. 1.",
+        "A firewall is a hardware, software, virtual, or cloud-native control that enforces rules governing network communications. Depending on its design, it inspects source/destination IPs, ports, transport protocols, connection states, application identities, and interface direction.",
+        "Authority: NIST SP 800-41 Rev. 1 emphasizes that a firewall does not make an allowed connection safe; it merely enforces configured policy. If the policy is overly permissive, the firewall offers false assurance.",
+        "Evaluates packets in isolation against static rules (IP, protocol, port). Does not maintain connection state tables. Fast, but cannot easily track dynamic return traffic.",
+        "Maintains a state table tracking active TCP/UDP sessions (SYN, ESTABLISHED, FIN). Automatically permits legitimate response packets without requiring open reverse ports.",
+        "Combines stateful filtering with Layer 7 application awareness, deep packet inspection (DPI), user identity mapping, TLS decryption, and embedded IPS capabilities.",
+        "Specialized reverse proxy enforcing rules on HTTP/HTTPS payloads to detect SQLi, XSS, and CSRF. Does NOT replace secure code or database access controls.",
+        "An established TCP/TLS connection is never proof that the user's action is authorized."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Intrusion Detection and Prevention Systems (IDS/IPS)",
+      "paragraphs": [
+        "Operating mechanics of Suricata and Zeek, NIDS vs HIDS, signature vs anomaly vs behavior detection, and sensor placement tradeoffs.",
+        "Monitors raw packets passing across choke points (data center egress, inter-VLAN switches).",
+        "Inspects process trees, registry edits, system calls, and decrypted memory on endpoints.",
+        "Combines protocol metadata, machine learning baselines, and automated response integrations.",
+        "Matches explicit string patterns, regex, or protocol flaws (e.g. known exploit shellcode in URI).",
+        "Flags deviations from a statistical baseline (e.g. server suddenly transmitting 50GB instead of 50MB).",
+        "Evaluates contextual action chains (e.g. internal workstation attempting SSH connections to 40 servers).",
+        "A network sensor placed only at the internet gateway cannot see lateral movement between two workstations inside the corporate LAN. Furthermore, over 90% of web traffic is encrypted with TLS 1.3. Sensors must rely on connection metadata (IPs, SNI, TLS cipher suites, packet timing, packet sizes) or terminate TLS on dedicated reverse proxies for inspection."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Network Segmentation, DMZs, and Zero Trust Architecture",
+      "paragraphs": [
+        "Logical and physical boundaries, microsegmentation, IT vs OT segregation, and implementing NIST SP 800-207 Zero Trust.",
+        "Network segmentation divides a network into smaller logical or physical areas with controlled communication between them. CISA recommends isolating critical systems to contain intrusions and prevent lateral movement.",
+        "Zero trust eliminates implicit trust based on network topology. Simply being connected to the internal LAN or connecting through an enterprise VPN does not grant access to sensitive resources. Access decisions are evaluated on:",
+        "Operational Technology (OT) controls physical industrial equipment (power grids, manufacturing lines, water treatment). A compromise in enterprise IT (e.g. employee phishing ransomware) must never reach physical controllers. Implement strict DMZ data diodes, the Purdue Model hierarchy, and NEVER run active vulnerability scans against live OT machinery."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Network Security Monitoring and Traffic Visibility",
+      "paragraphs": [
+        "Firewall logs, NetFlow/IPFIX flow records, packet captures (PCAP), Zeek structured analytics, and the 6-step alert triage lifecycle.",
+        "Allowed/denied connections, rule IDs, interface direction, NAT translation pairs.",
+        "Session metadata: source/dest, duration, byte counts, TCP flags. Highly scalable forensic record without storing raw payloads.",
+        "Suricata / Snort rule matches, CVE references, classification metadata, and packet triggering snippets.",
+        "Complete raw byte frames visible to interface. Definitive evidence for protocol carving, handshake analysis, and payload reassembly.",
+        "Converts passive traffic into structured, queryable logs:",
+        "Rule-based pattern matching supporting IDS and inline IPS modes:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Building, Testing, and Maintaining Network Security Controls",
+      "paragraphs": [
+        "Communication matrices, rule lifecycle governance, change management, fail-open vs fail-closed considerations, and defense metrics.",
+        "Never write firewall rules ad-hoc. Start with an authoritative communication matrix that records every approved flow.",
+        "If the firewall crashes or power fails, all traffic is dropped. Protects confidential data from uninspected transit at the expense of service availability.",
+        "If an inline IPS bypass unit fails, packets bypass inspection unhindered. Used in emergency response, hospital monitoring, and high-frequency trading."
+      ]
+    }
+  ]
 }

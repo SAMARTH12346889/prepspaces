@@ -89,6 +89,122 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 15
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "File Abstractions, Directories and File Descriptors",
+      "paragraphs": [
+        "Everything is a File \u00b7 Process Descriptor Table \u00b7 Open File Descriptions \u00b7 Path Resolution",
+        "In Unix-like systems, the file abstraction unifies access to disparate kernel objects. A regular file, a directory, a terminal device, a named pipe (FIFO), and a network socket can all be accessed through the universal API: open(), read(), write(), lseek(), and close()."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Inodes, Directory Entries, Links and Permissions",
+      "paragraphs": [
+        "Inodes vs Dentries \u00b7 Hard Links \u00b7 Symlinks \u00b7 Unix Permission Bits \u00b7 SUID/SGID/Sticky",
+        "An inode (index node) stores all metadata about a filesystem object except its filename. A directory entry (dentry) is a simple name-to-inode mapping table."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Block Layout, Extent Allocation & Free-Space Tracking",
+      "paragraphs": [
+        "Contiguous vs Extent Allocation \u00b7 Free-Space Bitmaps \u00b7 119 MB for 1 Billion Blocks",
+        "Early filesystems indexed files using direct and multi-level indirect block pointers (e.g. ext2/ext3). Modern filesystems (ext4, XFS, Btrfs) use extent trees:",
+        "To track block allocations, a filesystem uses 1 bit per physical block. For a filesystem with \\(N\\) blocks:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Journaling, Metadata Consistency & Crash Recovery",
+      "paragraphs": [
+        "Write-Ahead Logging \u00b7 Transactions \u00b7 Commit Records \u00b7 fsync() Durability",
+        "Creating or appending to a file requires multiple separate disk writes: allocating data blocks, updating the free bitmap, writing the new inode, and adding the directory entry. If power fails halfway through, the filesystem structures become corrupted."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Virtual Filesystem (VFS) and Mount Architecture",
+      "paragraphs": [
+        "Kernel Abstraction Layer \u00b7 struct file_operations \u00b7 Mount Points \u00b7 Mount Namespaces",
+        "The Linux Virtual Filesystem (VFS) provides an object-oriented kernel abstraction layer. Applications interact with standard VFS objects:",
+        "Each concrete filesystem (ext4, XFS, Btrfs, NFS) registers function pointer tables implementing these interfaces (e.g. struct file_operations &#123; .read, .write, .fsync &#125;)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Page Cache, Buffering and fsync() Durability",
+      "paragraphs": [
+        "Cached Reads \u00b7 Dirty Pages \u00b7 Writeback Throttling \u00b7 Atomic File Replacement",
+        "Storage I/O is orders of magnitude slower than CPU registers and RAM. The Linux Page Cache transparently intercepts all buffered reads and writes:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Filesystem Comparison: ext4, XFS, Btrfs and ZFS",
+      "paragraphs": [
+        "Workload Trade-offs \u00b7 In-Place vs Copy-on-Write \u00b7 End-to-End Data Checksumming"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Practical Lab: Filesystem Metadata Inspector",
+      "paragraphs": [
+        "fs_inspector.py \u00b7 lstat \u00b7 Inode Auditing \u00b7 Hard Link Detection \u00b7 strace"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Path Resolution & Inode Directory Walk",
+      "paragraphs": [
+        "Trace how the VFS path walker resolves a human path step-by-step from Root inode 2 down to the final physical extent."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Inode vs Hard Link vs Symbolic Link Lifecycle Simulator",
+      "paragraphs": [
+        "Toggle creating and unlinking directory entries to observe link count decrements and when data blocks are truly freed.",
+        "{dataBlocksFreed ? \"Storage blocks returned to the filesystem free-space bitmap for future allocations.\" : \"Actual byte content stored on NVMe storage media.\"}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Journaling & Crash Consistency Stepper",
+      "paragraphs": [
+        "Step through the 5 phases of an ext4 journal transaction and simulate power cuts to verify recovery behavior."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Page Cache Dirty Writeback & fsync() Buffer Visualizer",
+      "paragraphs": [
+        "Observe how dirty pages accumulate in RAM before writeback, and how fsync() forces an immediate hardware flush.",
+        "{fsyncTriggered ? \"fsync() blocked until all dirty pages were physically written and confirmed by the storage controller's write cache. Data is durable against unexpected power loss!\" : dirtyPagesMB > 0 ? `${dirtyPagesMB} MiB of data has returned from write() calls into RAM, but is NOT yet written to storage media. A power cut right now loses this modified data!` : \"Page cache is clean. All data is synchronized on durable storage.\"}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux Storage & Metadata Terminal Sandbox",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Module 13 Engineering Competency Checklist",
+      "paragraphs": [
+        "Verify your engineering skills across filesystems, inode structures, crash recovery, and VFS interfaces."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 13 Knowledge Check",
+      "paragraphs": [
+        "Test your understanding of inodes, links, extent allocation, journaling, and storage durability."
+      ]
+    }
+  ]
 }

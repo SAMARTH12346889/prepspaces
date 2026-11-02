@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -43,6 +46,7 @@ import {
 } from "./SystemDesignCachingDiagrams";
 
 export default function SystemDesignCaching() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "caching");
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("lessons");
   const [activeLesson, setActiveLesson] = useState("6.1");
@@ -130,112 +134,7 @@ export default function SystemDesignCaching() {
   // ---------------------------------------------------------------------------
   // QUIZ STATE (9 QUESTIONS VERBATIM)
   // ---------------------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. What is a cache hit?",
-      options: [
-        "The data is absent from the cache",
-        "The requested entry is present and may be reused under its validity rules",
-        "The database has crashed",
-      ],
-      correct: 1,
-      explanation:
-        "A cache hit occurs when the requested resource exists in the cache store and satisfies all freshness and validity criteria, allowing the application to completely bypass the authoritative source.",
-    },
-    {
-      id: 2,
-      question: "2. What is the primary distinction between TTL and eviction?",
-      options: [
-        "TTL is time-based expiration; eviction removes entries to manage capacity or according to a cache policy",
-        "They are exactly the same mechanism",
-        "Eviction occurs only after a database restart",
-      ],
-      correct: 0,
-      explanation:
-        "TTL (Time-To-Live) removes entries based on time elapsed. Eviction removes entries (often under LRU or LFU policies) to free memory when the cache approaches its configured maxmemory limit.",
-    },
-    {
-      id: 3,
-      question: "3. Which pattern loads data into the cache after a cache miss?",
-      options: ["Cache-aside", "Write-behind", "DNS delegation"],
-      correct: 0,
-      explanation:
-        "Cache-aside (lazy loading) checks the cache first; on a miss, the application loads data from the database and writes it into the cache for future callers.",
-    },
-    {
-      id: 4,
-      question: "4. Why might LFU be useful for a read-heavy workload?",
-      options: [
-        "It always keeps every key forever",
-        "It favors entries with higher estimated access frequency",
-        "It prevents all stale reads",
-      ],
-      correct: 1,
-      explanation:
-        "Least Frequently Used (LFU) preserves items that receive consistent, repeated access over time, protecting popular core items from being evicted by sudden bursts of transient one-off keys.",
-    },
-    {
-      id: 5,
-      question: "5. What is a cache stampede?",
-      options: [
-        "A burst of concurrent requests that all refresh the same missing or expired value",
-        "An HTTP redirect",
-        "A permanent database backup",
-      ],
-      correct: 0,
-      explanation:
-        "A cache stampede (thundering herd) occurs when a popular key expires and hundreds or thousands of simultaneous incoming requests all query the primary database concurrently, causing database overload.",
-    },
-    {
-      id: 6,
-      question: "6. What does Cache-Control: no-cache mean?",
-      options: [
-        "The response can never be stored",
-        "Stored responses must be revalidated before reuse",
-        "All CDN caches must be deleted instantly",
-      ],
-      correct: 1,
-      explanation:
-        "In HTTP semantics, 'no-cache' does NOT mean 'do not store'. It instructs caches that they may store the response, but they MUST revalidate it with the origin server (using ETag or If-Modified-Since) before each reuse. 'no-store' is what forbids storage.",
-    },
-    {
-      id: 7,
-      question: "7. Why is shared caching of personalized user responses dangerous?",
-      options: [
-        "It makes JSON invalid",
-        "The cache may reuse one user's response for another user if identity and cache rules are wrong",
-        "It always increases database write throughput",
-      ],
-      correct: 1,
-      explanation:
-        "If a response containing sensitive student data (grades, private progress) is stored in a shared proxy or CDN cache, subsequent requests from other users can be served that cached data, causing severe privacy breaches.",
-    },
-    {
-      id: 8,
-      question: "8. A database update succeeds, but cache invalidation fails. What is the main concern?",
-      options: [
-        "The database update is guaranteed to roll back",
-        "A stale cache entry may remain usable until recovery or expiration",
-        "The HTTP protocol stops working",
-      ],
-      correct: 1,
-      explanation:
-        "If the database commits but the cache DEL command fails (due to network timeout or client error), the old cached value remains served until its TTL expires or another invalidation succeeds.",
-    },
-    {
-      id: 9,
-      question: "9. Why can a cache outage cause a database outage?",
-      options: [
-        "Every cache automatically deletes the database",
-        "A sudden wave of cache misses can redirect too much work to the database",
-        "Cache hits write all values to SQL",
-      ],
-      correct: 1,
-      explanation:
-        "If a system normally runs with a 95% cache hit ratio, a complete cache outage redirects 20x more read traffic directly to the primary database, immediately exhausting database connection pools and CPU.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -648,7 +547,14 @@ maxmemory-samples 7 # Higher samples = closer approximation of true LRU`}
 
   const currentLessonData = lessons.find((l) => l.id === activeLesson) || lessons[0];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="caching" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="caching" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-8 sm:px-8 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

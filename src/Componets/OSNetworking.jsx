@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -88,6 +91,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSNetworking() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "networking");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -377,86 +381,7 @@ export default function OSNetworking() {
   /* -------------------------------------------------------------------------- */
   /* ASSESSMENT QUIZ STATE                                                      */
   /* -------------------------------------------------------------------------- */
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which statement correctly describes TCP?",
-      options: [
-        "It preserves application message boundaries",
-        "It is a connection-oriented byte stream",
-        "It guarantees every application request is processed",
-        "It has no flow control",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "TCP provides an unstructured, connection-oriented byte stream with sequence tracking and flow control. It does NOT preserve application message boundaries (framing is the responsibility of the application protocol).",
-    },
-    {
-      id: 2,
-      question: "What is a major advantage of epoll for Linux servers?",
-      options: [
-        "It eliminates all network latency",
-        "It can efficiently monitor readiness across many descriptors",
-        "It automatically makes all application code non-blocking",
-        "It guarantees zero packet loss",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "epoll maintains an in-kernel interest list (red-black tree) and only returns descriptors that are currently ready (O(1) retrieval), avoiding the expensive O(N) scanning of select() and poll() when thousands of sockets are mostly idle.",
-    },
-    {
-      id: 3,
-      question: "What does application backpressure accomplish?",
-      options: [
-        "Makes the NIC transmit at unlimited speed",
-        "Prevents the application from accepting work indefinitely beyond its capacity",
-        "Disables TCP congestion control",
-        "Guarantees requests finish immediately",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Application backpressure signals the upstream sender or pauses socket reads when downstream processing queues are full, preventing unconstrained memory growth, queue bloat, and catastrophic service collapse.",
-    },
-    {
-      id: 4,
-      question: "Which architecture is often useful for many mostly idle connections?",
-      options: [
-        "One operating-system process per byte",
-        "An event loop using non-blocking sockets",
-        "An unbounded number of threads",
-        "A busy loop repeatedly polling every socket",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "A single-threaded or small multi-reactor event loop with non-blocking sockets and epoll multiplexes tens of thousands of idle connections with negligible memory overhead (no dedicated per-connection thread stacks).",
-    },
-    {
-      id: 5,
-      question: "What does a Linux network namespace isolate?",
-      options: [
-        "Every hardware device on the entire machine",
-        "A network view including interfaces and routes",
-        "All memory shared by all processes",
-        "The CPU instruction set",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "A Linux network namespace provides an isolated networking stack, including its own network interfaces, routing tables, port binding allocation tables, and firewall rules.",
-    },
-    {
-      id: 6,
-      question: "Why measure p95 latency as well as throughput?",
-      options: [
-        "p95 measures RAM capacity",
-        "Throughput alone reveals all slow requests",
-        "Tail latency shows how slower requests behave under load",
-        "p95 always equals average latency",
-      ],
-      correctAnswer: 2,
-      explanation:
-        "Throughput and average latency conceal queueing delays and tail spikes. High-percentile latency (p95 and p99) reflects the experience of outlier requests that suffer from socket buffer queue bloat, context switching, and worker starvation.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
@@ -493,7 +418,14 @@ export default function OSNetworking() {
     setChecklist((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="networking" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="networking" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#ea580c]/15 selection:text-[#ea580c]">
       {/* Top Breadcrumb & Status Navigation */}
       <ModuleNav

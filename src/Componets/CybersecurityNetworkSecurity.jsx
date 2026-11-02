@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -48,6 +51,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function CybersecurityNetworkSecurity() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "network-security");
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(9);
 
@@ -436,86 +440,7 @@ export default function CybersecurityNetworkSecurity() {
   const completedChecklistCount = Object.values(checklist).filter(Boolean).length;
 
   // Interactive Assessment State
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the primary purpose of a network firewall?",
-      options: [
-        "Guarantee that all permitted network traffic is safe",
-        "Enforce rules controlling network communications",
-        "Replace endpoint security and identity controls",
-        "Automatically prove whether every alert is malicious"
-      ],
-      correct: 1,
-      explanation:
-        "A firewall is a network control that enforces configured rules governing communications based on IP, port, protocol, and state. It does not guarantee that allowed traffic is free from application exploits, nor does it replace host controls."
-    },
-    {
-      id: 2,
-      question: "What is the principal difference between an IDS and an IPS?",
-      options: [
-        "An IDS protects only databases",
-        "An IPS cannot generate alerts",
-        "An IPS can enforce actions to block selected traffic",
-        "An IDS automatically blocks every suspicious packet"
-      ],
-      correct: 2,
-      explanation:
-        "While an Intrusion Detection System (IDS) passively observes traffic and raises alerts for human or automated investigation, an Intrusion Prevention System (IPS) operates inline and can take active enforcement action, such as dropping malicious packets or resetting sessions."
-    },
-    {
-      id: 3,
-      question: "What is the main security objective of network segmentation?",
-      options: [
-        "Limit unnecessary communication and reduce the reach of a compromise",
-        "Give every endpoint unrestricted access to every subnet",
-        "Eliminate the need for firewall policies",
-        "Guarantee that malware cannot enter the organization"
-      ],
-      correct: 0,
-      explanation:
-        "Network segmentation creates logical or physical boundaries to contain intrusions, prevent lateral movement, and restrict communications strictly to documented, least-privilege requirements."
-    },
-    {
-      id: 4,
-      question: "Which statement about VLANs is correct?",
-      options: [
-        "A VLAN always encrypts traffic between devices",
-        "A VLAN provides logical Layer 2 separation, but routing and enforcement controls still matter",
-        "A VLAN automatically prevents all lateral movement",
-        "A VLAN replaces network monitoring"
-      ],
-      correct: 1,
-      explanation:
-        "VLANs provide broadcast domain isolation at Data Link Layer 2. However, if inter-VLAN routing is enabled without firewall filters or ACLs, traffic flows freely. A VLAN alone is not a comprehensive security policy."
-    },
-    {
-      id: 5,
-      question: "An IDS alert identifies unusual internal connections. What is the best next step?",
-      options: [
-        "Immediately conclude that a breach succeeded",
-        "Delete the alert because internal traffic is trusted",
-        "Validate the alert and correlate relevant network and endpoint evidence",
-        "Disable monitoring to prevent further alerts"
-      ],
-      correct: 2,
-      explanation:
-        "An alert represents a rule match, not conclusive proof of compromise. The proper investigative workflow is to validate the alert against firewall logs, DNS records, endpoint telemetry, and authentication logs before taking action."
-    },
-    {
-      id: 6,
-      question: "Which statement best represents zero-trust architecture?",
-      options: [
-        "Do not grant implicit trust solely because a user or device is on an internal network",
-        "Trust every device connected through a VPN",
-        "Allow all internal services to communicate by default",
-        "Replace identity management with VLANs"
-      ],
-      correct: 0,
-      explanation:
-        "NIST SP 800-207 specifies that zero trust eliminates implicit trust based on network location or asset ownership. Every access request must be explicitly verified, authorized, and continuously validated based on identity, device posture, and context."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -533,7 +458,14 @@ export default function CybersecurityNetworkSecurity() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="network-security" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="network-security" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

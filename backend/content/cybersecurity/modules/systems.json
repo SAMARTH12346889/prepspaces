@@ -182,6 +182,73 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": true,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 9
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Operating System Internals & Host Security Outcomes",
+      "paragraphs": [
+        "By completing this module, learners will understand how operating systems mediate access to hardware, enforce security boundaries, manage processes, and how security analysts inspect hosts:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 1.1\u20131.5: Kernels, Privilege Rings, Virtual Memory & The Shell",
+      "paragraphs": [
+        "{` [RING 3: USER MODE] --> Web Browser, Bash Shell, PowerShell, Python, Text Editors | v (Executes System Call e.g. open(), read(), fork(), NtCreateFile) [CONTROLLED TRANSITION] --> Hardware Trap / Syscall Instruction (CPU switches privilege levels) | v [RING 0: KERNEL MODE] --> Operating System Kernel (Linux vmlinuz / Windows ntoskrnl.exe) - Memory Management (Paging, TLB, Page Tables) - Process Scheduler (Context Switching, Thread Priorities) - Filesystem Drivers & Network Protocol Stacks - Hardware Drivers & Hardware Abstraction Layer (HAL) | v [HARDWARE LAYER] --> Physical CPU Cores, RAM Sticks, NVMe SSDs, NIC Interfaces`} Process vs. Thread A process provides resource containment: virtual address space, file handles, security credentials. A thread is the basic execution unit scheduled on a CPU core. Threads inside a process share memory.",
+        "Each process receives a private virtual address space mapped to physical RAM via CPU page tables. Process A cannot read or write Process B's memory, preventing cross-application data corruption.",
+        "Terminal: Text I/O window (Alacritty, Windows Terminal). Shell: Command interpreter (Bash, PowerShell). Utility: Standalone executable binary (grep, stat, curl)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 2.1\u20133.8: Linux Filesystem, Octal Permissions, Sudo & Systemd",
+      "paragraphs": [
+        "Mode bits represent Read (4), Write (2), and Execute (1) across Owner, Group, and Others:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 4.1\u20135.8: SIDs, Tokens, DACLs, The Registry & Sysinternals",
+      "paragraphs": [
+        "Windows tracks users and groups by immutable SIDs rather than account names:",
+        "\u2022 S-1-5-18: Local System (NT AUTHORITY\\SYSTEM)",
+        "\u2022 S-1-5-19: Local Service / S-1-5-20: Network Service",
+        "\u2022 S-1-5-32-544: Administrators local group alias",
+        "\u2022 S-1-5-21-...-500: Default local administrator account",
+        "Access Token: Created at logon; contains user SID, group SIDs, and privileges. DACL (Discretionary ACL): Defines which trustees are permitted or denied access. SACL (System ACL): Generates audit logs when specified actions occur.",
+        "System-wide settings. Key persistence location: HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+        "Settings for currently signed-in user. Key persistence location: HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 6.1\u20137.4: Comparative Administration & First-Line Investigation",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Interactive Linux Octal & Symbolic Mode Bit Calculator",
+      "paragraphs": [
+        "{permissionsCalculations.securityAssessment}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Live Process Hierarchy & Anomalous Ancestry Analysis",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Cross-Platform CLI: Bash vs. Windows PowerShell",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Operating Systems & Administration Verification (12 Questions)",
+      "paragraphs": []
+    }
+  ]
 }

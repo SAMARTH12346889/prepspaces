@@ -77,7 +77,7 @@
     },
     {
       "id": 4,
-      "title": "Failure 4: Database Read Latency Increases 5× During Flash Sale",
+      "title": "Failure 4: Database Read Latency Increases 5\u00d7 During Flash Sale",
       "context": "During a product drop, read latency on PostgreSQL jumps from 3ms to 85ms. 90% of requests are reading the exact same 10 product catalog items.",
       "question": "What is the most effective architectural scaling solution?",
       "options": [
@@ -122,7 +122,7 @@
     {
       "id": 6,
       "title": "Failure 6: Complete Cloud Region Outage (US-East-1 Severed)",
-      "context": "A fiber severance isolates the entire US-East-1 region. Your business mandate specifies RPO ≤ 1 minute and RTO ≤ 15 minutes.",
+      "context": "A fiber severance isolates the entire US-East-1 region. Your business mandate specifies RPO \u2264 1 minute and RTO \u2264 15 minutes.",
       "question": "Which Disaster Recovery strategy meets these strict requirements?",
       "options": [
         {
@@ -171,6 +171,16 @@
     "hasQuiz": false,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 1
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Nova AI Principal Cloud Architect Tutor",
+      "paragraphs": [
+        "Ask questions about AWS Well-Architected Framework, Circuit Breakers, Exponential Backoff + Jitter, Transactional Outbox pattern, Cell-Based architecture, or Uber DOMA."
+      ]
+    }
+  ]
 }

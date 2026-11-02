@@ -89,6 +89,123 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 14
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Memory-Mapped I/O and Shared Memory",
+      "paragraphs": [
+        "MMIO vs File Mappings \u00b7 mmap Flags \u00b7 Synchronization \u00b7 SIGBUS Safety",
+        "Memory-Mapped I/O (MMIO) allows the CPU to communicate with hardware device registers using standard memory instructions (MOV, load, store) rather than dedicated I/O port instructions (IN/ OUT). The OS and CPU configure these memory regions with special caching attributes (e.g. Uncacheable) to ensure writes reach the device immediately without CPU cache reordering.",
+        "Writes to memory are visible to other processes mapping the same object and are flushed back to the underlying storage file. Requires process-shared mutexes or atomic operations for race-free updates.",
+        "Creates a Copy-On-Write (COW) mapping. Reads access the underlying file directly; modifications create a private anonymous frame invisible to other processes and never written back to disk.",
+        "Memory is not backed by any filesystem file (fd = -1). Used by memory allocators (malloc) for heap regions and zero-filled pages on demand."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Huge Pages, NUMA and Memory Locality",
+      "paragraphs": [
+        "TLB Reach \u00b7 2MB / 1GB Pages \u00b7 Non-Uniform Memory Access \u00b7 First-Touch Allocation",
+        "Modern x86-64 processors default to 4 KiB pages. For massive in-memory databases (PostgreSQL, Redis) and virtualization hypervisors, 4 KiB pages create a severe performance bottleneck:",
+        "In multi-socket servers, memory is partitioned into NUMA (Non-Uniform Memory Access) nodes. Each CPU socket has high-speed direct access to its local RAM channels, but accessing RAM attached to another socket over the interconnect bus (Intel UPI / AMD Infinity Fabric) incurs a 2x to 3x latency penalty.",
+        "When malloc() is called, Linux allocates virtual address space only. Physical memory is not mapped until the first thread touches (writes to) the page. By default, Linux allocates the physical frame on the NUMA node where the faulting thread is currently scheduled!",
+        "Use numactl --cpunodebind=0 --membind=0 ./app to pin threads and memory allocations to the same socket, eliminating cross-socket interconnect thrashing."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Hardware-Assisted Virtualization & Hypervisors",
+      "paragraphs": [
+        "Type 1 vs Type 2 \u00b7 VM Exits \u00b7 Extended Page Tables (EPT) \u00b7 Nested Page Tables (NPT)",
+        "Hardware virtualization (Intel VT-x / AMD-V) introduces new CPU operational modes: VMX Root Operation (where the hypervisor executes with full hardware control) and VMX Non-Root Operation (where the guest OS executes with sensitive instructions trapped).",
+        "Runs directly on physical server hardware as the primary OS/kernel (e.g. VMware ESXi, KVM, Xen). Provides lowest virtualization latency and enterprise multitenancy isolation.",
+        "Runs as an application inside a host operating system (e.g. VirtualBox, VMware Workstation). Subject to host OS scheduling latency, buffer double-caching, and context-switch overhead.",
+        "In a virtual machine, memory addresses must be translated twice:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Virtual Machines versus Containers",
+      "paragraphs": [
+        "Separate Kernel vs Shared Kernel \u00b7 Isolation Boundaries \u00b7 Overhead \u00b7 Attack Surfaces",
+        "The fundamental architectural difference lies at the kernel boundary:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux Namespaces and Control Groups (cgroups v2)",
+      "paragraphs": [
+        "7 Namespace Types \u00b7 Resource Accounting \u00b7 memory.max vs memory.high \u00b7 cpu.max",
+        "Containers rely on two completely independent Linux kernel subsystems:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Container Memory Limits, OOM Events & Observability",
+      "paragraphs": [
+        "The Container OOM Mystery \u00b7 Working Sets \u00b7 PSI Metrics \u00b7 Exit Code 137",
+        "Consider a production server with 64 GiB of physical RAM and 45 GiB free. A container running a microservice is configured with --memory=512m. If the application experiences a traffic spike and allocates 520 MiB:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Overhead, Security Boundaries and Architectural Trade-offs",
+      "paragraphs": [
+        "Threat Models \u00b7 VM Escapes vs Shared Kernel Exploits \u00b7 Hardening Guidelines",
+        "Security engineering requires understanding that containers and VMs have fundamentally different failure modes:",
+        "A compromised guest kernel still cannot directly execute host instructions. An attacker must exploit a hypervisor bug (e.g. QEMU virtual device emulation flaw, rowhammer, or nested EPT vulnerability) to achieve a hypervisor escape. Strongest isolation for untrusted multitenancy."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Integrated Practical Lab: Memory Pressure & cgroup OOM",
+      "paragraphs": [
+        "memory_pressure.py \u00b7 Constrained Container \u00b7 OOM Kill Verification"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Two-Stage Hardware Address Translation (GVA \u2192 GPA \u2192 HPA)",
+      "paragraphs": [
+        "Trace how guest virtual addresses are translated by guest page tables into guest physical addresses, then re-translated by Intel EPT / AMD NPT into host physical RAM."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Container vs Host Memory & cgroup v2 OOM Visualizer",
+      "paragraphs": [
+        "Experience why a container triggers an OOM kill despite gigabytes of free RAM remaining on the physical host machine.",
+        "{containerCgroupState.statusDesc}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Huge Pages & TLB Reach Calculator",
+      "paragraphs": [
+        "Compare page table overhead and hardware TLB coverage for databases, hypervisors, and large memory workloads."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux Virtualization & Container Shell Emulation",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Module 12 Competency & Mastery Checklist",
+      "paragraphs": [
+        "Verify your engineering skills across advanced memory, virtualization hypervisors, and container isolation."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 12 Knowledge Check",
+      "paragraphs": [
+        "Official evaluation covering virtualization, containers, cgroups, namespaces, and memory architecture."
+      ]
+    }
+  ]
 }

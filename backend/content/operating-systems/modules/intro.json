@@ -116,14 +116,14 @@
     "cat /proc/meminfo": "MemTotal:       16384210 kB\nMemFree:         7454812 kB\nMemAvailable:   12678144 kB\nBuffers:          348124 kB\nCached:          4891240 kB\nSwapCached:            0 kB\nActive:          3948120 kB\nInactive:        3841920 kB\nSwapTotal:       4194304 kB\nSwapFree:        4194304 kB\nDirty:                48 kB\nWriteback:             0 kB\nAnonPages:       2560124 kB\nMapped:           312480 kB\nShmem:             24580 kB\nKReclaimable:     412890 kB\nSlab:             684920 kB\nPageTables:        42180 kB",
     "ps aux": "USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot           1  0.0  0.1 169348 13244 ?        Ss   09:00   0:02 /sbin/init\nroot           2  0.0  0.0      0     0 ?        S    09:00   0:00 [kthreadd]\nroot           3  0.0  0.0      0     0 ?        I<   09:00   0:00 [rcu_gp]\nsystemd+     680  0.0  0.1  25892 12140 ?        Ss   09:00   0:01 /lib/systemd/systemd-resolved\nsyslog       712  0.0  0.0 224120  4820 ?        Ssl  09:00   0:00 /usr/sbin/rsyslogd -n\nroot         842  0.0  0.1  15888  9184 ?        Ss   09:00   0:00 sshd: /usr/sbin/sshd -D [listener]\nprepspa+    1024  0.0  0.2 128490 32180 pts/0    Ss   09:15   0:01 /bin/bash\nprepspa+    1142  98.4 0.1  28410 16240 pts/0    R+   10:30   5:42 python3 -c while True: pass\nprepspa+    1180  0.0  0.0  14120  3412 pts/1    R+   10:35   0:00 ps aux",
     "top": "top - 10:35:42 up 1:35,  2 users,  load average: 1.05, 0.98, 0.74\nTasks: 142 total,   2 running, 140 sleeping,   0 stopped,   0 zombie\n%Cpu(s): 12.8 us,  1.2 sy,  0.0 ni, 85.8 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st\nMiB Mem :  16000.2 total,   7280.1 free,   2867.2 used,   5852.9 buff/cache\nMiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  12381.0 avail Mem \n\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n   1142 prepspa+  20   0   28410  16240   9180 R  98.8   0.1   5:42.18 python3\n    842 root      20   0   15888   9184   6120 S   0.2   0.1   0:00.84 sshd\n      1 root      20   0  169348  13244   8910 S   0.0   0.1   0:02.14 systemd\n   1024 prepspa+  20   0  128490  32180  12480 S   0.0   0.2   0:01.12 bash",
-    "pstree -p": "systemd(1)─┬─cron(740)\n           ├─rsyslogd(712)─┬─{rsyslogd}(713)\n           │               ├─{rsyslogd}(714)\n           │               └─{rsyslogd}(715)\n           ├─sshd(842)───sshd(1012)───bash(1024)───python3(1142)\n           ├─systemd-journal(412)\n           ├─systemd-logind(760)\n           ├─systemd-resolved(680)\n           └─systemd-udevd(450)",
+    "pstree -p": "systemd(1)\u2500\u252c\u2500cron(740)\n           \u251c\u2500rsyslogd(712)\u2500\u252c\u2500{rsyslogd}(713)\n           \u2502               \u251c\u2500{rsyslogd}(714)\n           \u2502               \u2514\u2500{rsyslogd}(715)\n           \u251c\u2500sshd(842)\u2500\u2500\u2500sshd(1012)\u2500\u2500\u2500bash(1024)\u2500\u2500\u2500python3(1142)\n           \u251c\u2500systemd-journal(412)\n           \u251c\u2500systemd-logind(760)\n           \u251c\u2500systemd-resolved(680)\n           \u2514\u2500systemd-udevd(450)",
     "cat /proc/version": "Linux version 6.8.0-45-generic (buildd@lcy02-amd64-080) (x86_64-linux-gnu-gcc-13) #45-Ubuntu SMP PREEMPT_DYNAMIC",
     "cat /proc/uptime": "5742.18 45937.44\n(System up for 1 hour 35 minutes; idle accumulator: 12.7 CPU-hours across 8 cores)",
     "cat /proc/loadavg": "1.05 0.98 0.74 2/142 1188\n(1-min load: 1.05 [1 active CPU-bound task] | 5-min: 0.98 | 15-min: 0.74 | 2 runnable / 142 total tasks)",
     "ls /proc": "1  1024  1142  2  3  412  450  680  712  740  760  842  acpi  buddyinfo  bus  cgroups  cmdline  cpuinfo  crypto  devices  diskstats  dma  driver  execdomains  filesystems  fs  interrupts  iomem  ioports  kallsyms  kcore  key-users  keys  kmsg  kpagecgroup  kpagecount  kpageflags  loadavg  locks  meminfo  misc  modules  mounts  net  pagetypeinfo  partitions  sched_debug  schedstat  self  slabinfo  softirqs  stat  swaps  sys  sysrq-trigger  sysvipc  thread-self  timer_list  tty  uptime  version  vmallocinfo  vmstat  zoneinfo",
     "ls /sys": "block  bus  class  dev  devices  firmware  fs  hypervisor  kernel  module  power",
     "python3 -c \"while True: pass\"": "[Process running in background with PID 1142]\nExecuting infinite CPU busy-loop: while True: pass\nObserve with 'top' or 'ps aux'. CPU core #2 running at 100% capacity.",
-    "help": "Available diagnostic commands:\n• uname -a, uname -r\n• cat /etc/os-release, hostnamectl\n• lscpu, lspci, lsusb\n• free -h, cat /proc/meminfo\n• ps aux, top, pstree -p\n• cat /proc/version, cat /proc/uptime, cat /proc/loadavg\n• ls /proc, ls /sys\n• python3 -c \"while True: pass\"\n• clear"
+    "help": "Available diagnostic commands:\n\u2022 uname -a, uname -r\n\u2022 cat /etc/os-release, hostnamectl\n\u2022 lscpu, lspci, lsusb\n\u2022 free -h, cat /proc/meminfo\n\u2022 ps aux, top, pstree -p\n\u2022 cat /proc/version, cat /proc/uptime, cat /proc/loadavg\n\u2022 ls /proc, ls /sys\n\u2022 python3 -c \"while True: pass\"\n\u2022 clear"
   },
   "scenarios": null,
   "metadata": {
@@ -133,6 +133,122 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": true,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 8
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. What is an Operating System, and Why Does It Exist?",
+      "paragraphs": [
+        "An operating system (OS) is system software that manages a computer's physical hardware resources and provides controlled, convenient, and safe abstractions to application programs. Examples include Linux, Microsoft Windows, Apple's macOS, Android, and embedded operating systems.",
+        "Consider opening a browser, streaming music, downloading a file, and compiling code simultaneously. All these activities compete for the same physical CPU cycles, DRAM cells, SSD blocks, and network interfaces. Without an OS, every individual program would have to implement its own hardware drivers, directly arbitrate device conflicts, and risk overwriting other applications' memory.",
+        "User Applications & System Utilities",
+        "Browser \u00b7 Code Editor \u00b7 Media Player \u00b7 Database \u00b7 Shell",
+        "Operating System Kernel (Privileged Mode)",
+        "CPU Cores \u00b7 MMU & TLB \u00b7 DRAM \u00b7 NVMe / SSD \u00b7 NIC \u00b7 GPU",
+        "Hardware is heterogenous and complex. An application writing data should never need to know the electrical flash translation layer (FTL) commands of an NVMe SSD. The OS exposes a POSIX file descriptor:",
+        "The application interacts with an abstract byte-stream, while the kernel translates it into file blocks and storage commands.",
+        "Computing machinery has finite physical capacity: CPU cycles, DRAM, disk bandwidth, and network packets. If 4 processes need the CPU at the same time, a single core cannot execute them all concurrently. The OS scheduler arbitrates who runs and for how long.",
+        "If a media player encounters a null-pointer dereference or wild memory write, it must not corrupt the browser process or crash the kernel. Hardware privilege rings (Ring 0 vs Ring 3) and page table permissions enforce rigid boundaries.",
+        "Standardized library wrappers (glibc, musl) allow developers to reuse complex functionalities (TCP/IP stacks, thread synchronization primitives, cryptographic access controls) across diverse hardware without reinventing low-level drivers.",
+        "Suppose a buggy or malicious application executes an infinite loop: while True: pass. On a preemptive multitasking OS, hardware timer interrupts periodically transfer control back to the kernel scheduler, ensuring other tasks get their fair share of execution time regardless of rogue processes.",
+        "University-Level Systems Insight:",
+        "An operating system is not merely a collection of utilities. Its central computer science challenge is: How do we safely and efficiently share a complex, unreliable physical machine among competing, mutually distrustful programs while maintaining useful abstractions and performance guarantees?"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. The Operating System as Abstraction, Resource Manager & Control Program",
+      "paragraphs": [
+        "These three perspectives explain almost every subsystem in modern computing:",
+        "Mechanism (How something is done)",
+        "The low-level hardware or kernel facility that executes an operation. Example: Context Switching (saving register state to the process control block and reloading another process's state) or Page Tables (translating virtual addresses to physical frames).",
+        "Policy (Which choice should be made)",
+        "The decision algorithm that chooses what to do. Example: CFS Scheduler deciding which ready thread runs next, or the Page Replacement Algorithm (LRU / Clock) choosing which memory page to evict under memory pressure.",
+        "Scenario: A web browser cannot directly read or write to a protected memory region belonging to the operating system kernel. Which OS role is most directly responsible for this behavior?",
+        "{section2QuizAnswer === \"c\" ? ( Correct! The Control and Protection role uses CPU privilege rings and page table access bits to prevent user-space applications from corrupting kernel space. ) : ( Incorrect. Option C (Control and protection) is the primary role that enforces memory boundaries and hardware privilege levels. )}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. Kernel Space, User Space, System Calls & Processes",
+      "paragraphs": [
+        "The modern CPU hardware enforces a hardware-level division of privileges. On x86-64, this is mediated by protection rings (Ring 0 for Kernel, Ring 3 for User Space). On ARM architectures, Exception Levels (EL1 for Kernel, EL0 for Applications) serve the exact same purpose.",
+        "Application Requests OS Service",
+        "The application calls a C library wrapper (e.g. write(1, buffer, len) in glibc).",
+        "Arguments Loaded into ABI Registers",
+        "Under x86-64 Linux ABI, the syscall number (1 for sys_write) is placed in rax, arguments in rdi, rsi, rdx, r10, r8, r9.",
+        "Privilege Elevation via syscall / svc",
+        "The CPU transitions privilege level from Ring 3 to Ring 0, saves the instruction pointer, and jumps to the kernel's system_call_entry routine.",
+        "Kernel Validation, Dispatch & Execution",
+        "The kernel validates pointer bounds, checks permissions, executes the requested filesystem/network operation, and writes return value to rax.",
+        "Return to User Space via sysret / eret",
+        "The CPU restores Ring 3 privilege and resumes user execution at the next application instruction."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. Operating System Types and Evolution",
+      "paragraphs": [
+        "Operating systems have evolved through five distinct architectural paradigms to address changing hardware and workload demands.",
+        "Jobs with similar requirements are collected, queued, and executed in sequence with zero user interaction during execution. Still used in overnight payroll processing, bulk scientific computations, and large-scale data pipelines.",
+        "Trade-off: High device utilization vs long turnaround time and zero interactive debugging.",
+        "Keeps multiple programs resident in memory simultaneously. When Process A initiates an I/O read and blocks, the OS switches the CPU to Process B rather than letting the processor idle.",
+        "Core Concept: Overlaps CPU computation with slow storage/network I/O waiting.",
+        "Uses preemptive scheduling and time quantums (e.g. 5\u201350ms) to rapidly switch among interactive tasks, providing the illusion that many programs execute simultaneously for multiple human users.",
+        "Trade-off: Immediate responsiveness vs context-switch overhead.",
+        "Engineered for workloads where timing correctness is as vital as computational correctness.",
+        "\u2022 Hard Real-Time: Missing a deadline equals total system catastrophe (Airbag controller, pacemaker, flight avionics).",
+        "\u2022 Soft Real-Time: Missing a deadline degrades quality without catastrophic failure (Audio streaming, game video rendering).",
+        "Coordinates autonomous, independent networked machines into a transparent unified computing substrate. Solves the complex realities of partial failure, clock synchronization skew, consensus protocols, and asynchronous network latency."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. Operating System Kernel Architectures",
+      "paragraphs": [
+        "Kernel architecture describes how core operating system services are decomposed, where they execute in hardware privilege space, and how they communicate with each other.",
+        "Executes virtual memory, process scheduling, filesystems, network protocols, and device drivers in one shared, privileged supervisor space (Ring 0).",
+        "\u2713 High performance: direct function calls between kernel subsystems.",
+        "\u2717 Fault vulnerability: a single bug in a third-party driver can crash the entire system.",
+        "Shrinks the privileged kernel to the absolute minimum: IPC, basic scheduling, and address space mapping. Relocates filesystems, device drivers, and network stacks to isolated user-space processes.",
+        "\u2713 High fault isolation: a crashed filesystem driver can be restarted without kernel crash.",
+        "\u2717 Message-passing IPC overhead across user-kernel protection boundaries.",
+        "A core kernel that dynamically loads and unloads modules (e.g. filesystem drivers, network device drivers) on-demand while executing them in kernel space.",
+        "\u2713 Extensibility without recompiling the core kernel.",
+        "Note: Modularity is not a microkernel. Modules still run in Ring 0.",
+        "Combines microkernel modular abstraction with monolithic execution speed. Windows NT has an Executive layer and drivers in kernel mode, while macOS XNU combines Mach message-passing with BSD POSIX layers and I/O Kit.",
+        "\u2713 Balances performance, backward compatibility, and structured layers."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. Comparing Linux, Windows, macOS, Android, and Embedded Systems",
+      "paragraphs": [
+        "An operating system's kernel is only one aspect of its identity. Its API surface, application sandbox, driver ecosystem, and operational workload define how it behaves in production."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. Operating System Design Trade-offs & Systems Thinking",
+      "paragraphs": [
+        "Systems engineering is the science of evaluating multi-objective trade-offs. Improving one metric almost invariably degrades another.",
+        "Batching storage or network writes amortizes syscall overhead and maximizes total throughput, but waiting to accumulate a batch increases latency for individual operations.",
+        "Enforcing strict memory boundaries across separate address spaces requires TLB invalidation and context switches. Shared memory reduces IPC cost to zero, but eliminates protection.",
+        "Containers share the host kernel via Linux namespaces and cgroups, providing sub-second startup and near-native performance. Virtual Machines virtualize entire hardware platforms, providing total hardware isolation at higher memory overhead."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Recommended University-Level Study Resources",
+      "paragraphs": [
+        "Kernel implementation, system calls, interrupts, scheduling, and virtual memory. MIT utilizes xv6, a modern re-implementation of Dennis Ritchie's Unix Version 6 in ANSI C for RISC-V.",
+        "By Remzi and Andrea Arpaci-Dusseau (University of Wisconsin\u2013Madison). The seminal free computer science text covering the three core pillars: Virtualization, Concurrency, and Persistence.",
+        "In-depth technical guides for kernel subsystems, device drivers, locking mechanisms, memory models, and architecture-specific code maintained by kernel developers.",
+        "Examines how consumer mobile operating systems couple a modified Linux kernel with user-space Hardware Abstraction Layers (HALs), the Android Runtime (ART), and Binder IPC.",
+        "You are ready to advance to Module 2: Processes, Threads, and Concurrency when you can confidently explain the OS's three core roles, trace a system call lifecycle from user-space ABI registers to Ring 0, contrast monolithic vs microkernel architectures, explain why Linux is both monolithic and modular, and inspect live Linux systems using diagnostic utilities."
+      ]
+    }
+  ]
 }

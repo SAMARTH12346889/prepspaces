@@ -264,7 +264,7 @@
       "focus": "STRIDE Framework, Attack Paths vs Happy Paths & Lateral Movement",
       "badge": "Threat Modeling",
       "theory": "Architects must not design only for the 'happy path' (User -> Web -> Database); they must rigorously map the attack path. The STRIDE framework classifies threats into Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege. Modeling systems as directed attack graphs allows engineers to locate lateral movement paths and strategically place compensating controls (MFA, network policies, IAM boundaries, encryption) to break the attack chain at every link.",
-      "diagram": "THE STRIDE THREAT MODELING MATRIX & ATTACK GRAPH BREAK:\n=============================================================================\nS — SPOOFING:               Stolen credentials / token replay\n    Control: FIDO2 Hardware MFA, short-lived OIDC tokens, mTLS\nT — TAMPERING:              Modified in-flight database write or container image\n    Control: Signed Git commits, Cosign image verification, TLS 1.3\nR — REPUDIATION:            Action performed without auditable proof\n    Control: Tamper-proof SIEM logging, CloudTrail with log validation\nI — INFORMATION DISCLOSURE: Unencrypted PII leaked across public internet\n    Control: KMS envelope encryption, PrivateLink, egress filtering\nD — DENIAL OF SERVICE:      Volumetric traffic flood exhausts compute\n    Control: Anycast edge rate limiting, Cloud Armor, autoscaling\nE — ELEVATION OF PRIVILEGE: Low-privileged pod escalates to Cloud Admin\n    Control: IAM Permissions Boundaries, Non-Root pods, drop capabilities\n=============================================================================\nBREAK THE ATTACK CHAIN: Every link in the attack path must encounter a control!",
+      "diagram": "THE STRIDE THREAT MODELING MATRIX & ATTACK GRAPH BREAK:\n=============================================================================\nS \u2014 SPOOFING:               Stolen credentials / token replay\n    Control: FIDO2 Hardware MFA, short-lived OIDC tokens, mTLS\nT \u2014 TAMPERING:              Modified in-flight database write or container image\n    Control: Signed Git commits, Cosign image verification, TLS 1.3\nR \u2014 REPUDIATION:            Action performed without auditable proof\n    Control: Tamper-proof SIEM logging, CloudTrail with log validation\nI \u2014 INFORMATION DISCLOSURE: Unencrypted PII leaked across public internet\n    Control: KMS envelope encryption, PrivateLink, egress filtering\nD \u2014 DENIAL OF SERVICE:      Volumetric traffic flood exhausts compute\n    Control: Anycast edge rate limiting, Cloud Armor, autoscaling\nE \u2014 ELEVATION OF PRIVILEGE: Low-privileged pod escalates to Cloud Admin\n    Control: IAM Permissions Boundaries, Non-Root pods, drop capabilities\n=============================================================================\nBREAK THE ATTACK CHAIN: Every link in the attack path must encounter a control!",
       "keyTakeaways": [
         "Think in attack graphs, not just architecture diagrams: Trace attacker capabilities from initial access to objective.",
         "Apply STRIDE across all data stores, processes, data flows, and trust boundaries.",
@@ -470,6 +470,8 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

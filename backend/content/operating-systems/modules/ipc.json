@@ -89,6 +89,106 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 8
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. Interprocess Communication Fundamentals",
+      "paragraphs": [
+        "Process isolation \u00b7 Data exchange vs synchronization \u00b7 Byte streams vs Message boundaries",
+        "By default, modern operating systems enforce strict virtual address space isolation via the hardware Memory Management Unit (MMU). A variable allocated in Process A\u2019s memory cannot be accessed or corrupted by Process B, even if both processes are running on the exact same CPU core.",
+        "How does one process physically transfer task requests, payloads, or computation results to another? Involves choosing between byte streams, message packets, or shared physical memory regions.",
+        "How do processes coordinate order, signal readiness, protect mutual exclusion, and agree on shutdown? Shared memory transfers data with zero copies, but provides zero built-in synchronization.",
+        "Continuous sequence of bytes. No boundaries preserved. Two 100-byte writes can be read as a single 200-byte chunk. Applications must implement framing.",
+        "Preserves individual message packets. A 100-byte message written requires a 100-byte read. Can include message priorities and metadata.",
+        "Both processes map the same physical RAM frame. Zero kernel buffer copying. Highest throughput, but requires explicit POSIX semaphores or mutexes.",
+        "Select an IPC mechanism to inspect its copying overhead, synchronization requirements, and optimal production scenarios.",
+        "{ipcSpecs.framingRequired}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. Anonymous Pipes and Named Pipes (FIFOs)",
+      "paragraphs": [
+        "Kernel ring buffer \u00b7 Descriptor inheritance \u00b7 EOF rules \u00b7 SIGPIPE \u00b7 PIPE_BUF atomicity",
+        "An anonymous pipe is created in Linux using the pipe(int fd[2]) syscall. It returns two file descriptors:",
+        "When a process calls fork(), the child inherits duplicate descriptors referring to the exact same open pipe description in the kernel. For reliable communication, each process must close the unused descriptor end.",
+        "{`// Linux Anonymous Pipe Pattern in C int fd[2]; pipe(fd); // fd[0]=read, fd[1]=write if (fork() == 0) { close(fd[1]); // Crucial: close unused write end in child! read(fd[0], buf, sizeof(buf)); close(fd[0]); _exit(0); } close(fd[0]); // Crucial: close unused read end in parent! write(fd[1], msg, len); close(fd[1]); // Close write end -> signals EOF to reader waitpid(pid, NULL, 0);`} Broken Pipe (SIGPIPE & EPIPE) If a process attempts to write to a pipe whose read ends have all been closed, the kernel raises a SIGPIPE signal. The default action is process termination! If caught or ignored, write() returns -1 with errno = EPIPE.",
+        "POSIX guarantees that writes of up to PIPE_BUF bytes (4 KB on Linux) are guaranteed to be atomic with respect to other concurrent writers. Writes exceeding 4096 bytes may be interleaved with other writers!",
+        "Simulate a 64 KB Linux kernel ring buffer. Observe write backpressure when full, read blocking when empty, EOF delivery, and SIGPIPE crashes."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. Message Queues and Unix Domain Sockets",
+      "paragraphs": [
+        "POSIX vs System V queues \u00b7 AF_UNIX sockets \u00b7 SCM_RIGHTS FD passing \u00b7 Application message framing",
+        "While pipes are unidirectional and stream-oriented, production local services typically demand either explicit message boundaries (Message Queues) or bidirectional full-duplex client-server architectures (Unix Domain Sockets).",
+        "Unix Domain Sockets run over the standard BSD socket API (socket(), bind(), listen(), accept(), connect()), but bypass network drivers, checksumming, and routing tables completely. Data moves directly through kernel socket buffers at microsecond latencies.",
+        "Unix sockets can transfer open file descriptors between unrelated processes via sendmsg() with SCM_RIGHTS! A privileged master process can bind port 80/443 and hand open socket descriptors down to unprivileged worker processes.",
+        "Servers can inspect the connecting process\u2019s real UID, GID, and PID automatically using getsockopt(..., SO_PEERCRED), enabling zero-trust local authentication without plaintext passwords.",
+        "Because SOCK_STREAM delivers an unformatted stream of bytes, calling recv() once does NOT mean you received exactly one application request. You must define a framing protocol:",
+        "First 4 bytes specify message length $N$. Receiver reads 4 bytes, then loops until exactly $N$ payload bytes arrive.",
+        "Messages end with \\n or \\0 (e.g. JSON Lines). Receiver buffers incoming bytes until delimiter appears.",
+        "Every packet has a fixed struct header (e.g. 32 bytes) containing magic, opcode, and variable-length payload size."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. Shared Memory and Cross-Process Synchronization",
+      "paragraphs": [
+        "shm_open \u00b7 ftruncate \u00b7 mmap MAP_SHARED \u00b7 POSIX semaphores \u00b7 Process-shared mutexes \u00b7 Race hazards",
+        "Shared memory is the fastest IPC mechanism available. Unlike pipes or sockets that copy bytes from user memory to kernel buffer and back to user memory, shared memory creates a direct page-table mapping into identical physical RAM:",
+        "A standard pthread_mutex_t is process-private (PTHREAD_PROCESS_PRIVATE). If placed in shared memory without initializing its attributes via pthread_mutexattr_setpshared(&attr, PTHREAD_PROCESS_SHARED), concurrent processes will corrupt memory or cause undefined behavior!",
+        "Process A and Process B concurrently increment a shared counter in POSIX shared memory. Toggle the PTHREAD_PROCESS_SHARED mutex to observe a race condition vs serialized atomicity."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. Signals and Safe Process Coordination",
+      "paragraphs": [
+        "SIGINT \u00b7 SIGTERM \u00b7 SIGCHLD \u00b7 Async-signal safety \u00b7 volatile sig_atomic_t \u00b7 Graceful worker shutdown ladder",
+        "Signals are asynchronous kernel software interrupts delivered to a process. They notify processes of external events (Ctrl+C, termination request, child exit).",
+        "Signal handlers can interrupt execution at any instruction. Calling non-reentrant functions like printf(), malloc(), or mutex lock inside a signal handler is dangerous and leads to immediate deadlocks. The canonical, safe pattern uses volatile sig_atomic_t:",
+        "{`static volatile sig_atomic_t stop_requested = 0; static void handle_shutdown(int signo) { (void)signo; stop_requested = 1; // Safe: atomic write, no locks or heap allocation! } int main(void) { struct sigaction sa = {0}; sa.sa_handler = handle_shutdown; sigaction(SIGTERM, &sa, NULL); sigaction(SIGINT, &sa, NULL); while (!stop_requested) { // Normal event loop execution... } // Perform safe, synchronous cleanup outside the signal handler! cleanup_ipc_and_exit(); }`} {/* SIMULATOR 4: Signal Delivery & Graceful Worker Shutdown Ladder */} Signal Delivery & Graceful Worker Shutdown Ladder Step through the industry-standard supervisor shutdown ladder: Stop Ingestion $\\rightarrow$ SIGTERM $\\rightarrow$ Timeout $\\rightarrow$ SIGKILL $\\rightarrow$ Reap with waitpid()."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. IPC Performance, Buffering, and Backpressure",
+      "paragraphs": [
+        "Latency percentiles \u00b7 Bounded queues \u00b7 Backpressure policies \u00b7 Bidirectional deadlock avoidance",
+        "Measuring IPC is about more than pure throughput. Systems engineers balance four distinct performance metrics:",
+        "Round-trip time from job submission to result arrival.",
+        "99th percentile delays caused by queue backlog surges.",
+        "Total volume of serialized payload moved per second.",
+        "Number of discrete job packets dispatched and processed per second.",
+        "If a producer generates 5,000 requests/sec while workers can only consume 3,000 requests/sec, an unbounded queue will consume all available host RAM until Linux invokes the Out-Of-Memory (OOM) Killer. Backpressure is a deliberate feature, not a bug:",
+        "Natural kernel pipe/socket behavior. When the 64 KB buffer fills, write() sleeps until consumer reads space.",
+        "Return EAGAIN or HTTP 429 Too Many Requests immediately, allowing client to retry with exponential backoff.",
+        "For streaming analytics or telemetry: discard oldest non-essential items to preserve real-time responsiveness.",
+        "If Process A writes 1 MB to Process B before reading B\u2019s response, and Process B simultaneously writes 1 MB to Process A before reading A\u2019s request, both kernel buffers fill up (64 KB). Both processes block on write(), and neither ever reaches its read(). Solution: Use non-blocking I/O with epoll or separate worker threads for reads and writes."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. Practical Lab: Build a Multi-Process Worker System",
+      "paragraphs": [
+        "Local job runner \u00b7 multiprocessing.Pipe \u00b7 Isolated worker execution \u00b7 Failure recovery \u00b7 Linux strace analysis",
+        "In this capstone lab, you will build and observe a multi-process job processing engine. A Supervisor process dispatches job batches over IPC pipes to independent Worker processes, aggregates results, and gracefully handles individual task errors without crashing the cluster.",
+        "{`# worker_system.py - Production Multi-Process Job Runner from multiprocessing import Pipe, Process from time import perf_counter import os def run_job(job): job_id, operation, value = job if operation == \"square\": result = value * value elif operation == \"double\": result = value * 2 elif operation == \"sum_to\": if value Linux System Inspection Commands ps --forest Inspect Process Tree ps -eo pid,ppid,stat,comm --forest reveals the supervisor-to-worker child hierarchy and detects any zombie (Z) states.",
+        "Watch pipe creation, descriptor duplication during fork, atomic byte writes, and socket closures in real time."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 15 Knowledge Check",
+      "paragraphs": [
+        "Validate your understanding of IPC models, descriptor lifecycles, shared memory, and signal safety",
+        "Track your engineering competence across all IPC and concurrency outcomes"
+      ]
+    }
+  ]
 }

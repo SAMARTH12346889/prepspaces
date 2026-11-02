@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -44,6 +47,7 @@ import {
 } from "./SystemDesignReplicationDiagrams";
 
 export default function SystemDesignReplication() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "replication");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -139,117 +143,7 @@ export default function SystemDesignReplication() {
   // ---------------------------------------------------------------------------
   // 9-QUESTION ASSESSMENT QUIZ STATE
   // ---------------------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the main purpose of replication?",
-      options: [
-        "Divide one table into monthly partitions",
-        "Maintain copies of data for availability, recovery, read scaling, or geographic access",
-        "Automatically make every query faster",
-      ],
-      correct: 1,
-      explanation:
-        "Replication maintains copies of data across multiple database nodes to provide high availability, failover redundancy, read workload distribution, and regional access. It does not partition tables or automatically optimize query execution plans.",
-    },
-    {
-      id: 2,
-      question: "What is the main difference between table partitioning and sharding?",
-      options: [
-        "Partitioning divides a logical dataset; sharding distributes data across database nodes or stores",
-        "Partitioning always requires multiple servers",
-        "Sharding only creates replicas",
-      ],
-      correct: 0,
-      explanation:
-        "Table partitioning divides a single logical table into sub-tables within one database engine for query pruning and retention. Sharding distributes dataset subsets across independently managed, separate database servers or clusters.",
-    },
-    {
-      id: 3,
-      question: "What is a major risk of asynchronous replication during failover?",
-      options: [
-        "The primary can never accept writes",
-        "Some committed transactions may not have reached the promoted replica",
-        "Every read must scan every shard",
-      ],
-      correct: 1,
-      explanation:
-        "Because the primary acknowledges transactions without waiting for asynchronous standbys to confirm disk persistence, any un-replicated WAL records are permanently lost if the primary abruptly dies before transmitting them.",
-    },
-    {
-      id: 4,
-      question:
-        "Which partitioning strategy is a natural candidate for a large time-series table with frequent date-bounded queries?",
-      options: [
-        "Range partitioning by timestamp",
-        "List partitioning by random description text",
-        "Replication without partitioning",
-      ],
-      correct: 0,
-      explanation:
-        "Range partitioning by timestamp (`created_at`) enables the query planner to prune untouched historical months completely, accelerating date-filtered queries and enabling instant retention drops via `DROP TABLE ... PARTITION`.",
-    },
-    {
-      id: 5,
-      question: "What is a hot shard?",
-      options: [
-        "A shard that receives disproportionately high traffic or resource demand",
-        "A shard with the most backups",
-        "A shard that contains only old records",
-      ],
-      correct: 0,
-      explanation:
-        "A hot shard is a database node that receives an excessive concentration of reads or writes due to low-cardinality keys or popular institutional tenants, becoming a bottleneck even when the rest of the cluster is idle.",
-    },
-    {
-      id: 6,
-      question: "Why can scatter-gather queries become expensive?",
-      options: [
-        "They never return results",
-        "They access multiple shards and must coordinate or combine their results",
-        "They automatically disable indexes",
-      ],
-      correct: 1,
-      explanation:
-        "Scatter-gather queries broadcast requests across all participating shards, generating high network fan-out and waiting for the single slowest tail-latency shard before merging and aggregating results.",
-    },
-    {
-      id: 7,
-      question: "What does the simplified quorum condition R + W > N express?",
-      options: [
-        "A sufficient overlap between read and write replica sets under specific quorum assumptions",
-        "The number of shards a SQL query must contact",
-        "A universal guarantee for every distributed database",
-      ],
-      correct: 0,
-      explanation:
-        "By the pigeonhole principle, if the number of read nodes (R) plus write nodes (W) exceeds the replication factor (N), at least one node in the read set is guaranteed to have participated in the latest acknowledged write.",
-    },
-    {
-      id: 8,
-      question: "What is a primary purpose of a shard key?",
-      options: [
-        "Determine where a record is stored and help route queries to the appropriate shard",
-        "Replace all indexes",
-        "Guarantee that every transaction remains local",
-      ],
-      correct: 0,
-      explanation:
-        "The shard key (e.g. `user_id`) is hashed or evaluated by the router to map rows to specific physical nodes, enabling fast single-shard targeted queries without contacting other cluster members.",
-    },
-    {
-      id: 9,
-      question: "What is the difference between RPO and RTO?",
-      options: [
-        "RPO concerns the acceptable data-loss window; RTO concerns the target time to restore service",
-        "RPO measures query latency; RTO measures database storage size",
-        "They mean the same thing",
-      ],
-      correct: 0,
-      explanation:
-        "Recovery Point Objective (RPO) is the maximum tolerated duration of lost transactions during a disaster (e.g. at most 5 seconds of lost writes). Recovery Time Objective (RTO) is the target duration required to bring the system back online.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -812,7 +706,14 @@ export default function SystemDesignReplication() {
 
   const currentLessonData = lessons.find((l) => l.id === activeLesson) || lessons[0];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="replication" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="replication" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-8 sm:px-8 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

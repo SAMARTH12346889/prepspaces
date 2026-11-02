@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -57,6 +60,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSCapstone() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "capstone");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -208,74 +212,7 @@ export default function OSCapstone() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. Why should you record the xv6 source commit before making changes?",
-      options: [
-        "A. To guarantee the code has no bugs",
-        "B. To identify the exact revision used and reproduce the build",
-        "C. To make QEMU run faster",
-        "D. To avoid writing tests",
-      ],
-      correct: 1,
-      explanation:
-        "Recording the exact commit hash via 'git rev-parse HEAD' ensures that your work, build scripts, and test findings are fully reproducible by other engineers and evaluators against the identical codebase.",
-    },
-    {
-      id: "q2",
-      question: "2. What connects a user-space syscall wrapper to its kernel implementation?",
-      options: [
-        "A. Only the Makefile",
-        "B. The syscall number, trap path, dispatch table, and handler integration",
-        "C. The filesystem alone",
-        "D. A hardware timer only",
-      ],
-      correct: 1,
-      explanation:
-        "A system call requires end-to-end wiring: the user wrapper triggers ecall with a syscall number in a7, the trap handler preserves user state, syscall() dispatches via a function pointer table, and the kernel handler stores the return value in a0.",
-    },
-    {
-      id: "q3",
-      question:
-        "3. Why must a process's parent pointer be accessed according to the kernel's synchronization rules?",
-      options: [
-        "A. Because all pointers are invalid in kernel code",
-        "B. Because process exit and reparenting can change lifecycle relationships",
-        "C. Because QEMU prevents concurrent execution",
-        "D. Because parent pointers are always user memory",
-      ],
-      correct: 1,
-      explanation:
-        "In a concurrent kernel, a parent process might terminate and call exit(), reparenting child processes to init (PID 1) while a concurrent thread is reading the pointer. Reading without holding the proper lock causes a dangerous use-after-free or torn pointer race.",
-    },
-    {
-      id: "q4",
-      question: "4. What should you do if xv6 fails before your extension is implemented?",
-      options: [
-        "A. Ignore the failure and continue",
-        "B. Change unrelated kernel code immediately",
-        "C. Investigate and establish a working baseline before attributing failures to your change",
-        "D. Report the failure as proof the extension is incorrect",
-      ],
-      correct: 2,
-      explanation:
-        "Always verify that the clean, unmodified repository builds, boots in QEMU, and passes existing tests before adding changes. Otherwise, environment or toolchain flaws will be mistaken for kernel bugs.",
-    },
-    {
-      id: "q5",
-      question: "5. What is the purpose of the final technical report?",
-      options: [
-        "A. To claim production readiness",
-        "B. To demonstrate implementation, tests, evidence, limitations, and reproducibility",
-        "C. To replace source code",
-        "D. To report only successful tests",
-      ],
-      correct: 1,
-      explanation:
-        "Engineering reports provide verifiable evidence: requirements, architecture diagrams, test matrices with actual outputs, failure investigations, and explicit documentation of assumptions and limitations.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuiz = (qId, optionIdx) => {
     setQuizAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
@@ -301,7 +238,14 @@ export default function OSCapstone() {
     setChecklist((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="capstone" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="capstone" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#ea580c]/15">
       {/* Top Header & Navigation */}
       <header className="sticky top-0 z-40 bg-[#f6f4ee]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3.5 flex items-center justify-between">

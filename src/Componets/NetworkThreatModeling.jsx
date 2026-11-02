@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -32,6 +35,7 @@ import {
 import ModuleNav from "./ModuleNav";
 
 export default function NetworkThreatModeling() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "threat-modeling");
   const navigate = useNavigate();
 
   // Active navigation tab
@@ -298,138 +302,7 @@ export default function NetworkThreatModeling() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which pillar of the CIA triad is violated if an attacker silently alters a financial transaction amount in transit without the sender or receiver detecting it?",
-      options: [
-        "Confidentiality",
-        "Integrity",
-        "Availability",
-        "Non-repudiation",
-      ],
-      correct: 1,
-      explanation:
-        "Integrity ensures that data, configurations, and communications cannot be modified or tampered with by unauthorized parties without detection. When an attacker modifies transaction contents in flight, integrity is violated.",
-    },
-    {
-      id: 2,
-      question: "In threat modeling, what is the precise definition of a 'trust boundary'?",
-      options: [
-        "The physical perimeter fence around a data center building",
-        "A logical or physical point where security assumptions, authentication requirements, privileges, or access rules change",
-        "The maximum bandwidth allocated to an internet circuit",
-        "The IP subnet mask that divides a /24 network into two /25 networks",
-      ],
-      correct: 1,
-      explanation:
-        "A trust boundary is any interface where security assumptions change—such as between the untrusted internet and a public load balancer, between a web application and its database, or between a guest Wi-Fi and corporate systems.",
-    },
-    {
-      id: 3,
-      question: "In the STRIDE threat-modeling framework, which threat category corresponds to an attacker modifying an application's database records?",
-      options: [
-        "Spoofing",
-        "Tampering",
-        "Repudiation",
-        "Information Disclosure",
-      ],
-      correct: 1,
-      explanation:
-        "In STRIDE: S = Spoofing, T = Tampering (unauthorized modification of data or code), R = Repudiation, I = Information Disclosure, D = Denial of Service, E = Elevation of Privilege.",
-    },
-    {
-      id: 4,
-      question: "Why does symmetric encryption (e.g. AES-256 in CBC mode) alone NOT guarantee that a message was safe from a replay attack?",
-      options: [
-        "Because symmetric encryption can only encrypt text up to 128 characters",
-        "Because an attacker can intercept valid encrypted ciphertext and retransmit it verbatim; without cryptographic nonces, sequence numbers, or timestamps, the receiver will decrypt and execute it as a fresh valid command",
-        "Because AES keys expire every 60 seconds automatically",
-        "Because replay attacks only occur on wireless networks",
-      ],
-      correct: 1,
-      explanation:
-        "Encryption provides confidentiality, not freshness. An attacker who cannot read the encrypted payload can still capture the ciphertext and retransmit it to duplicate an action (e.g. replaying an encrypted bank transfer). Secure protocols must include nonces or sequence numbers.",
-    },
-    {
-      id: 5,
-      question: "What is the critical difference between a cryptographic hash (e.g. SHA-256) and a Message Authentication Code (HMAC)?",
-      options: [
-        "A cryptographic hash uses 512 bits, while an HMAC uses only 16 bits",
-        "A plain cryptographic hash can be computed by anyone who possesses the message; an HMAC incorporates a shared secret key, proving both data integrity AND authentic origin",
-        "A hash is reversible, while an HMAC is permanent",
-        "Hashes are used for digital video, while HMACs are used exclusively for email",
-      ],
-      correct: 1,
-      explanation:
-        "Anyone can compute SHA-256(data). An attacker modifying the data can simply recompute a new SHA-256 hash. An HMAC requires knowledge of a shared secret key (HMAC = H(Key || H(Key || message))), guaranteeing that only an authorized key-holder could have generated the tag.",
-    },
-    {
-      id: 6,
-      question: "What does a valid TLS 1.3 certificate guarantee to a connecting client?",
-      options: [
-        "It guarantees the server's application code is bug-free and will never suffer an SQL injection attack",
-        "It authenticates the server's cryptographic identity against trusted Certificate Authorities (CAs) and enables an encrypted, tamper-resistant communication channel",
-        "It guarantees that data stored inside the server's database is encrypted at rest",
-        "It guarantees that the website is honest, legal, and non-malicious",
-      ],
-      correct: 1,
-      explanation:
-        "TLS guarantees cryptographic channel security (confidentiality and integrity in transit) and server identity verification. It does NOT guarantee that the backend code is secure, that the site is not a phishing scam, or that data at rest is protected.",
-    },
-    {
-      id: 7,
-      question: "In the qualitative risk assessment model (Risk = Likelihood x Impact), why can a 'low likelihood' event still demand urgent mitigation?",
-      options: [
-        "Because low-likelihood events always happen first in software deployments",
-        "Because if the consequence (Impact) is catastrophic—such as complete database loss or total corporate bankruptcy—the overall risk score remains critically high",
-        "Because likelihood automatically increases by 10% every month an issue remains open",
-        "Because NIST guidelines mandate treating all low-likelihood risks as emergencies",
-      ],
-      correct: 1,
-      explanation:
-        "Risk is a combination of probability and consequence. A catastrophic event (e.g. total unencrypted customer database exfiltration leading to massive regulatory fines and business shutdown) carries extreme severity even if the initial probability appears moderate or low.",
-    },
-    {
-      id: 8,
-      question: "What is the principle of Defense in Depth in network security?",
-      options: [
-        "Deploying multiple layers of complementary, independent security controls so that the failure of any single control does not compromise the entire system",
-        "Installing the exact same brand of firewall at every single network switch",
-        "Using 4096-bit encryption keys instead of 2048-bit keys",
-        "Burying fiber optic cables at least 10 feet underground",
-      ],
-      correct: 0,
-      explanation:
-        "Defense in depth recognizes that any individual control (perimeter firewall, WAF, password) can fail or be bypassed. By layering independent controls (perimeter filter + subnet segmentation + host firewall + least-privilege DB role + encryption), an attacker who breaches one layer is stopped by the next.",
-    },
-    {
-      id: 9,
-      question: "How does Dynamic ARP Inspection (DAI) on an enterprise Ethernet switch defend against Man-in-the-Middle (MitM) ARP poisoning?",
-      options: [
-        "It disables all ARP packets on the local area network",
-        "It intercepts and validates ARP packets against the switch's DHCP snooping binding database, dropping forged ARP responses that try to redirect traffic to an attacker's MAC",
-        "It encrypts all Ethernet frame preambles with AES-128",
-        "It forces all hosts to use IPv6 instead of IPv4",
-      ],
-      correct: 1,
-      explanation:
-        "DAI tracks IP-to-MAC bindings established by trusted DHCP transactions. If an attacker on an untrusted port sends an unsolicited ARP reply claiming to be the default gateway IP, the switch checks the binding table, detects the forgery, and drops the packet.",
-    },
-    {
-      id: 10,
-      question: "What does the Zero-Trust principle of 'Assume Breach' dictate for network architecture?",
-      options: [
-        "Assuming that all employees are active corporate spies and shutting down remote work",
-        "Designing networks under the premise that an attacker already has a foothold inside the internal perimeter; enforcing microsegmentation, least privilege, and continuous authentication to prevent lateral movement",
-        "Never connecting any servers to the internet under any circumstances",
-        "Formatting all hard drives every 24 hours to wipe malware",
-      ],
-      correct: 1,
-      explanation:
-        "'Assume Breach' shifts defense from purely defending a perimeter to containing blast radius. It requires verifying every transaction, isolating workloads into microsegmented zones, and restricting lateral movement so that a compromised laptop cannot reach core production databases.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleQuizSelect = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -498,7 +371,14 @@ export default function NetworkThreatModeling() {
 4. **P1 (Next Sprint):** Deploy automated log redaction filters to eliminate plaintext tokens in application logs.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="threat-modeling" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="threat-modeling" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans">
       <ModuleNav
         track="networks"

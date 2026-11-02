@@ -113,6 +113,26 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 2
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "Understand how unprivileged applications cross the CPU privilege boundary to request protected operating system services. Trace process creation with fork(), image replacement with execvp(), status reaping with waitpid(), pipes, redirection, and strace diagnostics."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "University &amp; Professional Reference Standards",
+      "paragraphs": [
+        "Detailed study of UNIX system call table, trap handling, and process scheduling.",
+        "Michael Kerrisk's authoritative reference for Linux system calls, processes, pipes, and signals.",
+        "Exceptional control flow, signal handling, and robust I/O wrapper functions (Rio).",
+        "Official POSIX specifications for open(2), read(2), fork(2), execve(2), and waitpid(2)."
+      ]
+    }
+  ]
 }

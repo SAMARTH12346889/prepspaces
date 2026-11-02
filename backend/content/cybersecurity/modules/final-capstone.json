@@ -16,7 +16,7 @@
         "Build the largest lab architecture regardless of available resources."
       ],
       "correctIndex": 1,
-      "explanation": "The final capstone integrates technical assessment with risk management, root-cause remediation, detection engineering, and verified retesting across the full lifecycle: Assess → Document → Secure → Retest → Defend → Improve."
+      "explanation": "The final capstone integrates technical assessment with risk management, root-cause remediation, detection engineering, and verified retesting across the full lifecycle: Assess \u2192 Document \u2192 Secure \u2192 Retest \u2192 Defend \u2192 Improve."
     },
     {
       "id": "q2",
@@ -89,6 +89,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

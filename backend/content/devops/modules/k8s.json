@@ -271,7 +271,7 @@
         },
         {
           "heading": "Service Types Matrix",
-          "body": "- `ClusterIP` (Default): Exposes the Service on an internal cluster-only virtual IP.\n- `NodePort`: Exposes the Service on each node's IP at a static port (range 30000–32767).\n- `LoadBalancer`: Provisions an external cloud load balancer (AWS NLB/ALB, GCP Cloud LB) pointing to NodePorts.\n- `ExternalName`: Maps the Service to a CNAME DNS record outside the cluster."
+          "body": "- `ClusterIP` (Default): Exposes the Service on an internal cluster-only virtual IP.\n- `NodePort`: Exposes the Service on each node's IP at a static port (range 30000\u201332767).\n- `LoadBalancer`: Provisions an external cloud load balancer (AWS NLB/ALB, GCP Cloud LB) pointing to NodePorts.\n- `ExternalName`: Maps the Service to a CNAME DNS record outside the cluster."
         }
       ],
       "codeSnippet": "# Production ClusterIP Service\napiVersion: v1\nkind: Service\nmetadata:\n  name: notes-api\nspec:\n  type: ClusterIP\n  selector:\n    app: notes-api\n  ports:\n    - name: http\n      port: 80\n      targetPort: 8000\n\n# Inspect Endpoints & EndpointSlices\nkubectl get service notes-api\nkubectl get endpointslices -l kubernetes.io/service-name=notes-api"
@@ -566,6 +566,8 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

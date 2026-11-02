@@ -40,7 +40,7 @@
         "Network bandwidth only"
       ],
       "correctIndex": 0,
-      "explanation": "In the STRIDE model, Information Disclosure directly violates Confidentiality—the property that sensitive information is accessible only to authorized entities."
+      "explanation": "In the STRIDE model, Information Disclosure directly violates Confidentiality\u2014the property that sensitive information is accessible only to authorized entities."
     },
     {
       "id": 4,
@@ -161,6 +161,154 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 18
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Module Learning Objectives & Outcomes",
+      "paragraphs": [
+        "By the conclusion of this module, learners will be able to systematically construct threat models, map complex attack surfaces, prioritize risk using evidence, and justify defensive controls:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 1.1: What is Security Engineering?",
+      "paragraphs": [
+        "Security engineering is the discipline of designing, implementing, evaluating, and maintaining systems so that they resist unacceptable harm under realistic adversarial conditions. It is not an afterthought or a final checklist before production; it is an intrinsic systems-engineering discipline throughout the entire software and operational lifecycle (formalized in NIST SP 800-160 Volume 1 Revision 1).",
+        "Builds features rapidly without threat modeling. Deploys code to production and performs security testing only after a major vulnerability or breach is reported. Remediation is chaotic, expensive, and often breaks existing user workflows.",
+        "Identifies sensitive assets during architectural design, defines access-control requirements, analyzes trust boundaries, models threats using STRIDE, and verifies that safeguards work continuously after deployment.",
+        "The classical CIA triad defines confidentiality, integrity, and availability. Modern enterprise engineering expands this into comprehensive operational properties:",
+        "Defines required or permitted behavior. \"Only authorized course mentors may publish assessment grades; grades cannot be modified once certified.\"",
+        "The specific technical apparatus. \"A Node.js RBAC middleware verifying JWT role claims and issuing parameterized UPDATE queries.\"",
+        "The holistic operational safeguard intended to modify risk. \"Dual-custody grade approval combined with immutable SIEM logging and quarterly access reviews.\""
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 2.1\u20132.10: Architectural Principles of Secure Systems",
+      "paragraphs": [
+        "Derived from the landmark Saltzer and Schroeder (1975) engineering principles and modern Zero Trust guidance, these ten rules govern defensive system architecture:",
+        "Every user, background daemon, API token, and microservice must possess only the minimum privileges required to execute its duty. A background report generator must not hold DB administrative rights.",
+        "Deploy layered, overlapping safeguards so that the failure of any single control (e.g. WAF bypass) is mitigated by subsequent layers (server-side checks, DB encryption, VPC network segmentation).",
+        "Systems must ship in the most secure configuration out of the box. If an authorization check encounters an unhandled exception, it must fail closed and DENY access rather than allowing it.",
+        "Every access attempt to every resource must be checked on the server side on every invocation. Client-side button hiding is a usability convenience, not a security control.",
+        "Keep designs as simple as practical. Complex code paths, convoluted authentication state machines, and obscure protocols create hidden failure modes that are impossible to test.",
+        "High-impact administrative actions (such as publishing official certifications or changing billing gateways) require dual-custody approval to prevent single-account compromise abuse.",
+        "Decommission legacy API versions, strip unused debug endpoints, close open ports, and remove unneeded dependencies. An interface that does not exist cannot be exploited.",
+        "Document and challenge all implicit architectural assumptions. Never assume internal traffic is clean or that a third-party API will never be compromised or change behavior.",
+        "\"Never trust, always verify.\" Network location (e.g., VPN or private subnet) confers zero implicit trust. Every single request must establish identity, authorization, and encryption.",
+        "Prevention is necessary, but breaches and outages still occur. Systems must be engineered for graceful degradation, automated failover, and verified backups. A backup that has never been restored in a rehearsal is not a backup\u2014it is an untested hypothesis."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 3.1\u20133.3: Precise Terminology & The Adversarial Framework",
+      "paragraphs": [
+        "Security documentation becomes unusable when analysts use words like threat, vulnerability, and risk as synonyms. Each term represents a distinct, sequential node in causal security analysis:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 4.1\u20134.7: Repeatable 10-Step Process, Attack Trees & Abuse Cases",
+      "paragraphs": [
+        "As advocated by OWASP and the Carnegie Mellon University Software Engineering Institute (SEI), threat modeling provides a systematic, repeatable framework for discovering architectural flaws before implementation:",
+        "A common anti-pattern in security reviews is writing vague aspirations. Professional engineers translate STRIDE findings into testable behavioral requirements:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 5.1\u20135.6: Five Attack Surface Domains & Change-Driven Modeling",
+      "paragraphs": [
+        "An attack surface is the totality of reachable interfaces, routes, endpoints, protocols, background daemons, and third-party integrations through which an attacker could attempt to manipulate a system.",
+        "Public IPv4/IPv6 addresses, open ports (80, 443, 22), routing tables, VPN gateways, DNS records. Defense: Zero public SSH, Cloudflare edge proxy, strict security group egress rules.",
+        "HTTP REST routes, GraphQL schemas, file upload handlers, error pages, WebSocket streams. Defense: Input validation (Zod), parameterized queries, server-side object ownership checks.",
+        "Login endpoints, password reset flows, session token cookies, OAuth callback handlers, IAM roles. Defense: FIDO2 passkeys, rate limiting, HttpOnly/SameSite cookies, short-lived tokens.",
+        "AWS IAM roles, S3 bucket policies, container orchestration ports, Kubernetes API server. Defense: S3 Block Public Access, customer-managed KMS keys, non-root container users.",
+        "NPM / PyPI dependencies, GitHub Actions workflows, build runner environments, signing keys. Defense: Dependency lockfiles, automated Dependabot scans, pinned SHA actions, artifact provenance.",
+        "Every newly exposed endpoint increases cognitive load, maintenance debt, and exploit potential. Always demand a justified business purpose before exposing any interface."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 6.1\u20136.8: Likelihood, Impact, Risk Appetite & Treatment",
+      "paragraphs": [
+        "Risk management is the systematic process of identifying, evaluating, prioritizing, and responding to risks in a manner that protects business value. Technical flaws do not equal business risk until evaluated in environmental context:",
+        "The natural risk level present in an activity or system before any defensive controls, safeguards, or policies are factored in. Example: Storing unencrypted interview transcripts on an internet-facing server.",
+        "The risk that persists after all implemented controls have been applied and evaluated. Residual risk is never zero; controls can fail, be bypassed, or suffer configuration drift."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 7.1\u20137.5: NIST CSF 2.0, NIST SP 800-30 & Severity vs. Business Risk",
+      "paragraphs": [
+        "Cybersecurity engineering aligns tactical threat findings with standardized institutional frameworks. A technical vulnerability rating (like CVSS) is an input, not a complete business risk assessment:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Academic Lineage & Official Engineering References",
+      "paragraphs": [
+        "The content of Module 4 synthesizes foundational security engineering research from the world's leading academic institutions and standards bodies:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Enterprise Asset Catalog & Criticality Scoring",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Interactive System Architecture Decomposition",
+      "paragraphs": [
+        "{dfdNodes[selectedDfdNode].boundaryCrossing}",
+        "{dfdNodes[selectedDfdNode].assumptions}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Component Threat Decomposition",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Application Exposure Catalog",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Risk Scoring, Heatmap & Treatment Decision",
+      "paragraphs": [
+        "{riskScenarios[selectedScenarioId].weakness}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Challenging Assumptions & Secure Redesign",
+      "paragraphs": [
+        "{designFlaws[selectedReviewFlaw].flawedArch}",
+        "{designFlaws[selectedReviewFlaw].secureRedesign}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "LearnSphere Architecture Assessment & Threat Modeling",
+      "paragraphs": [
+        "Platform Context: LearnSphere provides online courses, resume evaluations, coding sandboxes, and AI-assisted interview assessment reports. Its architecture comprises a React SPA frontend, an API Gateway reverse proxy, Express microservices, a PostgreSQL cluster, S3 document storage, and an external third-party AI feedback service."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "University-Informed Knowledge Check (12 Questions)",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Capstone: Threat-Model and Manage Risk for LearnSphere",
+      "paragraphs": [
+        "Students execute a full, end-to-end security assessment for the LearnSphere application. The deliverable represents the complete reasoning process\u2014from understanding assets and mapping DFD trust boundaries to defining verifiable security requirements and maintaining an evidence-backed risk register."
+      ]
+    }
+  ]
 }

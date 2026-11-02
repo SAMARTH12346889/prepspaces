@@ -89,6 +89,105 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 12
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Demand Paging and Page Fault Handling",
+      "paragraphs": [
+        "Lazy Allocation \u00b7 Exception Handling \u00b7 Minor vs Major Faults \u00b7 Resident Set",
+        "In a pure demand-paging architecture, an operating system never preloads a virtual page into physical memory (RAM) until an executing CPU instruction explicitly references an address within that page. The OS can establish a multi-gigabyte virtual address space for a process while initially backing it with zero physical memory frames.",
+        "Minor Fault (Soft): The page is already resident in RAM or needs zero-filling (e.g. initial heap touch or shared library already cached in page cache). Latency: ~1-5 microseconds. Major Fault (Hard): Requires blocking storage I/O to read 4KB from disk or swap. Latency: ~5-10 milliseconds (HDD) or ~50-200 microseconds (NVMe SSD)\u2014a 1000x to 100,000x execution slowdown!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Locality, Working Sets and Thrashing",
+      "paragraphs": [
+        "Temporal/Spatial Locality \u00b7 Peter Denning's Model \u00b7 The Thrashing Cliff \u00b7 Resource Collapse",
+        "Programs do not access their address space uniformly. They exhibit strong locality of reference:",
+        "Introduced by Peter Denning, the Working Set W(t, \u0394) is the collection of distinct virtual pages referenced by a process over a sliding time window of length \u0394.",
+        "Thrashing occurs when total working set demand exceeds available physical memory frames: \u03a3 |W_i| &gt; Total RAM."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Page-Replacement Algorithms",
+      "paragraphs": [
+        "FIFO \u00b7 Optimal (MIN) \u00b7 LRU \u00b7 Clock (Second Chance) \u00b7 Belady's Anomaly",
+        "When physical memory has no free frames, the OS page-replacement policy selects a resident frame to evict. If the selected frame has been modified (dirty), its contents must be written to backing storage before reallocation.",
+        "Under FIFO replacement with reference string 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5: \u2022 With 3 frames: 9 page faults. \u2022 With 4 frames: 10 page faults! More frames caused MORE page faults! Why? Because FIFO is not a stack algorithm. In stack algorithms (LRU, Optimal), the set of pages resident in an N-frame memory is guaranteed to be a strict subset of the pages resident in an (N+1)-frame memory at all times."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Copy-On-Write, Anonymous Memory & Swapping",
+      "paragraphs": [
+        "fork() Optimization \u00b7 COW Protection Faults \u00b7 Active/Inactive Lists \u00b7 Writeback Throttling",
+        "Modern operating systems avoid copying large address spaces eagerly. In Unix systems, fork() creates a child process by duplicating the parent's page tables while pointing both tables to the identical physical frames.",
+        "Linux maintains dual LRU lists for memory reclamation:",
+        "Clean Pages: Simply dropped from RAM (unmapped). If needed later, they are read back from the filesystem. Dirty Pages: Must be written to disk storage by background flusher threads (pdflush) before frames can be reused.",
+        "Anonymous pages (heap/stack) have no file on disk. To reclaim an anonymous frame, the kernel must write its 4KB contents into a swap partition or swap file. If swap is disabled, anonymous memory cannot be reclaimed until the process terminates!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux Memory Pressure & Production Observability",
+      "paragraphs": [
+        "vmstat \u00b7 /proc/pressure/memory (PSI) \u00b7 Overcommit Modes \u00b7 OOM Killer badness",
+        "Monitoring virtual memory requires examining more than just free -h. Production engineers correlate page fault counters, swap I/O, and CPU stall pressure:",
+        "When all reclaimable pages are exhausted and allocation fails, the kernel invokes out_of_memory(). It computes an oom_badness() score (0 to 1000) for every process based on resident RAM, swap usage, and /proc/[pid]/oom_score_adj (-1000 protects daemons from being killed; +1000 makes a process the first sacrifice). The highest scoring task is sent SIGKILL."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Practical Simulator Lab (Python 3)",
+      "paragraphs": [
+        "page_replacement_lab.py \u00b7 FIFO \u00b7 Optimal \u00b7 LRU \u00b7 Clock \u00b7 Automated Benchmark"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Live Page-Replacement Stepper & Comparator",
+      "paragraphs": [
+        "Step through reference strings instruction-by-instruction and observe frame allocations, hits, faults, and evictions."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Working Set & The Thrashing Cliff Visualizer",
+      "paragraphs": [
+        "Demonstrates how memory demand exceeding allocated physical frames precipitates a catastrophic 100% page-fault rate.",
+        "{thrashingMetrics.isThrashing ? `Capacity (M=${allocatedFrames}) is less than Working Set (W=${workingSetPages}). Every single reference to page 1 evicts page 2, which then immediately faults on the next cycle, triggering an endless 100% fault cascade!` : `Capacity (M=${allocatedFrames}) accommodates Working Set (W=${workingSetPages}). After cold start (only ${workingSetPages} faults), the working set stays resident in RAM with 0% subsequent faults!`}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux Memory Pressure & Reclamation Pipeline",
+      "paragraphs": [
+        "Simulate how the kernel responds as free pages drop past watermarks: from kswapd lazy reclamation to the OOM Killer."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux Demand Paging Terminal Sandbox",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Engineering Competency Checklist",
+      "paragraphs": [
+        "Track your mastery of demand paging mechanisms, replacement algorithms, and memory pressure metrics."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 11 Assessment: Demand Paging & Algorithms",
+      "paragraphs": [
+        "Test your understanding of page faults, replacement policies, thrashing dynamics, and Linux memory pressure."
+      ]
+    }
+  ]
 }

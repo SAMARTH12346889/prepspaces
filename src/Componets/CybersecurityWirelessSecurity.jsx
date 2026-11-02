@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ModuleNav from "./ModuleNav";
@@ -53,6 +56,7 @@ import {
 } from "lucide-react";
 
 export default function CybersecurityWirelessSecurity() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "wireless-security");
   const navigate = useNavigate();
 
   // Scroll to top on mount
@@ -320,88 +324,7 @@ export default function CybersecurityWirelessSecurity() {
   // =========================================================================
   // KNOWLEDGE ASSESSMENT QUIZ (6 QUESTIONS)
   // =========================================================================
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Why is a familiar SSID not proof that an access point is legitimate?",
-      options: [
-        "The SSID is always encrypted",
-        "An unauthorized access point can imitate a legitimate network name",
-        "Every access point must have a unique SSID",
-        "A network name proves which organization owns the access point"
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Anyone with a wireless card can broadcast any SSID name. In an evil-twin attack (MITRE ATT&CK T1557.004), an attacker clones the corporate SSID to lure clients into connecting and disclosing credentials."
-    },
-    {
-      id: 2,
-      question: "Which statement about WPA3-Personal is correct?",
-      options: [
-        "It removes the need for a wireless password in every configuration",
-        "It guarantees that every connected device is trustworthy",
-        "It uses SAE and improves protections in the password-based authentication exchange",
-        "It replaces network segmentation"
-      ],
-      correctAnswer: 2,
-      explanation:
-        "WPA3-Personal replaces the WPA2 4-way PSK handshake with Simultaneous Authentication of Equals (SAE - Dragonfly exchange), which prevents offline dictionary cracking of captured handshakes and provides forward secrecy."
-    },
-    {
-      id: 3,
-      question:
-        "What is a key advantage of enterprise Wi-Fi using 802.1X with a suitable EAP method?",
-      options: [
-        "It can support centrally managed user or device authentication instead of relying only on one shared network password",
-        "It removes the need to validate certificates",
-        "It makes every connected device an administrator",
-        "It prevents all radio interference"
-      ],
-      correctAnswer: 0,
-      explanation:
-        "802.1X connects to central identity stores (such as RADIUS/Active Directory), allowing individual user or certificate-based device credentials, instant single-account revocation, and role-based VLAN assignment."
-    },
-    {
-      id: 4,
-      question: "Why should guest and IoT devices be segmented from sensitive networks?",
-      options: [
-        "To let all wireless devices access all internal systems",
-        "To limit unnecessary communication and reduce the reach of a compromised device",
-        "To avoid updating firmware",
-        "To eliminate the need for authentication"
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Segmentation (e.g. via separate VLANs, firewall zones, and client isolation) isolates unmanaged devices, preventing an infected guest laptop or compromised smart-TV from scanning or pivoting into internal servers."
-    },
-    {
-      id: 5,
-      question: "What is the primary role of a Wireless Intrusion Detection System (WIDS)?",
-      options: [
-        "Replace the wireless authentication protocol",
-        "Guarantee detection of all passive radio observers",
-        "Monitor wireless activity for suspicious events and possible unauthorized infrastructure",
-        "Automatically authorize every unknown AP"
-      ],
-      correctAnswer: 2,
-      explanation:
-        "A WIDS analyzes radio spectrum, beacon frames, and management traffic to detect rogue access points, deauthentication floods, evil-twin impersonation, and configuration violations."
-    },
-    {
-      id: 6,
-      question:
-        "What should a security analyst do when two access points advertise the same SSID?",
-      options: [
-        "Compare the observation with the approved inventory and investigate supporting evidence",
-        "Immediately conclude that the second AP is malicious",
-        "Disable every corporate access point",
-        "Assume that identical SSIDs are always unauthorized"
-      ],
-      correctAnswer: 0,
-      explanation:
-        "Enterprise WLANs naturally use identical SSIDs across dozens of legitimate APs to support roaming. The analyst must cross-reference BSSIDs, vendor OUIs, security modes, and controller logs to distinguish approved APs from evil twins."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -424,7 +347,14 @@ export default function CybersecurityWirelessSecurity() {
     return quizAnswers[q.id] === q.correctAnswer ? score + 1 : score;
   }, 0);
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="wireless-security" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="wireless-security" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 antialiased font-sans selection:bg-orange-500 selection:text-white relative pb-20">
       {/* Ambient background glows */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">

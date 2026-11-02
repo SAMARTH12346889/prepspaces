@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -48,6 +51,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSSystemsProgramming() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "systems-programming");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -99,107 +103,7 @@ export default function OSSystemsProgramming() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. What does the address-of operator `&` do?",
-      options: [
-        "Returns the size of an object",
-        "Produces the address of an object",
-        "Frees allocated memory",
-        "Dereferences a pointer",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The unary `&` operator evaluates to the memory address of its operand. For example, `&score` yields a pointer holding the memory address where the variable `score` is stored. Conversely, `*ptr` dereferences that address.",
-    },
-    {
-      id: 2,
-      question: "2. Which statement about stack and heap is correct?",
-      options: [
-        "All C local variables must live on the stack",
-        "Heap allocations are automatically freed when a function returns",
-        "Stack and heap are common implementation concepts, not C-mandated memory regions",
-        "Global variables always live on the heap",
-      ],
-      correctIndex: 2,
-      explanation:
-        "The ISO C standard defines language semantics in terms of storage duration (automatic, static, allocated, and thread-local), not hardware stack and heap memory. The division into stack frames and heap arenas is an architectural convention established by operating system ABIs and standard C runtimes.",
-    },
-    {
-      id: 3,
-      question: "3. Which stage resolves external symbols between object files?",
-      options: [
-        "Preprocessing",
-        "Linking",
-        "Runtime input",
-        "Header inclusion",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The Linker (`ld` invoked via `gcc`) combines relocatable object files (`.o`), matches unresolved external symbol references (such as `add_numbers` called in `main.o`) with symbol definitions in other object files or libraries, patches relocations, and outputs an executable ELF.",
-    },
-    {
-      id: 4,
-      question: "4. What does `free(ptr)` do?",
-      options: [
-        "Sets ptr to NULL automatically",
-        "Releases the allocated object when ptr is a valid allocation pointer",
-        "Frees every allocation made by the program",
-        "Guarantees the memory is immediately returned to the OS",
-      ],
-      correctIndex: 1,
-      explanation:
-        "`free(ptr)` releases the memory block pointed to by `ptr` back to the allocator runtime arena. Crucially, `free()` does NOT set `ptr` to `NULL` (leaving it as a dangling pointer unless cleared manually), and memory may be cached by the allocator rather than immediately unmapped via `brk`/`munmap`.",
-    },
-    {
-      id: 5,
-      question: "5. What is a file descriptor?",
-      options: [
-        "A C variable type for filenames",
-        "A process-level handle used to refer to an open I/O resource",
-        "A compiler warning",
-        "A section of an ELF file",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A file descriptor is a small non-negative integer (e.g., 0 for stdin, 1 for stdout, 2 for stderr) that acts as an index into the kernel's per-process open file table (`struct files_struct`), pointing to underlying open files, sockets, pipes, or devices.",
-    },
-    {
-      id: 6,
-      question: "6. What is a main advantage of dynamic libraries?",
-      options: [
-        "They eliminate every runtime dependency",
-        "They can allow compatible library code to be shared by multiple processes",
-        "They prevent all memory errors",
-        "They remove the need for linking",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Shared dynamic libraries (`.so`) allow multiple concurrently running processes to share the exact same physical memory pages of executable code mapped read-only (`PROT_READ | PROT_EXEC`). Furthermore, bug fixes in the shared object do not require relinking all dependent applications.",
-    },
-    {
-      id: 7,
-      question: "7. Which tool is commonly used to inspect ELF headers?",
-      options: ["readelf", "make", "Valgrind only", "printf"],
-      correctIndex: 0,
-      explanation:
-        "`readelf` (part of GNU Binutils) is specifically designed to parse and display the ELF header (`readelf -h`), section headers (`readelf -S`), symbol tables (`readelf -s`), and dynamic tags (`readelf -d`) of Unix executables and object files.",
-    },
-    {
-      id: 8,
-      question: "8. Why is out-of-bounds access dangerous?",
-      options: [
-        "It always returns zero",
-        "It is always caught by the compiler",
-        "It can cause undefined behavior and memory corruption",
-        "It only affects performance",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Out-of-bounds reading or writing invokes undefined behavior. It can silently overwrite adjacent variables, corrupt return addresses on the stack, allow remote code execution vulnerabilities, or cause asynchronous segfaults far from the point of the bug.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -429,7 +333,14 @@ Build completed cleanly. Zero warnings with -Wall -Wextra -Wpedantic.`;
     setCustomCommand("");
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="systems-programming" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="systems-programming" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Breadcrumb & Navigation */}
       <ModuleNav

@@ -89,6 +89,64 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 6
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Wireless Networking Fundamentals and Attack Surface",
+      "paragraphs": [
+        "A Wireless Local Area Network (WLAN) connects devices using radio frequency (RF) transmissions, enabling communication with an Access Point (AP) or wireless infrastructure without physical cabling.",
+        "Long range, strong wall penetration. High congestion (only 3 non-overlapping channels: 1, 6, 11). Signals travel far into parking lots, increasing external interception risks.",
+        "Shorter range, higher bandwidth. Up to 25 non-overlapping 20 MHz channels. Signal attenuates quickly through physical walls, naturally reducing perimeter leakage.",
+        "Massive spectrum (up to 1200 MHz). Requires WPA3 or Enhanced Open by standard specification. Legacy WEP/WPA2 are completely prohibited in 6 GHz."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Wi-Fi Security Standards: WEP, WPA, WPA2, WPA3, and Enhanced Open",
+      "paragraphs": [
+        "In WPA2-Personal, an attacker within radio range records a client connecting to an AP (or triggers deauthentication), captures the 4-way EAPOL handshake, and cracks the pre-shared key offline at millions of guesses per second using GPUs.",
+        "Legacy 802.11 management frames (such as deauthentication and disassociation frames) are unencrypted. Attackers spoof the AP's MAC address and transmit forged deauth frames to kick clients off the network.",
+        "PMF (mandatory in WPA3) cryptographically signs unicast and broadcast management frames using a Broadcast Integrity Protocol Key (BIP). Clients drop forged deauthentication frames because the attacker lacks the cryptographic key to produce a valid Message Integrity Code (MIC)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Wireless Authentication, Credential Management, and Access Policy",
+      "paragraphs": [
+        "Enterprise wireless separates authentication from the physical access point using three distinct roles:",
+        "The laptop or smartphone presenting credentials. Must be provisioned with a private client certificate or enterprise user account.",
+        "Enforces the port gate. Blocks all IP traffic except EAP authentication packets until the RADIUS server sends an Access-Accept.",
+        "Verifies client identities against directory services (LDAP/AD/Okta) and returns dynamic VLAN tags and session encryption keys.",
+        "In EAP-TLS, mutual authentication occurs using X.509 digital certificates:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Wireless Threats: Rogue APs, Evil Twins, and Client Risks",
+      "paragraphs": [
+        "An unauthorized wireless AP plugged directly into an enterprise wired Ethernet switch port (e.g. by an employee wanting wireless access). Creates an unmonitored backdoor bridging past physical firewalls and 802.1X admission controls.",
+        "A fraudulent wireless access point set up by an external attacker broadcasting the exact same SSID as a legitimate network. Deceives victims into associating to execute adversary-in-the-middle (AiTM) traffic interception and credential harvesting.",
+        "Even if the enterprise access point is securely configured, unmanaged client behavior introduces severe risks:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Wireless Segmentation and Enterprise Wi-Fi Architecture",
+      "paragraphs": [
+        "Authentication controls entry; segmentation controls reach. An authenticated wireless connection must never grant unrestricted network visibility into sensitive internal systems.",
+        "In public and guest Wi-Fi networks, client isolation prevents devices associated with the same access point from communicating with each other directly over Layer 2 (ARP, ICMP, broadcast, and unicast traffic). This neutralizes malicious peer attacks such as ARP poisoning, SMB relaying, and local port scanning."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Wireless Monitoring, WIDS/WIPS, and Incident Response",
+      "paragraphs": [
+        "Passively monitors the RF spectrum across 2.4/5/6 GHz channels. Detects unexpected BSSIDs, rogue DHCP servers, deauthentication bursts, and security mode mismatches without actively altering transmissions.",
+        "Actively transmits containment frames or automatically disables switch ports on wired switches where rogue APs are discovered. Must be tightly governed to avoid accidental self-denial of service."
+      ]
+    }
+  ]
 }

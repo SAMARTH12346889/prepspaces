@@ -119,13 +119,13 @@
       "id": "qa-2",
       "title": "Why does Two-Phase Commit (2PC) introduce high latency and lock contention?",
       "context": "A financial or checkout workflow requires updating multiple independent shards simultaneously.",
-      "answer": "In 2PC, every participant shard must acquire exclusive row locks during the 'Prepare' phase and hold them across network round-trips until the Coordinator decides to 'Commit'. If network latency between shards is 15ms, locks are held for at least 30–50ms per transaction. This drastically reduces throughput, risks distributed deadlocks, and if the Coordinator crashes between phases, participants remain blocked in a doubtful state indefinitely."
+      "answer": "In 2PC, every participant shard must acquire exclusive row locks during the 'Prepare' phase and hold them across network round-trips until the Coordinator decides to 'Commit'. If network latency between shards is 15ms, locks are held for at least 30\u201350ms per transaction. This drastically reduces throughput, risks distributed deadlocks, and if the Coordinator crashes between phases, participants remain blocked in a doubtful state indefinitely."
     },
     {
       "id": "qa-3",
       "title": "How does Consistent Hashing with Virtual Nodes prevent data cascading during resharding?",
       "context": "Moving from 4 shards to 5 shards using naive `hash(key) % N` causes ~80% of all existing keys to map to different physical nodes.",
-      "answer": "Naive modulo sharding invalidates nearly the entire cluster when N increments. Consistent hashing places both nodes and keys on a circular 32-bit or 64-bit ring. When a new node is added, it only takes ownership of keys from its immediate neighbor (moving only $K/N$ keys). Assigning 100–256 'Virtual Nodes' (vnodes) per physical machine ensures that incoming keys and partition migration loads are distributed uniformly across all existing nodes rather than burdening a single neighbor."
+      "answer": "Naive modulo sharding invalidates nearly the entire cluster when N increments. Consistent hashing places both nodes and keys on a circular 32-bit or 64-bit ring. When a new node is added, it only takes ownership of keys from its immediate neighbor (moving only $K/N$ keys). Assigning 100\u2013256 'Virtual Nodes' (vnodes) per physical machine ensures that incoming keys and partition migration loads are distributed uniformly across all existing nodes rather than burdening a single neighbor."
     },
     {
       "id": "qa-4",
@@ -153,6 +153,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

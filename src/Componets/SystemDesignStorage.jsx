@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -47,6 +50,7 @@ import {
 } from "./SystemDesignStorageDiagrams";
 
 export default function SystemDesignStorage() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "storage");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -156,128 +160,7 @@ export default function SystemDesignStorage() {
   // ---------------------------------------------------------------------------
   // 10 COMPREHENSIVE ASSESSMENT QUIZ QUESTIONS
   // ---------------------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Why is cloud object storage (e.g., Amazon S3, MinIO) poorly suited as a direct disk backend for a high-concurrency transactional database (e.g., PostgreSQL)?",
-      options: [
-        "Object storage does not support in-place byte updates; modifying 1 byte requires re-uploading the entire object",
-        "Object storage has a maximum file size limit of only 100MB",
-        "Object storage only operates over local fibre-channel networks",
-      ],
-      correct: 0,
-      explanation:
-        "Object storage treats objects as immutable binary blobs. Modifying even a single 8KB database page would require downloading, re-encoding, and PUT-uploading the entire multi-gigabyte object, resulting in catastrophic latency and write amplification. Block storage (e.g. AWS EBS) is required for page-level random I/O.",
-    },
-    {
-      id: 2,
-      question: "How does Reed-Solomon Erasure Coding RS(8, 4) compare to standard 3x Replication for cold data archiving?",
-      options: [
-        "RS(8, 4) requires 50% storage overhead and tolerates 4 failures, whereas 3x replication requires 200% overhead and tolerates 2 failures",
-        "RS(8, 4) requires 400% storage overhead and cannot tolerate any node failures",
-        "3x replication requires less network bandwidth to reconstruct lost chunks than RS(8, 4)",
-      ],
-      correct: 0,
-      explanation:
-        "In RS(8, 4), 8 data chunks produce 4 parity chunks (12 total), yielding a storage overhead of only 12/8 = 1.5x (50% overhead) while tolerating any 4 concurrent disk/node failures. 3x replication has 200% overhead (3.0x raw storage) and only tolerates 2 failures.",
-    },
-    {
-      id: 3,
-      question: "What is an Inverted Index in information retrieval systems such as Lucene and OpenSearch?",
-      options: [
-        "A relational table where primary keys are sorted in descending reverse order",
-        "A mapping from distinct vocabulary terms to a posting list of document IDs (and positions) where that term occurs",
-        "A B+ Tree that stores documents sorted alphabetically by file name",
-      ],
-      correct: 1,
-      explanation:
-        "An inverted index inverts the standard document-to-words relationship. It maps each tokenized vocabulary term (e.g. 'distributed') to a posting list containing the list of document IDs where that word appears, enabling sub-millisecond Boolean and relevance search.",
-    },
-    {
-      id: 4,
-      question: "In the Okapi BM25 ranking algorithm, what purpose does the hyperparameter 'b' serve?",
-      options: [
-        "It sets the maximum number of search results returned per page",
-        "It penalizes long documents by normalizing term frequency against document length relative to average document length",
-        "It encrypts the posting list on disk",
-      ],
-      correct: 1,
-      explanation:
-        "Parameter b (typically 0.75) controls document length normalization. Without it, a 50-page thesis would artificially outrank a concise 1-page article simply because words occur more times by virtue of length.",
-    },
-    {
-      id: 5,
-      question: "What distinguishes an Inode in a POSIX filesystem from a Directory Entry (dentry)?",
-      options: [
-        "An inode stores file metadata and data block pointers (excluding the file name); the dentry maps a human-readable name to that inode number",
-        "An inode only stores file names; the dentry stores disk blocks",
-        "Inodes are only used on Windows NTFS file systems",
-      ],
-      correct: 0,
-      explanation:
-        "An inode stores ownership, file size, permissions, timestamps, and block pointers, but never the filename. The directory entry (dentry) lives in a directory file and links the string filename to the corresponding inode number. Multiple dentries pointing to the same inode create hard links.",
-    },
-    {
-      id: 6,
-      question: "Why is Apache Parquet significantly faster than row-oriented JSON or CSV for analytical SQL queries (OLAP)?",
-      options: [
-        "Parquet is columnar, allowing the query engine to load only requested columns (projection) and skip irrelevant row chunks using metadata min/max statistics (predicate pushdown)",
-        "Parquet eliminates network round-trips by running directly inside the client's browser",
-        "Parquet disables data compression to maximize raw read speed",
-      ],
-      correct: 0,
-      explanation:
-        "Columnar formats store values of the same column contiguously. Analytical queries selecting 3 columns out of 100 read 97% less data from disk. Contiguous similar data also compresses dramatically via dictionary encoding, and file footer statistics allow skipping non-matching blocks entirely.",
-    },
-    {
-      id: 7,
-      question: "In event streaming and data pipelines, how does an 'event-time watermark' enable safe windowed aggregation?",
-      options: [
-        "It permanently halts the pipeline if any event arrives out of sequence",
-        "It acts as a temporal progress marker indicating that the system assumes all events up to timestamp T have arrived, allowing window closure",
-        "It overwrites the Kafka partition offset with the current wall-clock time",
-      ],
-      correct: 1,
-      explanation:
-        "A watermark of timestamp T guarantees to the streaming framework (Flink/Spark) that no more events with timestamp t &le; T are expected. When the watermark advances past the window end, the operator emits the aggregated result, bounding latency while tolerating network delays.",
-    },
-    {
-      id: 8,
-      question: "What is the 'small-file problem' in Hadoop, S3, and Lakehouse architectures, and how is it resolved?",
-      options: [
-        "Files under 1MB cannot be read by Apache Spark",
-        "Millions of tiny files overwhelm NameNode/catalog metadata memory and cause excessive HTTP request overhead; resolved by compaction jobs merging small files into 128MB–512MB chunks",
-        "Files smaller than 4KB are automatically deleted by the Linux page cache",
-      ],
-      correct: 1,
-      explanation:
-        "Every file requires metadata tracking and opens an HTTP/TCP connection. Having millions of 10KB files causes massive metadata overhead, extreme request charges, and degraded Spark query speed. Lakehouses use automated background compaction (bin-packing) to merge small files into optimal 128MB–512MB Parquet files.",
-    },
-    {
-      id: 9,
-      question: "How do Pre-Signed URLs enhance security and scalability in large-scale media upload platforms?",
-      options: [
-        "Clients stream heavy gigabyte payloads directly to object storage (S3/MinIO) using temporary cryptographic signatures, offloading app servers from I/O bottlenecks",
-        "Pre-signed URLs bypass all TLS encryption to speed up throughput",
-        "They grant permanent root administrator privileges to any client",
-      ],
-      correct: 0,
-      explanation:
-        "By issuing a time-bounded cryptographically signed URL from an IAM-authenticated application gateway, clients stream 4K video directly to S3. Application web servers never buffer heavy payloads, preventing network saturation and thread starvation.",
-    },
-    {
-      id: 10,
-      question: "What is the key difference between Recovery Point Objective (RPO) and Recovery Time Objective (RTO) in storage disaster recovery?",
-      options: [
-        "RPO dictates the maximum tolerable data loss window in time; RTO dictates the maximum tolerable downtime duration to restore service",
-        "RPO measures storage disk IOPS; RTO measures query response time in milliseconds",
-        "RPO applies to batch pipelines; RTO applies to streaming pipelines",
-      ],
-      correct: 0,
-      explanation:
-        "RPO (Recovery Point Objective) measures data loss (e.g. at most 5 minutes of un-replicated logs lost). RTO (Recovery Time Objective) measures business interruption time (e.g. restoring service within 30 minutes after a regional failure).",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -733,7 +616,14 @@ export default function SystemDesignStorage() {
 
   const currentUnitData = curriculumUnits.find((u) => u.id === activeUnit) || curriculumUnits[0];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="storage" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="storage" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans pb-24">
       {/* Top Module Navigation Bar */}
       <ModuleNav track="system-design" currentModuleId="storage" />

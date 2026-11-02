@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -82,6 +85,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkFirewalls() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "firewalls");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -366,138 +370,7 @@ export default function NetworkFirewalls() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "What is the primary operational difference between stateful and stateless packet filtering?",
-      options: [
-        "Stateful filtering encrypts all IP headers, while stateless filtering leaves them unencrypted.",
-        "Stateful filtering maintains a connection state table to automatically permit valid return traffic, while stateless filtering evaluates each packet individually.",
-        "Stateless filtering guarantees complete immunity against DDoS attacks.",
-        "Stateful filtering only works on wireless local area networks.",
-      ],
-      correct: 1,
-      rationale:
-        "A stateful firewall monitors the complete lifecycle of network flows, recording state (such as TCP handshakes) in a connection table (conntrack). This allows it to recognize and permit legitimate return traffic automatically without requiring broad, static reverse opening rules. Stateless firewalls inspect individual packets in isolation.",
-    },
-    {
-      id: "q2",
-      question: "In Linux nftables, what does the rule 'ct state established,related accept' accomplish?",
-      options: [
-        "It opens an unrestricted public web server on port 443.",
-        "It permits packets that belong to or are associated with previously allowed, tracked outgoing connections.",
-        "It disables all connection tracking to maximize CPU throughput.",
-        "It converts TCP packets into UDP datagrams.",
-      ],
-      correct: 1,
-      rationale:
-        "The expression 'ct state established,related accept' tells the Linux kernel to inspect the connection tracking table and immediately accept packets that are part of an already established session (such as server HTTP responses) or related auxiliary channels (such as FTP data or ICMP error messages).",
-    },
-    {
-      id: "q3",
-      question: "Why is firewall rule ordering critical in first-match-wins security engines?",
-      options: [
-        "If a broad permit rule is placed above a specific deny rule, the deny rule becomes 'shadowed' and is never executed.",
-        "Rules placed at the bottom of the table consume 10x more power.",
-        "Rule order dictates the physical speed of the Ethernet link.",
-        "Firewalls only evaluate rules on the first day of every month.",
-      ],
-      correct: 0,
-      rationale:
-        "Most firewalls evaluate policies sequentially from top to bottom. Once a packet matches a rule's criteria, the action is taken immediately and evaluation ceases. If a general allow rule (e.g. Allow Staff to All Servers) precedes a specific restriction (e.g. Deny Staff to Server Port 22), the restriction is 'shadowed' and completely bypassed.",
-    },
-    {
-      id: "q4",
-      question: "Why is Network Address Translation (NAT) NOT a substitute for a stateful firewall?",
-      options: [
-        "NAT only works with IPv6 addresses.",
-        "NAT merely translates IP and port header fields; without an explicit firewall policy, unauthorized traffic could still be routed or forwarded.",
-        "NAT automatically disables all encryption.",
-        "NAT cannot translate TCP packets.",
-      ],
-      correct: 1,
-      rationale:
-        "NAT is an address manipulation mechanism designed to preserve IPv4 address space or hide internal topology. While a private IP cannot be routed on the public internet, NAT alone does not evaluate traffic security, state validity, or application safety. A dedicated firewall policy is required to permit or deny flows.",
-    },
-    {
-      id: "q5",
-      question: "Why is outbound egress filtering a critical component of enterprise defense-in-depth?",
-      options: [
-        "It prevents external hackers from sending email to staff.",
-        "It prevents compromised internal endpoints from communicating with Command & Control (C2) servers or exfiltrating data over unauthorized ports.",
-        "It doubles the download speed of video conferences.",
-        "It replaces the need for local endpoint antivirus software.",
-      ],
-      correct: 1,
-      rationale:
-        "Unrestricted outbound egress allows malware on infected workstations to establish reverse shells, beacon to C2 servers, download ransomware modules, and exfiltrate corporate databases. Strict egress filtering limits outbound traffic to explicitly approved protocols, ports, and internal DNS/proxy resolvers.",
-    },
-    {
-      id: "q6",
-      question: "What is the primary functional difference between an Intrusion Detection System (IDS) and an Intrusion Prevention System (IPS)?",
-      options: [
-        "An IDS runs in the cloud, while an IPS only runs on smart home routers.",
-        "An IDS passively monitors traffic out-of-band and generates alerts, whereas an IPS sits inline and can actively drop malicious packets.",
-        "An IDS uses hardware, while an IPS is always pure software.",
-        "An IPS cannot inspect TCP traffic.",
-      ],
-      correct: 1,
-      rationale:
-        "An IDS receives a mirror copy of traffic from a switch TAP or SPAN port; it can alert administrators to threats but cannot block packets from reaching their target. An IPS is deployed directly inline in the traffic path, allowing it to drop packets, terminate TCP connections with RST flags, and actively block attacks in real-time.",
-    },
-    {
-      id: "q7",
-      question: "Why should remote-access VPN users NOT be placed directly onto a flat, unrestricted internal corporate subnet?",
-      options: [
-        "VPN encryption slows down if more than 5 users connect.",
-        "Remote laptops are unmanaged or exposed to home networks; granting them flat corporate access allows malware to pivot laterally into databases and domain controllers.",
-        "IPsec cannot route traffic across subnets.",
-        "VPN clients are legally required to have their own private internet connection.",
-      ],
-      correct: 1,
-      rationale:
-        "Under zero-trust principles, remote worker devices (especially BYOD or home-office laptops) must be treated as untrusted endpoints. Placing them into an isolated VPN quarantine subnet with strict microsegmentation ensures they can only reach explicitly permitted applications, preventing lateral worm infection.",
-    },
-    {
-      id: "q8",
-      question: "What is the primary security role of a Bastion Host (Jump Server) in an enterprise architecture?",
-      options: [
-        "To store employee passwords in plaintext for fast access.",
-        "To provide a single, hardened, heavily audited gateway for administrative access (SSH/RDP) to internal servers, preventing direct public exposure.",
-        "To replace the perimeter firewall.",
-        "To boost the physical Wi-Fi signal in the server room.",
-      ],
-      correct: 1,
-      rationale:
-        "A bastion jump host is a fortified server with minimal attack surface, multi-factor authentication, and keystroke logging. Production servers and network switches are configured to accept administrative connections (SSH/RDP) ONLY from the bastion IP, eliminating direct exposure to the public internet.",
-    },
-    {
-      id: "q9",
-      question: "What failure symptom typically occurs when a firewall's state table (conntrack table) is completely exhausted?",
-      options: [
-        "The firewall automatically switches to 10 Gbps mode.",
-        "New legitimate connection attempts (ct state new) are dropped or rejected because the firewall cannot allocate memory for new state tracking.",
-        "All existing TCP connections immediately become unencrypted.",
-        "The physical Ethernet ports turn off permanently.",
-      ],
-      correct: 1,
-      rationale:
-        "Every stateful connection consumes an entry in memory. Under severe SYN floods or extreme traffic spikes, the conntrack table fills up. When exhausted, the kernel cannot track new connections, causing all subsequent 'ct state new' packets to be dropped, resulting in a denial-of-service condition.",
-    },
-    {
-      id: "q10",
-      question: "A network engineer tests a firewall rule by pinging a server. The ping fails. Why does this test alone NOT prove that web traffic is blocked?",
-      options: [
-        "Ping uses ICMP (type 8/0), whereas web traffic uses TCP port 80/443; a firewall rule may block ICMP while permitting TCP.",
-        "Ping packets are always encrypted with TLS 1.3.",
-        "Ethernet switches cannot forward ping packets across VLANs.",
-        "Ping only works if the client has a public IP address.",
-      ],
-      correct: 0,
-      rationale:
-        "ICMP Echo (ping) operates at Layer 3 using ICMP types 8 and 0. Web applications operate over Layer 4 TCP (ports 80 and 443). Many firewalls and host operating systems explicitly block ICMP by default while permitting web traffic. Verification requires testing the actual application protocol using tools like curl or nc.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const calculateScore = () => {
     let score = 0;
@@ -572,7 +445,14 @@ A comprehensive technical audit of the enterprise firewall rulebase and perimete
 - [x] Verified return traffic succeeds via connection tracking without opening broad reverse ports.
 - **Approved by:** Lead Defensive Infrastructure Architect`;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="firewalls" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="firewalls" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans pb-16">
       {/* Top Breadcrumb & Navigation Bar */}
       <div className="border-b border-[#e7e3da] bg-[#fbfaf7]/80 backdrop-blur sticky top-0 z-30">

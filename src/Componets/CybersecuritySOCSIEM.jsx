@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ModuleNav from "./ModuleNav";
@@ -53,6 +56,7 @@ import {
 } from "lucide-react";
 
 export default function CybersecuritySOCSIEM() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "soc-siem");
   const navigate = useNavigate();
 
   // Tab State
@@ -186,86 +190,7 @@ export default function CybersecuritySOCSIEM() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      q: "1. What is the primary purpose of a SIEM?",
-      options: [
-        "Replace all endpoint and network security controls.",
-        "Centralize and analyze security-related data to support detection and investigation.",
-        "Automatically prove whether every alert is malicious.",
-        "Store only firewall logs and ignore other sources."
-      ],
-      correct: 1,
-      rationale:
-        "A SIEM centralizes, parses, normalizes, and correlates log telemetry from disparate sources (endpoints, cloud, identity, networks) to provide visibility, trigger detections, and facilitate investigations."
-    },
-    {
-      id: 2,
-      q: "2. An alert shows repeated failed logins followed by a successful login. What is the best next step?",
-      options: [
-        "Declare a confirmed compromise without further checks.",
-        "Delete the account immediately without checking its role or dependencies.",
-        "Correlate authentication, identity, device and related activity, then assess the evidence.",
-        "Disable authentication logging to prevent more alerts."
-      ],
-      correct: 2,
-      rationale:
-        "SOC analysts must gather contextual telemetry (IP address, geolocation, user agent, MFA prompt result, and subsequent activity) to differentiate a user mistyping a password from an unauthorized credential-stuffing intrusion."
-    },
-    {
-      id: 3,
-      q: "3. Why is time synchronization important in investigations?",
-      options: [
-        "It helps establish an accurate order of events across different systems.",
-        "It eliminates the need to preserve original logs.",
-        "It guarantees that all events are related.",
-        "It automatically removes false positives."
-      ],
-      correct: 0,
-      rationale:
-        "Without reliable time synchronization (such as UTC normalization via NTP), establishing the causal sequence between an authentication failure, role change, and command execution across distributed hosts becomes impossible."
-    },
-    {
-      id: 4,
-      q: "4. What is the primary purpose of a chain-of-custody record?",
-      options: [
-        "Rank detection rules by severity.",
-        "Prove that the content of every evidence item is malicious.",
-        "Replace evidence-integrity checks.",
-        "Track who collected, handled, transferred and stored evidence."
-      ],
-      correct: 3,
-      rationale:
-        "Chain of custody provides an unbroken, auditable trail documenting the acquisition, transfer, storage, and handling of digital evidence, ensuring its legal integrity and admissibility."
-    },
-    {
-      id: 5,
-      q: "5. What should a detection engineer do about an overly noisy SIEM rule?",
-      options: [
-        "Delete all logs from the affected source.",
-        "Analyze false positives, validate data and tune the rule against benign and suspicious test cases.",
-        "Raise the threshold until the rule never alerts.",
-        "Assume all alerts are true positives."
-      ],
-      correct: 1,
-      rationale:
-        "Alert fatigue blinds SOC analysts. Detection engineers must inspect false positive patterns, identify legitimate baseline noise, add precise filter exclusions, and test the updated logic against synthetic test datasets."
-    },
-    {
-      id: 6,
-      q: "6. Which statement best describes incident response?",
-      options: [
-        "It begins and ends with deleting suspicious files.",
-        "It is only relevant after data has been publicly disclosed.",
-        "It coordinates preparation, detection, analysis, containment, eradication, recovery and improvement.",
-        "It is the same as logging and requires no communication plan."
-      ],
-      correct: 2,
-      rationale:
-        "Incident response (per NIST SP 800-61 Rev. 3 and NIST CSF 2.0) is a comprehensive organizational lifecycle spanning preparation, detection, analysis, containment, eradication, recovery, and continuous post-incident learning."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuiz = (qid, idx) => {
     if (quizSubmitted) return;
@@ -280,7 +205,14 @@ export default function CybersecuritySOCSIEM() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="soc-siem" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="soc-siem" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 antialiased font-sans relative pb-20 selection:bg-orange-500 selection:text-white">
       {/* Ambient background glow accents */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

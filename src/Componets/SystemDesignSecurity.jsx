@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -44,6 +47,7 @@ import {
 } from "./SystemDesignSecurityDiagrams";
 
 export default function SystemDesignSecurity() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "security");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -63,112 +67,7 @@ export default function SystemDesignSecurity() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. What is the difference between authentication and authorization?",
-      options: [
-        "Authentication verifies identity; authorization decides permitted actions",
-        "Authentication controls database indexes; authorization handles passwords",
-        "They are interchangeable terms",
-        "Authorization proves identity, while authentication defines data retention",
-      ],
-      correctIndex: 0,
-      explanation:
-        "Authentication confirms who an actor is (e.g. valid credentials / session). Authorization determines what resources and actions that authenticated identity is permitted to execute.",
-    },
-    {
-      id: "q2",
-      question: "2. Why is a random UUID not sufficient protection against IDOR?",
-      options: [
-        "UUIDs cannot identify resources",
-        "Authorization must still be checked even when identifiers are difficult to guess",
-        "UUIDs automatically bypass database policies",
-        "UUIDs are only valid for users",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Obscurity is not authorization. If an attacker discovers or leaks an unguessable UUID, an endpoint that omits ownership/tenant checks will still improperly disclose the record.",
-    },
-    {
-      id: "q3",
-      question: "3. What is the primary purpose of OpenID Connect?",
-      options: [
-        "Encrypting database backups",
-        "Federated authentication and identity information on top of OAuth 2.0",
-        "Replacing every API permission check",
-        "Partitioning tenant databases",
-      ],
-      correctIndex: 1,
-      explanation:
-        "OpenID Connect (OIDC) is an identity layer built on OAuth 2.0 that allows clients to verify the end-user's identity and obtain basic profile claims via a cryptographically signed ID Token.",
-    },
-    {
-      id: "q4",
-      question: "4. What is a common advantage of a shared-table multi-tenant database?",
-      options: [
-        "No authorization logic is needed",
-        "Every tenant has dedicated hardware",
-        "Lower operational cost and efficient resource sharing",
-        "All data leaks become impossible",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Shared-table multi-tenancy provides the lowest ongoing infrastructure cost, maximum hardware density, and simplest schema migration procedures across thousands of tenants.",
-    },
-    {
-      id: "q5",
-      question: "5. What should determine the active tenant's permissions?",
-      options: [
-        "An arbitrary tenant ID from the browser",
-        "A client-side role label",
-        "Verified identity, tenant membership, resource ownership, and policy",
-        "Only the HTTP request path",
-      ],
-      correctIndex: 2,
-      explanation:
-        "A tenant ID supplied in HTTP parameters is unverified client input. Permissions must be computed from cryptographically verified identity, trusted server-side tenant membership, and resource ownership checks.",
-    },
-    {
-      id: "q6",
-      question: "6. Which mechanism can restrict visible database rows by policy?",
-      options: [
-        "CSS",
-        "PostgreSQL Row-Level Security",
-        "Browser local storage",
-        "A hidden frontend button",
-      ],
-      correctIndex: 1,
-      explanation:
-        "PostgreSQL Row-Level Security (RLS) enforces security policies directly within the database engine, ensuring queries only view or modify rows satisfying the tenant session context.",
-    },
-    {
-      id: "q7",
-      question: "7. Which is an example of broken object property authorization?",
-      options: [
-        "A user changing their display name through an allowed form",
-        "A recruiter changing their own profile picture",
-        "A candidate injecting a privileged role field into a profile-update request that the backend accepts",
-        "A user signing out",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Mass-assignment or Broken Object Property-Level Authorization occurs when an endpoint accepts arbitrary request payload fields without an allowlist, allowing users to modify sensitive attributes like roles.",
-    },
-    {
-      id: "q8",
-      question: "8. Why does tenant isolation need to extend to background jobs and caches?",
-      options: [
-        "Only databases contain sensitive information",
-        "These components can expose or mix tenant data outside the original API request",
-        "Caches are always public",
-        "Background jobs do not need identities",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Shared Redis caches, Elasticsearch indexes, S3 buckets, and message queues will leak cross-tenant data if keys and workers do not rigorously enforce tenant boundaries and ownership checks.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -668,7 +567,14 @@ export default function SystemDesignSecurity() {
     },
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="security" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="security" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans pb-20">
       {/* Top Module Navigation Bar */}
       <ModuleNav

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -44,6 +47,7 @@ import {
 } from "./SystemDesignMessagingDiagrams";
 
 export default function SystemDesignMessaging() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "messaging");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -195,88 +199,7 @@ export default function SystemDesignMessaging() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the main distinction between a command and an event?",
-      options: [
-        "A. Commands contain JSON but events cannot.",
-        "B. Commands request an action, while events record an occurrence.",
-        "C. Events must always be synchronous.",
-        "D. Commands are always stored in Kafka.",
-      ],
-      correct: 1, // B
-      explanation:
-        "A command is an instruction directed to a specific receiver requesting that something happen (e.g. GenerateReport). An event is an immutable broadcast record of an observed fact that has already occurred (e.g. InterviewCompleted).",
-    },
-    {
-      id: 2,
-      question:
-        "In a conventional Kafka consumer group, what primarily limits the number of consumers that can actively read partitions in parallel?",
-      options: [
-        "A. Number of API routes.",
-        "B. Number of candidate users.",
-        "C. Number of partitions assigned to the group.",
-        "D. Number of topics in the entire cluster.",
-      ],
-      correct: 2, // C
-      explanation:
-        "In the standard Kafka consumer-group model, a single partition can be assigned to at most one consumer in the group at a time. Therefore, running more consumers than partitions results in idle consumers that process zero records.",
-    },
-    {
-      id: 3,
-      question: "What is the main challenge with at-least-once delivery?",
-      options: [
-        "A. Every message is immediately lost.",
-        "B. Messages cannot be retried.",
-        "C. Duplicate processing is possible.",
-        "D. Event streams cannot be replayed.",
-      ],
-      correct: 2, // C
-      explanation:
-        "At-least-once brokers guarantee messages won't be lost by retrying unacknowledged deliveries. If a worker completes its task but crashes before acknowledging, or network acks drop, the broker redelivers the message, risking duplicate processing without idempotent consumers.",
-    },
-    {
-      id: 4,
-      question: "Why use a transactional outbox?",
-      options: [
-        "A. To guarantee the external email provider works.",
-        "B. To atomically save business state and the intention to publish an event in one database transaction.",
-        "C. To eliminate the need for a message broker.",
-        "D. To make a consumer run exactly once under all conditions.",
-      ],
-      correct: 1, // B
-      explanation:
-        "The transactional outbox pattern solves the dual-write problem by updating business tables and inserting pending event records in the exact same ACID database transaction, ensuring the database state and event stream never diverge.",
-    },
-    {
-      id: 5,
-      question: "What is a watermark used for in event-time stream processing?",
-      options: [
-        "A. Encrypting event payloads.",
-        "B. Tracking expected progress in event time.",
-        "C. Assigning database primary keys.",
-        "D. Selecting a Kafka consumer-group ID.",
-      ],
-      correct: 1, // B
-      explanation:
-        "A watermark is a temporal progress indicator in stream processing (such as Apache Flink) declaring that all records up to timestamp T are assumed to have arrived, allowing windowed operators to evaluate and close without waiting indefinitely.",
-    },
-    {
-      id: 6,
-      question:
-        "A consumer updates its database and crashes before acknowledging the message. What is a robust design response?",
-      options: [
-        "A. Assume the broker will never redeliver the message.",
-        "B. Delete the database to reset processing.",
-        "C. Make the business update idempotent and acknowledge only after the appropriate durable processing succeeds.",
-        "D. Disable all retries permanently.",
-      ],
-      correct: 2, // C
-      explanation:
-        "Because the broker will redeliver the unacknowledged message upon timeout, the consumer must execute an idempotent operation (e.g., using a processed_events deduplication table in the same transaction) and send an acknowledgement only after durable persistence.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -296,7 +219,14 @@ export default function SystemDesignMessaging() {
     setQuizSubmitted(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="messaging" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="messaging" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Ambient background lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

@@ -62,7 +62,7 @@
         {
           "id": "A",
           "text": "Multi-AZ replicated the destructive DELETE statement to the standby in 5 milliseconds. You must perform Point-in-Time Recovery (PITR) to restore state to 14:14:59.",
-          "verdict": "Correct! Replication ≠ Backup",
+          "verdict": "Correct! Replication \u2260 Backup",
           "explanation": "Replication faithfully duplicates all commands, including logical corruption and accidental drops! PITR replays base backup + WAL logs to the second prior to the incident.",
           "isCorrect": true
         },
@@ -193,6 +193,16 @@
     "hasQuiz": false,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 1
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Nova AI Cloud Database Architect Tutor",
+      "paragraphs": [
+        "Ask questions about CMU 15-445 Buffer Pools, Write-Ahead Logging (WAL), PostgreSQL MVCC, DynamoDB Single-Table Design, or Aurora 6-copy storage quorums."
+      ]
+    }
+  ]
 }

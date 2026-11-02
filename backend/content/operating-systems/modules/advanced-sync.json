@@ -77,6 +77,140 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 14
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Scaling Concurrent Software Across Modern Multicore Processors",
+      "paragraphs": [
+        "Moving beyond basic mutexes and semaphores into the synchronization primitives used by modern multicore processors, Linux kernel subsystems, databases, and low-latency storage engines. Understand why an algorithm that runs smoothly on 2 cores collapses on 64 cores due to cache-line bouncing, memory bus contention, false sharing, and lock serialization bottlenecks."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Mutexes, Spinlocks, and Reader-Writer Locks",
+      "paragraphs": [
+        "Choosing the right synchronization primitive requires evaluating the critical section duration, the frequency of contention, and whether threads can afford to yield the CPU to the operating system scheduler.",
+        "When a thread cannot acquire the mutex, it enters the kernel via the{\" \"} futex(2) system call and sleeps. The CPU scheduler switches execution to another runnable thread.",
+        "The blocked thread loops continuously in user or kernel space, executing a pause instruction while polling an atomic memory address. It never yields or gives up its CPU time quantum.",
+        "Allows multiple concurrent readers or exactly one exclusive writer. While theoretically ideal for read-heavy workloads, updating the reader reference counter causes severe cache-line bouncing across cores.",
+        "Select your application workload characteristics to inspect the optimal synchronization strategy.",
+        "{workloadProfiles[workloadType].why}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Hardware Atomics, CAS Loops, and C11 stdatomic",
+      "paragraphs": [
+        "At the silicon level, modern multicore processors provide atomic instructions that perform a read-modify-write cycle without allowing any other core or DMA controller to intervene on the memory bus.",
+        "x86 asserts the LOCK prefix on instructions like cmpxchg. Historically this asserted a physical bus lock pin; on modern multicore CPUs, it locks the local L1 cache line through the cache-coherence protocol.",
+        "RISC architectures split atomics into two instructions:{\" \"} LDREX (load and monitor address) and{\" \"} STREX (conditional store). The store fails if any other core altered or evicted the monitored cache line in the interim.",
+        "bool CAS(int *addr, int expected, int new_val) &#123; &nbsp;&nbsp;if (*addr == expected) &#123; *addr = new_val; return true; &#125; &nbsp;&nbsp;return false; &#125;"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lock-Free vs Wait-Free Guarantees and the ABA Problem",
+      "paragraphs": [
+        "Non-blocking algorithms provide system-wide progress guarantees even if individual threads are preempted, killed, or blocked by the operating system.",
+        "Guarantees that at least one thread makes forward progress in a finite number of steps. However, individual threads may suffer starvation due to repeated CAS failures under intense contention (e.g. Treiber Stack, Michael-Scott Queue).",
+        "Strongest possible guarantee: every single thread makes forward progress within a bounded number of its own steps, regardless of system contention or other threads&apos; execution speeds. Extremely rare and complex to construct (e.g. circular wait-free ring buffers).",
+        "Consider a lock-free stack containing node A pointing to B. Thread 1 prepares to pop A, reading{\" \"} head = A and{\" \"} next = B. Before CAS executes, Thread 1 is preempted. Thread 2 pops A, pops B, and frees both. Later, Thread 3 allocates a new node which happens to receive the exact same heap memory address as original A, and pushes it. When Thread 1 resumes, its CAS sees head == A and succeeds, setting head to B\u2014which is a dangling pointer to freed memory!",
+        "Store an incrementing 64-bit sequence counter alongside the 64-bit pointer. Uses a 128-bit double-width CAS (cmpxchg16b on x86-64).",
+        "Threads register the pointers they are currently dereferencing into a global hazard list. Memory is never reclaimed or reused until all active readers clear their hazard references."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Memory Ordering, Store Buffers, and Hardware Memory Barriers",
+      "paragraphs": [
+        "Modern CPUs do not execute instructions strictly in source order. Out-of-order execution engines, store buffers, and invalidate queues reorder reads and writes to maximize memory pipeline throughput.",
+        "Observe how memory ordering constraints protect data publication across threads.",
+        "{orderingSteps[stepIndex].outcome}",
+        "x86 guarantees that stores are not reordered with older stores, and loads are not reordered with older loads. The ONLY hardware reordering allowed is that a store can be delayed past a subsequent load (Store-Load reordering). Thus, Acquire/Release on x86 is practically free (normal loads and stores compile to bare MOV instructions).",
+        "Hardware allows arbitrary load-load, store-store, and load-store reorderings. Explicit hardware memory barrier instructions (DMB ISHLD,{\" \"} DMB ISH) or load-acquire (LDAR) and store-release (STLR) instructions must be emitted."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "MESI Cache Coherence Protocol and Interconnect Snooping",
+      "paragraphs": [
+        "When multiple CPU cores maintain private L1 and L2 caches, hardware must guarantee that all cores see a globally consistent view of physical memory.",
+        "When 32 threads continuously contend for a spinlock, every lock release writes to the lock variable. Under MESI, this single write forces the interconnect bus to broadcast an{\" \"} Invalidate signal to all 31 other CPU cores. Immediately thereafter, all 31 cores experience an L1 cache miss and saturate the ring bus requesting the line back in Shared state. This phenomenon\u2014cache-line bouncing\u2014causes execution latency to skyrocket from 1 ns to hundreds of nanoseconds per iteration."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "False Sharing, Cache-Line Alignment, and _Alignas(64)",
+      "paragraphs": [
+        "CPUs transfer data between caches and main memory in chunks of 64 bytes (the cache line). When two independent threads write to two distinct variables that happen to live within the same 64-byte chunk, hardware invalidates each other&apos;s cache lines as if they were sharing data.",
+        "Compare unaligned structure layout with 64-byte cacheline padding across 2 cores.",
+        "{simMesiStats.penaltyDescription}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "NUMA Architecture, Socket Interconnects, and Linux Topology Tuning",
+      "paragraphs": [
+        "In modern multi-socket enterprise servers, physical RAM is physically partitioned across CPU sockets. A core accessing its local socket&apos;s DRAM enjoys ~60\u201380 ns latency; accessing DRAM wired to a remote socket across the interconnect (Intel UPI or AMD Infinity Fabric) costs 140\u2013200+ ns.",
+        "Binds application memory allocations strictly to local NUMA node RAM. If local memory is exhausted, allocation fails or swaps rather than crossing to a remote node.",
+        "Rounds-robin page allocations across all available NUMA nodes. Ideal for large shared in-memory caches (Redis, memcached) to balance memory bus bandwidth and prevent single-node saturation.",
+        "Tracks whether the kernel successfully satisfied memory requests from the thread&apos;s local node (numa_hit) or was forced to spill to a remote node ( numa_miss and numa_foreign)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Kernel Synchronization, Interrupt Handlers, and Atomic Context",
+      "paragraphs": [
+        "Inside the Linux kernel, code executes in one of two distinct environments:{\" \"} Process / Sleeping Context or Atomic / Interrupt Context. Violating context rules crashes the operating system.",
+        "Executing on behalf of a user thread system call. Has an associated{\" \"} task_struct. Allowed to sleep, allocate memory with GFP_KERNEL, wait on mutexes, and yield execution to the scheduler.",
+        "Executing a hardware Interrupt Service Routine (ISR), softirq, or holding a raw spinlock.{\" \"} STRICTLY FORBIDDEN FROM SLEEPING. There is no process to switch away from! Calling msleep(), taking a mutex, or allocating with{\" \"} GFP_KERNEL triggers an instant kernel panic:{\" \"} BUG: scheduling while atomic.",
+        "If thread A on Core 0 acquires a normal spinlock (spin_lock(&amp;lock)) and a hardware interrupt arrives on the same core, the CPU immediately pauses thread A and runs the ISR. If the ISR attempts to acquire that same spinlock, it will spin forever waiting for thread A to release it. However, thread A can NEVER run because the ISR is hogging the CPU!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Read-Copy-Update (RCU): Zero-Cost Concurrent Reads",
+      "paragraphs": [
+        "RCU is the cornerstone of Linux kernel scalability. It allows millions of readers across hundreds of cores to traverse shared data structures (such as routing tables and dentry caches) without locks, without atomic instructions, and without memory bus invalidations.",
+        "Readers execute rcu_read_lock(), which merely disables kernel preemption. Readers read pointers directly. Zero writes to memory, zero cache invalidation, zero contention.",
+        "Writers do not modify nodes in place. Instead, they allocate a new node, copy the existing data, apply modifications, and atomically swing the pointer via{\" \"} rcu_assign_pointer().",
+        "The old node cannot be freed immediately because active readers may still be reading it. The writer calls synchronize_rcu() or queues{\" \"} call_rcu() to wait until every CPU has passed through a quiescent state (context switch)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Deadlock Prevention, Amdahl&apos;s Law Scaling Limits, and ThreadSanitizer",
+      "paragraphs": [
+        "As concurrent code scales up, lock contention and synchronization bugs grow non-linearly. Engineers must master Coffman deadlock elimination, Amdahl&apos;s scaling math, and automated verification tools.",
+        "S(N) = 1 / ((1 - P) + P / N). Observe how serial fraction and lock contention cap speedup.",
+        "Deadlock requires 4 conditions simultaneously: Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait. The single most practical engineering defense is breaking Circular Wait{\" \"} by enforcing a strict global Lock Hierarchy Order (e.g. always acquire Lock A before Lock B, or lock by memory address order).",
+        "Compile with Clang or GCC using -fsanitize=thread -g. TSAN instruments memory loads and stores with shadow memory tracking to detect unsynchronized concurrent accesses and lock order inversions with near-zero false positives."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Benchmarking Mutex vs Atomic vs Thread-Local Partitioning",
+      "paragraphs": [
+        "In this lab, you compile and execute a standalone C11 multithreaded benchmark (`sync_bench.c`) comparing three synchronization paradigms across 1, 2, 4, and 8 threads.",
+        "#include #include #include #define TOTAL_OPS 10000000LL typedef enum { MODE_MUTEX, MODE_ATOMIC, MODE_LOCAL } sync_mode_t; typedef struct { int thread_id; int num_threads; long long ops_per_thread; sync_mode_t mode; } worker_arg_t; // Synchronization targets static long long global_mutex_counter = 0; static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER; static atomic_llong global_atomic_counter = 0; typedef struct { _Alignas(64) long long count; uint8_t padding[56]; } local_counter_t; static local_counter_t local_counters[64]; void *worker(void *arg) { worker_arg_t *w = (worker_arg_t *)arg; long long n = w->ops_per_thread; if (w->mode == MODE_MUTEX) { for (long long i = 0; i mode == MODE_ATOMIC) { for (long long i = 0; i mode == MODE_LOCAL) { int tid = w->thread_id; for (long long i = 0; i {copiedSnippet === \"sync_bench_code\" ? : } {copiedSnippet === \"sync_bench_code\" ? \"Copied\" : \"Copy Source\"} // Compilation: gcc -O3 -pthread sync_bench.c -o sync_bench #define _GNU_SOURCE #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;pthread.h&gt; #include &lt;stdatomic.h&gt; #include &lt;time.h&gt; #include &lt;stdint.h&gt; #define TOTAL_OPS 10000000LL typedef enum &#123; MODE_MUTEX, MODE_ATOMIC, MODE_LOCAL &#125; sync_mode_t; // Cache-aligned per-thread local accumulator (Zero False Sharing) typedef struct &#123; &nbsp;&nbsp;_Alignas(64) long long count; &nbsp;&nbsp;uint8_t padding[56]; &#125; local_counter_t; /* ... see complete file via Copy Source ... */ {/* Benchmark Execution & Expected Results */} Empirical Benchmark Results (AMD Ryzen 9 / Linux 6.8) Threads pthread_mutex (s) stdatomic (s) Local Aligned (s) Speedup (Local vs Mutex) 1 Thread 0.1420 s 0.0380 s 0.0094 s 15.1x 2 Threads 0.7850 s 0.1420 s 0.0049 s 160.2x 4 Threads 1.8400 s 0.3950 s 0.0026 s 707.6x 8 Threads 3.9200 s 0.8200 s 0.0014 s 2,800.0x Notice that while Mutex execution slows down by 27x (from 0.14s to 3.92s) due to catastrophic lock contention and futex sleep queues, the cache-aligned thread-local counter scales nearly linearly, completing 10M operations in 1.4 milliseconds!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 21 Multiprocessor Synchronization Knowledge Check",
+      "paragraphs": [
+        "Validate your comprehension of memory ordering, MESI coherence, atomic context, and lock scalability."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 21 Multiprocessor Synchronization Mastery Checklist",
+      "paragraphs": [
+        "Track your conceptual and hands-on comprehension of multicore architecture and kernel synchronization."
+      ]
+    }
+  ]
 }

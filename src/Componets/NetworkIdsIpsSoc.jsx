@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -41,6 +44,7 @@ import {
 import ModuleNav from "./ModuleNav";
 
 export default function NetworkIdsIpsSoc() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "ids-ips-soc");
   const navigate = useNavigate();
 
   // Active navigation tab: curriculum | simulators | lab | quiz | audit
@@ -398,138 +402,7 @@ export default function NetworkIdsIpsSoc() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the primary architectural difference between a passive IDS and an inline IPS?",
-      options: [
-        "An IDS always encrypts traffic, while an IPS decrypts it",
-        "An inline IPS sits directly in the packet forwarding path and can actively block matching traffic, while a passive IDS inspects a mirrored TAP/SPAN copy and only alerts",
-        "An IDS cannot analyze TCP traffic; an IPS only analyzes UDP",
-        "An IPS never produces alert logs, it only silently drops packets",
-      ],
-      correct: 1,
-      explanation:
-        "A passive IDS receives an out-of-band mirrored copy of traffic (via TAP or SPAN port) and can generate alerts without affecting packet forwarding. An inline IPS sits directly in the physical traffic path (bump-in-the-wire) and can actively drop, reset, or reject malicious packets at line rate.",
-    },
-    {
-      id: 2,
-      question: "Which detection strategy is most directly based on matching known traffic byte patterns or protocol sequences?",
-      options: [
-        "Signature-based detection",
-        "Anomaly-based detection",
-        "Capacity planning",
-        "Asset inventory",
-      ],
-      correct: 0,
-      explanation:
-        "Signature-based detection matches traffic against specific known patterns, such as regular expressions, byte offsets, or protocol command sequences (e.g. Suricata/Snort rules).",
-    },
-    {
-      id: 3,
-      question: "What is the primary role of Zeek in modern enterprise network security monitoring?",
-      options: [
-        "Replacing all endpoint antivirus agents",
-        "Translating observed wire packets into structured, behavioral protocol and connection logs (e.g. conn.log, dns.log, http.log)",
-        "Guaranteeing that every single alert is confirmed malicious",
-        "Automatically patching zero-day vulnerabilities in Linux servers",
-      ],
-      correct: 1,
-      explanation:
-        "Zeek is not a signature alert engine; it is a powerful network analysis framework that decodes network traffic and writes compact, structured transaction logs (conn.log, dns.log, ssl.log, etc.) ideal for forensics, threat hunting, and event correlation.",
-    },
-    {
-      id: 4,
-      question: "An analyst discovers an IDS alert and a suspicious DNS query appearing close together in time. What should the analyst do?",
-      options: [
-        "Immediately declare a confirmed compromise and format the machine",
-        "Ignore both events as coincidental network noise",
-        "Correlate endpoint IP, timestamps, destination addresses, and Zeek connection records before reaching a conclusion",
-        "Delete the packet capture file to preserve disk space",
-      ],
-      correct: 2,
-      explanation:
-        "Correlation is not causation. Analysts must cross-reference timestamps, endpoint IPs, resolved DNS answers, and subsequent connection flows in conn.log before declaring an incident or taking disruptive containment actions.",
-    },
-    {
-      id: 5,
-      question: "What does high precision (e.g., 95%) mean in detection quality engineering?",
-      options: [
-        "A large fraction of generated positive detections (alerts) are genuine true positives, resulting in low false alarm noise",
-        "Every single malicious event across the entire network was successfully caught",
-        "The network sensor did not drop any packets from the ring buffer",
-        "The false negative rate is guaranteed to be 0%",
-      ],
-      correct: 0,
-      explanation:
-        "Precision = TP / (TP + FP). High precision means that when an alert fires, it is overwhelmingly likely to be genuine malicious activity rather than a false positive.",
-    },
-    {
-      id: 6,
-      question: "What essential operational procedure must occur before deploying an IPS rule in inline blocking mode in production?",
-      options: [
-        "Assume every match is malicious without testing",
-        "Test the rule in alert-only mode against benign baseline traffic, evaluate false positive rates, and obtain change approval",
-        "Delete all existing enterprise firewall rules",
-        "Disable all network monitoring to reduce latency",
-      ],
-      correct: 1,
-      explanation:
-        "An incorrectly configured inline blocking rule can cause severe business outages by dropping legitimate customer or service traffic. Rules must be vetted in passive/alert mode first and reviewed for false positive potential.",
-    },
-    {
-      id: 7,
-      question: "What is an established best practice during the incident response containment phase (NIST SP 800-61)?",
-      options: [
-        "Modify the only original copy of the evidence during live triage",
-        "Record a verifiable timeline, preserve raw PCAP and log evidence, document containment actions, and validate recovery",
-        "Contain every minor alert by shutting down the entire corporate data center",
-        "Close incidents without documenting the rationale or root cause",
-      ],
-      correct: 1,
-      explanation:
-        "Professional incident response requires maintaining chain of custody, documenting actions, recording a chronological timeline, and applying measured, proportionate containment (e.g. isolating an endpoint) without destroying volatile evidence.",
-    },
-    {
-      id: 8,
-      question: "In Zeek's conn.log, what does a connection state of 'S0' indicate?",
-      options: [
-        "Connection successfully established and gracefully terminated (SYN, SYN-ACK, ACK, FIN)",
-        "Connection attempt seen (SYN sent), but no reply was ever observed from the responder",
-        "Connection was actively rejected by the target with a TCP RST",
-        "Connection was upgraded to TLS 1.3",
-      ],
-      correct: 1,
-      explanation:
-        "In Zeek conn.log, 'S0' signifies that the originator transmitted a SYN packet, but the sensor observed zero response from the destination. This pattern is characteristic of port scans, firewall packet drops, or unreachable hosts.",
-    },
-    {
-      id: 9,
-      question: "In a Suricata or Snort rule, what is the role of the 'flow:established,to_server' option?",
-      options: [
-        "It limits rule evaluation to established TCP sessions flowing in the direction of the server, preventing false alarms on spoofed or incomplete handshakes",
-        "It forces the router to prioritize traffic using BGP flowspec",
-        "It encrypts the payload using TLS 1.3",
-        "It automatically drops all UDP packets on port 53",
-      ],
-      correct: 0,
-      explanation:
-        "The flow keyword leverages the engine's stateful TCP reassembly. Requiring 'established,to_server' ensures the full 3-way handshake succeeded before evaluating payload signatures, eliminating noise from unacknowledged SYN floods or port probes.",
-    },
-    {
-      id: 10,
-      question: "What is the primary benefit of the 'Aho-Corasick' algorithm in modern multi-pattern IDS engines like Suricata and Snort 3?",
-      options: [
-        "It decrypts HTTPS traffic without private keys",
-        "It matches tens of thousands of signature content strings simultaneously in a single pass over the packet payload, preventing linear performance degradation",
-        "It dynamically reconfigures switch VLAN tags",
-        "It automatically translates IPv4 packets into IPv6",
-      ],
-      correct: 1,
-      explanation:
-        "Aho-Corasick is a multi-pattern search automaton that allows IDS engines to inspect a payload once against thousands of rule fast-patterns in O(n) time, enabling 40Gbps+ line-rate inspection.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleQuizSelect = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -627,7 +500,14 @@ alert tcp $HOME_NET any -> $EXTERNAL_NET 4444 (
 4. **Post-Incident Review:** Scheduled for 2026-10-18 to evaluate SIEM rule threshold tuning.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="ids-ips-soc" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="ids-ips-soc" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans">
       <ModuleNav
         track="networks"

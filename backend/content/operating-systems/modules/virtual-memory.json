@@ -89,6 +89,16 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 1
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "Virtual memory is the bedrock of modern OS multitasking, process isolation, and protection. Trace addresses through the MMU translation pipeline, calculate page-table storage overhead across architectures, model TLB hit rates and Effective Access Time (EAT), and build a complete address translation simulator."
+      ]
+    }
+  ]
 }

@@ -88,11 +88,11 @@
       "question": "What is the 'small-file problem' in Hadoop, S3, and Lakehouse architectures, and how is it resolved?",
       "options": [
         "Files under 1MB cannot be read by Apache Spark",
-        "Millions of tiny files overwhelm NameNode/catalog metadata memory and cause excessive HTTP request overhead; resolved by compaction jobs merging small files into 128MB–512MB chunks",
+        "Millions of tiny files overwhelm NameNode/catalog metadata memory and cause excessive HTTP request overhead; resolved by compaction jobs merging small files into 128MB\u2013512MB chunks",
         "Files smaller than 4KB are automatically deleted by the Linux page cache"
       ],
       "correctIndex": 0,
-      "explanation": "Every file requires metadata tracking and opens an HTTP/TCP connection. Having millions of 10KB files causes massive metadata overhead, extreme request charges, and degraded Spark query speed. Lakehouses use automated background compaction (bin-packing) to merge small files into optimal 128MB–512MB Parquet files."
+      "explanation": "Every file requires metadata tracking and opens an HTTP/TCP connection. Having millions of 10KB files causes massive metadata overhead, extreme request charges, and degraded Spark query speed. Lakehouses use automated background compaction (bin-packing) to merge small files into optimal 128MB\u2013512MB Parquet files."
     },
     {
       "id": 9,
@@ -142,7 +142,7 @@
       "id": "qa-4",
       "title": "How does Apache Kafka achieve high throughput with zero-copy transfers, and why is sequential disk faster than random RAM?",
       "context": "Kafka brokers sustain millions of messages/sec per node while writing directly to persistent magnetic hard disks or SSDs.",
-      "answer": "Kafka relies on two key principles: (1) Append-only sequential disk writes bypass disk seek latency, achieving ~600MB/s on NVMe and ~150MB/s on magnetic disks—comparable to random memory access speeds. (2) Zero-Copy Network Transfer: Kafka uses the Linux `sendfile()` syscall. Data flows directly from OS Page Cache to the Network Socket buffer via DMA (Direct Memory Access), eliminating user-space memory copies and context switches."
+      "answer": "Kafka relies on two key principles: (1) Append-only sequential disk writes bypass disk seek latency, achieving ~600MB/s on NVMe and ~150MB/s on magnetic disks\u2014comparable to random memory access speeds. (2) Zero-Copy Network Transfer: Kafka uses the Linux `sendfile()` syscall. Data flows directly from OS Page Cache to the Network Socket buffer via DMA (Direct Memory Access), eliminating user-space memory copies and context switches."
     },
     {
       "id": "qa-5",
@@ -164,6 +164,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

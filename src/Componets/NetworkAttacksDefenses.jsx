@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -35,6 +38,7 @@ import {
 import ModuleNav from "./ModuleNav";
 
 export default function NetworkAttacksDefenses() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "attacks");
   const navigate = useNavigate();
 
   // Active navigation tab: curriculum | simulators | lab | quiz | audit
@@ -371,138 +375,7 @@ export default function NetworkAttacksDefenses() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Why is traditional ARP (RFC 826) fundamentally vulnerable to cache poisoning attacks?",
-      options: [
-        "ARP uses 1024-bit RSA keys that are vulnerable to quantum decryption",
-        "ARP is entirely stateless and hosts accept unsolicited ARP replies to update their cache without verifying whether an ARP request was ever sent",
-        "ARP packets cannot traverse Layer 2 switches without being dropped",
-        "ARP requires the default gateway to approve all MAC mappings in real time",
-      ],
-      correct: 1,
-      explanation:
-        "RFC 826 ARP is stateless and lacks authentication. Most operating system network stacks unconditionally update their ARP cache upon receiving an unsolicited or gratuitous ARP reply, allowing an adjacent attacker to overwrite IP-to-MAC mappings.",
-    },
-    {
-      id: 2,
-      question: "How does Dynamic ARP Inspection (DAI) validate incoming ARP packets on an enterprise switch?",
-      options: [
-        "By transmitting every ARP frame to an external cloud AI firewall for reputation scoring",
-        "By inspecting the ARP payload on untrusted ports against the switch's DHCP Snooping binding database (IP-to-MAC-to-Port mappings)",
-        "By converting all ARP broadcasts into unicast IPv6 Neighbor Solicitations",
-        "By discarding all ARP replies that have an even-numbered MAC address",
-      ],
-      correct: 1,
-      explanation:
-        "DAI intercepts ARP packets on untrusted switchports and verifies that the sender IP and MAC address match a trusted entry in the DHCP Snooping binding table. Forged ARP replies fail validation and are dropped immediately.",
-    },
-    {
-      id: 3,
-      question: "In the classic Kaminsky DNS cache poisoning attack, what made the attack exponentially faster than previous DNS spoofing methods?",
-      options: [
-        "It compromised the root DNS servers directly using buffer overflows",
-        "The attacker queried non-existent random subdomains (e.g. x123.bank.com) to force the recursive resolver to constantly ask authoritative servers, giving unlimited attempts to guess the 16-bit TxID and inject authority glue records",
-        "It decrypted DNS-over-HTTPS payloads using TLS session ticket reuse",
-        "It disabled UDP checksums across internet transit routers",
-      ],
-      correct: 1,
-      explanation:
-        "By querying random subdomains like 8923.target.com, the attacker bypassed the resolver's cache for existing domains, triggering continuous authoritative lookups. This allowed the attacker to flood the resolver with forged responses containing NS glue records that hijacked the entire domain.",
-    },
-    {
-      id: 4,
-      question: "Which cryptographic mechanism does DNSSEC use to guarantee the integrity and authenticity of DNS resource records?",
-      options: [
-        "AES-256 end-to-end payload encryption between client and server",
-        "Digital signatures (RRSIG records) validated through a hierarchical chain of trust up to the root trust anchor (DNSKEY and DS records)",
-        "Zero-knowledge proofs exchanged via TCP SYN packets",
-        "Diffie-Hellman ephemeral key exchanges on port 53",
-      ],
-      correct: 1,
-      explanation:
-        "DNSSEC does not encrypt records; it provides cryptographic origin authentication and integrity. Authoritative zones sign record sets (RRSIG), which validating resolvers verify against public keys (DNSKEY) and Delegation Signer (DS) hashes chained to the root.",
-    },
-    {
-      id: 5,
-      question: "What is the primary operational difference between Unicast Reverse Path Forwarding (uRPF) Strict Mode and Loose Mode?",
-      options: [
-        "Strict mode encrypts IP headers; Loose mode only checks TCP flags",
-        "Strict mode requires that the packet's source IP be reachable via the exact interface on which the packet arrived; Loose mode only requires that a route to the source IP exists in the FIB on any interface",
-        "Loose mode drops all private RFC 1918 addresses; Strict mode allows them",
-        "Strict mode only operates on IPv6; Loose mode operates on IPv4",
-      ],
-      correct: 1,
-      explanation:
-        "Strict uRPF tests whether the source IP route points back out the exact ingress interface. If the route points elsewhere, the packet is dropped (mitigating spoofing, but breaking asymmetric routing). Loose mode merely checks if a return route exists in the FIB at all.",
-    },
-    {
-      id: 6,
-      question: "How does the TCP SYN Cookie mechanism (RFC 4987) protect a server against SYN flood exhaustion?",
-      options: [
-        "It blocks all incoming SYN packets until the client solves a cryptographic proof-of-work puzzle",
-        "The server allocates zero kernel memory (TCB) upon receiving a SYN; instead, it encodes the connection parameters into the Initial Sequence Number (ISN) and only allocates memory when a valid ACK is returned",
-        "It drops all UDP traffic to conserve socket memory for TCP connections",
-        "It caches connections in browser cookies across HTTP headers",
-      ],
-      correct: 1,
-      explanation:
-        "Normally, a SYN causes the kernel to allocate a Transmission Control Block (TCB) in the half-open backlog queue. With SYN Cookies, the server generates an Initial Sequence Number containing a cryptographic hash of the 4-tuple, timestamp, and MSS. Socket state is only allocated when the final ACK returns.",
-    },
-    {
-      id: 7,
-      question: "How does 802.1Q Double Tagging VLAN hopping succeed against unhardened switches?",
-      options: [
-        "The attacker overwhelms the switch CAM table with 100,000 fake MAC addresses",
-        "The attacker encapsulates a frame with two 802.1Q headers; the first switch strips the outer tag matching the trunk's Native VLAN, and the downstream switch inspects the inner tag, forwarding the frame into the target VLAN",
-        "The attacker reconfigures the switch's SNMP community string using default passwords",
-        "The attacker exploits an unpatched vulnerability in the spanning tree algorithm",
-      ],
-      correct: 1,
-      explanation:
-        "When an attacker on the Native VLAN transmits a frame with Outer Tag = Native VLAN and Inner Tag = Target VLAN, the first switch strips the outer tag (as Native VLAN traffic on trunks is untagged). The frame arrives at the trunk switch with the inner tag intact, forwarding it into the target VLAN.",
-    },
-    {
-      id: 8,
-      question: "Which switchport configuration commands best prevent Switch Spoofing via Dynamic Trunking Protocol (DTP)?",
-      options: [
-        "switchport mode trunk and spanning-tree portfast",
-        "switchport mode access and switchport nonegotiate",
-        "ip dhcp snooping trust and arp inspection validate",
-        "no switchport and ip address dhcp",
-      ],
-      correct: 1,
-      explanation:
-        "Statically configuring 'switchport mode access' locks the port into an access port, and 'switchport nonegotiate' explicitly disables DTP packet transmission, preventing an attacker from tricking the port into negotiating a trunk.",
-    },
-    {
-      id: 9,
-      question: "What security risk does a Rogue DHCP Server introduce to a local subnet?",
-      options: [
-        "It forces all network cards to downshift from 1 Gbps to 10 Mbps full-duplex",
-        "It responds to DHCP Discovers faster than the authentic server, assigning the attacker's IP as the Default Gateway and DNS server, enabling full Man-in-the-Middle traffic interception",
-        "It modifies the physical BSSID of wireless access points",
-        "It corrupts the operating system kernel page tables via UDP broadcasts",
-      ],
-      correct: 1,
-      explanation:
-        "A rogue DHCP server races legitimate servers to supply IP lease parameters. By assigning the attacker's machine as the Default Gateway (DHCP Option 3) and DNS Server (DHCP Option 6), all client internet traffic is routed through the attacker.",
-    },
-    {
-      id: 10,
-      question: "What wireless security standard prevents attacker-injected 802.11 Deauthentication frames used to force client disassociation in Evil Twin attacks?",
-      options: [
-        "WPA-TKIP (Temporal Key Integrity Protocol)",
-        "IEEE 802.11w Protected Management Frames (PMF)",
-        "SSID Broadcasting suppression",
-        "WEP 128-bit Shared Key authentication",
-      ],
-      correct: 1,
-      explanation:
-        "Standard 802.11 management frames (like Deauth and Disassociation) are unencrypted, allowing attackers to spoof source MACs and kick clients offline. IEEE 802.11w (PMF) cryptographically signs management frames, preventing spoofed deauth attacks.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleQuizSelect = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -576,7 +449,14 @@ Immediate switchport containment and kernel-level SYN cookie enforcement prevent
 3. **uRPF Border Verification:** Bi-monthly synthetic spoofed packet injection tests from isolated test harness.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="attacks" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="attacks" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans">
       <ModuleNav
         track="networks"

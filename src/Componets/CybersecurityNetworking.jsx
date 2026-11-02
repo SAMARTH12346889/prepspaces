@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -66,6 +69,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function CybersecurityNetworking() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "networking");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -323,118 +327,7 @@ More details here: https://curl.se/docs/sslcerts.html`,
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which OSI layer is primarily responsible for logical addressing and routing?",
-      options: ["Physical", "Data Link", "Network", "Application"],
-      correctIndex: 2,
-      explanation:
-        "Layer 3 (the Network layer) handles logical addressing (IPv4, IPv6) and inter-network routing, allowing routers to forward packets across distinct network segments.",
-    },
-    {
-      id: 2,
-      question: "What is a MAC address primarily used for?",
-      options: [
-        "Identifying a local-link interface for frame delivery",
-        "Encrypting HTTPS data",
-        "Resolving every Internet domain",
-        "Assigning a TCP port",
-      ],
-      correctIndex: 0,
-      explanation:
-        "A MAC (Media Access Control) address is a 48-bit link-layer hardware identifier used by Ethernet and Wi-Fi to deliver frames locally across a single broadcast segment or switch.",
-    },
-    {
-      id: 3,
-      question: "What does TCP provide to an application?",
-      options: [
-        "Guaranteed Internet availability",
-        "A reliable, ordered byte stream",
-        "Automatic encryption in every connection",
-        "DNS record validation",
-      ],
-      correctIndex: 1,
-      explanation:
-        "TCP provides a connection-oriented, reliable, ordered byte stream through sequence numbers, acknowledgments, retransmission, and flow/congestion control.",
-    },
-    {
-      id: 4,
-      question: "Which statement about UDP is correct?",
-      options: [
-        "It guarantees delivery and order",
-        "It always uses lower latency than TCP",
-        "It has no built-in delivery or ordering guarantee",
-        "It can only carry DNS queries",
-      ],
-      correctIndex: 2,
-      explanation:
-        "UDP is a connectionless, lightweight datagram protocol that does not provide built-in retransmissions, acknowledgments, or sequence ordering.",
-    },
-    {
-      id: 5,
-      question: "Which DNS record type associates a name with IPv4 address data?",
-      options: ["AAAA", "MX", "A", "PTR"],
-      correctIndex: 2,
-      explanation:
-        "An 'A' (Address) record maps a fully qualified domain name (FQDN) to a 32-bit IPv4 address. 'AAAA' maps to a 128-bit IPv6 address.",
-    },
-    {
-      id: 6,
-      question: "What does a DNS record's TTL primarily influence?",
-      options: [
-        "How long a response may be cached",
-        "The encryption strength of HTTPS",
-        "The number of TCP ports available",
-        "The server's CPU speed",
-      ],
-      correctIndex: 0,
-      explanation:
-        "TTL (Time to Live) in DNS specifies the number of seconds a recursive resolver or client is permitted to cache the DNS record before re-querying the authoritative nameserver.",
-    },
-    {
-      id: 7,
-      question: "What does HTTPS use to protect HTTP communication in transit?",
-      options: ["ARP", "TLS", "DHCP", "NAT"],
-      correctIndex: 1,
-      explanation:
-        "HTTPS encapsulates HTTP application traffic inside a Transport Layer Security (TLS) cryptographic session (currently TLS 1.3), providing confidentiality, integrity, and server authentication.",
-    },
-    {
-      id: 8,
-      question: "How many total IPv4 addresses are in a conventional /26 prefix?",
-      options: ["16", "32", "64", "256"],
-      correctIndex: 2,
-      explanation:
-        "A /26 prefix leaves 32 - 26 = 6 host bits. 2^6 = 64 total addresses (with 62 conventionally usable host addresses after subtracting network and broadcast).",
-    },
-    {
-      id: 9,
-      question: "What does an HTTP 403 response generally indicate?",
-      options: [
-        "The request was refused",
-        "DNS successfully resolved the hostname",
-        "The server has no IP address",
-        "TLS is always broken",
-      ],
-      correctIndex: 0,
-      explanation:
-        "An HTTP 403 Forbidden status indicates the server understood the request and authenticated identity, but refuses to fulfill it because permissions or authorization policies were not met.",
-    },
-    {
-      id: 10,
-      question: "Which is a correct interpretation of a successful ping?",
-      options: [
-        "HTTPS is certainly working",
-        "All application security controls are effective",
-        "ICMP reachability succeeded for that test",
-        "The hostname's certificate is valid",
-      ],
-      correctIndex: 2,
-      explanation:
-        "A successful ping only proves that ICMP Echo Request and Reply succeeded at the network layer (L3). It does NOT verify that TCP, TLS, web services, or application security controls are operational.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (questionId, optionIdx) => {
     if (quizSubmitted) return;
@@ -451,7 +344,14 @@ More details here: https://curl.se/docs/sslcerts.html`,
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="networking" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="networking" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

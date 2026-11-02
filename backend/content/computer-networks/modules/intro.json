@@ -187,6 +187,72 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": true,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 8
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "What is a Computer Network & Why Do Networks Exist?",
+      "paragraphs": [
+        "A computer network is an interconnected collection of autonomous computing devices (hosts, servers, routers, mobile endpoints) that exchange data across physical or wireless communication channels using standardized rules called protocols. Networks transform isolated standalone computers into collaborative, fault-tolerant distributed systems."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Geographic Scope, Ownership & Architecture",
+      "paragraphs": [
+        "Networks are categorized by geographic span, physical media, administrative ownership, and performance characteristics:",
+        "A strictly private, authenticated enterprise network accessible only to verified corporate employees and internal microservices.",
+        "A controlled private network extending access to authorized partners, vendors, and trusted external clients through secure VPN tunnels or mTLS.",
+        "The worldwide decentralized network of networks, interconnected via public Internet Exchange Points (IXPs) and Autonomous Systems using BGP."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Hardware & Software Building Blocks",
+      "paragraphs": [
+        "Operating systems engineers and network architects must understand the exact layer boundaries and forwarding logic of each device:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Resource Allocation & Statistical Multiplexing",
+      "paragraphs": [
+        "The fundamental architectural debate that shaped the modern Internet: dedicated channels vs. on-demand statistical multiplexing."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Physical Topologies vs. Modern Leaf-Spine Fabrics",
+      "paragraphs": [
+        "All devices connect to a central switch. Single link failure affects only one host. If the central switch dies, the entire subnet fails.",
+        "High redundancy. Full mesh formula: N(N - 1) / 2 physical links. Partial mesh is used across Internet transit providers to balance cost and fault tolerance.",
+        "Every Leaf switch connects to every Spine switch. Eliminates STP blocking, provides uniform 2-hop server-to-server latency, and utilizes ECMP across all paths."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Layered Abstractions, Headers & Encapsulation",
+      "paragraphs": [
+        "Layering provides modularity: changes in physical hardware (e.g. Wi-Fi to Fiber) do not require rewriting web browsers or database applications."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Quantifying Link Performance: The 4 Delay Components",
+      "paragraphs": [
+        "End-to-end packet delay across a network is expressed mathematically as:",
+        "Time router takes to inspect packet header, verify CRC checksum, and perform routing table lookup. Typically microseconds (&lt; 5 \u00b5s).",
+        "Time packet waits in router FIFO buffers for link transmission. Depends heavily on link traffic intensity (L \u00d7 a / R). If intensity &gt; 1, packet loss occurs.",
+        "Time to push all L bits of packet onto link of bandwidth R: d_trans = L / R. Function of packet length and wire speed.",
+        "Time a bit takes to travel physical distance d at propagation speed s (speed of light in medium, \u2248 200,000 km/s): d_prop = d / s."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Network Attack Surface & Defensive Engineering",
+      "paragraphs": []
+    }
+  ]
 }

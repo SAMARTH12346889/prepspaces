@@ -88,7 +88,7 @@
         "A horizontal scan is always legal, while a vertical scan is always illegal"
       ],
       "correctIndex": 0,
-      "explanation": "A horizontal scan sweeps a network for a specific vulnerable service (e.g. probing port 445 on every IP in a /24 subnet). A vertical scan probes multiple ports (e.g. ports 1–1024) on a single specific target machine."
+      "explanation": "A horizontal scan sweeps a network for a specific vulnerable service (e.g. probing port 445 on every IP in a /24 subnet). A vertical scan probes multiple ports (e.g. ports 1\u20131024) on a single specific target machine."
     },
     {
       "id": 8,
@@ -137,6 +137,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

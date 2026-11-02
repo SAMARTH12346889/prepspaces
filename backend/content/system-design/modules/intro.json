@@ -48,7 +48,7 @@
         "6000"
       ],
       "correctIndex": 0,
-      "explanation": "By Little's Law (L = λ × W), L = 600 req/sec × 0.1 sec = 60 concurrent requests in flight on average."
+      "explanation": "By Little's Law (L = \u03bb \u00d7 W), L = 600 req/sec \u00d7 0.1 sec = 60 concurrent requests in flight on average."
     },
     {
       "id": 5,
@@ -72,6 +72,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

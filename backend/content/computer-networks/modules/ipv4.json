@@ -47,7 +47,7 @@
       "question": "Which of the following IPv4 address blocks is designated by RFC 1918 for private non-Internet-routable enterprise networks?",
       "options": [
         "100.64.0.0/10",
-        "172.16.0.0/12 (172.16.0.0 – 172.31.255.255)",
+        "172.16.0.0/12 (172.16.0.0 \u2013 172.31.255.255)",
         "169.254.0.0/16",
         "192.0.2.0/24"
       ],
@@ -190,6 +190,104 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 13
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "IPv4 Fundamentals, 32-Bit Structure & Binary Bit Weights",
+      "paragraphs": [
+        "An IPv4 address is an exact 32-bit binary integer. For human readability, these 32 bits are divided into four 8-bit octets separated by dots (e.g., 192.168.10.25). Each octet ranges mathematically from 0 (00000000) to 255 (11111111).",
+        "Full 32-bit Wire Representation: 11000000.10101000.00001010.00011001"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Historical IPv4 Address Classes & The Transition to CIDR",
+      "paragraphs": [
+        "Prior to 1993, the Internet used classful addressing (RFC 791). A router inferred the network boundary purely from the value of the first octet. This rigid system caused catastrophic address waste: an organization needing 500 IPs received a Class B block with 65,534 addresses!",
+        "Classless Inter-Domain Routing (CIDR) decoupled network prefixes from octet boundaries. With CIDR, a prefix length (such as /20 or /28) is explicitly supplied with every route, allowing subnets of any size to match exact organizational needs."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "CIDR Notation, Subnet Masks & Capacity Mathematics",
+      "paragraphs": [
+        "A subnet mask is a 32-bit sequence of contiguous binary 1s followed by contiguous binary 0s. The number of 1s is the prefix length p."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Network, Broadcast, Usable Host Ranges & The Bitwise AND Operation",
+      "paragraphs": [
+        "How does a computer know if a target IP address is on the local LAN or across the globe? It applies a bitwise logical AND operation between the destination IP and its configured subnet mask."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Fast Subnetting & The \"Block Size\" (Magic Number) Technique",
+      "paragraphs": [
+        "In technical interviews and field engineering, converting entire 32-bit addresses to binary is too slow. The Block Size Method calculates subnets mentally in 3 seconds.",
+        "Find the octet that is neither 255 nor 0. Subtract its value from 256. The result is the block size: subnets are exact multiples of this number!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Fixed-Length Subnet Masking (FLSM)",
+      "paragraphs": [
+        "FLSM divides an assigned address block into subnets of equal size. When borrowing s host bits, the number of subnets produced is 2^s.",
+        "Borrow 2 bits: 24 + 2 = /26. Produces 4 subnets of 64 addresses each: \u2022 192.168.1.0/26 (Hosts .1 to .62) \u2022 192.168.1.64/26 (Hosts .65 to .126) \u2022 192.168.1.128/26 (Hosts .129 to .190) \u2022 192.168.1.192/26 (Hosts .193 to .254)"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Variable Length Subnet Masking (VLSM)",
+      "paragraphs": [
+        "VLSM applies different subnet masks across the same parent address block. This enables optimal address conservation by sizing each subnet to match its exact departmental requirements."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Private (RFC 1918), Public, Loopback & Link-Local Address Spaces",
+      "paragraphs": [
+        "Not all IPv4 addresses are routable on the global Internet. Special-purpose RFC reservations serve specific architectural functions in modern operating systems."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Network Address Translation (NAT) & Port Address Translation (PAT)",
+      "paragraphs": [
+        "Because RFC 1918 private addresses cannot be routed across the Internet, edge routers use NAT to rewrite IP header addresses on the fly.",
+        "Permanently binds a single private IP to a single public IP. Used for inbound hosting of public web or mail servers in enterprise DMZs.",
+        "Maps private clients to temporary public IPs leased from a pool. If pool is exhausted, subsequent connections are dropped.",
+        "Enterprise standard! Thousands of internal clients share one public IP by multiplexing unique Layer 4 source port numbers (e.g. :51042).",
+        "NAT was designed as an address conservation mechanism, NOT as a security firewall! While unsolicited inbound connections to private hosts are blocked because no translation entry exists, true perimeter defense requires stateful inspection, deep packet inspection (DPI), and zero-trust ACLs."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Enterprise IP Addressing & IP Address Management (IPAM)",
+      "paragraphs": [
+        "Production network architecture requires structured addressing hierarchies that enable clean route summarization (supernetting) and simplify firewall rulesets."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Common Subnetting Mistakes & Triage Workflow",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Hands-on Laboratory Sequence",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Capstone Project & Knowledge Assessment",
+      "paragraphs": [
+        "Design a production IPv4 addressing hierarchy for a multi-branch corporate campus with headquarters, regional branches, server DMZ, and cloud VPC peering."
+      ]
+    }
+  ]
 }

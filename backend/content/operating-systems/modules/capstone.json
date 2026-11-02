@@ -77,6 +77,95 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 10
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Modifying, Extending, and Validating a Real RISC-V Operating System",
+      "paragraphs": [
+        "This capstone is the practical culmination of your operating systems journey. You will set up an emulator environment, trace boot and trap transitions on bare-metal RISC-V, implement a thread-safe system call extension (`getppid`), instrument kernel memory or scheduling, and deliver a formal 12-section systems engineering report."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Setting Up a Reproducible xv6/RISC-V Environment",
+      "paragraphs": [
+        "Before writing any kernel code, engineers establish a verifiable, reproducible baseline. xv6 targets 64-bit RISC-V and runs inside QEMU system emulation.",
+        "Install the RISC-V cross-compiler and QEMU system emulator:",
+        "Clone MIT xv6-riscv and record your exact commit hash:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Understanding the Boot Sequence and Source Tree Topology",
+      "paragraphs": [
+        "Explore how bare-metal hardware bootstraps into machine mode (M-Mode), delegates interrupts to supervisor mode (S-Mode), initializes subsystems, and spawns the first user-space process.",
+        "Step through the 5 phases of kernel boot from hardware reset to user shell.",
+        "{bootStages[bootStage].desc}",
+        "Process table management, process allocation (`allocproc`), state transitions, and round-robin scheduler.",
+        "User and kernel trap handlers (`usertrap`, `kerneltrap`), interrupt vectoring, and syscall dispatch trigger.",
+        "System call dispatch table (`syscalls[]`), argument retrieval helpers (`argint`, `argaddr`, `argstr`).",
+        "Process-related syscall implementations (`sys_fork`, `sys_exit`, `sys_wait`, `sys_getpid`)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Tracing Execution Across the User / Kernel Boundary",
+      "paragraphs": [
+        "A system call transitions execution from unprivileged User mode (U-mode) into privileged Supervisor mode (S-mode) via the RISC-V `ecall` hardware instruction.",
+        "Step through the exact user-to-kernel boundary transitions for getppid().",
+        "{trapExecutionSteps[trapStep].description}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Designing and Implementing the getppid() System Call",
+      "paragraphs": [
+        "Add a bounded, thread-safe system call that returns the parent process ID (`getppid()`). Follow the 7-file integration workflow used by professional systems engineers.",
+        "Compare an unsynchronized dereference with a lock-guarded parent read."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Automated Kernel Testing and Grade Suite Validation",
+      "paragraphs": [
+        "Kernel extensions must be validated with dedicated user-space test suites covering parent invocations, child fork verification, multiple concurrent children, and reparenting lifecycle behavior.",
+        "Run simulated make grade to test getppid() against the complete test matrix."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Instrumenting Process Scheduling or Memory Behavior",
+      "paragraphs": [
+        "A kernel extension must not only return correct values\u2014it must allow engineers to observe how the operating system behaves under execution.",
+        "Instrument `scheduler()` in kernel/proc.c: record when a process transitions from RUNNABLE to RUNNING and when its CPU time slice yields.",
+        "Instrument physical page allocation in kernel/kalloc.c: trace page allocations, free list consumption, and out-of-memory handling.",
+        "Instrument kernel/syscall.c: log syscall numbers and return values, measuring execution latency across user/kernel switches.",
+        "Do not insert unconditional printf statements in high-frequency loops (such as the scheduler)! UART serial printing is synchronous and slow; console flooding alters thread scheduling timing and masks concurrency races."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Technical Capstone Report Structure and 100-Point Grading Rubric",
+      "paragraphs": [
+        "Deliver your capstone as a professional, reproducible systems engineering submission."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 23 Capstone Knowledge Check",
+      "paragraphs": [
+        "Validate your comprehension of the xv6 boot flow, RISC-V ABI, kernel locking, and capstone methodology."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 23 Capstone Systems Engineering Mastery Checklist",
+      "paragraphs": [
+        "Track your milestone completion across the xv6/RISC-V operating system extension project."
+      ]
+    }
+  ]
 }

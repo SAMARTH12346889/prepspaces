@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -62,6 +65,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSSecurity() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "security");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -367,86 +371,7 @@ export default function OSSecurity() {
   /* -------------------------------------------------------------------------- */
   /* ASSESSMENT QUIZ STATE                                                      */
   /* -------------------------------------------------------------------------- */
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the main principle of least privilege?",
-      options: [
-        "Give every process root access",
-        "Grant only the authority required for the task",
-        "Disable all permissions",
-        "Use one shared account for every service",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "The Principle of Least Privilege (PoLP) dictates that any user, program, or process must possess only the minimum set of privileges, capabilities, and access rights essential to perform its intended function, minimizing damage in the event of compromise.",
-    },
-    {
-      id: 2,
-      question: "Which mechanism limits CPU or memory consumption by groups of processes?",
-      options: [
-        "Network namespaces alone",
-        "cgroups",
-        "File extensions",
-        "Secure Boot alone",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Control Groups (cgroups, especially cgroup v2) provide resource accounting and hard/soft limits across CPU (cpu.max), memory (memory.max), process count (pids.max), and I/O bandwidth for collections of processes.",
-    },
-    {
-      id: 3,
-      question: "What does seccomp primarily help restrict?",
-      options: [
-        "System calls available to a process",
-        "Every network packet on the entire network",
-        "The firmware password",
-        "All filesystem permissions automatically",
-      ],
-      correctAnswer: 0,
-      explanation:
-        "seccomp (Secure Computing Mode) uses BPF filters to intercept and restrict system calls at the kernel boundary, denying unneeded syscalls with EPERM, SIGSYS, or kill actions, dramatically reducing the exposed kernel attack surface.",
-    },
-    {
-      id: 4,
-      question: "What does Secure Boot help establish?",
-      options: [
-        "That all running applications are bug-free",
-        "A configured chain of trust during boot",
-        "That the machine can never be compromised",
-        "That all backups are recoverable",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Secure Boot verifies cryptographic digital signatures on bootloaders, kernel images, and boot drivers against keys stored in firmware (UEFI db), ensuring only authorized and untampered code executes during the initial boot sequence.",
-    },
-    {
-      id: 5,
-      question: "Why should a security investigation preserve logs and timestamps?",
-      options: [
-        "To avoid documenting findings",
-        "To support a reliable event timeline and investigation",
-        "To prove every warning is malicious",
-        "To eliminate the need for backups",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Preserving unmodified logs, metadata, and timestamps allows investigators to correlate events across authentication logs, system journals, and network connections, establishing a defensible chronological timeline of the incident.",
-    },
-    {
-      id: 6,
-      question: "What is the best approach to testing hardening changes?",
-      options: [
-        "Apply every change directly to a production host",
-        "Disable all security controls first",
-        "Use an authorized disposable environment, validate each change, and retain a recovery path",
-        "Assume a successful reboot proves security",
-      ],
-      correctAnswer: 2,
-      explanation:
-        "Defensive engineering requires testing hardening controls in an isolated, disposable VM or staging environment with snapshot rollback capabilities, validating each change incrementally with evidence before production adoption.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
@@ -483,7 +408,14 @@ export default function OSSecurity() {
     setChecklist((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="security" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="security" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#ea580c]/15 selection:text-[#ea580c]">
       {/* Top Breadcrumb & Status Navigation */}
       <ModuleNav

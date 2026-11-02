@@ -89,6 +89,97 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 10
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Network Interfaces and the Linux Kernel Networking Path",
+      "paragraphs": [
+        "When an application sends or receives data over a network socket, it does not manipulate raw Ethernet frames or cable electrical pulses directly. It relies on the operating system\u2019s socket abstraction and layered network subsystem to coordinate protocol state, buffer allocations, hardware queueing, and DMA transfers.",
+        "Step through each kernel layer and inspect memory structures during packet transmission or reception.",
+        "A network interface represents a logical or physical endpoint through which the Linux kernel transmits and receives packets."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Sockets, TCP/UDP APIs, and Connection Lifecycle",
+      "paragraphs": [
+        "In Linux, a socket is represented by an integer file descriptor in the process's file descriptor table. This allows standard POSIX operations such as read(), write(), poll(), and close().",
+        "Why recv() does not preserve boundaries: a stream can deliver partial fragments or coalesce multiple writes into one chunk."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Blocking, Non-Blocking, and Multiplexed I/O",
+      "paragraphs": [
+        "The central challenge in network server engineering is answering: What should a thread do while a network socket has no incoming data ready? The choice between blocking execution, non-blocking polling, and event multiplexing dictates maximum concurrency and system resource consumption.",
+        "Calls to recv() put the calling thread to sleep (TASK_INTERRUPTIBLE) until data arrives, timeout expires, or peer closes.",
+        "Set via fcntl(O_NONBLOCK). Syscall returns immediately with EAGAIN or EWOULDBLOCK if not ready.",
+        "One single thread asks the kernel: \"Wake me up only when ANY of these 50,000 sockets becomes readable or writable.\""
+      ]
+    },
+    {
+      "badge": "",
+      "title": "select, poll, epoll, and Event-Driven Servers",
+      "paragraphs": [
+        "As the internet transitioned from serving hundreds of connections to millions of persistent WebSockets and HTTP/2 streams (the classic C10K and C1000K problem), the limitations of early Unix polling primitives led Linux kernel engineers to build epoll.",
+        "Vary the total number of monitored connections and active sockets to observe kernel complexity scaling.",
+        "{triggerMode === \"LT\" ? \"epoll_wait() continues returning the file descriptor on every call as long as unread bytes remain in the socket receive buffer.\" : \"epoll_wait() triggers only on the state transition from not-ready to ready. The application MUST loop non-blocking recv() until EAGAIN.\"}",
+        "Standard library selectors.DefaultSelector() automatically binds to Linux epoll."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Socket Buffers, Queues, and Backpressure",
+      "paragraphs": [
+        "Networking is not merely sending bytes; every stage in the kernel, device driver, and user-space application has finite queues. When the sender produces data faster than the receiver consumes it, unconstrained queues will grow until the system exhausts memory or suffers crippling tail latency spikes.",
+        "Observe how client transmission rates and server consumption rates trigger TCP zero-window probing and application backpressure."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Network Namespaces and Local Isolation",
+      "paragraphs": [
+        "A Linux network namespace provides a completely isolated virtual copy of the networking stack. Container runtimes (such as Docker, Podman, and Kubernetes CRI-O) use network namespaces to guarantee that container applications have their own interfaces, routing tables, and port allocations without conflicting with the host system.",
+        "Create two network namespaces and link them through a virtual Ethernet wire (veth pair)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "How Servers Scale Across Processes, Threads, and Event Loops",
+      "paragraphs": [
+        "There is no single \"best\" server architecture for all workloads. The optimal design depends on concurrent connection counts, ratio of CPU computation to I/O wait, memory limits, and latency targets.",
+        "Compare Process-per-connection, Thread-per-connection, Thread Pool, and Event Loop under increasing client load."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Build and Benchmark a Concurrent TCP Server",
+      "paragraphs": [
+        "Implement a bounded multi-threaded TCP server, generate concurrent client load, and measure how throughput and p95 tail latency change across 1, 5, 10, 25, and 50 concurrency levels.",
+        "Bounded multi-threaded server with semaphore connection slots and socket timeout.",
+        "{`# threaded_server.py import socket import threading from socketserver import ThreadingMixIn, TCPServer, StreamRequestHandler HOST = \"127.0.0.1\" PORT = 9000 MAX_CONNECTIONS = 100 class EchoHandler(StreamRequestHandler): timeout = 3 def handle(self): while True: try: line = self.rfile.readline() if not line: break self.wfile.write(line) self.wfile.flush() except (socket.timeout, ConnectionResetError, BrokenPipeError): break class BoundedThreadingServer(ThreadingMixIn, TCPServer): daemon_threads = True allow_reuse_address = True request_queue_size = 128 def __init__(self, address, handler): self.connection_slots = threading.BoundedSemaphore(MAX_CONNECTIONS) super().__init__(address, handler) def process_request(self, request, client_address): if not self.connection_slots.acquire(blocking=False): request.close() return try: super().process_request(request, client_address) except Exception: self.connection_slots.release() raise def process_request_thread(self, request, client_address): try: super().process_request_thread(request, client_address) finally: self.connection_slots.release() if __name__ == \"__main__\": print(f\"[*] Bounded TCP server listening on {HOST}:{PORT}\") with BoundedThreadingServer((HOST, PORT), EchoHandler) as server: try: server.serve_forever() except KeyboardInterrupt: print(\"\\\\n[*] Shutting down server gracefully.\")`} {/* Step 2: Benchmark Client Script */} Step 2 \u2014 Save bench_client.py Multi-threaded benchmark load generator measuring completed requests, throughput, and p95 latency.",
+        "{`# bench_client.py import argparse, socket, statistics, time from concurrent.futures import ThreadPoolExecutor, as_completed def worker(host, port, requests): latencies = [] errors = 0 try: with socket.create_connection((host, port), timeout=3) as sock: sock.settimeout(3) reader = sock.makefile(\"rb\") for _ in range(requests): msg = b\"hello\\\\n\" t0 = time.perf_counter() try: sock.sendall(msg) resp = reader.readline() if resp != msg: errors += 1 continue latencies.append((time.perf_counter() - t0) * 1000) except (OSError, TimeoutError): errors += 1 except (OSError, TimeoutError): errors += requests return latencies, errors`} {/* Step 3: Concurrency Execution Table */} Step 3 \u2014 Run Increasing Concurrency Tests Concurrency Test Command Completed Throughput (req/s) p95 Latency Errors {[1, 5, 10, 25, 50].map((c) => ( {c} clients python3 bench_client.py --concurrency {c} --requests 100 Measure Measure Measure Measure ))} {/* Step 4: Monitoring Commands */} Step 4 \u2014 Live Monitoring Commands (Terminal 3) $ top -H -p $(pgrep -f threaded_server) Shows thread count, per-thread CPU utilization, and state.",
+        "Monitors active connected sockets and socket queue depth.",
+        "Monitors system context switches (cs) and runnable queue (r).",
+        "Grading Rubric Criteria (100% Total):"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 19 Mastery Exam",
+      "paragraphs": [
+        "6 comprehensive engineering questions \u00b7 1 point each \u00b7 Instant architectural verification"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 19 Systems Engineering Mastery Checklist",
+      "paragraphs": [
+        "Track your conceptual and hands-on comprehension of Linux network I/O internals."
+      ]
+    }
+  ]
 }

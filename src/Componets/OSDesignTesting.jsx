@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -58,6 +61,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSDesignTesting() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "testing");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -282,74 +286,7 @@ export default function OSDesignTesting() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. Why is a successful single run insufficient to prove a concurrent component is correct?",
-      options: [
-        "A. All programs must run twice",
-        "B. A race may depend on scheduling and the run may not expose it",
-        "C. The compiler always caches output",
-        "D. A test plan replaces execution",
-      ],
-      correct: 1,
-      explanation:
-        "Data races and concurrency bugs are timing-dependent. A single execution may interleave operations favorably and produce the expected output, but under different CPU load, core affinity, or thread scheduling, silent corruption or crashes can occur.",
-    },
-    {
-      id: "q2",
-      question: "2. What is the main purpose of an invariant?",
-      options: [
-        "A. To describe a property that must remain true in valid states",
-        "B. To guarantee that code is fast",
-        "C. To replace interface documentation",
-        "D. To avoid all error handling",
-      ],
-      correct: 0,
-      explanation:
-        "An invariant is a foundational mathematical or state property (e.g. 0 <= queue_size <= capacity, or no task is both running and terminated) that must hold across all observable valid states of the component.",
-    },
-    {
-      id: "q3",
-      question:
-        "3. Which testing strategy is particularly useful for checking many sequences of state transitions against a reference model?",
-      options: [
-        "A. Only manual inspection",
-        "B. Model-based testing",
-        "C. A single timing benchmark",
-        "D. A reboot test",
-      ],
-      correct: 1,
-      explanation:
-        "Model-based testing formalizes legal states and transitions in an abstract reference model. It executes generated operation sequences against both the model and implementation, comparing outputs to discover elusive sequential bugs.",
-    },
-    {
-      id: "q4",
-      question: "4. What should be recorded when a randomized test finds a failure?",
-      options: [
-        "A. Only the final pass/fail result",
-        "B. Only the machine name",
-        "C. The seed, inputs or operation sequence, environment, and diagnostic evidence",
-        "D. Nothing, if it passed once before",
-      ],
-      correct: 2,
-      explanation:
-        "To achieve reproducibility, engineers must record the exact pseudo-random seed, worker count, operation sequence, compiler flags, kernel version, and diagnostic logs/stack traces to recreate the minimal failing scenario.",
-    },
-    {
-      id: "q5",
-      question: "5. What is the strongest reason to add a regression test after fixing a bug?",
-      options: [
-        "A. It guarantees there will be no future bugs",
-        "B. It preserves a check for the specific failure that was corrected",
-        "C. It makes benchmarks unnecessary",
-        "D. It replaces integration testing",
-      ],
-      correct: 1,
-      explanation:
-        "A regression test enshrines the exact test case that failed before the fix and passed after it, ensuring that subsequent code changes or refactors cannot silently reintroduce the same defect.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuiz = (qId, optionIdx) => {
     setQuizAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
@@ -375,7 +312,14 @@ export default function OSDesignTesting() {
     setChecklist((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="testing" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="testing" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#ea580c]/15">
       {/* Top Header & Navigation */}
       <header className="sticky top-0 z-40 bg-[#f6f4ee]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3.5 flex items-center justify-between">

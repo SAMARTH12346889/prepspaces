@@ -137,6 +137,189 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 20
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Module Learning Objectives & Academic Outcomes",
+      "paragraphs": [
+        "By the conclusion of this foundational module, learners will be able to systematically analyze security scenarios using university-standard methods rather than tool-centric guesswork:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 1.1: What is Cybersecurity?",
+      "paragraphs": [
+        "Cybersecurity is the discipline of protecting digital systems, networks, applications, cloud infrastructure, hardware devices, and sensitive data from unauthorized access, misuse, modification, disruption, disclosure, or destruction. It is not merely a technical layer\u2014it encompasses people, engineering processes, formal security policies, cryptography, and systemic risk governance.",
+        "A common beginner mistake is assuming a banking application is \"secure\" because its login page enforces HTTPS and requires a password. A professional security engineer recognizes that cybersecurity must defend the entire interconnected lifecycle:",
+        "In traditional software engineering, developers verify functional correctness: \"Does this feature work as intended when a legitimate user enters valid data?\" Security engineering requires a fundamentally adversarial mindset: \"How can an adversary deliberately violate the implicit assumptions of this system to gain unauthorized advantage?\""
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 2.1: The CIA Triad (Confidentiality, Integrity, Availability)",
+      "paragraphs": [
+        "As emphasized in computer systems curricula at MIT (6.858) and UC Berkeley, the CIA Triad forms the core mental model for defining security requirements and assessing incident impact.",
+        "Prevent Unauthorized Disclosure",
+        "Information is accessible only to authorized entities. If a student can view another student's private resume or interview feedback, confidentiality is broken.",
+        "Threats: IDOR, data leaks, eavesdropping, weak permissions.",
+        "Defenses: TLS 1.3, AES-256, RBAC, data minimization.",
+        "Prevent Unauthorized Modification",
+        "Data and systems remain accurate, complete, and protected against unauthorized changes. A student must never be able to alter their verified exam score via an API request.",
+        "Threats: Parameter tampering, SQLi, MITM attacks, unauthorized updates.",
+        "Defenses: Cryptographic hashes (SHA-256), HMACs, digital signatures, audit trails.",
+        "Ensure Authorized Access When Needed",
+        "Authorized users can access systems, services, and data reliably. If a DDoS attack or ransomware knocks out the learning platform during an exam window, availability is lost.",
+        "Threats: SYN floods, resource exhaustion, ransomware, server crashes.",
+        "Defenses: Redundancy, auto-scaling, CDN caching, rate limiting, disaster recovery.",
+        "Stop an unwanted event before it occurs (e.g., input validation, MFA, least-privilege IAM policies, firewalls).",
+        "Identify and alert on suspicious activity as it happens (e.g., SIEM alerts, IDS/IPS sensors, integrity monitors).",
+        "Remediate problems and mitigate damage after an event (e.g., automated patching, isolating infected pods, revoking tokens).",
+        "Discourage malicious behavior (e.g., login warning banners, legal notices, visible audit tracking).",
+        "Restore systems and business operations back to normal (e.g., immutable offline backups, disaster recovery sites).",
+        "Alternative safeguards deployed when primary controls cannot be immediately implemented (e.g., WAF virtual patching)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 3.1: The Security Risk Relationship Chain",
+      "paragraphs": [
+        "Security professionals never use the terms vulnerability, threat, and risk interchangeably. They represent distinct links in an analytical chain:",
+        "Risk Priority \u2248 Likelihood \u00d7 Impact",
+        "Risk is evaluated in business context. A critical vulnerability in a disposable sandbox with zero sensitive data carries much lower risk than an identical vulnerability on an internet-facing payment or student records database.",
+        "Deploy safeguards (code fixes, rate limits, firewalls) to reduce likelihood or impact.",
+        "Decommission or eliminate the high-risk feature or activity entirely.",
+        "Shift financial liability (e.g., cyber insurance or outsourcing to a compliant vendor).",
+        "Formally acknowledge and sign off on residual risk by an authorized executive owner."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 4.1 & 4.2: Threat Actor Profiles & Capabilities",
+      "paragraphs": [
+        "Adversaries possess varying levels of capability, resources, motivation, and time constraints. Threat modeling requires assessing whether a threat scenario is plausible given the actor's real-world profile:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 5.1 & 5.2: Mapping Trust Boundaries",
+      "paragraphs": [
+        "An attack surface is the totality of accessible pathways into a system. A trust boundary is an architectural perimeter where code on one side operates under different privileges or security assumptions from code on the other.",
+        "{` [UNTRUSTED ZONE] [DMZ / EDGE TIER] [TRUSTED INTERNAL TIER] +------------------+ +-------------------+ +----------------------+ | User Web Browser | --- HTTPS ---> | Cloudflare / WAF | ---> TLS 1.3 -> | Next.js API Gateway | | (Client JS / UI) | | (DDoS, Rate Limit)| | (Session & Route) | +------------------+ +-------------------+ +----------------------+ | | | (Untrusted Input) [TRUST BOUNDARY 2: Inter-Service] v v [TRUST BOUNDARY 1: External to Perimeter] +----------------------+ | Report Microservice | | (Strict Object ACLs) | +----------------------+ | | [TRUST BOUNDARY 3: DB] v v +----------+ +-----------+ | Postgres | | AWS S3 | | (Private)| | (Encrypted| +----------+ +-----------+`} The Fundamental Principle of Trust Boundaries Never trust input merely because it originates from an internal microservice, a logged-in user, or a client application. Client-side checks are usability conveniences, not security controls. All authorization, input validation, and business logic enforcement must be completely mediated on the server side of the trust boundary."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 6.1\u20136.3: Proactive Threat Modeling & STRIDE",
+      "paragraphs": [
+        "As taught in MIT 6.858 and Carnegie Mellon 15-330, threat modeling enables engineers to identify design flaws before code is deployed. The 10-step threat modeling lifecycle guides systematic analysis:",
+        "Mitigation: {cat.mitigation}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 7.1\u20137.9: Architectural Principles of Secure Systems",
+      "paragraphs": [
+        "Derived from the landmark Saltzer and Schroeder (1975) security design principles and modern Zero Trust architecture:",
+        "Every user, process, and microservice must possess only the minimum permissions required to perform authorized duties. Database services should not run as root.",
+        "Deploy layered, overlapping safeguards so that the failure of any single control (e.g. WAF bypass) is mitigated by subsequent layers (e.g. server-side checks, DB encryption).",
+        "Systems must ship in the most secure configuration out of the box. Users should not be required to manually discover and disable dangerous default settings.",
+        "When an authorization or authentication check encounters an exception or fails, access must default to DENY, rather than defaulting to ALLOW.",
+        "Every access attempt to every resource must be checked every time. Prior authentication must not be implicitly trusted across subsequent resource requests.",
+        "High-impact administrative actions (such as publishing official exam certifications or transferring funds) require multiple distinct authorizations to prevent single-account abuse.",
+        "Disable unused network ports, decommission legacy API versions, strip unnecessary debugging endpoints, and uninstall unneeded dependencies.",
+        "\"Never trust, always verify.\" Network location (e.g. being inside the corporate office or VPN) confers zero implicit trust. Every request must be authenticated, authorized, and encrypted.",
+        "Security controls that introduce impossible friction lead users to seek insecure workarounds. Good engineering designs intuitive controls (e.g. WebAuthn biometric passkeys)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 8.1\u20138.3: NIST CSF 2.0, OWASP Top 10:2025 & MITRE ATT&CK",
+      "paragraphs": [
+        "Professional cybersecurity engineering relies on standardized global frameworks to structure governance, defensive engineering, and adversarial modeling:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 9.1\u201310.3: The Ethical Hacking Lifecycle & Legal Framework",
+      "paragraphs": [
+        "Hacking simply means making a computer system behave in ways its creators did not anticipate. The presence or absence of explicit authorization is what determines legality and ethics:",
+        "1. Information Technology Act, 2000 (as amended): Sections 43, 66, and 66B strictly criminalize unauthorized access, data copying, introduction of malware, and system disruption. Accessing a computer system without prior written authorization constitutes a cognizable offense carrying heavy fines and imprisonment.",
+        "2. Digital Personal Data Protection (DPDP) Act, 2023 & DPDP Rules 2025: Imposes strict obligations on Data Fiduciaries regarding personal student/customer data. Unlawful processing, unauthorized exfiltration, or failure to protect personal data incurs penalties up to \u20b9250 Crores.",
+        "3. CERT-In Cybersecurity Directives: The Indian Computer Emergency Response Team (CERT-In) mandates 6-hour incident reporting for critical cybersecurity occurrences and operates the official Responsible Vulnerability Disclosure and Coordination Policy (RVDCP)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 11.1 & 11.2: The Core Security Toolkit & Safe Sandboxes",
+      "paragraphs": [
+        "A dangerous beginner anti-pattern is downloading automated tools (like Burp Suite or Nmap) and running them blindly without understanding underlying protocols or application states. Students must learn each tool's diagnostic purpose, input requirements, output interpretation, and fundamental limitations before running commands:",
+        "A tool's output is not proof of a vulnerability. Automated scanners produce significant false positives, miss deep business-logic flaws (like IDOR or flawed workflows), and misinterpret application context. An ethical security assessor treats tool outputs merely as hypotheses requiring rigorous, safe, manual verification within scope.",
+        "The internationally recognized gold standard for ethical web security learning is the OWASP Juice Shop. It simulates a modern e-commerce application with realistic architectural weaknesses in an authorized, instructor-guided sandbox:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Academic Foundations & Official Standards",
+      "paragraphs": [
+        "The curriculum of this foundational module is synthesized from publicly available university materials and international standards bodies:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Enterprise Asset Catalog & Criticality Scoring",
+      "paragraphs": [
+        "{selectedAsset.classification}",
+        "{selectedAsset.businessPurpose}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Interactive STRIDE Scenario Analyzer",
+      "paragraphs": [
+        "{activeStride.description}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Risk Priority = Likelihood \u00d7 Impact",
+      "paragraphs": [
+        "Evaluated for: \"{scenarioName}\""
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Authorization Charter & Scoping Generator",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Safe HTTP Traffic & Access Control Inspection",
+      "paragraphs": [
+        "In this safe learning environment, students observe raw HTTP requests and responses to understand why authorization flaws occur. No real exploits are performed; this demonstrates how to formulate security observations from evidence.",
+        "{observationEndpoints[simulatedEndpoint].reqHeader} {/* Incoming HTTP Response */} {activeSimulationMode === \"vulnerable\" ? \"VULNERABLE RESPONSE (Flawed)\" : \"PATCHED RESPONSE (Secure)\"} Server Status {activeSimulationMode === \"vulnerable\" ? observationEndpoints[simulatedEndpoint].vulnerableRes : observationEndpoints[simulatedEndpoint].patchedRes} {/* Flaw Analysis & Remediation Box */} Security Observation & Technical Root Cause: {observationEndpoints[simulatedEndpoint].flawAnalysis}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "LearnSphere Fictional Educational Platform Security Review",
+      "paragraphs": [
+        "Context: LearnSphere is a fictional online platform providing mock interviews, resume feedback, and personalized assessment reports. Recently, a student reported that changing an ID parameter in the URL revealed another student's private interview report. Internal audits also revealed exposed administrative endpoints."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "University-Informed Knowledge Verification (10 Questions)",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Foundation Security Assessment Deliverable",
+      "paragraphs": [
+        "Students receive a fictional web application architecture and business specification. Before any active or offensive testing is permitted, they must produce a professional, formal Preliminary Security Assessment Report."
+      ]
+    }
+  ]
 }

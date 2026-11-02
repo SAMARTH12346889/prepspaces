@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -51,6 +54,7 @@ import {
 } from "./SystemDesignTrafficDiagrams";
 
 export default function SystemDesignTraffic() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "traffic");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -251,99 +255,7 @@ export default function SystemDesignTraffic() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the main job of a load balancer?",
-      options: [
-        "A. Increase database storage automatically.",
-        "B. Distribute traffic among eligible backends according to its routing policy.",
-        "C. Make every API operation idempotent.",
-        "D. Guarantee that no request ever fails.",
-      ],
-      correct: 1, // B
-      explanation:
-        "Routing traffic to eligible backends according to a configured routing policy (round robin, least connections, hash-based, etc.) is the core responsibility of a load balancer.",
-    },
-    {
-      id: 2,
-      question: "Why can round robin still overload one backend more than another?",
-      options: [
-        "A. It always sends requests to the same server.",
-        "B. It cannot work with HTTP.",
-        "C. Requests may have different costs, and equal request counts do not guarantee equal workloads.",
-        "D. It automatically disables health checks.",
-      ],
-      correct: 2, // C
-      explanation:
-        "Round robin distributes request counts evenly. However, requests have vastly different resource costs (e.g. a 5ms cached read vs a 10s heavy AI report generation). Assigning equal request counts does not guarantee equal CPU or memory utilization.",
-    },
-    {
-      id: 3,
-      question: "What does a token bucket allow?",
-      options: [
-        "A. No requests during bursts.",
-        "B. Controlled bursts up to the available bucket capacity, with tokens replenished over time.",
-        "C. Unlimited throughput permanently.",
-        "D. Only one request per minute.",
-      ],
-      correct: 1, // B
-      explanation:
-        "A token bucket permits configured bursts of traffic up to the bucket's maximum capacity, while its steady token refill rate enforces sustainable long-term throughput.",
-    },
-    {
-      id: 4,
-      question: "Why is a rate limit alone not enough for a slow, expensive API?",
-      options: [
-        "A. Rate limits only work for databases.",
-        "B. A request may stay in flight for a long time, so concurrency can still become excessive.",
-        "C. Rate limits always require Kafka.",
-        "D. Rate limits prevent scaling.",
-      ],
-      correct: 1, // B
-      explanation:
-        "Rate limits control request arrival frequency. By Little's Law (L = lambda * W), if each request takes 20 seconds, even a modest arrival rate of 10 req/s results in 200 concurrent in-flight requests, exhausting database connections and worker memory. Concurrency limits are necessary alongside rate limits.",
-    },
-    {
-      id: 5,
-      question: "What is the danger of an unbounded queue?",
-      options: [
-        "A. It forces requests to complete immediately.",
-        "B. It eliminates memory consumption.",
-        "C. Backlog, resource use, and latency can grow without a defined limit.",
-        "D. It prevents retries.",
-      ],
-      correct: 2, // C
-      explanation:
-        "An unbounded queue converts excess traffic into growing latency, memory consumption, and stale work. When a fast producer outpaces a slower consumer, the queue depth grows without bound until the host crashes with an Out-Of-Memory (OOM) error.",
-    },
-    {
-      id: 6,
-      question: "Why can retries worsen a cascading failure?",
-      options: [
-        "A. They can multiply traffic against an already overloaded dependency.",
-        "B. They always reduce request volume.",
-        "C. They stop timeout behavior.",
-        "D. They automatically add backend capacity.",
-      ],
-      correct: 0, // A
-      explanation:
-        "When an upstream dependency slows down due to overload, clients that retry immediately multiply the request volume hitting the struggling service. This retry storm drives response times higher and triggers widespread timeouts across the entire system.",
-    },
-    {
-      id: 7,
-      question: "What is the main purpose of backpressure?",
-      options: [
-        "A. Guarantee every request succeeds immediately.",
-        "B. Prevent a faster upstream component from overwhelming a slower downstream component.",
-        "C. Eliminate the need for queues.",
-        "D. Replace all load balancers.",
-      ],
-      correct: 1, // B
-      explanation:
-        "Backpressure regulates work according to downstream processing capacity and available resources, preventing fast producers from burying slower consumers.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -363,7 +275,14 @@ export default function SystemDesignTraffic() {
     setQuizSubmitted(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="traffic" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="traffic" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Ambient background lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

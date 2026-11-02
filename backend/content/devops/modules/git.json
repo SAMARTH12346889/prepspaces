@@ -547,6 +547,8 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

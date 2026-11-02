@@ -89,6 +89,65 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 6
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Authentication, Authorization, and API Security Fundamentals",
+      "paragraphs": [
+        "Authentication verifies a presented identity claim: \"Who are you?\" Authorization decides whether that identity may perform a particular operation on a particular resource: \"Are you permitted to read or mutate this exact record?\"",
+        "The login step does not grant blanket permission to every record or endpoint. API authorization must be enforced dynamically when a protected operation is requested, not assumed merely because a request carries a valid session token.",
+        "A protected API request passes through several logical enforcement layers before accessing sensitive data:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Authentication Failures and Account Security",
+      "paragraphs": [
+        "Authentication Failure (OWASP Top 10:2025 A07:2025) occurs when an application incorrectly verifies identity or inadequately protects the authentication and credential lifecycle.",
+        "Account enumeration occurs when an application reveals whether a particular username or email address exists in the database by returning distinct errors:",
+        "\"User does not exist\" \"Incorrect password for user@example.com\"",
+        "\"Invalid email or password. Please verify your credentials.\"",
+        "Finalized in July 2025, NIST SP 800-63B-4 provides standard guidance for digital identity:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Access Control: BOLA, BFLA, and Object Property Authorization",
+      "paragraphs": [
+        "Authorization flaws are among the most prevalent and critical API security weaknesses. OWASP identifies three distinct levels of authorization failure in its API Security Top 10:",
+        "Can user Alice read or modify Bob's specific report object just by guessing or tampering with the report ID?",
+        "Can a regular user call a function or HTTP method (e.g. DELETE, admin export) reserved for platform administrators?",
+        "Can a user read confidential fields (excessive data exposure) or modify restricted fields (mass assignment)?",
+        "Never fetch an object solely by its client-supplied ID without verifying ownership. The safest pattern scopes the database query directly to the authenticated user ID:",
+        "Mass assignment occurs when client-supplied JSON objects are bound directly into internal ORM models or database update queries without filtering. Attackers inject privileged properties like &#123;&quot;role&quot;: &quot;admin&quot;, &quot;isVerified&quot;: true&#125;:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Session Security, Tokens, JWTs, and API Credentials",
+      "paragraphs": [
+        "Sessions and tokens act as bearer credentials: whoever possesses the credential can execute operations as the authenticated identity. Insecure handling exposes users to session hijacking and privilege impersonation.",
+        "A signed JSON Web Token consists of three base64url-encoded segments separated by periods: header.payload.signature"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "The OWASP API Security Top 10:2023",
+      "paragraphs": [
+        "Because modern web apps rely heavily on microservices, mobile apps, and single-page apps, OWASP maintains a dedicated taxonomy for API vulnerabilities:",
+        "Features that fetch user-supplied URLs (webhooks, avatar imports, PDF generation) must be isolated:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "API Design, Access Enforcement, and Security Monitoring",
+      "paragraphs": [
+        "A common architectural mistake is expecting the API Gateway to handle all security. Gateway and application services have distinct, complementary roles:",
+        "A comprehensive API test suite must explicitly verify that unauthorized requests fail. Testing only the \"happy path\" leaves access controls unproven:"
+      ]
+    }
+  ]
 }

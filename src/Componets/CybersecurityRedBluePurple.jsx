@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ModuleNav from "./ModuleNav";
@@ -69,6 +72,7 @@ import {
 } from "lucide-react";
 
 export default function CybersecurityRedBluePurple() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "red-blue-purple-teams");
   const navigate = useNavigate();
 
   // Tab State
@@ -231,80 +235,7 @@ export default function CybersecurityRedBluePurple() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "What is the main objective of purple teaming?",
-      options: [
-        "Maximize alert volume regardless of quality.",
-        "Collaboratively validate and improve defensive capabilities.",
-        "Replace all blue-team responsibilities.",
-        "Perform unapproved tests without informing anyone responsible for safety."
-      ],
-      correctIndex: 1,
-      explanation: "Purple teaming is a collaborative method connecting simulated adversary behavior to measurable defensive improvements—testing whether telemetry, detection rules, triage, and response work together."
-    },
-    {
-      id: "q2",
-      question: "What should a red team do when an exercise reaches an out-of-scope asset?",
-      options: [
-        "Continue because the asset is related to the scenario.",
-        "Increase test activity to confirm its weakness.",
-        "Stop the relevant activity, document the event and seek scope clarification.",
-        "Add the asset to the scope informally."
-      ],
-      correctIndex: 2,
-      explanation: "Whenever testing activities encounter or inadvertently reach an out-of-scope asset, the operator must immediately halt testing on that asset, preserve logs, and contact the exercise coordinator/white team for clarification."
-    },
-    {
-      id: "q3",
-      question: "A synthetic event is present in raw logs, but the detection does not match because a required field is missing. What is the best next step?",
-      options: [
-        "Investigate parsing or normalization before changing the detection threshold.",
-        "Conclude that the event was malicious.",
-        "Disable the logging source.",
-        "Assume the SIEM is functioning correctly without further checks."
-      ],
-      correctIndex: 0,
-      explanation: "If raw logs exist but parsed fields are missing, this is a data-quality/parsing failure. Changing the rule threshold or logic will not fix a missing field; the log parser or schema normalization must be corrected first."
-    },
-    {
-      id: "q4",
-      question: "What is the purpose of using MITRE ATT&CK in a threat-informed exercise?",
-      options: [
-        "To prove that every mapped technique has occurred in the environment.",
-        "To replace test authorization and rules of engagement.",
-        "To guarantee that all relevant threats are covered.",
-        "To provide a shared way to describe adversary behavior and inform defensive tests."
-      ],
-      correctIndex: 3,
-      explanation: "MITRE ATT&CK provides a shared, standardized taxonomy of real-world adversary tactics and techniques. It does not replace authorization, guarantee coverage, or prove an attack occurred, but enables precise, threat-informed defensive testing."
-    },
-    {
-      id: "q5",
-      question: "Which measurement best demonstrates that a specific detection improvement worked?",
-      options: [
-        "The total number of rules in the SIEM increased.",
-        "The same approved test scenario was rerun and produced the expected result, with regression cases also reviewed.",
-        "The team held a meeting after the exercise.",
-        "The number of dashboards increased."
-      ],
-      correctIndex: 1,
-      explanation: "A verified improvement is demonstrated when the identical controlled scenario is re-executed and yields the expected detection and alert, while regression testing confirms benign traffic does not trigger false positives."
-    },
-    {
-      id: "q6",
-      question: "Which statement best describes a quality detection rule?",
-      options: [
-        "Any event that matches the rule is automatically a confirmed incident.",
-        "It only needs to detect suspicious test cases, not benign activity.",
-        "It uses appropriate telemetry, is validated against positive and benign cases, and provides an actionable alert.",
-        "It should never be reviewed after deployment."
-      ],
-      correctIndex: 2,
-      explanation: "A high-quality detection rule relies on validated telemetry, undergoes rigorous testing against both true-positive and benign baseline scenarios, minimizes false positives, and equips the SOC analyst with actionable context and triage instructions."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -326,7 +257,14 @@ export default function CybersecurityRedBluePurple() {
     setQuizSubmitted(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="red-blue-purple-teams" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="red-blue-purple-teams" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 antialiased font-sans relative pb-20 selection:bg-orange-500 selection:text-white">
       {/* Ambient Atmospheric Glows */}
       <div className="fixed top-0 left-1/4 w-96 h-96 bg-purple-200/25 rounded-full blur-[100px] pointer-events-none" />

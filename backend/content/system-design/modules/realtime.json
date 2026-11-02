@@ -16,7 +16,7 @@
         "A database index"
       ],
       "correctIndex": 1,
-      "explanation": "WebSockets provide full-duplex, persistent TCP connections with minimal 2–10 byte framing overhead, making them ideal for bidirectional communication like live code editors and chat."
+      "explanation": "WebSockets provide full-duplex, persistent TCP connections with minimal 2\u201310 byte framing overhead, making them ideal for bidirectional communication like live code editors and chat."
     },
     {
       "id": "q2",
@@ -101,6 +101,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

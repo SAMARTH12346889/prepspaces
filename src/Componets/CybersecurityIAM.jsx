@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -55,6 +58,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function CybersecurityIAM() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "iam");
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(11);
 
@@ -307,86 +311,7 @@ export default function CybersecurityIAM() {
   // ==========================================
   // KNOWLEDGE ASSESSMENT (6 QUESTIONS)
   // ==========================================
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the primary difference between authentication and authorization?",
-      options: [
-        "Authentication assigns roles; authorization validates passwords",
-        "Authentication verifies identity; authorization determines permitted actions",
-        "Authentication and authorization are interchangeable terms",
-        "Authorization is only required for administrators"
-      ],
-      correct: 1,
-      explanation:
-        "Authentication verifies the identity claim of a user or principal (Who are you?). Authorization decides whether that authenticated identity is permitted to perform a requested operation on a specific resource (What are you allowed to do?)."
-    },
-    {
-      id: 2,
-      question: "Which combination qualifies as MFA?",
-      options: [
-        "Password and security question",
-        "Two different passwords",
-        "A password and an authenticator using a distinct factor category",
-        "Username and email address"
-      ],
-      correct: 2,
-      explanation:
-        "True Multi-Factor Authentication (MFA) requires factors from at least two distinct categories: something you know (password/PIN), something you have (cryptographic security key/passkey), or something you are (biometric). Two passwords or a password + security question are both knowledge factors and do not constitute MFA."
-    },
-    {
-      id: 3,
-      question: "What is privilege creep?",
-      options: [
-        "Permissions accumulate as responsibilities change without appropriate removal",
-        "All user permissions are removed after every login",
-        "A system encrypts stored credentials",
-        "A user chooses a new password"
-      ],
-      correct: 0,
-      explanation:
-        "Privilege creep occurs when users change teams, projects, or roles over time (the 'mover' lifecycle stage) and receive new permissions while their previous entitlements are never revoked, resulting in excessive, unneeded access."
-    },
-    {
-      id: 4,
-      question: "Which statement about OAuth 2.0 and OpenID Connect is correct?",
-      options: [
-        "OAuth 2.0 is a complete user-authentication protocol in every implementation",
-        "OAuth 2.0 primarily handles delegated authorization; OpenID Connect adds an identity layer",
-        "OpenID Connect is a Linux access-control mechanism",
-        "They are encryption algorithms"
-      ],
-      correct: 1,
-      explanation:
-        "OAuth 2.0 is an authorization framework designed for delegated API access (using Access Tokens). OpenID Connect (OIDC) is an identity layer built on top of OAuth 2.0 that standardizes user authentication and provides identity claims via ID Tokens."
-    },
-    {
-      id: 5,
-      question: "Which is a strong authorization design for private user reports?",
-      options: [
-        "Hide the reports button from other users only in the frontend",
-        "Allow any signed-in user to request any report identifier",
-        "Check resource ownership or approved permissions on the trusted server side",
-        "Trust the user ID supplied by the browser without verification"
-      ],
-      correct: 2,
-      explanation:
-        "To prevent Insecure Direct Object References (IDOR / BOLA), the server must independently verify the authenticated user's session and enforce relationship- or role-based ownership checks on every request, rather than trusting client-side parameters."
-    },
-    {
-      id: 6,
-      question: "Which authentication approach is designed to provide phishing resistance?",
-      options: [
-        "Properly implemented FIDO passkeys or security-key authentication",
-        "Reusing the same password across services",
-        "Approving all unexpected MFA push requests",
-        "Sending passwords through email"
-      ],
-      correct: 0,
-      explanation:
-        "FIDO2 / WebAuthn passkeys and hardware security keys use public-key cryptography bound directly to the browser's verified TLS origin. An attacker's fake phishing proxy cannot replay or intercept the authentication assertion."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -404,7 +329,14 @@ export default function CybersecurityIAM() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="iam" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="iam" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

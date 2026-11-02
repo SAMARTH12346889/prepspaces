@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -43,6 +46,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkModels() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "models");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -296,138 +300,7 @@ export default function NetworkModels() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which of the following correctly pairs an OSI layer with its standard Protocol Data Unit (PDU)?",
-      options: [
-        "Network: Segment; Transport: Packet; Data Link: Bits",
-        "Transport: Segment; Network: Packet; Data Link: Frame; Physical: Bits",
-        "Application: Packet; Transport: Frame; Network: Datagram",
-        "Data Link: Packet; Network: Frame; Physical: Segment",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The standard PDU designations are: Layer 4 Transport = Segment (TCP) or Datagram (UDP); Layer 3 Network = Packet; Layer 2 Data Link = Frame; Layer 1 Physical = Bits.",
-    },
-    {
-      id: 2,
-      question: "When an IP packet traverses a router from a home Wi-Fi network to an optical fiber WAN link, what happens to the headers?",
-      options: [
-        "The router decrypts and encrypts the entire TCP payload.",
-        "The router strips the incoming Layer 2 Data Link frame header and trailer, decrements IP TTL by 1, and encapsulates the packet in a new Layer 2 frame matching the next hop.",
-        "The router replaces the source and destination IP addresses with its own MAC address.",
-        "The router converts TCP into UDP to accelerate transmission across fiber.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Routers forward packets at Layer 3. The incoming Layer 2 frame (e.g. 802.11 Wi-Fi or Ethernet) is discarded, the router decrements the TTL, recomputes the IP header checksum, and encapsulates the IP packet into a new Layer 2 frame appropriate for the outbound link media.",
-    },
-    {
-      id: 3,
-      question: "How does the OS kernel socket layer demultiplex incoming TCP segments to the correct application process?",
-      options: [
-        "Using the Destination MAC address alone.",
-        "Using the 4-tuple (or 5-tuple): Source IP, Source Port, Destination IP, Destination Port, and Protocol.",
-        "Using the process name in the HTTP User-Agent header.",
-        "By broadcasting every incoming segment to every running application on the machine.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A TCP socket endpoint is identified by a 4-tuple: (Source IP, Source Port, Destination IP, Destination Port) plus the protocol (TCP). This allows a web server listening on port 443 to manage thousands of distinct concurrent client connections simultaneously.",
-    },
-    {
-      id: 4,
-      question: "What is the primary architectural difference between the conceptual OSI model and the practical TCP/IP Internet suite?",
-      options: [
-        "OSI was designed exclusively for wireless links, while TCP/IP only works on copper cables.",
-        "OSI defines strict conceptual separation for Presentation (Layer 6) and Session (Layer 5), whereas TCP/IP consolidates application formatting, encryption, and session state within the Application Layer.",
-        "TCP/IP has seven layers, while OSI has only four.",
-        "OSI eliminates the need for IP addressing.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The OSI reference model specifies 7 layers including separate Session and Presentation layers. In practical TCP/IP engineering, session coordination and data presentation (JSON, Protobuf, TLS encryption) are handled directly within the application process.",
-    },
-    {
-      id: 5,
-      question: "In the context of the OSI Data Link layer, what is the role of the Frame Check Sequence (FCS) / Cyclic Redundancy Check (CRC)?",
-      options: [
-        "To encrypt the frame against eavesdropping.",
-        "To verify bit-level integrity over the physical hop, allowing the receiver to drop corrupted frames before passing them up to Layer 3.",
-        "To route the frame across multiple geographic Autonomous Systems.",
-        "To negotiate the TCP maximum segment size (MSS).",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The FCS trailer contains a 32-bit CRC computed across the frame. When a receiver's NIC calculates a different CRC than the one transmitted in the trailer, it detects physical transmission corruption and drops the frame immediately.",
-    },
-    {
-      id: 6,
-      question: "A network engineer can successfully ping a remote server by IP (8.8.8.8) and by hostname (example.com), but attempting to fetch a web page with 'curl -v https://example.com' times out during the TLS handshake. What is the most likely cause?",
-      options: [
-        "Layer 1 physical cable disconnected.",
-        "Local DNS resolution failure.",
-        "An intermediate firewall or security appliance blocking TCP port 443, or a Path MTU blackhole dropping large TLS packets.",
-        "The client laptop's ARP table has exceeded maximum capacity.",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Successful ping and DNS prove Layers 1, 2, 3, and DNS resolution are fully operational. Failure specifically on HTTPS suggests Layer 4 port 443 filtering, or an MTU blackhole where small ICMP pings pass but large TLS Client Hello/Certificate packets exceeding the link MTU are dropped.",
-    },
-    {
-      id: 7,
-      question: "Why is the Internet architecture often depicted as an 'Hourglass'?",
-      options: [
-        "Because time synchronization (NTP) is required for all protocols.",
-        "Because the Internet supports many diverse physical and link technologies at the bottom and many diverse applications at the top, but converges on a single common protocol (IP) at the narrow waist.",
-        "Because network bandwidth diminishes over time due to congestion.",
-        "Because packet switching only functions during daytime hours.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The famous 'hourglass architecture' represents the Internet's narrow waist: the Internet Protocol (IP). Above IP exist multiple transport and application protocols; below IP exist diverse physical and link technologies (Ethernet, Wi-Fi, 5G, fiber). IP is the universal common bridge.",
-    },
-    {
-      id: 8,
-      question: "Which port range is designated by IANA as 'Well-Known Ports' (reserved for system and standardized services like HTTP, HTTPS, SSH, and DNS)?",
-      options: [
-        "Ports 0 to 1,023",
-        "Ports 1,024 to 49,151",
-        "Ports 49,152 to 65,535",
-        "Ports 80,000 to 90,000",
-      ],
-      correctIndex: 0,
-      explanation:
-        "IANA defines three port ranges: Well-Known Ports (0–1,023) require root/administrator privileges to bind on Unix; Registered Ports (1,024–49,151); and Dynamic/Private/Ephemeral Ports (49,152–65,535) used for outbound client connections.",
-    },
-    {
-      id: 9,
-      question: "How does modern HTTP/3 over QUIC alter the traditional transport-layer mapping of HTTPS?",
-      options: [
-        "It eliminates the use of ports entirely.",
-        "Instead of running over TCP, HTTP/3 uses QUIC over UDP (port 443) to eliminate Head-of-Line blocking and integrate the TLS 1.3 handshake into transport connection setup.",
-        "It replaces IPv4 and IPv6 with Ethernet-only delivery.",
-        "It mandates circuit switching across core routers.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "HTTP/3 replaces TCP with QUIC, which runs on top of UDP. QUIC moves stream multiplexing and connection migration into user space, eliminating TCP Head-of-Line blocking and completing transport and cryptographic handshakes in 0-RTT or 1-RTT.",
-    },
-    {
-      id: 10,
-      question: "What is the crucial troubleshooting principle demonstrated by the phrase: 'A successful ping does not guarantee application availability'?",
-      options: [
-        "Ping packets travel faster than light.",
-        "Ping only validates Layer 3 ICMP echo reachability; it does not test whether the application process (e.g. Nginx, PostgreSQL) is running, listening on its TCP port, or responding to application-layer requests.",
-        "Ping automatically repairs broken routing tables.",
-        "Ping bypasses all physical fiber cables.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "ICMP Echo (ping) is handled directly by the operating system kernel networking stack at Layer 3. It proves IP routing and host vitality, but tells you nothing about whether the application daemon at Layer 7 is alive, listening, authenticated, or healthy.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (questionId, optionIdx) => {
     if (quizSubmitted) return;
@@ -444,7 +317,14 @@ export default function NetworkModels() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="models" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="models" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#f97316] selection:text-white">
       {/* Top Global Navigation Bar */}
       <ModuleNav

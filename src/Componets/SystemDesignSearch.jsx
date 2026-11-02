@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -42,6 +45,7 @@ import {
 } from "./SystemDesignSearchDiagrams";
 
 export default function SystemDesignSearch() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "search");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -170,99 +174,7 @@ export default function SystemDesignSearch() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. What is the main role of an inverted index?",
-      options: [
-        "Store authentication passwords",
-        "Map terms to documents containing them",
-        "Encode video files",
-        "Track WebSocket presence",
-      ],
-      correctIndex: 1,
-      explanation:
-        "An inverted index maps distinct vocabulary terms (tokens) to postings lists of document IDs containing those terms, enabling sub-millisecond full-text lookups.",
-    },
-    {
-      id: "q2",
-      question: "2. What is the main trade-off of fan-out-on-write?",
-      options: [
-        "Reads always require scanning the whole catalog",
-        "Publishing an item may require many feed-entry writes",
-        "Users can never receive personalized results",
-        "It eliminates the need for ranking",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Fan-out-on-write achieves instant O(1) feed reads by proactively writing pointers into every follower's inbox, causing high write amplification when an author has thousands or millions of followers.",
-    },
-    {
-      id: "q3",
-      question: "3. What is candidate generation in a recommendation pipeline?",
-      options: [
-        "Finding a manageable set of potentially relevant items",
-        "Encrypting a user's browser session",
-        "Invalidating a CDN cache",
-        "Writing every catalog item to every user's feed",
-      ],
-      correctIndex: 0,
-      explanation:
-        "Candidate generation is the high-recall retrieval stage that quickly filters a multi-million item catalog down to a few hundred promising candidates for detailed scoring and ranking.",
-    },
-    {
-      id: "q4",
-      question: "4. Why should tenant permission be an eligibility rule rather than a weak ranking feature?",
-      options: [
-        "Ranking algorithms cannot process tenant IDs",
-        "Unauthorized content must be excluded, not merely ranked lower",
-        "Tenant filtering always makes search faster",
-        "Recommendations never need user permissions",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Authorization is a strict security boundary. If tenant permissions were merely a scoring weight, an unauthorized document could still score high and leak confidential tenant data.",
-    },
-    {
-      id: "q5",
-      question: "5. What is an important advantage of cursor pagination?",
-      options: [
-        "It guarantees an immutable snapshot in every system",
-        "It is always faster for arbitrary page jumps",
-        "It avoids requiring any ordering",
-        "It can avoid increasingly expensive deep offsets",
-      ],
-      correctIndex: 3,
-      explanation:
-        "Cursor pagination keys off index values (e.g. `(created_at, id) < ($1, $2)`), scanning only the next limit records and avoiding full scans of discarded records that plague `OFFSET 100000`.",
-    },
-    {
-      id: "q6",
-      question: "6. Why might a new user receive generic recommendations?",
-      options: [
-        "They have no interaction history for personalization",
-        "CDNs prevent recommendations",
-        "Search indexes cannot contain user IDs",
-        "The ranking system must always be offline",
-      ],
-      correctIndex: 0,
-      explanation:
-        "This is the classic 'Cold-Start' problem. Without historical clicks, completed courses, or declared preferences, recommendation systems fall back to curated popular baselines.",
-    },
-    {
-      id: "q7",
-      question: "7. What can go wrong when a CDN cache key omits a field that changes a response?",
-      options: [
-        "The cache becomes a database transaction",
-        "Different requests can incorrectly reuse the same cached response",
-        "All requests must become cache misses",
-        "The origin is automatically encrypted",
-      ],
-      correctIndex: 1,
-      explanation:
-        "If a cache key does not include varying attributes (e.g. format, language, or tenant session), one user's personalized or format-specific response can be erroneously served to another user.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -455,7 +367,14 @@ Mitigations:
     },
   ];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="search" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="search" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased">
       {/* Top Breadcrumb & Title Header */}
       <div className="border-b border-stone-200 bg-[#faf8f4]">

@@ -52,7 +52,7 @@
         "Throughput must be zero"
       ],
       "correctIndex": 1,
-      "explanation": "In strict priority scheduling, if there is a steady stream of high-priority processes arriving, lower-priority tasks may suffer starvation (indefinite postponement). Operating systems mitigate this with Aging—gradually elevating the priority of waiting tasks."
+      "explanation": "In strict priority scheduling, if there is a steady stream of high-priority processes arriving, lower-priority tasks may suffer starvation (indefinite postponement). Operating systems mitigate this with Aging\u2014gradually elevating the priority of waiting tasks."
     },
     {
       "id": 5,
@@ -89,6 +89,26 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 2
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "When multiple processes are ready to execute, which one receives the CPU next, and for how long? Progress from mathematical models ($TAT, WT, RT$) to implementing an interactive multi-algorithm scheduler simulator, analyzing preemption, context-switch costs, starvation, and Linux multicore load balancing."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "University &amp; Kernel Research Standards",
+      "paragraphs": [
+        "Scheduling: Introduction, Multi-Level Feedback Queue, and Multiprocessor Scheduling.",
+        "xv6 round-robin scheduler implementation, swtch context restore, and scheduler locks.",
+        "Official documentation for SCHED_NORMAL, EEVDF latency weights, and scheduling domains.",
+        "The mathematical foundation of lag and virtual deadline scheduling in modern Linux."
+      ]
+    }
+  ]
 }

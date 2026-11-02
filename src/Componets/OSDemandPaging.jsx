@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -67,6 +70,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSDemandPaging() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "demand-paging");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -583,86 +587,7 @@ Explanation of Linux PSI (Pressure Stall Information):
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "What is the primary difference between a minor and a major page fault on Linux?",
-      options: [
-        "A minor fault crashes the application with SIGSEGV; a major fault retries the instruction.",
-        "A minor fault is resolved without reading from storage (e.g. zero-fill or already resident shared page); a major fault requires storage I/O.",
-        "A minor fault occurs in user mode; a major fault occurs in kernel mode.",
-        "A minor fault uses the TLB; a major fault bypasses the TLB completely.",
-      ],
-      correct: 1,
-      explanation:
-        "On Linux, a minor page fault is resolved entirely in RAM (such as mapping a zeroed page for anonymous heap allocation or mapping an existing shared page). A major page fault requires blocking on disk/SSD I/O to read the page data.",
-    },
-    {
-      id: "q2",
-      question: "Which page replacement algorithm is known to exhibit Belady's Anomaly?",
-      options: [
-        "Optimal (MIN) Algorithm",
-        "Least Recently Used (LRU)",
-        "First-In, First-Out (FIFO)",
-        "Both LRU and Optimal",
-      ],
-      correct: 2,
-      explanation:
-        "FIFO can exhibit Belady's Anomaly, where increasing the number of physical frames paradoxically increases the total number of page faults. Stack algorithms like LRU and Optimal never exhibit Belady's anomaly because the set of resident pages with N frames is always a subset of resident pages with N+1 frames.",
-    },
-    {
-      id: "q3",
-      question: "Under what condition does memory thrashing occur in an operating system?",
-      options: [
-        "When the CPU utilization exceeds 99% for more than 5 minutes.",
-        "When the combined working sets of active processes exceed the available physical RAM, causing continuous page faults and evictions.",
-        "When dirty pages are unmapped without being written back to disk.",
-        "When a process allocates more than 4GB of virtual memory on a 64-bit architecture.",
-      ],
-      correct: 1,
-      explanation:
-        "Thrashing occurs when total memory demand (the sum of active working sets) exceeds physical RAM capacity. The OS spends virtually all its CPU time servicing page faults and waiting on storage I/O rather than executing productive user code.",
-    },
-    {
-      id: "q4",
-      question: "How does the Clock (Second Chance) page replacement algorithm approximate LRU?",
-      options: [
-        "By sorting pages by 64-bit nanosecond access timestamps on every memory instruction.",
-        "By tracking references in a circular buffer with a reference bit: clearing the bit on first inspection and evicting on the second pass.",
-        "By consulting future memory references from compiler metadata.",
-        "By evicting the newest page first.",
-      ],
-      correct: 1,
-      explanation:
-        "Clock uses a circular list of frames and a 1-bit reference flag set by hardware MMU on memory read/write. When seeking a victim, the hand inspects the bit: if 1, it resets it to 0 ('second chance') and advances; if 0, that frame is chosen for eviction.",
-    },
-    {
-      id: "q5",
-      question: "What happens during a Copy-on-Write (COW) write access after fork()?",
-      options: [
-        "The kernel immediately kills the child process to protect parent integrity.",
-        "The CPU writes directly to the shared frame, updating both parent and child memory simultaneously.",
-        "Hardware raises a write protection fault; the kernel intercepts it, allocates a new physical frame, copies the page contents, updates the PTE to writable, and retries the write.",
-        "The page is immediately written to the Linux swap partition.",
-      ],
-      correct: 2,
-      explanation:
-        "After fork(), pages are marked read-only in both parent and child page tables. When either process attempts to write, a page protection fault is raised. The OS allocates a private frame, copies the 4KB data, marks the new PTE writable, and resumes execution transparently.",
-    },
-    {
-      id: "q6",
-      question: "What is the role of Linux overcommit (vm.overcommit_memory = 0) and the OOM Killer?",
-      options: [
-        "Overcommit guarantees that malloc() will never return a non-null pointer unless physical RAM is already reserved.",
-        "The OS grants virtual memory reservations generously assuming programs touch only a fraction of allocated memory; if RAM is exhausted upon touching, the OOM Killer terminates a process selected by oom_badness().",
-        "Overcommit disables virtual memory and enforces flat contiguous physical memory allocation.",
-        "The OOM killer reboots the machine whenever free memory drops below 10%.",
-      ],
-      correct: 1,
-      explanation:
-        "Linux uses optimistic memory allocation (overcommit): malloc() allocates virtual address space without reserving physical RAM immediately. If total demand exceeds physical memory plus swap when pages are written, the Linux OOM Killer evaluates process memory footprints and badness scores to kill a victim process safely.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (qId, optionIdx) => {
     setQuizAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
@@ -697,7 +622,14 @@ Explanation of Linux PSI (Pressure Stall Information):
 
   const completedChecklistCount = Object.values(checklist).filter(Boolean).length;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="demand-paging" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="demand-paging" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Universal Module Navigation Bar */}
       <ModuleNav

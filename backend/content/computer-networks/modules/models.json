@@ -100,7 +100,7 @@
         "Ports 80,000 to 90,000"
       ],
       "correctIndex": 0,
-      "explanation": "IANA defines three port ranges: Well-Known Ports (0–1,023) require root/administrator privileges to bind on Unix; Registered Ports (1,024–49,151); and Dynamic/Private/Ephemeral Ports (49,152–65,535) used for outbound client connections."
+      "explanation": "IANA defines three port ranges: Well-Known Ports (0\u20131,023) require root/administrator privileges to bind on Unix; Registered Ports (1,024\u201349,151); and Dynamic/Private/Ephemeral Ports (49,152\u201365,535) used for outbound client connections."
     },
     {
       "id": 9,
@@ -137,6 +137,46 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 4
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Abstraction, Modularity & The Heterogeneity Problem",
+      "paragraphs": [
+        "Without standardized communication abstractions, every application would require bespoke machine code for every brand of physical network adapter, operating system, and transmission cable. Layering decomposes the overwhelming complexity of global networking into modular, loosely coupled tiers with well-defined service interfaces.",
+        "Physical engineers optimize fiber lasers; systems programmers build reliable byte streams (TCP); web developers build REST APIs. Neither needs deep expertise in the other.",
+        "A laptop can transition seamlessly from 802.11ax Wi-Fi to a 10Gbps Ethernet dock or 5G cellular modem without restarting running web applications or active database connections.",
+        "Enables a Windows client on an ARM64 processor to communicate flawlessly with a Linux server on an x86_64 CPU across 15 intermediate routers running proprietary ASIC microcode.",
+        "Engineers can systematically isolate whether a service outage stems from physical link failure (L1), ARP/VLAN misconfiguration (L2), bad routing (L3), or closed ports (L4).",
+        "How can a Windows PC communicate with a Linux server despite divergent operating systems, kernels, and memory architectures? Because they strictly adhere to wire protocols defined by RFC standards (RFC 791 for IP, RFC 9293 for TCP). The bits transmitted over the wire follow identical byte ordering (Network Byte Order / Big Endian) regardless of native CPU endianness (Host Byte Order / Little Endian)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "In-Depth Architectural Analysis of Layers 1 through 7",
+      "paragraphs": [
+        "Key Protocols & Tech:{\" \"} {l.protocols}",
+        "Core Responsibilities: {l.responsibilities}",
+        "Troubleshooting Focus: {l.troubleshooting}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "The Internet Hourglass & Practical Differences",
+      "paragraphs": [
+        "While the OSI model was conceived by committee as a formal conceptual framework, the TCP/IP suite was built pragmatically through the deployment of ARPANET and the global Internet."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "The Anatomy of Network Addressing Across Layers",
+      "paragraphs": [
+        "Format: 00:1A:2B:3C:4D:5E. First 24 bits are the Organizationally Unique Identifier (OUI) assigned to manufacturer; last 24 bits are unique device serial. Valid only on the local broadcast link.",
+        "IPv4: 192.168.1.1. Hierarchical routing address (Network ID + Host ID). Global Internet routers forward packets by longest-prefix match on CIDR destination subnets.",
+        "Range: 0 to 65,535. Identifies specific application processes or listening sockets on the host. Allows a single IP to run HTTP (80), HTTPS (443), and SSH (22) concurrently."
+      ]
+    }
+  ]
 }

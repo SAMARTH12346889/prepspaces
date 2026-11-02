@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -59,6 +62,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function CybersecurityOWASPTop10() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "owasp-top-10");
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(14);
 
@@ -157,80 +161,7 @@ export default function CybersecurityOWASPTop10() {
     setQuizAnswers((prev) => ({ ...prev, [questionId]: optionIndex }));
   };
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "Which statement best describes an injection vulnerability?",
-      options: [
-        "Any request containing punctuation is an attack",
-        "Untrusted input changes how an interpreter processes commands, queries, or content",
-        "The application accepts a valid Unicode string",
-        "The server returns any HTTP error"
-      ],
-      correctAnswer: 1,
-      explanation: "Injection vulnerabilities occur when untrusted data is sent to an interpreter (SQL, OS shell, template engine, browser DOM) as part of a command or query, altering the intended execution structure."
-    },
-    {
-      id: "q2",
-      question: "What is the preferred primary defense against SQL injection?",
-      options: [
-        "Reject every string containing punctuation",
-        "Hide database error messages while retaining unsafe SQL construction",
-        "Use parameterized queries and keep user-controlled data separate from SQL structure",
-        "Place the database behind HTTPS only"
-      ],
-      correctAnswer: 2,
-      explanation: "Parameterized queries (prepared statements) keep data strictly separated from the SQL code structure. The database engine treats parameter values strictly as literal values rather than executable SQL syntax."
-    },
-    {
-      id: "q3",
-      question: "Why is input validation alone insufficient to prevent SQL injection?",
-      options: [
-        "Valid input can still be inserted into a dangerously constructed query",
-        "Input validation always disables database connections",
-        "All SQL queries must use operating system commands",
-        "SQL databases do not support parameterization"
-      ],
-      correctAnswer: 0,
-      explanation: "Input validation verifies that data conforms to application rules, but if valid input (such as an apostrophe in a legitimate name like O'Connor) is concatenated into a raw SQL string, it will still break the query syntax and trigger injection."
-    },
-    {
-      id: "q4",
-      question: "In a React application, which is the safer way to render a plain user-provided comment?",
-      options: [
-        "Insert the comment directly using dangerouslySetInnerHTML",
-        "Render the value using ordinary JSX text interpolation",
-        "Evaluate the comment as JavaScript",
-        "Disable all browser security headers"
-      ],
-      correctAnswer: 1,
-      explanation: "React's standard JSX text interpolation ({comment}) automatically escapes characters before rendering to the DOM, rendering content strictly as harmless text rather than active HTML markup."
-    },
-    {
-      id: "q5",
-      question: "What should be done before constructing a dynamic SQL sort expression?",
-      options: [
-        "Insert the raw request value into the query",
-        "Assume prepared statements parameterize every kind of SQL identifier",
-        "Map the requested sort option to a fixed server-side allowlist of identifiers",
-        "Remove the database authorization policy"
-      ],
-      correctAnswer: 2,
-      explanation: "SQL parameter placeholders cannot be used for SQL identifiers such as column names or sort directions (ASC/DESC). Applications must map user input to a rigid server-side allowlist of verified column constants."
-    },
-    {
-      id: "q6",
-      question: "Which statement about a Web Application Firewall is correct?",
-      options: [
-        "It can provide defense in depth but does not replace fixing unsafe application code",
-        "It guarantees that SQL injection cannot occur",
-        "It replaces server-side authorization checks",
-        "It makes input validation unnecessary"
-      ],
-      correctAnswer: 0,
-      explanation: "A WAF provides perimeter filtering and defense in depth, but it can be bypassed via encoding tricks or alternative syntax. Remediation must occur at the application layer through parameterized queries and safe APIs."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const calculateScore = () => {
     let score = 0;
@@ -240,7 +171,14 @@ export default function CybersecurityOWASPTop10() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="owasp-top-10" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="owasp-top-10" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] relative overflow-hidden selection:bg-[#ea580c] selection:text-white">
       {/* Ambient background glows */}
       <div className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-orange-100/60 blur-3xl" />

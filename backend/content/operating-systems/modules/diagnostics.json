@@ -89,6 +89,87 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 8
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. Linux Processes, Threads, and Execution States",
+      "paragraphs": [
+        "Process vs Thread \u00b7 clone() flags \u00b7 Process state codes (R, S, D, T, Z) \u00b7 CPU utilization caveats",
+        "In Linux, both processes and threads are represented internally by identical kernel task structures (task_struct). The clone() syscall controls the degree of sharing between parent and child:",
+        "A thread showing 100% CPU utilization may be doing productive work, or it may be spinning in an infinite loop, thrashing on lock contention, or repeatedly retrying failed syscalls. Never assume high CPU equals high productivity."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. Kernel Interfaces: /proc, /sys, and /dev",
+      "paragraphs": [
+        "Virtual filesystems \u00b7 Process inspection \u00b7 Device hierarchies \u00b7 Load Average truth",
+        "Linux implements the Unix philosophy \"everything is a file\" by exposing kernel runtime state through three distinct virtual filesystems:",
+        "Dynamic window into kernel memory, process table, open file descriptors, memory mappings, and CPU stats.",
+        "Structured device hierarchy, block device queues, cgroups v2, and tunable kernel configuration parameters.",
+        "Character and block device nodes (e.g. /dev/null, /dev/nvme0n1) routing I/O directly to drivers.",
+        "Inspect live mock outputs from `/proc/status`, `/proc/meminfo`, `/proc/pressure/memory`, and `/sys`."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. systemd, journald, and Kernel Ring Buffer Diagnostics",
+      "paragraphs": [
+        "systemctl status \u00b7 journalctl filtering \u00b7 systemd-analyze critical-chain \u00b7 dmesg OOM triage",
+        "When services fail or slow down, Linux engineers correlate user-space systemd service logs with kernel ring buffer messages:",
+        "Catches Out-of-Memory (OOM) killer terminations, NVMe timeout resets, PCIe link errors, and filesystem write failures.",
+        "Filters log events strictly for a specific service unit since the current system boot, preserving stdout/stderr output."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. CPU Scheduling, Memory Observability & PSI",
+      "paragraphs": [
+        "vmstat 1 breakdown \u00b7 RSS vs VSZ \u00b7 Pressure Stall Information (PSI)",
+        "vmstat 1 is the standard workhorse for real-time system performance triage:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. Linux Performance Tools: iostat, perf, and Latency",
+      "paragraphs": [
+        "iostat -xz 1 metrics \u00b7 perf stat & record \u00b7 Mean vs p99 tail latency",
+        "Diagnosing complex systems requires selecting the right instrument for each tier:",
+        "Focus on await (average completion latency in ms) and aqu-sz (queue depth). High %util alone does not prove an NVMe is bottlenecked if await remains sub-millisecond!",
+        "Samples instruction execution stacks at 99Hz to pinpoint exact hot functions in user code or the kernel.",
+        "Select a symptom to reveal the precise diagnostic recipe, command sequence, and common misdiagnosis traps."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. System-Call Profiling and Bottleneck Diagnosis",
+      "paragraphs": [
+        "strace -c vs -T \u00b7 Measurement perturbation \u00b7 Profiling waiting vs computation",
+        "strace captures every syscall made by a process. Use -c for summary profiling and -T to measure syscall duration:",
+        "{`$ strace -f -c ./app % time seconds usecs/call calls errors syscall ------ ----------- ----------- --------- --------- ---------------- 84.12 4.120400 41204 100 fsync 12.40 0.608100 60 10000 write 2.10 0.102800 10 10000 read ------ ----------- ----------- --------- --------- ---------------- 100.00 4.831300 20100 total`} The Observer Effect (Perturbation Warning) strace stops execution on every syscall entry and exit. On system-call-heavy applications, attaching strace can slow execution by 2x to 10x! Always record baseline latency without strace first."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. Distinguishing CPU vs Memory vs I/O vs Lock Contention",
+      "paragraphs": [
+        "Resource matrix \u00b7 slow_app.py capstone \u00b7 Performance report structure",
+        "The essence of performance engineering is connecting observed metrics to a single justified root cause:",
+        "Switch between 4 production failure modes to observe how vmstat, top, iostat, strace, and perf correlate.",
+        "{cur.topSnippet} vmstat 1 {cur.vmstatSnippet} iostat -xz 1 {cur.iostatSnippet} perf report / strace {cur.perfSnippet} Diagnostic Conclusion: {cur.diagnosis} ); })()} {/* Capstone Lab Scripts */} Capstone Lab: slow_app.py and Performance Report Use this Python workload script to generate realistic CPU, I/O, and lock bottlenecks on your test machine.",
+        "{`# slow_app.py - Controlled Bottleneck Demonstration import argparse, os, time, threading, tempfile def cpu_work(seconds): end = time.monotonic() + seconds val = 1 while time.monotonic() {/* Report Template Card */} Diagnostic Report Template copyToClipboard( `# Linux Performance Investigation Report ## 1. Environment & Baseline - Date: $(date) - Kernel: $(uname -a) - Cores: $(nproc) | RAM: $(free -h | grep Mem) - Initial Uptime & Load: $(uptime) ## 2. Workload Tested - Command: python3 slow_app.py [cpu|io|lock] --seconds 5 - Observed Wall Time: 5.02s ## 3. Evidence Collected - vmstat 1: r=12, b=0, us=96, sy=3, wa=0 - top -H: 4 worker threads running at 98% CPU each - perf report: 88.4% time spent in cpu_work() - iostat: await=0.20ms, %util=0.2% (storage healthy) ## 4. Conclusion & Diagnosis - Bottleneck: CPU-Bound Execution - Confidence: HIGH (multiple correlated measurements) - Next Experiment: Profile algorithmic optimization and benchmark vectorized math. `, \"report_template\" ) } className=\"inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-stone-300 text-stone-700 text-xs font-medium hover:bg-stone-50 transition-colors\" > {copiedSnippet === \"report_template\" ? : } Copy Markdown Template Connect observed metrics from vmstat, top, iostat, and perf directly to a justified conclusion."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 18 Knowledge Check",
+      "paragraphs": [
+        "Verify your ability to interpret Linux performance metrics, virtual filesystems, and diagnostic tools",
+        "Track your engineering competence across Linux diagnostics, kernel virtual filesystems, and bottleneck triage"
+      ]
+    }
+  ]
 }

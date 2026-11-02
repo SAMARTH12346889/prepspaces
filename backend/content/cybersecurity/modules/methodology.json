@@ -8,7 +8,7 @@
   "quiz": [
     {
       "id": 1,
-      "question": "Under the U.S. Computer Fraud and Abuse Act (CFAA, 18 U.S.C. § 1030) and the Supreme Court precedent in Van Buren v. United States (2021), what constitutes 'exceeding authorized access'?",
+      "question": "Under the U.S. Computer Fraud and Abuse Act (CFAA, 18 U.S.C. \u00a7 1030) and the Supreme Court precedent in Van Buren v. United States (2021), what constitutes 'exceeding authorized access'?",
       "options": [
         "A. Violating a website's published Terms of Service while using an account you legitimately possess.",
         "B. Accessing a computer with authorization and then using such access to obtain or alter information in the computer that the accesser is not entitled to obtain or alter.",
@@ -124,7 +124,7 @@
         "D. Automatic certification as an authorized government security agency."
       ],
       "correctIndex": 0,
-      "explanation": "Gold Standard Safe Harbor provides affirmative legal protection. The organization explicitly pledges not to pursue civil or criminal claims (under CFAA, DMCA §1201, or contract breaches) against security researchers acting in good faith according to the vulnerability disclosure program terms."
+      "explanation": "Gold Standard Safe Harbor provides affirmative legal protection. The organization explicitly pledges not to pursue civil or criminal claims (under CFAA, DMCA \u00a71201, or contract breaches) against security researchers acting in good faith according to the vulnerability disclosure program terms."
     },
     {
       "id": 11,
@@ -185,7 +185,7 @@
         {
           "label": "A. Launch a 10,000 req/sec brute-force attack against Auth0 to evaluate resilience.",
           "isLegal": false,
-          "feedback": "ILLEGAL. Auth0 is a multi-tenant third-party SaaS provider. Testing their shared infrastructure without Auth0's direct written authorization violates Auth0's Terms of Service and CFAA 18 U.S.C. § 1030."
+          "feedback": "ILLEGAL. Auth0 is a multi-tenant third-party SaaS provider. Testing their shared infrastructure without Auth0's direct written authorization violates Auth0's Terms of Service and CFAA 18 U.S.C. \u00a7 1030."
         },
         {
           "label": "B. Confine testing to the client's integration logic, redirect URIs, and JWT token handling on the client's own servers.",
@@ -231,6 +231,74 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 8
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. Comprehensive Learning Objectives",
+      "paragraphs": [
+        "Aligned with graduate cybersecurity programs (Stanford CS155, MIT 6.858, SANS SEC560), upon completing this module students will possess the operational and legal competence to:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. Methodological Standards: PTES, OSSTMM, and NIST SP 800-115",
+      "paragraphs": [
+        "Hacking without a methodology is unstructured chaos. Industry-recognized standards establish rigor, repeatability, thoroughness, and auditability.",
+        "Maintained by ISECOM, OSSTMM focuses on scientific measurement. Rather than just finding bugs, it quantifies operational security posture across 5 channels (Human, Physical, Wireless, Telecommunications, and Data Networks) using metrics called RAVs (Risk Assessment Values).",
+        "Published by the National Institute of Standards and Technology. Organizes technical assessments into 3 structured phases: Planning (scoping, RoE), Execution (discovery, attack, vulnerability analysis), and Post-Execution (reporting, mitigation validation)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. Black-Box vs. Gray-Box vs. White-Box Testing Perspectives",
+      "paragraphs": [
+        "The degree of architectural knowledge and credential access provided to testers drastically influences the assessment\u2019s scope, duration, cost, and vulnerability yield.",
+        "Testers receive only a company name or starting URL. Simulates an opportunistic external attacker with no insider access or source code.",
+        "Testers receive architecture diagrams, API schemas, and low-privileged test user credentials. Simulates a compromised user or curious insider.",
+        "Testers have complete access to source code repositories, infrastructure configurations, database schemas, and developer interviews."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. Scoping Architecture, Target Delineation & Cloud Constraints",
+      "paragraphs": [
+        "A catastrophic mistake in penetration testing is testing an asset you don\u2019t have legal permission to test. Scoping agreements establish clear, unambiguous operational boundaries.",
+        "Modern cloud providers (AWS, Microsoft Azure, Google Cloud) allow customers to conduct security assessments against their user-hosted resources without prior approval, provided they comply with strict rules:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. Rules of Engagement (RoE) Document Formulation",
+      "paragraphs": [
+        "While the Statement of Work (SOW) defines what will be tested and the financial terms, the Rules of Engagement (RoE) details exactly how, when, and under what operational guardrails testing will occur."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. Statutory, Contractual, and Legal Frameworks",
+      "paragraphs": [
+        "Penetration testing without valid authorization is a felony under modern legal jurisdictions. Understanding statutory frameworks protects professionals from catastrophic criminal and civil liability.",
+        "The CFAA makes it a federal crime to access a protected computer &ldquo;without authorization&rdquo; or to &ldquo;exceed authorized access.&rdquo; In the landmark Supreme Court decision Van Buren v. United States (2021), the Court narrowed the statute, ruling that an individual does not &ldquo;exceed authorized access&rdquo; merely by violating an employer policy or website Terms of Service. Instead, liability requires accessing parts of the computer system (e.g., restricted folders, databases) that the user was never granted access credentials to enter.",
+        "Enacted to protect computer integrity. Contains key provisions:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. Vulnerability Disclosure Programs (VDP), Bug Bounties & Safe Harbor",
+      "paragraphs": [
+        "Security researchers frequently discover vulnerabilities outside contracted penetration tests. Coordinated Vulnerability Disclosure (CVD) frameworks and Safe Harbor provisions provide legal safety and ethical pathways.",
+        "Safe Harbor is a binding commitment published by an organization that promises:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "8. Academic Curricula & Authoritative Standards",
+      "paragraphs": [
+        "This curriculum synthesizes peer-reviewed computer security research, international standards, and top-tier university curricula:"
+      ]
+    }
+  ]
 }

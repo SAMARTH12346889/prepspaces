@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -66,6 +69,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function DevOpsSRE() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("devops", "sre");
   const navigate = useNavigate();
 
   // Navigation & UI State
@@ -527,175 +531,16 @@ spec:
   // MASTERY ASSESSMENT QUESTIONS (15 IN-DEPTH PRODUCTION QUESTIONS)
   // Derived directly from Section 18 of user prompt
   // =========================================================================
-  const masteryQuestions = [
-    {
-      q: "What makes a metric a useful SLI (Service Level Indicator) rather than just an infrastructure measurement?",
-      options: [
-        "A useful SLI measures the service as directly experienced by users (e.g. request success rate, latency), whereas infrastructure metrics (CPU, memory, pod restarts) can appear healthy while users experience failure.",
-        "An SLI must be measured in gigabytes per second.",
-        "An SLI is only valid if it measures the temperature of the physical server CPU.",
-        "Infrastructure metrics and SLIs are identical synonyms in modern DevOps."
-      ],
-      correctIndex: 0,
-      a: "An SLI must directly reflect user satisfaction. A Pod can report 15% CPU utilization and zero restarts while every database query fails with a 500 error. The user experiences an outage, yet infrastructure metrics look healthy. Therefore, user-facing request success and latency are genuine SLIs, while CPU is a secondary diagnostic indicator.",
-    },
-    {
-      q: "How can a web service meet its Availability SLO (e.g., 99.95% HTTP 200) and still provide an unacceptable user experience?",
-      options: [
-        "The service returns HTTP 200 responses that contain stale, empty, or corrupted data, or takes 10 seconds to respond, violating correctness and latency expectations.",
-        "Because 99.95% is too low a number for any website.",
-        "Because HTTP 200 means the server was hacked.",
-        "This is impossible; an HTTP 200 response always guarantees complete user satisfaction."
-      ],
-      correctIndex: 0,
-      a: "Availability alone is not reliability. A service could return HTTP 200 with an empty body (`{\"notes\": []}`) due to a caching failure, or take 8 seconds per request. Users experience failure despite the technical HTTP 200 status code. Comprehensive SLOs must include latency percentiles and data correctness.",
-    },
-    {
-      q: "What is the primary operational distinction between an internal SLO and a contractual SLA?",
-      options: [
-        "An SLO is an internal engineering target used to guide release velocity and error budgets; an SLA is an external customer-facing agreement with contractual penalties or credits if breached.",
-        "An SLO is for Linux while an SLA is for Windows.",
-        "SLAs are measured by engineers while SLOs are written by lawyers.",
-        "An SLO is always looser than an SLA."
-      ],
-      correctIndex: 0,
-      a: "An SLO (Service Level Objective) is set by engineering and product teams to manage risk and trigger release policies. An SLA (Service Level Agreement) is a legally binding commitment to customers specifying financial credits. Internal SLOs are always configured tighter than SLAs to provide a safety buffer before contractual penalties occur.",
-    },
-    {
-      q: "Why do request-based error budgets and time-based error budgets yield fundamentally different operational results?",
-      options: [
-        "Traffic is uneven: a 5-minute outage during peak Cyber Monday traffic burns a massive number of requests, whereas a 5-minute outage at 3:00 AM on Sunday consumes the same time budget but almost zero request budget.",
-        "Time-based budgets only apply to hardware clocks.",
-        "Request-based budgets are only used for mobile apps.",
-        "They yield identical results under all mathematical conditions."
-      ],
-      correctIndex: 0,
-      a: "Time-based availability (e.g. minutes of downtime) treats every minute equally. Request-based availability (failed requests / total requests) weights the failure by actual customer volume. An outage during peak traffic impacts tens of thousands of users and burns significant request budget, whereas an outage at midnight has minimal customer impact.",
-    },
-    {
-      q: "If a service with a 99.95% availability SLO is currently experiencing a 20x error-budget burn rate, what does this tell an on-call SRE?",
-      options: [
-        "The service is failing at 1.0% error rate and will exhaust its entire 30-day error budget in just 1.5 days (36 hours) if the failure persists.",
-        "The server is running 20 times faster than normal.",
-        "The error budget will last for 20 months.",
-        "The service has zero errors."
-      ],
-      correctIndex: 0,
-      a: "Burn rate = Observed Failure Ratio / (1 - SLO). For a 99.95% SLO, the allowed failure ratio is 0.0005. A 20x burn rate means the current failure ratio is 20 * 0.0005 = 0.01 (1.0% error rate). At 20x speed, a 30-day budget burns down in 30 / 20 = 1.5 days, indicating an urgent threat to the SLO.",
-    },
-    {
-      q: "Why might an SRE team restrict or halt risky production releases even before the error budget is 100% exhausted?",
-      options: [
-        "A rapidly escalating burn rate indicates that the remaining budget will be breached shortly; pausing risky changes protects the remaining buffer and prevents an SLA violation.",
-        "To allow developers to leave early on Fridays.",
-        "Because Kubernetes stops working when the budget reaches 50%.",
-        "Because error budgets can never be replenished."
-      ],
-      correctIndex: 0,
-      a: "Error budget policies use burn rate thresholds (e.g., burning >14.4x) to act proactively. Waiting until 100% of the budget is burned means the SLO has already failed. Intervening early when consumption is dangerously steep preserves reliability and avoids breaching customer SLAs.",
-    },
-    {
-      q: "In capacity planning, why must an engineering team size the service to handle peak traffic with N-1 replicas?",
-      options: [
-        "To ensure that if an active replica or Kubernetes worker node crashes, the surviving N-1 replicas can absorb 100% of peak traffic without suffering cascading brownouts or latency degradation.",
-        "Because Kubernetes requires an even number of Pods.",
-        "Because the Nth replica is always reserved for the CEO.",
-        "To reduce cloud compute costs by 50%."
-      ],
-      correctIndex: 0,
-      a: "N+1 redundancy guarantees that a cluster can tolerate the unexpected failure or rolling upgrade of an instance without compromising user performance. Sizing $(n-1) \\times \\text{capacity} \\ge \\text{Peak Demand}$ ensures peak load is fully supported during single-node failures.",
-    },
-    {
-      q: "Why does autoscaling the number of API replicas (e.g., from 3 to 12) sometimes cause overall system performance and database health to degrade?",
-      options: [
-        "Each new API replica creates additional database connections and concurrent queries; if the database connection pool or disk I/O saturates, the database locks up, causing widespread 5xx errors.",
-        "Because Kubernetes Pods cannot communicate with PostgreSQL.",
-        "Because having 12 pods changes the IP address of the cluster.",
-        "Because more pods always consume less power."
-      ],
-      correctIndex: 0,
-      a: "Application compute is rarely the only bottleneck. Scaling API replicas multiplies demand on downstream shared dependencies (databases, caches, third-party APIs). If 12 Pods each open 10 database connections, they demand 120 connections against a database configured for 100, causing connection exhaustion and cascading system failure.",
-    },
-    {
-      q: "Why is high CPU utilization (e.g. CPU > 80%) alone not always an effective condition for paging an on-call engineer?",
-      options: [
-        "A service can run at 85% CPU efficiently without any degradation in user latency or error rates; paging on CPU causes alert fatigue, whereas paging on user-facing SLO burn rates reflects genuine incidents.",
-        "Because CPUs do not exist in cloud computing.",
-        "Because CPU utilization is only measured once a week.",
-        "Because modern CPUs never fail."
-      ],
-      correctIndex: 0,
-      a: "High CPU utilization is often expected under load and does not necessarily indicate user-facing harm. Conversely, a service with 10% CPU can be completely broken if a database deadlock occurs. Paging should be reserved for actionable user impact or rapid SLO budget depletion, not symptom-level resource usage.",
-    },
-    {
-      q: "What fundamental characteristic distinguishes operational 'toil' from valuable engineering work?",
-      options: [
-        "Toil is manual, repetitive, predictable, and automatable work that scales linearly with service size and produces no enduring value; engineering work improves architecture and automates failure recovery.",
-        "Toil is any work done in the terminal, while engineering is done in Jira.",
-        "Toil is only performed by managers.",
-        "There is no difference; all operational tasks are considered toil."
-      ],
-      correctIndex: 0,
-      a: "As defined by Google SRE, toil is operational work that is manual, repetitive, predictable, lacks enduring value, and scales linearly as service traffic increases (e.g. manually restarting services or manually migrating databases). Engineering work creates long-term structural improvements that eliminate toil permanently.",
-    },
-    {
-      q: "What five components make an on-call alert actionable for a responding engineer?",
-      options: [
-        "Clear User Impact, Corroborating Telemetry Evidence, Blast Radius Scope, Dashboard & Trace Links, and an actionable Next-Step Runbook.",
-        "A loud ringtone, a red screen, an email to all staff, a Twitter post, and an apology.",
-        "The CPU model number, motherboard temperature, BIOS version, MAC address, and RAM serial number.",
-        "A link to stackoverflow.com and an invitation to a meeting."
-      ],
-      correctIndex: 0,
-      a: "An actionable alert must enable rapid diagnosis and mitigation under pressure. It provides: 1) What user impact is occurring; 2) What metric/burn-rate threshold fired; 3) What service/environment is affected; 4) Direct links to Grafana and Jaeger traces; 5) A concise runbook with tested remediation steps.",
-    },
-    {
-      q: "Why should incident response prioritize rapid service mitigation over identifying the root cause?",
-      options: [
-        "The primary duty of SRE is to stop customer bleeding and restore availability; deep forensic investigation and root-cause analysis can be conducted safely after the system is stabilized.",
-        "Because root causes never matter in software engineering.",
-        "Because finding root causes requires rebooting the cloud provider.",
-        "Because rollbacks are illegal in production."
-      ],
-      correctIndex: 0,
-      a: "While customers are experiencing downtime, spending 45 minutes analyzing stack traces while users fail transactions is irresponsible. SREs prioritize mitigation first (rollback, shedding load, flipping a feature flag) to stop customer impact immediately, deferring root-cause analysis to the postmortem.",
-    },
-    {
-      q: "What is the core philosophical purpose of a 'Blameless' Postmortem?",
-      options: [
-        "To focus on systemic, architectural, and procedural flaws rather than blaming individuals, fostering honest reporting and engineering controls that prevent recurring failure.",
-        "To ensure that nobody gets fired or takes responsibility for anything.",
-        "To hide system outages from executive leadership.",
-        "To blame third-party cloud providers exclusively."
-      ],
-      correctIndex: 0,
-      a: "Blameless postmortems recognize that human error is a symptom of flawed systems, not the cause. If people fear punishment, they hide mistakes. By assuming good faith, teams analyze latent technical gaps, missing guardrails, and inadequate testing, creating structural engineering solutions that prevent recurrence.",
-    },
-    {
-      q: "What verifiable evidence should a Production Readiness Review (PRR) mandate before SRE accepts operational ownership?",
-      options: [
-        "Established SLIs/SLOs, automated health checks, distributed tracing, load-tested peak capacity, tested rollback procedures, and an actionable emergency runbook.",
-        "A written promise that the software has zero bugs.",
-        "Proof that the code was written by a senior engineer.",
-        "A PowerPoint presentation with at least 50 slides."
-      ],
-      correctIndex: 0,
-      a: "A PRR requires objective evidence: 1) Defined SLIs and measurement windows; 2) Tested `/readyz` probes; 3) Grafana dashboards and actionable burn-rate alerts; 4) Proven capacity headroom with load tests; 5) Documented and tested rollback procedures; 6) An up-to-date runbook.",
-    },
-    {
-      q: "How would an SRE team prove that reliability genuinely improved after completing postmortem corrective actions?",
-      options: [
-        "Demonstrate a reduction in MTTR (Mean Time to Restore), lower error-budget burn rates over rolling 30-day windows, and zero recurrences of the specific failure mode in production telemetry.",
-        "Check that all Jira tickets were moved to the 'Done' column.",
-        "Ask developers if they feel more confident.",
-        "Verify that no releases were shipped for six months."
-      ],
-      correctIndex: 0,
-      a: "Reliability improvements must be empirically verified via telemetry: tracking error-budget burn rates across rolling 30-day windows, verifying lower Mean Time to Restore (MTTR), observing healthy latency percentiles during peak traffic, and proving zero recurrences of the remediated failure class.",
-    },
-  ];
+  const masteryQuestions = moduleData?.quiz || [];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="devops" currentModuleId="sre" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="devops" currentModuleId="sre" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

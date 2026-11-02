@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -59,6 +62,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSVirtualMemory() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "virtual-memory");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -209,86 +213,7 @@ VA: 0x2400 (EXEC)  -> VPN:  9 (L1: 1, L2: 1) | Offset:    0 | Frame: 4 | PA: 0x1
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. Why does the page offset remain completely unchanged during virtual-to-physical address translation?",
-      options: [
-        "Because the MMU ignores offsets during physical RAM routing",
-        "Because virtual pages and physical frames are defined with the exact same fixed byte size",
-        "Because offsets only apply to segment descriptors, not paging",
-        "Because the operating system copies offsets into CPU control register CR3",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A virtual page and a physical frame share the exact same capacity (e.g. 4096 bytes). Therefore, the relative offset from the start of the virtual page matches the exact relative offset from the start of the physical frame, leaving the lower offset bits unaltered.",
-    },
-    {
-      id: 2,
-      question: "2. What is the fundamental difference between a TLB miss and a page fault?",
-      options: [
-        "A TLB miss is a fatal hardware crash, whereas a page fault is a soft warning",
-        "A TLB miss means the translation was not cached in the TLB (and can be resolved by walking page tables in RAM); a page fault means the page is unmapped or absent from physical RAM",
-        "A TLB miss only happens during write operations; page faults only happen on instruction reads",
-        "A page fault is resolved in hardware microcode, while a TLB miss always requires an OS kernel trap",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A TLB miss simply means the translation is absent from the CPU's fast cache. If the page table entry in RAM is valid, the hardware MMU walker fills the TLB with zero software overhead. A page fault occurs when the page table entry itself has Present=0 or invalid permissions, triggering an OS kernel interrupt.",
-    },
-    {
-      id: 3,
-      question: "3. What is the primary advantage of multilevel page tables over single-level flat page tables?",
-      options: [
-        "They make address translation faster by skipping memory reads",
-        "They drastically reduce memory overhead for sparse address spaces by allocating lower-level tables only for populated virtual regions",
-        "They eliminate the need for the Translation Lookaside Buffer (TLB)",
-        "They prevent all internal fragmentation in user applications",
-      ],
-      correctIndex: 1,
-      explanation:
-        "In a 64-bit architecture, a flat single-level table would require 512 GiB of RAM per process! Multilevel page tables form a tree structure where directories pointing to unmapped virtual memory regions are simply marked null, allowing a typical program to consume only a few kilobytes of page table RAM.",
-    },
-    {
-      id: 4,
-      question: "4. In a system with 4 KiB pages, 100ns RAM latency, and a 5ns TLB with a 95% hit ratio, what is the Effective Access Time (EAT) for a 1-level table?",
-      options: [
-        "105 ns",
-        "110 ns",
-        "125 ns",
-        "205 ns",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Hit time = 5ns (TLB) + 100ns (Data) = 105ns. Miss time = 5ns (TLB) + 100ns (Page Table) + 100ns (Data) = 205ns. EAT = (0.95 * 105) + (0.05 * 205) = 99.75 + 10.25 = 110 ns.",
-    },
-    {
-      id: 5,
-      question: "5. How does Copy-on-Write (COW) optimize process creation during fork()?",
-      options: [
-        "Parent and child initially share identical physical frames marked read-only; physical pages are only duplicated when one process attempts a write",
-        "It forces the child process to execute on a separate physical CPU socket",
-        "It compresses all physical memory frames into a swap partition",
-        "It writes the child process image directly to NVMe storage",
-      ],
-      correctIndex: 0,
-      explanation:
-        "Duplicating a multi-gigabyte address space on every fork() would be slow and wasteful (especially if followed by exec()). Copy-on-Write marks the shared physical pages as read-only. When either process writes, the MMU triggers a protection fault, allowing the OS to allocate a fresh page, copy the 4KB data, and update the mapping.",
-    },
-    {
-      id: 6,
-      question: "6. What signal does the Linux kernel deliver to a user-space process that attempts to write to a page marked read-only?",
-      options: [
-        "SIGTERM (Termination)",
-        "SIGSEGV (Segmentation Violation / Protection Fault)",
-        "SIGKILL (Uncatchable Kill)",
-        "SIGPIPE (Broken Pipe)",
-      ],
-      correctIndex: 1,
-      explanation:
-        "When an instruction attempts an unauthorized memory access (such as writing to a read-only page or accessing an unmapped virtual address), the hardware MMU raises an architectural page fault. The Linux kernel fault handler identifies the violation and delivers a SIGSEGV signal to the faulting thread.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -534,7 +459,14 @@ int main(void) {
     return 0;
 }`;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="virtual-memory" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="virtual-memory" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-900">
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Module Navigation Header */}

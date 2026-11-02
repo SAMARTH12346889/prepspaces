@@ -185,7 +185,7 @@
       "details": [
         {
           "heading": "The Container Paradigm vs. Heavy Hypervisors",
-          "body": "In traditional virtualization, Type-2 hypervisors (VirtualBox, VMware) emulate virtual CPU, RAM, and hardware devices to boot an entire independent Guest OS kernel (consuming gigabytes of memory and taking 30–60 seconds to boot). In contrast, a container is simply a standard Linux process running directly on the host kernel, isolated through kernel boundaries. Containers start in milliseconds and share the host kernel page cache."
+          "body": "In traditional virtualization, Type-2 hypervisors (VirtualBox, VMware) emulate virtual CPU, RAM, and hardware devices to boot an entire independent Guest OS kernel (consuming gigabytes of memory and taking 30\u201360 seconds to boot). In contrast, a container is simply a standard Linux process running directly on the host kernel, isolated through kernel boundaries. Containers start in milliseconds and share the host kernel page cache."
         },
         {
           "heading": "The Academic Operating System Foundation: Namespaces",
@@ -562,6 +562,8 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

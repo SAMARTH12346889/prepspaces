@@ -99,7 +99,7 @@
       "focus": "Filesystem Hierarchy Standard (FHS), Path Resolution, Inodes vs Block Storage",
       "badge": "Filesystems",
       "theory": "Linux unifies all physical storage devices, virtual filesystems, and kernel interfaces under a single hierarchical tree rooted at '/'. Unlike Windows drive letters (C:, D:), devices are mounted into directory mount points. Three paths are critical in 24/7 DevOps operations: (1) /etc holds configuration files; (2) /var/lib holds persistent service state (e.g. database data files); (3) /var/log holds traditional system and application logs. Modifying /etc alters configuration, whereas deleting /var/lib destroys live application state. A storage device can fail in two distinct ways: Block Capacity Exhaustion (no bytes remaining, checked via `df -h`) and Inode Exhaustion (no metadata pointers remaining, checked via `df -i`). An inode stores file metadata (permissions, ownership, file size, timestamps, data block pointers), excluding file name and file content. A million 1-byte files will completely exhaust inodes while leaving 99% of raw disk space free.",
-      "diagram": "THE LINUX FILESYSTEM HIERARCHY STANDARD (FHS) & INODE ANATOMY:\n=============================================================================\n/ (Root Directory)\n├── etc/         System & application configuration (nginx.conf, hosts, fstab)\n├── var/         Variable runtime data\n│   ├── log/     System logs (syslog, auth.log, nginx/)\n│   └── lib/     Persistent application state (mysql/, docker/, postgresql/)\n├── usr/         User utilities & shared libraries (/usr/bin, /usr/lib)\n├── proc/        Virtual pseudo-filesystem: live kernel & process memory structures\n├── sys/         Virtual pseudo-filesystem: kernel device & hardware subsystem trees\n└── dev/         Device nodes (sda, nvme0n1, null, urandom)\n-----------------------------------------------------------------------------\nINODE STRUCTURE (Metadata Pointer vs Data Blocks):\n[ DIRECTORY ENTRY ]  maps  \"app.log\"  ----->  [ INODE #410291 ]\n                                              ├── File Type: Regular File\n                                              ├── Permissions: -rw-r----- (640)\n                                              ├── Owner: devops (UID 1000)\n                                              ├── File Size: 14.2 MB\n                                              └── Data Block Pointers -> [Block 102] [Block 103] ...\n=============================================================================",
+      "diagram": "THE LINUX FILESYSTEM HIERARCHY STANDARD (FHS) & INODE ANATOMY:\n=============================================================================\n/ (Root Directory)\n\u251c\u2500\u2500 etc/         System & application configuration (nginx.conf, hosts, fstab)\n\u251c\u2500\u2500 var/         Variable runtime data\n\u2502   \u251c\u2500\u2500 log/     System logs (syslog, auth.log, nginx/)\n\u2502   \u2514\u2500\u2500 lib/     Persistent application state (mysql/, docker/, postgresql/)\n\u251c\u2500\u2500 usr/         User utilities & shared libraries (/usr/bin, /usr/lib)\n\u251c\u2500\u2500 proc/        Virtual pseudo-filesystem: live kernel & process memory structures\n\u251c\u2500\u2500 sys/         Virtual pseudo-filesystem: kernel device & hardware subsystem trees\n\u2514\u2500\u2500 dev/         Device nodes (sda, nvme0n1, null, urandom)\n-----------------------------------------------------------------------------\nINODE STRUCTURE (Metadata Pointer vs Data Blocks):\n[ DIRECTORY ENTRY ]  maps  \"app.log\"  ----->  [ INODE #410291 ]\n                                              \u251c\u2500\u2500 File Type: Regular File\n                                              \u251c\u2500\u2500 Permissions: -rw-r----- (640)\n                                              \u251c\u2500\u2500 Owner: devops (UID 1000)\n                                              \u251c\u2500\u2500 File Size: 14.2 MB\n                                              \u2514\u2500\u2500 Data Block Pointers -> [Block 102] [Block 103] ...\n=============================================================================",
       "keyTakeaways": [
         "Never confuse /etc (stateless config), /var/lib (persistent state), and /var/log (disposable logs).",
         "A disk can be full even if `df -h` shows 50GB free: always verify inode capacity with `df -i`.",
@@ -264,9 +264,9 @@
     "df -h": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/root        50G   18G   32G  36% /\n/dev/nvme0n1p15 105M  6.1M   99M   6% /boot/efi\ntmpfs           3.9G     0  3.9G   0% /dev/shm\ntmpfs           1.6G  1.2M  1.6G   1% /run",
     "df -i": "Filesystem       Inodes  IUsed   IFree IUse% Mounted on\n/dev/root       6553600 241080 6312520    4% /\n/dev/nvme0n1p15       0      0       0     - /boot/efi\ntmpfs           1014120      1 1014119    1% /dev/shm",
     "free -h": "               total        used        free      shared  buff/cache   available\nMem:           7.7Gi       1.8Gi       3.1Gi        12Mi       2.8Gi       5.6Gi\nSwap:          2.0Gi          0B       2.0Gi",
-    "lsblk": "NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS\nloop0          7:0    0  63.9M  1 loop /snap/core20/2105\nloop1          7:1    0  40.4M  1 loop /snap/snapd/20671\nnvme0n1      259:0    0    50G  0 disk \n├─nvme0n1p1  259:1    0  49.9G  0 part /\n└─nvme0n1p15 259:2    0   105M  0 part /boot/efi",
+    "lsblk": "NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS\nloop0          7:0    0  63.9M  1 loop /snap/core20/2105\nloop1          7:1    0  40.4M  1 loop /snap/snapd/20671\nnvme0n1      259:0    0    50G  0 disk \n\u251c\u2500nvme0n1p1  259:1    0  49.9G  0 part /\n\u2514\u2500nvme0n1p15 259:2    0   105M  0 part /boot/efi",
     "ss -lntp": "State    Recv-Q   Send-Q     Local Address:Port      Peer Address:Port  Process\nLISTEN   0        128              0.0.0.0:22             0.0.0.0:*      users:((\"sshd\",pid=842,fd=3))\nLISTEN   0        511            127.0.0.1:8080           0.0.0.0:*      users:((\"node\",pid=1980,fd=19))\nLISTEN   0        128                 [::]:22                [::]:*      users:((\"sshd\",pid=842,fd=4))",
-    "systemctl status nginx": "● nginx.service - A high performance web server and a reverse proxy server\n     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)\n     Active: active (running) since Thu 2026-10-08 14:02:10 UTC; 7h ago\n   Main PID: 1204 (nginx)\n      Tasks: 3 (limit: 9474)\n     Memory: 6.8M\n        CPU: 184ms\n     CGroup: /system.slice/nginx.service\n             ├─1204 \"nginx: master process /usr/sbin/nginx -g daemon on; master_process on;\"\n             ├─1205 \"nginx: worker process\"\n             └─1206 \"nginx: worker process\"",
+    "systemctl status nginx": "\u25cf nginx.service - A high performance web server and a reverse proxy server\n     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)\n     Active: active (running) since Thu 2026-10-08 14:02:10 UTC; 7h ago\n   Main PID: 1204 (nginx)\n      Tasks: 3 (limit: 9474)\n     Memory: 6.8M\n        CPU: 184ms\n     CGroup: /system.slice/nginx.service\n             \u251c\u25001204 \"nginx: master process /usr/sbin/nginx -g daemon on; master_process on;\"\n             \u251c\u25001205 \"nginx: worker process\"\n             \u2514\u25001206 \"nginx: worker process\"",
     "journalctl -u nginx -n 3": "-- Journal begins at Wed 2026-09-01 00:00:00 UTC, ends at Thu 2026-10-08 21:30:00 UTC. --\nOct 08 14:02:10 ubuntu systemd[1]: Starting A high performance web server...\nOct 08 14:02:10 ubuntu systemd[1]: Started A high performance web server.\nOct 08 14:02:11 ubuntu nginx[1204]: 2026/10/08 14:02:11 [notice] 1204#1204: start worker processes",
     "ps aux | head -n 5": "USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot           1  0.0  0.1 169348 13244 ?        Ss   Sep18   0:14 /sbin/init\nroot           2  0.0  0.0      0     0 ?        S    Sep18   0:00 [kthreadd]\nsystemd+     712  0.0  0.1  25892 12140 ?        Ss   Sep18   0:02 /lib/systemd/systemd-resolved\nroot         842  0.0  0.1  15888  9184 ?        Ss   Sep18   0:01 sshd: /usr/sbin/sshd [listener]",
     "cat /etc/os-release": "NAME=\"Ubuntu\"\nVERSION=\"24.04 LTS (Noble Numbat)\"\nID=ubuntu\nID_LIKE=debian\nPRETTY_NAME=\"Ubuntu 24.04 LTS\"\nVERSION_ID=\"24.04\"\nHOME_URL=\"https://www.ubuntu.com/\"",
@@ -275,7 +275,7 @@
   "scenarios": [
     {
       "id": "inc-1",
-      "title": "Incident 1: API Returns 502 Bad Gateway — Inode Exhaustion (ENOSPC)",
+      "title": "Incident 1: API Returns 502 Bad Gateway \u2014 Inode Exhaustion (ENOSPC)",
       "symptom": "The web service crashes with 'No space left on device'. You run `df -h /` and see 35 GB available (only 30% disk capacity used). Developers are baffled.",
       "question": "What is the true underlying Linux storage bottleneck and how do you confirm it?",
       "options": [
@@ -301,7 +301,7 @@
     },
     {
       "id": "inc-2",
-      "title": "Incident 2: Service Fails to Start — Port 5432 Already Occupied",
+      "title": "Incident 2: Service Fails to Start \u2014 Port 5432 Already Occupied",
       "symptom": "`systemctl start postgresql` fails with status=1/FAILURE. The service was functioning before an administrator attempted a manual restart.",
       "question": "Which disciplined diagnostic sequence reveals why the service refused to bind?",
       "options": [
@@ -327,7 +327,7 @@
     },
     {
       "id": "inc-3",
-      "title": "Incident 3: Nginx Returns 403 Forbidden — Missing Directory Traversal (+x)",
+      "title": "Incident 3: Nginx Returns 403 Forbidden \u2014 Missing Directory Traversal (+x)",
       "symptom": "Nginx returns 403 Forbidden when serving `/var/www/my-app/index.html`. You check `ls -l /var/www/my-app/index.html` and verify permissions are `-rw-r--r--` (644).",
       "question": "Why can't the `www-data` user read `index.html` despite 644 file permissions?",
       "options": [
@@ -353,7 +353,7 @@
     },
     {
       "id": "inc-4",
-      "title": "Incident 4: SSH Connection Rejected — Unprotected Private Key Warning",
+      "title": "Incident 4: SSH Connection Rejected \u2014 Unprotected Private Key Warning",
       "symptom": "Running `ssh -i ~/.ssh/prod_key deploy@10.0.1.50` fails with: 'Permissions 0644 for prod_key are too open. It is required that your private key files are NOT accessible by others.'",
       "question": "What is the correct, minimal permission fix required by the OpenSSH client?",
       "options": [
@@ -411,6 +411,8 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": true,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

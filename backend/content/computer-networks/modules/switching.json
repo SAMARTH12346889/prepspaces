@@ -35,7 +35,7 @@
       "question": "What is the function of the 4-byte IEEE 802.1Q tag inserted into Ethernet frames on a trunk?",
       "options": [
         "It provides AES-256 cryptographic encryption for frame payloads.",
-        "It multiplexes traffic by inserting a Tag Protocol Identifier (0x8100) and a 12-bit VLAN Identifier (VID 1–4094).",
+        "It multiplexes traffic by inserting a Tag Protocol Identifier (0x8100) and a 12-bit VLAN Identifier (VID 1\u20134094).",
         "It replaces the source IP address with the switch management IP.",
         "It guarantees 10 Gbps transmission speed over copper cables."
       ],
@@ -137,6 +137,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -48,6 +51,7 @@ import {
 } from "./SystemDesignTransactionsDiagrams";
 
 export default function SystemDesignTransactions() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "transactions");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -377,89 +381,7 @@ export default function SystemDesignTransactions() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the fundamental difference between Two-Phase Commit (2PC) and a Saga?",
-      options: [
-        "A. 2PC uses JSON while Sagas use Protobuf.",
-        "B. 2PC holds locks across all participants until global commit; a Saga commits each local transaction immediately and relies on compensating transactions if later steps fail.",
-        "C. Sagas guarantee absolute global database isolation at all times.",
-        "D. 2PC cannot be used across relational databases.",
-      ],
-      correct: 1, // B
-      explanation:
-        "2PC coordinates an all-or-nothing atomic commit by holding row/table locks across all distributed nodes until the coordinator gives the final commit signal. In contrast, a Saga commits each step locally in independent database engines, sacrificing global isolation while using compensating transactions to undo committed steps if a failure occurs.",
-    },
-    {
-      id: 2,
-      question:
-        "In an Optimistic Concurrency Control (OCC) design, what happens when two concurrent transactions attempt to update the same row?",
-      options: [
-        "A. Both transactions silently overwrite each other's data.",
-        "B. The database immediately crashes.",
-        "C. The first transaction updates the row and increments the version; the second finds no row matching the old version (affected rows = 0) and must abort or retry.",
-        "D. The second transaction is placed in an infinite sleep loop.",
-      ],
-      correct: 2, // C
-      explanation:
-        "OCC checks the row version during the atomic UPDATE statement: `WHERE id = :id AND version = :version`. The first transaction matches the version, increments it, and returns 1 row affected. The concurrent second transaction still checks for the old version, finds 0 matching rows, and aborts or reloads state.",
-    },
-    {
-      id: 3,
-      question: "Why does the Lost-Response problem make client retries unsafe without an idempotency key?",
-      options: [
-        "A. Because HTTP does not support POST requests.",
-        "B. The server may have already committed the operation; retrying without idempotency causes duplicate execution (e.g. double charging or double finalization).",
-        "C. The client's IP address changes during every retry.",
-        "D. Distributed systems never experience network timeouts.",
-      ],
-      correct: 1, // B
-      explanation:
-        "When an HTTP 200 OK response is dropped by a network glitch on the return path, the client observes a timeout error even though the server successfully committed the mutation. A naive retry would cause the server to re-execute the business logic, creating duplicate records or charges.",
-    },
-    {
-      id: 4,
-      question: "What is a compensating transaction in a Saga?",
-      options: [
-        "A. A hardware-level roll back that reverts disk sectors to previous snapshots.",
-        "B. An explicit semantic reverse action that undoes the business impact of a previously committed local transaction.",
-        "C. A tool that deletes the database WAL files.",
-        "D. An automatic retry mechanism for expired idempotency keys.",
-      ],
-      correct: 1, // B
-      explanation:
-        "Because Saga transactions commit locally, their changes are already visible to other users. A compensating transaction is an explicit business operation (e.g., refund credit, release reserved seat, cancel booking) designed to neutralize the side effects of an earlier committed step.",
-    },
-    {
-      id: 5,
-      question:
-        "In an idempotency key design, what should the server do if a request arrives with an existing key but a different payload hash?",
-      options: [
-        "A. Automatically execute both requests concurrently.",
-        "B. Silently overwrite the previous result with the new payload.",
-        "C. Reject the request with an error (e.g., HTTP 422 or 409) because the client is attempting to reuse an idempotency key for a different logical operation.",
-        "D. Delete the entire idempotency table.",
-      ],
-      correct: 2, // C
-      explanation:
-        "An idempotency key represents a single, specific intent. Reusing the exact same key with an altered payload indicates a client programming bug or race condition. Industry standard (e.g. Stripe API) mandates rejecting the request with an HTTP 422 Unprocessable Entity or 409 Conflict.",
-    },
-    {
-      id: 6,
-      question:
-        "How does the Transactional Inbox pattern guarantee exactly-once processing semantics at the application level?",
-      options: [
-        "A. By disabling all message retries in Kafka.",
-        "B. By checking and inserting the unique message ID in a processed_messages table within the exact same local ACID transaction that applies the business mutation.",
-        "C. By running the database in memory without disk persistence.",
-        "D. By requiring all microservices to share a single monolithic database.",
-      ],
-      correct: 1, // B
-      explanation:
-        "At-least-once message brokers inevitably deliver duplicate messages. The Transactional Inbox pattern binds the deduplication check (`INSERT INTO processed_messages`) and the business state change inside one atomic SQL `BEGIN ... COMMIT` block. If a duplicate message arrives, the unique constraint aborts the transaction cleanly.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -479,7 +401,14 @@ export default function SystemDesignTransactions() {
     setQuizSubmitted(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="transactions" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="transactions" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Ambient background lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

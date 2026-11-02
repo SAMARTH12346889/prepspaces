@@ -28,7 +28,7 @@
         "The IP subnet mask that divides a /24 network into two /25 networks"
       ],
       "correctIndex": 0,
-      "explanation": "A trust boundary is any interface where security assumptions change—such as between the untrusted internet and a public load balancer, between a web application and its database, or between a guest Wi-Fi and corporate systems."
+      "explanation": "A trust boundary is any interface where security assumptions change\u2014such as between the untrusted internet and a public load balancer, between a web application and its database, or between a guest Wi-Fi and corporate systems."
     },
     {
       "id": 3,
@@ -83,7 +83,7 @@
       "question": "In the qualitative risk assessment model (Risk = Likelihood x Impact), why can a 'low likelihood' event still demand urgent mitigation?",
       "options": [
         "Because low-likelihood events always happen first in software deployments",
-        "Because if the consequence (Impact) is catastrophic—such as complete database loss or total corporate bankruptcy—the overall risk score remains critically high",
+        "Because if the consequence (Impact) is catastrophic\u2014such as complete database loss or total corporate bankruptcy\u2014the overall risk score remains critically high",
         "Because likelihood automatically increases by 10% every month an issue remains open",
         "Because NIST guidelines mandate treating all low-likelihood risks as emergencies"
       ],
@@ -137,6 +137,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

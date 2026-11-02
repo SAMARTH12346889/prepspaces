@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -48,6 +51,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkPhysical() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "physical");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -222,138 +226,7 @@ export default function NetworkPhysical() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "According to Nyquist's theorem for a noiseless channel with bandwidth B = 4 kHz and M = 16 signaling levels, what is the maximum theoretical bit rate?",
-      options: [
-        "16 kbps",
-        "32 kbps",
-        "64 kbps",
-        "128 kbps",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Nyquist formula: R_max = 2 * B * log2(M). Here, B = 4,000 Hz, and log2(16) = 4 bits/symbol. R_max = 2 * 4,000 * 4 = 32,000 bps = 32 kbps.",
-    },
-    {
-      id: 2,
-      question: "How does Shannon's capacity theorem fundamentally differ from Nyquist's signaling theorem?",
-      options: [
-        "Shannon's formula only works for optical fiber, while Nyquist works for copper.",
-        "Shannon's theorem establishes the theoretical upper bound on transmission capacity in the presence of thermal Gaussian noise (SNR), whereas Nyquist assumes an idealized noiseless channel.",
-        "Nyquist accounts for signal-to-noise ratio, while Shannon ignores noise.",
-        "Shannon's formula calculates the physical cable length limit.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Nyquist determines how many symbols can be transmitted without inter-symbol interference on a noiseless channel. Shannon's formula (C = B * log2(1 + SNR)) defines the ultimate error-free information capacity dictated by thermodynamic thermal noise.",
-    },
-    {
-      id: 3,
-      question: "Why does Manchester encoding exhibit an effective transmission efficiency of only 50% compared to Non-Return-to-Zero (NRZ)?",
-      options: [
-        "It uses twice as much electrical voltage.",
-        "It requires a transition in the middle of every bit interval (high-to-low for '1', low-to-high for '0') to ensure clock recovery, doubling the symbol rate (baud) relative to the bit rate.",
-        "It drops every second bit as a parity check.",
-        "It only transmits during half of the clock cycle.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Manchester line coding forces an explicit voltage transition at the exact center of every bit period. While this guarantees clock synchronization and eliminates DC baseline wander, it requires 2 baud per bit, cutting spectral efficiency to 50% (used in legacy 10BASE-T Ethernet).",
-    },
-    {
-      id: 4,
-      question: "What is the primary physical reason that Single-Mode Fiber (SMF) achieves significantly greater transmission distance and higher bandwidth than Multimode Fiber (MMF)?",
-      options: [
-        "SMF has a much wider core that allows multiple beams of light to bounce simultaneously.",
-        "SMF has a microscopic core (~9 µm) that forces light to propagate along a single electromagnetic mode, completely eliminating modal dispersion.",
-        "SMF is made of copper wire coated in glass.",
-        "SMF uses electrical pulses instead of lasers.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Multimode fiber (50/62.5 µm core) allows light to travel along multiple optical paths (modes) that arrive at slightly different times, causing modal dispersion that smears pulses over distance. Single-mode fiber's narrow 9 µm core permits only a single optical path, eliminating modal dispersion and enabling reach exceeding 10–40 km.",
-    },
-    {
-      id: 5,
-      question: "In an optical link budget calculation, if the transmitter outputs -3 dBm, the total cable and connector loss is 8 dB, and the receiver sensitivity is -18 dBm, what is the optical power margin?",
-      options: [
-        "+7 dB (Healthy link margin)",
-        "-7 dB (Link failure)",
-        "+13 dB",
-        "+3 dB",
-      ],
-      correctIndex: 0,
-      explanation:
-        "Received Optical Power P_rx = P_tx - Total_Loss = -3 dBm - 8 dB = -11 dBm. Optical Margin = P_rx - P_rx_sens = -11 dBm - (-18 dBm) = +7 dB. Since margin > 3 dB, the link is healthy.",
-    },
-    {
-      id: 6,
-      question: "What symptom occurs on an Ethernet link when one end is manually hardcoded to Full-Duplex while the other end is configured for Auto-Negotiation?",
-      options: [
-        "The link operates at 10 Gbps automatically.",
-        "A duplex mismatch: the auto-negotiating side defaults to Half-Duplex because it receives no FLP negotiation pulses, causing massive collision errors and packet loss under load.",
-        "Both sides negotiate Gigabit speeds with zero errors.",
-        "The network switch catches fire.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "When one side is forced to full-duplex, it disables auto-negotiation pulses. The other side falls back to half-duplex per IEEE 802.3 standards. The full-duplex side transmits anytime, causing the half-duplex side to register 'Late Collisions' and discard frames.",
-    },
-    {
-      id: 7,
-      question: "Which Ethernet twisted-pair copper standard requires all four pairs of wires to transmit simultaneously in full-duplex using PAM-5 multilevel signaling and hybrid echo cancellation?",
-      options: [
-        "10BASE-T",
-        "100BASE-TX",
-        "1000BASE-T (Gigabit Ethernet)",
-        "Token Ring",
-      ],
-      correctIndex: 2,
-      explanation:
-        "1000BASE-T achieves 1000 Mbps over Cat5e copper by using all four twisted pairs simultaneously in both directions (dual-duplex). Each pair carries 250 Mbps using 5-level pulse amplitude modulation (PAM-5) with sophisticated DSP hybrid echo cancellers.",
-    },
-    {
-      id: 8,
-      question: "What does an increasing counter of 'rx_crc_errors' in 'ethtool -S eth0' indicate to a network engineer?",
-      options: [
-        "An invalid IP address was entered in /etc/network/interfaces.",
-        "Physical-layer transmission corruption: frames are arriving at the NIC with bit flips caused by damaged copper patch cords, electromagnetic interference, or dirty fiber transceivers.",
-        "The web server process has crashed.",
-        "A DNS amplification attack is underway.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "CRC errors occur when the hardware Frame Check Sequence calculated by the receiver does not match the trailer attached by the sender. This is a definitive signature of physical layer signal degradation: faulty cables, severe crosstalk, or marginal optical power.",
-    },
-    {
-      id: 9,
-      question: "Why do modern 100G and 400G Ethernet physical standards (such as 100GBASE-SR4 or 400GBASE-FR4) adopt PAM-4 modulation instead of traditional NRZ?",
-      options: [
-        "PAM-4 eliminates the need for fiber optics.",
-        "PAM-4 encodes 2 bits per symbol (4 electrical voltage levels), doubling the effective bit rate over the same channel symbol rate (baud) without doubling the required high-frequency electrical bandwidth.",
-        "PAM-4 allows Ethernet to run over telephone lines.",
-        "PAM-4 completely eliminates thermal noise.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "In NRZ (PAM-2), each symbol carries 1 bit. In PAM-4, each symbol has 4 discrete amplitude levels, carrying 2 bits per symbol. This halves the required Nyquist bandwidth for a given bit rate, enabling 50 Gbps per optical lane at 25 Gbaud.",
-    },
-    {
-      id: 10,
-      question: "What is the critical distinction between Error Detection (e.g. Ethernet CRC-32) and Forward Error Correction (FEC)?",
-      options: [
-        "Error detection is performed in software, while FEC is performed in Python.",
-        "Error detection only identifies that bits were corrupted and drops the frame, whereas FEC embeds redundant algorithmic parity bits allowing the receiver to mathematically reconstruct and correct bit errors without retransmission.",
-        "Error detection eliminates the need for checksums.",
-        "FEC guarantees infinite bandwidth.",
-      ],
-      correctIndex: 1,
-      explanation:
-        "CRC-32 is purely detective: if a bit error occurs, the frame is discarded and higher layers (like TCP) must retransmit it. FEC (such as Reed-Solomon RS-FEC) adds structured redundant symbols so the receiver can mathematically correct bit errors on the fly, essential for ultra-high-speed 100G/400G links.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (questionId, optionIdx) => {
     if (quizSubmitted) return;
@@ -370,7 +243,14 @@ export default function NetworkPhysical() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="physical" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="physical" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#f97316] selection:text-white">
       {/* Top Global Navigation Bar */}
       <ModuleNav

@@ -28,7 +28,7 @@
         "All CPU caches are purged on every core"
       ],
       "correctIndex": 1,
-      "explanation": "By default, POSIX threads are joinable. When a joinable thread terminates, its termination status and internal OS thread descriptors are retained until another thread calls `pthread_join()`. If `pthread_join()` is omitted (and the thread was not detached via `pthread_detach()`), the system leaks thread descriptors—analogous to zombie processes."
+      "explanation": "By default, POSIX threads are joinable. When a joinable thread terminates, its termination status and internal OS thread descriptors are retained until another thread calls `pthread_join()`. If `pthread_join()` is omitted (and the thread was not detached via `pthread_detach()`), the system leaks thread descriptors\u2014analogous to zombie processes."
     },
     {
       "id": 3,
@@ -52,7 +52,7 @@
         "Memory bandwidth drops to zero and locks the hardware bus"
       ],
       "correctIndex": 1,
-      "explanation": "Creating far more runnable threads than physical cores (oversubscription) causes massive overhead. The OS scheduler must continually context switch between threads (~1–2 microseconds per switch), constantly flushing L1/L2 caches and trashing CPU instruction pipelines, yielding drastically worse throughput than running exactly 4 worker threads."
+      "explanation": "Creating far more runnable threads than physical cores (oversubscription) causes massive overhead. The OS scheduler must continually context switch between threads (~1\u20132 microseconds per switch), constantly flushing L1/L2 caches and trashing CPU instruction pipelines, yielding drastically worse throughput than running exactly 4 worker threads."
     },
     {
       "id": 5,
@@ -89,6 +89,16 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 1
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "Threads are the fundamental unit of execution in modern software. Master the architectural boundary between processes and threads, write production-grade POSIX thread C code, eliminate cache false sharing, evaluate Amdahl's Law, and benchmark parallel scalability on multicore processors."
+      ]
+    }
+  ]
 }

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -37,70 +40,10 @@ import {
 /* University Foundations: MIT 6.5840, CMU 15-440, C4 Model, AWS WAF, Google SRE */
 /* -------------------------------------------------------------------------- */
 
-const ASSESSMENT_QUESTIONS = [
-  {
-    id: 1,
-    question:
-      "1. A team has three developers and no demonstrated need for independent service scaling. Which is usually the best starting point?",
-    options: [
-      "Twelve microservices",
-      "A modular monolith",
-      "A multi-region distributed database",
-    ],
-    correct: 1,
-    explanation:
-      "A modular monolith maintains clean internal module boundaries while keeping operational, networking, and deployment overhead minimal for a small team.",
-  },
-  {
-    id: 2,
-    question: "2. Which is a non-functional requirement?",
-    options: [
-      "Students can submit assignments",
-      "Teachers can create courses",
-      "95% of course API requests complete within a defined latency target",
-    ],
-    correct: 2,
-    explanation:
-      "Non-functional requirements describe how well the system must perform (latency, availability, security) rather than specific user actions (functional requirements).",
-  },
-  {
-    id: 3,
-    question:
-      "3. An application has three instances but all depend on one database. What remains a potential single point of failure?",
-    options: [
-      "The shared database",
-      "Every client browser",
-      "The number of frontend components",
-    ],
-    correct: 0,
-    explanation:
-      "While compute instances are horizontally duplicated, if the central database fails, the entire application becomes unavailable, making it a critical single point of failure.",
-  },
-  {
-    id: 4,
-    question:
-      "4. An API receives 600 requests per second and takes an average of 0.1 seconds per request. What is the approximate average number of requests in progress?",
-    options: ["6", "60", "6000"],
-    correct: 1,
-    explanation:
-      "By Little's Law (L = λ × W), L = 600 req/sec × 0.1 sec = 60 concurrent requests in flight on average.",
-  },
-  {
-    id: 5,
-    question:
-      "5. A successful database write is followed by a lost response, and the client retries. Which concept helps prevent a duplicate operation?",
-    options: [
-      "Vertical scaling",
-      "Idempotency",
-      "Increasing the payload size",
-    ],
-    correct: 1,
-    explanation:
-      "Idempotency ensures that repeating an identical operation (e.g., using an idempotency key) produces the exact same result without duplicate state mutations.",
-  },
-];
+const ASSESSMENT_QUESTIONS = moduleData?.quiz || [];
 
 export default function SystemDesignIntro() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "intro");
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(10);
   const [showAiTutor, setShowAiTutor] = useState(false);
@@ -677,7 +620,14 @@ export default function SystemDesignIntro() {
     return systemDesignTopics.find((t) => t.id === selectedTopic) || systemDesignTopics[0];
   }, [systemDesignTopics, selectedTopic]);
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="intro" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="intro" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

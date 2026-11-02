@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -88,6 +91,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function DevOpsPlatform() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("devops", "platform");
   const navigate = useNavigate();
 
   // Navigation & UI State
@@ -613,175 +617,16 @@ spec:
   // =========================================================================
   // 15 MASTERY ASSESSMENT QUESTIONS (SECTION 18)
   // =========================================================================
-  const masteryQuestions = [
-    {
-      q: "Why is Platform Engineering described as a discipline that complements DevOps rather than replaces it?",
-      options: [
-        "Platform Engineering is designed only for legacy mainframe applications.",
-        "It provides standardized, self-service infrastructure workflows that scale DevOps practices across large teams without cognitive overload.",
-        "DevOps was formally deprecated by the CNCF in 2024.",
-        "Platform Engineering replaces all automated testing with manual reviews.",
-      ],
-      c: 1,
-      a: "DevOps establishes the cultural values of collaboration and shared ownership; Platform Engineering provides the internal product, tooling, and self-service interfaces that make those practices manageable across hundreds of developers.",
-    },
-    {
-      q: "What is the primary architectural difference between an Internal Developer Platform (IDP) and a Developer Portal (e.g. Backstage)?",
-      options: [
-        "An IDP is written in React, while Backstage is written in Python.",
-        "The developer portal is the frontend discovery UI and catalog; the IDP is the full underlying system of automation, platform APIs, infrastructure, and delivery pipelines.",
-        "There is no difference; they are synonymous vendor buzzwords.",
-        "Developer portals only work on bare-metal servers.",
-      ],
-      c: 1,
-      a: "Backstage is the 'front door' providing the service catalog, templates UI, and documentation. The IDP encompasses the underlying control planes (Crossplane, Terraform, Argo CD, Kubernetes) that execute the actual automation.",
-    },
-    {
-      q: "What is the primary purpose of a 'Golden Path' in an engineering organization?",
-      options: [
-        "To force all developers to write code exclusively in JavaScript.",
-        "To provide a supported, documented, and automated self-service path for common tasks that makes the secure and reliable way the easiest way.",
-        "To prevent developers from pushing code on weekends.",
-        "To replace cloud infrastructure with local SQLite databases.",
-      ],
-      c: 1,
-      a: "Golden paths remove friction by providing well-architected, maintained defaults for common tasks (e.g. building a standard microservice), reducing cognitive load while allowing documented escape hatches for special requirements.",
-    },
-    {
-      q: "Why must golden paths be treated and maintained like internal products?",
-      options: [
-        "Because templates become outdated as base images, dependencies, and cloud APIs evolve, requiring active maintenance and upgrades.",
-        "So that the platform team can sell subscriptions to internal developers.",
-        "To satisfy quarterly financial accounting audits.",
-        "Because Kubernetes requires templates to be refreshed every 24 hours.",
-      ],
-      c: 0,
-      a: "Unmaintained templates become liabilities harboring outdated dependencies and insecure settings. Platform teams must version templates, test them continuously, and support team migrations.",
-    },
-    {
-      q: "What critical service information is captured in a Backstage catalog-info.yaml file?",
-      options: [
-        "Only the developer's home Wi-Fi password.",
-        "Service metadata including component name, owning team, lifecycle status, API contracts, upstream dependencies, and runbook links.",
-        "The complete binary machine code of the application.",
-        "The monthly credit card billing statements of the cloud provider.",
-      ],
-      c: 1,
-      a: "Catalog-info.yaml records vital operational metadata: ownership, system boundaries, lifecycle tier, API specifications, and documentation links, eliminating orphaned services during outages.",
-    },
-    {
-      q: "How does a Platform API (e.g. via Crossplane or Kubernetes CRDs) differ from exposing raw Terraform variables to developers?",
-      options: [
-        "Platform APIs hide low-level provider variables behind high-level business capabilities (e.g. WebServiceRequest) with built-in guardrails.",
-        "Terraform variables are encrypted; Platform APIs are unencrypted.",
-        "Platform APIs require zero cloud resources to run.",
-        "Raw Terraform variables are strictly prohibited by the Linux kernel.",
-      ],
-      c: 0,
-      a: "Exposing raw Terraform exposes hundreds of low-level parameters (CIDR blocks, IAM policies) that burden developers. Platform APIs offer higher-level abstractions that enforce organizational security and cost policies.",
-    },
-    {
-      q: "Why does deploying raw Kubernetes clusters alone NOT constitute a complete developer platform?",
-      options: [
-        "Kubernetes cannot run Python or Node.js applications.",
-        "Without platform abstraction, developers must still master ingress, network policies, service accounts, resource limits, and secrets management.",
-        "Kubernetes requires Windows Server to function.",
-        "Kubernetes is only an operating system kernel.",
-      ],
-      c: 1,
-      a: "Kubernetes is an orchestration engine. Expecting every product developer to configure complex YAML manifests, RBAC, and networking leaves the cognitive burden unresolved.",
-    },
-    {
-      q: "What role does GitOps (e.g. Argo CD) play within an Internal Developer Platform architecture?",
-      options: [
-        "It compiles Python source code into native binary executables.",
-        "It acts as the declarative delivery engine, reconciling desired infrastructure and application state from Git without direct cluster access.",
-        "It replaces the need for a container registry.",
-        "It monitors developer keystrokes for productivity tracking.",
-      ],
-      c: 1,
-      a: "GitOps provides an auditable, declarative delivery mechanism where platform automation and CI push verified changes to Git, and Argo CD automatically reconciles them into the cluster.",
-    },
-    {
-      q: "How can a platform team balance developer self-service with organizational security and least privilege?",
-      options: [
-        "By granting all developers cloud AdministratorAccess.",
-        "By using scoped platform APIs and service templates with pre-approved instance sizes, regions, and guardrails, requiring approvals only for high-risk actions.",
-        "By requiring every pull request to be signed by the CEO.",
-        "By disabling all cloud networking firewalls.",
-      ],
-      c: 1,
-      a: "Self-service does not mean unrestricted access. The platform exposes a safe perimeter of approved configurations and automated policies, allowing instant provisioning for standard tasks while routing deviations through approvals.",
-    },
-    {
-      q: "What is the primary danger of building an elaborate developer portal before interviewing developers and understanding their bottlenecks?",
-      options: [
-        "Building sophisticated tools that fail to solve actual developer pain points, leading to low platform adoption and wasted investment.",
-        "Overheating the data center servers.",
-        "Violating open-source licensing agreements.",
-        "Causing git merge conflicts on feature branches.",
-      ],
-      c: 0,
-      a: "A platform is a product. Building features without user research often results in complex portals that developers bypass because the underlying friction (e.g. slow approvals, unclear runbooks) remains unaddressed.",
-    },
-    {
-      q: "Which metric best reflects whether an Internal Developer Platform is genuinely delivering effective self-service?",
-      options: [
-        "The number of YAML files in the repository.",
-        "Self-service completion rate and provisioning lead time (completing workflows without filing manual support tickets).",
-        "The total lines of code written by the platform engineers.",
-        "The number of Slack channels created by the team.",
-      ],
-      c: 1,
-      a: "Genuine self-service is proven when developers independently complete their tasks (e.g. spinning up a new service) in minutes with high completion rates and without human ticket intervention.",
-    },
-    {
-      q: "In Team Topologies, what is the primary objective of a Platform Team?",
-      options: [
-        "To complete all bug fixes for stream-aligned feature teams.",
-        "To enable stream-aligned teams to deliver work autonomously by providing a compelling, easy-to-use internal product.",
-        "To manage the company's human resources payroll software.",
-        "To act as a gatekeeper approving all production deployments manually.",
-      ],
-      c: 1,
-      a: "Under Team Topologies, the platform team exists to reduce cognitive load on stream-aligned teams, enabling them to ship autonomous, secure value faster.",
-    },
-    {
-      q: "Why might platform adoption remain low even after all required CI/CD and Kubernetes tools are installed?",
-      options: [
-        "Developers are fundamentally opposed to software automation.",
-        "Poor developer experience, lack of documentation, complex configuration interfaces, or existing templates that don't match team workflows.",
-        "Cloud providers block connections from developer portals.",
-        "Kubernetes pods cannot communicate across subnets.",
-      ],
-      c: 1,
-      a: "Adoption fails when the platform creates more friction than it removes. Unclear documentation, brittle templates, or workflows that don't address real use cases cause developers to bypass the platform.",
-    },
-    {
-      q: "How should operational ownership be shared between application teams and platform teams?",
-      options: [
-        "Application teams throw code over the wall, and platform teams run all 24/7 on-call operations.",
-        "Platform teams own the platform reliability and templates; application teams own their application logic, data behavior, and service SLOs.",
-        "Neither team is responsible for production incidents.",
-        "Only the cloud provider is responsible for operations.",
-      ],
-      c: 1,
-      a: "The platform provides the rails, but application teams remain responsible for their service outcomes, code correctness, and incident triage using platform-supplied runbooks and telemetry.",
-    },
-    {
-      q: "How does the 'Platform as a Product' mindset guide feature prioritization?",
-      options: [
-        "By prioritizing whatever tool is currently trending on Hacker News.",
-        "By gathering developer feedback, measuring workflow friction points, and prioritizing capabilities that unlock the highest productivity gains.",
-        "By allowing the most senior manager to decide all features arbitrarily.",
-        "By refusing to add any new features once Backstage is deployed.",
-      ],
-      c: 1,
-      a: "Treating the platform as a product means continuously collecting telemetry on developer friction, surveying users, and prioritizing roadmap items that eliminate the most painful operational bottlenecks.",
-    },
-  ];
+  const masteryQuestions = moduleData?.quiz || [];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="devops" currentModuleId="platform" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="devops" currentModuleId="platform" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white">
       {/* BACKGROUND AMBIENT GLOW */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

@@ -58,7 +58,7 @@
       "id": 5,
       "question": "What information does Terraform state store, and why is it considered sensitive?",
       "options": [
-        "State maps declarative HCL addresses to real cloud IDs and stores resource attributes. It is sensitive because all resource attributes—including database passwords and private keys—are stored in unencrypted cleartext JSON.",
+        "State maps declarative HCL addresses to real cloud IDs and stores resource attributes. It is sensitive because all resource attributes\u2014including database passwords and private keys\u2014are stored in unencrypted cleartext JSON.",
         "State only stores Git commit hashes and contains no cloud data.",
         "State is automatically encrypted with a secret master key held by Linus Torvalds.",
         "State only contains HTML documentation."
@@ -410,7 +410,7 @@
           "body": "Partition infrastructure by change frequency and lifecycle:\n- Core Networking (changes yearly): Separate root module.\n- Compute & Clusters (changes monthly): Separate root module.\n- Application Services (changes daily): Handled via Kubernetes / Helm, not base Terraform."
         }
       ],
-      "codeSnippet": "# Enterprise Multi-Root Repository Layout\nterraform/\n├── modules/\n│   ├── aws-network/\n│   ├── azure-network/\n│   └── gcp-network/\n└── environments/\n    ├── dev/\n    │   ├── aws/\n    │   └── gcp/\n    └── prod/\n        ├── aws/\n        └── gcp/"
+      "codeSnippet": "# Enterprise Multi-Root Repository Layout\nterraform/\n\u251c\u2500\u2500 modules/\n\u2502   \u251c\u2500\u2500 aws-network/\n\u2502   \u251c\u2500\u2500 azure-network/\n\u2502   \u2514\u2500\u2500 gcp-network/\n\u2514\u2500\u2500 environments/\n    \u251c\u2500\u2500 dev/\n    \u2502   \u251c\u2500\u2500 aws/\n    \u2502   \u2514\u2500\u2500 gcp/\n    \u2514\u2500\u2500 prod/\n        \u251c\u2500\u2500 aws/\n        \u2514\u2500\u2500 gcp/"
     }
   ],
   "commands": null,
@@ -558,6 +558,8 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

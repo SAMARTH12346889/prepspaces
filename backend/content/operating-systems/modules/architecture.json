@@ -123,7 +123,7 @@
     "getconf PAGE_SIZE": "4096",
     "uname -m": "x86_64",
     "cat /proc/cpuinfo | grep 'model name' | head -n 1": "model name\t: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.80GHz",
-    "help": "Supported Lab 2 diagnostic commands:\n• gcc -Wall -Wextra -O0 hello.c -o hello && ./hello\n• file hello, ls -lh hello\n• readelf -h hello, readelf -l hello\n• objdump -d hello | grep -A 20 '<main>:'\n• gcc -Wall -Wextra -O0 inspect.c -o inspect && ./inspect\n• ps -p 12460 -o pid,ppid,stat,%cpu,%mem,cmd\n• cat /proc/12460/maps, cat /proc/12460/status | head -n 12\n• strace ./hello\n• strace -e trace=process,memory,file ./hello\n• getconf PAGE_SIZE, uname -m\n• clear"
+    "help": "Supported Lab 2 diagnostic commands:\n\u2022 gcc -Wall -Wextra -O0 hello.c -o hello && ./hello\n\u2022 file hello, ls -lh hello\n\u2022 readelf -h hello, readelf -l hello\n\u2022 objdump -d hello | grep -A 20 '<main>:'\n\u2022 gcc -Wall -Wextra -O0 inspect.c -o inspect && ./inspect\n\u2022 ps -p 12460 -o pid,ppid,stat,%cpu,%mem,cmd\n\u2022 cat /proc/12460/maps, cat /proc/12460/status | head -n 12\n\u2022 strace ./hello\n\u2022 strace -e trace=process,memory,file ./hello\n\u2022 getconf PAGE_SIZE, uname -m\n\u2022 clear"
   },
   "scenarios": null,
   "metadata": {
@@ -133,6 +133,100 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": true,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 9
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. CPU Execution: How a Program Actually Runs",
+      "paragraphs": [
+        "The CPU contains dedicated silicon hardware for instruction decoding, arithmetic logic (ALU), execution units, register files, load/store queues, on-chip caches, and branch prediction logic.",
+        "The CPU reads instruction bytes from memory or L1 Instruction Cache at address in RIP/PC.",
+        "Instruction decoders inspect opcode bytes, resolving operands, addressing modes, and register dependencies.",
+        "ALUs, floating-point units, or load/store units perform the arithmetic, logic, branch, or memory access.",
+        "Results retire in-order into architectural registers or cache, making changes permanent and visible to the OS."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. CPU Registers, Stack & Privileged Control State",
+      "paragraphs": [
+        "Registers are the fastest storage locations on the CPU silicon, operating with sub-nanosecond access latency.",
+        "16 64-bit GPRs: RAX, RBX, RCX, RDX, RSI, RDI, RBP, RSP, R8\u2013R15.",
+        "System V AMD64 ABI Convention: Function arguments passed in RDI, RSI, RDX, RCX, R8, R9; return value placed in RAX.",
+        "\u2022 RIP (x86-64) / PC (ARM): Holds the address of the current instruction stream.",
+        "\u2022 RSP (Stack Pointer): Points to the top of the thread's call stack. Stacks grow downwards toward lower virtual addresses.",
+        "Maintains condition codes: Zero Flag (ZF), Carry Flag (CF), Sign Flag (SF), Overflow Flag (OF), and Interrupt Enable Flag (IF). Conditional jumps inspect these flags.",
+        "\u2022 CR0: Enables protected mode & paging.",
+        "\u2022 CR2: Stores the faulting linear virtual address on a page fault exception!",
+        "\u2022 CR3: Holds physical base address of PML4 (top-level page table). Context switches reload CR3 to swap address spaces!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. User Mode, Kernel Mode & Privilege Enforcement",
+      "paragraphs": [
+        "Kernel mode and User mode are not separate physical processors; they are hardware-enforced CPU privilege states. The same physical core dynamically toggles privileges between application execution and kernel services."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. Interrupts, Exceptions, Traps & Hardware Timers",
+      "paragraphs": [
+        "If an application enters an infinite loop while(1) &#123;&#125;, the system does not freeze. The hardware timer generates periodic timer interrupts (e.g. every 1ms or 4ms). When the interrupt fires, the CPU saves user state and enters the kernel's scheduler. The scheduler decrements the process's time slice, determines that its quantum has expired, and context-switches to another runnable task!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. Memory Hierarchy & Why Caches Dominate Performance",
+      "paragraphs": [
+        "Computer systems exploit two fundamental physical properties: Temporal Locality (recently accessed data will be accessed again soon) and Spatial Locality (adjacent memory addresses will be accessed soon)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. The MMU, Page Tables, TLBs & Address Translation",
+      "paragraphs": [
+        "Every application sees an isolated, private virtual address space. Two unrelated processes can both store data at virtual address 0x400000; the Memory Management Unit (MMU) maps each to completely different physical page frames in DRAM.",
+        "Since 4096 = 2\u00b9\u00b2, the lowest 12 bits represent the offset within the page frame. The upper bits represent the Virtual Page Number (VPN).",
+        "Interactive Page Offset Calculator (Worked Example: 0x12345)",
+        "Checkpoint Question: What is the primary difference between a TLB miss and a page fault?"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. Direct Memory Access (DMA) & Device Controllers",
+      "paragraphs": [
+        "Without DMA, the CPU would be forced to execute programmed I/O loops, copying every byte from device registers into RAM. DMA offloads bulk data movement to the controller, freeing the CPU to execute application computation."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "8. Boot Firmware, Bootloaders & Kernel Initialization",
+      "paragraphs": [
+        "Bootstrapping is a chain of trust and hardware preparation. Each stage configures the minimum environment required to load the next stage.",
+        "CPU starts executing from architecture reset vector (e.g. 0xFFFFFFF0 in flash ROM).",
+        "Initializes memory controller DRAM, PCIe bus enumeration, checks Secure Boot keys, finds EFI System Partition (ESP).",
+        "Loads compressed kernel image (vmlinuz) and initial ramdisk (initramfs) into memory; passes kernel command-line arguments.",
+        "Initramfs (Early User Space)",
+        "Unpacks temporary root filesystem in RAM to load NVMe, RAID, or LUKS disk encryption drivers required to mount the real disk.",
+        "Kernel Subsystem Initialization",
+        "Initializes page tables, interrupt descriptor tables (IDT), CPU scheduler, and mounts root filesystem /.",
+        "First User-Space Process (PID 1: systemd)",
+        "The kernel executes /sbin/init. PID 1 spawns logging, network managers, SSH daemon, and user login terminals."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "University-Level Reference Materials",
+      "paragraphs": [
+        "System calls, traps, virtual memory, page tables, interrupts, and RISC-V privileged execution in xv6.",
+        "By Randal E. Bryant and David R. O'Hallaron (Carnegie Mellon University). Machine-level execution, assembly, memory hierarchy, linking, and virtual memory.",
+        "The definitive hardware reference for instruction behavior, privilege levels, exceptions, multi-level paging (PML4/PML5), interrupts, and processor control registers.",
+        "Kernel internals for memory management, DMA-mapping APIs, cache coherency, and device driver frameworks.",
+        "You are ready to advance to Module 3: Processes, Threads, and CPU Scheduling when you can explain CPU register execution state, distinguish mode switching from context switching, trace a system call lifecycle, describe interrupt-driven scheduling, calculate a 12-bit page offset, explain how DMA enables concurrent I/O, and trace the Linux boot sequence from CPU reset to PID 1."
+      ]
+    }
+  ]
 }

@@ -162,6 +162,114 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 12
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "What Truly Happens When You Open a Website? (https://example.com)",
+      "paragraphs": [
+        "Visiting a website is not a single atomic operation. It is an orchestration of protocol handshakes, distributed lookups, encapsulation, and cryptographic verifications:",
+        "Client stub queries resolver to map FQDN to an IPv4/IPv6 address.",
+        "Packets routed via default gateway across Autonomous Systems.",
+        "SYN, SYN-ACK, ACK exchange establishes reliable stream state.",
+        "Server identity verified via X.509 cert; session keys derived.",
+        "Encrypted GET request; server returns status 200 and HTML payload."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 1.1\u20131.4: Network Topologies, Components & Metrics",
+      "paragraphs": [
+        "A computer network connects nodes (endpoints, switches, routers) via physical or wireless communication channels to exchange data according to shared protocols.",
+        "LAN: Local Area Network in single room or building (Ethernet/Wi-Fi). WAN: Wide Area Network spanning cities/continents. VPN: Encrypted logical tunnel traversing untrusted public networks.",
+        "Star: Central switch connecting all devices (predominant modern LAN). Mesh: Interconnected nodes offering redundant failover paths at higher complexity.",
+        "Topology dictates adversary lateral movement paths. Segmenting databases from internet-facing web servers limits compromise radius.",
+        "Data is chopped into independent packets routed dynamically across statistical multiplexing links, rather than reserving dedicated circuit lines."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 2.1\u20132.4: Layering, Encapsulation & Packet Construction",
+      "paragraphs": [
+        "Networking uses layered abstraction so hardware vendors, OS kernels, and application developers can innovate independently:",
+        "{` [Application Layer] [HTTP Payload / GET /index.html] | v (Add TCP Header: Src Port 54120, Dst Port 443, Seq #) [Transport Layer] [TCP Header | HTTP Payload] ==> \"Segment\" | v (Add IP Header: Src IP 192.168.1.25, Dst IP 104.21.58.192) [Network Layer] [IP Header | TCP Header | HTTP Payload] ==> \"Packet\" | v (Add Ethernet Header: Src MAC, Dst MAC, Type 0x0800 & FCS Trailer) [Data Link Layer] [Eth Header | IP Header | TCP Header | HTTP Payload | FCS] ==> \"Frame\" | v (Transmit on Physical Wire / Radio Frequency) [Physical Layer] 010111001010010101010101010101100010101001 ==> \"Bits\"`} Why Encapsulation Matters to Defenders Firewalls inspect Layer 3 and Layer 4 headers (IPs, Ports, TCP flags). Web Application Firewalls (WAFs) and proxies must inspect decapsulated Layer 7 payloads (HTTP URIs, JSON bodies). Furthermore, when traffic is encrypted via TLS, passive network eavesdroppers can see Layer 2, Layer 3, and Layer 4 headers, but the Layer 7 data remains entirely ciphertext."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 3.1\u20133.7: MAC, IPv4 Subnetting, IPv6, ARP & NAT",
+      "paragraphs": [
+        "A MAC address (48-bit hex e.g. 00:11:22:33:44:55) identifies an interface on the local wire. Routers rewrite the source and destination MAC addresses at every hop! IP addresses (32-bit IPv4 / 128-bit IPv6) provide end-to-end logical addressing and remain unchanged across intermediate routers (unless NAT is used).",
+        "\u2022 10.0.0.0/8 (10.0.0.0 - 10.255.255.255) - Enterprise",
+        "\u2022 172.16.0.0/12 (172.16.0.0 - 172.31.255.255) - Cloud VPCs",
+        "\u2022 192.168.0.0/16 (192.168.0.0 - 192.168.255.255) - SOHO / Home",
+        "\u2022 127.0.0.0/8 - Loopback | 169.254.0.0/16 - APIPA Link-Local",
+        "Consider dividing 192.168.10.0/24 into four equal /26 subnets. A /26 prefix has 26 network bits and 6 host bits (32 - 26 = 6). Subnet mask: 255.255.255.192. Each subnet contains 2^6 = 64 total IP addresses:",
+        "Network Address Translation (NAT) modifies IP addresses in headers to solve IPv4 address exhaustion. While private IPs cannot be reached directly without stateful mapping, NAT does NOT inspect payloads, filter malicious inbound responses, or enforce authorization. Actual defense requires firewall access rules, identity validation, and endpoint hardening."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 4.1\u20134.5: Reliable Streams, Sockets & Modern HTTP/3",
+      "paragraphs": [
+        "Transport protocols demultiplex incoming packets to specific application processes using 16-bit port numbers (0 to 65535):",
+        "Client selects random Initial Sequence Number (ISN_c) and sets SYN flag (Synchronize).",
+        "Server acknowledges client ISN (Ack = ISN_c + 1) and sets its own ISN_s.",
+        "Client confirms server ISN (Ack = ISN_s + 1). Socket enters ESTABLISHED state.",
+        "Connection-oriented, reliable in-order byte stream. Features sliding window flow control and AIMD congestion control. Used by SSH (22), traditional HTTPS (443), and databases.",
+        "Connectionless, stateless, message-preserving. Zero retransmissions or packet ordering. Minimal header overhead (8 bytes). Used by DNS (53), DHCP (67/68), and NTP (123).",
+        "Runs over UDP with built-in TLS 1.3 encryption and congestion control. Eliminates Head-of-Line (HoL) blocking across independent streams, drastically accelerating mobile web access."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 5.1\u20135.5: Hierarchy, Record Types, TTL & Security",
+      "paragraphs": [
+        "DNS translates human-readable hostnames into network IP addresses. Critical security distinction: DNS only discovers where a service lives; it does NOT host the application or guarantee that the target is secure!",
+        "Because legacy DNS over UDP lacks cryptographic signatures, an attacker can flood a recursive resolver with forged responses. If accepted, the resolver redirects all legitimate users to an attacker-controlled server.",
+        "DNSSEC: Uses public-key cryptography to digitally sign DNS records, ensuring integrity and authenticity. DoH / DoT: Encrypts the query link between client and resolver, preventing local ISP eavesdropping."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 6.1\u20136.7: Methods, Status Codes, Headers & Cookies",
+      "paragraphs": [
+        "https:// learn.example.com: 443 /courses/networking? session_token=xyz987# lesson-1",
+        "100 Continue, 101 Switching",
+        "200 OK, 201 Created, 204 No Content",
+        "301 Moved, 302 Found, 304 Not Mod",
+        "400 Bad, 401 Unauth, 403 Forbidden",
+        "500 Internal, 502 Bad GW, 503 Unavailable"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Lesson 7.1\u20137.5: Transport Security & What HTTPS Does NOT Prove",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Interactive CIDR Subnet Division Tool",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Live Protocol Dissector & Header Decapsulation",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Structured Evidence-Based Diagnostic Simulator",
+      "paragraphs": [
+        "{activeTroubleshoot.cliOutput} {/* Analysis & Fix Card */} Root Cause Forensic Analysis: {activeTroubleshoot.analysis}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Networking Fundamentals Verification (10 Questions)",
+      "paragraphs": []
+    }
+  ]
 }

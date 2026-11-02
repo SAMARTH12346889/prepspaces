@@ -137,6 +137,73 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 9
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. Network Discovery & The Technical Assessment Workflow",
+      "paragraphs": [
+        "Network discovery identifies active devices, responsive network interfaces, and reachable IP addresses within an authorized scope. It establishes what is observable across network segments to help organizations audit actual exposure against intended architecture."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. Understanding Reachability, ICMP, and Transport Probes",
+      "paragraphs": [
+        "A host is a network endpoint (physical server, virtual machine, container, router, printer). However, an IP address does not map 1:1 to a physical device\u2014load balancers, CDN edge proxies, and multi-tenant cloud workloads break simple assumptions.",
+        "Useful for baseline diagnostics, but firewalls and cloud security groups routinely drop ICMP. Failure to reply to ping is NOT proof that a host is offline.",
+        "On IPv4 local-link subnets, ARP requests reveal active MAC addresses on the wire. Highly reliable locally, but cannot traverse routers across the Internet.",
+        "Nmap sends TCP probes to common ports (80, 443, 22). If a SYN-ACK or RST is returned, the host is confirmed reachable regardless of ICMP filtering."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. The 6 Canonical Nmap Port States",
+      "paragraphs": [
+        "Port states describe the scanner&apos;s interpretation of observed packets from a specific network vantage point. They are not permanent properties of the server itself."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. Operational Impact, Rate Limiting & Monitoring Visibility",
+      "paragraphs": [
+        "Scanning generates real network traffic. Fragile IoT devices, legacy SCADA hardware, or shared cloud hypervisors can crash under high-volume scanning. Adhere strictly to the Rules of Engagement (RoE)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. Service Identification, Version Detection & HTTP Banners",
+      "paragraphs": [
+        "Discovering an open port is only step 1. Service enumeration determines what application is actually listening and what metadata (headers, TLS certs, banners) it exposes."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. Scanner Result vs. Security Finding: Comparing Observed vs. Intended State",
+      "paragraphs": [
+        "A raw scanner result is simply a technical observation. A security finding requires context: does the observation violate approved architecture, expose unnecessary attack surface, or create business risk?"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. Standardized Command-Line Discovery Workflow",
+      "paragraphs": [
+        "A structured 5-step sequence for conducting controlled discovery on authorized Linux and Windows lab hosts."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "8. Constructing a Professional Service Exposure Inventory",
+      "paragraphs": [
+        "A service inventory records the verified technical footprint. It is the core deliverable that bridges raw scanning output with executive risk decisions."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "9. Authoritative Documentation & Syllabi Links",
+      "paragraphs": []
+    }
+  ]
 }

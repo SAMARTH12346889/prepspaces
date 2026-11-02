@@ -161,6 +161,72 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 8
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. What is Open-Source Intelligence (OSINT)?",
+      "paragraphs": [
+        "Open-Source Intelligence (OSINT) is the disciplined process of collecting and analyzing information from openly or legitimately accessible sources to answer a specific, decision-oriented question. Here, &ldquo;open source&rdquo; refers to public accessibility, not software licensed under GPL or MIT.",
+        "Consults third-party caches, public registries, and search indexing services. No direct network packets are transmitted to the target&apos;s servers.",
+        "Directly transmits network packets, probes, or authentication requests to target infrastructure. Generates server logs and requires strict Rules of Engagement (RoE)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. The 8-Step OSINT Intelligence Lifecycle",
+      "paragraphs": [
+        "Unstructured browsing leads to cognitive bias, missed dependencies, and analytical exhaustion. Professional intelligence analysts adhere to a repeatable, auditable lifecycle."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. Deep Dive into Public Research Sources",
+      "paragraphs": [
+        "A security researcher must know what each public data source can establish\u2014and more importantly, what it CANNOT prove on its own.",
+        "Establishes: {item.whatItShows}",
+        "Limitation: {item.limitation}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. Correlation, Verification & Analytical Reasoning",
+      "paragraphs": [
+        "The hallmark of an expert analyst is distinguishing between directly observed facts, reasonable inferences, and open hypotheses.",
+        "What the source directly displays without interpretation.",
+        "A conclusion reasonably supported by one or more observations.",
+        "A possible explanation that has not yet been verified by evidence."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. From OSINT Observation to Defensive Security Action",
+      "paragraphs": [
+        "OSINT in a cybersecurity program is not an academic curiosity; it directly feeds External Attack Surface Management (EASM), Threat Intelligence, and vulnerability reduction."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. Passive OSINT Tool Selection & Analytical Hygiene",
+      "paragraphs": [
+        "Automated tools are aids, not substitutes for critical thinking. An analyst must understand what automated utilities query and how to sanitize research data."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. Public Availability $\\neq$ Unrestricted Use: Privacy & Legal Boundaries",
+      "paragraphs": [
+        "Just because information is publicly indexed does not grant legal or ethical permission to aggregate, weaponize, or redistribute it."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "8. Academic Curricula & Authoritative Standards",
+      "paragraphs": [
+        "This module references foundational public guidance from international standards organizations:"
+      ]
+    }
+  ]
 }

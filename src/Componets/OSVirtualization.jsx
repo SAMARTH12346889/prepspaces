@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -71,6 +74,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSVirtualization() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "virtualization");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -324,81 +328,7 @@ Mapping Analysis:
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "What is the main architectural difference between a typical Linux container and a VM?",
-      options: [
-        "A container always has its own kernel",
-        "A VM has a guest kernel; a container shares the host kernel",
-        "A VM cannot have virtual memory",
-        "Containers do not use RAM",
-      ],
-      correct: 1,
-      explanation:
-        "A virtual machine runs a complete guest operating system with its own private kernel over virtualized hardware. A container runs isolated processes that share the single host Linux kernel using namespaces and cgroups.",
-    },
-    {
-      id: "q2",
-      question: "What is the primary purpose of a Linux namespace?",
-      options: [
-        "Compress memory pages",
-        "Isolate a process's view of system resources",
-        "Replace the CPU scheduler",
-        "Guarantee disk durability",
-      ],
-      correct: 1,
-      explanation:
-        "Namespaces restrict what a process can see and interact with (e.g. PID namespace isolates process trees, Mount isolates filesystems, Network isolates IP addresses and routing tables). Resource limits are handled separately by cgroups.",
-    },
-    {
-      id: "q3",
-      question: "Which cgroup v2 file reports the current memory charged to a cgroup?",
-      options: ["memory.current", "memory.events", "cpu.max", "pids.max"],
-      correct: 0,
-      explanation:
-        "In cgroup v2, 'memory.current' reports the total bytes of memory (anonymous, page cache, swap, kernel buffers) charged to that control group and its descendants. 'memory.max' defines the hard limit.",
-    },
-    {
-      id: "q4",
-      question: "Why can a container be OOM-killed while the host still has free memory?",
-      options: [
-        "Containers never use physical memory",
-        "The container's effective memory limit can be reached",
-        "The TLB is full",
-        "A VM exit always kills a process",
-      ],
-      correct: 1,
-      explanation:
-        "A container is bound to its assigned cgroup resource limit (e.g. memory.max = 128MB). Even if the physical host has 16GB of unallocated RAM, reaching the cgroup limit triggers the kernel's cgroup-scoped OOM killer.",
-    },
-    {
-      id: "q5",
-      question: "What is one potential benefit of huge pages?",
-      options: [
-        "They eliminate all page faults",
-        "They can increase TLB translation reach",
-        "They eliminate NUMA",
-        "They guarantee lower latency for every workload",
-      ],
-      correct: 1,
-      explanation:
-        "Using 2 MiB or 1 GiB huge pages allows a fixed-size hardware TLB (e.g., 1024 entries) to cover gigabytes of address space rather than only 4 MiB, drastically reducing expensive multi-level page table walks.",
-    },
-    {
-      id: "q6",
-      question: "What is the primary performance concern in NUMA systems?",
-      options: [
-        "Every memory access has identical latency",
-        "Memory locality can affect access latency and bandwidth",
-        "NUMA disables paging",
-        "NUMA makes processes single-threaded",
-      ],
-      correct: 1,
-      explanation:
-        "In Non-Uniform Memory Access (NUMA) multi-socket systems, accessing memory attached to the local CPU socket is fast, whereas accessing remote node memory across the interconnect bus incurs 2x to 3x higher latency and reduced bandwidth.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (qId, optionIdx) => {
     setQuizAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
@@ -432,7 +362,14 @@ Mapping Analysis:
 
   const completedChecklistCount = Object.values(checklist).filter(Boolean).length;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="virtualization" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="virtualization" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Universal Module Navigation Bar */}
       <ModuleNav

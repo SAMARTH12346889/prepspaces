@@ -137,6 +137,112 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 12
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "The Application Layer in Context",
+      "paragraphs": [
+        "The application layer (Layer 7 of the OSI model, or Layer 4 of the TCP/IP model) is where network communication interfaces directly with software programs and end users. While lower layers handle routing across IP networks and reliable byte-stream delivery, application protocols define what the transmitted bytes actually mean and how endpoints must coordinate state.",
+        "{`1. Name Resolution: Browser queries DNS for 'prepspaces.com' &rarr; Receives 104.21.72.15 2. Transport Setup: TCP 3-way handshake over Port 443 (SYN &rarr; SYN-ACK &rarr; ACK) [1 RTT] 3. Cryptographic TLS: TLS 1.3 handshake (ClientHello &rarr; ServerHello + Cert) [1 RTT] 4. Application Comm: Encrypted HTTP request transmitted (GET /courses HTTP/2 or HTTP/3) 5. Presentation: Server returns 200 OK + HTML; browser parses DOM and renders UI`} Ports Are Defaults, Not Definitions: Port numbers are conventional standards (e.g. TCP 80 for HTTP, TCP 443 for HTTPS, TCP 22 for SSH, TCP 25 for SMTP), not inviolable laws of physics. An adversary or enterprise application can run an HTTP web server on port 8443, port 9000, or port 22. Network engineers inspect protocol framing behavior, not just port numbers, to identify what a service is doing."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "HTTP Wire Semantics &amp; Request/Response Anatomy",
+      "paragraphs": [
+        "HTTP (Hypertext Transfer Protocol) is an asymmetric, stateless request-response protocol. A client transmits an HTTP request, and an origin server responds with an HTTP response:",
+        "{`GET /api/v1/user HTTP/1.1 Host: prepspaces.com User-Agent: Mozilla/5.0 Accept: application/json Authorization: Bearer Connection: keep-alive`} Composed of: Method (GET), Request Target (/api/v1/user), Version (HTTP/1.1), followed by key-value headers and an optional body.",
+        "{`HTTP/1.1 200 OK Content-Type: application/json Content-Length: 42 Cache-Control: max-age=300 ETag: \"8f2a1b\" {\"status\":\"active\",\"role\":\"engineer\"}`} Composed of: Status Line (HTTP/1.1 200 OK), Response Headers (Content-Type, Cache-Control, ETag), a blank delimiter line (\\r\\n), and the payload body."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Safe vs. Idempotent Methods &amp; The Semantic Contract",
+      "paragraphs": [
+        "Every HTTP method is governed by formal semantic properties defined in RFC 9110:",
+        "Because POST requests are non-idempotent, a network timeout on a credit card charge (e.g. POST /api/payments) leaves the client uncertain whether the charge succeeded. To make retries safe, production APIs mandate an Idempotency-Key: &lt;uuid&gt; header. If a network blip causes a retry, the backend detects the duplicate UUID and returns the original cached transaction receipt without charging the card twice!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "HTTP Status Code Taxonomy &amp; Nuanced Distinctions",
+      "paragraphs": [
+        "HTTP status codes are categorized into five standard classes:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Cookies, Session Integrity &amp; Browser Security Headers",
+      "paragraphs": [
+        "Because HTTP is stateless, web applications maintain user login state using cookies via the Set-Cookie header. Production session cookies require three essential protective attributes:",
+        "Instructs the browser to only transmit the cookie over encrypted HTTPS connections. Prevents credential leaks over cleartext Wi-Fi.",
+        "Blocks client-side JavaScript from accessing document.cookie. Mitigates session hijacking if an XSS vulnerability exists.",
+        "Restricts cookies from being attached to cross-site requests initiated by third-party origins, preventing Cross-Site Request Forgery (CSRF)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "HTTP Caching Engine &amp; Conditional ETag Validation (RFC 9111)",
+      "paragraphs": [
+        "HTTP caching dramatically decreases page latency and server load:",
+        "When a cached entry reaches its max-age, the browser does not re-download the entire file. It sends a conditional request:",
+        "{`GET /app.js HTTP/1.1 If-None-Match: \"v2.4.1\"`} If the file hasn't changed, the origin replies with 304 Not Modified (0 bytes payload!), instantly refreshing the cache."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "HTTPS &amp; The TLS 1.3 Handshake (RFC 8446)",
+      "paragraphs": [
+        "HTTPS is HTTP carried over a Transport Layer Security (TLS) channel. TLS 1.3 (RFC 8446) revolutionized web cryptography by reducing handshake latency from 2 RTTs down to a single 1 RTT and mandating Forward Secrecy:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Digital Certificates, PKI &amp; Hostname Validation",
+      "paragraphs": [
+        "A TLS certificate binds an identity (the domain name in the Subject Alternative Name / SAN field) to a public cryptographic key, signed by a Certificate Authority (CA):"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "SSH, SFTP, FTP &amp; Mail Protocols (SMTP, IMAP, POP3)",
+      "paragraphs": [
+        "Understanding application protocols beyond the web is critical for systems and security engineering:",
+        "Secure Shell provides authenticated, encrypted shell access and tunneling. SFTP runs inside the SSH channel on TCP 22. It is strictly different from FTP and does not require complex secondary firewall data ports.",
+        "Traditional FTP (RFC 959) transmits credentials in plaintext. FTPS wraps FTP in TLS. However, FTPS requires opening random secondary TCP ports for passive data transfers, causing severe firewall headaches.",
+        "Port 25 for server-to-server relay; Port 587 (with STARTTLS) or Port 465 (implicit TLS) for authenticated user submission.",
+        "IMAP synchronizes mailbox state across multiple devices; POP3 downloads and removes email from the server for single-client access."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Forward Proxies, Reverse Proxies &amp; Load Balancers",
+      "paragraphs": [
+        "Intermediary network appliances sit between clients and backend origins:",
+        "Acts on behalf of internal clients reaching outward to the internet. Enforces egress filtering, content auditing, and outbound enterprise security policies.",
+        "Acts on behalf of backend services. Terminates TLS encryption, routes paths (e.g. /api vs /), shields internal IP addresses, and applies rate limits (e.g. Nginx, Envoy).",
+        "Distributes traffic across server pools. Layer 4 routes TCP sockets without inspecting payloads; Layer 7 routes requests based on HTTP hostnames, cookies, and URI paths.",
+        "Backends rely on X-Forwarded-For and X-Forwarded-Proto to know the real user IP and scheme. Crucial rule: Backends must ONLY trust these headers if they are appended or sanitized by your trusted reverse proxy! Otherwise, attackers can forge client IPs to bypass geo-restrictions or IP allowlists."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "REST APIs, CORS Boundaries &amp; Full-Duplex WebSockets",
+      "paragraphs": [
+        "Modern web applications demand continuous, interactive communication:",
+        "If JavaScript at https://app.example.com attempts to read data from https://api.example.com, the browser first transmits an OPTIONS preflight query asking if cross-origin access is permitted. The API replies with Access-Control-Allow-Origin: https://app.example.com. Never use * if cookies or credentials are transmitted!",
+        "Standard HTTP requires opening a new request/response cycle for every update. WebSockets upgrade an HTTP connection to a persistent full-duplex socket (wss://), allowing client and server to exchange real-time framed messages with sub-millisecond overhead."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Security Hardening Checklist &amp; Troubleshooting Protocol",
+      "paragraphs": [
+        "Production SREs follow a structured Layer 7 triage protocol when web services fail:"
+      ]
+    }
+  ]
 }

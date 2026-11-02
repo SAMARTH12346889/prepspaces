@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -53,6 +56,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSProcessLifecycle() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "processes");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -103,107 +107,7 @@ export default function OSProcessLifecycle() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. What is the primary role of a process control block or equivalent kernel structures?",
-      options: [
-        "Store the entire source code of the application",
-        "Track process execution, identity, scheduling, and resource information",
-        "Replace the CPU scheduler",
-        "Store only the process's output",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The Process Control Block (represented in Linux by `struct task_struct`) stores the complete architectural state and kernel metadata for a process: PID, credentials, CPU register state (for context switching), memory mappings (`mm_struct`), open file descriptor tables (`files_struct`), and scheduler priority (`sched_entity`).",
-    },
-    {
-      id: 2,
-      question: "2. What happens when a process moves from running to blocked?",
-      options: [
-        "It necessarily terminates",
-        "It waits for an event or resource and is not currently runnable",
-        "It becomes a zombie immediately",
-        "Its PID is automatically reassigned",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A running process transitions to blocked (sleeping) when it requests an event or resource that is not immediately available—such as waiting for disk I/O, a socket packet, a lock, or a child termination. The scheduler removes it from the CPU run-queue until the hardware interrupt or wake-up signal occurs.",
-    },
-    {
-      id: 3,
-      question: "3. What does a successful fork() return to the child?",
-      options: ["0", "-1", "The parent's PID", "The child's exit code"],
-      correctIndex: 0,
-      explanation:
-        "fork() returns 0 to the child process, allowing the child code to distinguish itself from the parent. The parent receives the child's positive Process ID (PID).",
-    },
-    {
-      id: 4,
-      question: "4. What is a zombie process?",
-      options: [
-        "A process that uses 100% CPU",
-        "A child that has terminated but whose termination status has not been collected",
-        "A process that has lost its parent but is still running",
-        "A process waiting for disk I/O",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A zombie process (`state Z`, `<defunct>`) is a process that has completed execution and released its memory space, but retains a small entry in the kernel's process table so its parent can collect its termination exit status or signal via `wait()` or `waitpid()`.",
-    },
-    {
-      id: 5,
-      question: "5. What is the main purpose of waitpid()?",
-      options: [
-        "Create a new process",
-        "Replace the current process image",
-        "Wait for a child and collect its status",
-        "Allocate a new address space",
-      ],
-      correctIndex: 2,
-      explanation:
-        "waitpid() allows a parent process to suspend execution until a designated child process terminates or changes state, retrieve its exit code via status macros (`WEXITSTATUS`), and clean up the zombie entry from the OS process table.",
-    },
-    {
-      id: 6,
-      question: "6. Which statement about a context switch is correct?",
-      options: [
-        "Every system call causes a context switch",
-        "It changes execution from one scheduled thread to another",
-        "It always requires creating a new process",
-        "It means the CPU switches from user mode to kernel mode only",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A context switch saves the CPU architectural state (registers, stack pointer, program counter, and potentially address space / CR3 page table pointer) of the currently running thread and restores that of another runnable thread, switching which task is executing. A system call is a mode switch and only causes a context switch if the scheduler chooses another task.",
-    },
-    {
-      id: 7,
-      question: "7. What is the key difference between an orphan and a zombie?",
-      options: [
-        "An orphan is always terminated",
-        "A zombie is always using the CPU",
-        "An orphan's original parent has terminated; a zombie has terminated but is not yet reaped",
-        "There is no difference",
-      ],
-      correctIndex: 2,
-      explanation:
-        "An orphan is an actively executing child process whose original parent has exited (it is reparented to `systemd` or an init subreaper). A zombie has already terminated its execution, but remains in the kernel process table waiting for its parent to collect its status.",
-    },
-    {
-      id: 8,
-      question: "8. What is a primary mechanism for process memory isolation?",
-      options: [
-        "Using different variable names",
-        "Virtual address spaces and hardware-enforced memory permissions",
-        "Assigning each process a different filename",
-        "Calling printf()",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The Memory Management Unit (MMU) and per-process virtual address spaces ensure that pointers with the same virtual address in two different processes map to distinct physical DRAM frames. Hardware page table permission bits (`PROT_READ`, `PROT_WRITE`, `PROT_EXEC`) prevent unauthorized access.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -338,7 +242,14 @@ Child exit code: 0
     setCustomCommand("");
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="processes" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="processes" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Breadcrumb & Navigation */}
       <ModuleNav

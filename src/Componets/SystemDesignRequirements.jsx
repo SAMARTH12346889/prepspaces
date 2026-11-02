@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -36,76 +39,10 @@ import { VisualDiagramComponentModule2 } from "./SystemDesignRequirementsDiagram
 /* Penn State SWENG 886, UT Dallas, UK CS 585, ISO 29148, Google SRE, AWS WAF */
 /* -------------------------------------------------------------------------- */
 
-const ASSESSMENT_QUESTIONS = [
-  {
-    id: 1,
-    question: "1. Which statement best describes a requirement?",
-    options: [
-      "A mandatory choice of framework",
-      "A statement of needed behavior or a constraint that can be evaluated",
-      "A server count calculated from intuition",
-    ],
-    correct: 1,
-    explanation:
-      "A requirement defines an observable outcome, needed system capability, or operational constraint that can be objectively tested and verified, rather than premature technology choices.",
-  },
-  {
-    id: 2,
-    question: "2. Which is the strongest performance requirement?",
-    options: [
-      "The platform must be very fast",
-      "The database should be modern",
-      "Under a defined workload, 95% of course reads must complete within a specified latency threshold",
-    ],
-    correct: 2,
-    explanation:
-      "A well-written performance requirement explicitly identifies the workload, metric, percentile threshold (p95), operation scope, and measurement boundary.",
-  },
-  {
-    id: 3,
-    question: "3. A system receives 8,640,000 requests per day. What is its average RPS?",
-    options: ["100", "1,000", "10"],
-    correct: 0,
-    explanation:
-      "Average RPS = Daily requests / 86,400 seconds. 8,640,000 / 86,400 = 100 requests per second.",
-  },
-  {
-    id: 4,
-    question:
-      "4. A service has average request latency of 0.2 seconds and a stable arrival rate of 400 requests per second. What is the average number of requests in progress?",
-    options: ["20", "80", "2,000"],
-    correct: 1,
-    explanation:
-      "By Little's Law (L = λ × W), L = 400 requests/sec × 0.2 seconds = 80 requests in progress concurrently on average.",
-  },
-  {
-    id: 5,
-    question:
-      "5. What should you do before choosing an instance count from a capacity estimate?",
-    options: [
-      "Deploy as many instances as possible",
-      "Assume all endpoints have equal cost",
-      "Benchmark representative workload and verify latency, errors, and dependencies",
-    ],
-    correct: 2,
-    explanation:
-      "Capacity formulas provide starting assumptions; reliable infrastructure sizing requires running representative load tests to measure CPU, memory, and database saturation under real concurrency.",
-  },
-  {
-    id: 6,
-    question: "6. What does an RPO specify?",
-    options: [
-      "The acceptable data-loss window in a defined recovery scenario",
-      "The maximum API response time",
-      "The number of replicas in a database",
-    ],
-    correct: 0,
-    explanation:
-      "Recovery Point Objective (RPO) specifies the maximum acceptable data loss measured in time (e.g., max 5 minutes of data loss) after a disruptive failure.",
-  },
-];
+const ASSESSMENT_QUESTIONS = moduleData?.quiz || [];
 
 export default function SystemDesignRequirements() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "requirements");
   const navigate = useNavigate();
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(12);
   const [showAiTutor, setShowAiTutor] = useState(false);
@@ -639,7 +576,14 @@ export default function SystemDesignRequirements() {
     return systemDesignTopics.find((t) => t.id === selectedTopic) || systemDesignTopics[0];
   }, [systemDesignTopics, selectedTopic]);
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="requirements" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="requirements" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

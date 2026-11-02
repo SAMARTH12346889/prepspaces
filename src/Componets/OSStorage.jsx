@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -70,6 +73,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSStorage() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "storage");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -318,86 +322,7 @@ Explanation:
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "What is the main reason random HDD access often has higher latency than sequential access?",
-      options: [
-        "HDDs do not use controllers",
-        "Mechanical seek and rotational delays",
-        "NVMe queue depth",
-        "The page cache is disabled",
-      ],
-      correct: 1,
-      explanation:
-        "HDDs rely on mechanical parts. In random access, the actuator arm must physically reposition the head over different tracks (seek time, ~4-10ms) and wait for the platter to rotate the target sector under the head (rotational latency, ~4ms). Sequential access eliminates repeated mechanical repositioning.",
-    },
-    {
-      id: "q2",
-      question: "What does throughput measure?",
-      options: [
-        "Time for one request",
-        "Amount of data transferred per unit time",
-        "Number of inodes",
-        "Only the p99 latency",
-      ],
-      correct: 1,
-      explanation:
-        "Throughput measures data transfer rate over time (typically MiB/s or GiB/s). Latency measures individual request completion time, and IOPS measures operations per second.",
-    },
-    {
-      id: "q3",
-      question: "What is a primary role of DMA (Direct Memory Access)?",
-      options: [
-        "Translate filenames to inodes",
-        "Transfer data between a device and memory with less CPU copying",
-        "Guarantee filesystem durability",
-        "Replace all device drivers",
-      ],
-      correct: 1,
-      explanation:
-        "DMA allows hardware device controllers to transfer data blocks directly to and from host physical RAM via bus mastering without the CPU having to copy every byte through registers in a tight software loop.",
-    },
-    {
-      id: "q4",
-      question: "Why might increasing queue depth improve throughput but increase latency?",
-      options: [
-        "More outstanding work can keep a device busy but also add queueing delay",
-        "It disables caching",
-        "It forces all I/O to become sequential",
-        "It removes controller overhead completely",
-      ],
-      correct: 0,
-      explanation:
-        "Keeping multiple requests queued allows parallel storage controllers (especially NVMe) to saturate hardware channels and maximize throughput. However, under Little's Law (L = lambda * W), a deeper queue means each individual request waits longer behind earlier requests in the queue, increasing average and tail latency.",
-    },
-    {
-      id: "q5",
-      question: "What does write amplification describe in solid-state flash storage?",
-      options: [
-        "The ratio of physical writes to host-requested writes",
-        "The ratio of RAM to CPU cache",
-        "The size of an inode",
-        "The number of mount points",
-      ],
-      correct: 0,
-      explanation:
-        "Because NAND flash cannot overwrite existing pages without erasing an entire block (e.g. 2–4 MB), the Flash Translation Layer (FTL) must copy valid pages elsewhere before erasing. Write Amplification Factor (WAF = Physical Bytes Written / Host Bytes Written) quantifies this internal rewriting penalty.",
-    },
-    {
-      id: "q6",
-      question: "Why can repeated file reads give misleading storage benchmarks?",
-      options: [
-        "The filesystem cannot read a file twice",
-        "The page cache may satisfy reads without accessing the storage device",
-        "Read calls always bypass RAM",
-        "The HDD becomes an NVMe device",
-      ],
-      correct: 1,
-      explanation:
-        "After the first read, the Linux kernel retains file data in the RAM Page Cache. Subsequent reads are satisfied directly from memory at ~5–10 GiB/s without touching the physical storage device or exercising controller queueing.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (qId, optionIdx) => {
     setQuizAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
@@ -431,7 +356,14 @@ Explanation:
 
   const completedChecklistCount = Object.values(checklist).filter(Boolean).length;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="storage" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="storage" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Universal Module Navigation Bar */}
       <ModuleNav

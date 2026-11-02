@@ -40,7 +40,7 @@
         "Because routers drop all TCP streams automatically upon detecting a CRC error."
       ],
       "correctIndex": 0,
-      "explanation": "TCP abstracts the entire connection as a single linear byte stream. If segment #3 is dropped, TCP cannot deliver segments #4, #5, or #6 to the application—even if they belong to unrelated HTTP/2 request streams. This is transport-layer head-of-line blocking."
+      "explanation": "TCP abstracts the entire connection as a single linear byte stream. If segment #3 is dropped, TCP cannot deliver segments #4, #5, or #6 to the application\u2014even if they belong to unrelated HTTP/2 request streams. This is transport-layer head-of-line blocking."
     },
     {
       "id": 4,
@@ -137,6 +137,115 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 12
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "The Modern Transport-Layer Landscape",
+      "paragraphs": [
+        "The transport layer is responsible for end-to-end, process-to-process communication across an untrusted, heterogeneous internetwork. While the network layer (IP) forwards datagrams hop-by-hop between host IP addresses, the transport layer demultiplexes incoming packets to specific operating system processes using 16-bit ports.",
+        "For nearly four decades, internet applications faced a rigid binary choice: TCP (connection-oriented, guaranteed in-order stream, flow and congestion controlled) or UDP (connectionless, unordered, best-effort datagrams). However, as web applications grew more sophisticated, TCP revealed architectural constraints that could not be easily fixed inside the operating system kernel:",
+        "Enterprise firewalls, NAT devices, and deep-packet inspection (DPI) proxies inspect TCP headers. If an engineer attempts to deploy a new TCP option (such as Multipath TCP or fast handshake extensions), middleboxes routinely drop the packets because they fail legacy DPI validation. Modifying TCP requires updating billions of intermediate appliances.",
+        "TCP implementations reside inside the OS kernel. Rolling out congestion control updates (e.g. BBRv2) or handshake modifications requires upgrading the host operating system kernel\u2014a process that takes years across smartphones, embedded devices, and servers. User-space protocols over UDP bypass kernel deployment cycles entirely."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "UDP Datagrams &amp; 8-Byte Header Anatomy",
+      "paragraphs": [
+        "The User Datagram Protocol, authored by David P. Reed in August 1980 (RFC 768), is arguably the simplest transport protocol in existence. It defines an atomic datagram service with an exact 8-byte header consisting of four 16-bit fields:",
+        "Identifies the client sending process. If no reply is expected (such as in unidirectional telemetry logging), this field may be set to zero. Otherwise, an ephemeral port assigned by the OS stack (e.g. 52180) is populated so the remote endpoint can respond.",
+        "Identifies the receiving service process (e.g. Port 53 for DNS, Port 67/68 for DHCP, Port 123 for NTP, Port 443 for QUIC/HTTP-3). If no process is bound and listening on this port when a datagram arrives, the operating system kernel emits an ICMP Type 3 Code 3 (Port Unreachable) message back to the sender.",
+        "Specifies the total length in bytes of the UDP datagram, including both the 8-byte header and the payload. The absolute theoretical minimum is 8 (a zero-byte payload), while the maximum is 65,535 bytes (bounded by the 16-bit integer and IPv4 Total Length field). In practice, internet UDP payloads are constrained by Path MTU (typically 1280 - 1500 bytes) to avoid fragmentation.",
+        "Detects bit errors across transmission. Crucially, the checksum is calculated not only over the UDP header and payload, but also over a conceptual IP Pseudo-Header. The pseudo-header binds the datagram to the specific Source IP, Destination IP, and IP Protocol number (17 for UDP), ensuring a datagram misrouted to the wrong destination IP is discarded."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "TCP vs UDP: Comprehensive Engineering Matrix",
+      "paragraphs": [
+        "Engineers frequently state that \"UDP is faster than TCP.\" In rigorous network systems engineering, this statement is misleading. UDP is not inherently faster at moving bits across copper or optical fiber; rather, UDP imposes zero transport-level latency penalties by refusing to wait for handshakes, acknowledgments, or in-order queueing."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Application-Managed Reliability over UDP",
+      "paragraphs": [
+        "Using UDP does not mean an application must accept catastrophic data loss. Many systems choose UDP to bypass TCP's rigid kernel constraints, then selectively construct their own reliability mechanisms tailored to their domain:",
+        "Rather than acknowledging every received segment (TCP ACK), the receiver only notifies the sender when a specific sequence number gap is observed (Negative Acknowledgment / NACK). This drastically saves reverse bandwidth in satellite and telemetry uplinks.",
+        "Instead of waiting for an RTT to retransmit lost packets, the sender transmits $K$ data packets accompanied by $M$ mathematical parity packets (using Reed-Solomon or XOR erasure codes). Any $K$ packets received allow the client to mathematically reconstruct all missing data instantly with zero latency penalty.",
+        "Unregulated UDP traffic can collapse intermediate router queues (congestion collapse). Reliable UDP protocols implement Google Congestion Control (GCC) or BBR pacing in user-space, measuring one-way delay gradient and packet loss to throttle the sending bitrate dynamically."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "DNS, Streaming, Gaming &amp; Real-Time Communication",
+      "paragraphs": [
+        "UDP powers the most latency-critical workloads across the global internet. Understanding why each protocol relies on UDP provides essential architectural insight:",
+        "Standard DNS queries use UDP because resolving a domain name should happen in a single RTT. A client sends one datagram containing the query, and the resolver replies with one datagram containing the record.",
+        "First-person shooters and real-time simulators send player position, velocity, and orientation updates 60 to 128 times per second (server tick rate). If packet #104 carrying position is lost, retransmitting it 80ms later is useless because packet #105 has already arrived with newer coordinates. Game engines use Client-Side Prediction and Snapshot Interpolation over UDP, reserving reliable channels only for events like inventory changes or health damage.",
+        "Human speech requires an interactive latency budget under 150ms. Real-time Transport Protocol (RTP) runs over UDP with Jitter Buffers. If an audio packet fails to arrive within 20ms of its playout time, the receiver does not wait for a retransmission\u2014it invokes Packet Loss Concealment (PLC) to synthesize missing audio waveforms or interpolate comfort noise."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "QUIC Fundamentals: Reliable Transport in User Space",
+      "paragraphs": [
+        "Standardized by the IETF in May 2021 as RFC 9000 (with TLS integration in RFC 9001 and HTTP/3 in RFC 9114), QUIC is a revolutionary general-purpose transport protocol. It is not simply \"HTTP over UDP\"\u2014QUIC is a full-featured, secure, multiplexed transport protocol implemented in user-space that utilizes UDP datagrams strictly as an encapsulation vehicle.",
+        "If the IETF had defined a brand new IP protocol number (e.g., Protocol 250 alongside TCP=6 and UDP=17), enterprise firewalls, home Wi-Fi routers, and mobile carrier gateways would drop 100% of packets because their firmware only recognizes TCP and UDP. By wrapping QUIC packets inside standard UDP datagrams (typically port 443), QUIC seamlessly traverses existing internet middleboxes without requiring hardware replacements.",
+        "QUIC uses Long Header Packets during connection setup (Initial, Handshake, 0-RTT Protected, Retry) to negotiate keys and Connection IDs, and compact Short Header Packets (1-RTT) during normal data transmission to minimize per-packet protocol overhead.",
+        "Inside a single encrypted QUIC packet, multiple frames can be bundled: STREAM frames (carrying application byte ranges), ACK frames (acknowledging received packet numbers), CRYPTO frames (TLS handshake data), and PING frames."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "QUIC Handshake: 0-RTT &amp; 1-RTT Connection Establishment",
+      "paragraphs": [
+        "In traditional web networking, establishing an encrypted HTTPS connection over TCP was a multi-phase, high-latency ordeal:",
+        "Because 0-RTT early data packets are encrypted using keys cached from a previous session, a malicious eavesdropper can intercept the 0-RTT flight and replay it to the server multiple times before the fresh 1-RTT handshake finishes. Therefore, RFC 9114 strictly mandates that 0-RTT data MUST only be used for idempotent requests (e.g. HTTP GET for public static assets). Any non-idempotent operation (such as HTTP POST, money transfers, or state alterations) must be buffered until the 1-RTT handshake completes."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "QUIC Multiplexing &amp; Eliminating Transport Head-of-Line (HoL) Blocking",
+      "paragraphs": [
+        "To understand QUIC's greatest architectural triumph, one must analyze the evolution of Head-of-Line (HoL) blocking from HTTP/1.1 to HTTP/3:",
+        "HTTP/2 introduced application-layer multiplexing, allowing dozens of requests (HTML, CSS, JavaScript, Images) to interleave on a single TCP connection.",
+        "QUIC makes streams first-class transport-layer primitives. Each stream maintains its own independent offset counter and state machine."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Connection Migration &amp; Integrated Transport Encryption",
+      "paragraphs": [
+        "In traditional networking, a TCP socket is identified strictly by the 4-tuple: (Source IP, Source Port, Destination IP, Destination Port). If a smartphone user walks out of their house and disconnects from Wi-Fi, their IP address changes as cellular 5G activates. Because the 4-tuple changed, the kernel emits an ECONNRESET, terminating all active SSH sessions, video calls, or downloads."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Network Impairments: Latency, Jitter, Packet Loss &amp; Transport Selection",
+      "paragraphs": [
+        "Transport selection is dictated by four critical network metrics and the application's tolerance for error vs delay:",
+        "In RTP/UDP media delivery, arrival jitter J_i is continuously calculated using an exponential moving average over packet arrival timestamp differences:",
+        "{`D(i-1, i) = (R_i - S_i) - (R_{i-1} - S_{i-1}) J_i = J_{i-1} + (|D(i-1, i)| - J_{i-1}) / 16`} Where S_i is the media transmission timestamp and R_i is the arrival timestamp. Jitter buffers are sized to at least 2 * &sigma;_RTT to prevent audio underflow without introducing perceivable lag."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "UDP Abuse: Amplification Attacks, Spoofing &amp; BCP 38 Defenses",
+      "paragraphs": [
+        "Because UDP does not establish a handshake before transmitting data, an attacker can transmit raw IP packets containing a forged (spoofed) source IP address. If an attacker queries an open, exposed UDP server that generates a response significantly larger than the request, the server becomes an unwitting reflection amplifier directed straight at the victim.",
+        "Reflection attacks exist solely because transit ISPs allow customers to emit packets with spoofed source IPs. Best Current Practice 38 (BCP 38) mandates that border routers implement Unicast Reverse Path Forwarding (uRPF):"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Hands-on Socket Lab: Python TCP vs UDP Verification",
+      "paragraphs": [
+        "To observe the fundamental differences between stream sockets (SOCK_STREAM) and datagram sockets (SOCK_DGRAM) at the packet level, deploy the Python test servers provided in the Lab Guide tab, capture traffic using Wireshark on loopback (lo), and observe how message boundaries and timeouts behave under controlled execution."
+      ]
+    }
+  ]
 }

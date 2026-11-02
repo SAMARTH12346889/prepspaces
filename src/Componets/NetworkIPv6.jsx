@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -52,6 +55,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkIPv6() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "ipv6");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -65,21 +69,7 @@ export default function NetworkIPv6() {
   };
 
   // Track scroll navigation & synced topics
-  const topics = [
-    { id: "sec-6-1", name: "6.1 Why IPv6 is Necessary" },
-    { id: "sec-6-2", name: "6.2 IPv6 Address Notation & Compression" },
-    { id: "sec-6-3", name: "6.3 IPv6 Address Types & Scopes" },
-    { id: "sec-6-4", name: "6.4 IPv6 Prefixes & Subnetting" },
-    { id: "sec-6-5", name: "6.5 Neighbor Discovery Protocol (NDP)" },
-    { id: "sec-6-6", name: "6.6 SLAAC Autoconfiguration" },
-    { id: "sec-6-7", name: "6.7 DHCPv6 (Stateless & Stateful)" },
-    { id: "sec-6-8", name: "6.8 Dual-Stack Networking & DNS" },
-    { id: "sec-6-9", name: "6.9 Transition Mechanisms (NAT64/DNS64)" },
-    { id: "sec-6-10", name: "6.10 IPv6 Security & Defense-in-Depth" },
-    { id: "sec-6-11", name: "6.11 Practical Tools & Troubleshooting" },
-    { id: "sec-6-12", name: "6.12 Practical Laboratory: IPv6 LAN" },
-    { id: "sec-6-13", name: "6.13 Capstone & Assessment" },
-  ];
+  const topics = moduleData?.topics || [];
   const activeTopic = useSyncedTopic(topics.map((t) => t.id));
 
   const scrollToSection = (id) => {
@@ -284,128 +274,7 @@ export default function NetworkIPv6() {
   /* -------------------------------------------------------------------------- */
   /* 10-QUESTION KNOWLEDGE ASSESSMENT QUIZ                                      */
   /* -------------------------------------------------------------------------- */
-  const quizQuestions = [
-    {
-      question: "How many bits are in an IPv6 address, and how many hexadecimal hextets are used to represent it?",
-      options: [
-        "64 bits arranged in 4 groups of 16 bits",
-        "128 bits arranged in 8 groups of 16 bits (hextets)",
-        "256 bits arranged in 16 groups of 16 bits",
-        "32 bits arranged in 4 decimal octets",
-      ],
-      correct: 1,
-      rationale:
-        "An IPv6 address contains exactly 128 bits, written as eight 16-bit groups (hextets) in hexadecimal notation separated by colons (8 × 16 = 128).",
-    },
-    {
-      question: "Which of the following is the correctly shortened canonical representation of 2001:0db8:0000:0000:0000:0000:0000:0042?",
-      options: [
-        "2001:db8:42::",
-        "2001:db8::42",
-        "2001:db8:0:0:0:0:0:42",
-        "2001::db8::42",
-      ],
-      correct: 1,
-      rationale:
-        "Per RFC 5952: Rule 1 removes leading zeros from each hextet (0db8 -> db8, 0042 -> 42). Rule 2 replaces the consecutive run of all-zero hextets with '::' (used only once). The result is 2001:db8::42.",
-    },
-    {
-      question: "Which IPv6 address range is designated for non-routable Link-Local communication on a local wire segment?",
-      options: [
-        "2000::/3",
-        "fc00::/7 (Unique-Local)",
-        "fe80::/10",
-        "ff02::1/128",
-      ],
-      correct: 2,
-      rationale:
-        "Link-local addresses reside within the fe80::/10 prefix (typically fe80::/64). Every IPv6-enabled interface automatically generates a link-local address for local-segment neighbor discovery and router communication. Routers never forward link-local packets across subnets.",
-    },
-    {
-      question: "Why is /64 considered the standard, mandatory subnet size for most conventional IPv6 LANs?",
-      options: [
-        "Because IPv6 routers cannot route any prefix longer than /64.",
-        "Because Stateless Address Autoconfiguration (SLAAC) requires a 64-bit Interface Identifier (IID) to configure addresses automatically.",
-        "To match the standard 64-byte minimum Ethernet frame size.",
-        "Because /64 provides exactly 254 usable host addresses.",
-      ],
-      correct: 1,
-      rationale:
-        "RFC 4291 mandates that for all unicast addresses (except those starting with binary 000), the interface ID must be 64 bits. SLAAC relies on this 64-bit boundary to append host-generated interface identifiers to the advertised 64-bit network prefix.",
-    },
-    {
-      question: "What protocol replaces IPv4 ARP for link-layer MAC address resolution in IPv6 networks?",
-      options: [
-        "Neighbor Discovery Protocol (NDP), utilizing ICMPv6 Neighbor Solicitation (NS) and Neighbor Advertisement (NA) messages",
-        "DHCPv6 Address Resolution Agent",
-        "Reverse Address Resolution Protocol (RARP)",
-        "NAT64 Protocol Translation",
-      ],
-      correct: 0,
-      rationale:
-        "IPv6 eliminates broadcast entirely. Neighbor Discovery Protocol (NDP) uses ICMPv6 type 135 (Neighbor Solicitation) and type 136 (Neighbor Advertisement) directed to solicited-node multicast groups to resolve IPv6 addresses to Layer 2 MAC addresses.",
-    },
-    {
-      question: "In Stateless Address Autoconfiguration (SLAAC), how does a client host learn its default gateway?",
-      options: [
-        "From the DHCPv6 Server Option 3 default router field.",
-        "From the source link-local IPv6 address of the router that transmitted the Router Advertisement (RA).",
-        "By querying the local DNS server for a gateway SRV record.",
-        "By picking the first usable address in the /64 prefix (e.g. ::1).",
-      ],
-      correct: 1,
-      rationale:
-        "A critical difference in IPv6: DHCPv6 does not provide the default gateway! Instead, hosts learn their default router directly from ICMPv6 Router Advertisements (RAs). The router's link-local address is automatically installed into the host routing table as the next hop.",
-    },
-    {
-      question: "What is the difference between Stateless DHCPv6 and Stateful DHCPv6?",
-      options: [
-        "Stateless DHCPv6 assigns IP addresses; Stateful DHCPv6 only provides DNS.",
-        "Stateless DHCPv6 lets hosts form their own IP via SLAAC while providing additional parameters (such as DNS servers); Stateful DHCPv6 leases managed IPv6 addresses and tracks client state.",
-        "Stateless DHCPv6 requires a router; Stateful DHCPv6 operates without routers.",
-        "Stateless DHCPv6 is used exclusively for IPv4 translation.",
-      ],
-      correct: 1,
-      rationale:
-        "In Stateless DHCPv6 (indicated by RA flags M=0, O=1), hosts configure their IP address via SLAAC and query DHCPv6 only for auxiliary options (DNS, NTP, domain search lists). In Stateful DHCPv6 (flag M=1), the DHCPv6 server centrally allocates and leases the actual IPv6 addresses, tracking state similar to IPv4 DHCP.",
-    },
-    {
-      question: "What does the 'Happy Eyeballs' algorithm (RFC 8305) accomplish in dual-stack client applications?",
-      options: [
-        "It compresses 128-bit IPv6 addresses into 32-bit hashes.",
-        "It attempts parallel connections to IPv6 and IPv4 destinations, favoring IPv6 but rapidly falling back to IPv4 within ~250ms if IPv6 connectivity is broken or impaired.",
-        "It encrypts DNS AAAA queries using TLS 1.3.",
-        "It automatically translates IPv4 private addresses into IPv6 link-local addresses.",
-      ],
-      correct: 1,
-      rationale:
-        "Happy Eyeballs prevents dual-stack user experience degradation. When a domain has both A (IPv4) and AAAA (IPv6) records, Happy Eyeballs starts an IPv6 connection, but if no response arrives within a brief timer (~250ms), it initiates a parallel IPv4 connection and proceeds with whichever handshake completes first.",
-    },
-    {
-      question: "How do NAT64 and DNS64 cooperate to allow IPv6-only clients to access legacy IPv4-only web servers?",
-      options: [
-        "DNS64 translates the client's MAC address; NAT64 converts TCP to UDP.",
-        "DNS64 synthesizes a synthetic IPv6 AAAA record (using prefix 64:ff9b::/96 + the IPv4 hex) for IPv4-only domains; the client sends packets to this synthetic IPv6 address, which the NAT64 gateway translates into real IPv4 packets.",
-        "NAT64 replaces the operating system kernel with an IPv4 emulator.",
-        "DNS64 tunnels the IPv4 traffic inside an SSH tunnel.",
-      ],
-      correct: 1,
-      rationale:
-        "In an IPv6-only network, when a client queries an IPv4-only server, DNS64 synthesizes an AAAA record embedding the IPv4 address into the NAT64 prefix (e.g. 64:ff9b::192.0.2.1). The client routes to this IPv6 destination, and the NAT64 edge device translates the IPv6 header into an IPv4 header for delivery to the server.",
-    },
-    {
-      question: "Why is RA Guard (Router Advertisement Guard) recommended on enterprise Layer 2 access switches?",
-      options: [
-        "To block all ICMPv6 traffic from entering the network.",
-        "To drop unauthorized or rogue Router Advertisements on access edge ports, preventing rogue devices from hijacking the default gateway or advertising bogus prefixes.",
-        "To accelerate Spanning Tree Protocol convergence.",
-        "To compress IPv6 headers before transmission over Wi-Fi.",
-      ],
-      correct: 1,
-      rationale:
-        "Rogue or accidental Router Advertisements (e.g., from an employee running a tethering app or misconfigured hypervisor) can override client default gateways and inject malicious DNS servers (Man-in-the-Middle or DoS). RA Guard inspects incoming frames on switch access ports and drops unauthorized RAs before they reach other hosts.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [submittedQuiz, setSubmittedQuiz] = useState(false);
@@ -428,7 +297,14 @@ export default function NetworkIPv6() {
     setSubmittedQuiz(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="ipv6" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="ipv6" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Sticky Header */}
       <header className="sticky top-0 z-40 bg-[#f6f4ee]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 py-3 sm:px-8">

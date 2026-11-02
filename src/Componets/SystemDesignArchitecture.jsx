@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -42,6 +45,7 @@ import {
 } from "./SystemDesignArchitectureDiagrams";
 
 export default function SystemDesignArchitecture() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "architecture");
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("lessons");
   const [activeLesson, setActiveLesson] = useState("4.1");
@@ -181,104 +185,7 @@ export default function SystemDesignArchitecture() {
   // ---------------------------------------------------------------------------
   // QUIZ STATE (8 QUESTIONS VERBATIM)
   // ---------------------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. What defines a monolithic backend most directly?",
-      options: [
-        "It must run on one physical server",
-        "It is deployed as a single application unit",
-        "It cannot contain internal modules",
-      ],
-      correct: 1,
-      explanation:
-        "A monolith is defined strictly by its deployment unit: it is packaged and deployed as a single application unit. It can (and should) have internal modular boundaries, and it can run scaled horizontally across hundreds of servers behind a load balancer.",
-    },
-    {
-      id: 2,
-      question: "2. Which statement best describes a modular monolith?",
-      options: [
-        "One deployable application with explicit internal module boundaries",
-        "A collection of services that always communicate over a network",
-        "An application without a database",
-      ],
-      correct: 0,
-      explanation:
-        "A modular monolith is a single deployable application that enforces explicit internal module boundaries, clear public interfaces, and logical data ownership without incurring distributed network overhead.",
-    },
-    {
-      id: 3,
-      question: "3. What is high cohesion?",
-      options: [
-        "Every module depends on every other module",
-        "Related responsibilities are grouped together within a module",
-        "All modules write directly to the same database tables",
-      ],
-      correct: 1,
-      explanation:
-        "High cohesion means elements that belong together logically and change together for the same business reasons are grouped within the same module boundary.",
-    },
-    {
-      id: 4,
-      question: "4. What is a bounded context?",
-      options: [
-        "A fixed number of services deployed together",
-        "A boundary within which a particular domain model and vocabulary apply",
-        "A type of database index",
-      ],
-      correct: 1,
-      explanation:
-        "In Domain-Driven Design (DDD), a bounded context is the linguistic and conceptual boundary within which a particular domain model and its ubiquitous language hold true unambiguously.",
-    },
-    {
-      id: 5,
-      question: "5. What is a distributed monolith?",
-      options: [
-        "A well-isolated service architecture with independent releases",
-        "Several deployments with tight dependencies that force coordinated changes or cause cascading failures",
-        "A monolith replicated behind a load balancer",
-      ],
-      correct: 1,
-      explanation:
-        "A distributed monolith possesses the operational distribution and complexity of microservices (network latencies, partial failures) combined with the tight coupling of a monolith (shared database schemas, coordinated release trains).",
-    },
-    {
-      id: 6,
-      question: "6. Which signal most strongly supports creating an independent service?",
-      options: [
-        "A desire to use a fashionable framework",
-        "A requirement for a capability to scale and deploy independently, supported by clear boundaries",
-        "A preference for more repositories",
-      ],
-      correct: 1,
-      explanation:
-        "Valid justification requires distinct operational needs: different hardware/scaling characteristics, independent release schedules, or distinct fault-isolation requirements, underpinned by well-defined domain boundaries.",
-    },
-    {
-      id: 7,
-      question: "7. Why can multiple services modifying the same internal database tables be problematic?",
-      options: [
-        "It necessarily makes all SQL queries slow",
-        "It creates unclear data ownership and couples services to each other's schemas",
-        "It prevents the use of HTTP",
-      ],
-      correct: 1,
-      explanation:
-        "Shared database access bypasses service boundaries, couples independent services to internal schema implementations, causes locking contention, and destroys autonomous deployability.",
-    },
-    {
-      id: 8,
-      question: "8. What is the purpose of the Strangler Fig pattern?",
-      options: [
-        "Replace an entire system in one high-risk rewrite",
-        "Incrementally replace selected functionality while the old and new systems coexist",
-        "Eliminate all API contracts",
-      ],
-      correct: 1,
-      explanation:
-        "The Strangler Fig pattern replaces an existing legacy system gradually by placing an intercepting proxy in front and routing specific capabilities to new implementations while both run concurrently.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -847,7 +754,14 @@ async function submitAssessment(attemptData) {
 
   const currentLessonData = lessons.find((l) => l.id === activeLesson) || lessons[0];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="architecture" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="architecture" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-8 sm:px-8 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

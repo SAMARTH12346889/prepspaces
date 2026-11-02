@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -58,6 +61,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSMemory() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "memory");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -254,80 +258,7 @@ Successful allocations: 4
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. Which statement about virtual address spaces is correct?",
-      options: [
-        "Every process uses unique virtual addresses that can never overlap with other processes",
-        "The same virtual address can map to different physical memory in different processes",
-        "Virtual addresses are always identical to physical RAM addresses",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The CPU's Memory Management Unit (MMU) uses per-process page tables to translate virtual addresses to physical RAM addresses. This provides address-space isolation, allowing distinct processes to simultaneously use identical virtual addresses (e.g. 0x400000) that map to completely separate physical memory frames.",
-    },
-    {
-      id: 2,
-      question: "2. What is the main difference between internal and external fragmentation?",
-      options: [
-        "Internal waste is unused space within allocated blocks (e.g. alignment padding); external fragmentation splits free space into non-contiguous holes",
-        "Internal fragmentation only occurs on SSDs and block storage",
-        "External fragmentation means a fatal kernel memory leak",
-      ],
-      correctIndex: 0,
-      explanation:
-        "Internal fragmentation occurs when an allocator allocates more bytes than requested (due to alignment or minimum payload sizes), wasting space inside the allocated block. External fragmentation occurs when sufficient total free memory exists, but it is divided into small, non-contiguous holes so no single request can be satisfied.",
-    },
-    {
-      id: 3,
-      question: "3. What is a major disadvantage of best-fit allocation?",
-      options: [
-        "It cannot allocate blocks smaller than 1 MB",
-        "It always uses more memory than worst-fit in every workload",
-        "It may require extensive searching of the free list and leaves small, unusable residual fragments",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Best-fit chooses the smallest free block that can satisfy a request. This requires either scanning the entire free list or maintaining complex sorted trees, and by design, it leaves tiny residual fragments that are often too small to satisfy any future allocation requests.",
-    },
-    {
-      id: 4,
-      question: "4. What happens to an ordinary local variable when its function returns?",
-      options: [
-        "It automatically moves to the heap",
-        "Its automatic storage duration ends and its stack frame memory is reclaimed",
-        "It remains valid in memory as long as any dangling pointer references it",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Ordinary local variables in C have automatic storage duration. When the function returns, its stack frame is popped and the variable's lifetime ends. Dereferencing a pointer to a returned local variable produces undefined behavior.",
-    },
-    {
-      id: 5,
-      question: "5. Which statement about free() is correct?",
-      options: [
-        "It always returns physical RAM immediately back to the OS kernel via brk()",
-        "It makes every alias to the allocation safe to use",
-        "It releases the allocation to the user-space runtime allocator for reuse, but may not return memory to the OS immediately",
-      ],
-      correctIndex: 2,
-      explanation:
-        "When an application calls `free()`, the memory block is reclaimed by the user-space runtime allocator (such as glibc ptmalloc) and added back to its internal free lists or arenas for future `malloc()` reuse. The memory is rarely returned immediately to the kernel via `brk` or `munmap` unless large thresholds are reached.",
-    },
-    {
-      id: 6,
-      question: "6. Why can row-wise traversal of a C matrix be faster than column-wise traversal?",
-      options: [
-        "C stores two-dimensional arrays in row-major order, maximizing spatial locality and cache-line reuse",
-        "Row-wise traversal skips CPU cache lines entirely",
-        "Column-wise traversal is explicitly forbidden by the ISO C standard",
-      ],
-      correctIndex: 0,
-      explanation:
-        "C stores multidimensional arrays contiguously in row-major order. In row-wise traversal, accessing adjacent elements (`matrix[i][j]`, `matrix[i][j+1]`) reads consecutive memory addresses already brought into L1 cache lines (64 bytes). Column-wise traversal jumps by an entire row ($N \\times \\text{sizeof(int)}$) on each access, causing frequent cache misses.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -603,7 +534,14 @@ int main(void) {
     return 0;
 }`;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="memory" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="memory" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-900">
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Module Navigation Header */}

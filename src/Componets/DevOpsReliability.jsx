@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -75,6 +78,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function DevOpsReliability() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("devops", "reliability");
   const navigate = useNavigate();
 
   // Navigation & UI State
@@ -944,175 +948,16 @@ spec:
   // =========================================================================
   // 15 MASTERY ASSESSMENT QUESTIONS (WEEK 21)
   // =========================================================================
-  const masteryQuestions = [
-    {
-      q: "Why is an unjittered exponential backoff policy dangerous when thousands of clients experience a simultaneous dependency failure?",
-      options: [
-        "It increases CPU load because calculating 2^n requires floating-point hardware.",
-        "Clients remain synchronized and retry in synchronized spikes, creating repeating 'thundering herd' traffic waves that knock out the recovering service.",
-        "TCP sockets cannot handle exponential delays longer than 1,000 milliseconds.",
-        "Downstream databases reject requests that contain exponential backoff headers.",
-      ],
-      c: 1,
-      a: "Without jitter, all clients that time out together wait the exact same mathematical delay (e.g. 1.0s, 2.0s), striking the dependency at the identical millisecond and preventing recovery.",
-    },
-    {
-      q: "What is the key difference between a client timeout and the cancellation of an operation on a backend database?",
-      options: [
-        "Client timeouts automatically send a TCP RST packet that forces the database server to abort the running query.",
-        "A client timeout only causes the client to stop waiting; the database may continue executing the expensive query, wasting CPU and I/O on unneeded work.",
-        "Database engines ignore client timeouts unless gRPC is used.",
-        "Timeouts only apply to network switches, not software drivers.",
-      ],
-      c: 1,
-      a: "Client libraries abandon the socket when a timeout fires, but PostgreSQL or remote APIs will continue computing the result unless an explicit cancellation (like statement_timeout or context cancellation) is enforced.",
-    },
-    {
-      q: "Under AWS Full Jitter guidance, how is the delay before retry attempt n calculated?",
-      options: [
-        "Delay = BaseDelay * 2^n",
-        "Delay = Uniform(0, min(MaxDelay, BaseDelay * 2^n))",
-        "Delay = BaseDelay + Random(0, MaxDelay)",
-        "Delay = min(MaxDelay, BaseDelay * n)",
-      ],
-      c: 1,
-      a: "Full Jitter picks a uniformly distributed random value between 0 and the exponential backoff ceiling min(MaxDelay, BaseDelay * 2^n), maximizing dispersion across time.",
-    },
-    {
-      q: "What is the primary danger of allowing retries at multiple layers (e.g. frontend, API gateway, microservice client)?",
-      options: [
-        "It triggers a nested retry multiplier (e.g. 3 x 3 x 3 = 27 attempts), generating an enormous self-inflicted retry storm during an outage.",
-        "Kubernetes pods crash with an OutOfMemory error immediately upon the third retry.",
-        "HTTP 200 responses are converted into HTTP 500 errors by the ingress controller.",
-        "Clients run out of ephemeral port numbers.",
-      ],
-      c: 0,
-      a: "Nested retries multiply exponentially at each hop. If 3 retries are permitted across 3 architectural tiers, a single user request can produce 27 dependency calls.",
-    },
-    {
-      q: "Which of the following HTTP status codes should typically NOT be retried automatically with identical payload?",
-      options: [
-        "HTTP 503 Service Unavailable",
-        "HTTP 504 Gateway Timeout",
-        "HTTP 400 Bad Request",
-        "HTTP 429 with Retry-After header",
-      ],
-      c: 2,
-      a: "HTTP 400 indicates client syntax or semantic validation failure. Retrying the identical payload without correcting the input will simply fail again, wasting compute.",
-    },
-    {
-      q: "What is the primary role of an Idempotency Key in write-heavy HTTP APIs?",
-      options: [
-        "To encrypt the payload during transit across untrusted networks.",
-        "To allow clients to safely retry a write request after a timeout without creating duplicate records or double-charging.",
-        "To bypass database foreign key constraints during peak traffic.",
-        "To speed up database indexing on primary keys.",
-      ],
-      c: 1,
-      a: "If a client times out because the response was lost after the database commit, retrying with the same Idempotency-Key allows the API to detect the duplicate and return the recorded result safely.",
-    },
-    {
-      q: "What are the three canonical states of a Circuit Breaker, and what happens in the HALF-OPEN state?",
-      options: [
-        "READY, RUNNING, STOPPED; it runs memory profiling.",
-        "CLOSED, OPEN, HALF-OPEN; it permits a bounded number of canary probe requests to test whether the dependency has recovered.",
-        "ACTIVE, IDLE, TERMINATED; it drains active TCP connections.",
-        "GREEN, YELLOW, RED; it sheds 50% of incoming traffic.",
-      ],
-      c: 1,
-      a: "In HALF-OPEN, the breaker allows a controlled trial of probe requests. If they succeed, it closes; if any probe fails, it immediately returns to OPEN and restarts the cooldown timer.",
-    },
-    {
-      q: "How does the Bulkhead pattern protect a mission-critical service from being overwhelmed by an optional feature?",
-      options: [
-        "It caches all responses in Redis for 24 hours.",
-        "It reserves separate, isolated concurrency/worker pools so that optional or slow tasks cannot exhaust resources needed by critical operations.",
-        "It automatically deploys 10 additional replicas when latency increases.",
-        "It converts synchronous REST requests into asynchronous WebSockets.",
-      ],
-      c: 1,
-      a: "Like bulkheads on a ship, resource pooling isolates critical paths from auxiliary paths. If report generation consumes all 5 of its allocated workers, the 20 workers allocated to interactive note creation remain unaffected.",
-    },
-    {
-      q: "What is the fundamental difference between Rate Limiting and Load Shedding?",
-      options: [
-        "Rate limiting is implemented in Python, while load shedding is implemented in Go.",
-        "Rate limiting enforces quotas based on caller identity/policy, while load shedding drops requests based on overall internal system overload to preserve critical work.",
-        "Rate limiting returns HTTP 500, while load shedding returns HTTP 404.",
-        "There is no difference; they are synonymous terms.",
-      ],
-      c: 1,
-      a: "Rate limiting throttles specific callers when they exceed agreed quotas (HTTP 429). Load shedding is a survival mechanism where a service drops low-priority traffic (HTTP 503) to prevent total server collapse.",
-    },
-    {
-      q: "Why is average CPU utilization alone an insufficient metric for triggering load shedding?",
-      options: [
-        "CPU utilization cannot be measured inside containerized environments.",
-        "A system can experience fatal thread exhaustion, database connection pool lockups, or queue latency spikes while average CPU remains low.",
-        "Linux kernels report average CPU inverted (100% means idle).",
-        "Load balancers only inspect memory bandwidth.",
-      ],
-      c: 1,
-      a: "If threads or database connection pools are blocked waiting on an I/O lock or network timeout, CPU utilization may remain below 30% even as latency skyrockets and incoming queues overflow.",
-    },
-    {
-      q: "What is an essential correctness rule when implementing Graceful Degradation on write operations?",
-      options: [
-        "Never return an HTTP 200/201 success to the user if the write was not durably committed or safely queued.",
-        "Always write data to local /tmp files if PostgreSQL is unavailable.",
-        "Convert failed write requests into read requests automatically.",
-        "Silently drop failed writes without logging an error.",
-      ],
-      c: 0,
-      a: "Graceful degradation must preserve correctness. Falsely informing a user that a financial transaction or critical note was saved when it was dropped corrupts data integrity.",
-    },
-    {
-      q: "In Kubernetes, why is a preStop hook containing 'sleep 5' recommended before sending SIGTERM to an application container?",
-      options: [
-        "To allow the CPU clock to sync with the Kubernetes control plane.",
-        "To give kube-proxy, Ingress controllers, and cloud load balancers time to remove the terminating pod from endpoint lists before it stops accepting connections.",
-        "To flush memory pages to physical disk storage.",
-        "To allow Docker daemon to download the new container image.",
-      ],
-      c: 1,
-      a: "Pod termination and endpoint removal happen asynchronously in Kubernetes. Sleeping 5 seconds in preStop prevents clients from routing new traffic to a pod that is actively shutting down its server.",
-    },
-    {
-      q: "What is the distinction between Recovery Time Objective (RTO) and Recovery Point Objective (RPO)?",
-      options: [
-        "RTO measures financial cost; RPO measures latency.",
-        "RTO is the maximum acceptable duration of service downtime; RPO is the maximum acceptable amount of data loss measured in time.",
-        "RTO applies only to databases; RPO applies only to Kubernetes clusters.",
-        "RTO is defined by developers; RPO is defined by cloud providers.",
-      ],
-      c: 1,
-      a: "RTO defines how quickly you must restore working service (e.g. back online within 1 hour). RPO defines how much data you can tolerate losing since the last viable recovery point (e.g. at most 15 minutes of data).",
-    },
-    {
-      q: "Which Disaster Recovery strategy maintains a minimal, running copy of your infrastructure in a secondary region with continuous data replication?",
-      options: [
-        "Backup & Restore",
-        "Warm Standby",
-        "Cold Standby",
-        "Multi-Cloud Sharding",
-      ],
-      c: 1,
-      a: "Warm Standby runs a scaled-down but live copy of the system in the recovery region. On disaster, the database replica is promoted and compute capacity is scaled up rapidly to handle full production traffic.",
-    },
-    {
-      q: "Why must Disaster Recovery procedures be tested periodically in a staging or disaster drill environment?",
-      options: [
-        "Cloud providers automatically delete backups if they are not restored within 30 days.",
-        "Untested backups frequently fail due to missing secrets, schema drift, network routing gaps, or permission errors during a real emergency.",
-        "It is required by the Linux kernel to maintain snapshot validity.",
-        "Database indexes become corrupt if left in cold storage.",
-      ],
-      c: 1,
-      a: "A backup is merely an untested assumption until proven by a successful restore drill that validates encryption keys, IAM permissions, database schema compatibility, and actual RTO/RPO targets.",
-    },
-  ];
+  const masteryQuestions = moduleData?.quiz || [];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="devops" currentModuleId="reliability" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="devops" currentModuleId="reliability" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white">
       {/* BACKGROUND AMBIENT GLOW */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

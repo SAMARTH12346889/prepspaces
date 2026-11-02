@@ -89,6 +89,64 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 7
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Secure Code Review and the Security Testing Lifecycle",
+      "paragraphs": [
+        "Secure code review is the systematic examination of source code to identify weaknesses that could compromise confidentiality, integrity, availability, authentication, authorization, or other security requirements.",
+        "Before conducting security testing, formal written authorization must define:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Manual Secure Code Review Methodology",
+      "paragraphs": [
+        "Comprehensive examination of an entire codebase, microservice, or newly acquired subsystem. Evaluates holistic architectural design, trust boundaries, session lifecycles, and core authorization models.",
+        "Focused inspection of modified code changes in a Pull Request. Evaluates not just modified lines, but how those lines interact with existing middleware, database models, and shared permissions.",
+        "Data-flow analysis follows untrusted values from their origin to sensitive backend execution points:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Automated Security Testing: SAST, DAST, IAST, and SCA",
+      "paragraphs": [
+        "Automated security tools scale coverage across thousands of files, but they produce raw observations that require human context, reachability analysis, and triage:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Controlled Web Security Testing and Finding Validation",
+      "paragraphs": [
+        "Evaluates HTTP traffic and responses without sending attack payloads or altering application state. Examines response headers, cookie flags, and exposed metadata. Safe for production environments.",
+        "Deliberately transmits malicious inputs, boundary payloads, and state-altering mutations. Can corrupt database records or trigger rate limits. Strictly prohibited without explicit written authorization."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Severity, Risk Prioritization, and Remediation Planning",
+      "paragraphs": [
+        "Technical Severity $\\neq$ Contextual Risk: A vulnerability with a CVSS 9.8 score in an isolated, internal test script creates far lower organizational risk than a CVSS 6.5 authorization flaw on a public production student database."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Remediation Validation: Prove the Fix Works",
+      "paragraphs": [
+        "A ticket marked \"Resolved\" is not evidence. Remediation validation requires running reproducible tests against the deployed artifact to prove the vulnerability is eliminated and that legitimate functionality still works:",
+        "Never close a vulnerability report based solely on local source code changes. Source-level fixes often fail to reach production due to:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Secure Development Workflows and DevSecOps",
+      "paragraphs": [
+        "Integrating security into the modern CI/CD pipeline shifts testing left, preventing vulnerabilities from ever reaching production deployments:",
+        "The Application Security Verification Standard provides a basis for designing and verifying technical security controls:"
+      ]
+    }
+  ]
 }

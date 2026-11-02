@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -42,6 +45,7 @@ import {
 } from "./SystemDesignRealtimeDiagrams";
 
 export default function SystemDesignRealtime() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "realtime");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -81,99 +85,7 @@ export default function SystemDesignRealtime() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. Which transport is best suited for persistent bidirectional communication?",
-      options: [
-        "Short polling only",
-        "WebSockets",
-        "A static HTML page",
-        "A database index",
-      ],
-      correctIndex: 1,
-      explanation:
-        "WebSockets provide full-duplex, persistent TCP connections with minimal 2–10 byte framing overhead, making them ideal for bidirectional communication like live code editors and chat.",
-    },
-    {
-      id: "q2",
-      question: "2. What is an important limitation of Redis Pub/Sub?",
-      options: [
-        "It requires a relational table for every message",
-        "Disconnected subscribers can miss published messages",
-        "It cannot broadcast to multiple subscribers",
-        "It guarantees replay after reconnection",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Redis Pub/Sub is 'fire-and-forget'. It does not retain message history or buffer messages for offline or temporarily disconnected subscribers. Redis Streams or a durable database queue is required for retention and replay.",
-    },
-    {
-      id: "q3",
-      question: "3. How should a user with three active browser connections be represented in a presence system?",
-      options: [
-        "As offline whenever any one connection disconnects",
-        "As online only if every connection sends the same heartbeat",
-        "By tracking individual connections and aggregating their active states",
-        "By storing a permanent online flag",
-      ],
-      correctIndex: 2,
-      explanation:
-        "A presence system should maintain a connection set (e.g. Redis Set `user:{id}:sockets`). The user is marked Online if any eligible connection is active, and only transitions to Offline when the connection count reaches zero.",
-    },
-    {
-      id: "q4",
-      question: "4. What is the primary purpose of a durable notification record?",
-      options: [
-        "To replace authentication",
-        "To guarantee a WebSocket is always connected",
-        "To preserve notification history across disconnections",
-        "To prevent all duplicate messages automatically",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Transient WebSocket frames are lost if a user is offline. Storing notifications durably in a database guarantees history preservation, unread counts, and resynchronization upon reconnection.",
-    },
-    {
-      id: "q5",
-      question: "5. What should happen before subscribing a socket to a private interview room?",
-      options: [
-        "Trust the room name supplied by the client",
-        "Verify the connection's permission to access that interview",
-        "Disable message validation",
-        "Check only whether the user has a valid IP address",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Room names must never act as secret capabilities. The server must verify authentication, tenant tenancy, and specific permission before allowing a socket to join a private room like `interview:5001`.",
-    },
-    {
-      id: "q6",
-      question: "6. Why do systems use bounded outbound queues?",
-      options: [
-        "To make message payloads unlimited",
-        "To prevent slow clients from causing unbounded memory growth",
-        "To make network failures impossible",
-        "To ensure all events are globally ordered",
-      ],
-      correctIndex: 1,
-      explanation:
-        "If a client's network slows down while the server produces events rapidly, unbounded socket buffering consumes memory until the server crashes with an Out-Of-Memory (OOM) error. Bounded queues enforce backpressure.",
-    },
-    {
-      id: "q7",
-      question: "7. What is a common recovery strategy after a client reconnects?",
-      options: [
-        "Assume all events were received",
-        "Disable authorization for replay",
-        "Resynchronize authoritative state or replay retained events from a cursor",
-        "Replay every event ever created without limits",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Upon reconnecting, the client either passes its last acknowledged cursor to replay missed events from a bounded buffer, or fetches the authoritative current state via REST/GraphQL to reconcile missed updates.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -344,7 +256,14 @@ Mitigations:
     },
   ];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="realtime" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="realtime" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased">
       {/* Top Breadcrumb & Title Header */}
       <div className="border-b border-stone-200 bg-[#faf8f4]">

@@ -72,6 +72,75 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 9
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Design, Implement, Benchmark, and Defend a Complete Systems Component",
+      "paragraphs": [
+        "This is the final milestone of the PrepSpaces Operating Systems Engineering curriculum. You will synthesize CPU scheduling, virtual memory, concurrency, filesystems, networking, and performance diagnostics to build an end-to-end systems component supported by repeatable benchmarks, ThreadSanitizer verification, and a professional engineering report."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Select Your Approved Capstone Project Track",
+      "paragraphs": [
+        "Choose one project track matching your interests and hardware constraints. Project C (Concurrent Worker Queue) is the recommended default for multicore concurrency, while Project G is ideal for kernel-focused portfolios.",
+        "{projectTracks[selectedTrack].desc}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "The 7-Phase Systems Engineering Workflow",
+      "paragraphs": [
+        "Follow the structured lifecycle used in industrial systems development: from initial problem framing through correctness verification and benchmark defense."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Bounded Worker Queue &amp; Explicit Backpressure Engine",
+      "paragraphs": [
+        "Unbounded queues cause memory exhaustion and catastrophic latency spikes. A production systems queue enforces a rigid capacity bound \\(C\\) and defines deterministic behavior when full: blocking producers or rejecting with an error (backpressure).",
+        "Observe condition variable signaling and backpressure activation when capacity is exhausted."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Performance Benchmarking &amp; Tail Latency Distributions",
+      "paragraphs": [
+        "Systems performance is not a single number. Engineers must report median throughput alongside tail latency percentiles (p50, p95, p99) to detect lock contention queuing cliffs.",
+        "Compare Single-Threaded Baseline vs POSIX Mutex vs Lock-Free Atomic CAS across thread counts."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Standard Systems Repository Layout &amp; Build Reproducibility",
+      "paragraphs": [
+        "A professional systems submission must be clean, structured, and immediately reproducible by an independent evaluator on standard Linux environments."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Capstone Submission Deliverables &amp; Portfolio Readiness",
+      "paragraphs": [
+        "The 9 mandatory portfolio deliverables. Track your completion progress before submitting."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Operating Systems Engineering Capstone Report &amp; Assessment Rubric",
+      "paragraphs": [
+        "Evaluators grade capstone submissions against a 100-point rubric focusing on engineering evidence, verified invariants, and rigorous failure analysis."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 24 Final Capstone Knowledge Check",
+      "paragraphs": [
+        "Validate your systems engineering methodology, baselining discipline, and portfolio readiness."
+      ]
+    }
+  ]
 }

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ModuleNav from "./ModuleNav";
@@ -50,6 +53,7 @@ import {
 } from "lucide-react";
 
 export default function CybersecurityAuthAPISecurity() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "auth-api-security");
   const navigate = useNavigate();
 
   // Scroll to top on mount
@@ -390,88 +394,7 @@ export default function CybersecurityAuthAPISecurity() {
   // =========================================================================
   // KNOWLEDGE ASSESSMENT QUIZ (6 QUESTIONS)
   // =========================================================================
-  const quizQuestions = [
-    {
-      id: 1,
-      question:
-        "An authenticated student requests another student's private report. Which control should decide whether the report can be accessed?",
-      options: [
-        "The fact that the student has signed in successfully",
-        "A server-side object-level authorization check",
-        "Whether the report identifier is difficult to guess",
-        "A frontend button that hides the report link"
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Authentication confirms identity, but authorization decides if that specific identity owns or has explicit permission to view the resource. A server-side object-level authorization check is required."
-    },
-    {
-      id: 2,
-      question: "What is broken function-level authorization (BFLA)?",
-      options: [
-        "A user enters an invalid email address",
-        "An API returns a temporary network error",
-        "A user can invoke an operation that their permissions should not allow",
-        "A session expires according to policy"
-      ],
-      correctAnswer: 2,
-      explanation:
-        "Broken Function Level Authorization (BFLA, OWASP API5:2023) happens when access control checks are missing on endpoints, allowing regular users or lower-privileged roles to invoke administrative or privileged actions."
-    },
-    {
-      id: 3,
-      question: "Which statement about JSON Web Tokens (JWTs) is correct?",
-      options: [
-        "A token must have its integrity and required claims validated before it is trusted",
-        "A token is trustworthy whenever its payload can be decoded",
-        "All JWTs encrypt their claims automatically",
-        "An expired token should be accepted if the signature is valid"
-      ],
-      correctAnswer: 0,
-      explanation:
-        "Decoding a JWT payload does not verify its integrity. A resource server must cryptographically verify the signature using an expected algorithm and validate claims like iss, aud, exp, and nbf before trusting it."
-    },
-    {
-      id: 4,
-      question: "What is the main purpose of API rate limiting and resource controls?",
-      options: [
-        "Replace user authentication",
-        "Reduce abuse and limit excessive consumption of API and backend resources",
-        "Grant every user equal administrative permissions",
-        "Eliminate the need for authorization"
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Rate limiting and resource constraints (OWASP API4:2023) protect infrastructure from service degradation, denial-of-service, financial loss from expensive cloud APIs, and automated brute-force attacks."
-    },
-    {
-      id: 5,
-      question:
-        'An ordinary user submits a profile update containing "role": "admin". What is the appropriate control?',
-      options: [
-        "Accept all model properties automatically",
-        "Hide the role field in the frontend only",
-        "Restrict writable fields server-side and enforce authorization",
-        "Assume the value is safe because it is valid JSON"
-      ],
-      correctAnswer: 2,
-      explanation:
-        "To prevent mass assignment / BOPLA (API3:2023), the backend must explicitly allowlist updateable fields or use a strict Data Transfer Object (DTO), rejecting or ignoring privileged attributes like role."
-    },
-    {
-      id: 6,
-      question: "What is the most appropriate way to handle an API that fetches a URL supplied by a user?",
-      options: [
-        "Validate and restrict destinations, control redirects, and enforce network egress limits where appropriate",
-        "Allow every URL as long as it begins with https://",
-        "Disable all certificate validation",
-        "Trust the URL because it came through an authenticated user"
-      ],
-      correctAnswer: 0,
-      explanation:
-        "To mitigate Server-Side Request Forgery (SSRF, API7:2023), the server must strictly validate destination hostnames/IPs, block RFC1918 private ranges and link-local cloud metadata (169.254.169.254), enforce egress firewall rules, and validate post-redirect destinations."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -494,7 +417,14 @@ export default function CybersecurityAuthAPISecurity() {
     return quizAnswers[q.id] === q.correctAnswer ? score + 1 : score;
   }, 0);
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="auth-api-security" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="auth-api-security" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 antialiased font-sans selection:bg-orange-500 selection:text-white relative pb-20">
       {/* Ambient background glows */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">

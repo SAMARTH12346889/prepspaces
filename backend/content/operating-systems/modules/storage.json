@@ -64,7 +64,7 @@
         "The number of mount points"
       ],
       "correctIndex": 0,
-      "explanation": "Because NAND flash cannot overwrite existing pages without erasing an entire block (e.g. 2–4 MB), the Flash Translation Layer (FTL) must copy valid pages elsewhere before erasing. Write Amplification Factor (WAF = Physical Bytes Written / Host Bytes Written) quantifies this internal rewriting penalty."
+      "explanation": "Because NAND flash cannot overwrite existing pages without erasing an entire block (e.g. 2\u20134 MB), the Flash Translation Layer (FTL) must copy valid pages elsewhere before erasing. Write Amplification Factor (WAF = Physical Bytes Written / Host Bytes Written) quantifies this internal rewriting penalty."
     },
     {
       "id": "q6",
@@ -76,7 +76,7 @@
         "The HDD becomes an NVMe device"
       ],
       "correctIndex": 0,
-      "explanation": "After the first read, the Linux kernel retains file data in the RAM Page Cache. Subsequent reads are satisfied directly from memory at ~5–10 GiB/s without touching the physical storage device or exercising controller queueing."
+      "explanation": "After the first read, the Linux kernel retains file data in the RAM Page Cache. Subsequent reads are satisfied directly from memory at ~5\u201310 GiB/s without touching the physical storage device or exercising controller queueing."
     }
   ],
   "topics": null,
@@ -89,6 +89,104 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 12
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "HDDs, SSDs, Flash Storage & NVMe Fundamentals",
+      "paragraphs": [
+        "Platters & Actuators \u00b7 Flash Translation Layer (FTL) \u00b7 SATA vs NVMe \u00b7 6-Stage Request Lifecycle",
+        "Storage media determine the baseline latency and throughput limits of any operating system. Understanding the physical differences between rotating platters and non-volatile NAND flash is fundamental to systems engineering:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "I/O Scheduling, Queues, Latency and Throughput",
+      "paragraphs": [
+        "Little's Law \u00b7 Queue Depth Trade-offs \u00b7 Linux Schedulers: none, mq-deadline, bfq, kyber",
+        "Storage performance requires balancing throughput against latency. Under Little's Law:",
+        "Increasing queue depth allows NVMe devices to parallelize across internal flash channels, driving throughput up. However, once the device reaches saturation, further increasing queue depth only increases queueing delay\u2014causing tail latency (p95 / p99) to skyrocket!",
+        "Direct passthrough. Bypasses OS software queueing entirely. The default and recommended scheduler for NVMe SSDs.",
+        "Sorts requests by LBA but enforces hard deadlines (e.g. 500ms read deadline) to prevent starvation.",
+        "Emphasizes proportional fairness and desktop interactive responsiveness, especially on slow rotational drives.",
+        "Self-tuning latency-target scheduler designed specifically for fast flash storage devices."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Interrupt-Driven I/O, Polling and Direct Memory Access (DMA)",
+      "paragraphs": [
+        "Hardware IRQ \u00b7 Busy Polling \u00b7 Bus Mastering \u00b7 Driver Responsibilities",
+        "How the CPU and storage device coordinate completion fundamentally dictates execution efficiency:",
+        "The device fires an electrical interrupt (MSI-X) upon completion. CPU saves context and runs kernel handler. Frees CPU for other tasks, but incurs interrupt and context-switch latency (~2\u20135 \u00b5s).",
+        "CPU continuously loops checking the NVMe completion ring. Delivers lowest possible latency (sub-microsecond), but consumes 100% of a CPU core while waiting.",
+        "Device transfers blocks directly to/from host RAM via PCIe bus mastering. CPU sets up scatter-gather lists and never touches individual bytes."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Blocking, Non-Blocking and Asynchronous I/O (io_uring)",
+      "paragraphs": [
+        "read() vs epoll vs io_uring Ring Buffers \u00b7 Zero-Syscall Submissions"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Write Amplification, Flash Garbage Collection and TRIM",
+      "paragraphs": [
+        "Pages vs Erase Blocks \u00b7 Write Amplification Factor (WAF) \u00b7 TRIM / Discard \u00b7 Durability Flushes",
+        "In NAND flash memory, reads and writes happen in 4KB pages, but erasing can only be done in whole blocks (2\u20134MB). A page cannot be rewritten until its containing block is erased."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Practical Lab: Benchmark File Operations (io_benchmark.py)",
+      "paragraphs": [
+        "Throughput vs Latency \u00b7 Chunk Size Impact \u00b7 The Cost of fsync() \u00b7 iostat Analysis"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Storage Medium Latency & Hardware Physics Simulator",
+      "paragraphs": [
+        "Compare mechanical HDD head latency against SATA SSD and NVMe PCIe 4.0 flash across access patterns."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Little's Law & Queue Depth Latency Calculator",
+      "paragraphs": [
+        "Observe the fundamental trade-off: deeper queues saturate hardware throughput, but excessive queue depth causes queueing latency explosion."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Flash Translation Layer (FTL) & Write Amplification Visualizer",
+      "paragraphs": [
+        "See how random small writes and low over-provisioning trigger aggressive garbage collection and accelerate SSD cell wear.",
+        "Writing {writeAmplificationMetrics.hostGiB} GiB of user data causes the SSD to physically write {writeAmplificationMetrics.physicalGiB} GiB into NAND cells (+{writeAmplificationMetrics.wastedFlashWear}% excess wear)!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux Storage & I/O Terminal Shell Emulation",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Module 14 Storage Engineering Competency Checklist",
+      "paragraphs": [
+        "Track your mastery across block layers, NVMe parallel queues, I/O scheduling, and performance benchmarking."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 14 Knowledge Check",
+      "paragraphs": [
+        "Evaluate your understanding of HDDs, SSDs, Little's Law, queue depth, DMA, and storage benchmarking."
+      ]
+    }
+  ]
 }

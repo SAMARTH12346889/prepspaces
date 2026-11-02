@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -61,6 +64,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSFinalCapstone() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "final-capstone");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -328,74 +332,20 @@ uint64 sys_memstat(void) {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. Why must a project establish a baseline?",
-      options: [
-        "A. To make the report longer",
-        "B. To compare the candidate against a known reference under equivalent conditions",
-        "C. To guarantee the candidate is faster",
-      ],
-      correct: 1,
-      explanation:
-        "A baseline (such as a single-threaded version or standard mutex) provides a scientific point of comparison. Without a controlled baseline tested under equivalent conditions, performance claims are meaningless.",
-    },
-    {
-      id: "q2",
-      question: "2. Which statement about concurrency testing is correct?",
-      options: [
-        "A. One successful run proves race freedom",
-        "B. ThreadSanitizer finds every possible concurrency bug",
-        "C. Stress tests and race detectors provide useful evidence but cannot prove all behavior correct",
-      ],
-      correct: 2,
-      explanation:
-        "Concurrency bugs are non-deterministic. While ThreadSanitizer and stress tests provide strong empirical evidence, they explore only executed execution interleavings and cannot mathematically prove the absence of all races.",
-    },
-    {
-      id: "q3",
-      question: "3. What should a benchmark report include?",
-      options: [
-        "A. Only the best run",
-        "B. The workload, environment, methodology, repeated measurements, and limitations",
-        "C. Only a screenshot of a terminal",
-      ],
-      correct: 1,
-      explanation:
-        "Rigorous systems benchmarking requires recording hardware topology, kernel version, compiler flags, fixed workloads, warm-up runs, median results, tail latency (p95/p99), and measurement variances.",
-    },
-    {
-      id: "q4",
-      question: "4. A component fails when its queue reaches capacity. What should its design specify?",
-      options: [
-        "A. A documented full-queue policy and test cases",
-        "B. Nothing if the queue is usually empty",
-        "C. That the error can be ignored",
-      ],
-      correct: 0,
-      explanation:
-        "Failure handling is an explicit part of interface design. A bounded queue contract must document whether full queues block, drop oldest, reject with an error code (backpressure), or signal an event.",
-    },
-    {
-      id: "q5",
-      question: "5. What makes the capstone portfolio-ready?",
-      options: [
-        "A. A large codebase regardless of quality",
-        "B. A working implementation supported by tests, benchmarks, documentation, and a reproducible demonstration",
-        "C. A presentation without source code",
-      ],
-      correct: 1,
-      explanation:
-        "Distinguished engineering portfolios demonstrate verified correctness, comprehensive automated testing, reproducible benchmark results, documented design trade-offs, and clear technical communication.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuiz = (qId, optionIdx) => {
     setQuizAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="final-capstone" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="final-capstone" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#ea580c]/15">
       {/* Top Header & Navigation */}
       <header className="sticky top-0 z-40 bg-[#f6f4ee]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3.5 flex items-center justify-between">

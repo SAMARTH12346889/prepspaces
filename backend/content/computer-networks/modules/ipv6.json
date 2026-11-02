@@ -190,6 +190,104 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 13
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Why IPv6 is Necessary: The Mathematics of Address Exhaustion",
+      "paragraphs": [
+        "IPv4 provides a 32-bit address space yielding 4,294,967,296 addresses ($2^{32}$). With billions of smartphones, IoT sensors, cloud virtual machines, and containers, the global pool administered by IANA and regional internet registries (ARIN, RIPE, APNIC) was officially exhausted.",
+        "IPv6 does not automatically make web applications faster. Latency depends on BGP routing paths, fiber distance, and peering agreements. Because the base IPv6 header is 40 bytes (compared to 20 bytes in IPv4), small payloads carry slightly higher protocol overhead."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "IPv6 Address Notation, Hexadecimal Groups & Compression Rules",
+      "paragraphs": [
+        "An IPv6 address is written as eight 16-bit hexadecimal groups (hextets) separated by colons: 2001:0db8:0001:0000:0000:0000:0000:0025",
+        "Leading zeros in any 16-bit hextet can be dropped: \u2022 0db8 &rarr; db8 \u2022 0001 &rarr; 1 \u2022 0000 &rarr; 0 \u2022 0025 &rarr; 25 Trailing or middle zeros must NEVER be dropped (1020 is NOT 12).",
+        "A single contiguous sequence of all-zero hextets can be replaced with a double colon (::): \u2022 2001:db8:1:0:0:0:0:25 &rarr; 2001:db8:1::25 Critical constraint: :: can be used only once per address. Using it twice makes the omitted zero count ambiguous!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "IPv6 Address Types, Scopes & Special Prefixes",
+      "paragraphs": [
+        "IPv6 categorizes addresses by scope (link-local, unique-local, global) and transmission type (unicast, multicast, anycast)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "IPv6 Prefixes, Hierarchical Subnetting & The Sacred /64 Rule",
+      "paragraphs": [
+        "Subnetting in IPv6 is radically simpler than IPv4. Because address space is abundant, engineers never subnet to conserve individual host IPs. Instead, every standard LAN subnet is assigned a /64 prefix.",
+        "Stateless Address Autoconfiguration (SLAAC) requires a /64 prefix to operate. Even if an office VLAN has only 5 printers, assigning a /64 preserves routing standardization and ensures feature compatibility across all operating systems.",
+        "When an ISP delegates a 2001:db8:1200::/48 prefix, the 4th hextet (bits 49 to 64) is the Subnet ID:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Neighbor Discovery Protocol (NDP \u2014 RFC 4861) & ICMPv6",
+      "paragraphs": [
+        "IPv6 eliminates Layer 2 ARP broadcasts in favor of NDP, built on ICMPv6. NDP handles address resolution, router discovery, prefix discovery, duplicate address detection, and next-hop reachability.",
+        "Instead of broadcasting to all devices, an NS is addressed to ff02::1:ffxx:xxxx (formed by appending the target's last 24 bits to ff02::1:ff00:0/104). The switch hashes this to Ethernet multicast MAC 33:33:ff:xx:xx:xx, ensuring only the intended host's NIC silicon wakes up to inspect the frame!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "SLAAC: Stateless Address Autoconfiguration (RFC 4862)",
+      "paragraphs": [
+        "SLAAC enables true plug-and-play network attachment without a DHCP server. The host learns the /64 network prefix from the local router's RA and generates its own 64-bit Interface Identifier (IID)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "DHCPv6: Stateless vs. Stateful Operating Modes",
+      "paragraphs": [
+        "DHCPv6 operates in two distinct modes governed by the Managed (M) and Other (O) flag bits in the router's Router Advertisement.",
+        "Hosts form their own IPv6 addresses via SLAAC. They send an Information-Request to DHCPv6 solely to receive auxiliary configuration (DNS servers, domain search lists). Server maintains zero lease state.",
+        "The DHCPv6 server leases centrally managed IPv6 addresses and tracks leases in a database, mimicking IPv4 DHCP. Used in high-compliance enterprises requiring strict IP auditing.",
+        "DHCPv6 does NOT provide the default gateway address! Unlike IPv4 DHCP Option 3, an IPv6 host ALWAYS learns its default router from ICMPv6 Router Advertisements."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Dual-Stack Networking & Happy Eyeballs (RFC 8305)",
+      "paragraphs": [
+        "In dual-stack networks, devices run IPv4 and IPv6 concurrently on the same interface. When resolving a domain, DNS returns both an A record (IPv4) and a AAAA record (IPv6).",
+        "Modern web browsers race connection attempts: they initiate a TCP SYN over IPv6, wait a brief 250ms fallback timer, and if IPv6 has not connected, start a parallel IPv4 connection. Whichever completes first wins the race, eliminating connection hangs!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "IPv4/IPv6 Coexistence & Transition: NAT64, DNS64 & 464XLAT",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "IPv6 Security, RA Guard & Common Configuration Pitfalls",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Practical Tools & 8-Step Troubleshooting Sequence",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Practical Laboratory: Configure & Verify Dual-Subnet IPv6",
+      "paragraphs": [
+        "Topology: Two LANs connected through router R1. PC-A on LAN A (2001:db8:10:1::/64) communicating with PC-B on LAN B (2001:db8:10:2::/64)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Capstone Project & Knowledge Assessment",
+      "paragraphs": [
+        "Design a production IPv6 addressing and migration architecture for an enterprise with headquarters, two regional branch offices, DMZ servers, and guest Wi-Fi."
+      ]
+    }
+  ]
 }

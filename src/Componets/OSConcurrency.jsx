@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -56,6 +59,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSConcurrency() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "concurrency");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -184,86 +188,7 @@ Actual:   2841932 (LOST 1,158,068 UPDATES DUE TO DATA RACE)`,
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. What makes `counter++` unsafe when multiple threads modify an ordinary shared integer?",
-      options: [
-        "It always creates a deadlock",
-        "It is not guaranteed to be an atomic read-modify-write operation",
-        "It automatically acquires a mutex",
-        "It forces an immediate OS context switch",
-      ],
-      correctIndex: 1,
-      explanation:
-        "`counter++` decomposes in assembly into three distinct CPU instructions: read memory into a register (load), increment the register value (add), and store the register back into memory. Without synchronization, concurrent interleaved executions cause lost updates, violating atomicity.",
-    },
-    {
-      id: 2,
-      question: "2. Why should a condition-variable wait normally be inside a while loop?",
-      options: [
-        "To increase CPU utilization through busy spinning",
-        "To reacquire the mutex repeatedly without blocking",
-        "To recheck the condition after wake-up (guarding against spurious wakeups and state invalidations)",
-        "To guarantee that a particular thread is selected next by the scheduler",
-      ],
-      correctIndex: 2,
-      explanation:
-        "A condition variable wake-up does not guarantee that the condition is still true when the thread reacquires the mutex. Another thread may have stolen the item in the meantime, or the kernel may produce a spurious wake-up. Therefore, the predicate must always be rechecked in a `while` loop.",
-    },
-    {
-      id: 3,
-      question: "3. Which is one of the four necessary conditions for classical deadlock (Coffman conditions)?",
-      options: [
-        "Circular wait",
-        "Equal thread priorities",
-        "Multiple CPU cores",
-        "Atomic variables",
-      ],
-      correctIndex: 0,
-      explanation:
-        "The four Coffman conditions are: Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait. All four must hold simultaneously for a deadlock to exist. Eliminating even one condition (such as breaking Circular Wait via strict lock hierarchy) prevents deadlocks.",
-    },
-    {
-      id: 4,
-      question: "4. What does release/acquire synchronization help establish?",
-      options: [
-        "A guaranteed increase in thread count",
-        "Ordering and visibility for appropriately synchronized operations across threads (happens-before)",
-        "Automatic deadlock recovery by the operating system kernel",
-        "A guarantee that every atomic operation is lock-free in hardware",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A store-release operation guarantees that all prior memory writes are made visible to any thread that performs a matching load-acquire that observes that store. This establishes a cross-thread happens-before relationship without requiring expensive full sequential consistency barriers.",
-    },
-    {
-      id: 5,
-      question: "5. What is livelock?",
-      options: [
-        "A thread is permanently blocked without taking action",
-        "Threads remain active and consume CPU cycles, but fail to make useful progress",
-        "A task uses all available memory pages",
-        "A mutex is destroyed immediately after joining",
-      ],
-      correctIndex: 1,
-      explanation:
-        "In a livelock, threads continuously execute instructions and change their state in response to one another (e.g., repeatedly acquiring, backing off, and retrying locks in lockstep), yet the collective system makes zero forward computational progress.",
-    },
-    {
-      id: 6,
-      question: "6. What does linearizability require?",
-      options: [
-        "Every operation must be protected by a coarse-grained mutex",
-        "Every thread must run on a separate CPU core",
-        "Concurrent operations must appear to take effect instantaneously at a linearization point between invocation and response, consistent with real-time order",
-        "All threads must complete their execution simultaneously",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Linearizability is a strict concurrent correctness condition. It requires that every operation appear to take effect at a single indivisible instant in time between its start and completion, and that non-overlapping operations respect their real-time sequential ordering.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -487,7 +412,14 @@ int main(void) {
     return EXIT_SUCCESS;
 }`;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="concurrency" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="concurrency" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-900">
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Module Navigation Header */}

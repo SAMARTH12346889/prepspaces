@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -37,6 +40,7 @@ import {
 } from "./SystemDesignConsistencyDiagrams";
 
 export default function SystemDesignConsistency() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "consistency");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -203,110 +207,7 @@ export default function SystemDesignConsistency() {
   // ---------------------------------------------------------------------------
   // 9-QUESTION ASSESSMENT QUIZ STATE
   // ---------------------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What does eventual consistency generally guarantee?",
-      options: [
-        "Every read immediately sees the latest global write",
-        "Replicas eventually converge if updates stop and synchronization succeeds under the model's assumptions",
-        "All concurrent writes are rejected",
-      ],
-      correct: 1,
-      explanation:
-        "Eventual consistency ensures that in the absence of new mutations, all replicas will eventually synchronize and return identical data. It does not provide a hard real-time upper bound on propagation delay.",
-    },
-    {
-      id: 2,
-      question: "What is the defining real-time property of linearizability?",
-      options: [
-        "Operations appear atomic in an order that respects real-time precedence for non-overlapping operations",
-        "Every write must reach every physical server before returning",
-        "Every operation has a globally synchronized wall-clock timestamp",
-      ],
-      correct: 0,
-      explanation:
-        "Linearizability requires that if operation A completes before operation B begins in absolute physical time, B must observe A's completed state (or a subsequent state). Operations appear to execute instantaneously on a single logical object.",
-    },
-    {
-      id: 3,
-      question:
-        "For N=3, R=2, W=2, what is the minimum size of the intersection between any read and write quorums in the simple fixed-replica-set model?",
-      options: ["0", "1", "2"],
-      correct: 1,
-      explanation:
-        "By the pigeonhole formula: min_intersection = max(0, R + W - N) = max(0, 2 + 2 - 3) = 1. Every read quorum shares at least 1 node with every write quorum.",
-    },
-    {
-      id: 4,
-      question: "What does R + W > N establish in the simplified quorum model?",
-      options: [
-        "It proves complete linearizability for any database",
-        "It guarantees that every read quorum intersects every write quorum for the same fixed replica set",
-        "It guarantees that no replica can fail",
-      ],
-      correct: 1,
-      explanation:
-        "The condition R + W > N guarantees mathematical set intersection between the read and write replicas. However, achieving linearizability still requires correct version selection, conflict resolution, and synchronization protocols.",
-    },
-    {
-      id: 5,
-      question: "What is read-your-writes consistency?",
-      options: [
-        "A client can observe its own completed write in subsequent reads under the guarantee",
-        "Every read must be executed on the same physical server",
-        "Every replica must be updated simultaneously",
-      ],
-      correct: 0,
-      explanation:
-        "Read-your-writes guarantees that whenever an individual client commits a mutation, all subsequent reads executed by that same client within its session will reflect that mutation.",
-    },
-    {
-      id: 6,
-      question:
-        "A quorum write succeeds while one replica remains stale. What may help the replicas converge?",
-      options: [
-        "Read repair or background anti-entropy repair",
-        "Changing all application timestamps to local time",
-        "Disabling every read request",
-      ],
-      correct: 0,
-      explanation:
-        "Read repair updates stale replicas when an inconsistent read is detected, while background anti-entropy repair (such as Cassandra Merkle tree synchronization) periodically compares and synchronizes drifted data.",
-    },
-    {
-      id: 7,
-      question: "What is a major risk of last-write-wins conflict resolution?",
-      options: [
-        "It always rejects concurrent writes",
-        "The selected value may be undesirable if timestamp order does not reflect the intended business decision",
-        "It makes quorum intersection impossible",
-      ],
-      correct: 1,
-      explanation:
-        "Last-Write-Wins (LWW) silently overwrites concurrent updates based solely on timestamps. If machine clocks drift or events happen concurrently, valid human business decisions can be permanently destroyed.",
-    },
-    {
-      id: 8,
-      question: "Which system documents session consistency using session tokens?",
-      options: ["Azure Cosmos DB", "A bare HTTP connection", "A DNS A record"],
-      correct: 0,
-      explanation:
-        "Microsoft Azure Cosmos DB exposes session consistency as its default model, passing session tokens back and forth between client SDKs and replicas to enforce monotonic reads and read-your-writes.",
-    },
-    {
-      id: 9,
-      question: "Why is RPO different from a quorum size?",
-      options: [
-        "RPO specifies an acceptable data-loss window for a defined recovery scenario; quorum size specifies response requirements in a replication protocol",
-        "RPO always equals W",
-        "Quorum size measures API latency",
-      ],
-      correct: 0,
-      explanation:
-        "Recovery Point Objective (RPO) is a disaster recovery business metric measuring tolerated data loss duration (e.g. at most 5 seconds of writes). Quorum size (W) is a protocol setting specifying how many replicas must acknowledge a mutation.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -742,7 +643,14 @@ export default function SystemDesignConsistency() {
 
   const currentLessonData = lessons.find((l) => l.id === activeLesson) || lessons[0];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="consistency" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="consistency" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-8 sm:px-8 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

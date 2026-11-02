@@ -89,6 +89,16 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 1
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "A concurrent program must be correct under every execution order permitted by its synchronization rules\u2014not just the execution order observed during one test. Master critical sections, mutual exclusion, condition variables, C11 memory ordering, happens-before, the four Coffman deadlock conditions, and linearizability."
+      ]
+    }
+  ]
 }

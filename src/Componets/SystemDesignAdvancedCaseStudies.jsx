@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -40,6 +43,7 @@ import {
 } from "./SystemDesignAdvancedCaseStudiesDiagrams";
 
 export default function SystemDesignAdvancedCaseStudies() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "advanced-case-studies");
   const navigate = useNavigate();
 
   // Navigation tab state: "curriculum" | "simulators" | "qa" | "assignments" | "assessment" | "reading"
@@ -63,112 +67,7 @@ export default function SystemDesignAdvancedCaseStudies() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "1. What is the main advantage of a CDN in a video platform?",
-      options: [
-        "It automatically transcodes every source video",
-        "It delivers eligible cached media from locations closer to viewers",
-        "It replaces the need for object storage",
-        "It guarantees every video is public",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A Content Delivery Network (CDN) caches segmented media chunks (.ts / .m4s) at edge Points of Presence (PoPs) close to viewers, drastically reducing origin egress costs, buffering stalls, and startup latency.",
-    },
-    {
-      id: "q2",
-      question: "2. Why is geospatial indexing useful in ride-hailing?",
-      options: [
-        "It removes the need for driver availability",
-        "It makes all routes the same length",
-        "It narrows nearby-driver candidates without scanning the entire driver population",
-        "It guarantees a driver cannot be double-assigned",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Geospatial indexing (such as Uber's H3 hexagonal hierarchical cells or Geohashes) clusters driver coordinates into spatial buckets, allowing the dispatch service to search only neighboring cells rather than performing an O(N) full-table scan over hundreds of thousands of online drivers.",
-    },
-    {
-      id: "q3",
-      question: "3. What is the purpose of an idempotency key in payment processing?",
-      options: [
-        "Encrypt the payment database",
-        "Make a retry of the same logical operation safe from duplicate side effects",
-        "Guarantee an external provider is always available",
-        "Replace financial reconciliation",
-      ],
-      correctIndex: 1,
-      explanation:
-        "An idempotency key enables client retries following dropped network connections or ambiguous timeouts without triggering duplicate charges or double captures on the payment network.",
-    },
-    {
-      id: "q4",
-      question: "4. A payment provider may have completed a payment, but the response was lost. What should the application do?",
-      options: [
-        "Always create a new unrelated payment",
-        "Mark the payment failed immediately",
-        "Recover the existing operation's outcome through idempotent retry, provider lookup, or verified events",
-        "Delete the payment record",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Network timeouts are ambiguous: the provider may have debited the customer. The platform must maintain the payment in a pending state and resolve the outcome via an idempotent provider lookup, signed webhook verification, or reconciliation.",
-    },
-    {
-      id: "q5",
-      question: "5. Why is a ledger useful in a financial system?",
-      options: [
-        "It stores only the most recent UI status",
-        "It replaces all security checks",
-        "It makes refunds unnecessary",
-        "It records auditable financial movements and supports reconciliation",
-      ],
-      correctIndex: 3,
-      explanation:
-        "A double-entry financial ledger uses immutable debit and credit entries with balancing invariants, enabling end-to-end auditability, dispute resolution, and automated settlement reconciliation.",
-    },
-    {
-      id: "q6",
-      question: "6. What is an important capacity metric for a large-scale LLM serving system?",
-      options: [
-        "Only the number of registered users",
-        "Input and output token throughput alongside latency and memory usage",
-        "Only the number of database tables",
-        "Only HTTP requests per day",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Because generating 3,000 output tokens consumes exponentially more accelerator compute than a 20-token classification, capacity must be sized on input/output token throughput, KV-cache VRAM consumption, and latency SLAs rather than raw request counts.",
-    },
-    {
-      id: "q7",
-      question: "7. What is a common trade-off in continuous batching?",
-      options: [
-        "Improved serving utilization versus scheduling and latency considerations",
-        "Permanent elimination of KV cache",
-        "Guaranteed identical throughput for every model",
-        "Removal of all admission controls",
-      ],
-      correctIndex: 0,
-      explanation:
-        "Continuous batching (iteration-level scheduling) admits new requests into active GPU decoding steps to maximize hardware utilization, but requires careful iteration scheduling so long generations do not starve interactive latency deadlines.",
-    },
-    {
-      id: "q8",
-      question: "8. Which approach helps prevent two ride-dispatch workers from assigning one driver to two trips?",
-      options: [
-        "A faster geospatial index alone",
-        "A cached availability Boolean with no validation",
-        "An atomic reservation or conditional state transition",
-        "More frequent GPS updates alone",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Double-assignment is a database concurrency problem solved by atomic conditional updates (e.g. Compare-And-Swap: UPDATE drivers SET status = 'RESERVED' WHERE id = $1 AND status = 'AVAILABLE') paired with reservation lease expirations.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -373,7 +272,14 @@ export default function SystemDesignAdvancedCaseStudies() {
     },
   ];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="advanced-case-studies" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="advanced-case-studies" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900">
       <ModuleNav track="system-design" currentModuleId="advanced-case-studies" />
 

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -74,6 +77,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkWireless() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "wireless");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -561,138 +565,7 @@ export default function NetworkWireless() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "What is the primary role of a Wi-Fi Access Point (AP) in enterprise infrastructure mode?",
-      options: [
-        "It acts as the primary WAN router, NAT gateway, and DNS authority.",
-        "It provides radio connectivity and functions as a Layer 2 bridge mapping wireless frames to wired 802.1Q VLANs.",
-        "It assigns public IPv4 addresses directly to every client phone.",
-        "It terminates TLS connections and decrypts application-layer data for inspection.",
-      ],
-      correct: 1,
-      rationale:
-        "In enterprise networks, the AP is NOT the router. It is a Layer 2 wireless-to-Ethernet bridge that encapsulates 802.11 wireless frames into 802.3 Ethernet frames, tags them with 802.1Q VLAN IDs, and hands them off to upstream distribution switches and firewalls.",
-    },
-    {
-      id: "q2",
-      question: "Why are Channels 1, 6, and 11 standard in North American 2.4 GHz channel planning?",
-      options: [
-        "They have the highest transmit power allowed by the FCC.",
-        "They are the only channels supported by consumer smartphone Wi-Fi chips.",
-        "They are the only three 20 MHz channels separated by 25 MHz that do not overlap spectrally.",
-        "They automatically negotiate Dynamic Frequency Selection (DFS) radar avoidance.",
-      ],
-      correct: 2,
-      rationale:
-        "The 2.4 GHz band has 20 MHz wide channels spaced only 5 MHz apart. Channels 1 (2412 MHz), 6 (2437 MHz), and 11 (2462 MHz) provide 25 MHz spacing, preventing Adjacent-Channel Interference (ACI) where sideband energy causes frame corruption.",
-    },
-    {
-      id: "q3",
-      question: "What fundamental security improvement does WPA3-Personal introduce over WPA2-Personal?",
-      options: [
-        "It replaces passwords with biometric fingerprint scanning over the air.",
-        "It uses Simultaneous Authentication of Equals (SAE / Dragonfly) to prevent offline dictionary attacks against captured handshakes.",
-        "It provides hardware-level immunity against RF radio jamming.",
-        "It eliminates the need for access point encryption keys.",
-      ],
-      correct: 1,
-      rationale:
-        "WPA2-Personal uses a 4-way handshake vulnerable to offline dictionary cracking if an attacker captures Messages 1 and 2. WPA3-Personal uses SAE (Dragonfly zero-knowledge proof), ensuring that no verifiable password hash is transmitted over the air, forcing attackers to interact online where they can be throttled.",
-    },
-    {
-      id: "q4",
-      question: "What is the primary vulnerability in PEAP-MSCHAPv2 enterprise deployments when client configuration is unmanaged?",
-      options: [
-        "The RADIUS server crashes if more than 50 clients associate simultaneously.",
-        "If the client fails to validate the RADIUS server certificate and Root CA, an Evil Twin AP can harvest MS-CHAPv2 challenge-response hashes.",
-        "MS-CHAPv2 requires unencrypted 2.4 GHz channels.",
-        "EAP-PEAP disables WPA3 encryption.",
-      ],
-      correct: 1,
-      rationale:
-        "In PEAP, the server presents a TLS certificate to build an outer tunnel. If a client device is not configured to validate the trusted Root CA and server hostname, an attacker with a rogue AP (e.g., hostapd-wpe) can present a self-signed certificate, trick the client into establishing the tunnel, and capture the inner MS-CHAPv2 hash for offline cracking.",
-    },
-    {
-      id: "q5",
-      question: "What role does IEEE 802.11w Protected Management Frames (PMF) perform?",
-      options: [
-        "It accelerates Wi-Fi speed from 54 Mbps to 1 Gbps.",
-        "It encrypts and cryptographically signs unicast and broadcast management frames (like Deauth and Disassociation) using BIP (AES-CMAC).",
-        "It replaces DHCP servers with peer-to-peer address negotiation.",
-        "It connects Bluetooth headsets directly to cellular towers.",
-      ],
-      correct: 1,
-      rationale:
-        "In legacy Wi-Fi, management frames are unencrypted and unauthenticated, allowing any attacker to forge spoofed deauthentication frames to disconnect clients. 802.11w (PMF) cryptographically signs these frames, preventing spoofed deauth DoS attacks. PMF is mandatory in WPA3.",
-    },
-    {
-      id: "q6",
-      question: "What is the function of the 5G Core User Plane Function (UPF)?",
-      options: [
-        "Authenticating SIM card cryptographic keys with the mobile operator.",
-        "Managing gNodeB radio channel assignments across millimeter wave cells.",
-        "Forwarding, routing, and enforcing QoS on user data packets between the RAN and external Data Networks (DN).",
-        "Generating Bluetooth advertising beacons for indoor location.",
-      ],
-      correct: 2,
-      rationale:
-        "In 5G Service-Based Architecture, the control plane (AMF, SMF, UDM) handles signaling, identity, and session control, while the User Plane Function (UPF) is the high-performance packet processing engine that anchors user traffic and forwards IP packets between the gNodeB radio access network and external data networks.",
-    },
-    {
-      id: "q7",
-      question: "Why is Layer 2 Client Isolation critical on enterprise Guest Wi-Fi networks?",
-      options: [
-        "It doubles the maximum range of the 5 GHz radio.",
-        "It blocks direct station-to-station traffic, preventing malicious guests from port scanning, ARP poisoning, or laterally attacking other guests.",
-        "It compresses video streaming packets to reduce WAN bandwidth.",
-        "It prevents guests from seeing the SSID in their phone settings.",
-      ],
-      correct: 1,
-      rationale:
-        "Without client isolation, any guest device on the open or pre-shared guest WLAN can sniff broadcasts, launch ARP spoofing MITM attacks, or attack vulnerable ports (e.g., SMB/RDP) on neighboring visitor laptops. Client isolation ensures guests can only communicate with the gateway.",
-    },
-    {
-      id: "q8",
-      question: "How do 802.11k, 802.11v, and 802.11r collectively solve 'Sticky Client' syndrome and VoIP drops?",
-      options: [
-        "They force clients to switch to 2.4 GHz only.",
-        "802.11k provides neighbor AP lists; 802.11v suggests optimal BSS targets; 802.11r (Fast Transition) pre-authenticates keys, reducing roam latency to <50ms.",
-        "They eliminate the need for access points to be connected to switches.",
-        "They allow clients to transmit at 100 Watts to reach distant base stations.",
-      ],
-      correct: 1,
-      rationale:
-        "Sticky clients cling to a degraded distant AP (-80 dBm) rather than roaming to a closer AP (-55 dBm). 802.11k gives the client a curated list of neighbor channels to scan; 802.11v allows the AP to suggest roaming; 802.11r caches pairwise keys so the client avoids a full 4-way/802.1X handshake during roam, preserving real-time voice calls.",
-    },
-    {
-      id: "q9",
-      question: "What differentiates Bluetooth Low Energy (BLE) architecture from Bluetooth Classic?",
-      options: [
-        "BLE operates on 5 GHz, while Classic operates on 2.4 GHz.",
-        "BLE uses GATT profiles with Services and Characteristics optimized for low-duty-cycle sensor data with coin-cell battery life.",
-        "BLE does not support any encryption or authentication.",
-        "BLE transmits continuous uncompressed audio streams at 10 Mbps.",
-      ],
-      correct: 1,
-      rationale:
-        "Bluetooth Classic is designed for continuous data/audio streaming (A2DP, handsfree). BLE is architected for intermittent, low-power duty cycles using Generic Attribute Profile (GATT) hierarchical services and characteristics, allowing sensors to run for years on a single coin-cell battery.",
-    },
-    {
-      id: "q10",
-      question: "What initial diagnostic step should an SRE take when an unknown SSID is detected near an office building?",
-      options: [
-        "Immediately launch a deauth DoS attack to take down the unknown device.",
-        "Trigger an enterprise-wide network shutdown and alert the press.",
-        "Correlate the observed BSSID, channel, and RSSI with internal switch MAC tables to determine if it is connected to the wired LAN before classifying it.",
-        "Connect an admin laptop to the unknown SSID to inspect its router admin page.",
-      ],
-      correct: 2,
-      rationale:
-        "An unknown SSID could simply be a neighboring business or personal smartphone hotspot. Before taking aggressive action, network engineers correlate the BSSID with internal switch CAM tables (to verify if an unauthorized AP is physically connected to the corporate LAN) and inspect authorized inventories.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const calculateScore = () => {
     let score = 0;
@@ -770,7 +643,14 @@ An authorized technical audit of the enterprise wireless infrastructure was cond
 - [x] 802.11r Fast Transition handoff measured at 34ms across AP-01 and AP-02.
 - **Approved by:** SRE Lead Infrastructure Engineer`;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="wireless" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="wireless" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans pb-16">
       {/* Top Breadcrumb & Navigation Bar */}
       <div className="border-b border-[#e7e3da] bg-[#fbfaf7]/80 backdrop-blur sticky top-0 z-30">

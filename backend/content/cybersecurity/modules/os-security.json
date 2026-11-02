@@ -89,6 +89,79 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 7
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Operating System Security Fundamentals",
+      "paragraphs": [
+        "The operating system's role as a resource mediator, the OS attack surface, layered defense, and distinguishing vulnerabilities from misconfigurations.",
+        "Operating system security is the practice of protecting the OS, its configuration, accounts, processes, files, system interfaces, and administrative functions against unauthorized access and misuse. The OS mediates access to CPU, memory, filesystem objects, network sockets, hardware peripherals, and security principals.",
+        "A flaw or bug in binary logic (e.g. heap buffer overflow or use-after-free). Requires vendor source patch or recompilation.",
+        "An administrative setting or policy choice (e.g. leaving SSH root login permitted, mode 777 on sensitive logs, disabled host firewall).",
+        "NIST SP 800-123 emphasizes: Hardening is not the act of disabling as many features as possible. It is the disciplined process of making the system's actual configuration match its documented security requirements."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Security Baselines and the Hardening Lifecycle",
+      "paragraphs": [
+        "CIS Benchmarks, Microsoft Security Baselines, avoiding blind hardening, baseline recordkeeping, and managing configuration drift.",
+        "A security baseline is an approved, tested set of configuration settings and requirements used to establish a known security posture. Two authoritative standards dominate the industry:",
+        "Configuration drift occurs when manual sysadmin troubleshooting, unmanaged updates, or developer shortcuts alter security parameters. Maintain continuous auditing via tools like OpenSCAP, Ansible, or Microsoft Intune to detect deviations immediately."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux Security: Users, Groups, Ownership, and Permissions",
+      "paragraphs": [
+        "UIDs, GIDs, traditional discretionary access control (DAC), octal and symbolic modes, directory traversal, and umask calculation.",
+        "Linux represents identities via numeric UIDs and GIDs. Every filesystem object has three permission sets: User (owner), Group, and Other.",
+        "Calculated by summing bits: 6 (4+2), 4 (4), 0 (0) $\\to$ chmod 640 report.txt.",
+        "The umask determines which permission bits are automatically stripped when new files or directories are created. With a secure enterprise baseline umask of 027:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux ACLs, Special Permission Bits, and Privilege Management",
+      "paragraphs": [
+        "POSIX ACLs (getfacl/setfacl), SUID/SGID security risks, sticky bits, sudoers governance, and mandatory access control (SELinux & AppArmor).",
+        "Ubuntu and enterprise distributions disable direct root password logins, routing administrative actions through sudo. When auditing sudoers:",
+        "Label-based security contexts (Type Enforcement). Processes cannot touch files outside their assigned label domain even if running as UID 0.",
+        "Path-based profile enforcement confining programs to approved files, network sockets, and capabilities."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Windows Security, Permissions, and Privilege Management",
+      "paragraphs": [
+        "Security Principals, SIDs, Access Tokens, NTFS Permissions, UAC token filtering, and Windows LAPS password rotation.",
+        "Windows relies on Security Identifiers (SIDs) and Access Tokens. NTFS permissions govern objects, supporting Full Control, Modify, Read & Execute, Read, and Write.",
+        "Splits administrative logins into a filtered standard token and an elevated token. Restricts silent execution of malware requiring admin rights.",
+        "Automatically randomizes and rotates the local Administrator account password on every machine, storing it securely in Active Directory / Azure AD to eliminate lateral password pass-the-hash attacks."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Operating System Hardening in Practice",
+      "paragraphs": [
+        "Patch pipelines, disabling unneeded services, SSH & RDP hardening, host firewalls (UFW/Defender), and configuration integrity.",
+        "Configure unattended-upgrades for security updates; automate WSUS testing.",
+        "Disable unused systemd services with systemctl disable --now.",
+        "Set PermitRootLogin no, disable password auth, restrict to admin subnet.",
+        "Enable UFW (ufw default deny incoming) or Windows Defender Firewall.",
+        "Enforce UEFI Secure Boot, BitLocker / LUKS full-disk encryption.",
+        "Validate EDR health, AppLocker / WDAC application execution policies."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Logging, Auditing, and Security Verification",
+      "paragraphs": [
+        "Linux journalctl and auditd, Windows Event Viewer and PowerShell Get-WinEvent, evidence validation, and regression testing."
+      ]
+    }
+  ]
 }

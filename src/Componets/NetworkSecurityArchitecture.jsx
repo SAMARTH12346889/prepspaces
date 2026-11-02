@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -55,6 +58,7 @@ import {
 import ModuleNav from "./ModuleNav";
 
 export default function NetworkSecurityArchitecture() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "security-architecture");
   const navigate = useNavigate();
 
   // Active navigation tab: curriculum | simulators | lab | quiz | audit
@@ -404,138 +408,7 @@ export default function NetworkSecurityArchitecture() {
   // ==========================================
   // QUIZ STATE & DATA
   // ==========================================
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the central foundational premise of Zero Trust Architecture (NIST SP 800-207)?",
-      options: [
-        "Network location or presence inside a corporate subnet never implies trust; every request must be explicitly verified",
-        "All network firewalls should be replaced with antivirus software on end-user laptops",
-        "Public IP addresses are untrusted, but internal RFC 1918 private subnets are inherently safe",
-        "VPNs provide complete authorization for all workloads connected to their tunnel",
-      ],
-      correctIndex: 0,
-      explanation:
-        "The core principle of Zero Trust is to 'never trust, always verify'. Trust is never inferred from network location, IP address, or VPN membership; instead, access is continuously evaluated using identity, device posture, authentication strength, and resource-specific policy.",
-    },
-    {
-      id: 2,
-      question: "In microsegmentation, what is the primary risk of relying on a 'flat' corporate network?",
-      options: [
-        "Routers cannot negotiate BGP route attributes over VLAN trunks",
-        "A single compromised workstation or workload can freely move laterally to access databases and administrative services",
-        "DNS queries become unencrypted and fail DNSSEC cryptographic validation",
-        "Kubernetes pods cannot obtain IP addresses from the CNI bridge",
-      ],
-      correctIndex: 1,
-      explanation:
-        "In a flat network, there are no granular boundaries between workloads. If an attacker compromises an ordinary employee laptop, they can directly scan and probe databases, domain controllers, and management interfaces across the entire subnet.",
-    },
-    {
-      id: 3,
-      question: "Which DNS security technology provides cryptographic authentication of records to prevent spoofing, but does NOT encrypt query contents?",
-      options: [
-        "DNS over HTTPS (DoH)",
-        "DNS over TLS (DoT)",
-        "DNSSEC",
-        "mDNS (Multicast DNS)",
-      ],
-      correctIndex: 2,
-      explanation:
-        "DNSSEC uses public-key cryptography and digital signatures (RRSIG, DNSKEY, DS records) to authenticate the origin and integrity of DNS responses. However, DNSSEC is unencrypted; queries and responses remain readable in plaintext on the wire.",
-    },
-    {
-      id: 4,
-      question: "What is the security significance of the 'AllowedIPs' configuration setting in WireGuard?",
-      options: [
-        "It acts as both an encryption routing table and an ingress packet filter (cryptokey routing)",
-        "It specifies which DNS resolvers are permitted to resolve WireGuard domain names",
-        "It dictates the AES-GCM cipher suite used during the IKEv2 Phase 1 handshake",
-        "It assigns public IP addresses to cloud Kubernetes worker nodes",
-      ],
-      correctIndex: 0,
-      explanation:
-        "WireGuard uses Cryptokey Routing: AllowedIPs defines which destination IP prefixes are routed through the tunnel to that peer, and conversely, which source IPs are accepted from that peer. A broad AllowedIPs (like 0.0.0.0/0) can inadvertently provide broader reachability than intended.",
-    },
-    {
-      id: 5,
-      question: "How does a Kubernetes NetworkPolicy behave when an empty podSelector (`podSelector: {}`) is used with `policyTypes: ['Ingress']` and no ingress rules?",
-      options: [
-        "It allows all inbound traffic from all namespaces in the cluster",
-        "It acts as a cluster-wide Default Deny Ingress rule, dropping all inbound traffic to selected pods",
-        "It forwards all ingress traffic directly to the cloud load balancer",
-        "It disables the CNI plugin on all worker nodes",
-      ],
-      correctIndex: 1,
-      explanation:
-        "An empty podSelector selects all pods in that namespace, and having an Ingress policyType with an empty `ingress: []` list instructs the CNI to isolate all pods and deny all inbound traffic by default.",
-    },
-    {
-      id: 6,
-      question: "What failure occurs when a web server serves a certificate chain missing an intermediate CA certificate?",
-      options: [
-        "The server CPU crashes due to an out-of-memory kernel panic",
-        "Clients lacking the intermediate certificate in their local cache fail trust chain verification (UNABLE_TO_GET_ISSUER_CERT)",
-        "The client automatically falls back to unencrypted HTTP port 80",
-        "DNS queries to the domain are redirected to the root nameservers",
-      ],
-      correctIndex: 1,
-      explanation:
-        "TLS servers must send the leaf certificate along with all intermediate CA certificates up to (but excluding) the root CA. If an intermediate is omitted, clients that do not support or cannot reach Authority Information Access (AIA) fetching will reject the connection as untrusted.",
-    },
-    {
-      id: 7,
-      question: "How does Network Detection and Response (NDR) differ from traditional perimeter firewalls?",
-      options: [
-        "NDR blocks all port 443 traffic regardless of protocol",
-        "NDR analyzes east-west internal network traffic, DNS telemetry, and flow patterns to detect anomalous post-compromise activity",
-        "NDR replaces endpoint detection and response (EDR) completely",
-        "NDR is only applicable to wireless 802.11 Wi-Fi networks",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Traditional firewalls focus on north-south perimeter boundary enforcement. NDR continuously monitors network telemetry (flow logs, internal packet metadata, DNS) across east-west traffic to identify lateral movement, data staging, beaconing, and anomalous workload behavior.",
-    },
-    {
-      id: 8,
-      question: "What is the recommended risk treatment for a finding where an administrative interface is exposed directly to the public Internet without MFA?",
-      options: [
-        "Risk Acceptance with no documentation required",
-        "Risk Transfer by purchasing cyber insurance",
-        "Immediate Mitigation: Restrict to an identity-aware gateway, enforce phishing-resistant MFA, and isolate management access",
-        "Risk Avoidance by shutting down the entire cloud account permanently",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Publicly exposed administrative interfaces represent critical exposure (Likelihood 4-5, Impact 5). The immediate mitigation is to remove direct public access, route access through an Identity-Aware Proxy (IAP) or bastion, and mandate phishing-resistant FIDO2 MFA.",
-    },
-    {
-      id: 9,
-      question: "Why is a certificate validation bypass (e.g. `curl -k` or `verify=False` in Python) considered a critical architectural flaw?",
-      options: [
-        "It increases TCP window size and induces bufferbloat",
-        "It blinds the client to adversary Man-in-the-Middle (MitM) interception, allowing attackers to present fraudulent certificates",
-        "It causes DNS servers to reject recursive queries",
-        "It forces the server to use obsolete 3DES encryption",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Disabling certificate validation strips TLS of its authentication guarantee. Any attacker positioning themselves between the client and server (via ARP spoofing, DNS poisoning, or rogue Wi-Fi) can intercept and decrypt the traffic without the client detecting the breach.",
-    },
-    {
-      id: 10,
-      question: "In the context of Zero Trust Architecture, what is the role of the Policy Enforcement Point (PEP)?",
-      options: [
-        "To calculate BGP shortest path attributes using Dijkstra's algorithm",
-        "To intercept, inspect, and enforce access decisions rendered by the Policy Decision Point (PDP)",
-        "To distribute symmetric IPsec encryption keys via DNS records",
-        "To generate synthetic load testing traffic for iperf3",
-      ],
-      correctIndex: 1,
-      explanation:
-        "In NIST SP 800-207 Zero Trust Architecture, the Policy Decision Point (PDP) evaluates access rules, while the Policy Enforcement Point (PEP) is the component (firewall, proxy, API gateway, or service mesh proxy) that physically allows or terminates the communication session based on the PDP's decision.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
@@ -664,7 +537,14 @@ PersistentKeepalive = 25
 ---
 *Report certified by Architecture Review Board — PrepSpaces Security Division*`;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="security-architecture" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="security-architecture" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900">
       <ModuleNav activeModuleId="security-architecture" />
 

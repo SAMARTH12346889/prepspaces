@@ -89,6 +89,94 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 8
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "1. Volatile versus Persistent State",
+      "paragraphs": [
+        "RAM \u00b7 Page Cache \u00b7 Disk Controller Caches \u00b7 Durability Boundaries \u00b7 ACID Terminology",
+        "A successful write call does not mean your data has reached non-volatile storage media. When you call write() in Python or C, bytes travel through multiple caching layers:",
+        "C runtime FILE* or language buffer (e.g. 4KB). Lost on process crash.",
+        "OS dirty memory pages awaiting flusher threads. Lost on power failure or kernel panic.",
+        "On-drive volatile buffer inside SSD controller. Lost unless battery/capacitor backed (PLP).",
+        "Non-volatile floating-gate/charge-trap cells. Survives power disconnection.",
+        "An update appears to take effect as a single indivisible step. Readers never observe an intermediate half-written state. (e.g. rename()).",
+        "System rules and business logic remain valid before and after recovery (e.g. Account Balance matches Ledger history, directory dentries match inodes).",
+        "Once acknowledged as durable, committed data survives power cuts, kernel panics, and reboots under the hardware durability contract."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "2. Write Ordering, Barriers, and fsync()",
+      "paragraphs": [
+        "write() vs fflush() vs close() vs fsync() vs fdatasync() \u00b7 Flushes & Barriers \u00b7 FUA",
+        "To enforce durability, operating systems expose explicit synchronization primitives:",
+        "Computers and flash controllers reorder writes for performance. If you write new file data, rename it into a directory, and power fails before the file data is flushed, the directory entry will point to uninitialized garbage or zero-filled blocks! You must issue a barrier: fsync(file) BEFORE rename().",
+        "Step through T0 to T4 to observe where data resides, what callers see, and when true durability across power failure is reached."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "3. Journaling and Copy-on-Write (CoW) Filesystems",
+      "paragraphs": [
+        "ext4 & XFS vs Btrfs & ZFS \u00b7 Metadata consistency \u00b7 Atomic tree roots \u00b7 Write amplification",
+        "Modern filesystems employ one of two architectural paradigms to ensure that sudden crashes leave the on-disk structures recoverable without a multi-hour fsck scan:",
+        "Logs metadata operations to a circular write-ahead log (journal) on disk before updating home blocks. On reboot, the kernel inspects the journal and replays committed transactions or discards incomplete ones.",
+        "Never overwrites existing data blocks in-place! Writes modified data and metadata out-of-place to fresh blocks, then atomically updates parent tree pointers up to the superblock root.",
+        "Compare step-by-step how ext4 Journaling updates metadata versus how Btrfs/ZFS Copy-on-Write flips root pointers."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "4. Atomic File Replacement and Safe Update Patterns",
+      "paragraphs": [
+        "The unsafe truncation bug \u00b7 Staged temporary files \u00b7 os.replace() \u00b7 Directory synchronization",
+        "Consider the naive file update pattern taught in introductory programming courses:",
+        "Opening in \"w\" mode truncates the file immediately. If power fails or the process dies during serialization, your previous valid configuration is destroyed and replaced with a corrupt 0-byte file."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "5. Crash Windows and Recovery Invariants",
+      "paragraphs": [
+        "Crash window analysis \u00b7 Write-ahead logs (WAL) \u00b7 Idempotent recovery \u00b7 Checksum validation",
+        "A crash consistency analysis asks a rigorous question: \"If execution cuts out at instruction $N$, what state will be found on disk when the system powers back on?\"",
+        "If the recovery procedure itself crashes midway, executing it again on the next reboot must not corrupt data.",
+        "A transaction is either committed or discarded. Never infer completion from partial data presence alone.",
+        "Validate payloads against expected checksums to detect silent block bit-rot and partial sector overwrites.",
+        "Inject sudden power failure at different checkpoints during a file update. Inspect what survives after reboot and what recovery must do.",
+        "Forensic Analysis: {crashScenarios[selectedCrashWindow].explanation}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "6. Backups, Integrity, and Recovery Validation",
+      "paragraphs": [
+        "RPO & RTO \u00b7 Backup failure modes \u00b7 Disaster recovery drills \u00b7 Cryptographic verification",
+        "A backup is meaningless unless you can prove that it can be restored into a functioning, consistent production environment.",
+        "The maximum acceptable data loss measured backwards in time. An RPO of 15 minutes means transactions older than 15 minutes must never be lost.",
+        "The maximum acceptable duration of service downtime from initial disaster declaration until the restored service passes production health checks.",
+        "Calculate data loss exposure and financial downtime risk based on backup frequency and restore drill validation."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "7. Practical Lab: Crash-Safe Updates & Failure Injection",
+      "paragraphs": [
+        "crash_lab.py simulator \u00b7 Canonical JSON \u00b7 SHA-256 commit records \u00b7 Invariant preservation",
+        "In this lab, you build and analyze a crash-consistency simulator. A committed record contains a monotonically increasing version number, a payload, and an authenticating SHA-256 digest. Failures are injected at discrete checkpoints to verify that recovery never exposes a corrupt or uncommitted record."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Module 16 Knowledge Check",
+      "paragraphs": [
+        "Verify your mastery of write ordering, fsync semantics, journaling, atomic file replacement, and recovery",
+        "Track your engineering competence across crash consistency, durability, and recovery"
+      ]
+    }
+  ]
 }

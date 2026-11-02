@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ModuleNav from "./ModuleNav";
@@ -51,6 +54,7 @@ import {
 } from "lucide-react";
 
 export default function CybersecuritySecureCodeReview() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "secure-code-review");
   const navigate = useNavigate();
 
   // Scroll to top on mount
@@ -304,88 +308,7 @@ export default function CybersecuritySecureCodeReview() {
   // =========================================================================
   // KNOWLEDGE ASSESSMENT QUIZ (6 QUESTIONS)
   // =========================================================================
-  const quizQuestions = [
-    {
-      id: 1,
-      question:
-        "What is the main advantage of manual secure code review over relying only on automated scanning?",
-      options: [
-        "It guarantees that every vulnerability will be found",
-        "It can evaluate business logic, implementation context, and complex security decisions",
-        "It eliminates the need for automated tests",
-        "It automatically fixes every security finding"
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Manual code review allows human analysts to trace data flows through business rules, evaluate multi-step authorization logic, and understand domain-specific context that automated scanners often miss or flag as false positives."
-    },
-    {
-      id: 2,
-      question: "What is the primary purpose of Software Composition Analysis (SCA)?",
-      options: [
-        "Test only the visual layout of a frontend",
-        "Replace all source-code review",
-        "Identify dependencies and assess them for known component risks and vulnerabilities",
-        "Guarantee that every installed package is exploitable"
-      ],
-      correctAnswer: 2,
-      explanation:
-        "SCA tools (like OWASP Dependency-Check) inventory both direct and transitive software dependencies, matching component versions against public vulnerability databases (such as NVD/CVE) and license risk registries."
-    },
-    {
-      id: 3,
-      question: "What is a false positive?",
-      options: [
-        "A tool reports a vulnerability that is not actually present in the assessed context",
-        "A confirmed vulnerability has been fixed",
-        "A test suite passes after remediation",
-        "A developer submits a pull request"
-      ],
-      correctAnswer: 0,
-      explanation:
-        "A false positive occurs when an automated scanner flags a line of code or behavior as vulnerable, but deeper human review or runtime analysis proves the code is safe or the alert is not exploitable in context."
-    },
-    {
-      id: 4,
-      question: "Why should an assessment define scope and authorization before active testing?",
-      options: [
-        "To avoid documenting test results",
-        "To ensure testing is permitted and remains within defined safety and operational limits",
-        "To guarantee that scanners never produce false positives",
-        "To make retesting unnecessary"
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Under NIST SP 800-115 and professional rules of engagement, written scope and authorization establish explicit legal permission, define excluded production assets, set rate limits, and establish emergency stop conditions."
-    },
-    {
-      id: 5,
-      question:
-        "A developer says an authorization vulnerability is fixed. What should the security reviewer do next?",
-      options: [
-        "Close the finding immediately without evidence",
-        "Delete the original test case",
-        "Repeat the original test and run relevant regression tests",
-        "Assume the frontend now enforces all permissions"
-      ],
-      correctAnswer: 2,
-      explanation:
-        "Remediation validation requires reproducible proof: the reviewer must repeat the original negative test to confirm the flaw is blocked and execute regression tests to ensure legitimate authorized functionality still functions."
-    },
-    {
-      id: 6,
-      question: "What is the best way to handle an automated security finding?",
-      options: [
-        "Investigate the evidence, validate the issue, and document the appropriate remediation or rationale",
-        "Treat every alert as a confirmed critical vulnerability",
-        "Suppress all alerts that require manual investigation",
-        "Assume an empty scan report proves the application is secure"
-      ],
-      correctAnswer: 0,
-      explanation:
-        "A professional triage process investigates the source code, validates reachability and business impact, reproduces the issue safely, and either prioritizes a root-cause fix or documents a defensible justification for closure."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -408,7 +331,14 @@ export default function CybersecuritySecureCodeReview() {
     return quizAnswers[q.id] === q.correctAnswer ? score + 1 : score;
   }, 0);
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="secure-code-review" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="secure-code-review" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 antialiased font-sans selection:bg-orange-500 selection:text-white relative pb-20">
       {/* Ambient background glows */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">

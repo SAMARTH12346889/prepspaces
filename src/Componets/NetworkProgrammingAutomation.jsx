@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -44,6 +47,7 @@ import {
 import ModuleNav from "./ModuleNav";
 
 export default function NetworkProgrammingAutomation() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "network-automation");
   const navigate = useNavigate();
 
   // Active navigation tab: curriculum | simulators | lab | quiz | audit
@@ -323,133 +327,7 @@ export default function NetworkProgrammingAutomation() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which TCP socket operation places a server socket into a passive state where it can queue incoming connection requests?",
-      options: ["send()", "listen()", "recvfrom()", "getaddrinfo()"],
-      correct: 1,
-      explanation:
-        "The listen() system call configures a bound TCP socket into passive listening mode, establishing the backlog queue to accept incoming 3-way handshakes.",
-    },
-    {
-      id: 2,
-      question: "What fundamental difference exists between TCP (SOCK_STREAM) and UDP (SOCK_DGRAM) message framing in socket programming?",
-      options: [
-        "TCP guarantees datagram boundaries, whereas UDP delivers a continuous byte stream",
-        "TCP provides a continuous byte stream without application message boundaries; UDP preserves individual datagram boundaries",
-        "UDP sockets must be placed in listen() mode before sending packets",
-        "TCP does not require IP addresses, whereas UDP requires both MAC and IP addresses",
-      ],
-      correct: 1,
-      explanation:
-        "TCP is a byte-stream protocol where recv(1024) may return partial or multiple concatenated messages, requiring application-layer framing (e.g. length prefixes or delimiters). UDP delivers distinct datagrams whose boundaries are strictly preserved.",
-    },
-    {
-      id: 3,
-      question: "Why is the socket.SO_REUSEADDR option commonly set on server listening sockets prior to calling bind()?",
-      options: [
-        "It forces the router to forward packets using IPv6 multicast",
-        "It allows the server to immediately re-bind to the local port even if previous sockets remain in the TIME_WAIT state",
-        "It encrypts all socket buffers using hardware AES-NI",
-        "It disables kernel TCP sequence number validation",
-      ],
-      correct: 1,
-      explanation:
-        "When a server closes or restarts, lingering TCP sockets stay in TIME_WAIT for 2*MSL. Setting SO_REUSEADDR allows the new process to bind immediately without raising 'Address already in use' OSError.",
-    },
-    {
-      id: 4,
-      question: "What does Python's socket.getaddrinfo() return when queried for a hostname?",
-      options: [
-        "Only the canonical hostname as a string",
-        "A list of 5-tuples containing address family (IPv4/IPv6), socket type, protocol, canonical name, and socket address sockaddr",
-        "A dictionary of BGP autonomous system numbers",
-        "A raw binary PCAP capture file",
-      ],
-      correct: 1,
-      explanation:
-        "socket.getaddrinfo() is the modern dual-stack resolver API. It returns structured tuples (family, type, proto, canonname, sockaddr) supporting both IPv4 (AF_INET) and IPv6 (AF_INET6).",
-    },
-    {
-      id: 5,
-      question: "In concurrent network programming, why is ThreadPoolExecutor preferred over spawning an unbounded number of individual threads?",
-      options: [
-        "ThreadPoolExecutor automatically bypasses Python's Global Interpreter Lock (GIL) for CPU tasks",
-        "It enforces bounded concurrency with a fixed worker pool, preventing thread explosion and resource exhaustion against remote network endpoints",
-        "Threads cannot perform network socket operations in Python",
-        "ThreadPoolExecutor converts TCP connections into UDP datagrams",
-      ],
-      correct: 1,
-      explanation:
-        "Unbounded thread creation can crash the operating system or trigger DDoS alarms on target services. A ThreadPoolExecutor bounds maximum concurrent connections (e.g. max_workers=10), queuing pending tasks cleanly.",
-    },
-    {
-      id: 6,
-      question: "What is the primary advantage of using Idempotent methods (such as PUT or NETCONF edit-config) in network automation scripts?",
-      options: [
-        "They run twice as fast as non-idempotent scripts",
-        "Executing the operation multiple times leaves the target infrastructure in the exact same intended state without side-effects or duplicate errors",
-        "They eliminate the need for TLS certificate verification",
-        "They allow scripts to run without API tokens or passwords",
-      ],
-      correct: 1,
-      explanation:
-        "Idempotency guarantees that applying a configuration (e.g. 'Ensure VLAN 20 is named Accounting') multiple times results in the same desired state, enabling safe retries without 409 Conflict errors.",
-    },
-    {
-      id: 7,
-      question: "Which of the following is considered a critical security safeguard when developing network automation scripts?",
-      options: [
-        "Hardcoding administrator API tokens directly into Git repositories for easy deployment",
-        "Using environment variables or secret vaults, enforcing least-privilege scopes, and strictly verifying TLS certificates",
-        "Disabling all socket timeouts to allow indefinite waiting",
-        "Logging full HTTP Authorization headers to text files for auditing",
-      ],
-      correct: 1,
-      explanation:
-        "Credentials must never be hardcoded or logged. They should be retrieved via environment variables or secret managers, scoped with least privilege (read-only for monitoring), and protected via verified TLS.",
-    },
-    {
-      id: 8,
-      question: "When measuring network connection duration in Python, why should time.perf_counter() be used instead of time.time()?",
-      options: [
-        "time.time() converts seconds to milliseconds automatically",
-        "time.perf_counter() provides a monotonic, high-resolution clock unaffected by system clock adjustments or NTP step corrections",
-        "time.time() is only supported on Linux kernels",
-        "time.perf_counter() measures bandwidth throughput rather than time",
-      ],
-      correct: 1,
-      explanation:
-        "time.perf_counter() is a monotonic clock with the highest available resolution. Unlike time.time(), it never steps backwards during NTP synchronization or Daylight Saving adjustments.",
-    },
-    {
-      id: 9,
-      question: "In an automated network health inspector, what does an HTTP 429 status code signify?",
-      options: [
-        "The web service was successfully loaded",
-        "The server is applying a rate limit and refusing further requests until a cooldown window expires",
-        "The domain name does not exist in DNS (NXDOMAIN)",
-        "The SSL/TLS certificate has expired",
-      ],
-      correct: 1,
-      explanation:
-        "HTTP 429 'Too Many Requests' indicates that the client has exceeded the server's rate limit. Automated scripts should back off exponentially and respect Retry-After headers.",
-    },
-    {
-      id: 10,
-      question: "Why must network diagnostics tools distinguish between a DNS resolution failure and a TCP connection failure?",
-      options: [
-        "DNS uses TCP while web services use UDP",
-        "A host may resolve perfectly in DNS yet have its TCP port closed, filtered, or unresponsive; treating them as identical blinds engineers to root cause",
-        "DNS lookups never fail in enterprise networks",
-        "TCP connections do not require IP addresses if DNS is enabled",
-      ],
-      correct: 1,
-      explanation:
-        "DNS resolution (translating names to IPs) is independent of service reachability. A failure in DNS points to naming infrastructure, whereas a TCP timeout points to routing, firewall drops, or server process failures.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleQuizSelect = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -536,7 +414,14 @@ def check_target(target):
 3. **Idempotent Configuration:** Next hourly cron check scheduled for 2026-10-15 13:00 UTC.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="network-automation" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="network-automation" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans">
       <ModuleNav
         track="networks"

@@ -68,7 +68,7 @@
     },
     {
       "id": 6,
-      "question": "How does DNS over HTTPS (DoH — RFC 8484) differ from DNS over TLS (DoT — RFC 7858) operationally?",
+      "question": "How does DNS over HTTPS (DoH \u2014 RFC 8484) differ from DNS over TLS (DoT \u2014 RFC 7858) operationally?",
       "options": [
         "DoH encrypts DNS queries inside HTTPS sessions over port 443 (blending with web traffic), whereas DoT runs DNS directly over TLS on dedicated TCP port 853.",
         "DoT requires DNSSEC keys, whereas DoH operates entirely unencrypted.",
@@ -100,7 +100,7 @@
         "DNSSEC only works if clients communicate over satellite links."
       ],
       "correctIndex": 0,
-      "explanation": "DNSSEC provides cryptographic data integrity and origin authentication (verifying records were not altered by an attacker) using digital signatures (RRSIG). It does NOT encrypt the query or response—passive eavesdroppers can still read DNS queries unless DoH or DoT is used."
+      "explanation": "DNSSEC provides cryptographic data integrity and origin authentication (verifying records were not altered by an attacker) using digital signatures (RRSIG). It does NOT encrypt the query or response\u2014passive eavesdroppers can still read DNS queries unless DoH or DoT is used."
     },
     {
       "id": 9,
@@ -137,6 +137,112 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 12
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "What DNS Does &amp; Why It Matters",
+      "paragraphs": [
+        "When a user enters https://prepspaces.com into a web browser, the browser cannot open an IP socket without first obtaining the numerical IP address of the destination server. Humans remember names; routers forward IP datagrams. The Domain Name System (DNS), specified by Paul Mockapetris in 1983 (RFC 882 / RFC 883, updated in RFC 1034 / RFC 1035), provides the global, hierarchical, distributed naming infrastructure that translates human-readable identifiers into numerical endpoints.",
+        "DNS resolution and network connectivity are completely independent systems. A domain name can resolve with 100% success (returning an A record) even if the target web server is completely crashed or unreachable. Conversely, a web server can be running perfectly at 104.21.72.15, but users will report \"the site is down\" if DNS resolution fails due to a misconfigured nameserver, expired TTL, or firewall drop on port 53."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "DNS Architecture: Root, TLDs &amp; Delegated Zones",
+      "paragraphs": [
+        "DNS is structured as an inverted tree hierarchy, read strictly from right to left:",
+        "{` [ . ] (DNS Root Zone) / | \\\\ .com .org .edu / \\\\ \\\\ prepspaces.com wikipedia.org berkeley.edu / \\\\ api.prepspaces www.prepspaces`} 1. The Root Zone (\".\"): At the pinnacle of the naming tree is the root zone. While there are 13 named root authority identifiers (a.root-servers.net through m.root-servers.net), they do not run on 13 physical computers. Using BGP Anycast routing, hundreds of redundant mirror instances are distributed across thousands of data centers worldwide, delivering high-availability query response times under 15ms.",
+        "Divided into generic TLDs (gTLDs like .com, .net, .org) and country-code TLDs (ccTLDs like .uk, .in, .de). Managed by registries (such as Verisign for .com), TLD servers maintain authoritative delegations pointing to second-level domain nameservers.",
+        "A domain is a branch of the naming tree; a zone is an administrative boundary managed as a single contiguous unit. Delegation allows an organization to transfer authority over a child subtree (e.g. learn.prepspaces.com) to a dedicated nameserver cluster."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Recursive vs. Iterative DNS Query Resolution",
+      "paragraphs": [
+        "DNS resolution relies on two distinct query operational modes:",
+        "The requester (browser or OS stub resolver) asks: \"Find me the final IP answer for this hostname, or return an error.\"",
+        "The recursive caching resolver (operated by an ISP, corporate network, or public provider like Cloudflare 1.1.1.1 or Google 8.8.8.8) undertakes the entire lookup burden on behalf of the client.",
+        "The resolver asks: \"Do you know the answer for this name?\"",
+        "The authoritative server responds with the best referral it has: \"I do not know the IP, but ask this next nameserver in the hierarchy.\" The resolver follows referrals iteratively down the tree until reaching the authoritative origin."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "DNS Message Wire Format &amp; 12-Byte Header Flags",
+      "paragraphs": [
+        "Every DNS packet\u2014whether transmitted over UDP port 53, TCP port 53, or inside TLS/HTTPS\u2014shares the exact same binary wire structure defined in RFC 1035:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Essential DNS Resource Records (RR) Anatomy",
+      "paragraphs": [
+        "Every record stored inside a zone file is a Resource Record (RR) containing a Name, Type, Class (usually IN for Internet), TTL, and RDATA payload:",
+        "Fundamental address mappings. A maps a hostname to a 32-bit IPv4 address (e.g. 104.21.72.15). AAAA maps to a 128-bit IPv6 address (e.g. 2606:4700:3037::ac43:80b5).",
+        "Aliases one domain name to another canonical name. Crucial rule: A CNAME cannot coexist with any other record type at that owner name. This prevents a conventional CNAME at the zone apex because the apex requires SOA and NS records.",
+        "Directs incoming email delivery for the domain. Includes an integer preference value (e.g. 10 mail1.example.com vs 20 mail2.example.com). Sending MTAs connect to the lowest preference number first.",
+        "Carries arbitrary text metadata. Universally used for email security policies (SPF allowed IP lists, DKIM public cryptographic keys, DMARC alignment reporting) and SSL/TLS certificate ownership challenge validation."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "TTL, Positive Caching, Negative Responses &amp; Propagation",
+      "paragraphs": [
+        "Without caching, the global internet would collapse under trillion-query floods directed at root and TLD nameservers.",
+        "The authoritative nameserver assigns a TTL (in seconds) to each record set. When a recursive resolver caches the record, it starts a local countdown timer. Subsequent queries from any client served by that resolver are answered directly from cache (0 RTT hierarchy latency) until the TTL reaches zero, at which point the record is evicted.",
+        "DNS caches negative results (NXDOMAIN and NODATA) just like positive records. The duration is derived from the MINIMUM field in the authoritative zone's SOA record. This prevents malicious or broken scripts from overwhelming authoritative servers with continuous queries for nonexistent hostnames.",
+        "Engineers often say \"DNS takes 24 to 48 hours to propagate.\" DNS records do not actively propagate outward like a wave; rather, resolvers around the world simply hold their previously cached answers until their respective TTLs expire. To prepare for an IP address migration without downtime, experienced SREs lower the record's TTL to 300 seconds at least 48 hours in advance."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Encrypted DNS: Conventional DNS vs DoT vs DoH",
+      "paragraphs": [
+        "Traditional DNS messages travel over cleartext UDP or TCP port 53. Any on-path observer (Wi-Fi eavesdropper, coffee shop router, ISP, or national firewall) can inspect every domain a user visits or inject spoofed answers. Two standards encrypt DNS queries:",
+        "DoH and DoT protect the hop between the client and the resolver. They do NOT guarantee the resolver itself is honest, do NOT authenticate the origin zone data (only DNSSEC does that), and do NOT hide the destination IP address or Server Name Indication (SNI) when the client subsequently initiates the TLS handshake with the destination web server!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "DNS Security: Kaminsky Poisoning &amp; DNSSEC Trust Chains",
+      "paragraphs": [
+        "Because traditional DNS responses are unsigned and connectionless, attackers historically forged fake DNS responses to poison resolver caches.",
+        "Dan Kaminsky discovered that an attacker could query a target resolver for randomly generated non-existent subdomains (e.g. random123.bank.com). While the resolver was querying the authoritative server, the attacker flooded the resolver with thousands of forged responses guessing the 16-bit Transaction ID. Once a forged response hit the matching ID, the attacker included an authoritative delegation record hijacking the entire bank.com domain in the resolver's cache!",
+        "Mitigation: Source Port Randomization (SPR) utilizing all 16 bits of the UDP source port alongside the 16-bit Transaction ID (expanding attack entropy to 232 &asymp; 4 billion combinations).",
+        "DNSSEC (RFC 4033 - 4035) introduces public-key cryptography to authenticate DNS data:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "DNS Tunneling, Exfiltration &amp; Forensic Threat Hunting",
+      "paragraphs": [
+        "Virtually every enterprise network allows internal machines to send outbound DNS queries to internal recursive resolvers, which in turn query the internet. Threat actors abuse this ubiquity by using DNS Tunneling to exfiltrate stolen credit cards or establish Command-and-Control (C2) channels through firewalls."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Linux DNS Troubleshooting Toolkit: 5-Step Diagnostic Protocol",
+      "paragraphs": [
+        "When a production service fails, avoid haphazardly editing /etc/resolv.conf. Follow this systematic 5-step diagnostic procedure:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Hands-On Lab: Trace DNS Resolution &amp; Forensic Log Investigation",
+      "paragraphs": [
+        "Execute the hierarchical trace commands, compare latency between public recursive providers, dissect packet traces in Wireshark, and analyze the synthetic threat log for host PC-17 in the Lab Guide tab."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "SRE &amp; SOC DNS Incident Reporting Standards",
+      "paragraphs": [
+        "When documenting a DNS outage or an active security incident, separate proven empirical evidence (query logs, RCODEs, timestamps) from assumptions. Use the Markdown template provided in the Lab Guide tab to structure post-mortems and incident escalation tickets."
+      ]
+    }
+  ]
 }

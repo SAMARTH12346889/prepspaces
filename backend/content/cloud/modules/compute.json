@@ -33,7 +33,7 @@
     },
     {
       "id": 2,
-      "title": "Event 2: Flash-Crowd Viral Surge (Traffic Jumps 10×)",
+      "title": "Event 2: Flash-Crowd Viral Surge (Traffic Jumps 10\u00d7)",
       "context": "A celebrity tweets about your product. Request rate skyrockets from 2,000 RPS to 20,000 RPS in 45 seconds.",
       "question": "Why might standard VM autoscaling lag and drop requests during this sudden spike?",
       "options": [
@@ -114,7 +114,7 @@
           "id": "B",
           "text": "Asynchronous SQS Queue + AWS Batch / Container Workers running on Spot Instances.",
           "verdict": "Correct! Workload Isolation & 80% Cost Savings",
-          "explanation": "Separating batch from interactive traffic prevents outages. Using Spot instances saves 70–90% on compute costs for interruptible batch processing.",
+          "explanation": "Separating batch from interactive traffic prevents outages. Using Spot instances saves 70\u201390% on compute costs for interruptible batch processing.",
           "isCorrect": true
         }
       ]
@@ -149,6 +149,38 @@
     "hasQuiz": false,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 5
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Nova AI Cloud Compute Architect Tutor",
+      "paragraphs": [
+        "Ask questions about vCPU scheduling, Little's Law, GPU interconnects, Spot eviction handling, or EC2 vs GCE machine types."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "In-Depth Systems & Compute Theory",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Compute Invariants & Key Architectural Rules",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "{currentTopic.architectDecision}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Technical Interview & Systems Defense Questions",
+      "paragraphs": []
+    }
+  ]
 }

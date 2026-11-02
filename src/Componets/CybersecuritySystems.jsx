@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -69,6 +72,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function CybersecuritySystems() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "systems");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -259,149 +263,7 @@ Spooler    Print Spooler`,
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the primary role of an operating-system kernel?",
-      options: [
-        "Designing web pages",
-        "Managing core system resources and privileged operations",
-        "Replacing every application library",
-        "Storing all files in one process",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The kernel is the central privileged core of an operating system. It directly manages hardware resources, process scheduling, memory allocation, system calls, device drivers, and security isolation.",
-    },
-    {
-      id: 2,
-      question: "What is the main difference between a process and a thread?",
-      options: [
-        "A process is always a file",
-        "A thread is the basic execution unit within a process; a process provides execution resources and an address space",
-        "A thread is always an administrator",
-        "A process cannot contain multiple threads",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A process encapsulates a dedicated virtual address space, security token, handles, and memory. A thread is the basic scheduling unit that executes code inside that process address space.",
-    },
-    {
-      id: 3,
-      question: "Which Linux directory commonly contains system-wide configuration files?",
-      options: ["/etc", "/home", "/tmp", "/proc"],
-      correctIndex: 0,
-      explanation:
-        "/etc is the standard hierarchy location for system-wide configuration files in Linux (e.g. /etc/passwd, /etc/hosts, /etc/ssh/sshd_config).",
-    },
-    {
-      id: 4,
-      question: "What does Linux mode 600 conventionally mean for a regular file?",
-      options: [
-        "Everyone can read and write it",
-        "The owner has read/write permissions, while group and others have no mode-bit permissions",
-        "The owner can execute it only",
-        "The file is automatically encrypted",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Octal 600 translates to rw------- (Owner: 4+2=6, Group: 0, Others: 0). It strictly restricts read and write access to the file's owner.",
-    },
-    {
-      id: 5,
-      question: "What is the purpose of sudo on a system configured to use it?",
-      options: [
-        "Encrypt every command",
-        "Allow authorized users to run permitted commands with elevated privileges",
-        "Automatically install every software update",
-        "Replace system logging",
-      ],
-      correctIndex: 1,
-      explanation:
-        "sudo allows approved users to execute designated commands with the security privileges of another user (typically root) based on rules defined in /etc/sudoers, providing accountability.",
-    },
-    {
-      id: 6,
-      question: "What does the Linux pipe operator | do?",
-      options: [
-        "Connects one command's standard output to another command's standard input",
-        "Always writes a file to disk",
-        "Restarts the shell",
-        "Changes file ownership",
-      ],
-      correctIndex: 0,
-      explanation:
-        "The pipe operator (|) streams the stdout (file descriptor 1) of the preceding command directly into the stdin (file descriptor 0) of the subsequent command without requiring temporary disk files.",
-    },
-    {
-      id: 7,
-      question: "Which Windows concept represents a principal's security identity for access-control decisions?",
-      options: [
-        "A DNS record",
-        "A Security Identifier (SID)",
-        "A CPU working set",
-        "A drive letter",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A Security Identifier (SID) is a unique, immutable variable-length string used by the Windows security subsystem (e.g., S-1-5-21-...) to identify security principals such as users and groups.",
-    },
-    {
-      id: 8,
-      question: "What is the main purpose of Windows User Account Control?",
-      options: [
-        "Replace all file permissions",
-        "Support the controlled use of administrative privileges",
-        "Disable every background service",
-        "Encrypt the Registry automatically",
-      ],
-      correctIndex: 1,
-      explanation:
-        "User Account Control (UAC) ensures administrators run with standard user tokens by default, prompting for explicit elevation and consent before high-privilege operations can execute.",
-    },
-    {
-      id: 9,
-      question: "Which PowerShell command is commonly used to list Windows services?",
-      options: ["Get-Service", "Get-Route", "Read-Registry-All", "Start-Everything"],
-      correctIndex: 0,
-      explanation:
-        "Get-Service queries the Windows Service Control Manager to retrieve the status, display name, and configuration of local or remote background services.",
-    },
-    {
-      id: 10,
-      question: "A process has high CPU usage. What should an analyst conclude?",
-      options: [
-        "It is definitely malware",
-        "It must be deleted",
-        "The observation needs context and further investigation",
-        "The operating system is certainly compromised",
-      ],
-      correctIndex: 2,
-      explanation:
-        "High CPU consumption alone is an operational symptom, not proof of malice. Legitimate background tasks, video encoders, or compiling can utilize 100% CPU. Analysts must inspect parentage, binary path, and behavior.",
-    },
-    {
-      id: 11,
-      question: "Which tool is designed to inspect processes, handles and loaded DLLs on Windows?",
-      options: ["Process Explorer", "Calculator", "Paint", "Disk Cleanup only"],
-      correctIndex: 0,
-      explanation:
-        "Process Explorer (part of Microsoft Sysinternals) provides advanced real-time process monitoring, showing loaded DLLs, open system handles, thread stacks, and security tokens.",
-    },
-    {
-      id: 12,
-      question: "What is a safe first step when investigating an unfamiliar service?",
-      options: [
-        "Disable it immediately",
-        "Delete its executable",
-        "Inspect its identity, purpose, path, privileges and relevant logs",
-        "Grant it administrator privileges",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Disabling or deleting unknown services can crash critical operating system components. The first step is non-destructive reconnaissance: inspect binary path, publisher, service account, dependencies, and logs.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (questionId, optionIdx) => {
     if (quizSubmitted) return;
@@ -418,7 +280,14 @@ Spooler    Print Spooler`,
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="systems" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="systems" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

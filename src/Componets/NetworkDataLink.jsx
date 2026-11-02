@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -48,6 +51,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkDataLink() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "datalink");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -61,21 +65,7 @@ export default function NetworkDataLink() {
   };
 
   // Track scroll navigation & synced topics
-  const topics = [
-    { id: "sec-4-1", name: "4.1 Data Link Layer Fundamentals" },
-    { id: "sec-4-2", name: "4.2 Ethernet Frame Structure" },
-    { id: "sec-4-3", name: "4.3 MAC Addresses & Types" },
-    { id: "sec-4-4", name: "4.4 ARP & Address Resolution" },
-    { id: "sec-4-5", name: "4.5 Switching & Frame Forwarding" },
-    { id: "sec-4-6", name: "4.6 VLANs & 802.1Q Tagging" },
-    { id: "sec-4-7", name: "4.7 Trunking & Multi-Switch Architectures" },
-    { id: "sec-4-8", name: "4.8 Spanning Tree Protocol (STP)" },
-    { id: "sec-4-9", name: "4.9 Link-Layer Errors & Diagnostics" },
-    { id: "sec-4-10", name: "4.10 Link Security & Defenses" },
-    { id: "sec-4-11", name: "4.11 Practical Tools & CLI" },
-    { id: "sec-4-12", name: "4.12 Hands-on Lab Sequence" },
-    { id: "sec-4-13", name: "4.13 Capstone & Assessment" },
-  ];
+  const topics = moduleData?.topics || [];
   const activeTopic = useSyncedTopic(topics.map((t) => t.id));
 
   const scrollToSection = (id) => {
@@ -342,138 +332,7 @@ export default function NetworkDataLink() {
   /* -------------------------------------------------------------------------- */
   /* QUIZ DATA (10 QUESTIONS)                                                   */
   /* -------------------------------------------------------------------------- */
-  const quizQuestions = [
-    {
-      question:
-        "When an Ethernet switch receives a frame with an unknown destination MAC address, what action does it take?",
-      options: [
-        "It sends an ICMP Destination Host Unreachable packet back to the sender.",
-        "It floods the frame out of all ports belonging to the same VLAN, except the ingress port on which the frame arrived.",
-        "It buffers the frame and generates an ARP request to locate the destination host.",
-        "It drops the frame immediately into the bit-bucket and increments the interface error counter.",
-      ],
-      correct: 1,
-      rationale:
-        "When a switch receives a frame for a unicast destination MAC address not currently present in its CAM table (unknown unicast), it floods the frame out all ports participating in that VLAN except the receiving port. This ensures the frame reaches the destination even before the switch has learned its location.",
-    },
-    {
-      question:
-        "What is the function of the I/G (Individual/Group) bit located in the first octet of an Ethernet MAC address?",
-      options: [
-        "It determines whether the MAC address is 48-bit or 64-bit EUI.",
-        "It specifies whether the frame should be forwarded with 802.1Q VLAN tagging.",
-        "Bit 0 specifies whether the address is Unicast (0, individual) or Multicast/Broadcast (1, group).",
-        "It indicates whether the link operates at Half Duplex or Full Duplex.",
-      ],
-      correct: 2,
-      rationale:
-        "The least significant bit (bit 0) of the first byte of a MAC address is the Individual/Group (I/G) bit. When set to 0, it represents a unicast address assigned to an individual network interface. When set to 1, it represents a group address (multicast or broadcast, such as 01:00:5E:... for IPv4 multicast or FF:FF:FF:FF:FF:FF for broadcast).",
-    },
-    {
-      question:
-        "Why is Spanning Tree Protocol (STP) necessary in redundant switched Ethernet networks?",
-      options: [
-        "Because Ethernet frames lack a Time-To-Live (TTL) field; without STP, loops cause endless broadcast storms and CAM table thrashing.",
-        "Because Ethernet switches cannot operate at speeds exceeding 1 Gbps without tree aggregation.",
-        "Because IP routers cannot route packets between switches without STP BPDU synchronization.",
-        "To allocate dynamic IP addresses automatically across redundant trunks.",
-      ],
-      correct: 0,
-      rationale:
-        "Unlike IP packets which contain a TTL (Time-To-Live) or Hop Limit counter decremented at each router, Ethernet Layer 2 frames have no TTL or loop-detection field. In a topology with redundant physical paths, unmanaged loops cause broadcast frames to circulate endlessly, consuming 100% of link bandwidth (broadcast storm) and rapidly corrupting switch CAM tables.",
-    },
-    {
-      question:
-        "What happens to the Ethernet frame header when Host A transmits an IP packet to a web server on the Internet via its Default Gateway?",
-      options: [
-        "Host A sends an ARP request to find the web server's public MAC address.",
-        "The destination MAC address is set to the Default Gateway's MAC address, while the destination IP address remains the web server's IP.",
-        "The destination MAC address is set to the web server's MAC address, while the IP address is rewritten to the gateway.",
-        "The Ethernet frame is encapsulated in an 802.1Q tag containing the server's Autonomous System Number.",
-      ],
-      correct: 1,
-      rationale:
-        "MAC addresses have link-local scope and never traverse Layer 3 routers. Host A evaluates the destination IP, determines it is outside the local subnet, and addresses the Layer 2 Ethernet frame to the Default Gateway's MAC address. The Layer 3 Destination IP remains the end-to-end web server IP.",
-    },
-    {
-      question:
-        "What is the standard minimum payload size for an untagged Ethernet II frame, and why does a minimum size exist?",
-      options: [
-        "0 bytes; modern switches do not require any minimum size.",
-        "46 bytes; required to guarantee a 64-byte minimum frame size so legacy CSMA/CD collision detection could function across the maximum network diameter.",
-        "64 bytes; required by the 802.1Q tag parser.",
-        "1500 bytes; matching the standard Internet MTU.",
-      ],
-      correct: 1,
-      rationale:
-        "The minimum payload size is 46 bytes. Combined with the 14-byte Ethernet header and 4-byte FCS, this ensures an overall minimum frame size of 64 bytes (512 bit-times at 10 Mbps). This duration was mathematically required for slot-time collision detection in shared-medium half-duplex CSMA/CD Ethernet.",
-    },
-    {
-      question:
-        "In an IEEE 802.1Q tagged frame, how many bits are allocated to the VLAN Identifier (VID), and what is the valid usable VLAN range?",
-      options: [
-        "8 bits (VLANs 1 to 255)",
-        "12 bits (VLANs 1 to 4094, with 0 and 4095 reserved)",
-        "16 bits (VLANs 1 to 65535)",
-        "24 bits (VLANs 1 to 16777214)",
-      ],
-      correct: 1,
-      rationale:
-        "The 802.1Q tag allocates 12 bits for the VLAN ID (VID). 2^12 = 4096 possible values. VID 0 is reserved for priority-tagged frames (PCP only), and VID 4095 is reserved for system use, yielding the standard usable range of VLANs 1 through 4094.",
-    },
-    {
-      question:
-        "What security risk occurs when an attacker launches a CAM Table Exhaustion (MAC Flooding) attack using tools like `macof`?",
-      options: [
-        "The switch crashes completely and reboots into ROMmon mode.",
-        "The switch CAM table fills with fake random source MACs; the switch can no longer learn valid MACs and falls back to flooding all unicast traffic like a hub, allowing the attacker to sniff frames.",
-        "The attacker steals the root bridge role by generating lower BPDU priorities.",
-        "All VLAN tags are stripped, causing cross-VLAN broadcast leaks.",
-      ],
-      correct: 1,
-      rationale:
-        "In a CAM table exhaustion attack, the attacker rapidly generates thousands of frames with randomized source MACs. Once the switch's hardware CAM table fills to capacity, it cannot store legitimate host MACs. Consequently, incoming unicast frames are treated as unknown unicast and flooded out all ports, allowing the attacker on an access port to capture traffic not intended for them.",
-    },
-    {
-      question:
-        "How does Dynamic ARP Inspection (DAI) prevent ARP spoofing / poisoning attacks on an enterprise switch?",
-      options: [
-        "By encrypting all ARP request packets with TLS 1.3.",
-        "By intercepting and validating ARP packets against the trusted DHCP Snooping binding database; invalid IP-to-MAC mappings are dropped.",
-        "By disabling the ARP protocol entirely and replacing it with DNS lookups.",
-        "By placing all ports into STP blocking state whenever an ARP reply is detected.",
-      ],
-      correct: 1,
-      rationale:
-        "Dynamic ARP Inspection (DAI) inspects all ARP requests and replies on untrusted switch ports. It verifies that the sender IP and sender MAC in the ARP payload match an authentic entry in the switch's DHCP Snooping binding database (or static ARP ACL). Gratuitous ARP forgeries or spoofed replies are discarded before poisoning client caches.",
-    },
-    {
-      question:
-        "What is the difference between Store-and-Forward and Cut-Through switching architectures?",
-      options: [
-        "Store-and-forward routes Layer 3 IP, while cut-through switches Layer 2 MACs.",
-        "Store-and-forward buffers the entire frame and validates the FCS CRC checksum before forwarding; cut-through reads only the destination MAC header and immediately begins transmitting, achieving lower latency at the risk of propagating corrupted frames.",
-        "Cut-through only works on copper cables; store-and-forward is required for optical fiber.",
-        "Store-and-forward requires half-duplex links; cut-through requires full-duplex links.",
-      ],
-      correct: 1,
-      rationale:
-        "Store-and-forward switches buffer the entire Ethernet frame, calculate its CRC-32 Frame Check Sequence, and drop invalid/corrupted frames before they consume downstream bandwidth. Cut-through switches read only the first 6 bytes (Destination MAC) and begin egress forwarding immediately, reducing forwarding latency to sub-microsecond levels at the expense of propagating corrupted runts and errored frames.",
-    },
-    {
-      question:
-        "What occurs during a 'Native VLAN mismatch' configuration error between two connected 802.1Q trunk switches?",
-      options: [
-        "The trunk link physically shuts down with an SFP transceiver error.",
-        "Untagged frames transmitted by Switch A on its native VLAN are received by Switch B and placed into Switch B's native VLAN, causing traffic leakage between two distinct VLANs.",
-        "All BPDUs are converted into broadcast IP packets.",
-        "The switches automatically negotiate a new common VLAN using LACP.",
-      ],
-      correct: 1,
-      rationale:
-        "By definition, native VLAN traffic on an 802.1Q trunk is transmitted untagged. If Switch A's native VLAN is 10 and Switch B's native VLAN is 20, an untagged frame sent by a host in VLAN 10 on Switch A will cross the trunk untagged and be placed directly into VLAN 20 on Switch B. This creates an unintended Layer 2 bridge between isolated security segments.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [submittedQuiz, setSubmittedQuiz] = useState(false);
@@ -496,7 +355,14 @@ export default function NetworkDataLink() {
     setSubmittedQuiz(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="datalink" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="datalink" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Sticky Header */}
       <header className="sticky top-0 z-40 bg-[#f6f4ee]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 py-3 sm:px-8">

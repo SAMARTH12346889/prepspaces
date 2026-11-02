@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -37,6 +40,7 @@ import {
 } from "./SystemDesignDistributedSystemsDiagrams";
 
 export default function SystemDesignDistributedSystems() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "distributed-systems");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -136,119 +140,7 @@ export default function SystemDesignDistributedSystems() {
   // ---------------------------------------------------------------------------
   // 9-QUESTION ASSESSMENT QUIZ STATE
   // ---------------------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question:
-        "What is the main reason a remote caller cannot know that a timed-out operation failed?",
-      options: [
-        "TCP always discards successful writes",
-        "The operation may have completed while its response was delayed or lost",
-        "A timeout automatically rolls back remote transactions",
-      ],
-      correct: 1,
-      explanation:
-        "In a distributed system, a timeout only indicates that the caller did not receive a response within its deadline. The request may have committed on the server, but the network connection reset or dropped the response packet during return transit.",
-    },
-    {
-      id: 2,
-      question:
-        "Which clock is appropriate for measuring elapsed API duration within a process?",
-      options: [
-        "A wall-clock timestamp that may be adjusted",
-        "A monotonic elapsed-time clock",
-        "A randomly generated ID",
-      ],
-      correct: 1,
-      explanation:
-        "Monotonic clocks (such as `performance.now()` in Node.js or `System.nanoTime()` in Java) steadily advance based on CPU hardware ticks and are immune to NTP backward step adjustments or leap seconds.",
-    },
-    {
-      id: 3,
-      question:
-        "What does a Lamport clock guarantee about causally ordered events?",
-      options: [
-        "The timestamp of the earlier causal event is less than the later one",
-        "Every timestamp is the exact UTC time",
-        "Events with increasing timestamps are always causally related",
-      ],
-      correct: 0,
-      explanation:
-        "If event a causally precedes event b (a -> b), then L(a) < L(b). However, the converse is not true: L(a) < L(b) does not prove that a caused b, because independent concurrent events may have lower numbers.",
-    },
-    {
-      id: 4,
-      question: "What is the main difference between a timeout and a deadline?",
-      options: [
-        "They always mean the same thing",
-        "A timeout limits a particular wait or operation; a deadline limits the total useful time for an operation",
-        "A deadline eliminates network failures",
-      ],
-      correct: 1,
-      explanation:
-        "A timeout limits an individual socket or RPC call, while a deadline establishes the end-to-end time budget across all microservice layers, propagating remaining budgets and triggering cooperative cancellation.",
-    },
-    {
-      id: 5,
-      question: "Why use exponential backoff with jitter?",
-      options: [
-        "To synchronize every client retry",
-        "To spread retries over time and reduce pressure on an unhealthy dependency",
-        "To ensure every request succeeds",
-      ],
-      correct: 1,
-      explanation:
-        "Exponential backoff increases delays between attempts, and jitter randomizes the delay to avoid thundering herds where thousands of clients retry at the exact same millisecond.",
-    },
-    {
-      id: 6,
-      question: "What is idempotency intended to protect against?",
-      options: [
-        "Duplicate effects from repeating the same logical operation",
-        "Every possible Byzantine failure",
-        "Clock synchronization errors",
-      ],
-      correct: 0,
-      explanation:
-        "Idempotency guarantees that executing the same operation multiple times with the same idempotency key produces the exact same side-effect state as executing it once, preventing duplicate billing or submissions.",
-    },
-    {
-      id: 7,
-      question: "What does a circuit breaker primarily do?",
-      options: [
-        "Repairs a remote service automatically",
-        "Stops repeated calls to a dependency that is likely to continue failing",
-        "Guarantees that a database replica is fully up to date",
-      ],
-      correct: 1,
-      explanation:
-        "A circuit breaker monitors failure rates; when a threshold is breached, it trips OPEN to fail immediately without placing additional load on the struggling dependency, protecting thread pools and preventing cascading outages.",
-    },
-    {
-      id: 8,
-      question: "Why can a healthy process appear failed to another machine?",
-      options: [
-        "Network delays or partitions may prevent communication",
-        "Every heartbeat proves exact physical time",
-        "Logical clocks guarantee connectivity",
-      ],
-      correct: 0,
-      explanation:
-        "Network congestion, packet loss, GC pauses, or asymmetric routing can prevent heartbeats from arriving, making a completely healthy service appear dead to an external observer.",
-    },
-    {
-      id: 9,
-      question: "What is a cascading failure?",
-      options: [
-        "An outage that always stays limited to one server",
-        "A failure that overloads or destabilizes dependent components and causes further failures",
-        "A normal successful retry",
-      ],
-      correct: 1,
-      explanation:
-        "A cascading failure occurs when a problem in one component (e.g. slow responses) causes callers to consume excess threads, time out, and retry, triggering a chain reaction that knocks down unrelated upstream services.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
@@ -711,7 +603,14 @@ export default function SystemDesignDistributedSystems() {
 
   const currentLessonData = lessons.find((l) => l.id === activeLesson) || lessons[0];
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="distributed-systems" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="distributed-systems" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-8 sm:px-8 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

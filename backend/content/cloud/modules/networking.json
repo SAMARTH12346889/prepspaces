@@ -17,21 +17,21 @@
       "options": [
         {
           "id": "A",
-          "text": "TCP Handshake → HTTP GET → DNS Lookup → Database Query → TLS Handshake",
+          "text": "TCP Handshake \u2192 HTTP GET \u2192 DNS Lookup \u2192 Database Query \u2192 TLS Handshake",
           "verdict": "Incorrect",
           "explanation": "You cannot open a TCP connection before resolving the domain name into an IP address via DNS.",
           "isCorrect": false
         },
         {
           "id": "B",
-          "text": "DNS Lookup → TCP 3-Way Handshake → TLS 1.3 Cryptographic Handshake → HTTP GET Request → Database Query",
+          "text": "DNS Lookup \u2192 TCP 3-Way Handshake \u2192 TLS 1.3 Cryptographic Handshake \u2192 HTTP GET Request \u2192 Database Query",
           "verdict": "Correct! Clean Systems Layering",
           "explanation": "1) DNS resolves the IP address. 2) TCP establishes the transport connection. 3) TLS negotiates symmetric encryption keys. 4) HTTP sends the encrypted GET request. 5) Backend queries database.",
           "isCorrect": true
         },
         {
           "id": "C",
-          "text": "TLS Handshake → DNS Lookup → TCP Handshake → HTTP GET",
+          "text": "TLS Handshake \u2192 DNS Lookup \u2192 TCP Handshake \u2192 HTTP GET",
           "verdict": "Incorrect",
           "explanation": "TLS operates on top of TCP; it cannot negotiate before TCP is established.",
           "isCorrect": false
@@ -112,7 +112,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Yes! Inbound user traffic arrives via the Internet Gateway → ALB → Private App VMs and does NOT touch the NAT Gateway.",
+          "text": "Yes! Inbound user traffic arrives via the Internet Gateway \u2192 ALB \u2192 Private App VMs and does NOT touch the NAT Gateway.",
           "verdict": "Correct! Inbound vs Outbound Independence",
           "explanation": "NAT Gateways are ONLY used for outbound connections initiated by private instances. Inbound user traffic enters through the Internet Gateway and Load Balancer! (However, if the app needs to call third-party APIs during checkout, those outbound API calls will fail).",
           "isCorrect": true
@@ -129,20 +129,20 @@
     {
       "id": 6,
       "title": "Scenario F: Route Table vs Firewall Permission Confusion",
-      "context": "Subnet Route Table contains '10.20.0.0/16 → local'. App VM (10.20.10.15) sends TCP SYN to Database (10.20.32.20) on port 5432. Database Security Group only allows port 5432 from 10.20.99.0/24.",
+      "context": "Subnet Route Table contains '10.20.0.0/16 \u2192 local'. App VM (10.20.10.15) sends TCP SYN to Database (10.20.32.20) on port 5432. Database Security Group only allows port 5432 from 10.20.99.0/24.",
       "question": "Why does the connection fail?",
       "options": [
         {
           "id": "A",
           "text": "Because routing is broken; a new route is required.",
           "verdict": "Incorrect",
-          "explanation": "Routing is fully operational! The '10.20.0.0/16 → local' route knows exactly which virtual switch port holds the database.",
+          "explanation": "Routing is fully operational! The '10.20.0.0/16 \u2192 local' route knows exactly which virtual switch port holds the database.",
           "isCorrect": false
         },
         {
           "id": "B",
           "text": "The path exists in the route table, but the packet is blocked at the destination by the Database Security Group firewall policy.",
-          "verdict": "Correct! Route (Path) ≠ Security (Permission)",
+          "verdict": "Correct! Route (Path) \u2260 Security (Permission)",
           "explanation": "A route table only answers: 'WHERE CAN THIS GO?' A Security Group answers: 'IS THIS PERMITTED?' Both must be properly configured for communication.",
           "isCorrect": true
         }
@@ -156,6 +156,38 @@
     "hasQuiz": false,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 5
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Nova AI Cloud Networking Architect Tutor",
+      "paragraphs": [
+        "Ask questions about CIDR math, longest prefix matching, NAT vs firewalls, TCP handshakes, or Direct Connect."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "In-Depth Systems & Protocol Theory",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Core Networking Invariants & Key Rules",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "{currentTopic.architectDecision}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Technical Interview & Systems Defense Questions",
+      "paragraphs": []
+    }
+  ]
 }

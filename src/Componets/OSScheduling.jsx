@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -52,6 +55,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSScheduling() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "scheduling");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -227,76 +231,7 @@ Algorithm: Round Robin (quantum=2)
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. Which metric measures time from arrival until the first CPU service?",
-      options: ["Turnaround time", "Response time", "Throughput", "Waiting time"],
-      correctIndex: 1,
-      explanation:
-        "Response time (RT = Start Time - Arrival Time) measures how quickly an application receives its first slice of CPU time. It is the critical metric for interactive systems, UI responsiveness, and real-time audio.",
-    },
-    {
-      id: 2,
-      question: "2. Which algorithm can preempt a running process when a shorter remaining job arrives?",
-      options: ["FCFS", "Non-preemptive SJF", "SRTF", "Non-preemptive Priority"],
-      correctIndex: 2,
-      explanation:
-        "Shortest Remaining Time First (SRTF) is the preemptive variant of Shortest Job First. If a newly arrived process has a remaining burst strictly smaller than the currently executing process's remaining burst, the CPU preempts the running process.",
-    },
-    {
-      id: 3,
-      question: "3. What is the convoy effect?",
-      options: [
-        "A CPU migration problem",
-        "Short jobs waiting behind a long job",
-        "A process using multiple cores",
-        "A memory leak",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The convoy effect occurs in First-Come, First-Served (FCFS) scheduling when multiple short CPU or I/O-bound jobs are held up waiting for a single long CPU-heavy process to finish, causing plummeting device utilization and sky-high average waiting times.",
-    },
-    {
-      id: 4,
-      question: "4. What is a common risk of strict priority scheduling?",
-      options: [
-        "Every task gets equal CPU time",
-        "Starvation of low-priority tasks",
-        "No preemption is possible",
-        "Throughput must be zero",
-      ],
-      correctIndex: 1,
-      explanation:
-        "In strict priority scheduling, if there is a steady stream of high-priority processes arriving, lower-priority tasks may suffer starvation (indefinite postponement). Operating systems mitigate this with Aging—gradually elevating the priority of waiting tasks.",
-    },
-    {
-      id: 5,
-      question: "5. What is a primary Round Robin tuning trade-off?",
-      options: [
-        "Disk capacity versus RAM",
-        "Quantum size versus responsiveness and switching overhead",
-        "File permissions versus ownership",
-        "Cache size versus page size only",
-      ],
-      correctIndex: 1,
-      explanation:
-        "If the time quantum (q) is too large, Round Robin degenerates into FCFS, degrading interactive response time. If q is too small, context-switch overhead (saving registers, cache pollution, TLB flushes) consumes a significant fraction of CPU capacity.",
-    },
-    {
-      id: 6,
-      question: "6. Why is CPU affinity useful?",
-      options: [
-        "It guarantees the shortest job runs first",
-        "It restricts a task to eligible CPUs and may improve locality",
-        "It eliminates every context switch",
-        "It guarantees zero waiting time",
-      ],
-      correctIndex: 1,
-      explanation:
-        "CPU affinity binds a process or thread to specific CPU cores. By keeping a process on the same core, its working set remains warm in L1/L2 caches, avoiding cache misses and remote NUMA interconnect latency caused by inter-core migration.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -397,7 +332,14 @@ Conclusion: SRTF optimizes turnaround; Round Robin optimizes response.`;
     setCustomCommand("");
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="scheduling" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="scheduling" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Top Breadcrumb & Navigation */}
       <ModuleNav

@@ -190,6 +190,138 @@
     "hasQuiz": true,
     "hasTopics": true,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 13
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Data Link Layer Fundamentals",
+      "paragraphs": [
+        "The Data Link Layer (OSI Layer 2) is responsible for transferring datagrams between adjacent nodes connected over a physical transmission medium. While the Physical Layer moves raw bits across copper, fiber, or air, the Data Link Layer provides framing, local physical addressing (MAC), medium access arbitration, and error detection (CRC).",
+        "Upper sublayer that multiplexes protocols over the MAC sublayer. It provides service access points (LSAPs) and interacts directly with the Layer 3 Network Layer (IPv4, IPv6, ARP), abstracting the underlying physical media technology.",
+        "Lower sublayer communicating directly with the physical transceiver. It assembles frames, appends source/destination MAC addresses, generates CRC-32 checksums, and arbitrates wire access (historical CSMA/CD or modern Full-Duplex).",
+        "Layer 2 Switching: Operates on flat 48-bit MAC addresses without hierarchical topology. Switches make forwarding decisions using local CAM tables, forwarding frames only across a single broadcast domain or VLAN. MAC addresses are rewritten at every hop by routers.",
+        "Layer 3 Routing: Operates on hierarchical IP addresses (network prefix + host identifier). Routers interconnect disparate broadcast domains, decrement the TTL counter, and determine end-to-end paths across autonomous systems (BGP/OSPF).",
+        "L3 Header: Src IP = 192.168.1.10, Dst IP = 192.168.1.20 (Invariant) L2 Header: Src MAC = Host A MAC, Dst MAC = Host B MAC (Direct delivery via switch)",
+        "Hop 1 (Host A to Gateway): Src MAC = Host A, Dst MAC = Gateway Router MAC | Dst IP = 93.184.216.34 Hop 2 (Gateway to ISP): Src MAC = Router Egress MAC, Dst MAC = Next-Hop ISP MAC | Dst IP = 93.184.216.34 (TTL-1)"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Ethernet Frame Structure & Wire Fields",
+      "paragraphs": [
+        "Modern local area networks standardize on Ethernet II framing (also known as DIX Ethernet). An Ethernet frame encapsulates an IP packet or ARP message, adding 14 bytes of header and 4 bytes of error-checking trailer.",
+        "Network Interface Cards (NICs) contain dedicated hardware PHY/MAC silicon. The hardware automatically synchronizes with the Preamble/SFD and validates the CRC-32 FCS trailer. If the CRC fails, the hardware drops the frame before it reaches OS memory. If valid, the NIC strips the Preamble and FCS, copying only the 14-byte header and payload into host RAM via DMA."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "MAC Addresses, Organizationally Unique Identifiers (OUIs) & Address Types",
+      "paragraphs": [
+        "A Media Access Control (MAC) address is a 48-bit (6-octet) hardware identifier burned into the network interface card (NIC). It is written in hexadecimal notation: 00:1A:2B:3C:4D:5E or 001a.2b3c.4d5e.",
+        "Least significant bit of 1st octet. 0 = Unicast (Individual): Addressed to a single network interface. 1 = Multicast / Broadcast (Group): Addressed to a multicast group (e.g., 01:00:5E:...) or broadcast (FF:FF:FF:FF:FF:FF).",
+        "Second least significant bit of 1st octet. 0 = Universally Administered: Burned-in vendor hardware address. 1 = Locally Administered: Overridden by software. Modern smartphones (iOS Private Wi-Fi, Android Randomized MAC) set this bit to 1 to prevent tracking.",
+        "Destination matched in CAM table; forwarded out single designated egress port. If unknown, flooded to VLAN.",
+        "FF:FF:FF:FF:FF:FF. Always flooded out all ports in the VLAN except the incoming port.",
+        "Flooded like broadcast unless switch supports IGMP Snooping to constrain delivery to active subscribers."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Address Resolution Protocol (ARP) & Local Discovery",
+      "paragraphs": [
+        "IP routing specifies the logical destination, but network interfaces can only transmit Ethernet frames using physical Layer 2 MAC addresses. The Address Resolution Protocol (ARP \u2014 RFC 826) bridges this gap by mapping 32-bit IPv4 addresses to 48-bit MAC addresses.",
+        "Host A verifies destination IP is inside its local subnet mask. If remote, it targets the Default Gateway IP instead.",
+        "If MAC is not cached, Host A sends an ARP Request with Dest MAC FF:FF:FF:FF:FF:FF asking who owns the target IP.",
+        "Target host recognizes its own IP and transmits an ARP Reply unicast directly to Host A's MAC address containing its hardware address.",
+        "Both hosts store the mapping in their ARP table (ip neigh) with an aging timer (typically 60\u2013300s).",
+        "Gratuitous ARP: An unprompted ARP reply broadcasted by a host claiming its own IP address. Used to detect duplicate IP addresses upon booting or to trigger instant CAM table updating during High-Availability VIP failovers (Keepalived/VRRP).",
+        "IPv6 Neighbor Discovery Protocol (NDP): IPv6 eliminates broadcast entirely! Address resolution is performed using ICMPv6 Neighbor Solicitations (NS) and Neighbor Advertisements (NA) mapped to solicited-node multicast addresses."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Ethernet Switching, Content-Addressable Memory (CAM) & Forwarding Rules",
+      "paragraphs": [
+        "Unlike legacy hubs that blindly repeated electrical signals across all pins, an Ethernet switch is a multi-port bridge that operates at Layer 2. Switches maintain a Content-Addressable Memory (CAM) table that dynamically maps MAC addresses to physical switch ports and VLANs.",
+        "Whenever a frame enters an ingress port, the switch records the Source MAC, the Ingress Port, and the VLAN into the CAM table, resetting its entry aging timer (default 300 seconds).",
+        "The switch examines the Destination MAC and checks whether it exists in the CAM table for that specific VLAN.",
+        "\u2022 Known Unicast: Forwarded only out the target egress port. \u2022 Same Ingress Port: Filtered / dropped (target already on segment). \u2022 Unknown Unicast / Broadcast: Flooded out all VLAN ports except ingress.",
+        "The switch buffers the complete frame before forwarding, calculates the CRC-32 FCS checksum, and drops corrupted frames or runts. Required when forwarding between ports of mismatched speeds (e.g., 10G to 1G).",
+        "The switch reads only the first 6 bytes (Destination MAC) and begins egress transmission immediately (~sub-microsecond latency). Disadvantage: corrupted frames with CRC errors propagate downstream before being caught."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Virtual LANs (VLANs) & IEEE 802.1Q Logical Segmentation",
+      "paragraphs": [
+        "A Virtual LAN (VLAN) divides a single physical switch infrastructure into isolated logical Layer 2 broadcast domains. Hosts on VLAN 10 cannot communicate with hosts on VLAN 20 without passing through a Layer 3 router or multilayer switch SVI.",
+        "Connected to end devices (PCs, printers, servers). Transmits and receives untagged frames. The switch automatically associates untagged frames with the port's configured Port VLAN ID (PVID).",
+        "Interconnects switches, routers, or hypervisors. Transmits tagged frames carrying the 4-byte 802.1Q header to preserve VLAN membership across physical links.",
+        "By default, IEEE 802.1Q transmits Native VLAN traffic untagged. If native VLANs are mismatched across a trunk, traffic leaks between VLANs! Enterprise hardening mandates setting the native VLAN to an unused ID (e.g., VLAN 999) and enabling native VLAN tagging (vlan dot1q tag native)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Trunking & Multi-Switch VLAN Architectures",
+      "paragraphs": [
+        "In enterprise campus and data center networks, VLANs span dozens of access switches. Trunk links carry traffic for all allowed VLANs over high-speed uplinks, while Link Aggregation (LACP / 802.3ad) bundles multiple physical cables into a single high-bandwidth logical port channel.",
+        "Link Aggregation Control Protocol (LACP) combines up to 8 physical Ethernet interfaces into a single logical Port Channel / LAG. It provides automatic failover without triggering Spanning Tree recalculations and balances traffic using flow hashes (Src IP, Dst IP, L4 Ports)."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Spanning Tree Protocol (STP) & Loop Prevention",
+      "paragraphs": [
+        "Redundant physical cabling is required for high availability. However, without a loop-prevention protocol, redundant Layer 2 links create catastrophic broadcast storms, multiple frame duplication, and CAM table thrashing. Because Ethernet frames lack an IP-style TTL field, a broadcast frame loops forever!",
+        "Switches exchange Bridge Protocol Data Units (BPDUs) every 2 seconds. The switch with the lowest Bridge ID (Bridge Priority + Base MAC) wins the election and becomes the logical center of the network.",
+        "\u2022 Root Port (RP): Lowest path cost to Root Bridge (1 per non-root switch). \u2022 Designated Port (DP): Forwards traffic onto a LAN segment (Forwarding). \u2022 Alternate Port (AP): Redundant backup port placed in Blocking / Discarding state."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Link-Layer Errors, Duplex Mismatches & Fault Diagnostics",
+      "paragraphs": [
+        "Production network triage requires isolating Layer 2 hardware and framing issues before investigating IP routing or DNS. Interface counters provide objective evidence of physical layer defects and framing anomalies.",
+        "Frames corrupted during wire transit. Caused by electromagnetic interference (EMI), damaged Cat6 copper twists, bent optical fiber patch cables, or dirty optical ferrule ends.",
+        "Runts: Truncated frames below 64 bytes caused by collisions on half-duplex links. Giants: Frames exceeding maximum MTU, caused by mismatched jumbo frame configurations.",
+        "One side hardcoded to Full Duplex while other side uses auto-negotiation (falls back to Half). Causes Late Collisions on the half-duplex end and CRC errors on the full-duplex end!",
+        "The same source MAC address is seen alternately on Port 1 and Port 2 within milliseconds. Direct symptom of an active Layer 2 switching loop or duplicate NIC MAC addresses."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Link-Layer Security: Attacks, Spoofing & Enterprise Defenses",
+      "paragraphs": [
+        "Ethernet and ARP were designed in academic environments without intrinsic authentication. Without deliberate Layer 2 security controls, an adversary with physical or Wi-Fi access can intercept traffic, hijack gateways, or exhaust switch forwarding resources.",
+        "Attacker floods switch with millions of bogus source MACs (macof). Switch CAM table fills, forcing switch to flood all incoming unicast frames to all ports like a hub.",
+        "Attacker broadcasts forged ARP replies claiming Gateway IP has attacker's MAC, establishing Man-in-the-Middle (MITM) to intercept unencrypted traffic.",
+        "Attacker deploys unauthorized DHCP server giving clients fake default gateway and malicious DNS.",
+        "Attacker sends frame with two 802.1Q tags. Switch strips outer tag (native VLAN), forwarding inner tag to target isolated VLAN.",
+        "Zero-trust network architecture requires authenticating devices before allowing wire access. Using EAP over LAN (EAPoL) and RADIUS, the switch port remains in an unauthorized state (dropping all frames except EAPoL) until the supplicant presents valid certificates or credentials."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Practical Tools & CLI Diagnostic Reference",
+      "paragraphs": [
+        "Network engineers must be fluent in both host operating system network stacks (Linux iproute2, Wireshark, tcpdump) and enterprise switch command-line interfaces."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Hands-on Laboratory Sequence",
+      "paragraphs": [
+        "Follow this 5-stage university laboratory progression to master Layer 2 engineering:"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Capstone Project & Knowledge Assessment",
+      "paragraphs": [
+        "In the capstone project, learners diagnose a production enterprise outage involving VLAN mismatch, duplicate MAC address flapping, and STP loop instability."
+      ]
+    }
+  ]
 }

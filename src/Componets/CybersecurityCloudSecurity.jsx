@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ModuleNav from "./ModuleNav";
@@ -61,6 +64,7 @@ import {
 } from "lucide-react";
 
 export default function CybersecurityCloudSecurity() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "cloud-security");
   const navigate = useNavigate();
 
   // Active Tab state
@@ -274,86 +278,7 @@ export default function CybersecurityCloudSecurity() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      q: "1. What is the primary purpose of the principle of least privilege?",
-      options: [
-        "Give all developers administrator access for convenience.",
-        "Grant only the access necessary for an identity's task.",
-        "Disable all cloud identities.",
-        "Rely on network firewalls instead of access policies."
-      ],
-      correct: 1,
-      rationale:
-        "Least privilege restricts access to only the specific actions, resources, and conditions strictly required to perform a defined business function, minimizing blast radius if compromised."
-    },
-    {
-      id: 2,
-      q: "2. An IAM policy allows every action on every resource (\"Action\": \"*\", \"Resource\": \"*\"). What is the main concern?",
-      options: [
-        "It always blocks legitimate applications.",
-        "It applies only to public storage.",
-        "It grants excessively broad permissions, increasing potential impact.",
-        "It automatically encrypts all resources."
-      ],
-      correct: 2,
-      rationale:
-        "Wildcard administrative access across all cloud resources drastically magnifies the impact of any compromised workload identity or leaked credential."
-    },
-    {
-      id: 3,
-      q: "3. Which identity design is generally preferable for an application that accesses cloud storage?",
-      options: [
-        "A dedicated workload identity with narrowly scoped permissions.",
-        "A shared human administrator's permanent access key.",
-        "A single administrator identity shared by all applications.",
-        "An identity that can modify all organization policies."
-      ],
-      correct: 0,
-      rationale:
-        "Cloud providers strongly recommend dedicated workload identities (such as AWS IAM Roles for Service Accounts / EC2 Instance Profiles or GCP Service Accounts) that use short-lived credentials and narrowly scoped permissions."
-    },
-    {
-      id: 4,
-      q: "4. Why is removing a secret from the latest container filesystem not necessarily enough?",
-      options: [
-        "Container filesystems cannot contain text.",
-        "Every container automatically revokes credentials.",
-        "Docker images do not have historical layers.",
-        "The secret may remain in earlier image layers or other artifacts."
-      ],
-      correct: 3,
-      rationale:
-        "Docker builds construct immutable image layers. If an intermediate RUN or COPY command introduced a secret, subsequent rm commands merely obscure it in the uppermost layer while the secret persists in underlying layer blobs."
-    },
-    {
-      id: 5,
-      q: "5. A reporting workload only needs to read ConfigMaps in one Kubernetes namespace. What is the best starting design?",
-      options: [
-        "Bind the workload to cluster-admin.",
-        "Use a namespace-scoped role with only required read permissions.",
-        "Give all users edit access to every namespace.",
-        "Disable Kubernetes authorization."
-      ],
-      correct: 1,
-      rationale:
-        "Using a namespace-scoped Role granting only 'get' and 'list' verbs on 'configmaps' bound via a RoleBinding enforces strict least privilege and prevents lateral movement."
-    },
-    {
-      id: 6,
-      q: "6. A storage resource is found to have an unintended public-access setting. What should the assessor do?",
-      options: [
-        "Delete all storage immediately without investigation.",
-        "Ignore it if encryption is enabled.",
-        "Verify the exposure, follow the approved containment process, investigate impact, remediate and retest.",
-        "Disable all logging to reduce noise."
-      ],
-      correct: 2,
-      rationale:
-        "Authorized assessors must verify exposure evidence, escalate through standard containment procedures, examine access logs to ascertain whether exfiltration occurred, remediate safely, and validate retests."
-    }
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuiz = (qid, idx) => {
     if (quizSubmitted) return;
@@ -368,7 +293,14 @@ export default function CybersecurityCloudSecurity() {
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="cloud-security" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="cloud-security" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 antialiased font-sans relative pb-20 selection:bg-orange-500 selection:text-white">
       {/* Ambient background glow accents */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

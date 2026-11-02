@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -63,6 +66,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function CybersecurityIntro() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "intro");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -423,128 +427,7 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which security property is primarily violated when a student reads another student's private interview report?",
-      options: ["Availability", "Confidentiality", "Integrity", "Non-repudiation"],
-      correctIndex: 1,
-      explanation:
-        "Confidentiality guarantees that information is accessible only to authorized people, systems, or processes. Unauthorized disclosure of private interview records directly violates confidentiality.",
-    },
-    {
-      id: 2,
-      question: "A student can change their assessment score by modifying an API request. What is the main concern?",
-      options: [
-        "Integrity and authorization",
-        "Only availability",
-        "Only confidentiality",
-        "Physical security",
-      ],
-      correctIndex: 0,
-      explanation:
-        "Integrity ensures data remains accurate and protected against unauthorized modification. Because the API permitted unauthorized changes without validating whether the user had permission to write, it also represents an authorization failure.",
-    },
-    {
-      id: 3,
-      question: "Which statement best describes a vulnerability?",
-      options: [
-        "Any person who uses a computer",
-        "A potential cause of harm",
-        "A weakness that may be exploited",
-        "A documented security policy",
-      ],
-      correctIndex: 2,
-      explanation:
-        "A vulnerability is a weakness or flaw in software, hardware, configuration, architecture, or process that may be taken advantage of by a threat to cause harm.",
-    },
-    {
-      id: 4,
-      question: "What should a tester do before assessing a public website?",
-      options: [
-        "Run a full scan first",
-        "Obtain valid authorization and define scope",
-        "Try default passwords",
-        "Collect customer information",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Ethical security testing requires explicit, written authorization from the system owner defining scope, rules of engagement, and approved methodologies before any probing or testing begins.",
-    },
-    {
-      id: 5,
-      question: "What does least privilege require?",
-      options: [
-        "Every user should be an administrator",
-        "Permissions should be limited to necessary duties",
-        "All accounts should share one password",
-        "Users should never authenticate",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The Principle of Least Privilege states that every user, process, and system component must be granted only the minimum permissions necessary to perform its authorized responsibilities.",
-    },
-    {
-      id: 6,
-      question: "Which NIST CSF 2.0 function focuses on recognizing potential security events?",
-      options: ["Govern", "Detect", "Recover", "Protect"],
-      correctIndex: 1,
-      explanation:
-        "The Detect function in NIST CSF 2.0 enables timely discovery and recognition of anomalous activity, suspicious actions, and potential security events through continuous monitoring and log analysis.",
-    },
-    {
-      id: 7,
-      question: "What is an attack surface?",
-      options: [
-        "The set of interfaces and pathways through which a system may be accessed or affected",
-        "A list of every criminal in a country",
-        "The impact score of a vulnerability",
-        "A backup storage device",
-      ],
-      correctIndex: 0,
-      explanation:
-        "An attack surface is the complete sum of interfaces, endpoints, ports, services, APIs, and pathways through which an adversary or unauthorized user could interact with or attempt to compromise a system.",
-    },
-    {
-      id: 8,
-      question: "What does a threat model help a team do?",
-      options: [
-        "Guarantee that a system is secure",
-        "Replace security testing",
-        "Identify assets, plausible threats, risks and controls",
-        "Automatically fix every vulnerability",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Threat modeling provides a structured, proactive methodology to systematically map architecture, identify valuable assets, discover plausible threat scenarios, analyze trust boundaries, and prioritize defensive controls.",
-    },
-    {
-      id: 9,
-      question: "A tool reports a possible vulnerability. What should the tester conclude?",
-      options: [
-        "The system is definitely exploitable",
-        "The report should be validated safely within scope",
-        "The target should be immediately published online",
-        "Every reported issue has the same severity",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Automated tools generate false positives and misinterpret application context. An ethical tester treats tool outputs as hypotheses requiring safe, controlled, non-destructive manual verification within authorized scope.",
-    },
-    {
-      id: 10,
-      question: "What is a key purpose of responsible vulnerability disclosure?",
-      options: [
-        "Maximize public exposure immediately",
-        "Coordinate reporting and remediation to reduce harm",
-        "Avoid documenting evidence",
-        "Obtain unrestricted access to affected systems",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Responsible disclosure establishes a coordinated channel between security researchers and system vendors, giving defenders time to remediate the vulnerability safely before public disclosure, thereby minimizing potential harm to end users.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (questionId, optionIdx) => {
     if (quizSubmitted) return;
@@ -561,7 +444,14 @@ router.post('/admin/users/promote', authenticateJWT, requireRole('super_admin'),
     return score;
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="intro" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="intro" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

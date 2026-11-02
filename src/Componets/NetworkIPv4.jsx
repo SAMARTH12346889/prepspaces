@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -52,6 +55,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkIPv4() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "ipv4");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -65,21 +69,7 @@ export default function NetworkIPv4() {
   };
 
   // Track scroll navigation & synced topics
-  const topics = [
-    { id: "sec-5-1", name: "5.1 IPv4 Fundamentals & Binary Structure" },
-    { id: "sec-5-2", name: "5.2 Historical Address Classes" },
-    { id: "sec-5-3", name: "5.3 CIDR Notation & Subnet Masks" },
-    { id: "sec-5-4", name: "5.4 Network, Broadcast & Host Ranges" },
-    { id: "sec-5-5", name: "5.5 Fast Subnetting & Block-Size Math" },
-    { id: "sec-5-6", name: "5.6 Fixed-Length Subnet Masking (FLSM)" },
-    { id: "sec-5-7", name: "5.7 Variable Length Subnet Masking (VLSM)" },
-    { id: "sec-5-8", name: "5.8 Private, Public, Loopback & Link-Local" },
-    { id: "sec-5-9", name: "5.9 NAT & Port Address Translation (PAT)" },
-    { id: "sec-5-10", name: "5.10 Enterprise IP Addressing & IPAM" },
-    { id: "sec-5-11", name: "5.11 Common Subnetting Errors & Triage" },
-    { id: "sec-5-12", name: "5.12 Hands-on Laboratory Sequence" },
-    { id: "sec-5-13", name: "5.13 Capstone & Assessment" },
-  ];
+  const topics = moduleData?.topics || [];
   const activeTopic = useSyncedTopic(topics.map((t) => t.id));
 
   const scrollToSection = (id) => {
@@ -368,138 +358,7 @@ export default function NetworkIPv4() {
   /* -------------------------------------------------------------------------- */
   /* 10-QUESTION KNOWLEDGE ASSESSMENT QUIZ                                      */
   /* -------------------------------------------------------------------------- */
-  const quizQuestions = [
-    {
-      question:
-        "Given the host IP address 172.16.45.14 and subnet mask 255.255.240.0 (/20), what is the calculated network address?",
-      options: [
-        "172.16.45.0",
-        "172.16.32.0",
-        "172.16.40.0",
-        "172.16.48.0",
-      ],
-      correct: 1,
-      rationale:
-        "The mask 255.255.240.0 has interesting 3rd octet 240. Block size = 256 - 240 = 16. Multiples of 16 in the 3rd octet are 0, 16, 32, 48, etc. Since the host has 45 in the 3rd octet, it falls into the 32 block (range 172.16.32.0 through 172.16.47.255). Thus, the network address is 172.16.32.0/20.",
-    },
-    {
-      question:
-        "How many conventional usable host IP addresses are available on a standard /27 IPv4 subnet?",
-      options: [
-        "32 hosts",
-        "30 hosts",
-        "28 hosts",
-        "62 hosts",
-      ],
-      correct: 1,
-      rationale:
-        "For /27, the host bits h = 32 - 27 = 5. Total addresses = 2^5 = 32. Subtracting 2 (one for the network identifier and one for the directed broadcast) gives 32 - 2 = 30 usable host addresses.",
-    },
-    {
-      question:
-        "What is the special purpose of an RFC 3021 /31 subnet prefix on point-to-point router links?",
-      options: [
-        "It provides 4 usable addresses for redundant VRRP gateways.",
-        "It allocates exactly 2 addresses (network and broadcast are omitted) to eliminate IPv4 address waste on dedicated two-node router links.",
-        "It enables automatic link-local APIPA addressing.",
-        "It acts as a loopback interface identifier.",
-      ],
-      correct: 1,
-      rationale:
-        "RFC 3021 standardizes /31 prefixes on point-to-point links. Because only two endpoints exist on the wire, there is no need for a distinct broadcast address or network identifier. Both addresses are assigned to the two router interfaces, conserving scarce IPv4 space.",
-    },
-    {
-      question:
-        "Which of the following IPv4 address blocks is designated by RFC 1918 for private non-Internet-routable enterprise networks?",
-      options: [
-        "100.64.0.0/10",
-        "172.16.0.0/12 (172.16.0.0 – 172.31.255.255)",
-        "169.254.0.0/16",
-        "192.0.2.0/24",
-      ],
-      correct: 1,
-      rationale:
-        "RFC 1918 defines three private address spaces: 10.0.0.0/8 (10.0.0.0–10.255.255.255), 172.16.0.0/12 (172.16.0.0–172.31.255.255), and 192.168.0.0/16 (192.168.0.0–192.168.255.255). 100.64.0.0/10 is CGNAT (RFC 6598), and 169.254.0.0/16 is APIPA link-local.",
-    },
-    {
-      question:
-        "When an engineer designs a network using Variable Length Subnet Masking (VLSM), what is the first critical rule to avoid address overlap?",
-      options: [
-        "Allocate point-to-point /30 links first before any host subnets.",
-        "Sort the subnet requirements in descending order by the number of hosts needed, and allocate the largest blocks first on aligned boundaries.",
-        "Use classful Class C /24 boundaries for all departments.",
-        "Assign broadcast addresses before computing network addresses.",
-      ],
-      correct: 1,
-      rationale:
-        "The golden rule of VLSM is to list all requirements and sort them in descending order (largest host count to smallest). Allocating the largest subnets first ensures that subsequent smaller subnets align naturally to their mathematical power-of-two boundaries without fragmenting or overlapping earlier allocations.",
-    },
-    {
-      question:
-        "What is the function of Port Address Translation (PAT), also known as NAT Overload?",
-      options: [
-        "It assigns one static public IP address permanently to each internal client.",
-        "It maps multiple private IP addresses to a single public IP address by tracking unique Layer 4 source port numbers in a translation table.",
-        "It encrypts payload data using IPsec ESP.",
-        "It converts IPv4 packets into IPv6 packets using dual-stack translation.",
-      ],
-      correct: 1,
-      rationale:
-        "Port Address Translation (PAT) allows thousands of internal devices with private RFC 1918 addresses to share one (or a few) public IPv4 addresses. The NAT gateway translates the internal client's private IP and source port into its own public IP and an assigned unique source port, demultiplexing incoming return packets using its connection table.",
-    },
-    {
-      question:
-        "A client workstation boots up and automatically assigns itself the IP address 169.254.88.12. What does this indicate?",
-      options: [
-        "The computer has successfully obtained a lease from a public DHCP server.",
-        "The DHCP server on the local network was unreachable or failed to respond, causing the operating system to fall back to an Automatic Private IP Addressing (APIPA) link-local address.",
-        "The computer is connected to a Carrier-Grade NAT provider.",
-        "The network card is malfunctioning and must be replaced.",
-      ],
-      correct: 1,
-      rationale:
-        "169.254.0.0/16 is the IPv4 Link-Local address block (RFC 3927). When a client fails to receive a DHCP response (due to VLAN misconfiguration, DHCP scope exhaustion, or cabling faults), modern OSes (Windows APIPA, Linux/macOS Zeroconf) self-assign an address in 169.254.x.x, allowing communication only with other link-local hosts on that immediate broadcast segment.",
-    },
-    {
-      question:
-        "What bitwise operation does a host computer perform between its own IP address and its configured subnet mask to determine its local network prefix?",
-      options: [
-        "Bitwise XOR",
-        "Bitwise AND",
-        "Bitwise OR",
-        "Bitwise NOT",
-      ],
-      correct: 1,
-      rationale:
-        "A host performs a bitwise logical AND between its 32-bit IP address and its 32-bit subnet mask (1 AND 1 = 1; anything else = 0). The resulting 32-bit value is the network address. The host performs the same operation on the destination IP to determine whether the target is on the local subnet or must be sent to the default gateway.",
-    },
-    {
-      question:
-        "What is the broadcast address for the subnet 10.20.30.128/25?",
-      options: [
-        "10.20.30.255",
-        "10.20.30.191",
-        "10.20.31.255",
-        "10.20.30.127",
-      ],
-      correct: 0,
-      rationale:
-        "For /25, the subnet mask is 255.255.255.128. Block size = 256 - 128 = 128. The subnets in the 4th octet are 0 and 128. For the subnet starting at 10.20.30.128, the block spans 128 addresses (128 to 255). The last address in the block is 10.20.30.255, which is the directed broadcast address.",
-    },
-    {
-      question:
-        "Why is it an engineering error to assign the IP address 192.168.1.192 with a /26 subnet mask to a host workstation interface?",
-      options: [
-        "Because 192.168.1.192 is an RFC 1918 private address.",
-        "Because for a /26 mask, 192.168.1.192 is the network address identifier for that subnet, and cannot be assigned to an individual host interface.",
-        "Because /26 masks can only be used on Class B networks.",
-        "Because 192 is an odd number in binary.",
-      ],
-      correct: 1,
-      rationale:
-        "A /26 mask has block size 64 (boundaries at .0, .64, .128, .192). The address 192.168.1.192 is the network address for the fourth subnet (192.168.1.192/26). The network address is reserved to represent the subnet itself; assigning it to a host interface will result in an 'invalid host address' error on virtually all network operating systems.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [submittedQuiz, setSubmittedQuiz] = useState(false);
@@ -522,7 +381,14 @@ export default function NetworkIPv4() {
     setSubmittedQuiz(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="ipv4" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="ipv4" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Sticky Header */}
       <header className="sticky top-0 z-40 bg-[#f6f4ee]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 py-3 sm:px-8">

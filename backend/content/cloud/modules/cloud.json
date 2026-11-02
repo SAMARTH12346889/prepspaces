@@ -98,7 +98,7 @@
     },
     {
       "id": 4,
-      "title": "Event 4: Sudden 20× Flash-Crowd Viral Traffic Surge",
+      "title": "Event 4: Sudden 20\u00d7 Flash-Crowd Viral Traffic Surge",
       "context": "Your e-commerce startup is featured on national TV. Request rate jumps from 500 requests/sec to 10,000 requests/sec in 60 seconds.",
       "question": "What is the best architectural strategy to avoid total collapse?",
       "options": [
@@ -120,7 +120,7 @@
           "id": "C",
           "text": "Immediately double the RAM of the running VMs while they process traffic.",
           "verdict": "Impossible in Production",
-          "explanation": "Vertical scaling of a running VM typically requires stopping the instance, changing the instance type, and rebooting—causing total downtime during peak traffic!",
+          "explanation": "Vertical scaling of a running VM typically requires stopping the instance, changing the instance type, and rebooting\u2014causing total downtime during peak traffic!",
           "isCorrect": false
         }
       ]
@@ -155,6 +155,38 @@
     "hasQuiz": false,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": true
-  }
+    "hasScenarios": true,
+    "theorySectionCount": 5
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Nova AI Cloud Systems Architect Tutor",
+      "paragraphs": [
+        "Ask doubts about hypervisors, failure domains, multi-AZ resilience, or NIST characteristics."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "In-Depth Systems Engineering Theory",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Key Architectural Principles & Invariants",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "{currentTopic.architectDecision}"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Technical Interview & Systems Defense Questions",
+      "paragraphs": []
+    }
+  ]
 }

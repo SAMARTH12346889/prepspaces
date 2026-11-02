@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -37,6 +40,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function CybersecurityRecon() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "recon");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -201,138 +205,7 @@ export default function CybersecurityRecon() {
   // -------------------------------------------------------------
   // PART J: 10-Question Knowledge Check Quiz
   // -------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the primary purpose of host discovery in an authorized technical assessment?",
-      options: [
-        "A. To exploit every reachable service on the target network automatically.",
-        "B. To identify hosts that appear reachable under the selected test conditions.",
-        "C. To guarantee an infallible, 100% complete asset inventory without further verification.",
-        "D. To determine every software vulnerability existing in the operating system kernel.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Host discovery determines which IP addresses and network endpoints respond to selected probes (ICMP, TCP SYN, ARP) from the tester's vantage point under defined test conditions.",
-    },
-    {
-      id: 2,
-      question: "What does an Nmap port state of 'open' generally mean?",
-      options: [
-        "A. The service is definitely vulnerable and ready to be breached.",
-        "B. An application is accepting relevant connections or packets through the observed network path.",
-        "C. The operating system has been permanently compromised.",
-        "D. The host firewall has been completely disabled.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "An 'open' state indicates that an application is actively listening and responded with a SYN-ACK (TCP) or protocol response (UDP). It is evidence of reachability and service availability, not proof of a vulnerability.",
-    },
-    {
-      id: 3,
-      question: "What does 'filtered' mean in Nmap output?",
-      options: [
-        "A. The port is certainly closed and no application exists.",
-        "B. The application is definitely vulnerable.",
-        "C. Filtering (firewall, network ACL, or packet drop) prevents the scanner from determining whether the port is open or closed.",
-        "D. The service has presented an invalid TLS certificate.",
-      ],
-      correctAnswer: 2,
-      explanation:
-        "A 'filtered' state occurs when probe packets are dropped without response, or an ICMP unreachable error is returned, obscuring whether an application is actually listening behind the security device.",
-    },
-    {
-      id: 4,
-      question: "Why can a host fail to respond to ping (ICMP Echo) while still running and providing services?",
-      options: [
-        "A. All active hosts must respond to ping under RFC standards.",
-        "B. Firewalls or cloud security groups may deliberately block or rate-limit ICMP traffic while permitting web and SSH traffic.",
-        "C. TCP ports cannot exist without ICMP ping being enabled.",
-        "D. Domain Name System (DNS) automatically disables ICMP responses.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "ICMP is frequently disabled or filtered by perimeter firewalls to reduce automated scanner visibility. A host that drops ICMP may still be fully operational and accepting connections on ports 80, 443, or 22.",
-    },
-    {
-      id: 5,
-      question: "What does Nmap service and version detection (-sV) attempt to determine?",
-      options: [
-        "A. The legal identity and home address of the server owner with certainty.",
-        "B. The application protocol and product/version details behind a selected port using response matching and probe fingerprints.",
-        "C. All vulnerabilities present on the system automatically.",
-        "D. Whether a company has granted written legal authorization for the engagement.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Service/version detection (-sV) transmits specialized protocol probes and compares banners/responses against Nmap's signature database (nmap-service-probes) to identify software names and versions.",
-    },
-    {
-      id: 6,
-      question: "Why is an open TCP port not automatically a vulnerability?",
-      options: [
-        "A. Open ports can never be secured under any circumstances.",
-        "B. A port may provide an intended, business-necessary, properly patched, and authenticated service.",
-        "C. Every open port reported by Nmap is a false positive.",
-        "D. Port scanning does not inspect network traffic.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "An open port is intentional network exposure (e.g., an e-commerce web server listening on port 443). It is only a security finding if it violates policy, exposes unneeded management tools, or runs vulnerable software.",
-    },
-    {
-      id: 7,
-      question: "What is the principal limitation of inferring a service's identity solely from its port number?",
-      options: [
-        "A. Port numbers are never used by network applications.",
-        "B. Services can listen on non-standard ports (e.g., SSH on port 2222, HTTP on port 8080), or unexpected software may bind to standard ports.",
-        "C. All network ports use UDP exclusively.",
-        "D. Port numbers guarantee software patch levels.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Port numbers are conventions (IANA assignments), not technical guarantees. Assuming port 80 is Apache HTTP or port 22 is OpenSSH without banner or protocol verification can lead to severe analytical errors.",
-    },
-    {
-      id: 8,
-      question: "What should an ethical analyst do if an assigned scan reveals an unexpected open service?",
-      options: [
-        "A. Run automated exploit scripts immediately to gain root access.",
-        "B. Expand the scan to every nearby public IP address on the subnet.",
-        "C. Record the technical evidence, determine its exposure, and compare it with the client's approved architecture.",
-        "D. Assume the target host has already been compromised by foreign adversaries.",
-      ],
-      correctAnswer: 2,
-      explanation:
-        "A professional analyst documents the finding with timestamps, probe responses, and reachability context, then cross-checks with the system owner to determine whether the listener is unauthorized or undocumented.",
-    },
-    {
-      id: 9,
-      question: "Why can UDP port scanning often produce ambiguous results (e.g., 'open|filtered')?",
-      options: [
-        "A. UDP always establishes a full three-way TCP handshake.",
-        "B. UDP is connectionless; services do not always reply to generic probes, and firewalls may silently drop packets without returning ICMP port unreachable messages.",
-        "C. UDP has no port numbers defined in RFC 768.",
-        "D. All UDP services are encrypted by default.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Unlike TCP (which returns SYN-ACK or RST), UDP services often remain silent unless sent a valid protocol-specific payload. If no packet returns, Nmap cannot tell if the service is open and quiet, or if a firewall dropped the probe.",
-    },
-    {
-      id: 10,
-      question: "What criteria should determine whether an unexpected open port constitutes a security finding?",
-      options: [
-        "A. The port number alone.",
-        "B. The raw number of results displayed by the tool.",
-        "C. The technical evidence, intended configuration, network exposure, potential impact, and surrounding defensive controls.",
-        "D. Whether the terminal highlights the port number in red text.",
-      ],
-      correctAnswer: 2,
-      explanation:
-        "Security findings require risk context: Is the service needed? What network segments can reach it? Is authentication enforced? What data is exposed? A finding is justified by policy and impact, not tool output alone.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
@@ -354,7 +227,14 @@ export default function CybersecurityRecon() {
     setShowQuizResults(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="recon" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="recon" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

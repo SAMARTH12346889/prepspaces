@@ -28,7 +28,7 @@
         "Its PID is automatically reassigned"
       ],
       "correctIndex": 1,
-      "explanation": "A running process transitions to blocked (sleeping) when it requests an event or resource that is not immediately available—such as waiting for disk I/O, a socket packet, a lock, or a child termination. The scheduler removes it from the CPU run-queue until the hardware interrupt or wake-up signal occurs."
+      "explanation": "A running process transitions to blocked (sleeping) when it requests an event or resource that is not immediately available\u2014such as waiting for disk I/O, a socket packet, a lock, or a child termination. The scheduler removes it from the CPU run-queue until the hardware interrupt or wake-up signal occurs."
     },
     {
       "id": 3,
@@ -113,6 +113,26 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 2
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "Master the fundamental operating system abstraction: how the kernel represents processes in memory via the Process Control Block (task_struct), schedules state transitions, enforces memory isolation, reaps terminated children, and navigates the process tree hierarchy."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "University &amp; Kernel Engineering Standards",
+      "paragraphs": [
+        "Direct Execution, Limited Direct Execution, and Process Scheduling algorithms.",
+        "xv6 process tables (`struct proc`), context switching via `swtch.S`, and sleep/wakeup.",
+        "Chapters 24\u201328: Process Creation, Process Termination, Monitoring Children, and Programs Execution.",
+        "Completely Fair Scheduler (CFS) design, vruntime calculation, and process namespaces."
+      ]
+    }
+  ]
 }

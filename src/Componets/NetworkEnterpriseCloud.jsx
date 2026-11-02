@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -32,6 +35,7 @@ import {
 import ModuleNav from "./ModuleNav";
 
 export default function NetworkEnterpriseCloud() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "enterprise-cloud");
   const navigate = useNavigate();
 
   // Navigation tabs
@@ -303,138 +307,7 @@ export default function NetworkEnterpriseCloud() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What is the primary architectural advantage of a leaf-spine data center fabric over a traditional 3-tier hierarchical design?",
-      options: [
-        "It eliminates the need for routing protocols entirely by running Spanning Tree Protocol across all switches",
-        "It provides predictable, equidistant 2-hop leaf-to-leaf latency and massive horizontal scale-out bandwidth via ECMP for east-west traffic",
-        "It eliminates the need for leaf switches by connecting physical servers directly to spine switches",
-        "It automatically provides hardware-based IPsec encryption on every individual packet without performance cost",
-      ],
-      correct: 1,
-      explanation:
-        "In a leaf-spine Clos network, every leaf connects to every spine. East-west traffic between servers in different racks always traverses exactly 2 hops (Leaf -> Spine -> Leaf), and ECMP utilizes all available spine links concurrently without STP blocking links.",
-    },
-    {
-      id: 2,
-      question: "How does Equal-Cost Multi-Path (ECMP) routing distribute packets across redundant paths in a data center fabric?",
-      options: [
-        "It alternates individual packets in a round-robin order across links, regardless of the packet's source or destination",
-        "It calculates a hash of the 5-tuple (Src IP, Dst IP, Protocol, Src Port, Dst Port) so that all packets within a single flow follow the same path, preventing out-of-order packet delivery",
-        "It compresses all packet headers and broadcasts them simultaneously across all spine switches",
-        "It converts TCP packets into UDP broadcast frames at the distribution layer",
-      ],
-      correct: 1,
-      explanation:
-        "ECMP hashes the packet's 5-tuple to select a link. This guarantees that all packets belonging to the same TCP connection traverse the exact same path, preventing out-of-order packet arrival which would severely degrade TCP throughput.",
-    },
-    {
-      id: 3,
-      question: "In cloud virtual networks (e.g., AWS VPC, Azure VNet), what fundamentally distinguishes a 'public subnet' from a 'private subnet'?",
-      options: [
-        "A public subnet has an open Wi-Fi access point attached to it",
-        "A public subnet has a route table entry pointing 0.0.0.0/0 to an Internet Gateway (IGW) and assigns public IP addresses, whereas a private subnet routes internet egress via a NAT Gateway or has no default internet route",
-        "A public subnet operates strictly at Layer 2, while a private subnet operates at Layer 7",
-        "A public subnet has encryption disabled to maximize internet download speeds",
-      ],
-      correct: 1,
-      explanation:
-        "A subnet is public because its associated route table contains a default route (0.0.0.0/0) directed to an Internet Gateway and resources possess public IPs. A private subnet lacks a direct IGW route and typically uses a NAT Gateway for outbound-only egress.",
-    },
-    {
-      id: 4,
-      question: "What is the critical difference between Cloud Security Groups and Network ACLs (NACLs)?",
-      options: [
-        "Security Groups are stateful and applied at the virtual network interface (ENI) level; NACLs are typically stateless and evaluated at the subnet boundary",
-        "Security Groups can only block traffic, while NACLs can only allow traffic",
-        "Security Groups require physical cables, while NACLs run entirely in software",
-        "NACLs remember connection state, while Security Groups require explicit reverse allow rules for return traffic",
-      ],
-      correct: 0,
-      explanation:
-        "Security Groups are stateful: if an inbound request is permitted, return traffic is automatically allowed regardless of outbound rules. NACLs are stateless subnet-level packet filters that evaluate both inbound and outbound rules independently.",
-    },
-    {
-      id: 5,
-      question: "Why can a shallow TCP health check on a reverse proxy or load balancer lead to customer-facing outages during a partial failure?",
-      options: [
-        "A TCP health check is too slow and takes over 10 minutes to detect a broken link",
-        "A TCP three-way handshake succeeds as long as the OS listener socket is open, even if the backend application process has locked up or its database connection pool is completely exhausted",
-        "TCP health checks cause the load balancer to run out of ephemeral ports",
-        "TCP health checks only operate when the load balancer is configured in active-passive mode",
-      ],
-      correct: 1,
-      explanation:
-        "A shallow TCP health check only verifies that the operating system kernel completes a SYN-ACK handshake. If the backend web framework is stuck in a deadlock or cannot reach PostgreSQL, the TCP handshake still succeeds, causing the LB to forward live traffic to a server returning HTTP 500 errors. Deep HTTP `/healthz` checks verify downstream dependencies.",
-    },
-    {
-      id: 6,
-      question: "How does Layer 7 load balancing (Application Load Balancer) differ from Layer 4 load balancing (Network Load Balancer)?",
-      options: [
-        "Layer 7 only routes raw Ethernet MAC addresses, while Layer 4 inspects HTTP cookies and headers",
-        "Layer 7 terminates the application connection (e.g. TLS/HTTP), inspects URLs/headers/cookies, and can route based on path (e.g. /api vs /images); Layer 4 routes at the TCP/UDP transport level with lower latency and higher throughput",
-        "Layer 7 is exclusively designed for wireless networks, whereas Layer 4 is for wired fiber",
-        "Layer 4 load balancers decrypt all TLS traffic, while Layer 7 forward encrypted bytes blindly",
-      ],
-      correct: 1,
-      explanation:
-        "Layer 7 load balancers operate at the application layer, terminating TLS and parsing HTTP methods, paths, and host headers to make intelligent routing decisions. Layer 4 load balancers operate strictly on IP and TCP/UDP ports, providing ultra-low latency and raw packet throughput.",
-    },
-    {
-      id: 7,
-      question: "What is the size of the VXLAN Network Identifier (VNI) and why was it introduced to replace traditional 802.1Q VLANs in cloud data centers?",
-      options: [
-        "12 bits (4,096 segments), matching VLANs for backward compatibility",
-        "16 bits (65,536 segments), designed to fit inside standard IPv4 headers",
-        "24 bits (~16.7 million segments), allowing massive multi-tenant network isolation across routed Layer 3 IP underlays",
-        "64 bits, matching modern processor registers for fast memory caching",
-      ],
-      correct: 2,
-      explanation:
-        "Traditional 802.1Q VLANs are limited to a 12-bit ID (4,096 VLANs), which is insufficient for modern multi-tenant cloud data centers with thousands of isolated customer networks. VXLAN provides a 24-bit VNI (~16,777,216 logical segments) encapsulated in UDP.",
-    },
-    {
-      id: 8,
-      question: "Why must network engineers increase the physical underlay Maximum Transmission Unit (MTU) when deploying VXLAN encapsulation?",
-      options: [
-        "VXLAN packets compress the underlay frames, requiring smaller buffer sizes",
-        "VXLAN adds 50 bytes of encapsulation overhead (Outer Ethernet + Outer IP + UDP + VXLAN Header); an underlay with a standard 1500-byte MTU will drop or fragment tenant packets with 1500-byte payloads",
-        "VXLAN doubles the number of bits in every payload byte to provide error correction",
-        "The IEEE standard mandates that UDP port 4789 can only transmit frames larger than 4096 bytes",
-      ],
-      correct: 1,
-      explanation:
-        "VXLAN encapsulation prepends 50 bytes of outer headers (14B Outer Ethernet + 20B Outer IP + 8B UDP + 8B VXLAN). If an inner tenant VM sends a standard 1500-byte IP packet, the total frame becomes 1550 bytes. Physical switches must support an underlay MTU of at least 1550–1600 bytes (or 9000-byte Jumbo frames) to avoid packet drops or fragmentation.",
-    },
-    {
-      id: 9,
-      question: "In high availability (HA) and disaster recovery engineering, what do RTO and RPO measure?",
-      options: [
-        "RTO is the speed of light in fiber; RPO is the number of routing hops in BGP",
-        "RTO (Recovery Time Objective) is the maximum acceptable duration of service downtime; RPO (Recovery Point Objective) is the maximum acceptable amount of data loss measured in time",
-        "RTO measures CPU utilization during failover; RPO measures RAM consumption on the standby server",
-        "RTO is the round-trip ping time; RPO is the rate of packets dropped by the firewall",
-      ],
-      correct: 1,
-      explanation:
-        "Recovery Time Objective (RTO) defines how quickly systems must be restored after an outage (e.g., target 15 minutes). Recovery Point Objective (RPO) defines the maximum acceptable data loss window (e.g., maximum 5 minutes of transactional data loss from database replication lag).",
-    },
-    {
-      id: 10,
-      question: "What is the core principle of Zero Trust Network Architecture (NIST SP 800-207)?",
-      options: [
-        "Trust all internal traffic that originates from behind the corporate office firewall or VPN",
-        "Never trust, always verify: eliminate implicit trust based on network location alone; authenticate and authorize every user, device, and workload request using least privilege and continuous evaluation",
-        "Block all outbound internet access for all employees at all times",
-        "Replace all TCP and UDP traffic with proprietary proprietary encrypted hardware tunnels",
-      ],
-      correct: 1,
-      explanation:
-        "Zero Trust rejects the perimeter-based 'castle-and-moat' assumption that everything inside the internal network is benign. It assumes breach, requires explicit identity verification (mTLS, MFA, posture checks), microsegments workloads, and enforces least privilege on every single request.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleQuizSelect = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -513,7 +386,14 @@ export default function NetworkEnterpriseCloud() {
 - [x] RTO target < 15 minutes; RPO target < 1 minute validated via automated disaster recovery drill.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="enterprise-cloud" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="enterprise-cloud" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans">
       <ModuleNav
         track="networks"

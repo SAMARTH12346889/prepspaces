@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -79,6 +82,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSFilesystems() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "filesystems");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -338,86 +342,7 @@ Observation:
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "What is the primary difference between a hard link and a symbolic link?",
-      options: [
-        "A hard link creates a new copy of data; a symbolic link shares data blocks.",
-        "A hard link points directly to the existing inode number; a symbolic link is a separate file containing a path string.",
-        "A hard link can span multiple filesystems; a symbolic link cannot.",
-        "A symbolic link increments the inode's link count; a hard link does not.",
-      ],
-      correct: 1,
-      explanation:
-        "A hard link creates an additional directory entry pointing to the same existing inode number (incrementing the inode link count). A symbolic link is an entirely independent file (with its own inode) whose contents are the target path string.",
-    },
-    {
-      id: "q2",
-      question: "Where is a file's name stored in a Unix-style filesystem such as ext4?",
-      options: [
-        "Inside the file's inode metadata structure.",
-        "In the master superblock at block 0.",
-        "Inside directory entry data blocks (dentries).",
-        "Inside the first data extent of the file.",
-      ],
-      correct: 2,
-      explanation:
-        "In Unix-style filesystems, an inode stores file metadata (permissions, owner, size, timestamps, extent pointers) but NOT the filename. Filenames are stored inside directory entry (dentry) records that map human-readable names to inode numbers.",
-    },
-    {
-      id: "q3",
-      question: "Why does calling write() return successfully before data is written to physical storage?",
-      options: [
-        "The CPU executes the disk write synchronously in parallel.",
-        "The kernel writes the data to the Page Cache in RAM, marking pages 'Dirty' for delayed asynchronous writeback.",
-        "The Linux kernel drops unwritten data if storage is busy.",
-        "Disk controllers require writes to be buffered inside the CPU registers.",
-      ],
-      correct: 1,
-      explanation:
-        "Standard buffered I/O writes data directly into the kernel Page Cache in RAM, which is fast (~nanoseconds). The kernel marks the pages 'dirty' and flushes them to disk asynchronously via background flusher daemons (pdflush). To guarantee durability on disk, the application must call fsync().",
-    },
-    {
-      id: "q4",
-      question: "How does a journaling filesystem (such as ext4 in ordered mode) ensure crash consistency?",
-      options: [
-        "By duplicating the entire disk twice onto a backup drive.",
-        "By recording metadata updates in a contiguous journal log and committing them with a barrier before updating final on-disk structures.",
-        "By disabling all write caching on the storage drive.",
-        "By running e2fsck on every boot automatically.",
-      ],
-      correct: 1,
-      explanation:
-        "Journaling ensures crash consistency by writing multi-step metadata changes as an atomic transaction into a dedicated journal area first. Once the 'Commit Record' is persisted, the filesystem can always safely recover after a power cut by replaying committed transactions during reboot.",
-    },
-    {
-      id: "q5",
-      question: "What is an 'extent' in modern filesystems (ext4, XFS, Btrfs)?",
-      options: [
-        "A linked list of non-contiguous single blocks.",
-        "A contiguous range of physical blocks described by a starting block number and block length.",
-        "A special inode used only for directory listings.",
-        "The maximum size a file can reach on a 64-bit filesystem.",
-      ],
-      correct: 1,
-      explanation:
-        "An extent replaces traditional multi-level indirect block pointers with a compact structure: (starting physical block, length). This allows a single 12-byte extent record to index thousands of contiguous blocks, drastically reducing metadata overhead and fragmentation.",
-    },
-    {
-      id: "q6",
-      question: "What unique data protection feature distinguishes Btrfs and ZFS from ext4 and XFS?",
-      options: [
-        "They use FAT32 tables for backwards compatibility.",
-        "End-to-end data checksumming and Copy-on-Write (CoW) trees that detect and self-heal silent data corruption (bit rot).",
-        "They disable the Virtual Filesystem (VFS) to run directly on bare metal.",
-        "They do not support directories.",
-      ],
-      correct: 1,
-      explanation:
-        "Btrfs and ZFS use Copy-on-Write (CoW) B-trees and cryptographic/CRC checksums for all user data and metadata. If disk bit rot or media degradation flips a bit, the filesystem detects the checksum mismatch and can self-heal from parity/mirror copies.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectOption = (qId, optionIdx) => {
     setQuizAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
@@ -451,7 +376,14 @@ Observation:
 
   const completedChecklistCount = Object.values(checklist).filter(Boolean).length;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="filesystems" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="filesystems" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Universal Module Navigation Bar */}
       <ModuleNav

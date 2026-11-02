@@ -89,6 +89,57 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 6
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Web Application Architecture and Request Lifecycle",
+      "paragraphs": [
+        "A modern web application is an orchestrated ecosystem consisting of client browsers, frontend JavaScript runtimes, reverse proxies or API gateways, backend services, relational or NoSQL databases, identity providers (IdPs), and third-party SaaS integrations.",
+        "{`[ USER BROWSER ] \u25c4\u2500\u2500 Uncontrolled Environment (DOM, LocalStorage, DevTools) \u2502 \u25b2 \u2502 \u2502 HTTPS + Cookies + SOP / CORS / CSP Enforced by Browser \u25bc \u2502 [ REVERSE PROXY / API GATEWAY ] \u25c4\u2500\u2500 Edge Trust Boundary (TLS Termination, WAF, Rate Limits) \u2502 \u25b2 \u2502 \u2502 Internal Network / Mutual TLS (mTLS) \u25bc \u2502 [ BACKEND APPLICATION ] \u25c4\u2500\u2500 Core Authorization Boundary (RBAC/ABAC, Session Validation) \u2502 \u25b2 \u2502 \u2502 Database Queries (Parameterized SQL / ORM) \u25bc \u2502 [ DATABASE & IDENTITY PROVIDER ] \u25c4\u2500\u2500 Data & Auth Anchors (Persistent State, Token Signer)`} Safe Methods (RFC 9110) GET and HEAD are defined as safe and idempotent. They must never trigger state changes, database writes, or financial transactions.",
+        "POST, PUT, PATCH, and DELETE require explicit authentication, object-level authorization, input validation, and anti-CSRF protections."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "HTTP Sessions, Session Fixation, and Lifecycle Management",
+      "paragraphs": [
+        "Because HTTP is inherently stateless, applications construct stateful interactions using session identifiers. A session ID is a high-entropy bearer token that references a record stored in a secure server-side session cache (e.g., Redis).",
+        "An attacker establishes an anonymous session ID, feeds it to a victim (via URL parameter or phishing link), and waits for the victim to log in. If the application does NOT issue a fresh session ID upon login, the attacker uses the known session ID to access the victim's authenticated account!",
+        "Many developers simply clear the cookie on the browser side via JavaScript or an empty Set-Cookie header, but leave the session valid in the server Redis store. If an attacker stole the session token earlier, it remains fully usable until server expiration!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Cookies, Cookie Security Flags, and Client-Side Storage",
+      "paragraphs": [
+        "Cookies (RFC 6265) are automatically attached by browsers to matching requests. To prevent exploitation, developers must configure specific security flags.",
+        "Storing JWTs or API keys in localStorage is accessible to ANY JavaScript running on that origin. If an XSS vulnerability occurs (or a compromised npm dependency runs), the token is immediately exfiltrated.",
+        "Best Practice: Use HttpOnly, Secure, SameSite=Lax session cookies with a Backend-for-Frontend (BFF) proxy to keep sensitive tokens entirely out of browser JavaScript memory."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Same-Origin Policy (SOP), CORS, and Content Security Policy (CSP)",
+      "paragraphs": [
+        "An Origin is strictly defined as the combination of Scheme + Host + Port. If any of the three differs, it is considered a different origin by the browser.",
+        "1. Wildcard with Credentials: Modern browsers forbid Access-Control-Allow-Origin: * combined with Access-Control-Allow-Credentials: true.",
+        "2. Blind Origin Reflection: Naive servers take the incoming Origin header from the request and dynamically echo it back in Access-Control-Allow-Origin. This effectively grants arbitrary external attacker websites complete access to authenticated API data!"
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Major Web Vulnerabilities: XSS, CSRF, and Clickjacking",
+      "paragraphs": []
+    },
+    {
+      "badge": "",
+      "title": "Browser Security Headers, HTTP Caching, and Defense in Depth",
+      "paragraphs": [
+        "HTTP security response headers communicate platform boundaries to the browser."
+      ]
+    }
+  ]
 }

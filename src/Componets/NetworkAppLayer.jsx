@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -71,6 +74,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkAppLayer() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "applayer");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -259,128 +263,7 @@ export default function NetworkAppLayer() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which HTTP status code indicates that a reverse proxy or gateway received an invalid or absent response from an upstream backend server?",
-      options: [
-        "401 Unauthorized",
-        "502 Bad Gateway",
-        "504 Gateway Timeout",
-        "304 Not Modified",
-      ],
-      correct: 1,
-      explanation: "A 502 Bad Gateway means the reverse proxy attempted to connect to the backend application server (e.g. Node.js on port 8080), but the backend crashed, sent an invalid HTTP response, or refused the TCP socket connection.",
-    },
-    {
-      id: 2,
-      question: "What is the primary architectural purpose of a TLS server certificate in modern HTTPS?",
-      options: [
-        "To encrypt every HTTP request body directly with the certificate's public key.",
-        "To cryptographically bind a domain identity (hostname) to a public key, allowing clients to verify server identity via a trusted Certificate Authority chain.",
-        "To replace TCP flow control with hardware compression.",
-        "To assign static IP addresses to mobile smartphones.",
-      ],
-      correct: 1,
-      explanation: "A TLS certificate binds an identity (the domain name in the Subject Alternative Name field) to a public key signed by a trusted CA. Symmetric session keys (AES/ChaCha20) are derived separately via Ephemeral Diffie-Hellman (ECDHE) for actual traffic encryption.",
-    },
-    {
-      id: 3,
-      question: "What distinguishes an HTTP Safe method from an HTTP Idempotent method?",
-      options: [
-        "Safe methods use TLS, while idempotent methods use plaintext.",
-        "A safe method (like GET) does not alter server state; an idempotent method (like PUT or DELETE) may alter state, but repeating the request multiple times produces the exact same end state as executing it once.",
-        "Safe methods are only executed over WebSockets.",
-        "There is no difference; all safe methods are non-idempotent.",
-      ],
-      correct: 1,
-      explanation: "Safe methods (GET, HEAD) are strictly read-only. Idempotent methods (PUT, DELETE) modify resources, but repeating them N times has the exact same side-effect as executing once (e.g., deleting user ID 42 twice leaves user 42 deleted). POST is neither safe nor idempotent by default.",
-    },
-    {
-      id: 4,
-      question: "Why should session authentication cookies always include the 'Secure', 'HttpOnly', and 'SameSite' attributes?",
-      options: [
-        "To compress the cookie size to under 8 bytes.",
-        "'Secure' ensures transmission strictly over HTTPS; 'HttpOnly' prevents malicious JavaScript from reading the cookie via XSS; 'SameSite' restricts cross-origin cookie attachment to mitigate CSRF attacks.",
-        "To force the client browser to refresh DNS every 60 seconds.",
-        "Because cookies without these attributes cannot be parsed by Linux servers.",
-      ],
-      correct: 1,
-      explanation: "These three security flags form the core defense for browser session tokens: `Secure` stops plaintext leak over HTTP, `HttpOnly` blocks `document.cookie` theft in cross-site scripting (XSS), and `SameSite=Lax` or `Strict` prevents cross-site request forgery (CSRF).",
-    },
-    {
-      id: 5,
-      question: "How does SFTP (SSH File Transfer Protocol) fundamentally differ from FTPS (FTP over SSL/TLS)?",
-      options: [
-        "SFTP runs as an encrypted subsystem over an existing SSH connection on TCP port 22; FTPS is legacy FTP wrapped with TLS requiring separate control (port 21) and dynamic data channels.",
-        "SFTP requires plaintext UDP, while FTPS uses QUIC.",
-        "FTPS is native to Linux, while SFTP is only supported on Windows.",
-        "SFTP does not support file encryption.",
-      ],
-      correct: 0,
-      explanation: "SFTP is a packet-level subsystem of SSH running entirely over a single multiplexed TCP port 22 connection. FTPS is the legacy FTP protocol (RFC 959) retrofitted with TLS, which creates complicated firewall traversal issues due to secondary dynamic data ports.",
-    },
-    {
-      id: 6,
-      question: "What is Cross-Origin Resource Sharing (CORS) and which entity enforces it?",
-      options: [
-        "An operating system kernel rule that blocks unencrypted network sockets.",
-        "A browser security mechanism that restricts whether client-side JavaScript can read HTTP responses fetched from a different origin (scheme, host, or port).",
-        "A server-side firewall rule that blocks curl requests from untrusted IP ranges.",
-        "A BGP routing filter applied by upstream transit providers.",
-      ],
-      correct: 1,
-      explanation: "CORS is enforced strictly by web browsers to protect user data from unauthorized cross-origin reads. Server-to-server clients (like `curl` or Python `requests`) completely ignore CORS headers. CORS does not replace server-side API authorization.",
-    },
-    {
-      id: 7,
-      question: "How does a WebSocket connection transition from HTTP to a persistent full-duplex socket (RFC 6455)?",
-      options: [
-        "By closing the TCP connection and opening a raw UDP socket on port 80.",
-        "The client issues an HTTP GET with 'Upgrade: websocket' and 'Connection: Upgrade' headers; the server accepts with status code '101 Switching Protocols'.",
-        "By sending an ICMP Echo Request containing the WebSocket handshake key.",
-        "By establishing a separate BGP peer connection.",
-      ],
-      correct: 1,
-      explanation: "WebSockets initiate over standard HTTP/1.1 or HTTP/2. The client provides `Upgrade: websocket` and a cryptographic challenge key `Sec-WebSocket-Key`. The server verifies the key and responds with `HTTP/1.1 101 Switching Protocols`, transforming the connection into bidirectional framed WebSocket messages.",
-    },
-    {
-      id: 8,
-      question: "Why is executing 'curl -k' or '--insecure' dangerous and prohibited in production environments?",
-      options: [
-        "It crashes the remote web server's memory buffer.",
-        "It disables all certificate and hostname validation, blinding the client to Man-in-the-Middle (MitM) attacker impersonation and malicious TLS interception.",
-        "It causes the operating system to delete the local DNS cache.",
-        "It forces the client to use HTTP/1.0 without keep-alive.",
-      ],
-      correct: 1,
-      explanation: "`curl -k` strips away all cryptographic trust checks. An attacker intercepting traffic on a rogue Wi-Fi or compromised router can present a fake certificate, and the client will happily transmit passwords and API keys directly to the adversary.",
-    },
-    {
-      id: 9,
-      question: "What causes an infinite HTTP &rarr; HTTPS redirect loop when an application sits behind a reverse proxy?",
-      options: [
-        "The DNS TTL is set too low.",
-        "The reverse proxy terminates TLS and forwards requests to the backend as plaintext HTTP, but the backend does not inspect 'X-Forwarded-Proto: https' and continuously issues 301 redirects to HTTPS.",
-        "The browser's TCP receive window size is zero.",
-        "The server is running out of ephemeral ports.",
-      ],
-      correct: 1,
-      explanation: "When a reverse proxy handles TLS and forwards plain HTTP to the backend without passing or trusting `X-Forwarded-Proto: https`, the backend thinks the user arrived over insecure HTTP and emits a 301 redirect to `https://...`. The browser follows the redirect, the proxy terminates TLS again, and the cycle repeats infinitely.",
-    },
-    {
-      id: 10,
-      question: "What does an HTTP '304 Not Modified' response header signify in web caching?",
-      options: [
-        "The requested file was deleted from the server.",
-        "The client submitted a conditional validation header (If-None-Match with ETag), the server verified the resource has not changed, and the client should render its cached copy without re-downloading the body.",
-        "The reverse proxy is currently experiencing a 504 Gateway Timeout.",
-        "The website requires two-factor authentication.",
-      ],
-      correct: 1,
-      explanation: "RFC 9111 specifies that when a client presents `If-None-Match: <etag>`, and the origin's current ETag matches, the server returns `304 Not Modified` with zero response body bytes. This dramatically speeds up page loads and saves network bandwidth.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -487,7 +370,14 @@ Verify return code: 0 (ok)
 4. **Enforce Microservice Mutual TLS (mTLS):** Protect proxy-to-backend internal traffic using WireGuard or internal TLS to maintain zero-trust integrity.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="applayer" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="applayer" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Banner & Module Navigation Header */}
       <div className="bg-[#18181b] text-white border-b border-stone-800 sticky top-0 z-50 shadow-md">

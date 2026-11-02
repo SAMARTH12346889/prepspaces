@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -46,6 +49,8 @@ import { useSyncedTopic } from "../utils/navigation";
 
 export default function OSIntro() {
   const navigate = useNavigate();
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "intro");
+
 
   // Navigation & Workspace State
   const [selectedTopic, setSelectedTopic] = useSyncedTopic(25);
@@ -76,112 +81,7 @@ export default function OSIntro() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which component normally mediates a protected file operation requested by an application?",
-      options: [
-        "The CPU cache alone",
-        "The OS kernel and relevant filesystem components",
-        "The application monitor only",
-        "The GPU driver in every case",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The OS kernel mediates access to physical storage hardware through filesystem abstractions and system call interfaces (such as openat, read, write) while validating permissions and isolation boundaries.",
-    },
-    {
-      id: 2,
-      question: "Why does multiprogramming improve CPU utilization?",
-      options: [
-        "It makes the CPU execute every program simultaneously on one core",
-        "It eliminates all I/O latency",
-        "It can schedule another task when one task is waiting",
-        "It removes the need for memory management",
-      ],
-      correctIndex: 2,
-      explanation:
-        "When an executing process blocks waiting for I/O (such as reading an SSD or packet arrival), a multiprogramming operating system switches the CPU to another runnable process, preventing the CPU from sitting idle.",
-    },
-    {
-      id: 3,
-      question: "What is the defining feature of a microkernel design?",
-      options: [
-        "Every service runs in kernel mode",
-        "A relatively small privileged kernel with many services outside it",
-        "The complete absence of system calls",
-        "A requirement to use multiple CPUs",
-      ],
-      correctIndex: 1,
-      explanation:
-        "A microkernel minimizes the privileged codebase executing in supervisor mode (ring 0) to only fundamental IPC, low-level scheduling, and address space management, relocating filesystems, drivers, and network stacks to isolated user-space processes.",
-    },
-    {
-      id: 4,
-      question: "Which statement about Linux modularity is correct?",
-      options: [
-        "Loadable modules make Linux a microkernel",
-        "Every driver must run in user space",
-        "Modularity means all kernel services are isolated from one another",
-        "Linux can load supported modules while remaining a monolithic kernel architecture",
-      ],
-      correctIndex: 3,
-      explanation:
-        "Linux is a monolithic kernel with dynamically loadable kernel modules (LKMs). When an LKM is inserted into the running kernel via insmod/modprobe, it executes directly within privileged supervisor space (ring 0), sharing the kernel's memory space.",
-    },
-    {
-      id: 5,
-      question: "What is most important in a hard real-time system?",
-      options: [
-        "Maximum average CPU usage",
-        "A graphical interface",
-        "Meeting required deadlines under defined conditions",
-        "Using the newest CPU",
-      ],
-      correctIndex: 2,
-      explanation:
-        "In hard real-time systems (such as automotive ECU controls, avionics, and medical robotics), correctness depends not only on the logical output but also on meeting strict timing deadlines. A late result constitutes total system failure.",
-    },
-    {
-      id: 6,
-      question: "What happens when an ordinary process attempts to access protected kernel memory?",
-      options: [
-        "The access is always permitted",
-        "Hardware protection and the OS prevent unauthorized access",
-        "The OS must restart every process",
-        "The memory automatically becomes user memory",
-      ],
-      correctIndex: 1,
-      explanation:
-        "The CPU's Memory Management Unit (MMU) checks page table privilege flags (User/Supervisor bit). If a user-mode (ring 3) instruction attempts to read or write a supervisor-only (ring 0) page, the hardware triggers a general protection or page fault exception, which the kernel catches to terminate the errant process.",
-    },
-    {
-      id: 7,
-      question: "Which best describes a distributed system?",
-      options: [
-        "One process with multiple threads",
-        "A computer with several CPU cores",
-        "Several networked computers coordinating to provide a service",
-        "A filesystem containing many files",
-      ],
-      correctIndex: 2,
-      explanation:
-        "A distributed system consists of autonomous, independent machines linked across a network that collaborate and pass messages to deliver a unified service, having to overcome independent clocks, network latency, and partial failures.",
-    },
-    {
-      id: 8,
-      question: "Why might a monolithic kernel be vulnerable to a faulty kernel-mode driver?",
-      options: [
-        "The driver cannot communicate with the kernel",
-        "Kernel-mode faults may corrupt shared privileged state",
-        "Every driver runs in a separate virtual machine",
-        "Monolithic kernels cannot support isolation between applications",
-      ],
-      correctIndex: 1,
-      explanation:
-        "In a monolithic kernel, all components and drivers execute with full processor privileges in ring 0. A bug, wild pointer, or memory corruption in a third-party kernel driver can overwrite critical kernel data structures, panic the kernel, or cause system instability.",
-    },
-  ];
+  
 
   const handleSelectQuizOption = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -213,43 +113,7 @@ export default function OSIntro() {
     },
   ]);
 
-  const commandDatabase = {
-    "uname -a":
-      "Linux prepspaces-kernel-lab 6.8.0-45-generic #45-Ubuntu SMP PREEMPT_DYNAMIC Wed Oct 08 14:02:10 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
-    "uname -r": "6.8.0-45-generic",
-    "cat /etc/os-release":
-      'NAME="Ubuntu"\nVERSION="24.04 LTS (Noble Numbat)"\nID=ubuntu\nID_LIKE=debian\nPRETTY_NAME="Ubuntu 24.04 LTS"\nVERSION_ID="24.04"\nHOME_URL="https://www.ubuntu.com/"',
-    "hostnamectl":
-      " Static hostname: prepspaces-kernel-lab\n       Icon name: computer-vm\n         Chassis: vm\n      Machine ID: a89f81d4590c4273b063812d1b70c634\n       Boot ID: 17fc7d23a9d04f29a0de248b64e0a4f1\nOperating System: Ubuntu 24.04 LTS\n          Kernel: Linux 6.8.0-45-generic\n    Architecture: x86-64\n Hardware Vendor: QEMU / KVM Hypervisor",
-    "lscpu":
-      "Architecture:                    x86_64\nCPU op-mode(s):                  32-bit, 64-bit\nAddress sizes:                   48 bits physical, 48 bits virtual\nByte Order:                      Little Endian\nCPU(s):                          8\nOn-line CPU(s) list:             0-7\nVendor ID:                       GenuineIntel\nModel name:                      Intel(R) Xeon(R) Platinum 8375C CPU @ 2.80GHz\nThread(s) per core:              2\nCore(s) per socket:              4\nSocket(s):                       1\nHypervisor vendor:               KVM\nVirtualization type:             full\nL1d cache:                       128 KiB (4 instances)\nL1i cache:                       128 KiB (4 instances)\nL2 cache:                        5 MiB (4 instances)\nL3 cache:                        54 MiB (1 instance)",
-    "lspci":
-      "00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma]\n00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]\n00:01.1 IDE interface: Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II]\n00:02.0 VGA compatible controller: Device 1234:1111 (rev 02)\n00:03.0 Ethernet controller: Red Hat, Inc. Virtio network device (rev 01)\n00:04.0 Non-Volatile memory controller: Red Hat, Inc. Virtio block device (rev 01)",
-    "lsusb":
-      "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub\nBus 001 Device 002: ID 0627:0001 Adomax Technology Co., Ltd QEMU USB Tablet",
-    "free -h":
-      "               total        used        free      shared  buff/cache   available\nMem:            15Gi       2.8Gi       7.1Gi        24Mi       5.1Gi        12Gi\nSwap:          4.0Gi          0B       4.0Gi",
-    "cat /proc/meminfo":
-      "MemTotal:       16384210 kB\nMemFree:         7454812 kB\nMemAvailable:   12678144 kB\nBuffers:          348124 kB\nCached:          4891240 kB\nSwapCached:            0 kB\nActive:          3948120 kB\nInactive:        3841920 kB\nSwapTotal:       4194304 kB\nSwapFree:        4194304 kB\nDirty:                48 kB\nWriteback:             0 kB\nAnonPages:       2560124 kB\nMapped:           312480 kB\nShmem:             24580 kB\nKReclaimable:     412890 kB\nSlab:             684920 kB\nPageTables:        42180 kB",
-    "ps aux":
-      "USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot           1  0.0  0.1 169348 13244 ?        Ss   09:00   0:02 /sbin/init\nroot           2  0.0  0.0      0     0 ?        S    09:00   0:00 [kthreadd]\nroot           3  0.0  0.0      0     0 ?        I<   09:00   0:00 [rcu_gp]\nsystemd+     680  0.0  0.1  25892 12140 ?        Ss   09:00   0:01 /lib/systemd/systemd-resolved\nsyslog       712  0.0  0.0 224120  4820 ?        Ssl  09:00   0:00 /usr/sbin/rsyslogd -n\nroot         842  0.0  0.1  15888  9184 ?        Ss   09:00   0:00 sshd: /usr/sbin/sshd -D [listener]\nprepspa+    1024  0.0  0.2 128490 32180 pts/0    Ss   09:15   0:01 /bin/bash\nprepspa+    1142  98.4 0.1  28410 16240 pts/0    R+   10:30   5:42 python3 -c while True: pass\nprepspa+    1180  0.0  0.0  14120  3412 pts/1    R+   10:35   0:00 ps aux",
-    "top":
-      "top - 10:35:42 up 1:35,  2 users,  load average: 1.05, 0.98, 0.74\nTasks: 142 total,   2 running, 140 sleeping,   0 stopped,   0 zombie\n%Cpu(s): 12.8 us,  1.2 sy,  0.0 ni, 85.8 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st\nMiB Mem :  16000.2 total,   7280.1 free,   2867.2 used,   5852.9 buff/cache\nMiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  12381.0 avail Mem \n\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n   1142 prepspa+  20   0   28410  16240   9180 R  98.8   0.1   5:42.18 python3\n    842 root      20   0   15888   9184   6120 S   0.2   0.1   0:00.84 sshd\n      1 root      20   0  169348  13244   8910 S   0.0   0.1   0:02.14 systemd\n   1024 prepspa+  20   0  128490  32180  12480 S   0.0   0.2   0:01.12 bash",
-    "pstree -p":
-      "systemd(1)─┬─cron(740)\n           ├─rsyslogd(712)─┬─{rsyslogd}(713)\n           │               ├─{rsyslogd}(714)\n           │               └─{rsyslogd}(715)\n           ├─sshd(842)───sshd(1012)───bash(1024)───python3(1142)\n           ├─systemd-journal(412)\n           ├─systemd-logind(760)\n           ├─systemd-resolved(680)\n           └─systemd-udevd(450)",
-    "cat /proc/version":
-      "Linux version 6.8.0-45-generic (buildd@lcy02-amd64-080) (x86_64-linux-gnu-gcc-13) #45-Ubuntu SMP PREEMPT_DYNAMIC",
-    "cat /proc/uptime": "5742.18 45937.44\n(System up for 1 hour 35 minutes; idle accumulator: 12.7 CPU-hours across 8 cores)",
-    "cat /proc/loadavg": "1.05 0.98 0.74 2/142 1188\n(1-min load: 1.05 [1 active CPU-bound task] | 5-min: 0.98 | 15-min: 0.74 | 2 runnable / 142 total tasks)",
-    "ls /proc":
-      "1  1024  1142  2  3  412  450  680  712  740  760  842  acpi  buddyinfo  bus  cgroups  cmdline  cpuinfo  crypto  devices  diskstats  dma  driver  execdomains  filesystems  fs  interrupts  iomem  ioports  kallsyms  kcore  key-users  keys  kmsg  kpagecgroup  kpagecount  kpageflags  loadavg  locks  meminfo  misc  modules  mounts  net  pagetypeinfo  partitions  sched_debug  schedstat  self  slabinfo  softirqs  stat  swaps  sys  sysrq-trigger  sysvipc  thread-self  timer_list  tty  uptime  version  vmallocinfo  vmstat  zoneinfo",
-    "ls /sys":
-      "block  bus  class  dev  devices  firmware  fs  hypervisor  kernel  module  power",
-    "python3 -c \"while True: pass\"":
-      "[Process running in background with PID 1142]\nExecuting infinite CPU busy-loop: while True: pass\nObserve with 'top' or 'ps aux'. CPU core #2 running at 100% capacity.",
-    "help":
-      "Available diagnostic commands:\n• uname -a, uname -r\n• cat /etc/os-release, hostnamectl\n• lscpu, lspci, lsusb\n• free -h, cat /proc/meminfo\n• ps aux, top, pstree -p\n• cat /proc/version, cat /proc/uptime, cat /proc/loadavg\n• ls /proc, ls /sys\n• python3 -c \"while True: pass\"\n• clear",
-  };
+  
 
   const handleExecuteCommand = (cmdText = terminalInput) => {
     const trimmed = cmdText.trim();

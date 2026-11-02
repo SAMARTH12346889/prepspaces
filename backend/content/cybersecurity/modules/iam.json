@@ -89,6 +89,69 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 7
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "Identity and Access Management Fundamentals",
+      "paragraphs": [
+        "Digital identities, proofing, authentication vs authorization, accounting/auditing, principals, and the principle of least privilege under NIST SP 800-63-4.",
+        "Identity and Access Management (IAM) is the combination of policies, processes, technologies, and controls used to establish digital identities, verify claims about those identities, grant appropriate access, and remove access when it is no longer justified."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Identity Lifecycle and Identity Governance",
+      "paragraphs": [
+        "The Joiner-Mover-Leaver (JML) paradigm, preventing privilege creep, automated deprovisioning, and recurring access certifications.",
+        "Identity proofing, HR approval, birthright role assignment, and initial MFA authenticator enrollment.",
+        "Role transition review. Explicitly revoke previous entitlements before assigning new ones to prevent privilege creep.",
+        "Immediate account suspension, refresh token revocation, device certificate wipe, and resource ownership transfer.",
+        "Privilege creep occurs when an employee accumulates permissions across multiple department changes over years without old rights being pruned. An employee who worked in Helpdesk, then Development, then DevOps might inadvertently retain direct Active Directory password reset rights, production code deployment rights, and cloud administrative credentials simultaneously."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Authentication Fundamentals and Password Security",
+      "paragraphs": [
+        "Authentication factors (Know, Have, Are), password attack vectors, NIST SP 800-63B-4 modern password standards, and adaptive hashing (Argon2id, bcrypt).",
+        "Password, passphrase, PIN. Subject to credential stuffing and phishing.",
+        "Hardware security key (YubiKey), smartphone authenticator, cryptographic smartcard.",
+        "Biometric template: fingerprint sensor, facial recognition matching local secure enclave."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Multifactor Authentication and Phishing-Resistant Access",
+      "paragraphs": [
+        "MFA mechanisms, why two passwords is NOT MFA, MFA fatigue attacks, and CISA recommendations on FIDO2/WebAuthn origin-bound passkeys."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Authorization Models and Access Control",
+      "paragraphs": [
+        "Discretionary (DAC), Mandatory (MAC), Role-Based (RBAC), Attribute-Based (ABAC), and Relationship-Based (ReBAC) access control models.",
+        "Assigns permissions to roles (e.g. Student, Instructor, Admin), and subjects to those roles. Standard for coarse-grained enterprise workflows.",
+        "Evaluates attributes of user (department, clearance), resource (classification), action (read, delete), and environment (time, device IP).",
+        "Evaluates dynamic relationships (e.g. user IS_OWNER_OF report_101 or instructor IN_CHARGE_OF course_3). Prevents IDOR."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Single Sign-On, Federation, OAuth 2.0, OpenID Connect, and SAML",
+      "paragraphs": [
+        "Architectural comparison of SSO, OAuth 2.0 delegated authorization, OpenID Connect authentication tokens, and SAML XML assertions."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "Session Security, Privileged Access, and Non-Human Identities",
+      "paragraphs": [
+        "Cookie security flags (HttpOnly, Secure, SameSite), Privileged Access Management (PAM), Just-In-Time (JIT) access, and service account workload identities."
+      ]
+    }
+  ]
 }

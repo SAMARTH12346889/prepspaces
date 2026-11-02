@@ -113,6 +113,27 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 2
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "Connect C programming directly to the way an operating system actually works. Move past high-level abstractions to inspect raw memory, virtual address spaces, executable binaries (ELF), object linking, system calls, and memory sanitizers."
+      ]
+    },
+    {
+      "badge": "",
+      "title": "University-Level References &amp; Foundations",
+      "paragraphs": [
+        "This curriculum follows the standard systems architecture curricula of top universities:",
+        "Carnegie Mellon University \u2014 machine-level programming, linking, virtual memory, and exceptional control flow.",
+        "MIT xv6 labs connecting C systems code to kernel implementation, memory tables, and traps.",
+        "University of Wisconsin\u2013Madison \u2014 processes, memory virtualization, concurrency, and persistence.",
+        "Standard references for POSIX system call interfaces, glibc memory allocators, and breakpoint debugging."
+      ]
+    }
+  ]
 }

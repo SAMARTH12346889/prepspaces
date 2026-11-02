@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -79,6 +82,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function NetworkSwitching() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "switching");
   const navigate = useNavigate();
 
   // Active top-level tabs
@@ -466,138 +470,7 @@ export default function NetworkSwitching() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "What is the primary architectural purpose of a VLAN (Virtual Local Area Network)?",
-      options: [
-        "To encrypt all Ethernet frames traversing switch ports.",
-        "To partition a single physical switch into isolated Layer 2 broadcast domains.",
-        "To replace the need for Layer 3 IP addressing.",
-        "To eliminate the need for Spanning Tree Protocol.",
-      ],
-      correct: 1,
-      rationale:
-        "A VLAN creates an isolated logical Layer 2 network on shared physical hardware. Broadcast frames, unknown unicasts, and multicasts remain strictly confined within the originating VLAN, improving performance, security, and administrative organization.",
-    },
-    {
-      id: "q2",
-      question: "How does a Layer 2 Ethernet switch populate its MAC address (CAM) table?",
-      options: [
-        "By reading the destination MAC address of incoming frames.",
-        "By querying a central DNS server over UDP port 53.",
-        "By inspecting the source MAC address and ingress port/VLAN of arriving frames.",
-        "By generating random ARP requests every 30 seconds.",
-      ],
-      correct: 2,
-      rationale:
-        "Switches learn dynamically from the SOURCE MAC address of incoming frames. When a frame arrives on a port, the switch records the source MAC address, incoming port, and associated VLAN in its Content Addressable Memory (CAM) table with an aging timer (typically 300 seconds).",
-    },
-    {
-      id: "q3",
-      question: "What is the function of the 4-byte IEEE 802.1Q tag inserted into Ethernet frames on a trunk?",
-      options: [
-        "It provides AES-256 cryptographic encryption for frame payloads.",
-        "It multiplexes traffic by inserting a Tag Protocol Identifier (0x8100) and a 12-bit VLAN Identifier (VID 1–4094).",
-        "It replaces the source IP address with the switch management IP.",
-        "It guarantees 10 Gbps transmission speed over copper cables.",
-      ],
-      correct: 1,
-      rationale:
-        "IEEE 802.1Q tags allow a single physical trunk link to carry multiple VLANs. The 4-byte header consists of a 2-byte TPID (0x8100), 3 bits of 802.1p priority (PCP), 1 bit Drop Eligible Indicator (DEI), and a 12-bit VLAN ID (VID) supporting up to 4,094 distinct VLANs.",
-    },
-    {
-      id: "q4",
-      question: "Why can an uncontrolled Layer 2 loop cause catastrophic network failure within seconds?",
-      options: [
-        "Ethernet frames lack a Time-To-Live (TTL) field, causing broadcasts to circulate and multiply indefinitely.",
-        "Routers automatically disconnect all cables when loops occur.",
-        "Layer 2 loops instantly overheat physical switch power supplies.",
-        "Spanning Tree doubles the frame payload size on every hop.",
-      ],
-      correct: 0,
-      rationale:
-        "Unlike Layer 3 IPv4 packets (which have a TTL field that is decremented and dropped at zero), standard Layer 2 Ethernet frames have NO TTL field. When a loop exists, broadcast frames circulate continuously, multiplying exponentially into broadcast storms, thrashing CAM tables and exhausting switch CPU/ASIC buffers.",
-    },
-    {
-      id: "q5",
-      question: "In Rapid Spanning Tree Protocol (RSTP / 802.1w), how is the Root Bridge elected?",
-      options: [
-        "The switch with the highest IP address is elected.",
-        "The switch with the lowest Bridge ID (Priority + Base MAC Address) is elected.",
-        "The switch with the most physical ports connected is elected.",
-        "The router always commands the switches to appoint it as root.",
-      ],
-      correct: 1,
-      rationale:
-        "The Bridge ID consists of a 2-byte Bridge Priority (default 32768, configurable in increments of 4096) plus the 6-byte system MAC address. Switches exchange BPDUs; the switch advertising the LOWEST Bridge ID wins the election and becomes the Root Bridge.",
-    },
-    {
-      id: "q6",
-      question: "What security vulnerability occurs if two interconnected trunk switches have mismatched Native VLAN configurations?",
-      options: [
-        "The switches automatically downgrade to 10 Mbps half-duplex.",
-        "VLAN Hopping / Leaking: Untagged frames sent on one switch's native VLAN are accepted by the remote switch into a different VLAN without passing through a router.",
-        "The switch management IP address becomes public on the internet.",
-        "All 802.1Q tags are permanently converted into TCP SYN cookies.",
-      ],
-      correct: 1,
-      rationale:
-        "If Switch A has Native VLAN 1 and Switch B has Native VLAN 99, any untagged frame transmitted by Switch A (in VLAN 1) will be received by Switch B and automatically assigned to VLAN 99! This causes unintended cross-VLAN traffic leakage and bypasses inter-VLAN firewall rules.",
-    },
-    {
-      id: "q7",
-      question: "What distinguishes a Layer 3 Switch with SVIs from a Router-on-a-Stick (ROAS) topology?",
-      options: [
-        "Layer 3 switches only support unencrypted HTTP traffic.",
-        "Layer 3 switches perform inter-VLAN routing in specialized ASIC hardware at full wire speed without sharing a single physical bottleneck link.",
-        "Router-on-a-Stick does not support 802.1Q trunking.",
-        "SVIs can only route between a maximum of two VLANs.",
-      ],
-      correct: 1,
-      rationale:
-        "In Router-on-a-Stick, all inter-VLAN traffic must traverse a single physical trunk link to an external router, creating a severe bottleneck. A Layer 3 switch uses Switched Virtual Interfaces (SVIs) and dedicated forwarding ASICs to route packets between VLANs internally at full wire speed (terabits/sec).",
-    },
-    {
-      id: "q8",
-      question: "Why doesn't a 4 x 1 Gbps LACP link aggregation bundle (EtherChannel) allow a single TCP file transfer to run at 4 Gbps?",
-      options: [
-        "LACP only allows one cable to be active while three are permanently blocked.",
-        "Traffic is distributed using a deterministic hash of packet headers (e.g. SIP/DIP/Port); all packets of a single TCP stream follow the same physical link to prevent out-of-order delivery.",
-        "EtherChannel disables TCP window scaling.",
-        "Copper Ethernet cannot carry more than 1 Gbps under any circumstances.",
-      ],
-      correct: 1,
-      rationale:
-        "To prevent packet reordering (which severely degrades TCP throughput), link aggregation algorithms hash flow headers (MAC, IP, or L4 ports) so that any given individual flow is pinned to a single physical member link. Multiple concurrent flows achieve aggregated throughput, but a single flow is limited to 1 Gbps.",
-    },
-    {
-      id: "q9",
-      question: "What is the primary operational purpose of the spanning-tree bpduguard enable command on access ports?",
-      options: [
-        "To speed up DHCP address assignment for laptops.",
-        "To protect edge ports with PortFast by immediately shutting down (err-disabling) the port if an unauthorized switch or BPDU is detected.",
-        "To encrypt all BPDUs with AES-128.",
-        "To allow clients to become secondary root bridges.",
-      ],
-      correct: 1,
-      rationale:
-        "PortFast bypasses normal listening/learning states on host ports. If an employee connects an unauthorized switch or creates a loop on an edge port, BPDU Guard immediately places the port into an 'err-disabled' state upon receiving a BPDU, preventing rogue switches from hijacking the spanning-tree topology.",
-    },
-    {
-      id: "q10",
-      question: "A company segments its network into Staff (VLAN 10) and Servers (VLAN 40). What is required to permit Staff web browsing to servers while preventing Staff SSH access?",
-      options: [
-        "Simply assigning different VLAN numbers without any routing.",
-        "Enabling inter-VLAN routing combined with an Access Control List (ACL) or stateful firewall policy that permits TCP 443 and denies TCP 22.",
-        "Configuring a Native VLAN mismatch.",
-        "Disabling Spanning Tree Protocol on all access ports.",
-      ],
-      correct: 1,
-      rationale:
-        "'Routing is not authorization.' Once inter-VLAN routing is enabled, the router forwards all IP traffic between subnets by default. An explicit stateless ACL or stateful firewall rule must be applied on the gateway to permit HTTP/HTTPS (port 80/443) and deny SSH (port 22).",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const calculateScore = () => {
     let score = 0;
@@ -676,7 +549,14 @@ A comprehensive technical audit was executed across the enterprise campus switch
 - [x] RSTP failover confirmed < 1.0 second.
 - **Approved by:** Lead Network Reliability Engineer`;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="switching" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="switching" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans pb-16">
       {/* Top Breadcrumb & Navigation Bar */}
       <div className="border-b border-[#e7e3da] bg-[#fbfaf7]/80 backdrop-blur sticky top-0 z-30">

@@ -16,7 +16,7 @@
         "Feed ranking"
       ],
       "correctIndex": 0,
-      "explanation": "Base62 encoding (using [0-9a-zA-Z]) turns unique 64-bit auto-incrementing or Snowflake numeric IDs into compact URL-safe 7-character strings (62^7 ≈ 3.52 trillion combinations) without collisions."
+      "explanation": "Base62 encoding (using [0-9a-zA-Z]) turns unique 64-bit auto-incrementing or Snowflake numeric IDs into compact URL-safe 7-character strings (62^7 \u2248 3.52 trillion combinations) without collisions."
     },
     {
       "id": "q2",
@@ -113,6 +113,8 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 0
+  },
+  "theorySections": []
 }

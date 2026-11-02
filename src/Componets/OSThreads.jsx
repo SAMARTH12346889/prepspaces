@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -53,6 +56,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSThreads() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "threads");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -161,86 +165,7 @@ Threads: 8 | Time:  185.60 ms | Result: 1250000025000000.00 | Speedup: 6.68x | E
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "1. What state is typically private to each thread rather than shared among all threads in a process?",
-      options: [
-        "Global variables and open file descriptors",
-        "Heap allocations and virtual address space mappings",
-        "Private execution stack and CPU register set (PC, SP, general registers)",
-        "Signal handlers and process credentials (UID/GID)",
-      ],
-      correctIndex: 2,
-      explanation:
-        "Every thread has its own private execution context: a dedicated stack (holding local variables, return frames, and stack pointer), program counter (PC), and CPU register set. In contrast, the heap, static/global variables, file descriptor table, and virtual address space are shared among all threads within the process.",
-    },
-    {
-      id: 2,
-      question: "2. What is the primary consequence of terminating a joinable thread without ever calling pthread_join()?",
-      options: [
-        "The entire operating system crashes immediately",
-        "The thread's exit code, return values, and internal kernel bookkeeping structures remain allocated, causing a resource leak",
-        "The child thread automatically reverts into an independent parent process",
-        "All CPU caches are purged on every core",
-      ],
-      correctIndex: 1,
-      explanation:
-        "By default, POSIX threads are joinable. When a joinable thread terminates, its termination status and internal OS thread descriptors are retained until another thread calls `pthread_join()`. If `pthread_join()` is omitted (and the thread was not detached via `pthread_detach()`), the system leaks thread descriptors—analogous to zombie processes.",
-    },
-    {
-      id: 3,
-      question: "3. Can a multithreaded application running on a single-core CPU achieve true parallelism?",
-      options: [
-        "Yes, threads always execute in parallel regardless of physical core count",
-        "No, it achieves concurrency via rapid OS time-slicing (interleaving), but true parallelism requires multiple physical CPU cores",
-        "Yes, if compiled with gcc -O3 -pthread",
-        "No, single-core CPUs do not allow threads to be created",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Concurrency is about dealing with lots of things at once (structuring tasks so their execution can overlap or interleave via context switching). Parallelism is doing lots of things simultaneously at the physical hardware level. On a single-core machine, execution is interleaved through time-slicing; true parallelism requires multiple cores.",
-    },
-    {
-      id: 4,
-      question: "4. What happens when an application creates 1,000 CPU-bound threads on a 4-core CPU (thread oversubscription)?",
-      options: [
-        "The computation finishes 250 times faster because of parallel queueing",
-        "Severe performance collapse caused by excessive context-switching overhead, scheduler contention, and L1/L2 cache pollution",
-        "The kernel merges all 1,000 threads into a single hardware instruction",
-        "Memory bandwidth drops to zero and locks the hardware bus",
-      ],
-      correctIndex: 1,
-      explanation:
-        "Creating far more runnable threads than physical cores (oversubscription) causes massive overhead. The OS scheduler must continually context switch between threads (~1–2 microseconds per switch), constantly flushing L1/L2 caches and trashing CPU instruction pipelines, yielding drastically worse throughput than running exactly 4 worker threads.",
-    },
-    {
-      id: 5,
-      question: "5. What causes 'false sharing' in a multithreaded application?",
-      options: [
-        "Threads sharing file descriptors over a Unix domain socket",
-        "Two threads concurrently executing the exact same binary code",
-        "Independent threads running on distinct CPU cores repeatedly modifying separate variables that happen to share the same 64-byte cache line",
-        "Threads calling malloc() simultaneously from the same heap arena",
-      ],
-      correctIndex: 2,
-      explanation:
-        "False sharing occurs when two CPU cores modify independent variables that reside within the same 64-byte hardware cache line. The CPU cache coherency protocol (MESI/MOESI) forces the cache line to bounce between cores in an 'Invalidate / Modified' cycle ('cache ping-pong'), inflating memory access times from ~1ns to ~50ns per write.",
-    },
-    {
-      id: 6,
-      question: "6. According to Amdahl's Law, if 80% of an algorithm is parallelizable (P = 0.80) and 20% is strictly serial, what is the maximum theoretical speedup on a 4-core machine?",
-      options: [
-        "4.00x",
-        "2.50x",
-        "1.80x",
-        "5.00x",
-      ],
-      correctIndex: 1,
-      explanation:
-        "By Amdahl's Law: S(N) = 1 / ((1 - P) + P / N). Here P = 0.80, so (1 - P) = 0.20 serial fraction. For N = 4 cores: S(4) = 1 / (0.20 + 0.80 / 4) = 1 / (0.20 + 0.20) = 1 / 0.40 = 2.50x. Even with infinite cores, the speedup can never exceed 1 / 0.20 = 5.00x.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuizAnswer = (questionId, optionIndex) => {
     if (quizSubmitted) return;
@@ -530,7 +455,14 @@ int main(int argc, char* argv[]) {
     return 0;
 }`;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="threads" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="threads" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-900">
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Module Navigation Header */}

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -51,6 +54,7 @@ import { useSyncedTopic } from "../utils/navigation";
 /* -------------------------------------------------------------------------- */
 
 export default function OSAdvancedSync() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("operating-systems", "advanced-sync");
   const navigate = useNavigate();
 
   // Navigation & Workspace State
@@ -244,73 +248,7 @@ export default function OSAdvancedSync() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: "q1",
-      question: "Why should a Linux kernel driver NEVER sleep while holding a spinlock?",
-      options: [
-        "A. The compiler will emit a syntax error during translation.",
-        "B. Spinlocks disable interrupts or run in atomic context; sleeping leaves the CPU halted with no reschedule event, causing a kernel panic or deadlock.",
-        "C. Sleeping invalidates the L1 cache lines of all other processor cores.",
-        "D. Mutexes are faster than spinlocks in all hardware architectures.",
-      ],
-      correct: 1,
-      explanation:
-        "Holding a spinlock places code in atomic context (where preemption is disabled). If a thread sleeps while holding a spinlock, no other thread or interrupt handler can run to wake it up, resulting in a fatal kernel lockup.",
-    },
-    {
-      id: "q2",
-      question: "What is false sharing and how is it resolved in multi-threaded C/C++ systems?",
-      options: [
-        "A. Two processes sharing the same file descriptor; solved by calling dup2().",
-        "B. Multiple threads updating independent variables that reside on the same 64-byte hardware cache line; solved by padding structures with _Alignas(64).",
-        "C. A thread reading data written by a speculative branch predictor; solved by lfence.",
-        "D. Two cores accessing disparate NUMA nodes simultaneously; solved by numactl --interleave.",
-      ],
-      correct: 1,
-      explanation:
-        "False sharing occurs when independent variables share the same hardware cache line (typically 64 bytes). When one core writes, the entire line is invalidated on other cores via the MESI protocol. Aligning or padding data to 64-byte boundaries prevents this ping-ponging.",
-    },
-    {
-      id: "q3",
-      question: "Which memory ordering model guarantees that preceding writes are published BEFORE an atomic flag is set?",
-      options: [
-        "A. memory_order_relaxed",
-        "B. memory_order_acquire",
-        "C. memory_order_release",
-        "D. memory_order_consume",
-      ],
-      correct: 2,
-      explanation:
-        "A store operation with memory_order_release creates a release barrier: no prior read or write in current thread can be reordered after this store. When paired with a memory_order_acquire load, all changes become visible.",
-    },
-    {
-      id: "q4",
-      question: "In Read-Copy-Update (RCU), how do readers achieve near-zero synchronization overhead?",
-      options: [
-        "A. Readers disable CPU interrupts globally during traversal.",
-        "B. Readers lock a high-priority spinlock on every node access.",
-        "C. Readers read pointers directly without locks or atomic operations; writers make copies of objects, update pointers atomically, and wait for a grace period before freeing old memory.",
-        "D. Hardware automatically duplicates the data structures into every L1 cache.",
-      ],
-      correct: 2,
-      explanation:
-        "RCU readers simply enter an rcu_read_lock() region (which merely disables preemption) and traverse pointers with zero atomic bus locks. Writers publish new data by swapping pointers atomically and defer deallocation until all active readers complete (the grace period).",
-    },
-    {
-      id: "q5",
-      question: "According to Amdahl's Law, if 5% of an algorithm is strictly serial (lock-protected), what is the maximum speedup achievable with 1,000 CPU cores?",
-      options: [
-        "A. 1,000x speedup",
-        "B. Approximately 20x speedup",
-        "C. 50x speedup",
-        "D. 200x speedup",
-      ],
-      correct: 1,
-      explanation:
-        "Amdahl's law defines theoretical maximum speedup as 1 / (1 - P), where P is the parallel fraction. Here P = 0.95, serial fraction = 0.05. Maximum speedup = 1 / 0.05 = 20x, regardless of how many hundreds or thousands of cores are added.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectQuiz = (qId, optionIdx) => {
     setQuizAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
@@ -336,7 +274,14 @@ export default function OSAdvancedSync() {
     setChecklist((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="os" currentModuleId="advanced-sync" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="os" currentModuleId="advanced-sync" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#ea580c]/15">
       {/* Top Header & Navigation */}
       <header className="sticky top-0 z-40 bg-[#f6f4ee]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3.5 flex items-center justify-between">

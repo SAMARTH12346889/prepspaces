@@ -83,6 +83,16 @@
     "hasQuiz": true,
     "hasTopics": false,
     "hasCommands": false,
-    "hasScenarios": false
-  }
+    "hasScenarios": false,
+    "theorySectionCount": 1
+  },
+  "theorySections": [
+    {
+      "badge": "",
+      "title": "",
+      "paragraphs": [
+        "Move beyond high-level memory concepts to inspect process virtual address spaces, build a custom free-list memory allocator in C, evaluate first-fit vs best-fit vs worst-fit fragmentation, diagnose memory safety bugs, and measure hardware cache locality."
+      ]
+    }
+  ]
 }

@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -34,6 +37,7 @@ import {
 import ModuleNav from "./ModuleNav";
 
 export default function NetworkPacketAnalysis() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("computer-networks", "packet-analysis");
   const navigate = useNavigate();
 
   // Active navigation tab
@@ -387,138 +391,7 @@ export default function NetworkPacketAnalysis() {
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which statement accurately describes the difference between a capture filter and a display filter in network packet analysis?",
-      options: [
-        "Capture filters are applied after the PCAP is saved to disk; display filters are evaluated during live packet capture",
-        "Capture filters (using BPF syntax) discard non-matching packets before they are written to disk; display filters (using Wireshark syntax) only hide packets from view without deleting them from the capture file",
-        "Display filters can only filter by MAC address, while capture filters can only filter by IP address",
-        "Capture filters automatically decrypt SSL/TLS payloads, while display filters do not",
-      ],
-      correct: 1,
-      explanation:
-        "Capture filters use Berkeley Packet Filter (BPF) syntax at the kernel level to discard unwanted traffic before saving to disk, reducing file size and CPU overhead. Display filters are applied in Wireshark after capture to isolate packets without modifying the underlying PCAP data.",
-    },
-    {
-      id: 2,
-      question: "When inspecting a TCP conversation in Wireshark, what does a SYN packet immediately followed by a RST/ACK packet from the destination indicate?",
-      options: [
-        "A successful 3-way handshake was established and data transfer can begin",
-        "The destination host is online and received the probe, but actively rejected the connection because no application was listening on that port or a firewall sent an explicit active reset",
-        "The packet capture file is corrupted and missing key packets",
-        "The connection was upgraded to TLS 1.3",
-      ],
-      correct: 1,
-      explanation:
-        "A SYN followed by a RST/ACK indicates an active rejection. The target operating system's network stack is reachable, but because no process bound to that port, the kernel returned a TCP reset.",
-    },
-    {
-      id: 3,
-      question: "What is a major limitation of VPC flow logs compared with full packet captures (PCAP)?",
-      options: [
-        "Flow logs cannot record IP addresses or port numbers",
-        "Flow logs only provide aggregated connection metadata (IPs, ports, protocols, packet/byte counts) and generally lack packet-by-packet sequence flags and application-layer payloads",
-        "Flow logs can only be generated for UDP traffic",
-        "Flow logs require physical tap cables installed in the cloud provider's data center",
-      ],
-      correct: 1,
-      explanation:
-        "Flow logs summarize network sessions at a high level. They provide essential traffic volume and connection metadata, but do not record full application payloads (e.g. HTTP headers, TLS handshakes, or raw bytes).",
-    },
-    {
-      id: 4,
-      question: "An analyst discovers an open TCP port 443 on an unfamiliar internal server. What can be safely concluded from this observation alone?",
-      options: [
-        "The service is guaranteed to be a legitimate, secure HTTPS web server",
-        "The port commonly hosts HTTPS, but any arbitrary process or malicious backdoor could be listening on port 443; service identification and banner inspection are required to verify the actual protocol",
-        "The server is definitely compromised by malware",
-        "All traffic to that port is automatically encrypted and compliant with PCI-DSS",
-      ],
-      correct: 1,
-      explanation:
-        "Port numbers are conventions, not cryptographic guarantees. Any application (e.g., an SSH daemon, custom VPN, or reverse shell) can be configured to listen on port 443 to bypass naive egress firewall rules.",
-    },
-    {
-      id: 5,
-      question: "In Nmap port scanning terminology, what does the 'filtered' state signify?",
-      options: [
-        "The port is confirmed to be closed and the host returned an ICMP Port Unreachable message",
-        "A packet filter, firewall, or network ACL is dropping the probe, preventing the scanner from determining whether the port is open or closed due to lack of response or ICMP administrative block",
-        "The port has been sanitized by an antivirus program",
-        "The port only accepts connections from localhost",
-      ],
-      correct: 1,
-      explanation:
-        "Nmap reports 'filtered' when it receives no response (probe dropped) or receives an ICMP type 3 code (such as code 13 Destination Admin Prohibited). The scanner cannot determine if a listening service exists behind the firewall.",
-    },
-    {
-      id: 6,
-      question: "Why should forensic analysts compute and record a cryptographic SHA-256 hash of a PCAP file immediately upon collection?",
-      options: [
-        "To compress the PCAP file so it takes up less disk space",
-        "To establish cryptographic chain of custody and prove that the packet capture evidence was not modified, tampered with, or corrupted during subsequent analysis",
-        "To automatically crack any encrypted TLS passwords in the capture",
-        "To convert the capture into a Wireshark display filter automatically",
-      ],
-      correct: 1,
-      explanation:
-        "Computing a SHA-256 hash creates an immutable digital fingerprint. If the file is later questioned in an audit or legal proceeding, matching hashes prove the evidence has not been altered since collection.",
-    },
-    {
-      id: 7,
-      question: "What is the primary difference between a 'horizontal' port scan and a 'vertical' port scan?",
-      options: [
-        "A horizontal scan targets a single port across many destination IP addresses; a vertical scan targets many different ports on a single destination IP address",
-        "A horizontal scan uses Wireshark, while a vertical scan uses tcpdump",
-        "A horizontal scan only targets IPv6, while a vertical scan only targets IPv4",
-        "A horizontal scan is always legal, while a vertical scan is always illegal",
-      ],
-      correct: 0,
-      explanation:
-        "A horizontal scan sweeps a network for a specific vulnerable service (e.g. probing port 445 on every IP in a /24 subnet). A vertical scan probes multiple ports (e.g. ports 1–1024) on a single specific target machine.",
-    },
-    {
-      id: 8,
-      question: "Why can banner grabbing (e.g. reading an HTTP Server header or SSH version string) be misleading during vulnerability assessments?",
-      options: [
-        "Banners are encrypted by default in all network protocols",
-        "Banners can be easily customized, masked, spoofed by administrators, or generated by an intermediary reverse proxy rather than the actual backend server",
-        "Banners only display the current date and time",
-        "Banners are stripped by Layer 2 Ethernet switches",
-      ],
-      correct: 1,
-      explanation:
-        "Server banners are easily modified in configuration files (e.g. configuring Apache to send Server: nginx, or suppressing version numbers). A banner string is an initial clue that must be verified against actual patch levels and behavior.",
-    },
-    {
-      id: 9,
-      question: "In tcpdump, what does the flag combination '-nn -tttt' accomplish?",
-      options: [
-        "Enables promiscuous mode and disables all packet filtering",
-        "Prevents DNS resolution of IP addresses and port names (-nn) and prints human-readable timestamps (-tttt), speeding up output and preventing external DNS leaks",
-        "Encrypts the output capture with a temporary password",
-        "Limits the capture to exactly 4 packets",
-      ],
-      correct: 1,
-      explanation:
-        "The '-nn' flag instructs tcpdump not to resolve hostnames or port names, avoiding slow DNS lookups and preventing the sniffer from generating extraneous network traffic. The '-tttt' flag formats timestamps as 'YYYY-MM-DD HH:MM:SS.frac'.",
-    },
-    {
-      id: 10,
-      question: "An analyst observes 200 SYN packets sent from an internal workstation to 50 internal server IPs in 5 seconds. What is the most appropriate professional evidence statement?",
-      options: [
-        "The workstation is definitely infected with ransomware and must be wiped immediately",
-        "The capture shows the host initiated 200 SYN packets to 50 distinct destinations in 5 seconds, which is consistent with internal port scanning behavior; the finding must be correlated with endpoint process records and scheduled vulnerability scan authorizations",
-        "The user is simply browsing YouTube",
-        "The firewall has failed and allowed unauthorized traffic",
-      ],
-      correct: 1,
-      explanation:
-        "Defensible security analysis separates facts (observed packet counts and timing) from interpretations (consistent with port scanning) and avoids unsubstantiated conclusions (e.g. claiming malware without endpoint verification).",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleQuizSelect = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -586,7 +459,14 @@ A targeted packet investigation was conducted on mirrored network interface traf
 3. **Internal Segmentation:** Deploy microsegmentation access control lists between workstation subnets and the 10.0.5.0/24 server farm.
 `;
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="networks" currentModuleId="packet-analysis" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="networks" currentModuleId="packet-analysis" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans">
       <ModuleNav
         track="networks"

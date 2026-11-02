@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -38,6 +41,7 @@ import ModuleNav from "./ModuleNav";
 import { useSyncedTopic } from "../utils/navigation";
 
 export default function CybersecurityMethodology() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("cybersecurity", "methodology");
   const navigate = useNavigate();
 
   // Primary navigation tabs
@@ -346,176 +350,7 @@ export default function CybersecurityMethodology() {
   // -------------------------------------------------------------
   // PART J: 12-Question Knowledge Check Quiz
   // -------------------------------------------------------------
-  const quizQuestions = [
-    {
-      id: 1,
-      question:
-        "Under the U.S. Computer Fraud and Abuse Act (CFAA, 18 U.S.C. § 1030) and the Supreme Court precedent in Van Buren v. United States (2021), what constitutes 'exceeding authorized access'?",
-      options: [
-        "A. Violating a website's published Terms of Service while using an account you legitimately possess.",
-        "B. Accessing a computer with authorization and then using such access to obtain or alter information in the computer that the accesser is not entitled to obtain or alter.",
-        "C. Scanning open public ports on an Internet-facing IP without prior written consent.",
-        "D. Reverse engineering an open-source security tool for defensive vulnerability analysis.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "In Van Buren v. United States (2021), the Supreme Court narrowed the CFAA scope, holding that 'exceeding authorized access' applies when an individual accesses areas of a computer system (files, databases, gates) to which their computer access credentials do not entitle them, rather than mere contractual or policy violations.",
-    },
-    {
-      id: 2,
-      question:
-        "What is the primary operational distinction between the Penetration Testing Execution Standard (PTES) and the Open Source Security Testing Methodology Manual (OSSTMM 3.0)?",
-      options: [
-        "A. PTES focuses solely on web applications, whereas OSSTMM only covers physical facility locks.",
-        "B. PTES structures the operational lifecycle across 7 procedural phases, while OSSTMM is an empirical, metrics-driven methodology focused on measuring operational security (Ravs) and operational separation.",
-        "C. OSSTMM is exclusively a legal contract template, while PTES is an automated Python scanner.",
-        "D. PTES requires automated exploit tools, while OSSTMM prohibits any use of computers.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "PTES defines the end-to-end 7-phase methodology from pre-engagement to reporting. OSSTMM 3.0 emphasizes empirical measurement, quantifying operational security through 'Ravs' (Risk Assessment Values) across operational vectors (human, physical, wireless, telecommunications, data networks).",
-    },
-    {
-      id: 3,
-      question:
-        "Why is a 'Letter of Authorization' (LoA, colloquially termed the 'Get Out of Jail Free' letter) considered the most vital field document for an ethical hacker?",
-      options: [
-        "A. It grants the tester immunity from international treaties and local privacy statutes regardless of what occurs.",
-        "B. It provides portable, verifiable proof of explicit authorization signed by a legally empowered corporate officer, establishing legitimate testing authority if challenged by law enforcement, hosting providers, or internal SOC teams.",
-        "C. It serves as a substitute for an executive penetration test report at the conclusion of the engagement.",
-        "D. It automatically disables the target organization's Intrusion Detection System (IDS).",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "An LoA provides tangible, verifiable proof on corporate letterhead, signed by an authorized officer (CISO/VP/Legal), specifying tester names, IP addresses, dates, and target scope. It protects security personnel during active tests when questioned by corporate security, ISP abuse desks, or police.",
-    },
-    {
-      id: 4,
-      question:
-        "According to major public cloud provider policies (such as AWS Customer Support Policy for Penetration Testing and Microsoft Cloud Pen Testing RoE), which of the following activities is STRICTLY PROHIBITED without explicit prior multi-party approval?",
-      options: [
-        "A. Vulnerability scanning against your own customer-managed EC2 virtual machine instances.",
-        "B. Launching Denial of Service (DoS/DDoS) attacks against cloud shared infrastructure, multi-tenant hypervisors, or AWS/Azure DNS infrastructure.",
-        "C. Authenticated testing of custom web applications running on Amazon ECS or Azure App Services.",
-        "D. Inspecting your own AWS IAM policies and S3 bucket ACL configurations.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Cloud providers permit security assessments against user-owned and user-managed cloud instances, but strictly prohibit stress testing, Denial of Service (DoS/DDoS), port scanning shared control-plane infrastructure, and hypervisor breakouts because they threaten other cloud tenants.",
-    },
-    {
-      id: 5,
-      question:
-        "In a professional Rules of Engagement (RoE) document, what does an 'Emergency Stop Protocol' (or Kill Switch) dictate?",
-      options: [
-        "A. The automated script that deletes all penetration testing logs and exploit tools from the client's servers.",
-        "B. A mandatory, immediate operational cessation of all testing activities upon the occurrence of predefined critical triggers (such as unexpected production outage, data corruption, or encountering a live third-party adversary), followed by instant notification to the primary contact.",
-        "C. The procedure for terminating an employee whose workstation was compromised during social engineering.",
-        "D. The protocol used by web servers to gracefully restart after a scheduled reboot.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "The Emergency Stop Protocol defines predetermined triggers (system instability, potential production outage, suspected active breach by a real malicious actor). It requires testers to immediately stop all probing, freeze logs, and contact the client escalation lead via out-of-band communication.",
-    },
-    {
-      id: 6,
-      question:
-        "Under the UK Computer Misuse Act 1990 (CMA), which section explicitly criminalizes performing unauthorized acts with intent to impair, or with recklessness as to impairing, the operation of a computer (such as launching a destructive payload or DoS)?",
-      options: [
-        "A. Section 1 (Unauthorized access to computer material).",
-        "B. Section 2 (Unauthorized access with intent to commit or facilitate commission of further offences).",
-        "C. Section 3 (Unauthorized acts with intent to impair, or with recklessness as to impairing, operation of computer, etc.).",
-        "D. Section 3A (Making, supplying or obtaining articles for use in computer misuse offences).",
-      ],
-      correctAnswer: 2,
-      explanation:
-        "Section 3 of the UK Computer Misuse Act 1990 specifically addresses unauthorized impairment of computer operations (e.g., crashing servers, altering data, DDoS). Testing without authorized scope or using reckless payloads that impair systems can be prosecuted under Section 3.",
-    },
-    {
-      id: 7,
-      question:
-        "What is the key advantage of Gray-Box Testing over pure Black-Box Testing in enterprise application security assessments?",
-      options: [
-        "A. Gray-box testing is always completely free of charge and requires no tools.",
-        "B. Gray-box testing mirrors a zero-knowledge opportunistic external hacker with 100% fidelity.",
-        "C. By providing partial architectural knowledge, API documentation, and low-privileged test credentials, gray-box testing significantly increases testing efficiency and depth, eliminating wasted time on blind guessing.",
-        "D. Gray-box testing eliminates the need to prepare a written Rules of Engagement document.",
-      ],
-      correctAnswer: 2,
-      explanation:
-        "Gray-box testing maximizes return on investment (ROI). With basic architectural documentation, API specifications, and standard user credentials, testers can focus directly on business logic vulnerabilities, access control bypasses, and data validation without spending 70% of billable hours guessing parameter names.",
-    },
-    {
-      id: 8,
-      question:
-        "During a penetration test, a consultant uncovers an unauthenticated remote code execution (RCE) vulnerability on a production cluster processing live credit card transactions. What is the MANDATORY immediate action required by professional ethics and the RoE?",
-      options: [
-        "A. Execute a reverse shell, search for database passwords, and dump sample credit card numbers to prove the finding.",
-        "B. Immediately halt invasive testing on that component, take screenshots of minimal evidence, encrypt the finding, and trigger the out-of-band Critical Vulnerability Escalation protocol within the agreed SLA (e.g., < 2 hours).",
-        "C. Wait until the final report delivery in two weeks to present all findings together in the executive debrief.",
-        "D. Tweet a redacted screenshot to warn other companies using the same software.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Critical vulnerabilities (RCE, exposed sensitive customer databases) pose immediate danger. Professional RoE mandates immediate out-of-band notification (call + encrypted email) within 1-2 hours so defenders can apply emergency mitigations. Testers must NEVER exfiltrate real customer PII/PCI data.",
-    },
-    {
-      id: 9,
-      question:
-        "Under Indian Information Technology Act 2000 (Amended 2008), which section prescribes punishment for hacking and dishonestly or fraudulently damaging computer systems or networks without permission of the owner?",
-      options: [
-        "A. Section 43 & Section 66 (Computer related offences, hacking, unauthorized copying, and denial of access).",
-        "B. Section 10A (Validity of electronic contracts).",
-        "C. Section 85 (Offences by companies).",
-        "D. Section 90 (Power of State Government to make rules).",
-      ],
-      correctAnswer: 0,
-      explanation:
-        "Section 43 (penalties for damage to computer system without permission) and Section 66 (computer related offences / hacking) of the Indian IT Act 2000 establish stringent criminal penalties (up to 3 years imprisonment and fines) for unauthorized access, data theft, virus introduction, or disruption.",
-    },
-    {
-      id: 10,
-      question:
-        "What does 'Gold Standard Safe Harbor' (promoted by Disclose.io and modern Bug Bounty programs) provide to ethical security researchers?",
-      options: [
-        "A. Financial bonuses paid out even if no vulnerabilities are discovered during the testing period.",
-        "B. Comprehensive legal protection explicitly promising that the organization will not initiate legal action under anti-hacking laws (such as CFAA or DMCA Section 1201) against researchers who operate in good-faith compliance with the policy.",
-        "C. Diplomatic immunity that prevents foreign governments from issuing subpoenas.",
-        "D. Automatic certification as an authorized government security agency.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Gold Standard Safe Harbor provides affirmative legal protection. The organization explicitly pledges not to pursue civil or criminal claims (under CFAA, DMCA §1201, or contract breaches) against security researchers acting in good faith according to the vulnerability disclosure program terms.",
-    },
-    {
-      id: 11,
-      question:
-        "Why must a formal Statement of Work (SOW) specify the exact IP addresses or CIDR blocks from which the penetration testers will originate their traffic?",
-      options: [
-        "A. So that the client can completely turn off firewalls for those IP addresses and disable all security monitoring.",
-        "B. So that the client's Security Operations Center (SOC) can differentiate authorized penetration testing activities from a genuine, concurrent cyberattack launched by a malicious actor.",
-        "C. Because routers cannot route packets unless an SOW has been signed by an ISP.",
-        "D. To ensure the tester's ISP does not charge bandwidth fees.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Whitelisting tester source IPs allows the client's SOC and SIEM to correlate noisy test probes. If high-severity alerts originate from the tester's whitelisted IPs, the SOC knows it is an authorized drill; if identical attacks arrive from unknown IPs, the SOC can initiate immediate incident response against a real adversary.",
-    },
-    {
-      id: 12,
-      question:
-        "What is the danger of relying solely on an informal 'Gentleman's Agreement' or email exchange rather than a fully executed Master Services Agreement (MSA) and Statement of Work (SOW)?",
-      options: [
-        "A. It makes the testing process faster and is favored by corporate lawyers.",
-        "B. In the event of system failure, accidental data loss, or internal dispute, the tester has no contractual liability limitation, no formalized indemnity, and no documented legal defense against criminal computer intrusion allegations.",
-        "C. It results in lower network latency during automated scans.",
-        "D. It prevents the tester from using commercial penetration testing distributions such as Kali Linux.",
-      ],
-      correctAnswer: 1,
-      explanation:
-        "Informal agreements fail in court. Without a binding contract with explicit limitation of liability, mutual indemnification, defined scope, and authorized signatures, the security consultant is exposed to immense civil liability for business interruption and potential criminal prosecution under anti-hacking statutes.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
@@ -537,7 +372,14 @@ export default function CybersecurityMethodology() {
     setShowQuizResults(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="cybersecurity" currentModuleId="methodology" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="cybersecurity" currentModuleId="methodology" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

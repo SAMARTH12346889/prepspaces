@@ -1,3 +1,6 @@
+import useModuleContent from "../hooks/useModuleContent";
+import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
+import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -52,6 +55,7 @@ import {
 } from "./SystemDesignScalabilityDiagrams";
 
 export default function SystemDesignScalability() {
+  const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "scalability");
   const navigate = useNavigate();
 
   // Navigation tab state
@@ -98,56 +102,7 @@ export default function SystemDesignScalability() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "Which approach adds more machines to handle increasing traffic?",
-      options: [
-        "A. Vertical scaling",
-        "B. Horizontal scaling",
-        "C. Database indexing",
-        "D. Compression",
-      ],
-      correct: 1, // B
-      explanation:
-        "Horizontal scaling (scale out) adds more machines or application instances and distributes requests between them using a load balancer. Vertical scaling (scale up) increases the CPU/RAM of a single existing server.",
-    },
-    {
-      id: 2,
-      question:
-        "An API receives 400 requests per second with an average latency of 0.5 seconds. What is the average number of in-flight requests?",
-      options: ["A. 80", "B. 200", "C. 400", "D. 800"],
-      correct: 1, // B
-      explanation:
-        "By Little's Law: L = lambda * W. Here, arrival rate lambda = 400 req/s, and average latency W = 0.5 s. Therefore, in-flight concurrency L = 400 * 0.5 = 200 concurrent requests.",
-    },
-    {
-      id: 3,
-      question: "What should you do first when investigating a performance bottleneck?",
-      options: [
-        "A. Rewrite the whole application",
-        "B. Buy more servers immediately",
-        "C. Measure and profile the system",
-        "D. Shard every database table",
-      ],
-      correct: 2, // C
-      explanation:
-        "Never guess or prematurely optimize. You must first measure and profile the system (CPU, memory, database query plans, network I/O) to identify the specific component that is actually limiting throughput.",
-    },
-    {
-      id: 4,
-      question: "What is a likely consequence of a queue growing without bounds?",
-      options: [
-        "A. Guaranteed lower latency",
-        "B. Unlimited system capacity",
-        "C. Increasing memory usage and latency",
-        "D. Automatic database optimization",
-      ],
-      correct: 2, // C
-      explanation:
-        "An unbounded queue converts excess offered load into growing memory consumption and accumulated latency. In-flight jobs age, clients experience timeouts and retry, and the host eventually crashes with an Out-of-Memory (OOM) error.",
-    },
-  ];
+  const quizQuestions = moduleData?.quiz || [];
 
   const handleSelectAnswer = (qId, optionIdx) => {
     if (quizSubmitted) return;
@@ -167,7 +122,14 @@ export default function SystemDesignScalability() {
     setQuizSubmitted(false);
   };
 
-  return (
+    if (loading) {
+    return <ModuleLoadingSkeleton track="system-design" currentModuleId="scalability" />;
+  }
+
+  if (error || !moduleData) {
+    return <ModuleErrorState track="system-design" currentModuleId="scalability" error={error} onRetry={reload} />;
+  }
+return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Ambient background lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
