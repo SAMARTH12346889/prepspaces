@@ -180,7 +180,7 @@ export default function Learning() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-6 py-8 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-3.5 py-4 sm:px-6 sm:py-8 md:px-12 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
@@ -189,7 +189,7 @@ export default function Learning() {
 
       <div className="relative z-10 mx-auto max-w-6xl w-full">
         {/* Top Header / Back Button - Unified design language */}
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-4 sm:mb-8 flex items-center justify-between">
           <button
             type="button"
             onClick={() => goBack("/")}
@@ -210,7 +210,7 @@ export default function Learning() {
             <span>Curriculum & Skill Tracks</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#18181b]">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#18181b]">
             Structured Technical Learning Tracks
           </h1>
 
@@ -220,7 +220,7 @@ export default function Learning() {
         </div>
 
         {/* Metric Badges Banner */}
-        <div className="mb-10 grid grid-cols-2 sm:grid-cols-4 gap-3 p-2 rounded-2xl bg-white/70 border border-[#e7e3da] backdrop-blur-md shadow-2xs">
+        <div className="mb-5 sm:mb-10 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-white/70 border border-[#e7e3da] backdrop-blur-md shadow-2xs">
           <div className="p-3 text-center">
             <div className="text-xl sm:text-2xl font-black text-stone-900 font-mono">6</div>
             <div className="text-[11px] text-stone-500 font-medium mt-0.5">Comprehensive Tracks</div>
@@ -240,7 +240,7 @@ export default function Learning() {
         </div>
 
         {/* LEARNING TRACKS GRID - Spacious, Balanced 2-Column Layout */}
-        <div className="grid gap-6 md:grid-cols-2 items-stretch">
+        <div className="grid gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">
           {courses.map((card) => {
             const Icon = card.icon;
 
@@ -248,13 +248,13 @@ export default function Learning() {
               <Link
                 key={card.id}
                 to={card.route}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#e7e3da] bg-white/90 p-7 sm:p-8 backdrop-blur-xl shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-300 hover:shadow-[0_20px_45px_rgba(249,115,22,0.12)] cursor-pointer text-inherit no-underline"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/90 p-4 sm:p-7 md:p-8 backdrop-blur-xl shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-300 hover:shadow-[0_20px_45px_rgba(249,115,22,0.12)] cursor-pointer text-inherit no-underline"
               >
                 <div className="flex flex-col flex-1">
                   {/* Card Header with Icon, Tag and Duration */}
                   <div className="flex items-center justify-between gap-3 mb-5">
-                    <div className={`flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${card.color} text-white shadow-md group-hover:scale-105 transition-transform duration-300`}>
-                      <Icon size={24} />
+                    <div className={`flex h-11 w-11 sm:h-13 sm:w-13 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-br ${card.color} text-white shadow-md group-hover:scale-105 transition-transform duration-300`}>
+                      <Icon size={22} className="sm:w-6 sm:h-6" />
                     </div>
 
                     <div className="flex flex-wrap items-center justify-end gap-2">
@@ -268,7 +268,7 @@ export default function Learning() {
                   </div>
 
                   {/* Title & Tagline */}
-                  <h2 className="text-2xl font-bold tracking-tight text-[#18181b] group-hover:text-[#f97316] transition-colors duration-200">
+                  <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] group-hover:text-[#f97316] transition-colors duration-200">
                     {card.title}
                   </h2>
                   <p className="mt-1 text-xs font-semibold text-orange-700/90 font-sans">
@@ -281,7 +281,7 @@ export default function Learning() {
                   </p>
 
                   {/* Highlights Pills */}
-                  <div className="mt-5 pt-4 border-t border-stone-100">
+                  <div className="mt-3.5 sm:mt-5 pt-3 sm:pt-4 border-t border-stone-100">
                     <div className="text-[11px] font-mono uppercase tracking-wider font-bold text-stone-400 mb-2">
                       Core Areas Covered:
                     </div>
@@ -300,7 +300,7 @@ export default function Learning() {
                 </div>
 
                 {/* Footer Action */}
-                <div className="mt-7 flex items-center justify-end pt-4 border-t border-[#e7e3da]/80">
+                <div className="mt-4 sm:mt-7 flex items-center justify-end pt-3 sm:pt-4 border-t border-[#e7e3da]/80">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-[#ea580c] group-hover:text-[#c2410c] transition-colors">
                       Explore Track

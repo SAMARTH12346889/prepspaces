@@ -224,8 +224,8 @@ export default function ModuleNav({
   };
 
   return (
-    <div className="mb-8 flex flex-col gap-3">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e7e3da] pb-4">
+    <div className="mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-[#e7e3da] pb-3 sm:pb-4">
         {/* Back and Breadcrumb Controls */}
         <div className="flex items-center gap-2">
           <button

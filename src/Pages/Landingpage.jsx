@@ -216,8 +216,8 @@ export default function Landingpage() {
       {/* ================= MAIN CONTENT AREA ================= */}
       <div className="flex-1 flex flex-col min-w-0 z-10">
         {/* Top Header */}
-        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-4 sm:px-6 py-3 sm:py-4 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur-xl md:px-10">
-          <div className="flex items-center gap-4">
+        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-3.5 sm:px-6 py-2.5 sm:py-4 pt-[max(0.6rem,env(safe-area-inset-top))] backdrop-blur-xl md:px-10">
+          <div className="flex items-center gap-2.5 sm:gap-4">
             <button
               onClick={() => setSidebarOpen(true)}
               className="rounded-xl border border-[#e7e3da] bg-white/80 p-2 text-stone-600 hover:bg-stone-200/50 md:hidden shadow-2xs cursor-pointer"
@@ -228,8 +228,8 @@ export default function Landingpage() {
             <div className="md:hidden">
               <Logo size="xs" onClick={() => navigate("/")} />
             </div>
-            <div>
-              <p className="hidden md:block text-xs font-semibold text-stone-500">
+            <div className="hidden md:block">
+              <p className="text-xs font-semibold text-stone-500">
                 {new Date().toLocaleDateString("en-US", {
                   weekday: "long",
                   month: "short",
@@ -239,17 +239,17 @@ export default function Landingpage() {
               <h1 className="text-lg font-black tracking-tight text-[#18181b] sm:text-2xl md:text-3xl">
                 Welcome to PrepSpaces
               </h1>
-              <p className="hidden sm:block text-xs text-stone-500 mt-0.5">
+              <p className="text-xs text-stone-500 mt-0.5">
                 Technical interview preparation, structured engineering tracks, and architecture mastery.
               </p>
             </div>
           </div>
 
           {/* Header Right Action */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <Link
               to="/learning"
-              className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer active:scale-95 shrink-0 whitespace-nowrap"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:px-4 sm:py-2.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer active:scale-95 shrink-0 whitespace-nowrap"
             >
               <BookOpen size={15} className="text-[#f97316]" />
               <span>Browse Tracks</span>
@@ -258,9 +258,9 @@ export default function Landingpage() {
         </header>
 
         {/* Dashboard Main Content */}
-        <main className="flex-1 p-6 space-y-6 md:p-10 max-w-7xl mx-auto w-full">
+        <main className="flex-1 px-3.5 py-4 sm:p-6 md:p-10 space-y-3.5 sm:space-y-6 max-w-7xl mx-auto w-full">
           {/* ================= HERO CARD: BLACK FEATURE CARD ================= */}
-          <section className="relative overflow-hidden rounded-3xl bg-[#18181b] border border-stone-800 p-7 md:p-9 text-white shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+          <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#18181b] border border-stone-800 p-5 sm:p-7 md:p-9 text-white shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
             {/* Ambient geometric subtle glow rings on right */}
             <div className="pointer-events-none absolute -right-16 -top-16 h-80 w-80 rounded-full border border-orange-500/10 bg-orange-500/[0.04] blur-2xl" />
             <div className="pointer-events-none absolute right-12 top-6 h-60 w-60 rounded-full border border-white/10" />
@@ -268,63 +268,63 @@ export default function Landingpage() {
 
             <div className="relative z-10 max-w-2xl">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
-                <BookOpen size={13} className="text-[#f97316]" />
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white/10 border border-white/15 px-2.5 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
+                <BookOpen size={12} className="text-[#f97316]" />
                 <span>YOUR LEARNING SPACE</span>
               </div>
 
-              <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-white md:text-4xl leading-tight">
+              <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl font-extrabold tracking-tight text-white md:text-4xl leading-tight">
                 Build skills. Learn by doing.
               </h2>
 
-              <p className="mt-3 text-xs md:text-sm text-stone-300 leading-relaxed max-w-xl">
+              <p className="mt-2 sm:mt-3 text-xs md:text-sm text-stone-300 leading-relaxed max-w-xl">
                 Explore structured technical learning tracks, understand core concepts, and develop practical skills through focused lessons.
               </p>
 
-              <div className="mt-6 flex flex-wrap items-center gap-4">
+              <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link
                   to="/learning"
-                  className="flex items-center gap-2.5 rounded-xl bg-[#f97316] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition hover:bg-[#ea580c] hover:scale-105 active:scale-95 cursor-pointer"
+                  className="flex items-center gap-2 rounded-xl bg-[#f97316] px-4 py-2.5 sm:px-6 sm:py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition hover:bg-[#ea580c] active:scale-95 cursor-pointer"
                 >
-                  <BookOpen size={16} />
+                  <BookOpen size={15} />
                   <span>Explore Learning Tracks</span>
-                  <ChevronRight size={16} />
+                  <ChevronRight size={15} />
                 </Link>
               </div>
             </div>
           </section>
 
           {/* ================= 2-COLUMN GRID (WHITE GLASS SURFACES) ================= */}
-          <div className="grid gap-6 md:grid-cols-2 items-stretch">
+          <div className="grid gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">
             {/* 1. LEARNING PATHS CARD */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/80 p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full">
+            <section className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/80 p-4 sm:p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full">
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
+                <div className="flex items-center justify-between mb-2.5 sm:mb-3">
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
                     LEARNING PATHS
                   </span>
-                  <span className="rounded-full bg-orange-100 text-orange-700 px-3 py-0.5 text-xs font-bold">
+                  <span className="rounded-full bg-orange-100 text-orange-700 px-2.5 py-0.5 text-[11px] sm:text-xs font-bold">
                     6 Tracks Available
                   </span>
                 </div>
-                <h3 className="text-xl font-extrabold text-[#18181b]">Your Technical Journey</h3>
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#18181b]">Your Technical Journey</h3>
                 <p className="mt-1 text-xs md:text-sm text-stone-500 leading-relaxed">
                   Explore system design, DevOps, cloud computing, and programming fundamentals through structured learning modules.
                 </p>
 
                 {/* Real Available Tracks */}
-                <div className="my-5 space-y-3">
+                <div className="my-3.5 sm:my-5 space-y-2 sm:space-y-3">
                   {availableTracks.map((track) => {
                     const Icon = track.icon;
                     return (
                       <Link
                         key={track.id}
                         to={track.route}
-                        className="group flex items-center justify-between rounded-2xl border border-stone-200/60 bg-stone-50/70 p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs"
+                        className="group flex items-center justify-between rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs"
                       >
                         <div className="flex items-center gap-3">
-                          <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${track.color} text-white shadow-xs`}>
-                            <Icon size={18} />
+                          <div className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${track.color} text-white shadow-xs`}>
+                            <Icon size={17} />
                           </div>
                           <div>
                             <h4 className="text-xs sm:text-sm font-bold text-[#18181b] group-hover:text-[#ea580c] transition">
@@ -336,7 +336,7 @@ export default function Landingpage() {
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="hidden sm:inline-block rounded-md border border-stone-200 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-stone-600">
+                          <span className="hidden lg:inline-block rounded-md border border-stone-200 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-stone-600">
                             {track.tag}
                           </span>
                           <ChevronRight
@@ -362,32 +362,32 @@ export default function Landingpage() {
             </section>
 
             {/* 2. EXPLORE TOPICS CARD */}
-            <section className="rounded-3xl border border-[#e7e3da] bg-white/80 p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full">
+            <section className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/80 p-4 sm:p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full">
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
+                <div className="flex items-center justify-between mb-2.5 sm:mb-3">
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
                     EXPLORE
                   </span>
-                  <span className="rounded-full bg-stone-100 text-stone-700 px-3 py-0.5 text-xs font-bold">
+                  <span className="rounded-full bg-stone-100 text-stone-700 px-2.5 py-0.5 text-[11px] sm:text-xs font-bold">
                     Self-Paced
                   </span>
                 </div>
-                <h3 className="text-xl font-extrabold text-[#18181b]">Discover Your Next Topic</h3>
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#18181b]">Discover Your Next Topic</h3>
                 <p className="mt-1 text-xs md:text-sm text-stone-500 leading-relaxed">
                   Choose a learning track and continue exploring technical concepts at your own pace.
                 </p>
 
                 {/* Real Available Starter Topics */}
-                <div className="my-5 space-y-3">
+                <div className="my-3.5 sm:my-5 space-y-2 sm:space-y-3">
                   {featuredTopics.map((topic, idx) => (
                     <Link
                       key={idx}
                       to={topic.route}
-                      className="group flex items-center justify-between rounded-2xl border border-stone-200/60 bg-stone-50/70 p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs"
+                      className="group flex items-center justify-between rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-[#ea580c]">
-                          <Compass size={18} />
+                        <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-[#ea580c]">
+                          <Compass size={17} />
                         </div>
                         <div>
                           <h4 className="text-xs sm:text-sm font-bold text-[#18181b] group-hover:text-[#ea580c] transition">
@@ -399,7 +399,7 @@ export default function Landingpage() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="hidden sm:inline-block rounded-md border border-stone-200 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-stone-600">
+                        <span className="hidden lg:inline-block rounded-md border border-stone-200 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-stone-600">
                           {topic.tag}
                         </span>
                         <ChevronRight
@@ -425,13 +425,13 @@ export default function Landingpage() {
           </div>
 
           {/* ================= CURRICULUM HIGHLIGHTS STRIP ================= */}
-          <section className="rounded-3xl border border-[#e7e3da] bg-white/80 p-6 md:p-8 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <section className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/80 p-4 sm:p-6 md:p-8 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+            <div className="flex flex-col gap-3.5 sm:gap-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
                   CURRICULUM OVERVIEW
                 </span>
-                <h3 className="text-xl font-extrabold text-[#18181b] mt-1">
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#18181b] mt-0.5 sm:mt-1">
                   Ready to start learning?
                 </h3>
                 <p className="mt-1 text-xs md:text-sm text-stone-500 max-w-xl">
@@ -441,11 +441,11 @@ export default function Landingpage() {
 
               <Link
                 to="/learning"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#f97316] to-[#ea580c] px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer self-start md:self-auto"
+                className="inline-flex items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#f97316] to-[#ea580c] px-4 py-2.5 sm:px-6 sm:py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer self-start md:self-auto"
               >
-                <BookOpen size={16} />
+                <BookOpen size={15} />
                 <span>Go to Study Curriculum</span>
-                <ChevronRight size={16} />
+                <ChevronRight size={15} />
               </Link>
             </div>
           </section>
