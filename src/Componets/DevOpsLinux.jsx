@@ -163,7 +163,7 @@ export default function DevOpsLinux() {
   // =========================================================================
   const topics = moduleData?.topics || [];
 
-  const currentTopic = topics[selectedTopic] || topics[0];
+  const currentTopic = topics[selectedTopic] || topics[0] || {};
 
   // =========================================================================
   // 12 MASTERY TEST QUESTIONS

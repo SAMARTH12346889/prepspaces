@@ -239,7 +239,7 @@ export default function CloudEconomics() {
   // Syllabus Topics (12 Topics covering Week 22)
   const topics = moduleData?.topics || [];
 
-  const currentTopic = topics[selectedTopic] || topics[0];
+  const currentTopic = topics[selectedTopic] || topics[0] || {};
 
     if (loading) {
     return <ModuleLoadingSkeleton track="cloud" currentModuleId="economics" />;

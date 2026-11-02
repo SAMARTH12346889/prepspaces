@@ -231,6 +231,7 @@ export default function DevOpsDocker() {
   // TOPIC CURRICULUM DATA (10 COMPREHENSIVE TOPICS)
   // =========================================================================
   const topics = moduleData?.topics || [];
+  const currentTopic = topics[selectedTopic] || topics[0] || {};
 
   // =========================================================================
   // MASTERY ASSESSMENT QUESTIONS (14 IN-DEPTH QUESTIONS)
@@ -387,24 +388,24 @@ return (
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-stone-100">
                   <div>
                     <span className="font-mono text-xs font-bold uppercase text-orange-600 tracking-wider">
-                      Topic {topics[selectedTopic].number}
+                      Topic {currentTopic?.number}
                     </span>
                     <h2 className="text-2xl sm:text-3xl font-black text-stone-900 mt-1">
-                      {topics[selectedTopic].title}
+                      {currentTopic?.title}
                     </h2>
                   </div>
                   <span className="font-mono text-xs font-bold bg-orange-50 text-orange-700 border border-orange-200 px-3 py-1 rounded-full">
-                    {topics[selectedTopic].badge}
+                    {currentTopic?.badge}
                   </span>
                 </div>
 
                 <p className="mt-5 text-sm sm:text-base text-stone-700 leading-relaxed font-sans bg-stone-50 p-4 rounded-xl border border-stone-200">
-                  {topics[selectedTopic].summary}
+                  {currentTopic?.summary}
                 </p>
 
                 {/* Subsections */}
                 <div className="mt-8 space-y-6">
-                  {topics[selectedTopic].details.map((detail, dIdx) => (
+                  {currentTopic?.details?.map((detail, dIdx) => (
                     <div key={dIdx} className="border-l-2 border-orange-500 pl-4 py-1">
                       <h3 className="text-base font-bold text-stone-900">{detail.heading}</h3>
                       <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed whitespace-pre-line font-sans">
@@ -424,7 +425,7 @@ return (
                     <span className="text-[10px] text-stone-400">docker / compose</span>
                   </div>
                   <pre className="p-4 bg-[#18181b] text-stone-100 text-xs font-mono rounded-b-xl overflow-x-auto border-t border-stone-800 leading-relaxed">
-                    <code>{topics[selectedTopic].codeSnippet}</code>
+                    <code>{currentTopic?.codeSnippet}</code>
                   </pre>
                 </div>
               </div>

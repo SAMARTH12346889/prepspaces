@@ -63,6 +63,41 @@ import { useSyncedTopic } from "../utils/navigation";
 /* Systems Theory: MIT 6.033, Amazon Builders' Library, Google SRE, Uber DOMA */
 /* -------------------------------------------------------------------------- */
 
+// Icon mapping for backend string identifiers to Lucide components
+const ICON_MAP = {
+  Cloud,
+  Server,
+  Network,
+  Cpu,
+  Layers,
+  Workflow,
+  Shield,
+  Lock,
+  Globe,
+  Radio,
+  HardDrive,
+  FolderGit2,
+  GitBranch,
+  Boxes,
+  Container,
+  Terminal,
+  Activity,
+  Zap,
+  CheckCircle2,
+  FileCode,
+  Sliders,
+  Database,
+  Building2,
+  FolderTree,
+  Table,
+  Box,
+  Archive,
+  BarChart3,
+  Gauge,
+  TrendingUp,
+  Search,
+};
+
 export default function CloudArchitecture() {
   const { data: moduleData, loading, error, reload } = useModuleContent("cloud", "architecture");
   const navigate = useNavigate();
@@ -190,7 +225,8 @@ export default function CloudArchitecture() {
 
   const architectureTopics = moduleData?.topics || [];
 
-  const currentTopic = architectureTopics[selectedTopic];
+  const currentTopic = architectureTopics[selectedTopic] || architectureTopics[0] || {};
+  const CurrentIcon = typeof currentTopic?.icon === "function" ? currentTopic.icon : (ICON_MAP[currentTopic?.icon] || Workflow);
   const topicNumber = String(selectedTopic + 1).padStart(2, "0");
 
   const nextTopic = () => {
@@ -327,7 +363,7 @@ return (
         {/* TOPIC SELECTION PILLS */}
         <div className="mb-8 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           {architectureTopics.map((topic, index) => {
-            const Icon = topic.icon;
+            const Icon = typeof topic.icon === "function" ? topic.icon : (ICON_MAP[topic.icon] || Workflow);
             const isSelected = selectedTopic === index;
 
             return (
@@ -359,7 +395,7 @@ return (
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e7e3da] pb-4 mb-6">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-100 text-[#f97316]">
-                    <currentTopic.icon size={22} />
+                    <CurrentIcon size={22} />
                   </div>
                   <div>
                     <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-600">

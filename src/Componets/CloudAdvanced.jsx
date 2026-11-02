@@ -241,7 +241,7 @@ export default function CloudAdvanced() {
   // =========================================================================
   const topics = moduleData?.topics || [];
 
-  const currentTopic = topics[selectedTopic] || topics[0];
+  const currentTopic = topics[selectedTopic] || topics[0] || {};
 
   // =========================================================================
   // 21 MASTERY TEST QUESTIONS (SECTION 129)

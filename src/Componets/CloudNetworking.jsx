@@ -50,6 +50,41 @@ import { useSyncedTopic } from "../utils/navigation";
 /* Theory: Stanford CS144, Kurose & Ross, IETF RFCs (9293, 1034, 9110, 8446) */
 /* -------------------------------------------------------------------------- */
 
+// Icon mapping for backend string identifiers to Lucide components
+const ICON_MAP = {
+  Cloud,
+  Server,
+  Network,
+  Cpu,
+  Layers,
+  Workflow,
+  Shield,
+  Lock,
+  Globe,
+  Radio,
+  HardDrive,
+  FolderGit2,
+  GitBranch,
+  Boxes,
+  Container,
+  Terminal,
+  Activity,
+  Zap,
+  CheckCircle2,
+  FileCode,
+  Sliders,
+  Database,
+  Building2,
+  FolderTree,
+  Table,
+  Box,
+  Archive,
+  BarChart3,
+  Gauge,
+  TrendingUp,
+  Search,
+};
+
 export default function CloudNetworking() {
   const { data: moduleData, loading, error, reload } = useModuleContent("cloud", "networking");
   const navigate = useNavigate();
@@ -76,7 +111,8 @@ export default function CloudNetworking() {
 
   const networkingTopics = moduleData?.topics || [];
 
-  const currentTopic = networkingTopics[selectedTopic];
+  const currentTopic = networkingTopics[selectedTopic] || networkingTopics[0] || {};
+  const CurrentIcon = typeof currentTopic?.icon === "function" ? currentTopic.icon : (ICON_MAP[currentTopic?.icon] || Network);
   const topicNumber = String(selectedTopic + 1).padStart(2, "0");
 
   const nextTopic = () => {
@@ -269,7 +305,7 @@ return (
 
               <div className="space-y-1.5">
                 {networkingTopics.map((topic, index) => {
-                  const Icon = topic.icon;
+                  const Icon = typeof topic.icon === "function" ? topic.icon : (ICON_MAP[topic.icon] || Network);
                   const active = selectedTopic === index;
 
                   return (

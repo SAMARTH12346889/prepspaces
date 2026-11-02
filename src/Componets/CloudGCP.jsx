@@ -267,7 +267,7 @@ export default function CloudGCP() {
   // 12 Rigorous GCP Topics
   const topics = moduleData?.topics || [];
 
-  const currentTopic = topics[selectedTopic];
+  const currentTopic = topics[selectedTopic] || topics[0] || {};
 
     if (loading) {
     return <ModuleLoadingSkeleton track="cloud" currentModuleId="gcp" />;
@@ -825,7 +825,7 @@ return (
                   Core Invariants & Well-Architected Takeaways
                 </h4>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  {currentTopic.keyTakeaways.map((point, idx) => (
+                  {currentTopic?.keyTakeaways?.map((point, idx) => (
                     <div
                       key={idx}
                       className="rounded-2xl border border-stone-200 bg-stone-50 p-4 text-xs leading-relaxed text-stone-700 flex items-start gap-2.5"

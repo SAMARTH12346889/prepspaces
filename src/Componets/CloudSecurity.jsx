@@ -292,7 +292,7 @@ export default function CloudSecurity() {
   // Syllabus Topics (12 Topics covering Week 21)
   const topics = moduleData?.topics || [];
 
-  const currentTopic = topics[selectedTopic] || topics[0];
+  const currentTopic = topics[selectedTopic] || topics[0] || {};
 
     if (loading) {
     return <ModuleLoadingSkeleton track="cloud" currentModuleId="security" />;
