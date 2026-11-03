@@ -1,8 +1,27 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { getCourseModules } from "../services/courseContentService";
-import { useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, Sparkles, ChevronRight, ChevronLeft, LogOut, User } from "lucide-react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import {
+  ArrowLeft,
+  Sparkles,
+  ChevronRight,
+  ChevronLeft,
+  LogOut,
+  User,
+  Lock,
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
+  Award,
+  X,
+} from "lucide-react";
 import { getLocalProgress, PROGRESS_UPDATED_EVENT } from "../services/progressService";
+import {
+  getCourseAccess,
+  getCachedCourseAccess,
+  completeModule,
+  UNLOCK_UPDATED_EVENT,
+} from "../services/unlockingService";
 import { useSafeBack } from "../utils/navigation";
 import { SHOW_NOVA_AI } from "../config/features";
 import { useAuth } from "../context/AuthContext";
@@ -155,8 +174,10 @@ export default function ModuleNav({
   aiTutorLabel,
 }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { isAuthenticated, user, logout } = useAuth();
   const scrollRef = useRef(null);
+
   const initialModules =
     track === "devops"
       ? DEVOPS_MODULES
@@ -182,33 +203,45 @@ export default function ModuleNav({
   };
   const resolvedCourseId = courseIdMap[track] || track;
 
+  const [accessState, setAccessState] = useState(() => getCachedCourseAccess(resolvedCourseId));
   const [completedModuleIds, setCompletedModuleIds] = useState(() => {
-    const prog = getLocalProgress();
-    return prog[resolvedCourseId]?.completedModuleIds || [];
+    const cached = getCachedCourseAccess(resolvedCourseId);
+    return cached?.completedModuleIds || [];
   });
+  const [advancing, setAdvancing] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
-  useEffect(() => {
-    const updateCompleted = () => {
-      const prog = getLocalProgress();
-      setCompletedModuleIds(prog[resolvedCourseId]?.completedModuleIds || []);
-    };
-    updateCompleted();
-    window.addEventListener(PROGRESS_UPDATED_EVENT, updateCompleted);
-    return () => window.removeEventListener(PROGRESS_UPDATED_EVENT, updateCompleted);
+  // Load authoritative access from backend
+  const loadAccess = useCallback(async () => {
+    const data = await getCourseAccess(resolvedCourseId);
+    if (data) {
+      setAccessState(data);
+      if (Array.isArray(data.completedModuleIds)) {
+        setCompletedModuleIds(data.completedModuleIds);
+      }
+    }
   }, [resolvedCourseId]);
 
   useEffect(() => {
-    let isMounted = true;
-    const courseIdMap = {
-      os: "operating-systems",
-      networks: "computer-networks",
-      cybersecurity: "cybersecurity",
-      "system-design": "system-design",
-      cloud: "cloud",
-      devops: "devops",
+    loadAccess();
+
+    const handleUnlock = (e) => {
+      if (!e.detail?.courseId || e.detail.courseId === resolvedCourseId) {
+        loadAccess();
+      }
     };
-    const courseId = courseIdMap[track] || track;
-    getCourseModules(courseId).then((data) => {
+
+    window.addEventListener(UNLOCK_UPDATED_EVENT, handleUnlock);
+    window.addEventListener(PROGRESS_UPDATED_EVENT, loadAccess);
+    return () => {
+      window.removeEventListener(UNLOCK_UPDATED_EVENT, handleUnlock);
+      window.removeEventListener(PROGRESS_UPDATED_EVENT, loadAccess);
+    };
+  }, [resolvedCourseId, loadAccess]);
+
+  useEffect(() => {
+    let isMounted = true;
+    getCourseModules(resolvedCourseId).then((data) => {
       if (isMounted && data && Array.isArray(data) && data.length > 0) {
         setModules(data);
       }
@@ -216,7 +249,7 @@ export default function ModuleNav({
     return () => {
       isMounted = false;
     };
-  }, [track]);
+  }, [resolvedCourseId]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -254,10 +287,162 @@ export default function ModuleNav({
     }
   };
 
+  // 1. Authoritative access check for current module
+  const currentModAccess = accessState?.modules?.find((m) => m.id === currentModuleId);
+  const isCurrentFirst = modules.length > 0 && modules[0].id === currentModuleId;
+  const isCurrentUnlocked = currentModAccess ? currentModAccess.isUnlocked : isCurrentFirst;
+  const isCurrentAuthRequired = Boolean(currentModAccess?.requiresAuth);
+  const currentIsCompleted = completedModuleIds.includes(currentModuleId);
+
+  // Find next module in sequence
+  const currentIdx = modules.findIndex((m) => m.id === currentModuleId);
+  const nextMod = currentIdx >= 0 && currentIdx + 1 < modules.length ? modules[currentIdx + 1] : null;
+  const currentOrder = currentIdx >= 0 ? currentIdx + 1 : 1;
+
+  // Handler to complete current module and advance
+  const handleAdvance = async () => {
+    if (advancing) return;
+    setAdvancing(true);
+
+    try {
+      const res = await completeModule(resolvedCourseId, currentModuleId);
+
+      if (res.promptAuthNow || res.requiresAuth) {
+        setShowAuthModal(true);
+      } else if (res.nextUnlockedModule) {
+        const targetMod = modules.find((m) => m.id === res.nextUnlockedModule);
+        if (targetMod && targetMod.route) {
+          navigate(targetMod.route);
+        } else if (nextMod && nextMod.route) {
+          navigate(nextMod.route);
+        }
+      } else if (nextMod && nextMod.route) {
+        navigate(nextMod.route);
+      }
+    } finally {
+      setAdvancing(false);
+    }
+  };
+
+  // =========================================================================
+  // DIRECT URL BARRIER: If current module is locked, show full-screen barrier
+  // =========================================================================
+  if (!isCurrentUnlocked && accessState) {
+    if (isCurrentAuthRequired && !isAuthenticated) {
+      return (
+        <div className="fixed inset-0 z-50 bg-[#f6f4ee] flex items-center justify-center p-4 sm:p-6 overflow-y-auto antialiased">
+          <div className="relative z-10 max-w-lg w-full rounded-3xl border border-[#e7e3da] bg-white/95 p-6 sm:p-9 text-center shadow-xl backdrop-blur-xl my-auto">
+            <div className="mb-6 flex justify-center">
+              <Logo size="md" />
+            </div>
+
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-[#ea580c] shadow-sm">
+              <Lock size={26} />
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-50 border border-orange-200/80 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-3">
+              <Sparkles size={13} className="text-[#f97316]" />
+              <span>Registration Required</span>
+            </div>
+
+            <h2 className="text-xl sm:text-2xl font-black text-[#18181b] tracking-tight">
+              Unlock Module {currentOrder}: {currentModAccess?.name || "Advanced Module"}
+            </h2>
+
+            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-stone-600">
+              You have completed the first 6 modules as an anonymous guest! To unlock Module 7 and preserve your learning progress, please sign in or create your free PrepSpaces account.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-2.5">
+              <Link
+                to="/login"
+                state={{ from: location.pathname }}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] py-3 text-xs sm:text-sm font-bold text-white shadow-md transition hover:bg-[#ea580c] active:scale-95 cursor-pointer"
+              >
+                <User size={16} />
+                <span>Sign In to Unlock Module {currentOrder}</span>
+                <ArrowRight size={15} />
+              </Link>
+
+              <Link
+                to="/register"
+                state={{ from: location.pathname }}
+                className="flex w-full items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white py-3 text-xs sm:text-sm font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs active:scale-95 cursor-pointer"
+              >
+                <span>Create Free Account</span>
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => navigate("/learning")}
+                className="mt-2 text-xs font-semibold text-stone-500 hover:text-stone-800 transition cursor-pointer"
+              >
+                Return to Curriculum Overview
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Sequential Prerequisite Barrier
+    const currentUnlockedMod = modules.find((m) => m.id === accessState.currentUnlockedModule);
+    return (
+      <div className="fixed inset-0 z-50 bg-[#f6f4ee] flex items-center justify-center p-4 sm:p-6 overflow-y-auto antialiased">
+        <div className="relative z-10 max-w-md w-full rounded-3xl border border-[#e7e3da] bg-white/95 p-6 sm:p-8 text-center shadow-xl backdrop-blur-xl my-auto">
+          <div className="mb-6 flex justify-center">
+            <Logo size="md" />
+          </div>
+
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-stone-100 text-stone-500 shadow-sm">
+            <Lock size={26} />
+          </div>
+
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-stone-600 mb-3">
+            <span>Sequential Learning Required</span>
+          </div>
+
+          <h2 className="text-xl font-black text-[#18181b] tracking-tight">
+            Module {currentOrder} is Locked
+          </h2>
+
+          <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-stone-600">
+            PrepSpaces courses follow a strict sequential curriculum. Please complete the previous module to unlock this content.
+          </p>
+
+          <div className="mt-6 flex flex-col gap-2.5">
+            {currentUnlockedMod && currentUnlockedMod.route && (
+              <button
+                type="button"
+                onClick={() => navigate(currentUnlockedMod.route)}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] py-3 text-xs sm:text-sm font-bold text-white shadow-md transition hover:bg-[#ea580c] active:scale-95 cursor-pointer"
+              >
+                <span>Continue from {currentUnlockedMod.name}</span>
+                <ArrowRight size={15} />
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={() => navigate("/learning")}
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white py-2.5 text-xs font-semibold text-stone-700 hover:bg-stone-50 transition cursor-pointer"
+            >
+              <ArrowLeft size={14} />
+              <span>Back to All Courses</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // =========================================================================
+  // NORMAL RENDER (CURRENT MODULE IS UNLOCKED)
+  // =========================================================================
   return (
     <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3">
+      {/* Top Breadcrumb & User Actions */}
       <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-[#e7e3da] pb-3 sm:pb-4">
-        {/* Back and Breadcrumb Controls */}
         <div className="flex items-center gap-2">
           <button
             type="button"
@@ -307,10 +492,10 @@ export default function ModuleNav({
               <button
                 type="button"
                 onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                logout();
-              }}
+                  e.preventDefault();
+                  e.stopPropagation();
+                  logout();
+                }}
                 title="Log Out"
                 aria-label="Log Out"
                 className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
@@ -322,6 +507,7 @@ export default function ModuleNav({
           ) : (
             <Link
               to="/login"
+              state={{ from: location.pathname }}
               className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
             >
               Sign In
@@ -362,9 +548,8 @@ export default function ModuleNav({
         </div>
       </div>
 
-      {/* Module Tabs Bar (Displaying Module Names Only with scroll affordance) */}
+      {/* Module Tabs Bar with Locks & Completed Badges */}
       <div className="relative flex items-center w-full min-w-0">
-        {/* Left Scroll Arrow with responsive sizing */}
         <button
           onClick={() => scroll("left")}
           aria-label="Scroll modules left"
@@ -373,7 +558,6 @@ export default function ModuleNav({
           <ChevronLeft size={15} />
         </button>
 
-        {/* Scrollable Container with data-active tracking */}
         <div
           ref={scrollRef}
           className="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto rounded-xl sm:rounded-2xl border border-[#e7e3da] bg-white/90 p-1 sm:p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
@@ -381,27 +565,36 @@ export default function ModuleNav({
         >
           {modules.map((mod) => {
             const isActive = mod.id === currentModuleId;
+            const modAccess = accessState?.modules?.find((m) => m.id === mod.id);
+            const isUnlocked = modAccess ? modAccess.isUnlocked : mod.id === modules[0]?.id;
+            const isCompleted = completedModuleIds.includes(mod.id);
+            const requiresAuth = Boolean(modAccess?.requiresAuth);
+
             return (
               <button
                 key={mod.id}
                 data-active={isActive ? "true" : undefined}
                 onClick={() => navigate(mod.route)}
-                className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] ${
+                className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] inline-flex items-center gap-1.5 ${
                   isActive
                     ? "bg-[#f97316] text-white shadow-sm shadow-orange-500/25"
+                    : !isUnlocked
+                    ? "text-stone-400 bg-stone-100/40 hover:bg-stone-100/80"
                     : "text-stone-600 hover:bg-stone-100/80 hover:text-stone-900"
                 }`}
               >
-                {mod.name}
-                {isAuthenticated && completedModuleIds.includes(mod.id) && (
-                  <span className="inline-block w-1.5 h-1.5 ml-1.5 rounded-full bg-emerald-400 align-middle" />
+                <span>{mod.name}</span>
+                {isCompleted && (
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" title="Completed" />
+                )}
+                {!isUnlocked && (
+                  <Lock size={11} className="opacity-60 shrink-0" title={requiresAuth ? "Registration Required" : "Prerequisite Required"} />
                 )}
               </button>
             );
           })}
         </div>
 
-        {/* Right Scroll Arrow with responsive sizing */}
         <button
           onClick={() => scroll("right")}
           aria-label="Scroll modules right"
@@ -410,6 +603,96 @@ export default function ModuleNav({
           <ChevronRight size={15} />
         </button>
       </div>
+
+      {/* Sequential Progression Action Banner */}
+      <div className="flex flex-wrap items-center justify-between gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white/80 border border-[#e7e3da] shadow-2xs text-xs">
+        <div className="flex items-center gap-2">
+          {currentIsCompleted ? (
+            <span className="inline-flex items-center gap-1 font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">
+              <CheckCircle2 size={13} className="text-emerald-600" />
+              <span>Module {currentOrder} Completed</span>
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 font-semibold text-stone-600">
+              <span className="font-bold text-[#ea580c]">Module {currentOrder}</span>
+              <span className="text-stone-400">/</span>
+              <span>{modules.length}</span>
+            </span>
+          )}
+          <span className="hidden sm:inline text-stone-400">•</span>
+          <span className="hidden sm:inline text-stone-500 truncate max-w-xs">{modules[currentIdx]?.name}</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          {nextMod ? (
+            <button
+              type="button"
+              onClick={handleAdvance}
+              disabled={advancing}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#ea580c] hover:bg-orange-600 text-white font-bold transition shadow-xs active:scale-95 cursor-pointer"
+            >
+              <span>{currentIsCompleted ? `Next: ${nextMod.name}` : "Complete & Continue"}</span>
+              <ArrowRight size={13} />
+            </button>
+          ) : (
+            <span className="inline-flex items-center gap-1 font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg">
+              <Award size={13} />
+              <span>Final Module Reached</span>
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* COMPULSORY AUTH MODAL (POPS UP WHEN GUEST COMPLETES MODULE 6) */}
+      {showAuthModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 antialiased">
+          <div className="relative max-w-md w-full rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 text-center shadow-2xl">
+            <button
+              onClick={() => setShowAuthModal(false)}
+              className="absolute top-4 right-4 p-1 rounded-lg text-stone-400 hover:text-stone-700 transition"
+              aria-label="Close modal"
+            >
+              <X size={18} />
+            </button>
+
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-[#ea580c]">
+              <Sparkles size={26} />
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-50 border border-orange-200/80 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
+              <span>Milestone: Modules 1–6 Completed!</span>
+            </div>
+
+            <h3 className="text-xl font-black text-stone-900 tracking-tight">
+              Create Account to Unlock Module 7
+            </h3>
+
+            <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+              Congratulations! You've completed the first 6 modules as a guest. To unlock Module 7 and save your progress permanently, sign in or create your free account.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-2.5">
+              <Link
+                to="/login"
+                state={{ from: nextMod?.route || location.pathname }}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] py-3 text-xs sm:text-sm font-bold text-white shadow-md transition hover:bg-[#ea580c] cursor-pointer"
+              >
+                <User size={15} />
+                <span>Continue to Sign In / Register</span>
+                <ArrowRight size={14} />
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => setShowAuthModal(false)}
+                className="text-xs font-semibold text-stone-500 hover:text-stone-800 transition py-1 cursor-pointer"
+              >
+                Continue Reviewing Module 6
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

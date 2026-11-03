@@ -4,43 +4,209 @@ import {
   getCourseProgress,
   saveCourseProgress,
   getAllUserProgress,
+  getGuestCourseProgress,
+  getAllGuestProgress,
+  migrateGuestToUser,
 } from "../services/storageService.js";
 import { getCoursesCatalog, isValidIdentifier } from "../services/courseContentService.js";
+import {
+  computeCourseAccessState,
+  validateAndCompleteModule,
+} from "../services/unlockingService.js";
 
 export const progressRouter = new Hono();
 
+const GUEST_ID_PATTERN = /^[a-z0-9_-]{8,64}$/i;
+
 /**
- * Authentication Middleware helper for Progress routes
+ * Validates or resolves either an authenticated user or an anonymous guest.
  */
-async function authenticateUser(c) {
+async function resolveUserOrGuest(c) {
+  // 1. Check for authenticated Bearer token
   const authHeader = c.req.header("Authorization") || "";
   const token = authHeader.replace(/^Bearer\s+/i, "").trim();
 
-  if (!token) {
-    return null;
+  if (token) {
+    const session = await getSession(token, c.env);
+    if (session?.userId) {
+      return {
+        isGuest: false,
+        userId: session.userId,
+        user: session.user,
+        token,
+      };
+    }
   }
 
-  const session = await getSession(token, c.env);
-  if (!session?.userId) {
-    return null;
+  // 2. Fall back to guest session
+  let guestId =
+    c.req.header("x-guest-session-id") ||
+    c.req.query("guestId") ||
+    "";
+
+  guestId = guestId.trim();
+
+  if (!guestId || !GUEST_ID_PATTERN.test(guestId)) {
+    // Generate a secure guest session identifier
+    guestId = `guest_${crypto.randomUUID()}`;
   }
 
-  return session;
+  return {
+    isGuest: true,
+    guestId,
+  };
 }
 
 /**
- * 1. Get Student Dashboard Progress for all Courses
- * GET /api/progress
+ * Middleware requiring active authentication
  */
-progressRouter.get("/", async (c) => {
-  const session = await authenticateUser(c);
-  if (!session) {
-    return c.json({ error: "Unauthorized", message: "Sign in required to view progress." }, 401);
+async function authenticateUser(c) {
+  const resolved = await resolveUserOrGuest(c);
+  if (resolved.isGuest) {
+    return null;
+  }
+  return resolved;
+}
+
+/**
+ * 1. Get Course Unlocking & Sequential Access State
+ * GET /api/progress/:courseId/access
+ * Query / Headers: accepts Bearer token or x-guest-session-id
+ */
+progressRouter.get("/:courseId/access", async (c) => {
+  const courseId = c.req.param("courseId");
+  if (!isValidIdentifier(courseId)) {
+    return c.json({ error: "Invalid course identifier", courseId }, 400);
   }
 
   try {
+    const userOrGuest = await resolveUserOrGuest(c);
+    const accessState = await computeCourseAccessState(courseId, userOrGuest, c.env, c.req.url);
+
+    if (userOrGuest.isGuest) {
+      c.header("x-guest-session-id", userOrGuest.guestId);
+    }
+
+    return c.json({
+      success: true,
+      guestSessionId: userOrGuest.isGuest ? userOrGuest.guestId : null,
+      ...accessState,
+    });
+  } catch (error) {
+    console.error(`[Progress Access GET ${courseId}] Exception:`, error);
+    return c.json(
+      { error: "Internal Server Error", message: "Failed to compute module access state." },
+      500
+    );
+  }
+});
+
+/**
+ * 2. Authoritative Module Completion Endpoint
+ * POST /api/progress/:courseId/complete
+ * Body: { moduleId, activityData }
+ */
+progressRouter.post("/:courseId/complete", async (c) => {
+  const courseId = c.req.param("courseId");
+  if (!isValidIdentifier(courseId)) {
+    return c.json({ error: "Invalid course identifier", courseId }, 400);
+  }
+
+  try {
+    const body = await c.req.json().catch(() => ({}));
+    const { moduleId, activityData } = body;
+
+    if (!moduleId || !isValidIdentifier(moduleId)) {
+      return c.json({ error: "Invalid or missing moduleId", moduleId }, 400);
+    }
+
+    const userOrGuest = await resolveUserOrGuest(c);
+    const result = await validateAndCompleteModule(
+      courseId,
+      moduleId,
+      activityData || {},
+      userOrGuest,
+      c.env,
+      c.req.url
+    );
+
+    if (!result.success) {
+      return c.json(result, result.status || 400);
+    }
+
+    if (userOrGuest.isGuest) {
+      c.header("x-guest-session-id", userOrGuest.guestId);
+    }
+
+    return c.json({
+      ...result,
+      guestSessionId: userOrGuest.isGuest ? userOrGuest.guestId : null,
+    });
+  } catch (error) {
+    console.error(`[Progress Complete POST ${courseId}] Exception:`, error);
+    return c.json(
+      { error: "Internal Server Error", message: "Failed to validate module completion." },
+      500
+    );
+  }
+});
+
+/**
+ * 3. Migrate Guest Progress to Authenticated Student Account
+ * POST /api/progress/migrate-guest
+ * Body: { guestSessionId }
+ * Header: Authorization: Bearer <token>
+ */
+progressRouter.post("/migrate-guest", async (c) => {
+  const user = await authenticateUser(c);
+  if (!user) {
+    return c.json({ error: "Unauthorized", message: "Sign in required to migrate progress." }, 401);
+  }
+
+  try {
+    const body = await c.req.json().catch(() => ({}));
+    const guestSessionId = (body.guestSessionId || "").trim();
+
+    if (!guestSessionId || !GUEST_ID_PATTERN.test(guestSessionId)) {
+      return c.json({
+        success: false,
+        error: "invalid_guest_id",
+        message: "Valid guestSessionId is required for migration.",
+      }, 400);
+    }
+
+    const migrationResult = await migrateGuestToUser(guestSessionId, user.userId, c.env);
+
+    return c.json({
+      success: true,
+      message: "Guest progress successfully merged into authenticated student account.",
+      ...migrationResult,
+    });
+  } catch (error) {
+    console.error("[Progress Migrate-Guest] Exception:", error);
+    return c.json(
+      { error: "Internal Server Error", message: "Failed to migrate guest progress." },
+      500
+    );
+  }
+});
+
+/**
+ * 4. Get Student/Guest Progress for all Courses (Dashboard)
+ * GET /api/progress
+ */
+progressRouter.get("/", async (c) => {
+  try {
+    const userOrGuest = await resolveUserOrGuest(c);
     const catalog = (await getCoursesCatalog(c.env, c.req.url)) || [];
-    const userProgressMap = await getAllUserProgress(session.userId, c.env);
+
+    let progressMap = {};
+    if (userOrGuest.isGuest) {
+      progressMap = await getAllGuestProgress(userOrGuest.guestId, c.env);
+      c.header("x-guest-session-id", userOrGuest.guestId);
+    } else {
+      progressMap = await getAllUserProgress(userOrGuest.userId, c.env);
+    }
 
     let totalCompletedModules = 0;
     let totalAvailableModules = 0;
@@ -48,8 +214,8 @@ progressRouter.get("/", async (c) => {
     let completedCoursesCount = 0;
 
     const courseCards = catalog.map((course) => {
-      const up = userProgressMap[course.id] || {};
-      const completedList = Array.isArray(up.completedModuleIds) ? up.completedModuleIds : [];
+      const p = progressMap[course.id] || {};
+      const completedList = Array.isArray(p.completedModuleIds) ? p.completedModuleIds : [];
       const totalMods = course.totalModules || 24;
 
       const completedCount = completedList.length;
@@ -63,7 +229,7 @@ progressRouter.get("/", async (c) => {
         status = "completed";
         completedCoursesCount++;
         enrolledCoursesCount++;
-      } else if (completedCount > 0 || up.currentModuleId || up.lastAccessedAt) {
+      } else if (completedCount > 0 || p.currentModuleId || p.lastAccessedAt) {
         status = "in-progress";
         enrolledCoursesCount++;
       }
@@ -82,15 +248,14 @@ progressRouter.get("/", async (c) => {
         completedModules: completedCount,
         completedModuleIds: completedList,
         progressPercentage: pct,
-        currentModuleId: up.currentModuleId || null,
-        currentModuleName: up.currentModuleName || null,
-        currentModuleRoute: up.currentModuleRoute || course.route,
-        lastAccessedAt: up.lastAccessedAt || null,
+        currentModuleId: p.currentModuleId || null,
+        currentModuleName: p.currentModuleName || null,
+        currentModuleRoute: p.currentModuleRoute || course.route,
+        lastAccessedAt: p.lastAccessedAt || null,
         status,
       };
     });
 
-    // Sort to find most recently studied course
     const withActivity = courseCards
       .filter((c) => c.lastAccessedAt)
       .sort((a, b) => new Date(b.lastAccessedAt).getTime() - new Date(a.lastAccessedAt).getTime());
@@ -114,6 +279,8 @@ progressRouter.get("/", async (c) => {
 
     return c.json({
       success: true,
+      isGuest: userOrGuest.isGuest,
+      guestSessionId: userOrGuest.isGuest ? userOrGuest.guestId : null,
       summary,
       courses: courseCards,
     });
@@ -121,189 +288,6 @@ progressRouter.get("/", async (c) => {
     console.error("[Progress GET] Exception:", error);
     return c.json(
       { error: "Internal Server Error", message: "Failed to retrieve course progress." },
-      500
-    );
-  }
-});
-
-/**
- * 2. Get Progress for a Specific Course
- * GET /api/progress/:courseId
- */
-progressRouter.get("/:courseId", async (c) => {
-  const session = await authenticateUser(c);
-  if (!session) {
-    return c.json({ error: "Unauthorized", message: "Sign in required to view course progress." }, 401);
-  }
-
-  const courseId = c.req.param("courseId");
-  if (!isValidIdentifier(courseId)) {
-    return c.json({ error: "Invalid course identifier", courseId }, 400);
-  }
-
-  try {
-    const existing = (await getCourseProgress(session.userId, courseId, c.env)) || {
-      courseId,
-      completedModuleIds: [],
-      progressPercentage: 0,
-      status: "not-started",
-    };
-
-    return c.json({
-      success: true,
-      courseId,
-      progress: existing,
-    });
-  } catch (error) {
-    console.error(`[Progress GET ${courseId}] Exception:`, error);
-    return c.json(
-      { error: "Internal Server Error", message: "Failed to retrieve course progress." },
-      500
-    );
-  }
-});
-
-/**
- * 3. Update Progress for a Course
- * POST /api/progress/:courseId
- * Body: { moduleId, moduleName, moduleRoute, completed }
- */
-progressRouter.post("/:courseId", async (c) => {
-  const session = await authenticateUser(c);
-  if (!session) {
-    return c.json({ error: "Unauthorized", message: "Sign in required to update progress." }, 401);
-  }
-
-  const courseId = c.req.param("courseId");
-  if (!isValidIdentifier(courseId)) {
-    return c.json({ error: "Invalid course identifier", courseId }, 400);
-  }
-
-  try {
-    const body = await c.req.json().catch(() => ({}));
-    const { moduleId, moduleName, moduleRoute, completed } = body;
-
-    const catalog = (await getCoursesCatalog(c.env, c.req.url)) || [];
-    const courseMeta = catalog.find((item) => item.id === courseId);
-    const totalMods = courseMeta?.totalModules || 24;
-
-    const existing = (await getCourseProgress(session.userId, courseId, c.env)) || {
-      courseId,
-      completedModuleIds: [],
-    };
-
-    const completedSet = new Set(existing.completedModuleIds || []);
-
-    if (completed === true && moduleId) {
-      completedSet.add(moduleId);
-    } else if (completed === false && moduleId) {
-      completedSet.delete(moduleId);
-    }
-
-    const completedArray = Array.from(completedSet);
-    const pct = Math.min(100, Math.round((completedArray.length / totalMods) * 100));
-
-    const updated = {
-      courseId,
-      completedModuleIds: completedArray,
-      currentModuleId: moduleId || existing.currentModuleId || null,
-      currentModuleName: moduleName || existing.currentModuleName || null,
-      currentModuleRoute: moduleRoute || existing.currentModuleRoute || courseMeta?.route || null,
-      progressPercentage: pct,
-      status: pct === 100 ? "completed" : completedArray.length > 0 ? "in-progress" : "not-started",
-      lastAccessedAt: new Date().toISOString(),
-    };
-
-    await saveCourseProgress(session.userId, courseId, updated, c.env);
-
-    return c.json({
-      success: true,
-      progress: updated,
-    });
-  } catch (error) {
-    console.error(`[Progress POST ${courseId}] Exception:`, error);
-    return c.json(
-      { error: "Internal Server Error", message: "Failed to save course progress." },
-      500
-    );
-  }
-});
-
-/**
- * 3. Batch Sync Progress from LocalStorage (Guest to Authenticated Transition)
- * POST /api/progress/sync
- * Body: { localProgress: { [courseId]: { completedModuleIds, currentModuleId, ... } } }
- */
-progressRouter.post("/sync", async (c) => {
-  const session = await authenticateUser(c);
-  if (!session) {
-    return c.json({ error: "Unauthorized", message: "Sign in required to sync progress." }, 401);
-  }
-
-  try {
-    const body = await c.req.json().catch(() => ({}));
-    const localProgress = body.localProgress || {};
-
-    const catalog = (await getCoursesCatalog(c.env, c.req.url)) || [];
-    const catalogMap = new Map(catalog.map((c) => [c.id, c]));
-
-    const syncedResults = {};
-
-    for (const [courseId, local] of Object.entries(localProgress)) {
-      if (!isValidIdentifier(courseId)) continue;
-
-      const courseMeta = catalogMap.get(courseId);
-      const totalMods = courseMeta?.totalModules || 24;
-
-      const serverProg = (await getCourseProgress(session.userId, courseId, c.env)) || {
-        courseId,
-        completedModuleIds: [],
-      };
-
-      // Union of completed modules
-      const mergedCompleted = new Set([
-        ...(serverProg.completedModuleIds || []),
-        ...(Array.isArray(local.completedModuleIds) ? local.completedModuleIds : []),
-      ]);
-
-      const completedArray = Array.from(mergedCompleted);
-      const pct = Math.min(100, Math.round((completedArray.length / totalMods) * 100));
-
-      // Choose newest current module
-      const serverTime = serverProg.lastAccessedAt ? new Date(serverProg.lastAccessedAt).getTime() : 0;
-      const localTime = local.lastAccessedAt ? new Date(local.lastAccessedAt).getTime() : 0;
-
-      const useLocalLatest = localTime > serverTime;
-
-      const merged = {
-        courseId,
-        completedModuleIds: completedArray,
-        currentModuleId: useLocalLatest
-          ? local.currentModuleId || serverProg.currentModuleId
-          : serverProg.currentModuleId || local.currentModuleId,
-        currentModuleName: useLocalLatest
-          ? local.currentModuleName || serverProg.currentModuleName
-          : serverProg.currentModuleName || local.currentModuleName,
-        currentModuleRoute: useLocalLatest
-          ? local.currentModuleRoute || serverProg.currentModuleRoute
-          : serverProg.currentModuleRoute || local.currentModuleRoute,
-        progressPercentage: pct,
-        status: pct === 100 ? "completed" : completedArray.length > 0 ? "in-progress" : "not-started",
-        lastAccessedAt: new Date(Math.max(serverTime, localTime, Date.now())).toISOString(),
-      };
-
-      await saveCourseProgress(session.userId, courseId, merged, c.env);
-      syncedResults[courseId] = merged;
-    }
-
-    return c.json({
-      success: true,
-      synced: syncedResults,
-    });
-  } catch (error) {
-    console.error("[Progress Sync] Exception:", error);
-    return c.json(
-      { error: "Internal Server Error", message: "Failed to synchronize progress." },
       500
     );
   }

@@ -10,6 +10,7 @@ import {
   clearStoredSession,
 } from "../services/authService";
 import { syncLocalProgressToServer } from "../services/progressService";
+import { migrateGuestProgress } from "../services/unlockingService";
 import { GOOGLE_CLIENT_ID, API_BASE_URL } from "../config/auth";
 
 const AuthContext = createContext(null);
@@ -89,6 +90,7 @@ export function AuthProvider({ children }) {
       setToken(data.token);
       setUser(data.user);
       await syncLocalProgressToServer(data.token);
+      await migrateGuestProgress(data.token);
       return data;
     },
     []
@@ -101,6 +103,7 @@ export function AuthProvider({ children }) {
       setToken(data.token);
       setUser(data.user);
       await syncLocalProgressToServer(data.token);
+      await migrateGuestProgress(data.token);
       return data;
     },
     []
@@ -112,6 +115,7 @@ export function AuthProvider({ children }) {
     setToken(data.token);
     setUser(data.user);
     await syncLocalProgressToServer(data.token);
+      await migrateGuestProgress(data.token);
     return data;
   }, []);
 
@@ -121,6 +125,7 @@ export function AuthProvider({ children }) {
     setToken(data.token);
     setUser(data.user);
     await syncLocalProgressToServer(data.token);
+      await migrateGuestProgress(data.token);
     return data;
   }, []);
 

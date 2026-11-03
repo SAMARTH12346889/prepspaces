@@ -157,6 +157,16 @@ async function runPlatformTests() {
   check('Global logout and UI integrity test suite passes all 27 assertions', logoutTestResult.status === 0 && logoutTestResult.stdout.includes('FAILED: 0'));
 
   // ─────────────────────────────────────────────────────────────────
+  // TEST SUITE 6: SEQUENTIAL UNLOCKING & MANDATORY AUTH ARCHITECTURE
+  // ─────────────────────────────────────────────────────────────────
+  console.log('\nTEST SUITE 6: Sequential Course Unlocking & Mandatory Auth Architecture');
+  const unlockingTestResult = spawnSync('node', ['scripts/test_sequential_unlocking.mjs'], {
+    cwd: projectRoot,
+    encoding: 'utf8'
+  });
+  check('Sequential unlocking and mandatory auth test suite passes all assertions', unlockingTestResult.status === 0 && unlockingTestResult.stdout.includes('FAILED: 0'));
+
+  // ─────────────────────────────────────────────────────────────────
   // SUMMARY
   // ─────────────────────────────────────────────────────────────────
   console.log('\n====================================================');

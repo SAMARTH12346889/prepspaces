@@ -165,3 +165,111 @@ export async function getAllUserProgress(userId, env) {
 
   return progressMap;
 }
+
+/**
+ * Guest Session Progress Storage
+ * Isolated under `progress:guest:<guestId>:<courseId>`
+ */
+export async function getGuestCourseProgress(guestId, courseId, env) {
+  if (!guestId || !courseId) return null;
+  const store = await getStore(env);
+  return await store.get(`progress:guest:${guestId}:${courseId}`, "json");
+}
+
+export async function saveGuestCourseProgress(guestId, courseId, progressData, env, ttlSeconds = 60 * 60 * 24 * 30) {
+  if (!guestId || !courseId) return;
+  const store = await getStore(env);
+
+  await store.put(
+    `progress:guest:${guestId}:${courseId}`,
+    progressData,
+    store.type === "kv" ? { expirationTtl: ttlSeconds } : {}
+  );
+
+  const metaKey = `progress:guest:${guestId}:meta`;
+  let activeCourses = (await store.get(metaKey, "json")) || [];
+  if (!Array.isArray(activeCourses)) activeCourses = [];
+  if (!activeCourses.includes(courseId)) {
+    activeCourses.push(courseId);
+    await store.put(metaKey, activeCourses, store.type === "kv" ? { expirationTtl: ttlSeconds } : {});
+  }
+
+  return progressData;
+}
+
+export async function getAllGuestProgress(guestId, env) {
+  if (!guestId) return {};
+  const store = await getStore(env);
+  const metaKey = `progress:guest:${guestId}:meta`;
+  const activeCourses = (await store.get(metaKey, "json")) || [];
+
+  const progressMap = {};
+  for (const courseId of activeCourses) {
+    const p = await store.get(`progress:guest:${guestId}:${courseId}`, "json");
+    if (p) {
+      progressMap[courseId] = p;
+    }
+  }
+
+  return progressMap;
+}
+
+/**
+ * Migrates all valid guest progress records into the authenticated user's account.
+ * Uses a safe union of completed modules and never overwrites higher account progress.
+ */
+export async function migrateGuestToUser(guestId, userId, env) {
+  if (!guestId || !userId) {
+    return { success: false, migratedCourses: 0 };
+  }
+
+  const store = await getStore(env);
+  const guestProgressMap = await getAllGuestProgress(guestId, env);
+  const courseIds = Object.keys(guestProgressMap);
+
+  let migratedCount = 0;
+  const mergedResults = {};
+
+  for (const courseId of courseIds) {
+    const guestProg = guestProgressMap[courseId];
+    if (!guestProg || !Array.isArray(guestProg.completedModuleIds)) continue;
+
+    const userProg = (await getCourseProgress(userId, courseId, env)) || {
+      courseId,
+      completedModuleIds: [],
+    };
+
+    // Union of completed modules (deduplicated)
+    const mergedCompleted = Array.from(
+      new Set([
+        ...(userProg.completedModuleIds || []),
+        ...(guestProg.completedModuleIds || []),
+      ])
+    );
+
+    const merged = {
+      ...userProg,
+      ...guestProg,
+      courseId,
+      completedModuleIds: mergedCompleted,
+      status: mergedCompleted.length > 0 ? "in-progress" : userProg.status || "not-started",
+      lastAccessedAt: new Date().toISOString(),
+    };
+
+    await saveCourseProgress(userId, courseId, merged, env);
+    mergedResults[courseId] = merged;
+    migratedCount++;
+  }
+
+  // Mark guest session as migrated to prevent duplicate merges
+  await store.put(`progress:guest:${guestId}:migrated_to`, {
+    userId,
+    migratedAt: new Date().toISOString(),
+  });
+
+  return {
+    success: true,
+    migratedCourses: migratedCount,
+    courses: mergedResults,
+  };
+}
