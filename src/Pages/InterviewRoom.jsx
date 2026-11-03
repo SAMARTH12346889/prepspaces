@@ -1038,7 +1038,11 @@ function InterviewRoomInner() {
             <div className="flex items-center gap-2.5">
               <button
                 type="button"
-                onClick={logout}
+                onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                logout();
+              }}
                 title="Log Out"
                 className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
               >
@@ -1261,7 +1265,11 @@ function InterviewRoomInner() {
             <div className="flex items-center gap-2.5">
               <button
                 type="button"
-                onClick={logout}
+                onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                logout();
+              }}
                 title="Log Out"
                 className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
               >
@@ -1459,7 +1467,11 @@ function InterviewRoomInner() {
             </div>
             <button
               type="button"
-              onClick={logout}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                logout();
+              }}
               title="Leave and Log Out"
               className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
             >

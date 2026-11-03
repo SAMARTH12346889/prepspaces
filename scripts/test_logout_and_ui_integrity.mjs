@@ -47,11 +47,11 @@ componentFiles.forEach((file) => {
 });
 assert(!hasStrayMarkComplete, "Zero stray 'Mark Complete' buttons found across all course component files");
 
-// 2. Verify ModuleNav.jsx Header Alignment and Controls
+// 2. Verify ModuleNav.jsx Header Navigation & Logout
 console.log("\nSUITE 2: ModuleNav Header Navigation & Logout");
 assert(moduleNavContent.includes("useAuth"), "ModuleNav.jsx imports and uses useAuth");
 assert(moduleNavContent.includes("LogOut"), "ModuleNav.jsx imports LogOut icon");
-assert(moduleNavContent.includes("onClick={logout}"), "ModuleNav.jsx has clickable Logout button with onClick={logout}");
+assert(moduleNavContent.includes("logout()") || moduleNavContent.includes("onClick={logout}"), "ModuleNav.jsx has clickable Logout button calling logout");
 assert(moduleNavContent.includes('to="/dashboard"'), "ModuleNav.jsx has Dashboard link for authenticated students");
 assert(moduleNavContent.includes('to="/login"'), "ModuleNav.jsx has Sign In link for unauthenticated visitors");
 
@@ -61,7 +61,7 @@ const learningPath = path.join(baseDir, "src/Pages/Learning.jsx");
 const learningContent = fs.readFileSync(learningPath, "utf8");
 assert(learningContent.includes("useAuth"), "Learning.jsx imports and uses useAuth");
 assert(learningContent.includes("LogOut"), "Learning.jsx imports LogOut icon");
-assert(learningContent.includes("onClick={logout}"), "Learning.jsx has clickable Logout button with onClick={logout}");
+assert(learningContent.includes("logout()") || learningContent.includes("onClick={logout}"), "Learning.jsx has clickable Logout button calling logout");
 assert(learningContent.includes('to="/dashboard"'), "Learning.jsx has Dashboard link for authenticated students");
 
 // 4. Verify Interview Practice Navigation & Logout
@@ -69,12 +69,12 @@ console.log("\nSUITE 4: Interview Practice Navigation & Logout");
 const interviewComingSoonPath = path.join(baseDir, "src/Pages/InterviewComingSoon.jsx");
 const interviewComingSoonContent = fs.readFileSync(interviewComingSoonPath, "utf8");
 assert(interviewComingSoonContent.includes("useAuth"), "InterviewComingSoon.jsx imports and uses useAuth");
-assert(interviewComingSoonContent.includes("onClick={logout}"), "InterviewComingSoon.jsx has Logout button");
+assert(interviewComingSoonContent.includes("logout()") || interviewComingSoonContent.includes("onClick={logout}"), "InterviewComingSoon.jsx has Logout button calling logout");
 
 const interviewRoomPath = path.join(baseDir, "src/Pages/InterviewRoom.jsx");
 const interviewRoomContent = fs.readFileSync(interviewRoomPath, "utf8");
 assert(interviewRoomContent.includes("useAuth"), "InterviewRoom.jsx imports and uses useAuth");
-assert(interviewRoomContent.includes("onClick={logout}"), "InterviewRoom.jsx has Logout button");
+assert(interviewRoomContent.includes("logout()") || interviewRoomContent.includes("onClick={logout}"), "InterviewRoom.jsx has Logout button calling logout");
 
 // 5. Verify AuthContext.jsx Resilient Logout
 console.log("\nSUITE 5: AuthContext Secure Logout Architecture");
@@ -87,15 +87,14 @@ assert(authContextContent.includes("localStorage.removeItem(\"prepspaces_auth_us
 assert(authContextContent.includes("sessionStorage.clear()"), "AuthContext.jsx clears sessionStorage");
 assert(authContextContent.includes("disableAutoSelect"), "AuthContext.jsx calls window.google.accounts.id.disableAutoSelect()");
 assert(authContextContent.includes("prepspaces_auth_changed"), "AuthContext.jsx dispatches auth changed event across tabs");
-assert(authContextContent.includes("window.location.href = \"/\""), "AuthContext.jsx redirects to public landing page (/)");
-assert(authContextContent.includes("window.location.reload()"), "AuthContext.jsx handles reload if user logs out from landing page");
+assert(authContextContent.includes("window.location.replace(\"/\")") || authContextContent.includes("window.location.href = \"/\""), "AuthContext.jsx redirects to public landing page (/)");
 
-// 6. Verify Dashboard Logout Controls
+// 6. Verify Dashboard.jsx Logout Controls
 console.log("\nSUITE 6: Dashboard.jsx Logout Controls");
 const dashboardPath = path.join(baseDir, "src/Pages/Dashboard.jsx");
 const dashboardContent = fs.readFileSync(dashboardPath, "utf8");
-const logoutOccurrences = (dashboardContent.match(/onClick=\{logout\}/g) || []).length;
-assert(logoutOccurrences >= 3, `Dashboard.jsx has ${logoutOccurrences} logout buttons (sidebar, header, settings)`);
+const logoutOccurrences = (dashboardContent.match(/logout\(\)/g) || []).length;
+assert(logoutOccurrences >= 3, `Dashboard.jsx has ${logoutOccurrences} logout button triggers (sidebar, header, settings)`);
 
 console.log("\n====================================================");
 console.log(`TOTAL AUDIT TESTS: ${passed + failed} | PASSED: ${passed} | FAILED: ${failed}`);

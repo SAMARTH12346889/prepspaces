@@ -124,24 +124,32 @@ export function AuthProvider({ children }) {
     return data;
   }, []);
 
-  // Logout
-  const logout = useCallback(async () => {
+  // Logout - completely resets auth session, storage, and redirects cleanly
+  const logout = useCallback(() => {
     const activeToken = token || getStoredToken();
 
-    // 1. Instantly clear tokens and user session from localStorage & sessionStorage
+    // 1. Immediately wipe all localStorage and sessionStorage keys
     clearStoredSession();
     try {
       localStorage.removeItem("prepspaces_auth_token");
       localStorage.removeItem("prepspaces_auth_user");
+      // Clean up any other auth keys
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const key = localStorage.key(i);
+        if (key && (key.startsWith("prepspaces_auth") || key.startsWith("pps_"))) {
+          localStorage.removeItem(key);
+        }
+      }
       sessionStorage.clear();
     } catch (e) {
       console.warn("[Auth] Storage clear error:", e);
     }
 
-    // 2. Prevent Google Identity Services One-Tap / auto-login from silently restoring session
+    // 2. Prevent Google Identity Services auto-login
     try {
-      if (typeof window !== "undefined" && window.google?.accounts?.id?.disableAutoSelect) {
-        window.google.accounts.id.disableAutoSelect();
+      if (typeof window !== "undefined" && window.google?.accounts?.id) {
+        window.google.accounts.id.disableAutoSelect?.();
+        window.google.accounts.id.cancel?.();
       }
     } catch (e) {
       console.warn("[Auth] Failed to disable Google auto-select:", e);
@@ -151,13 +159,7 @@ export function AuthProvider({ children }) {
     setToken(null);
     setUser(null);
 
-    // 4. Notify cross-component & cross-tab listeners
-    try {
-      window.dispatchEvent(new Event("storage"));
-      window.dispatchEvent(new CustomEvent("prepspaces_auth_changed"));
-    } catch {}
-
-    // 5. Invalidate backend session token asynchronously
+    // 4. Invalidate backend session asynchronously with keepalive
     if (activeToken) {
       try {
         fetch(`${API_BASE_URL}/api/auth/logout`, {
@@ -173,12 +175,15 @@ export function AuthProvider({ children }) {
       }
     }
 
-    // 6. Hard redirect to the public landing page to guarantee clean state
+    // 5. Notify cross-component and cross-tab listeners
+    try {
+      window.dispatchEvent(new Event("storage"));
+      window.dispatchEvent(new CustomEvent("prepspaces_auth_changed"));
+    } catch {}
+
+    // 6. Hard replace location to root landing page (guarantees clean slate and avoids back-button loop)
     if (typeof window !== "undefined") {
-      window.location.href = "/";
-      if (window.location.pathname === "/") {
-        window.location.reload();
-      }
+      window.location.replace("/");
     }
   }, [token]);
 

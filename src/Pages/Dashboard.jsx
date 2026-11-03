@@ -157,7 +157,7 @@ export default function Dashboard() {
 
       {/* ================= LEFT SIDEBAR ================= */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col justify-between border-r border-[#e7e3da] bg-white/80 backdrop-blur-2xl p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-300 md:static md:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col justify-between border-r border-[#e7e3da] bg-white/90 backdrop-blur-2xl p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-300 md:sticky md:top-0 md:h-screen md:max-h-screen md:translate-x-0 overflow-y-auto ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -259,8 +259,8 @@ export default function Dashboard() {
         </div>
 
         {/* User Card at bottom of sidebar */}
-        <div className="pt-4 border-t border-stone-200/80">
-          <div className="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-stone-50 border border-stone-200/80">
+        <div className="pt-4 border-t border-stone-200/80 shrink-0">
+          <div className="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-2xs">
             <div className="flex items-center gap-2.5 min-w-0">
               {avatarUrl ? (
                 <img
@@ -282,12 +282,17 @@ export default function Dashboard() {
               </div>
             </div>
             <button
-              onClick={logout}
-              title="Log out"
-              className="p-1.5 text-stone-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition cursor-pointer"
-              aria-label="Log out"
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                logout();
+              }}
+              title="Sign Out"
+              aria-label="Sign Out"
+              className="p-2 text-stone-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition cursor-pointer shrink-0 active:scale-95"
             >
-              <LogOut size={16} />
+              <LogOut size={18} />
             </button>
           </div>
         </div>
@@ -330,11 +335,16 @@ export default function Dashboard() {
             </button>
 
             <button
-              onClick={logout}
-              className="flex items-center gap-1.5 rounded-xl border border-stone-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer"
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                logout();
+              }}
+              className="flex items-center gap-1.5 rounded-xl border border-stone-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
             >
               <LogOut size={13} />
-              <span className="hidden sm:inline">Log Out</span>
+              <span>Log Out</span>
             </button>
           </div>
         </header>
@@ -833,8 +843,13 @@ export default function Dashboard() {
                 <div className="pt-3 flex items-center justify-between border-t border-stone-100">
                   <span className="text-xs text-stone-500">Need to switch accounts?</span>
                   <button
-                    onClick={logout}
-                    className="inline-flex items-center gap-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 px-4 py-2 text-xs font-bold transition cursor-pointer"
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      logout();
+                    }}
+                    className="inline-flex items-center gap-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 px-4 py-2 text-xs font-bold transition cursor-pointer active:scale-95"
                   >
                     <LogOut size={14} />
                     <span>Sign Out</span>

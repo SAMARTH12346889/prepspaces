@@ -155,7 +155,7 @@ export default function Landingpage() {
 
       {/* ================= LEFT SIDEBAR ================= */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col border-r border-[#e7e3da] bg-white/80 backdrop-blur-2xl p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-300 md:static md:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-64 flex flex-col border-r border-[#e7e3da] bg-white/80 backdrop-blur-2xl p-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] transition-transform duration-300 md:sticky md:top-0 md:h-screen md:max-h-screen md:translate-x-0 overflow-y-auto ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -281,11 +281,18 @@ export default function Landingpage() {
                   <span className="hidden sm:inline font-bold">{user?.name?.split(" ")[0] || "Dashboard"}</span>
                 </Link>
                 <button
-                  onClick={logout}
-                  title="Sign out"
-                  className="p-2 text-stone-400 hover:text-red-600 rounded-lg transition cursor-pointer"
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    logout();
+                  }}
+                  title="Sign Out"
+                  aria-label="Sign Out"
+                  className="flex items-center gap-1 rounded-xl border border-stone-200 bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
                 >
-                  <LogOut size={16} />
+                  <LogOut size={14} />
+                  <span className="hidden sm:inline">Sign Out</span>
                 </button>
               </div>
             ) : (

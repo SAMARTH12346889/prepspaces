@@ -65,7 +65,11 @@ export default function InterviewComingSoon() {
                 </Link>
                 <button
                   type="button"
-                  onClick={logout}
+                  onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  logout();
+                }}
                   title="Log Out"
                   aria-label="Log Out"
                   className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
