@@ -31,6 +31,16 @@ const routeMeta = {
     description: "Join PrepSpaces to master operating systems, computer networks, system design, cloud, and DevOps.",
     canonical: `${BASE_URL}/register`,
   },
+  "/privacy-policy": {
+    title: "Privacy Policy — PrepSpaces",
+    description: "Read the PrepSpaces Privacy Policy to learn how we protect and handle student information, Google authentication data, and learning records.",
+    canonical: `${BASE_URL}/privacy-policy`,
+  },
+  "/terms-of-service": {
+    title: "Terms of Service — PrepSpaces",
+    description: "Review the PrepSpaces Terms of Service regarding student account responsibilities, educational curriculum usage, and platform terms.",
+    canonical: `${BASE_URL}/terms-of-service`,
+  },
     "/learning": {
     title: "Technical Systems Engineering Curriculum & Masterclasses — PrepSpaces",
     description: "Explore comprehensive university-informed preparation tracks in System Design, Cloud Computing, DevOps & SRE, Operating Systems, Computer Networks, and Cybersecurity.",

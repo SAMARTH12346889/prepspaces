@@ -671,7 +671,19 @@ export default function Landingpage() {
                 <Logo size="xs" />
                 <span>— Technical Interview Preparation & Architecture Mastery</span>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-medium">
+                <Link to="/privacy-policy" className="hover:text-[#ea580c] transition">
+                  Privacy Policy
+                </Link>
+                <span className="text-stone-300">•</span>
+                <Link to="/terms-of-service" className="hover:text-[#ea580c] transition">
+                  Terms of Service
+                </Link>
+                <span className="text-stone-300">•</span>
+                <a href="mailto:support@prepspaces.com" className="hover:text-[#ea580c] transition">
+                  Contact Us
+                </a>
+                <span className="text-stone-300">•</span>
                 <a
                   href="https://www.instagram.com/prepspaces/"
                   target="_blank"

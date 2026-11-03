@@ -5,6 +5,8 @@ import Landingpage from "./Pages/Landingpage";
 import Dashboard from "./Pages/Dashboard";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import TermsOfService from "./Pages/TermsOfService";
 import { AuthProvider } from "./context/AuthContext";
 import Learning from "./Pages/Learning";
 import InterviewRoom from "./Pages/InterviewRoom";
@@ -184,6 +186,12 @@ function App() {
             />
             <Route path="/signin" element={<Navigate to="/login" replace />} />
             <Route path="/signup" element={<Navigate to="/register" replace />} />
+
+            {/* LEGAL & POLICY ROUTES */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
+            <Route path="/terms" element={<Navigate to="/terms-of-service" replace />} />
 
             {/* LEARNING MAIN PAGE & SEO ALIAS */}
             <Route path="/learning" element={<Learning />} />

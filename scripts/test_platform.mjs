@@ -133,6 +133,8 @@ async function runPlatformTests() {
   check('App.jsx registers /dashboard route', registeredRoutes.has('/dashboard'));
   check('App.jsx registers /login route', registeredRoutes.has('/login'));
   check('App.jsx registers /register route', registeredRoutes.has('/register'));
+  check('App.jsx registers /privacy-policy route', registeredRoutes.has('/privacy-policy'));
+  check('App.jsx registers /terms-of-service route', registeredRoutes.has('/terms-of-service'));
 
   // ─────────────────────────────────────────────────────────────────
   // TEST SUITE 4: VOICE SYSTEM INTELLIGENCE ARCHITECTURE

@@ -134,6 +134,17 @@ export default function Register() {
                   <span>Loading Google Sign-Up...</span>
                 </button>
               )}
+
+              <p className="text-[10px] text-center text-stone-400">
+                By registering, you agree to our{" "}
+                <Link to="/terms-of-service" className="underline hover:text-stone-700">
+                  Terms of Service
+                </Link>{" "}
+                and{" "}
+                <Link to="/privacy-policy" className="underline hover:text-stone-700">
+                  Privacy Policy
+                </Link>.
+              </p>
             </div>
 
             {/* Divider */}
@@ -241,8 +252,20 @@ export default function Register() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 py-4 text-center text-[11px] text-stone-400 border-t border-[#e7e3da]">
-        PrepSpaces — AI Technical Interview Preparation & Systems Learning
+      <footer className="relative z-10 py-4 px-4 text-center text-[11px] text-stone-500 border-t border-[#e7e3da] bg-[#f6f4ee]/70 flex flex-wrap items-center justify-center gap-3">
+        <span>© {new Date().getFullYear()} PrepSpaces</span>
+        <span>•</span>
+        <Link to="/privacy-policy" className="hover:text-[#ea580c] transition">
+          Privacy Policy
+        </Link>
+        <span>•</span>
+        <Link to="/terms-of-service" className="hover:text-[#ea580c] transition">
+          Terms of Service
+        </Link>
+        <span>•</span>
+        <a href="mailto:support@prepspaces.com" className="hover:text-[#ea580c] transition">
+          Contact Us
+        </a>
       </footer>
     </div>
   );
