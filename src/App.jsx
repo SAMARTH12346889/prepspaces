@@ -139,6 +139,8 @@ import { NavigationProvider } from "./utils/navigation";
 import { SHOW_NOVA_AI } from "./config/features";
 import AppErrorBoundary from "./Componets/AppErrorBoundary";
 import SeoManager from "./Componets/SeoManager";
+import ProtectedRoute from "./Componets/ProtectedRoute";
+import PublicOnlyRoute from "./Componets/PublicOnlyRoute";
 
 function App() {
   return (
@@ -153,12 +155,33 @@ function App() {
             {/* LANDING PAGE */}
             <Route path="/" element={<Landingpage />} />
 
-            {/* DASHBOARD ROUTE */}
-            <Route path="/dashboard" element={<Dashboard />} />
+            {/* DASHBOARD ROUTE (PROTECTED: AUTHENTICATION REQUIRED) */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
 
-            {/* AUTHENTICATION ROUTES (OPTIONAL GOOGLE / EMAIL AUTH) */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            {/* AUTHENTICATION ROUTES (PUBLIC ONLY: REDIRECT TO DASHBOARD IF AUTHENTICATED) */}
+            <Route
+              path="/login"
+              element={
+                <PublicOnlyRoute>
+                  <Login />
+                </PublicOnlyRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <PublicOnlyRoute>
+                  <Register />
+                </PublicOnlyRoute>
+              }
+            />
             <Route path="/signin" element={<Navigate to="/login" replace />} />
             <Route path="/signup" element={<Navigate to="/register" replace />} />
 
@@ -1005,7 +1028,14 @@ function App() {
             <Route path="/learn/cybersecurity/capstone" element={<CybersecurityFinalCapstone />} />
 
             {/* INTERVIEW PAGE */}
-            <Route path="/interview" element={<InterviewRoom />} />
+            <Route
+              path="/interview"
+              element={
+                <ProtectedRoute>
+                  <InterviewRoom />
+                </ProtectedRoute>
+              }
+            />
 
             {/* NOT FOUND ROUTE */}
             <Route path="*" element={<NotFound />} />
