@@ -74,6 +74,22 @@ function emitUnlockUpdated(courseId, data) {
 }
 
 /**
+ * Immediate synchronous access evaluator for rapid UI rendering without flashing.
+ * Modules 1–6 (indices 0–5) are freely unlocked for all learners.
+ * Module 7+ (index >= 6) requires registration for guests.
+ */
+export function getInitialModuleAccess(moduleIndex, isAuthenticated = false) {
+  const isFirstSix = moduleIndex >= 0 && moduleIndex < 6;
+  if (isFirstSix) {
+    return { isUnlocked: true, requiresAuth: false };
+  }
+  return {
+    isUnlocked: Boolean(isAuthenticated),
+    requiresAuth: !isAuthenticated,
+  };
+}
+
+/**
  * Fetch authoritative module access state from the backend.
  * Falls back to local cache if offline or server is unreachable.
  */

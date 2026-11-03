@@ -2,7 +2,8 @@ import useModuleContent from "../hooks/useModuleContent";
 import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
 import ModuleErrorState from "./ModuleErrorState";
 import React, { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import {
   Database,
   Layers,
@@ -49,6 +50,9 @@ import {
 export default function SystemDesignDatabases() {
   const { data: moduleData, loading, error, reload } = useModuleContent("system-design", "databases");
   const navigate = useNavigate();
+  const location = useLocation();
+  const { isAuthenticated } = useAuth();
+  const [lockedLessonModal, setLockedLessonModal] = useState(null);
   const [activeTab, setActiveTab] = useState("lessons");
   const [activeLesson, setActiveLesson] = useState("5.1");
   const [expandedQa, setExpandedQa] = useState({});
@@ -846,23 +850,35 @@ return (
                   Module 5 Roadmap
                 </span>
                 <div className="space-y-1 mt-1 max-h-[600px] overflow-y-auto pr-1">
-                  {lessons.map((lesson) => {
+                  {lessons.map((lesson, idx) => {
                     const isSelected = activeLesson === lesson.id;
+                    const isLessonLocked = !isAuthenticated && idx > 0;
                     return (
                       <button
                         key={lesson.id}
-                        onClick={() => setActiveLesson(lesson.id)}
+                        onClick={() => {
+                          if (isLessonLocked) {
+                            setLockedLessonModal(lesson);
+                            return;
+                          }
+                          setActiveLesson(lesson.id);
+                        }}
                         className={`w-full text-left p-2.5 rounded-xl transition text-xs font-medium cursor-pointer ${
                           isSelected
                             ? "bg-orange-50 text-orange-950 font-bold border border-orange-200"
+                            : isLessonLocked
+                            ? "text-stone-400 hover:bg-stone-50/80"
                             : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                         }`}
                       >
                         <div className="flex items-center justify-between text-[10px] font-mono text-stone-400 mb-0.5">
                           <span>{lesson.week}</span>
-                          <span>{lesson.duration}</span>
+                          <span className="flex items-center gap-1.5">
+                            <span>{lesson.duration}</span>
+                            {isLessonLocked && <Lock size={10} className="text-stone-400 shrink-0" title="Account Required" />}
+                          </span>
                         </div>
-                        <div className="truncate">{lesson.title}</div>
+                        <div className={`truncate ${isLessonLocked ? "text-stone-500" : ""}`}>{lesson.title}</div>
                       </button>
                     );
                   })}
@@ -1659,6 +1675,57 @@ return (
           </div>
         )}
       </div>
+    
+      {/* LOCKED LESSON AUTH MODAL */}
+      {lockedLessonModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 antialiased">
+          <div className="relative max-w-md w-full rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 text-center shadow-2xl">
+            <button
+              onClick={() => setLockedLessonModal(null)}
+              className="absolute top-4 right-4 p-1 rounded-lg text-stone-400 hover:text-stone-700 transition cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X size={18} />
+            </button>
+
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-[#ea580c]">
+              <Lock size={26} />
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-50 border border-orange-200/80 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
+              <span>Account Required</span>
+            </div>
+
+            <h3 className="text-xl font-black text-stone-900 tracking-tight">
+              Unlock {lockedLessonModal.title}
+            </h3>
+
+            <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+              Lesson 5.1 is available as a free preview. To unlock the complete roadmap, production code walkthroughs, and interactive architecture simulators, please sign in or create your free account.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-2.5">
+              <Link
+                to="/login"
+                state={{ from: location.pathname }}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] py-3 text-xs sm:text-sm font-bold text-white shadow-md transition hover:bg-[#ea580c] cursor-pointer"
+              >
+                <User size={15} />
+                <span>Sign In to Unlock All Lessons</span>
+                <ArrowRight size={14} />
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => setLockedLessonModal(null)}
+                className="text-xs font-semibold text-stone-500 hover:text-stone-800 transition py-1 cursor-pointer"
+              >
+                Continue Reading Free Preview
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

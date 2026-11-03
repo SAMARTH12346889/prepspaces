@@ -288,14 +288,14 @@ export default function ModuleNav({
   };
 
   // 1. Authoritative access check for current module
+  const currentIdx = modules.findIndex((m) => m.id === currentModuleId);
+  const isCurrentFirstSix = currentIdx >= 0 && currentIdx < 6;
   const currentModAccess = accessState?.modules?.find((m) => m.id === currentModuleId);
-  const isCurrentFirst = modules.length > 0 && modules[0].id === currentModuleId;
-  const isCurrentUnlocked = currentModAccess ? currentModAccess.isUnlocked : isCurrentFirst;
-  const isCurrentAuthRequired = Boolean(currentModAccess?.requiresAuth);
+  const isCurrentUnlocked = currentModAccess ? currentModAccess.isUnlocked : isCurrentFirstSix;
+  const isCurrentAuthRequired = currentModAccess ? Boolean(currentModAccess?.requiresAuth) : (!isCurrentFirstSix && !isAuthenticated);
   const currentIsCompleted = completedModuleIds.includes(currentModuleId);
 
   // Find next module in sequence
-  const currentIdx = modules.findIndex((m) => m.id === currentModuleId);
   const nextMod = currentIdx >= 0 && currentIdx + 1 < modules.length ? modules[currentIdx + 1] : null;
   const currentOrder = currentIdx >= 0 ? currentIdx + 1 : 1;
 
@@ -325,9 +325,9 @@ export default function ModuleNav({
   };
 
   // =========================================================================
-  // DIRECT URL BARRIER: If current module is locked, show full-screen barrier
+  // DIRECT URL BARRIER: If current module is locked (Module 7+ for guest), show barrier
   // =========================================================================
-  if (!isCurrentUnlocked && accessState) {
+  if (!isCurrentUnlocked) {
     if (isCurrentAuthRequired && !isAuthenticated) {
       return (
         <div className="fixed inset-0 z-50 bg-[#f6f4ee] flex items-center justify-center p-4 sm:p-6 overflow-y-auto antialiased">
@@ -563,12 +563,13 @@ export default function ModuleNav({
           className="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto rounded-xl sm:rounded-2xl border border-[#e7e3da] bg-white/90 p-1 sm:p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
-          {modules.map((mod) => {
+          {modules.map((mod, idx) => {
             const isActive = mod.id === currentModuleId;
+            const isFirstSix = idx < 6;
             const modAccess = accessState?.modules?.find((m) => m.id === mod.id);
-            const isUnlocked = modAccess ? modAccess.isUnlocked : mod.id === modules[0]?.id;
+            const isUnlocked = modAccess ? modAccess.isUnlocked : (isFirstSix || (isAuthenticated && idx === 6));
             const isCompleted = completedModuleIds.includes(mod.id);
-            const requiresAuth = Boolean(modAccess?.requiresAuth);
+            const requiresAuth = modAccess ? Boolean(modAccess.requiresAuth) : (!isFirstSix && !isAuthenticated);
 
             return (
               <button
@@ -602,45 +603,6 @@ export default function ModuleNav({
         >
           <ChevronRight size={15} />
         </button>
-      </div>
-
-      {/* Sequential Progression Action Banner */}
-      <div className="flex flex-wrap items-center justify-between gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white/80 border border-[#e7e3da] shadow-2xs text-xs">
-        <div className="flex items-center gap-2">
-          {currentIsCompleted ? (
-            <span className="inline-flex items-center gap-1 font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">
-              <CheckCircle2 size={13} className="text-emerald-600" />
-              <span>Module {currentOrder} Completed</span>
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1 font-semibold text-stone-600">
-              <span className="font-bold text-[#ea580c]">Module {currentOrder}</span>
-              <span className="text-stone-400">/</span>
-              <span>{modules.length}</span>
-            </span>
-          )}
-          <span className="hidden sm:inline text-stone-400">•</span>
-          <span className="hidden sm:inline text-stone-500 truncate max-w-xs">{modules[currentIdx]?.name}</span>
-        </div>
-
-        <div className="flex items-center gap-2">
-          {nextMod ? (
-            <button
-              type="button"
-              onClick={handleAdvance}
-              disabled={advancing}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#ea580c] hover:bg-orange-600 text-white font-bold transition shadow-xs active:scale-95 cursor-pointer"
-            >
-              <span>{currentIsCompleted ? `Next: ${nextMod.name}` : "Complete & Continue"}</span>
-              <ArrowRight size={13} />
-            </button>
-          ) : (
-            <span className="inline-flex items-center gap-1 font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg">
-              <Award size={13} />
-              <span>Final Module Reached</span>
-            </span>
-          )}
-        </div>
       </div>
 
       {/* COMPULSORY AUTH MODAL (POPS UP WHEN GUEST COMPLETES MODULE 6) */}

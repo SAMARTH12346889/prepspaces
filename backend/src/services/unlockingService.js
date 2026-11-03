@@ -62,9 +62,9 @@ export async function computeCourseAccessState(courseId, userOrGuest, env, reque
 
   for (let i = 0; i < modules.length; i++) {
     const mod = modules[i];
-    const isFirst = i === 0;
+    const isFirstSix = i < GUEST_MAX_FREE_MODULES; // Modules 1–6 (indices 0–5) are unlocked by default
     const prevMod = i > 0 ? modules[i - 1] : null;
-    const prevCompleted = isFirst || (prevMod && completedSet.has(prevMod.id));
+    const prevCompleted = i === 0 || (prevMod && completedSet.has(prevMod.id));
 
     // Module index 6 corresponds to Module 7 (1-indexed)
     const exceedsGuestLimit = isGuest && i >= GUEST_MAX_FREE_MODULES;
@@ -72,14 +72,19 @@ export async function computeCourseAccessState(courseId, userOrGuest, env, reque
     let unlocked = false;
     let requiresAuth = false;
 
-    if (exceedsGuestLimit) {
+    if (isFirstSix) {
+      // First 6 modules (Modules 1 to 6) are freely unlocked for everyone (guests and users)
+      unlocked = true;
+    } else if (exceedsGuestLimit) {
+      // Module 7 onwards strictly requires an account for guests
       unlocked = false;
       requiresAuth = true;
-      if (prevCompleted && !authRequiredForNext) {
+      if (!authRequiredForNext) {
         authRequiredForNext = true;
       }
-    } else if (isFirst || prevCompleted) {
-      unlocked = true;
+    } else {
+      // Authenticated students unlock Module 7+ based on prerequisite completion
+      unlocked = prevCompleted;
     }
 
     const isCompleted = completedSet.has(mod.id);
@@ -170,17 +175,19 @@ export async function validateAndCompleteModule(courseId, moduleId, activityData
 
   const completedSet = new Set(progressRecord?.completedModuleIds || []);
 
-  // Validate that all preceding modules in sequence are completed
-  for (let i = 0; i < targetIndex; i++) {
-    const priorMod = modules[i];
-    if (!completedSet.has(priorMod.id)) {
-      return {
-        success: false,
-        error: "prerequisite_missing",
-        message: `You must complete Module ${i + 1} (${priorMod.name}) before completing this module.`,
-        requiredModuleId: priorMod.id,
-        status: 400,
-      };
+  // For modules beyond the free initial 6, enforce sequential completion of prior modules
+  if (targetIndex >= GUEST_MAX_FREE_MODULES) {
+    for (let i = 0; i < targetIndex; i++) {
+      const priorMod = modules[i];
+      if (!completedSet.has(priorMod.id)) {
+        return {
+          success: false,
+          error: "prerequisite_missing",
+          message: `You must complete Module ${i + 1} (${priorMod.name}) before completing this module.`,
+          requiredModuleId: priorMod.id,
+          status: 400,
+        };
+      }
     }
   }
 
