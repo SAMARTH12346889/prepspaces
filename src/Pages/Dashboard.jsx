@@ -43,17 +43,25 @@ export default function Dashboard() {
 
   const [dashboardData, setDashboardData] = useState(() => getSynchronousInitialProgress());
   const [loading, setLoading] = useState(false);
+  const [syncStatus, setSyncStatus] = useState("syncing"); // 'synced' | 'syncing' | 'failed' | 'local'
   const [activeTab, setActiveTab] = useState("overview"); // 'overview' | 'interviews' | 'settings'
   const [filter, setFilter] = useState("all"); // 'all' | 'in-progress' | 'completed'
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Load progress data from service
   const loadProgress = async () => {
+    setSyncStatus("syncing");
     try {
       const data = await getStudentDashboardProgress(token);
-      setDashboardData(data);
+      if (data && data.success) {
+        setDashboardData(data);
+        setSyncStatus(token ? "synced" : "local");
+      } else {
+        setSyncStatus("failed");
+      }
     } catch (err) {
       console.error("[Dashboard] Failed to load progress:", err);
+      setSyncStatus("failed");
     } finally {
       setLoading(false);
     }
@@ -94,7 +102,15 @@ export default function Dashboard() {
   const studentDisplayName = user?.name || "Student Scholar";
   const studentEmail = user?.email || "";
   const avatarUrl = user?.picture;
-  const authProvider = user?.provider === "google" ? "Google Account" : "PrepSpaces Email Auth";
+  const isGoogle = user?.authProvider === "google" || user?.provider === "google";
+  const authProviderLabel = isGoogle ? "Google Account" : "Email & Password";
+  const accountCreatedDate = user?.createdAt
+    ? new Date(user.createdAt).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    : "Active Member";
 
   // Mock interview reports data
   const interviewReports = [
@@ -294,10 +310,30 @@ export default function Dashboard() {
                 <h1 className="text-lg sm:text-2xl font-black tracking-tight text-[#18181b]">
                   Welcome back, {studentDisplayName}
                 </h1>
-                <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
-                  <CheckCircle2 size={11} className="text-emerald-500" />
-                  <span>Cloud Synced</span>
-                </span>
+                {syncStatus === "synced" && (
+                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
+                    <CheckCircle2 size={11} className="text-emerald-500" />
+                    <span>Cloud Synced</span>
+                  </span>
+                )}
+                {syncStatus === "syncing" && (
+                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-amber-50 border border-amber-200 px-2.5 py-0.5 text-[10px] font-bold text-amber-700">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                    <span>Syncing...</span>
+                  </span>
+                )}
+                {syncStatus === "failed" && (
+                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-rose-50 border border-rose-200 px-2.5 py-0.5 text-[10px] font-bold text-rose-700">
+                    <AlertCircle size={11} className="text-rose-500" />
+                    <span>Sync Offline</span>
+                  </span>
+                )}
+                {syncStatus === "local" && (
+                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-stone-100 border border-stone-200 px-2.5 py-0.5 text-[10px] font-bold text-stone-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-stone-400" />
+                    <span>Local Only</span>
+                  </span>
+                )}
               </div>
               <p className="text-xs text-stone-500 mt-0.5">
                 {new Date().toLocaleDateString("en-US", {
@@ -824,12 +860,12 @@ export default function Dashboard() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                   <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
                     <span className="font-semibold text-stone-500">Authentication Method</span>
-                    <p className="font-bold text-stone-900 mt-0.5">{authProvider}</p>
+                    <p className="font-bold text-stone-900 mt-0.5">{authProviderLabel}</p>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
-                    <span className="font-semibold text-stone-500">Database Storage Backend</span>
-                    <p className="font-bold text-stone-900 mt-0.5">Cloudflare Workers KV (Global)</p>
+                    <span className="font-semibold text-stone-500">Account Created</span>
+                    <p className="font-bold text-stone-900 mt-0.5">{accountCreatedDate}</p>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
@@ -840,8 +876,45 @@ export default function Dashboard() {
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
-                    <span className="font-semibold text-stone-500">Progress Sync</span>
-                    <p className="font-bold text-stone-900 mt-0.5">Real-time Auto-Sync</p>
+                    <span className="font-semibold text-stone-500">Email Verification</span>
+                    <p className="font-bold text-stone-900 mt-0.5">{isGoogle ? "Verified via Google" : "Verified"}</p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
+                    <span className="font-semibold text-stone-500">Cloud Sync Status</span>
+                    <p className="font-bold text-stone-900 mt-0.5 flex items-center gap-1.5">
+                      {syncStatus === "synced" && (
+                        <>
+                          <CheckCircle2 size={13} className="text-emerald-500" />
+                          <span className="text-emerald-700">Cloud Synchronized</span>
+                        </>
+                      )}
+                      {syncStatus === "syncing" && (
+                        <>
+                          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                          <span className="text-amber-700">Synchronizing...</span>
+                        </>
+                      )}
+                      {syncStatus === "failed" && (
+                        <>
+                          <AlertCircle size={13} className="text-rose-500" />
+                          <span className="text-rose-700">Sync Offline (Using Cache)</span>
+                        </>
+                      )}
+                      {syncStatus === "local" && (
+                        <>
+                          <span className="w-2 h-2 rounded-full bg-stone-400" />
+                          <span className="text-stone-700">Local Storage Only</span>
+                        </>
+                      )}
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
+                    <span className="font-semibold text-stone-500">Account ID</span>
+                    <p className="font-mono text-[11px] font-semibold text-stone-700 mt-0.5 truncate">
+                      {user?.id || "usr_student"}
+                    </p>
                   </div>
                 </div>
 

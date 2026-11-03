@@ -634,7 +634,7 @@ return (
         <div className="absolute top-1/2 right-12 w-96 h-96 bg-amber-500/[0.03] rounded-full blur-[150px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* TOP NAVIGATION & MODULE SWITCHER */}
         <ModuleNav
           track="devops"

@@ -271,10 +271,11 @@ return (
       <div className="fixed top-20 right-1/4 w-96 h-96 bg-rose-200/25 rounded-full blur-[90px] pointer-events-none" />
       <div className="fixed bottom-20 left-1/3 w-80 h-80 bg-blue-200/20 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Track & Module Navigation */}
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        {/* Track & Module Navigation */}
       <ModuleNav track="cybersecurity" currentModuleId="red-blue-purple-teams" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         {/* ========================================================================= */}
         {/* HERO CARD                                                                 */}
         {/* ========================================================================= */}

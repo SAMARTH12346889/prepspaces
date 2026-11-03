@@ -457,9 +457,10 @@ The final capstone successfully demonstrates all 24 learning outcomes across Com
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900">
-      <ModuleNav activeModuleId="final-capstone" />
-
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+        <ModuleNav activeModuleId="final-capstone" />
+
         {/* Capstone Header Banner */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e7e3da] shadow-sm mb-6">
           <div className="flex flex-wrap items-center justify-between gap-4">

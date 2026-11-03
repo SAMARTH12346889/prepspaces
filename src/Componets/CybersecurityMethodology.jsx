@@ -387,7 +387,7 @@ return (
         <div className="absolute top-1/2 right-12 w-[600px] h-[600px] bg-amber-500/[0.04] rounded-full blur-[160px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 md:px-8">
         {/* TOP MODULE NAVIGATION BAR */}
         <ModuleNav track="cybersecurity" currentModuleId="methodology" />
 

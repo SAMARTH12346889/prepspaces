@@ -326,18 +326,18 @@ export default function NetworkModels() {
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#f97316] selection:text-white">
-      {/* Top Global Navigation Bar */}
-      <ModuleNav
-        track="networks"
-        currentModuleId="models"
-        showAiTutor={showAiTutor}
-        onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
-        aiTutorLabel="Networking Mentor"
-      />
+      <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        {/* Top Global Navigation Bar */}
+        <ModuleNav
+          track="networks"
+          currentModuleId="models"
+          showAiTutor={showAiTutor}
+          onAiTutorToggle={() => setShowAiTutor(!showAiTutor)}
+          aiTutorLabel="Networking Mentor"
+        />
 
-      <div className="flex-1 flex flex-col max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* Module Header & University Alignment Badge */}
-        <div className="mb-6">
+        {/* Module Header Card */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white/85 p-6 sm:p-8 backdrop-blur-xl shadow-xs text-[#18181b]">
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 font-mono text-[11px] font-bold text-[#ea580c] uppercase tracking-wider">
               <Network size={12} className="text-[#f97316]" />
@@ -354,10 +354,10 @@ return (
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#18181b]">
             Network Models — OSI and TCP/IP Architecture
           </h1>
-          <p className="mt-2 text-sm md:text-base text-stone-600 max-w-4xl leading-relaxed">
+          <p className="mt-3 text-sm md:text-base text-stone-600 max-w-4xl leading-relaxed">
             Master the layered protocol architecture of the Internet. Progress from the 7-layer OSI conceptual reference model to real-world TCP/IP protocol suites, header dissection in Wireshark, encapsulation mechanics, and cross-layer failure diagnostics.
           </p>
-        </div>
+        </header>
 
         {/* Tab Navigation Controls */}
         <div className="flex items-center gap-2 border-b border-[#e7e3da] pb-3 mb-6 overflow-x-auto scrollbar-none">

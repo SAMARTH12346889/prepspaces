@@ -417,7 +417,9 @@ export default function OSSecurity() {
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#ea580c]/15 selection:text-[#ea580c]">
-      {/* Top Breadcrumb & Status Navigation */}
+
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+        {/* Top Breadcrumb & Status Navigation */}
       <ModuleNav
         track="os"
         currentModuleId="security"
@@ -426,7 +428,6 @@ return (
         aiTutorLabel="Nova OS Tutor"
       />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
         {/* Hero Header Banner */}
         <div className="relative rounded-3xl bg-white border border-[#e7e3da] p-6 sm:p-10 shadow-xs overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#ea580c]/10 via-orange-50/20 to-transparent rounded-full blur-3xl pointer-events-none" />

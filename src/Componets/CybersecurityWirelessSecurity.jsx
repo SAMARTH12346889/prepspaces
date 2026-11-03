@@ -363,7 +363,7 @@ return (
         <div className="absolute -bottom-40 right-1/4 h-[500px] w-[500px] rounded-full bg-gradient-to-tl from-amber-400/10 to-stone-300/10 blur-[90px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 md:px-8">
         {/* Track navigation bar */}
         <ModuleNav track="cybersecurity" currentModuleId="wireless-security" />
 

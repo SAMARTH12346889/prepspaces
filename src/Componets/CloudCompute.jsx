@@ -138,7 +138,7 @@ return (
         <div className="absolute bottom-10 right-10 w-[550px] h-[550px] bg-amber-500/[0.04] rounded-full blur-[150px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 md:px-8">
         {/* TOP NAVIGATION & MODULE SWITCHER */}
         <ModuleNav
           track="cloud"

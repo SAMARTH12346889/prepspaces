@@ -186,7 +186,7 @@ return (
         <div className="absolute -bottom-40 right-1/4 h-[500px] w-[500px] rounded-full bg-orange-500/10 blur-[140px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* TOP NAVIGATION & MODULE SWITCHER */}
         <ModuleNav
           track="devops"
@@ -197,19 +197,18 @@ return (
         />
 
         {/* HERO BANNER */}
-        <div className="relative mb-10 overflow-hidden rounded-3xl border border-[#27272a] bg-[#18181b] p-8 md:p-12 text-white shadow-xl">
-          <div className="absolute -right-20 -bottom-20 h-80 w-80 rounded-full bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-transparent blur-3xl pointer-events-none" />
+        <header className="relative mb-10 overflow-hidden rounded-3xl border border-[#e7e3da] bg-white/85 p-6 sm:p-8 backdrop-blur-xl shadow-xs text-[#18181b]">
           <div className="relative z-10 max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-3.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400 mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-4">
               <Terminal size={13} />
               <span>Linux System Administration</span>
             </div>
-            <h1 className="text-3xl font-extrabold tracking-tight md:text-5xl lg:text-6xl text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#18181b]">
               Linux for DevOps
             </h1>
-            <p className="mt-4 text-base md:text-lg leading-relaxed text-stone-300">
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-stone-600">
               Grounded in the academic operating systems foundations of{" "}
-              <span className="text-orange-400 font-semibold">
+              <span className="text-[#ea580c] font-semibold">
                 MIT 6.033/6.828, Stanford CS111, Harvard CS1610, Cambridge OS, and Imperial College
               </span>
               . Master server administration from first principles: Filesystem Hierarchy Standard, Inode vs Block
@@ -217,22 +216,22 @@ return (
               systemd Service Architecture, journalctl Root-Cause Timelines, and Defensive Bash Automation.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-stone-400">
-              <span className="flex items-center gap-1.5 text-orange-400 font-bold">
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-xs font-mono text-stone-600">
+              <span className="flex items-center gap-1.5 text-[#ea580c] font-bold">
                 <Check size={14} /> FHS & Inode Exhaustion
               </span>
-              <span className="flex items-center gap-1.5 text-orange-400 font-bold">
+              <span className="flex items-center gap-1.5 text-[#ea580c] font-bold">
                 <Check size={14} /> Process States (R, S, D, Z)
               </span>
-              <span className="flex items-center gap-1.5 text-orange-400 font-bold">
+              <span className="flex items-center gap-1.5 text-[#ea580c] font-bold">
                 <Check size={14} /> 6-Layer Network Sequence
               </span>
-              <span className="flex items-center gap-1.5 text-orange-400 font-bold">
+              <span className="flex items-center gap-1.5 text-[#ea580c] font-bold">
                 <Check size={14} /> systemd & Defensive Bash
               </span>
             </div>
           </div>
-        </div>
+        </header>
 
         {/* EMBEDDED AI TUTOR */}
         {showAiTutor && (

@@ -447,7 +447,9 @@ brw-rw---- 1 root disk 259, 0 Oct 15 10:00 /dev/nvme0n1`,
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans">
-      {/* Top Navigation & Track Bar */}
+
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Top Navigation & Track Bar */}
       <ModuleNav
         track="os"
         currentModuleId="diagnostics"
@@ -456,7 +458,6 @@ return (
         aiTutorLabel="Nova OS Tutor"
       />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-500 mb-6">
           <span

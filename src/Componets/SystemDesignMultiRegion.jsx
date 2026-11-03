@@ -911,7 +911,9 @@ export default function SystemDesignMultiRegion() {
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans pb-20">
-      {/* Top Module Navigation Bar */}
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
+        {/* Top Module Navigation Bar */}
       <ModuleNav
         track="system-design"
         currentModuleId="multi-region"
@@ -919,7 +921,6 @@ return (
         onAiTutorToggle={() => {}}
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
         {/* Module Header & Breadcrumb */}
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-stone-500 mb-2">

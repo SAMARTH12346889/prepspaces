@@ -590,7 +590,7 @@ return (
         <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 md:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-6 sm:px-6 md:px-8">
         {/* Module Header / Global Nav */}
         <ModuleNav
           track="system-design"

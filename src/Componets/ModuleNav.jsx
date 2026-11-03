@@ -5,6 +5,7 @@ import { ArrowLeft, Sparkles, ChevronRight, ChevronLeft, CheckCircle2 } from "lu
 import { getLocalProgress, recordModuleProgress, PROGRESS_UPDATED_EVENT } from "../services/progressService";
 import { useSafeBack } from "../utils/navigation";
 import { SHOW_NOVA_AI } from "../config/features";
+import { useAuth } from "../context/AuthContext";
 import Logo from "./Logo";
 
 export const CLOUD_MODULES = [
@@ -154,6 +155,7 @@ export default function ModuleNav({
   aiTutorLabel,
 }) {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
   const scrollRef = useRef(null);
   const initialModules =
     track === "devops"
@@ -263,7 +265,7 @@ export default function ModuleNav({
   };
 
   return (
-    <div className="mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3">
+    <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3">
       <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-[#e7e3da] pb-3 sm:pb-4">
         {/* Back and Breadcrumb Controls */}
         <div className="flex items-center gap-2">
@@ -290,20 +292,22 @@ export default function ModuleNav({
 
         {/* Right Header Status / Brand or AI Tutor */}
         <div className="flex items-center gap-2">
-        {/* Complete Toggle Button */}
-          <button
-            type="button"
-            onClick={toggleComplete}
-            className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 sm:py-2 text-xs font-bold transition shadow-2xs active:scale-95 cursor-pointer ${
-              isCurrentCompleted
-                ? "bg-emerald-50 border-emerald-300 text-emerald-700"
-                : "bg-white/90 border-[#e7e3da] text-stone-600 hover:border-orange-300 hover:text-[#f97316]"
-            }`}
-            title={isCurrentCompleted ? "Module completed" : "Mark module as completed"}
-          >
-            <CheckCircle2 size={14} className={isCurrentCompleted ? "text-emerald-500" : "text-stone-400"} />
-            <span className="hidden sm:inline">{isCurrentCompleted ? "Completed" : "Mark Complete"}</span>
-          </button>
+        {/* Complete Toggle Button (Rendered ONLY for authenticated students) */}
+          {isAuthenticated && (
+            <button
+              type="button"
+              onClick={toggleComplete}
+              className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 sm:py-2 text-xs font-bold transition shadow-2xs active:scale-95 cursor-pointer ${
+                isCurrentCompleted
+                  ? "bg-emerald-50 border-emerald-300 text-emerald-700"
+                  : "bg-white/90 border-[#e7e3da] text-stone-600 hover:border-orange-300 hover:text-[#f97316]"
+              }`}
+              title={isCurrentCompleted ? "Module completed" : "Mark module as completed"}
+            >
+              <CheckCircle2 size={14} className={isCurrentCompleted ? "text-emerald-500" : "text-stone-400"} />
+              <span className="hidden sm:inline">{isCurrentCompleted ? "Completed" : "Mark Complete"}</span>
+            </button>
+          )}
 
           
           {SHOW_NOVA_AI && onAiTutorToggle ? (
@@ -371,7 +375,7 @@ export default function ModuleNav({
                 }`}
               >
                 {mod.name}
-                {completedModuleIds.includes(mod.id) && (
+                {isAuthenticated && completedModuleIds.includes(mod.id) && (
                   <span className="inline-block w-1.5 h-1.5 ml-1.5 rounded-full bg-emerald-400 align-middle" />
                 )}
               </button>

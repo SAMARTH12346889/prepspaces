@@ -382,7 +382,10 @@ return (
         </div>
       </header>
 
-      {/* Course Sub-Navigation Bar */}
+
+      {/* Main Content Area */}
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-8 py-8 space-y-10">
+        {/* Course Sub-Navigation Bar */}
       <ModuleNav
         track="os"
         currentModuleId="final-capstone"
@@ -391,8 +394,6 @@ return (
         aiTutorLabel="Capstone Advisor"
       />
 
-      {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-8 space-y-10">
         {/* Module Hero Banner */}
         <section className="bg-white rounded-3xl border border-[#e7e3da] p-6 sm:p-8 shadow-xs relative overflow-hidden">
           <div className="absolute -right-12 -top-12 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl pointer-events-none" />

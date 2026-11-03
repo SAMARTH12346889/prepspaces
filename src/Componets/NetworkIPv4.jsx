@@ -392,7 +392,7 @@ return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Sticky Header */}
       <header className="sticky top-0 z-40 bg-[#f6f4ee]/95 backdrop-blur-md border-b border-[#e7e3da] px-3.5 py-2.5 sm:px-8 sm:py-3 pt-[max(0.6rem,env(safe-area-inset-top))]">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
           {/* Mobile Top Bar: Back button + Module Badge + Quiz Button */}
           <div className="flex sm:hidden items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
@@ -455,14 +455,14 @@ return (
 
       {/* Module Horizontal Track Navigation */}
       <div className="bg-[#f0ece1]/70 border-b border-[#e7e3da]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <ModuleNav track="networks" currentModuleId="ipv4" />
         </div>
       </div>
 
       {/* Sub-navigation Tabs */}
       <div className="bg-white/80 border-b border-[#e7e3da] relative z-20 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex overflow-x-auto no-scrollbar gap-2 py-2.5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 flex overflow-x-auto no-scrollbar gap-2 py-2.5">
           <button
             onClick={() => setActiveTab("theory")}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
@@ -562,7 +562,7 @@ return (
       </div>
 
       {/* Main Body Layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full flex-1">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 w-full flex-1">
         {/* ================================================================== */}
         {/* TAB 1: COMPLETE COMPREHENSIVE CURRICULUM (5.1 to 5.13)              */}
         {/* ================================================================== */}

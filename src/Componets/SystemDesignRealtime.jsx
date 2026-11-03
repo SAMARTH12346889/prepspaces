@@ -267,7 +267,7 @@ return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased">
       {/* Top Breadcrumb & Title Header */}
       <div className="border-b border-stone-200 bg-[#faf8f4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-orange-700">
@@ -329,12 +329,12 @@ return (
       </div>
 
       {/* Global Module Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <ModuleNav />
       </div>
 
       {/* Main Content Area */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* =====================================================================
             TAB 1: CURRICULUM & LESSONS
             ===================================================================== */}

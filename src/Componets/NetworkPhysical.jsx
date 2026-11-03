@@ -252,7 +252,9 @@ export default function NetworkPhysical() {
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#f97316] selection:text-white">
-      {/* Top Global Navigation Bar */}
+
+      <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        {/* Top Global Navigation Bar */}
       <ModuleNav
         track="networks"
         currentModuleId="physical"
@@ -261,7 +263,6 @@ return (
         aiTutorLabel="Networking Mentor"
       />
 
-      <div className="flex-1 flex flex-col max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Module Header & University Alignment Badge */}
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-2 mb-3">

@@ -631,7 +631,10 @@ Explanation of Linux PSI (Pressure Stall Information):
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
-      {/* Top Universal Module Navigation Bar */}
+
+      {/* Main Container */}
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Top Universal Module Navigation Bar */}
       <ModuleNav
         track="os"
         currentModuleId="demand-paging"
@@ -640,8 +643,6 @@ return (
         aiTutorLabel="Nova OS Tutor"
       />
 
-      {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Module Header / Hero Banner */}
         <div className="mb-8 p-6 sm:p-8 rounded-3xl bg-white border border-[#e7e3da] shadow-xs relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-100/60 via-amber-50/40 to-transparent rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />

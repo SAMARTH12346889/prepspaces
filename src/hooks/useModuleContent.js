@@ -30,7 +30,7 @@ export function useModuleContent(courseId, moduleId) {
         moduleId,
         moduleName: payload.name || moduleId,
         moduleRoute: payload.route || (typeof window !== "undefined" ? window.location.pathname : ""),
-        completed: false,
+        completed: undefined,
       });
     } catch (err) {
       console.error(`[useModuleContent] Error loading ${courseId}/${moduleId}:`, err);

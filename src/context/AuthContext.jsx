@@ -125,9 +125,23 @@ export function AuthProvider({ children }) {
 
   // Logout
   const logout = useCallback(async () => {
-    await logoutUser(token);
-    setToken(null);
-    setUser(null);
+    try {
+      await logoutUser(token);
+    } catch (err) {
+      console.warn("[Auth] Logout network error:", err);
+    } finally {
+      clearStoredSession();
+      setToken(null);
+      setUser(null);
+      // Clear user-specific storage
+      localStorage.removeItem("prepspaces_auth_token");
+      localStorage.removeItem("prepspaces_auth_user");
+      // Notify all tabs and components
+      window.dispatchEvent(new Event("storage"));
+      window.dispatchEvent(new CustomEvent("prepspaces_auth_changed"));
+      // Hard redirect to the public landing page to guarantee clean state
+      window.location.href = "/";
+    }
   }, [token]);
 
   // Render Google Identity Services button inside a container

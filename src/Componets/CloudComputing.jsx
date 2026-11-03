@@ -142,7 +142,7 @@ return (
         <div className="absolute top-1/2 right-12 w-[600px] h-[600px] bg-amber-500/[0.04] rounded-full blur-[160px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 md:px-8">
         {/* TOP HEADER */}
         <ModuleNav
           track="cloud"
@@ -176,43 +176,41 @@ return (
         )}
 
         {/* HERO BANNER - High-end Prepspaces Aesthetic */}
-        <div className="mb-8 overflow-hidden rounded-3xl border border-[#27272a] bg-[#18181b] p-6 text-white shadow-2xl md:p-9 relative">
-          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
-          
+        <header className="mb-8 overflow-hidden rounded-3xl border border-[#e7e3da] bg-white/85 p-6 sm:p-8 backdrop-blur-xl shadow-xs text-[#18181b] relative">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between relative z-10">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-lg bg-orange-500/10 border border-orange-500/30 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#f97316] mb-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange-200 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c] mb-3">
                 <Server size={13} />
                 <span>Foundations of Systems & Architecture</span>
               </div>
 
-              <h1 className="text-2xl font-black tracking-tight text-white md:text-4xl lg:text-5xl">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#18181b]">
                 From Physical Datacenter to Cloud Architecture
               </h1>
 
-              <p className="mt-3 text-xs md:text-sm leading-relaxed text-stone-300 max-w-2xl">
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-stone-600 max-w-2xl">
                 No rote memorization. Built on the systems engineering philosophy of MIT 6.033, Stanford CS144, and Berkeley: understand the abstractions, failure domains, trade-offs, and physical silicon beneath the virtual cloud.
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md text-center min-w-[120px]">
-                <div className="font-mono text-2xl font-black text-[#f97316]">12</div>
-                <div className="font-mono text-[10px] uppercase tracking-wider text-stone-400">Core Sections</div>
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/80 p-4 text-center min-w-[120px]">
+                <div className="font-mono text-2xl font-black text-[#ea580c]">12</div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-stone-500">Core Sections</div>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md text-center min-w-[120px]">
-                <div className="font-mono text-2xl font-black text-emerald-400">5</div>
-                <div className="font-mono text-[10px] uppercase tracking-wider text-stone-400">Hands-on Labs</div>
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/80 p-4 text-center min-w-[120px]">
+                <div className="font-mono text-2xl font-black text-emerald-600">5</div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-stone-500">Hands-on Labs</div>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md text-center min-w-[120px]">
-                <div className="font-mono text-2xl font-black text-amber-400">8</div>
-                <div className="font-mono text-[10px] uppercase tracking-wider text-stone-400">Failure Scenarios</div>
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/80 p-4 text-center min-w-[120px]">
+                <div className="font-mono text-2xl font-black text-amber-600">8</div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-stone-500">Failure Scenarios</div>
               </div>
             </div>
           </div>
-        </div>
+        </header>
 
         {/* MAIN INTERACTIVE COURSE CONTAINER */}
         <div className="overflow-hidden rounded-3xl border border-[#e7e3da] bg-white/80 shadow-sm backdrop-blur-xl">

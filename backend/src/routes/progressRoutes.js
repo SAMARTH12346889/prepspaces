@@ -127,7 +127,44 @@ progressRouter.get("/", async (c) => {
 });
 
 /**
- * 2. Update Progress for a Course
+ * 2. Get Progress for a Specific Course
+ * GET /api/progress/:courseId
+ */
+progressRouter.get("/:courseId", async (c) => {
+  const session = await authenticateUser(c);
+  if (!session) {
+    return c.json({ error: "Unauthorized", message: "Sign in required to view course progress." }, 401);
+  }
+
+  const courseId = c.req.param("courseId");
+  if (!isValidIdentifier(courseId)) {
+    return c.json({ error: "Invalid course identifier", courseId }, 400);
+  }
+
+  try {
+    const existing = (await getCourseProgress(session.userId, courseId, c.env)) || {
+      courseId,
+      completedModuleIds: [],
+      progressPercentage: 0,
+      status: "not-started",
+    };
+
+    return c.json({
+      success: true,
+      courseId,
+      progress: existing,
+    });
+  } catch (error) {
+    console.error(`[Progress GET ${courseId}] Exception:`, error);
+    return c.json(
+      { error: "Internal Server Error", message: "Failed to retrieve course progress." },
+      500
+    );
+  }
+});
+
+/**
+ * 3. Update Progress for a Course
  * POST /api/progress/:courseId
  * Body: { moduleId, moduleName, moduleRoute, completed }
  */
@@ -157,8 +194,10 @@ progressRouter.post("/:courseId", async (c) => {
 
     const completedSet = new Set(existing.completedModuleIds || []);
 
-    if (completed && moduleId) {
+    if (completed === true && moduleId) {
       completedSet.add(moduleId);
+    } else if (completed === false && moduleId) {
+      completedSet.delete(moduleId);
     }
 
     const completedArray = Array.from(completedSet);

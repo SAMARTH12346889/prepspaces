@@ -184,7 +184,7 @@ return (
       <div className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-orange-100/60 blur-3xl" />
       <div className="pointer-events-none absolute top-1/3 -left-32 h-80 w-80 rounded-full bg-amber-100/50 blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 md:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 md:px-8">
         {/* Module Global Navigation Bar */}
         <ModuleNav track="cybersecurity" currentModuleId="owasp-top-10" />
 

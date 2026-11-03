@@ -625,11 +625,12 @@ export default function SystemDesignStorage() {
   }
 return (
     <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans pb-24">
-      {/* Top Module Navigation Bar */}
-      <ModuleNav track="system-design" currentModuleId="storage" />
 
       {/* Hero Header Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        {/* Top Module Navigation Bar */}
+      <ModuleNav track="system-design" currentModuleId="storage" />
+
         <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs mb-8">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-6">
             <div>

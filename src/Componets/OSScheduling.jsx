@@ -340,8 +340,11 @@ Conclusion: SRTF optimizes turnaround; Round Robin optimizes response.`;
     return <ModuleErrorState track="os" currentModuleId="scheduling" error={error} onRetry={reload} />;
   }
 return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900">
-      {/* Top Breadcrumb & Navigation */}
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-[#f97316] selection:text-white">
+
+      {/* Main Container */}
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        {/* Top Breadcrumb & Navigation */}
       <ModuleNav
         track="os"
         currentModuleId="scheduling"
@@ -350,8 +353,6 @@ return (
         aiTutorLabel="Nova Systems AI"
       />
 
-      {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Module Header Card */}
         <section className="bg-white rounded-2xl border border-stone-200 p-6 sm:p-8 shadow-sm">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">

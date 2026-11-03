@@ -315,7 +315,7 @@ export async function getStudentDashboardProgress(token = getStoredToken()) {
  */
 export async function recordModuleProgress(
   courseId,
-  { moduleId, moduleName, moduleRoute, completed = false },
+  { moduleId, moduleName, moduleRoute, completed = undefined },
   token = getStoredToken()
 ) {
   if (!courseId) return;
@@ -328,8 +328,10 @@ export async function recordModuleProgress(
   };
 
   const completedSet = new Set(currentCourse.completedModuleIds || []);
-  if (completed && moduleId) {
+  if (completed === true && moduleId) {
     completedSet.add(moduleId);
+  } else if (completed === false && moduleId) {
+    completedSet.delete(moduleId);
   }
 
   const completedList = Array.from(completedSet);

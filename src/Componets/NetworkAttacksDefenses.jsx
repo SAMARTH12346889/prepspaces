@@ -458,13 +458,14 @@ Immediate switchport containment and kernel-level SYN cookie enforcement prevent
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans">
-      <ModuleNav
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <ModuleNav
         track="networks"
         currentModuleId="attacks"
         showAiTutor={false}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb Header */}
         <div className="flex items-center gap-2 text-xs font-mono text-stone-700 mb-4">
           <span>COMPUTER NETWORKS &amp; INTERNET ENGINEERING</span>

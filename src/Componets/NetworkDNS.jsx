@@ -427,7 +427,7 @@ return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Banner & Module Navigation Header */}
       <div className="bg-[#18181b] text-white border-b border-stone-800 sticky top-0 z-50 shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate("/learning/networks")}
@@ -470,7 +470,7 @@ return (
       </div>
 
       {/* Main Course Content Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">
         {/* Module Header Card */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e7e3da] shadow-sm mb-8 relative overflow-hidden">
           <div className="absolute -top-12 -right-12 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />

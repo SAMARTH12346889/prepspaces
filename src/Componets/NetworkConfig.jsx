@@ -581,7 +581,10 @@ Content-Length: 4280`,
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-200">
-      {/* Module Navigation Bar */}
+
+      {/* Main Container */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
+        {/* Module Navigation Bar */}
       <ModuleNav
         track="networks"
         currentModuleId="config"
@@ -590,8 +593,6 @@ return (
         aiTutorLabel="AI Assistant"
       />
 
-      {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
         {/* Breadcrumb & Header */}
         <div className="mb-8">
           <div className="flex items-center gap-2 text-xs font-mono text-stone-500 mb-2">

@@ -464,7 +464,7 @@ int main(int argc, char* argv[]) {
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-900">
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Module Navigation Header */}
         <ModuleNav
           track="os"

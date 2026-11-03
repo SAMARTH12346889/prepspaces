@@ -309,11 +309,12 @@ return (
         <div className="absolute bottom-10 right-1/4 w-80 h-80 rounded-full bg-blue-200/25 blur-[90px]" />
       </div>
 
-      {/* Top Universal Track Navigation */}
-      <ModuleNav track="cybersecurity" currentModuleId="cloud-security" />
 
       {/* Main Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+        {/* Top Universal Track Navigation */}
+      <ModuleNav track="cybersecurity" currentModuleId="cloud-security" />
+
         {/* ========================================================================= */}
         {/* HERO CARD                                                                */}
         {/* ========================================================================= */}

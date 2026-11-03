@@ -148,9 +148,10 @@ export default function SystemDesignCapstone() {
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900">
-      <ModuleNav track="system-design" currentModuleId="capstone" />
+      
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
+        <ModuleNav track="system-design" currentModuleId="capstone" />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
         {/* =====================================================================
             MODULE HERO / HEADER
             ===================================================================== */}
