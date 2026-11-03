@@ -116,18 +116,22 @@ async function runSequentialTests() {
   const unlockingServicePath = path.join(baseDir, "src/services/unlockingService.js");
   const moduleNavPath = path.join(baseDir, "src/Componets/ModuleNav.jsx");
   const cachingModulePath = path.join(baseDir, "src/Componets/SystemDesignCaching.jsx");
+  const replicationModulePath = path.join(baseDir, "src/Componets/SystemDesignReplication.jsx");
   const unlockingContent = fs.readFileSync(unlockingServicePath, "utf8");
   const moduleNavContent = fs.readFileSync(moduleNavPath, "utf8");
   const cachingContent = fs.readFileSync(cachingModulePath, "utf8");
+  const replicationContent = fs.readFileSync(replicationModulePath, "utf8");
 
   check("unlockingService.js exports getCourseAccess", unlockingContent.includes("getCourseAccess"));
   check("unlockingService.js exports completeModule", unlockingContent.includes("completeModule"));
+  check("unlockingService.js exports autoCompleteModule", unlockingContent.includes("autoCompleteModule"));
   check("unlockingService.js exports migrateGuestProgress", unlockingContent.includes("migrateGuestProgress"));
   check("ModuleNav.jsx imports unlockingService", moduleNavContent.includes("unlockingService"));
-  check("ModuleNav.jsx removed sequential progression action banner", !moduleNavContent.includes("Sequential Progression Action Banner"));
+  check("ModuleNav.jsx auto-completes on user engagement", moduleNavContent.includes("autoCompleteModule"));
   check("ModuleNav.jsx handles compulsory auth modal", moduleNavContent.includes("Create Account to Unlock Module 7"));
   check("SystemDesignCaching.jsx has locked roadmap lessons for guests", cachingContent.includes("isLessonLocked"));
-  check("SystemDesignCaching.jsx renders locked lesson auth modal", cachingContent.includes("LOCKED LESSON AUTH MODAL"));
+  check("SystemDesignReplication.jsx triggers auto-completion on lesson clicks", replicationContent.includes("autoCompleteModule"));
+  check("SystemDesignReplication.jsx links directly to Module 8", replicationContent.includes("/learning/system-design/storage"));
 
   console.log("\n====================================================");
   console.log(`TOTAL TESTS: ${passed + failed} | PASSED: ${passed} | FAILED: ${failed}`);

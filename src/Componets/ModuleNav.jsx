@@ -20,6 +20,7 @@ import {
   getCourseAccess,
   getCachedCourseAccess,
   completeModule,
+  autoCompleteModule,
   UNLOCK_UPDATED_EVENT,
 } from "../services/unlockingService";
 import { useSafeBack } from "../utils/navigation";
@@ -263,6 +264,47 @@ export default function ModuleNav({
     }
   }, [currentModuleId, modules]);
 
+  // Automatic engagement completion:
+  // When an authenticated student (or guest on free modules) visits an unlocked module,
+  // automatically record completion as they explore lessons/content so the next module opens.
+  useEffect(() => {
+    if (!currentModuleId || !resolvedCourseId) return;
+
+    // Only auto-complete if current module is unlocked
+    const modIndex = modules.findIndex((m) => m.id === currentModuleId);
+    const isUnlockedNow =
+      modIndex < 6 ||
+      (isAuthenticated &&
+        (modIndex === 6 || (modIndex > 0 && completedModuleIds.includes(modules[modIndex - 1]?.id))));
+    if (!isUnlockedNow) return;
+
+    let completed = false;
+    const triggerComplete = () => {
+      if (completed) return;
+      completed = true;
+      autoCompleteModule(resolvedCourseId, currentModuleId);
+    };
+
+    // 1. Timer: after 2.5 seconds on the page
+    const timer = setTimeout(triggerComplete, 2500);
+
+    // 2. Interaction: scroll or click anywhere on the page
+    const onInteraction = () => {
+      triggerComplete();
+      window.removeEventListener("scroll", onInteraction);
+      window.removeEventListener("click", onInteraction);
+    };
+
+    window.addEventListener("scroll", onInteraction, { passive: true });
+    window.addEventListener("click", onInteraction, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", onInteraction);
+      window.removeEventListener("click", onInteraction);
+    };
+  }, [currentModuleId, resolvedCourseId, modules, isAuthenticated, completedModuleIds]);
+
   const defaultFallback =
     currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : "cloud")
       ? "/learning"
@@ -290,9 +332,17 @@ export default function ModuleNav({
   // 1. Authoritative access check for current module
   const currentIdx = modules.findIndex((m) => m.id === currentModuleId);
   const isCurrentFirstSix = currentIdx >= 0 && currentIdx < 6;
+  const isCurrentModuleSeven = currentIdx === 6;
+  const currentPrevModId = currentIdx > 0 ? modules[currentIdx - 1]?.id : null;
+  const currentPrevCompleted = currentPrevModId ? completedModuleIds.includes(currentPrevModId) : false;
+
   const currentModAccess = accessState?.modules?.find((m) => m.id === currentModuleId);
-  const isCurrentUnlocked = currentModAccess ? currentModAccess.isUnlocked : isCurrentFirstSix;
-  const isCurrentAuthRequired = currentModAccess ? Boolean(currentModAccess?.requiresAuth) : (!isCurrentFirstSix && !isAuthenticated);
+  const isCurrentUnlocked = currentModAccess
+    ? currentModAccess.isUnlocked
+    : (isCurrentFirstSix || (isAuthenticated && (isCurrentModuleSeven || currentPrevCompleted)));
+  const isCurrentAuthRequired = currentModAccess
+    ? Boolean(currentModAccess?.requiresAuth)
+    : (!isCurrentFirstSix && !isAuthenticated);
   const currentIsCompleted = completedModuleIds.includes(currentModuleId);
 
   // Find next module in sequence
@@ -566,8 +616,14 @@ export default function ModuleNav({
           {modules.map((mod, idx) => {
             const isActive = mod.id === currentModuleId;
             const isFirstSix = idx < 6;
+            const isModuleSeven = idx === 6;
+            const prevModId = idx > 0 ? modules[idx - 1]?.id : null;
+            const prevCompleted = prevModId ? completedModuleIds.includes(prevModId) : false;
+
             const modAccess = accessState?.modules?.find((m) => m.id === mod.id);
-            const isUnlocked = modAccess ? modAccess.isUnlocked : (isFirstSix || (isAuthenticated && idx === 6));
+            const isUnlocked = modAccess
+              ? modAccess.isUnlocked
+              : (isFirstSix || (isAuthenticated && (isModuleSeven || prevCompleted)));
             const isCompleted = completedModuleIds.includes(mod.id);
             const requiresAuth = modAccess ? Boolean(modAccess.requiresAuth) : (!isFirstSix && !isAuthenticated);
 
@@ -575,7 +631,12 @@ export default function ModuleNav({
               <button
                 key={mod.id}
                 data-active={isActive ? "true" : undefined}
-                onClick={() => navigate(mod.route)}
+                onClick={async () => {
+                  if (idx === currentIdx + 1 && !completedModuleIds.includes(currentModuleId)) {
+                    await autoCompleteModule(resolvedCourseId, currentModuleId);
+                  }
+                  navigate(mod.route);
+                }}
                 className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] inline-flex items-center gap-1.5 ${
                   isActive
                     ? "bg-[#f97316] text-white shadow-sm shadow-orange-500/25"

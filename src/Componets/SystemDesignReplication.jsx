@@ -37,6 +37,7 @@ import {
   Zap,
 } from "lucide-react";
 import ModuleNav from "./ModuleNav";
+import { autoCompleteModule } from "../services/unlockingService";
 import {
   ReplicationTopologyDiagram,
   PartitioningShardingReplicationDiagram,
@@ -829,6 +830,7 @@ return (
                       setActiveWeek(wk.num);
                       const firstLessonOfWeek = lessons.find((l) => l.week === wk.num);
                       if (firstLessonOfWeek) setActiveLesson(firstLessonOfWeek.id);
+                      autoCompleteModule("system-design", "replication");
                     }}
                     className={`flex-1 py-1.5 px-2 text-center text-[11px] font-bold rounded-lg transition cursor-pointer ${
                       activeWeek === wk.num
@@ -854,7 +856,10 @@ return (
                       <button
                         key={l.id}
                         type="button"
-                        onClick={() => setActiveLesson(l.id)}
+                        onClick={() => {
+                          setActiveLesson(l.id);
+                          autoCompleteModule("system-design", "replication");
+                        }}
                         className={`w-full text-left p-3 rounded-2xl border transition cursor-pointer flex items-start justify-between gap-3 ${
                           isSelected
                             ? "border-orange-300 bg-white shadow-xs ring-1 ring-orange-400"
@@ -1636,7 +1641,7 @@ return (
                     What You Mastered in Module 7
                   </span>
                   <span className="text-sm font-bold text-stone-900 block mt-0.5">
-                    Module 9: Distributed Systems Fundamentals, Clocks, Timeouts, and Failure Models
+                    Module 8: Object Storage, Distributed File Systems & Data Pipelines
                   </span>
                   <span className="text-xs text-stone-600 block mt-0.5">
                     You can now scale databases with primary-replica topologies, declarative table partitioning, shard routing, and quorum consistency.
@@ -1652,10 +1657,13 @@ return (
                   </button>
                   <button
                     type="button"
-                    onClick={() => navigate("/learning/system-design/distributed-systems")}
+                    onClick={async () => {
+                      await autoCompleteModule("system-design", "replication");
+                      navigate("/learning/system-design/storage");
+                    }}
                     className="flex items-center gap-1.5 rounded-xl bg-[#f97316] px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-[#ea580c] transition cursor-pointer"
                   >
-                    <span>Start Module 9 (Distributed Systems)</span>
+                    <span>Start Module 8 (Object Storage & Pipelines)</span>
                     <ArrowRight size={14} />
                   </button>
                 </div>

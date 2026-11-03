@@ -83,8 +83,14 @@ export async function computeCourseAccessState(courseId, userOrGuest, env, reque
         authRequiredForNext = true;
       }
     } else {
-      // Authenticated students unlock Module 7+ based on prerequisite completion
-      unlocked = prevCompleted;
+      // Authenticated students:
+      // Module 7 is ALWAYS unlocked for authenticated students.
+      // Modules after 7 (Module 8, 9, etc.) unlock sequentially as previous module is completed.
+      if (i === GUEST_MAX_FREE_MODULES) {
+        unlocked = true;
+      } else {
+        unlocked = Boolean(prevMod && completedSet.has(prevMod.id));
+      }
     }
 
     const isCompleted = completedSet.has(mod.id);
@@ -175,19 +181,18 @@ export async function validateAndCompleteModule(courseId, moduleId, activityData
 
   const completedSet = new Set(progressRecord?.completedModuleIds || []);
 
-  // For modules beyond the free initial 6, enforce sequential completion of prior modules
-  if (targetIndex >= GUEST_MAX_FREE_MODULES) {
-    for (let i = 0; i < targetIndex; i++) {
-      const priorMod = modules[i];
-      if (!completedSet.has(priorMod.id)) {
-        return {
-          success: false,
-          error: "prerequisite_missing",
-          message: `You must complete Module ${i + 1} (${priorMod.name}) before completing this module.`,
-          requiredModuleId: priorMod.id,
-          status: 400,
-        };
-      }
+  // For Module 8 and beyond (targetIndex > GUEST_MAX_FREE_MODULES),
+  // enforce that the immediately prior module in sequence is completed
+  if (targetIndex > GUEST_MAX_FREE_MODULES) {
+    const priorMod = modules[targetIndex - 1];
+    if (!completedSet.has(priorMod.id)) {
+      return {
+        success: false,
+        error: "prerequisite_missing",
+        message: `You must complete Module ${targetIndex} (${priorMod.name}) before completing this module.`,
+        requiredModuleId: priorMod.id,
+        status: 400,
+      };
     }
   }
 

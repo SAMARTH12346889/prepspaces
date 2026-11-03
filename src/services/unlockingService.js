@@ -73,18 +73,52 @@ function emitUnlockUpdated(courseId, data) {
   }
 }
 
+const inFlightCompletions = new Set();
+
+/**
+ * Automatically marks a module completed in the background when the user
+ * engages with its contents, unlocking the next module in real time.
+ */
+export async function autoCompleteModule(courseId, moduleId) {
+  if (!courseId || !moduleId) return null;
+  const key = `${courseId}:${moduleId}`;
+  if (inFlightCompletions.has(key)) return null;
+
+  // Check if already completed in cache
+  const cached = getCachedCourseAccess(courseId);
+  if (cached?.completedModuleIds?.includes(moduleId)) {
+    return cached;
+  }
+
+  inFlightCompletions.add(key);
+  try {
+    const res = await completeModule(courseId, moduleId);
+    return res;
+  } finally {
+    // Retain in inFlight for cooldown to avoid duplicate calls
+    setTimeout(() => inFlightCompletions.delete(key), 4000);
+  }
+}
+
 /**
  * Immediate synchronous access evaluator for rapid UI rendering without flashing.
  * Modules 1–6 (indices 0–5) are freely unlocked for all learners.
- * Module 7+ (index >= 6) requires registration for guests.
+ * Module 7 (index 6) is immediately unlocked for authenticated students.
+ * Module 8+ (index > 6) unlocks sequentially as previous modules complete.
  */
 export function getInitialModuleAccess(moduleIndex, isAuthenticated = false) {
   const isFirstSix = moduleIndex >= 0 && moduleIndex < 6;
   if (isFirstSix) {
     return { isUnlocked: true, requiresAuth: false };
   }
+  if (moduleIndex === 6) {
+    return {
+      isUnlocked: Boolean(isAuthenticated),
+      requiresAuth: !isAuthenticated,
+    };
+  }
   return {
-    isUnlocked: Boolean(isAuthenticated),
+    isUnlocked: false,
     requiresAuth: !isAuthenticated,
   };
 }
