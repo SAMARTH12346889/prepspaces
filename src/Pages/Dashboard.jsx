@@ -306,42 +306,15 @@ export default function Dashboard() {
               <Menu size={20} />
             </button>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-lg sm:text-2xl font-black tracking-tight text-[#18181b]">
-                  Welcome back, {studentDisplayName}
-                </h1>
-                {syncStatus === "synced" && (
-                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
-                    <CheckCircle2 size={11} className="text-emerald-500" />
-                    <span>Cloud Synced</span>
-                  </span>
-                )}
-                {syncStatus === "syncing" && (
-                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-amber-50 border border-amber-200 px-2.5 py-0.5 text-[10px] font-bold text-amber-700">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                    <span>Syncing...</span>
-                  </span>
-                )}
-                {syncStatus === "failed" && (
-                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-rose-50 border border-rose-200 px-2.5 py-0.5 text-[10px] font-bold text-rose-700">
-                    <AlertCircle size={11} className="text-rose-500" />
-                    <span>Sync Offline</span>
-                  </span>
-                )}
-                {syncStatus === "local" && (
-                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-stone-100 border border-stone-200 px-2.5 py-0.5 text-[10px] font-bold text-stone-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-stone-400" />
-                    <span>Local Only</span>
-                  </span>
-                )}
-              </div>
+              <h1 className="text-lg sm:text-2xl font-black tracking-tight text-[#18181b]">
+                Welcome back, {studentDisplayName}
+              </h1>
               <p className="text-xs text-stone-500 mt-0.5">
                 {new Date().toLocaleDateString("en-US", {
                   weekday: "long",
                   month: "short",
                   day: "numeric",
-                })}{" "}
-                • Authenticated Student Dashboard
+                })}
               </p>
             </div>
           </div>
