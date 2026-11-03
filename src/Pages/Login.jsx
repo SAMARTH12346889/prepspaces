@@ -208,14 +208,14 @@ export default function Login() {
             </div>
           </div>
 
-          {/* Guest Notice */}
+          {/* Landing Page Link */}
           <div className="mt-4 text-center">
             <Link
-              to="/learning"
+              to="/"
               className="inline-flex items-center gap-1.5 text-xs text-stone-500 hover:text-stone-800 transition"
             >
               <ArrowLeft size={13} />
-              <span>Back to Course Catalog (No Login Required)</span>
+              <span>Back to Landing Page</span>
             </Link>
           </div>
         </div>
