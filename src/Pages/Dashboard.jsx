@@ -9,7 +9,6 @@ import {
 import { getLucideIcon } from "../utils/iconMap";
 import Logo from "../Componets/Logo";
 import {
-  Home,
   BookOpen,
   Mic,
   ArrowRight,
@@ -166,8 +165,8 @@ export default function Dashboard() {
           <div className="flex items-center justify-between mb-8 px-3">
             <div
               className="flex items-center cursor-pointer py-1"
-              onClick={() => navigate("/")}
-              title="PrepSpaces Home"
+              onClick={() => setActiveTab("overview")}
+              title="PrepSpaces"
             >
               <Logo size="md" />
             </div>
@@ -232,14 +231,6 @@ export default function Dashboard() {
               <span>All Courses</span>
             </Link>
 
-            <Link
-              to="/"
-              onClick={() => setSidebarOpen(false)}
-              className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer"
-            >
-              <Home size={18} className="text-stone-400" />
-              <span>Landing Page</span>
-            </Link>
 
             <button
               onClick={() => {

@@ -96,12 +96,13 @@ assert(authContextContent.includes("disableAutoSelect"), "AuthContext.jsx calls 
 assert(authContextContent.includes("prepspaces_auth_changed"), "AuthContext.jsx dispatches auth changed event across tabs");
 assert(authContextContent.includes("window.location.replace(\"/\")") || authContextContent.includes("window.location.href = \"/\""), "AuthContext.jsx redirects to public landing page (/)");
 
-// 6. Verify Dashboard.jsx Logout Controls
-console.log("\nSUITE 6: Dashboard.jsx Logout Controls");
+// 6. Verify Dashboard.jsx Logout Controls & Clean Sidebar
+console.log("\nSUITE 6: Dashboard.jsx Logout Controls & Clean Sidebar");
 const dashboardPath = path.join(baseDir, "src/Pages/Dashboard.jsx");
 const dashboardContent = fs.readFileSync(dashboardPath, "utf8");
 const logoutOccurrences = (dashboardContent.match(/logout\(\)/g) || []).length;
 assert(logoutOccurrences >= 3, `Dashboard.jsx has ${logoutOccurrences} logout button triggers (sidebar, header, settings)`);
+assert(!dashboardContent.includes("Landing Page"), "Dashboard.jsx does NOT contain 'Landing Page' navigation link");
 
 console.log("\n====================================================");
 console.log(`TOTAL AUDIT TESTS: ${passed + failed} | PASSED: ${passed} | FAILED: ${failed}`);
