@@ -60,7 +60,8 @@ console.log("\nSUITE 3: Course Catalog (/learning) Navigation & Logout");
 const learningPath = path.join(baseDir, "src/Pages/Learning.jsx");
 const learningContent = fs.readFileSync(learningPath, "utf8");
 assert(learningContent.includes("useAuth"), "Learning.jsx imports and uses useAuth");
-assert(learningContent.includes("LogOut"), "Learning.jsx imports LogOut icon");
+assert(/import\s*\{[^}]*User[^}]*\}\s*from\s*["']lucide-react["']/.test(learningContent), "Learning.jsx imports User from lucide-react");
+assert(/import\s*\{[^}]*LogOut[^}]*\}\s*from\s*["']lucide-react["']/.test(learningContent), "Learning.jsx imports LogOut from lucide-react");
 assert(learningContent.includes("logout()") || learningContent.includes("onClick={logout}"), "Learning.jsx has clickable Logout button calling logout");
 assert(learningContent.includes('to="/dashboard"'), "Learning.jsx has Dashboard link for authenticated students");
 

@@ -15,6 +15,8 @@ import {
   Cpu,
   Globe,
   Shield,
+  User,
+  LogOut,
 } from "lucide-react";
 import { useSafeBack } from "../utils/navigation";
 import Logo from "../Componets/Logo";
