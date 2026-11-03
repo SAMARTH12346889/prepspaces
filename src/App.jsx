@@ -2,6 +2,10 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Landingpage from "./Pages/Landingpage";
+import Dashboard from "./Pages/Dashboard";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import { AuthProvider } from "./context/AuthContext";
 import Learning from "./Pages/Learning";
 import InterviewRoom from "./Pages/InterviewRoom";
 import NotFound from "./Pages/NotFound";
@@ -141,12 +145,22 @@ function App() {
     <BrowserRouter>
       <SeoManager />
       <AppErrorBoundary>
+        <AuthProvider>
         <NavigationProvider>
           <VoiceProvider>
             <NovaProvider>
               <Routes>
             {/* LANDING PAGE */}
             <Route path="/" element={<Landingpage />} />
+
+            {/* DASHBOARD ROUTE */}
+            <Route path="/dashboard" element={<Dashboard />} />
+
+            {/* AUTHENTICATION ROUTES (OPTIONAL GOOGLE / EMAIL AUTH) */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/signin" element={<Navigate to="/login" replace />} />
+            <Route path="/signup" element={<Navigate to="/register" replace />} />
 
             {/* LEARNING MAIN PAGE & SEO ALIAS */}
             <Route path="/learning" element={<Learning />} />
@@ -1000,6 +1014,7 @@ function App() {
         </NovaProvider>
       </VoiceProvider>
     </NavigationProvider>
+  </AuthProvider>
   </AppErrorBoundary>
 </BrowserRouter>
   );

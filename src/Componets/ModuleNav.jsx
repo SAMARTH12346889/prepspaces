@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { getCourseModules } from "../services/courseContentService";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Sparkles, ChevronRight, ChevronLeft } from "lucide-react";
+import { ArrowLeft, Sparkles, ChevronRight, ChevronLeft, CheckCircle2 } from "lucide-react";
+import { getLocalProgress, recordModuleProgress, PROGRESS_UPDATED_EVENT } from "../services/progressService";
 import { useSafeBack } from "../utils/navigation";
 import { SHOW_NOVA_AI } from "../config/features";
 import Logo from "./Logo";
@@ -169,6 +170,41 @@ export default function ModuleNav({
 
   const [modules, setModules] = useState(initialModules);
 
+  const courseIdMap = {
+    os: "operating-systems",
+    networks: "computer-networks",
+    cybersecurity: "cybersecurity",
+    "system-design": "system-design",
+    cloud: "cloud",
+    devops: "devops",
+  };
+  const resolvedCourseId = courseIdMap[track] || track;
+
+  const [completedModuleIds, setCompletedModuleIds] = useState(() => {
+    const prog = getLocalProgress();
+    return prog[resolvedCourseId]?.completedModuleIds || [];
+  });
+
+  useEffect(() => {
+    const updateCompleted = () => {
+      const prog = getLocalProgress();
+      setCompletedModuleIds(prog[resolvedCourseId]?.completedModuleIds || []);
+    };
+    updateCompleted();
+    window.addEventListener(PROGRESS_UPDATED_EVENT, updateCompleted);
+    return () => window.removeEventListener(PROGRESS_UPDATED_EVENT, updateCompleted);
+  }, [resolvedCourseId]);
+
+  const isCurrentCompleted = completedModuleIds.includes(currentModuleId);
+
+  const toggleComplete = () => {
+    const nextCompleted = !isCurrentCompleted;
+    recordModuleProgress(resolvedCourseId, {
+      moduleId: currentModuleId,
+      completed: nextCompleted,
+    });
+  };
+
   useEffect(() => {
     let isMounted = true;
     const courseIdMap = {
@@ -254,6 +290,22 @@ export default function ModuleNav({
 
         {/* Right Header Status / Brand or AI Tutor */}
         <div className="flex items-center gap-2">
+        {/* Complete Toggle Button */}
+          <button
+            type="button"
+            onClick={toggleComplete}
+            className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 sm:py-2 text-xs font-bold transition shadow-2xs active:scale-95 cursor-pointer ${
+              isCurrentCompleted
+                ? "bg-emerald-50 border-emerald-300 text-emerald-700"
+                : "bg-white/90 border-[#e7e3da] text-stone-600 hover:border-orange-300 hover:text-[#f97316]"
+            }`}
+            title={isCurrentCompleted ? "Module completed" : "Mark module as completed"}
+          >
+            <CheckCircle2 size={14} className={isCurrentCompleted ? "text-emerald-500" : "text-stone-400"} />
+            <span className="hidden sm:inline">{isCurrentCompleted ? "Completed" : "Mark Complete"}</span>
+          </button>
+
+          
           {SHOW_NOVA_AI && onAiTutorToggle ? (
             <button
               type="button"
@@ -319,6 +371,9 @@ export default function ModuleNav({
                 }`}
               >
                 {mod.name}
+                {completedModuleIds.includes(mod.id) && (
+                  <span className="inline-block w-1.5 h-1.5 ml-1.5 rounded-full bg-emerald-400 align-middle" />
+                )}
               </button>
             );
           })}

@@ -16,7 +16,22 @@ const routeMeta = {
     canonical: `${BASE_URL}/interview`,
     robots: "noindex, follow",
   },
-  "/learning": {
+  "/dashboard": {
+    title: "Student Learning Progress & Course Dashboard — PrepSpaces",
+    description: "Track your course progress, completed modules, and resume technical lessons across all PrepSpaces tracks.",
+    canonical: `${BASE_URL}/dashboard`,
+  },
+  "/login": {
+    title: "Student Sign In — PrepSpaces",
+    description: "Sign in to PrepSpaces with Google or email to sync your course progress and technical interview preparation.",
+    canonical: `${BASE_URL}/login`,
+  },
+  "/register": {
+    title: "Create Student Account — PrepSpaces",
+    description: "Join PrepSpaces to master operating systems, computer networks, system design, cloud, and DevOps.",
+    canonical: `${BASE_URL}/register`,
+  },
+    "/learning": {
     title: "Technical Systems Engineering Curriculum & Masterclasses — PrepSpaces",
     description: "Explore comprehensive university-informed preparation tracks in System Design, Cloud Computing, DevOps & SRE, Operating Systems, Computer Networks, and Cybersecurity.",
     canonical: `${BASE_URL}/learning`,

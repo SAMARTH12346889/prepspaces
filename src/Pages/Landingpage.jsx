@@ -1,4 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
+import {
+  getStudentDashboardProgress,
+  getSynchronousInitialProgress,
+  PROGRESS_UPDATED_EVENT,
+} from "../services/progressService";
+import { getLucideIcon } from "../utils/iconMap";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "../Componets/Logo";
 import {
@@ -15,6 +22,14 @@ import {
   Network,
   Cpu,
   Globe,
+  Play,
+  CheckCircle2,
+  Clock,
+  Sliders,
+  LogOut,
+  User,
+  Sparkles,
+  Trophy,
 } from "lucide-react";
 
 function InstagramIcon({ size = 16, className = "" }) {
@@ -41,6 +56,30 @@ function InstagramIcon({ size = 16, className = "" }) {
 export default function Landingpage() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { user, token, isAuthenticated, logout } = useAuth();
+  const [dashboardData, setDashboardData] = useState(() => getSynchronousInitialProgress());
+
+  useEffect(() => {
+    let isMounted = true;
+    const load = async () => {
+      try {
+        const d = await getStudentDashboardProgress(token);
+        if (isMounted) setDashboardData(d);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    load();
+    const handleUpdate = () => load();
+    window.addEventListener(PROGRESS_UPDATED_EVENT, handleUpdate);
+    return () => {
+      isMounted = false;
+      window.removeEventListener(PROGRESS_UPDATED_EVENT, handleUpdate);
+    };
+  }, [token]);
+
+  const allCourses = dashboardData?.courses || [];
+  const recentlyStudied = dashboardData?.summary?.recentlyStudied;
 
   // Real available learning tracks
   const availableTracks = [
@@ -187,6 +226,15 @@ export default function Landingpage() {
             </button>
 
             <Link
+              to="/dashboard"
+              onClick={() => setSidebarOpen(false)}
+              className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer"
+            >
+              <Sliders size={18} className="text-stone-400" />
+              <span>Dashboard</span>
+            </Link>
+
+            <Link
               to="/learning"
               onClick={() => setSidebarOpen(false)}
               className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer"
@@ -247,6 +295,36 @@ export default function Landingpage() {
 
           {/* Header Right Action */}
           <div className="flex items-center gap-2 sm:gap-3">
+            {isAuthenticated ? (
+              <div className="flex items-center gap-2">
+                <Link
+                  to="/dashboard"
+                  className="flex items-center gap-2 rounded-xl border border-stone-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs cursor-pointer"
+                >
+                  {user?.picture ? (
+                    <img src={user.picture} alt="" className="w-5 h-5 rounded-full object-cover border border-orange-400" referrerPolicy="no-referrer" />
+                  ) : (
+                    <User size={14} className="text-orange-500" />
+                  )}
+                  <span className="hidden sm:inline font-bold">{user?.name?.split(" ")[0] || "Dashboard"}</span>
+                </Link>
+                <button
+                  onClick={logout}
+                  title="Sign out"
+                  className="p-2 text-stone-400 hover:text-red-600 rounded-lg transition cursor-pointer"
+                >
+                  <LogOut size={16} />
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white border border-[#e7e3da] hover:border-orange-300 hover:text-orange-600 px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-bold text-stone-700 shadow-xs transition active:scale-95 cursor-pointer shrink-0 whitespace-nowrap"
+              >
+                <User size={14} className="text-[#f97316]" />
+                <span>Sign In</span>
+              </Link>
+            )}
             <Link
               to="/learning"
               className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:px-4 sm:py-2.5 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs cursor-pointer active:scale-95 shrink-0 whitespace-nowrap"
@@ -293,6 +371,168 @@ export default function Landingpage() {
               </div>
             </div>
           </section>
+
+          {/* ================= YOUR LEARNING PROGRESS SECTION ================= */}
+          {allCourses.length > 0 && (
+            <section className="space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-stone-200">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-lg sm:text-xl font-black text-stone-900 tracking-tight">
+                      Your Learning Progress
+                    </h2>
+                    {isAuthenticated && (
+                      <span className="rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
+                        Cloud Synced
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-stone-500 mt-0.5">
+                    Track your module completions across all available courses.
+                  </p>
+                </div>
+                <Link
+                  to="/dashboard"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#f97316] hover:text-[#ea580c] transition self-start sm:self-auto"
+                >
+                  <span>View Full Dashboard</span>
+                  <ArrowRight size={13} />
+                </Link>
+              </div>
+
+              {!isAuthenticated && (
+                <div className="rounded-2xl border border-orange-200/80 bg-orange-50/60 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+                  <div className="flex items-center gap-2.5 text-stone-700">
+                    <Sparkles size={16} className="text-orange-500 shrink-0" />
+                    <span>
+                      Learning in guest mode. <strong className="text-stone-900">Sign in with Google</strong> to sync your course progress across devices.
+                    </span>
+                  </div>
+                  <Link
+                    to="/login"
+                    className="shrink-0 rounded-xl bg-[#f97316] hover:bg-[#ea580c] text-white font-bold px-3 py-1.5 text-xs shadow-xs transition"
+                  >
+                    Sign In
+                  </Link>
+                </div>
+              )}
+
+              {/* Course Progress Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                {allCourses.map((course) => {
+                  const Icon = getLucideIcon(course.icon, BookOpen);
+                  return (
+                    <div
+                      key={course.courseId}
+                      className="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/90 p-4 sm:p-5 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:border-orange-300 transition-all duration-200"
+                    >
+                      <div>
+                        {/* Header */}
+                        <div className="flex items-center justify-between gap-2 mb-3">
+                          <div className="w-10 h-10 rounded-xl bg-stone-900 text-orange-400 flex items-center justify-center shrink-0">
+                            <Icon size={18} />
+                          </div>
+                          {course.status === "completed" ? (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
+                              <CheckCircle2 size={11} className="text-emerald-500" />
+                              <span>Completed</span>
+                            </span>
+                          ) : course.status === "in-progress" ? (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-orange-50 border border-orange-200 px-2 py-0.5 text-[10px] font-bold text-orange-700">
+                              <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                              <span>In Progress</span>
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center rounded-full bg-stone-100 border border-stone-200 px-2 py-0.5 text-[10px] font-bold text-stone-500">
+                              <span>Not Started</span>
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Title & Tagline */}
+                        <h3 className="text-sm sm:text-base font-extrabold text-stone-900 tracking-tight">
+                          {course.title}
+                        </h3>
+                        <p className="text-xs text-stone-500 mt-1 line-clamp-1">
+                          {course.tagline || course.description}
+                        </p>
+
+                        {/* Progress Bar & Stats */}
+                        <div className="mt-3.5 space-y-1.5">
+                          <div className="flex items-center justify-between text-xs">
+                            <span className="font-bold text-stone-700 text-[11px]">
+                              {course.completedModules} / {course.totalModules} Modules
+                            </span>
+                            <span className="font-black text-[#ea580c] text-[11px]">
+                              {course.progressPercentage}%
+                            </span>
+                          </div>
+                          <div className="w-full bg-stone-100 h-2 rounded-full overflow-hidden">
+                            <div
+                              className={`h-full rounded-full transition-all duration-700 ease-out ${
+                                course.status === "completed"
+                                  ? "bg-emerald-500"
+                                  : "bg-gradient-to-r from-orange-500 to-amber-500"
+                              }`}
+                              style={{ width: `${Math.max(course.progressPercentage, course.completedModules > 0 ? 5 : 0)}%` }}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Last Studied */}
+                        <div className="mt-2.5 text-[11px] text-stone-500 flex items-center gap-1.5">
+                          <Clock size={11} className="text-stone-400 shrink-0" />
+                          <span className="truncate">
+                            {course.currentModuleName ? (
+                              <>
+                                Last studied:{" "}
+                                <span className="font-semibold text-stone-800">
+                                  {course.currentModuleName}
+                                </span>
+                              </>
+                            ) : (
+                              "Not started yet"
+                            )}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Action Button */}
+                      <div className="mt-4 pt-3 border-t border-stone-100">
+                        <button
+                          onClick={() => navigate(course.currentModuleRoute || course.route)}
+                          className={`w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold transition shadow-2xs active:scale-95 cursor-pointer ${
+                            course.status === "completed"
+                              ? "bg-stone-900 hover:bg-stone-800 text-white"
+                              : course.status === "in-progress"
+                              ? "bg-[#f97316] hover:bg-[#ea580c] text-white"
+                              : "bg-stone-100 hover:bg-stone-200 text-stone-800"
+                          }`}
+                        >
+                          {course.status === "completed" ? (
+                            <>
+                              <Trophy size={13} className="text-amber-400" />
+                              <span>Review Track</span>
+                            </>
+                          ) : course.status === "in-progress" ? (
+                            <>
+                              <Play size={12} fill="currentColor" />
+                              <span>Resume Learning</span>
+                            </>
+                          ) : (
+                            <>
+                              <span>Start Course</span>
+                              <ArrowRight size={13} />
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
 
           {/* ================= 2-COLUMN GRID (WHITE GLASS SURFACES) ================= */}
           <div className="grid gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">

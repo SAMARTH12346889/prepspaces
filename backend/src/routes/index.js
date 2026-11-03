@@ -1,6 +1,8 @@
 import { Hono } from "hono";
 import { healthRouter } from "./health.js";
 import { courseRouter } from "./courseRoutes.js";
+import { authRouter } from "./authRoutes.js";
+import { progressRouter } from "./progressRoutes.js";
 
 export const apiRouter = new Hono();
 
@@ -16,6 +18,8 @@ apiRouter.get("/", (c) => {
     endpoints: {
       health: "/api/health",
       courses: "/api/courses",
+      auth: "/api/auth",
+      progress: "/api/progress",
     },
   });
 });
@@ -25,3 +29,5 @@ apiRouter.get("/", (c) => {
  */
 apiRouter.route("/health", healthRouter);
 apiRouter.route("/courses", courseRouter);
+apiRouter.route("/auth", authRouter);
+apiRouter.route("/progress", progressRouter);

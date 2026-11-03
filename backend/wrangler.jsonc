@@ -10,6 +10,12 @@
     "directory": "./content",
     "binding": "ASSETS"
   },
+  "kv_namespaces": [
+    {
+      "binding": "PREPSPACES_DB",
+      "id": "875fa82d4cc244ba838eddb8e16ff727"
+    }
+  ],
   "routes": [
     {
       "pattern": "api.prepspaces.com",
@@ -17,7 +23,8 @@
     }
   ],
   "vars": {
-    "ENVIRONMENT": "development"
+    "ENVIRONMENT": "development",
+    "GOOGLE_CLIENT_ID": "929583128715-vha62ek3tmooka7n67dhff3r77na4e0l.apps.googleusercontent.com"
   },
   "env": {
     "production": {
@@ -28,14 +35,22 @@
           "custom_domain": true
         }
       ],
+      "kv_namespaces": [
+        {
+          "binding": "PREPSPACES_DB",
+          "id": "875fa82d4cc244ba838eddb8e16ff727"
+        }
+      ],
       "vars": {
-        "ENVIRONMENT": "production"
+        "ENVIRONMENT": "production",
+        "GOOGLE_CLIENT_ID": "929583128715-vha62ek3tmooka7n67dhff3r77na4e0l.apps.googleusercontent.com"
       }
     },
     "staging": {
       "name": "prepspaces-backend-staging",
       "vars": {
-        "ENVIRONMENT": "staging"
+        "ENVIRONMENT": "staging",
+        "GOOGLE_CLIENT_ID": "929583128715-vha62ek3tmooka7n67dhff3r77na4e0l.apps.googleusercontent.com"
       }
     }
   }
