@@ -647,10 +647,25 @@ export default function ModuleNav({
               >
                 <span>{mod.name}</span>
                 {isCompleted && (
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" title="Completed" />
+                  <span
+                    className={`inline-flex items-center gap-0.5 rounded-md px-1.5 py-0.5 text-[9px] font-bold shrink-0 ${
+                      isActive
+                        ? "bg-white/20 text-white"
+                        : "bg-emerald-100 text-emerald-800 border border-emerald-200/80"
+                    }`}
+                  >
+                    <CheckCircle2 size={10} className={isActive ? "text-white" : "text-emerald-600"} />
+                    <span>Done</span>
+                  </span>
                 )}
                 {!isUnlocked && (
-                  <Lock size={11} className="opacity-60 shrink-0" title={requiresAuth ? "Registration Required" : "Prerequisite Required"} />
+                  <span
+                    className="inline-flex items-center gap-0.5 rounded-md bg-stone-100 text-stone-400 border border-stone-200 px-1.5 py-0.5 text-[9px] font-bold shrink-0"
+                    title={requiresAuth ? "Registration Required" : "Complete previous module to unlock"}
+                  >
+                    <Lock size={9} />
+                    <span>Locked</span>
+                  </span>
                 )}
               </button>
             );
