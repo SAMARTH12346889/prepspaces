@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { getCourseModules } from "../services/courseContentService";
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Sparkles, ChevronRight, ChevronLeft, CheckCircle2 } from "lucide-react";
-import { getLocalProgress, recordModuleProgress, PROGRESS_UPDATED_EVENT } from "../services/progressService";
+import { useNavigate, Link } from "react-router-dom";
+import { ArrowLeft, Sparkles, ChevronRight, ChevronLeft, LogOut, User } from "lucide-react";
+import { getLocalProgress, PROGRESS_UPDATED_EVENT } from "../services/progressService";
 import { useSafeBack } from "../utils/navigation";
 import { SHOW_NOVA_AI } from "../config/features";
 import { useAuth } from "../context/AuthContext";
@@ -155,7 +155,7 @@ export default function ModuleNav({
   aiTutorLabel,
 }) {
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
   const scrollRef = useRef(null);
   const initialModules =
     track === "devops"
@@ -196,16 +196,6 @@ export default function ModuleNav({
     window.addEventListener(PROGRESS_UPDATED_EVENT, updateCompleted);
     return () => window.removeEventListener(PROGRESS_UPDATED_EVENT, updateCompleted);
   }, [resolvedCourseId]);
-
-  const isCurrentCompleted = completedModuleIds.includes(currentModuleId);
-
-  const toggleComplete = () => {
-    const nextCompleted = !isCurrentCompleted;
-    recordModuleProgress(resolvedCourseId, {
-      moduleId: currentModuleId,
-      completed: nextCompleted,
-    });
-  };
 
   useEffect(() => {
     let isMounted = true;
@@ -290,26 +280,50 @@ export default function ModuleNav({
           </button>
         </div>
 
-        {/* Right Header Status / Brand or AI Tutor */}
-        <div className="flex items-center gap-2">
-        {/* Complete Toggle Button (Rendered ONLY for authenticated students) */}
-          {isAuthenticated && (
-            <button
-              type="button"
-              onClick={toggleComplete}
-              className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 sm:py-2 text-xs font-bold transition shadow-2xs active:scale-95 cursor-pointer ${
-                isCurrentCompleted
-                  ? "bg-emerald-50 border-emerald-300 text-emerald-700"
-                  : "bg-white/90 border-[#e7e3da] text-stone-600 hover:border-orange-300 hover:text-[#f97316]"
-              }`}
-              title={isCurrentCompleted ? "Module completed" : "Mark module as completed"}
+        {/* Right Header Status / Brand or User Actions */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          {isAuthenticated ? (
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <Link
+                to="/dashboard"
+                className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer"
+                title="Go to Dashboard"
+              >
+                {user?.picture ? (
+                  <img
+                    src={user.picture}
+                    alt=""
+                    className="w-4 h-4 sm:w-5 sm:h-5 rounded-full object-cover border border-orange-400"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#f97316] text-white flex items-center justify-center text-[10px] font-bold">
+                    {user?.name?.charAt(0)?.toUpperCase() || "S"}
+                  </div>
+                )}
+                <span className="hidden sm:inline font-bold">{user?.name?.split(" ")[0] || "Dashboard"}</span>
+              </Link>
+
+              <button
+                type="button"
+                onClick={logout}
+                title="Log Out"
+                aria-label="Log Out"
+                className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+              >
+                <LogOut size={13} />
+                <span className="hidden md:inline">Log Out</span>
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
             >
-              <CheckCircle2 size={14} className={isCurrentCompleted ? "text-emerald-500" : "text-stone-400"} />
-              <span className="hidden sm:inline">{isCurrentCompleted ? "Completed" : "Mark Complete"}</span>
-            </button>
+              Sign In
+            </Link>
           )}
 
-          
           {SHOW_NOVA_AI && onAiTutorToggle ? (
             <button
               type="button"

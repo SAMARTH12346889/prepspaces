@@ -147,6 +147,16 @@ async function runPlatformTests() {
   check('Voice system test suite passes all 150 assertions', voiceTestResult.status === 0 && voiceTestResult.stdout.includes('150 PASSED, 0 FAILED'));
 
   // ─────────────────────────────────────────────────────────────────
+  // TEST SUITE 5: LOGOUT ARCHITECTURE & MARK COMPLETE REMOVAL
+  // ─────────────────────────────────────────────────────────────────
+  console.log('\nTEST SUITE 5: Logout Architecture & Mark Complete Elimination');
+  const logoutTestResult = spawnSync('node', ['scripts/test_logout_and_ui_integrity.mjs'], {
+    cwd: projectRoot,
+    encoding: 'utf8'
+  });
+  check('Global logout and UI integrity test suite passes all 27 assertions', logoutTestResult.status === 0 && logoutTestResult.stdout.includes('FAILED: 0'));
+
+  // ─────────────────────────────────────────────────────────────────
   // SUMMARY
   // ─────────────────────────────────────────────────────────────────
   console.log('\n====================================================');

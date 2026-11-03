@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import {
   Mic,
   MicOff,
@@ -23,6 +24,8 @@ import {
   AlertCircle,
   Volume2,
   VolumeX,
+  LogOut,
+  User,
 } from "lucide-react";
 import { useVoiceEngine } from "../voice/VoiceProvider.jsx";
 import { useSafeBack } from "../utils/navigation";
@@ -94,6 +97,7 @@ class InterviewErrorBoundary extends React.Component {
 function InterviewRoomInner() {
   const navigate = useNavigate();
   const { goBack } = useSafeBack("/");
+  const { isAuthenticated, user, logout } = useAuth();
   const {
     engine,
     registerInterviewActions,
@@ -1031,7 +1035,18 @@ function InterviewRoomInner() {
               <span>Back to Dashboard</span>
             </button>
 
-            <Logo size="sm" suffix="Assessment" />
+            <div className="flex items-center gap-2.5">
+              <button
+                type="button"
+                onClick={logout}
+                title="Log Out"
+                className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
+              >
+                <LogOut size={13} />
+                <span>Log Out</span>
+              </button>
+              <Logo size="sm" suffix="Assessment" />
+            </div>
           </div>
 
           {/* Report Hero Card */}
@@ -1243,7 +1258,18 @@ function InterviewRoomInner() {
               <span>Back to Overview</span>
             </button>
 
-            <Logo size="sm" suffix="Interview" />
+            <div className="flex items-center gap-2.5">
+              <button
+                type="button"
+                onClick={logout}
+                title="Log Out"
+                className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
+              >
+                <LogOut size={13} />
+                <span>Log Out</span>
+              </button>
+              <Logo size="sm" suffix="Interview" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -1425,10 +1451,21 @@ function InterviewRoomInner() {
             </div>
           </div>
 
-          {/* Right Live indicator */}
-          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-emerald-600">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/80" />
-            Live Session
+          {/* Right Live indicator & Logout */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-emerald-600">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/80" />
+              Live Session
+            </div>
+            <button
+              type="button"
+              onClick={logout}
+              title="Leave and Log Out"
+              className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs cursor-pointer active:scale-95"
+            >
+              <LogOut size={13} />
+              <span className="hidden sm:inline">Log Out</span>
+            </button>
           </div>
         </div>
       </header>

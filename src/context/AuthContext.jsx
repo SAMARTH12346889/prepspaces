@@ -7,9 +7,10 @@ import {
   loginWithEmail as apiLoginWithEmail,
   registerWithEmail as apiRegisterWithEmail,
   logoutUser,
+  clearStoredSession,
 } from "../services/authService";
 import { syncLocalProgressToServer } from "../services/progressService";
-import { GOOGLE_CLIENT_ID } from "../config/auth";
+import { GOOGLE_CLIENT_ID, API_BASE_URL } from "../config/auth";
 
 const AuthContext = createContext(null);
 
@@ -125,22 +126,59 @@ export function AuthProvider({ children }) {
 
   // Logout
   const logout = useCallback(async () => {
+    const activeToken = token || getStoredToken();
+
+    // 1. Instantly clear tokens and user session from localStorage & sessionStorage
+    clearStoredSession();
     try {
-      await logoutUser(token);
-    } catch (err) {
-      console.warn("[Auth] Logout network error:", err);
-    } finally {
-      clearStoredSession();
-      setToken(null);
-      setUser(null);
-      // Clear user-specific storage
       localStorage.removeItem("prepspaces_auth_token");
       localStorage.removeItem("prepspaces_auth_user");
-      // Notify all tabs and components
+      sessionStorage.clear();
+    } catch (e) {
+      console.warn("[Auth] Storage clear error:", e);
+    }
+
+    // 2. Prevent Google Identity Services One-Tap / auto-login from silently restoring session
+    try {
+      if (typeof window !== "undefined" && window.google?.accounts?.id?.disableAutoSelect) {
+        window.google.accounts.id.disableAutoSelect();
+      }
+    } catch (e) {
+      console.warn("[Auth] Failed to disable Google auto-select:", e);
+    }
+
+    // 3. Clear in-memory React auth state
+    setToken(null);
+    setUser(null);
+
+    // 4. Notify cross-component & cross-tab listeners
+    try {
       window.dispatchEvent(new Event("storage"));
       window.dispatchEvent(new CustomEvent("prepspaces_auth_changed"));
-      // Hard redirect to the public landing page to guarantee clean state
+    } catch {}
+
+    // 5. Invalidate backend session token asynchronously
+    if (activeToken) {
+      try {
+        fetch(`${API_BASE_URL}/api/auth/logout`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${activeToken}`,
+            "Content-Type": "application/json",
+          },
+          keepalive: true,
+        }).catch(() => {});
+      } catch (err) {
+        console.warn("[Auth] Backend logout request error:", err);
+      }
+    }
+
+    // 6. Hard redirect to the public landing page to guarantee clean state
+    if (typeof window !== "undefined") {
       window.location.href = "/";
+      if (window.location.pathname === "/") {
+        window.location.reload();
+      }
     }
   }, [token]);
 

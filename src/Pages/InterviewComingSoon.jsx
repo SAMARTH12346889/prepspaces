@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import {
   Mic,
   Clock,
@@ -10,6 +11,8 @@ import {
   BarChart3,
   ChevronRight,
   MonitorCheck,
+  LogOut,
+  User,
 } from "lucide-react";
 import { useSafeBack } from "../utils/navigation";
 import Logo from "../Componets/Logo";
@@ -17,6 +20,7 @@ import Logo from "../Componets/Logo";
 export default function InterviewComingSoon() {
   const navigate = useNavigate();
   const { goBack } = useSafeBack("/");
+  const { isAuthenticated, user, logout } = useAuth();
 
   return (
     <div className="min-h-screen min-h-[100dvh] bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-6 sm:py-8 md:px-12 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col justify-between antialiased selection:bg-[#f97316] selection:text-white">
@@ -28,7 +32,7 @@ export default function InterviewComingSoon() {
 
       <div className="relative z-10 mx-auto max-w-4xl w-full flex-1 flex flex-col justify-center my-auto">
         {/* Top Header / Navigation - Perfectly aligned with card margins */}
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-8 flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={() => goBack("/")}
@@ -39,7 +43,48 @@ export default function InterviewComingSoon() {
             <span>Back to Overview</span>
           </button>
 
-          <Logo size="sm" suffix="Interview" />
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {isAuthenticated ? (
+              <div className="flex items-center gap-2">
+                <Link
+                  to="/dashboard"
+                  className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer"
+                  title="Go to Dashboard"
+                >
+                  {user?.picture ? (
+                    <img
+                      src={user.picture}
+                      alt=""
+                      className="w-5 h-5 rounded-full object-cover border border-orange-400"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <User size={14} className="text-[#f97316]" />
+                  )}
+                  <span className="hidden sm:inline font-bold">{user?.name?.split(" ")[0] || "Dashboard"}</span>
+                </Link>
+                <button
+                  type="button"
+                  onClick={logout}
+                  title="Log Out"
+                  aria-label="Log Out"
+                  className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+                >
+                  <LogOut size={14} />
+                  <span className="hidden sm:inline">Log Out</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+              >
+                <User size={14} className="text-[#f97316]" />
+                <span>Sign In</span>
+              </Link>
+            )}
+            <Logo size="sm" suffix="Interview" />
+          </div>
         </div>
 
         {/* Coming Soon Hero Card */}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCoursesCatalog } from "../services/courseContentService";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import {
   ArrowRight,
   ArrowLeft,
@@ -165,6 +166,7 @@ const learningTracks = [
 export default function Learning() {
   const navigate = useNavigate();
   const { goBack } = useSafeBack("/");
+  const { isAuthenticated, user, logout } = useAuth();
   const [courses, setCourses] = useState(learningTracks);
 
   useEffect(() => {
@@ -189,7 +191,7 @@ export default function Learning() {
 
       <div className="relative z-10 mx-auto max-w-6xl w-full">
         {/* Top Header / Back Button - Unified design language */}
-        <div className="mb-4 sm:mb-8 flex items-center justify-between">
+        <div className="mb-4 sm:mb-8 flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={() => goBack("/")}
@@ -200,7 +202,48 @@ export default function Learning() {
             <span>Back to Overview</span>
           </button>
 
-          <Logo size="sm" suffix="Study" />
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {isAuthenticated ? (
+              <div className="flex items-center gap-2">
+                <Link
+                  to="/dashboard"
+                  className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer"
+                  title="Go to Dashboard"
+                >
+                  {user?.picture ? (
+                    <img
+                      src={user.picture}
+                      alt=""
+                      className="w-5 h-5 rounded-full object-cover border border-orange-400"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <User size={14} className="text-[#f97316]" />
+                  )}
+                  <span className="hidden sm:inline font-bold">{user?.name?.split(" ")[0] || "Dashboard"}</span>
+                </Link>
+                <button
+                  type="button"
+                  onClick={logout}
+                  title="Log Out"
+                  aria-label="Log Out"
+                  className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-white/90 px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-stone-600 hover:text-red-600 hover:border-red-200 transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+                >
+                  <LogOut size={14} />
+                  <span className="hidden sm:inline">Log Out</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3 py-1.5 sm:py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-2xs backdrop-blur-md cursor-pointer active:scale-95"
+              >
+                <User size={14} className="text-[#f97316]" />
+                <span>Sign In</span>
+              </Link>
+            )}
+            <Logo size="sm" suffix="Study" />
+          </div>
         </div>
 
         {/* Hero Section */}
