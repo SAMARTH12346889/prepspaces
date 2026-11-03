@@ -802,7 +802,7 @@ export default function Dashboard() {
                   Student Account & Profile
                 </h2>
                 <p className="text-xs sm:text-sm text-stone-500 mt-1">
-                  Manage your authenticated session, credentials, and synchronized database storage.
+                  Manage your authenticated session and account settings.
                 </p>
               </div>
 
@@ -827,67 +827,6 @@ export default function Dashboard() {
                     <span className="inline-flex items-center gap-1 mt-1 rounded-full bg-orange-50 border border-orange-200 px-2.5 py-0.5 text-[10px] font-bold text-[#ea580c]">
                       Verified Student Scholar
                     </span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
-                    <span className="font-semibold text-stone-500">Authentication Method</span>
-                    <p className="font-bold text-stone-900 mt-0.5">{authProviderLabel}</p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
-                    <span className="font-semibold text-stone-500">Account Created</span>
-                    <p className="font-bold text-stone-900 mt-0.5">{accountCreatedDate}</p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
-                    <span className="font-semibold text-stone-500">Session Status</span>
-                    <p className="font-bold text-emerald-600 mt-0.5 flex items-center gap-1">
-                      <CheckCircle2 size={13} /> Active & Secured
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
-                    <span className="font-semibold text-stone-500">Email Verification</span>
-                    <p className="font-bold text-stone-900 mt-0.5">{isGoogle ? "Verified via Google" : "Verified"}</p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
-                    <span className="font-semibold text-stone-500">Cloud Sync Status</span>
-                    <p className="font-bold text-stone-900 mt-0.5 flex items-center gap-1.5">
-                      {syncStatus === "synced" && (
-                        <>
-                          <CheckCircle2 size={13} className="text-emerald-500" />
-                          <span className="text-emerald-700">Cloud Synchronized</span>
-                        </>
-                      )}
-                      {syncStatus === "syncing" && (
-                        <>
-                          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                          <span className="text-amber-700">Synchronizing...</span>
-                        </>
-                      )}
-                      {syncStatus === "failed" && (
-                        <>
-                          <AlertCircle size={13} className="text-rose-500" />
-                          <span className="text-rose-700">Sync Offline (Using Cache)</span>
-                        </>
-                      )}
-                      {syncStatus === "local" && (
-                        <>
-                          <span className="w-2 h-2 rounded-full bg-stone-400" />
-                          <span className="text-stone-700">Local Storage Only</span>
-                        </>
-                      )}
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-100">
-                    <span className="font-semibold text-stone-500">Account ID</span>
-                    <p className="font-mono text-[11px] font-semibold text-stone-700 mt-0.5 truncate">
-                      {user?.id || "usr_student"}
-                    </p>
                   </div>
                 </div>
 
