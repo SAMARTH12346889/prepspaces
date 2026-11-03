@@ -76,6 +76,13 @@ const interviewRoomContent = fs.readFileSync(interviewRoomPath, "utf8");
 assert(interviewRoomContent.includes("useAuth"), "InterviewRoom.jsx imports and uses useAuth");
 assert(interviewRoomContent.includes("logout()") || interviewRoomContent.includes("onClick={logout}"), "InterviewRoom.jsx has Logout button calling logout");
 
+// 4b. Verify Landingpage.jsx Sidebar & Header Dashboard Guard
+console.log("\nSUITE 4b: Landingpage.jsx Auth-Guarded Dashboard Controls");
+const landingPath = path.join(baseDir, "src/Pages/Landingpage.jsx");
+const landingContent = fs.readFileSync(landingPath, "utf8");
+assert(landingContent.includes("isAuthenticated && ("), "Landingpage.jsx guards sidebar Dashboard link behind isAuthenticated");
+assert(!landingContent.includes('<Link to="/dashboard" onClick={() => setSidebarOpen(false)}'), "Landingpage.jsx does NOT render unconditional sidebar Dashboard link");
+
 // 5. Verify AuthContext.jsx Resilient Logout
 console.log("\nSUITE 5: AuthContext Secure Logout Architecture");
 const authContextPath = path.join(baseDir, "src/context/AuthContext.jsx");

@@ -165,7 +165,7 @@ export default function Landingpage() {
             <div
               className="flex items-center cursor-pointer py-1"
               onClick={() => navigate("/")}
-              title="PrepSpaces Dashboard"
+              title="PrepSpaces"
             >
               <Logo size="md" />
             </div>
@@ -197,14 +197,17 @@ export default function Landingpage() {
               <span>Overview</span>
             </button>
 
-            <Link
-              to="/dashboard"
-              onClick={() => setSidebarOpen(false)}
-              className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer"
-            >
-              <Sliders size={18} className="text-stone-400" />
-              <span>Dashboard</span>
-            </Link>
+            {/* Dashboard: only visible when authenticated */}
+            {isAuthenticated && (
+              <Link
+                to="/dashboard"
+                onClick={() => setSidebarOpen(false)}
+                className="flex w-full items-center gap-3 rounded-2xl px-4 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-200/50 hover:text-stone-900 transition-all cursor-pointer"
+              >
+                <Sliders size={18} className="text-stone-400" />
+                <span>Dashboard</span>
+              </Link>
+            )}
 
             <Link
               to="/learning"
