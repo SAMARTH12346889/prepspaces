@@ -5,7 +5,6 @@ import { fileURLToPath } from "url";
 import {
   computeCourseAccessState,
   validateAndCompleteModule,
-  GUEST_MAX_FREE_MODULES,
 } from "../backend/src/services/unlockingService.js";
 import {
   migrateGuestToUser,
@@ -18,7 +17,7 @@ const __dirname = path.dirname(__filename);
 const baseDir = path.resolve(__dirname, "..");
 
 console.log("\n====================================================");
-console.log(" PREPSPACES SEQUENTIAL UNLOCKING QA TEST SUITE");
+console.log(" PREPSPACES UNRESTRICTED COURSE ACCESS QA TEST SUITE");
 console.log("====================================================\n");
 
 let passed = 0;
@@ -61,77 +60,51 @@ async function runSequentialTests() {
   const guestUser = { isGuest: true, guestId: `guest_test_${Date.now()}` };
   const authStudent = { isGuest: false, userId: `usr_student_${Date.now()}` };
 
-  // 1. Initial State: First 6 Modules Unlocked for Guests
-  console.log("SUITE 1: Backend Authoritative Initial Access State (First 6 Modules Unlocked)");
+  // 1. Initial State: ALL Modules Unlocked for Guests and Users
+  console.log("SUITE 1: 100% Unrestricted Module Access (All 24 Modules Unlocked)");
   const initialGuest = await computeCourseAccessState("test-course", guestUser, mockEnv, reqUrl);
   check("Module 1 is unlocked initially", initialGuest.modules[0].isUnlocked === true);
-  check("Module 2 is unlocked initially", initialGuest.modules[1].isUnlocked === true);
-  check("Module 3 is unlocked initially", initialGuest.modules[2].isUnlocked === true);
-  check("Module 4 is unlocked initially", initialGuest.modules[3].isUnlocked === true);
-  check("Module 5 is unlocked initially", initialGuest.modules[4].isUnlocked === true);
-  check("Module 6 is unlocked initially", initialGuest.modules[5].isUnlocked === true);
-  check("Module 7 is strictly locked for guest", initialGuest.modules[6].isUnlocked === false);
-  check("Module 7 requires auth for guest", initialGuest.modules[6].requiresAuth === true);
+  check("Module 5 is unlocked directly", initialGuest.modules[4].isUnlocked === true);
+  check("Module 7 is unlocked directly without login", initialGuest.modules[6].isUnlocked === true);
+  check("Module 8 is unlocked directly", initialGuest.modules[7].isUnlocked === true);
+  check("Module 10 is unlocked directly", initialGuest.modules[9].isUnlocked === true);
+  check("Module 24 is unlocked directly", initialGuest.modules[23].isUnlocked === true);
+  check("No module requires authentication to unlock", initialGuest.modules.every((m) => m.requiresAuth === false));
+  check("All 24 modules are unlocked", initialGuest.modules.every((m) => m.isUnlocked === true));
 
-  // 2. Guest Journey: Free Learning across Modules 1 to 6
-  console.log("\nSUITE 2: Completion of First 6 Modules");
-  for (let i = 1; i <= 5; i++) {
-    const res = await validateAndCompleteModule("test-course", `mod-${i}`, {}, guestUser, mockEnv, reqUrl);
-    check(`Module ${i} successfully completed`, res.success === true);
-  }
+  // 2. Direct Completion Without Sequential Prerequisites
+  console.log("\nSUITE 2: Direct Access & Completion in Any Order");
+  const mod10Complete = await validateAndCompleteModule("test-course", "mod-10", {}, guestUser, mockEnv, reqUrl);
+  check("Module 10 can be completed directly without completing modules 1-9", mod10Complete.success === true);
+  check("No compulsory auth prompt returned", mod10Complete.promptAuthNow === false);
 
-  // 3. Guest Completes Module 6 -> Compulsory Auth Enforced
-  console.log("\nSUITE 3: Module 6 Completion & Compulsory Auth Gate");
-  const mod6Complete = await validateAndCompleteModule("test-course", "mod-6", {}, guestUser, mockEnv, reqUrl);
-  check("Module 6 completion succeeds", mod6Complete.success === true);
-  check("promptAuthNow flag is returned", mod6Complete.promptAuthNow === true);
-  check("Next module is held at null until authentication", mod6Complete.nextUnlockedModule === null);
+  const mod24Complete = await validateAndCompleteModule("test-course", "mod-24", {}, guestUser, mockEnv, reqUrl);
+  check("Module 24 can be completed directly", mod24Complete.success === true);
 
-  const mod7DirectAttempt = await validateAndCompleteModule("test-course", "mod-7", {}, guestUser, mockEnv, reqUrl);
-  check("Direct API attempt to complete Module 7 without login rejected (HTTP 403)", mod7DirectAttempt.success === false && mod7DirectAttempt.error === "auth_required");
-
-  // 4. Account Sign In & Safe Migration
-  console.log("\nSUITE 4: Guest to Authenticated Progress Migration");
-  const migrationRes = await migrateGuestToUser(guestUser.guestId, authStudent.userId, mockEnv);
-  check("Migration succeeds", migrationRes.success === true);
-  check("1 course migrated into account", migrationRes.migratedCourses === 1);
-
-  // 5. Module 7 Unlocking Post-Login
-  console.log("\nSUITE 5: Immediate Post-Login Module 7 Access");
+  // 3. Authenticated Access & Progress
+  console.log("\nSUITE 3: Authenticated Free Access & Progress Preservation");
   const authState = await computeCourseAccessState("test-course", authStudent, mockEnv, reqUrl);
-  check("Authenticated user retains 6 completed modules", authState.completedModuleIds.length === 6);
-  check("Module 7 is now UNLOCKED for authenticated student", authState.modules[6].isUnlocked === true);
-  check("Module 7 requiresAuth is now false", authState.modules[6].requiresAuth === false);
+  check("Authenticated user has all 24 modules unlocked", authState.modules.every((m) => m.isUnlocked === true));
+  check("Authenticated user requiresAuth is false for all modules", authState.modules.every((m) => m.requiresAuth === false));
 
-  // 6. Sequential Progress Through Module 8+
-  console.log("\nSUITE 6: Subsequent Learning (Module 7 -> 8)");
-  const mod7Complete = await validateAndCompleteModule("test-course", "mod-7", {}, authStudent, mockEnv, reqUrl);
-  check("Authenticated student completes Module 7", mod7Complete.success === true);
-
-  const stateAfter7 = await computeCourseAccessState("test-course", authStudent, mockEnv, reqUrl);
-  check("Module 8 is now unlocked", stateAfter7.modules[7].isUnlocked === true);
-
-  // 7. UI Integrity Audit
-  console.log("\nSUITE 7: Global Reusable Service & UI Integrity");
-  const unlockingServicePath = path.join(baseDir, "src/services/unlockingService.js");
+  // 4. UI Cleanliness Audit (No Lock Barriers or Lock Icons)
+  console.log("\nSUITE 4: UI Integrity (Lock Barriers & Lock Icons Eliminated)");
   const moduleNavPath = path.join(baseDir, "src/Componets/ModuleNav.jsx");
-  const cachingModulePath = path.join(baseDir, "src/Componets/SystemDesignCaching.jsx");
-  const replicationModulePath = path.join(baseDir, "src/Componets/SystemDesignReplication.jsx");
-  const unlockingContent = fs.readFileSync(unlockingServicePath, "utf8");
-  const moduleNavContent = fs.readFileSync(moduleNavPath, "utf8");
-  const cachingContent = fs.readFileSync(cachingModulePath, "utf8");
-  const replicationContent = fs.readFileSync(replicationModulePath, "utf8");
+  const cloudPath = path.join(baseDir, "src/Componets/CloudComputing.jsx");
+  const guardPath = path.join(baseDir, "src/Componets/CourseAccessGuard.jsx");
+  const cachingPath = path.join(baseDir, "src/Componets/SystemDesignCaching.jsx");
 
-  check("unlockingService.js exports getCourseAccess", unlockingContent.includes("getCourseAccess"));
-  check("unlockingService.js exports completeModule", unlockingContent.includes("completeModule"));
-  check("unlockingService.js exports autoCompleteModule", unlockingContent.includes("autoCompleteModule"));
-  check("unlockingService.js exports migrateGuestProgress", unlockingContent.includes("migrateGuestProgress"));
-  check("ModuleNav.jsx imports unlockingService", moduleNavContent.includes("unlockingService"));
-  check("ModuleNav.jsx auto-completes on user engagement", moduleNavContent.includes("autoCompleteModule"));
-  check("ModuleNav.jsx handles compulsory auth modal", moduleNavContent.includes("Create Account to Unlock Module 7"));
-  check("SystemDesignCaching.jsx has locked roadmap lessons for guests", cachingContent.includes("isLessonLocked"));
-  check("SystemDesignReplication.jsx triggers auto-completion on lesson clicks", replicationContent.includes("autoCompleteModule"));
-  check("SystemDesignReplication.jsx links directly to Module 8", replicationContent.includes("/learning/system-design/storage"));
+  const moduleNavContent = fs.readFileSync(moduleNavPath, "utf8");
+  const cloudContent = fs.readFileSync(cloudPath, "utf8");
+  const guardContent = fs.readFileSync(guardPath, "utf8");
+  const cachingContent = fs.readFileSync(cachingPath, "utf8");
+
+  check("ModuleNav.jsx removed Direct URL Barrier", !moduleNavContent.includes("DIRECT URL BARRIER"));
+  check("ModuleNav.jsx removed Compulsory Auth Modal", !moduleNavContent.includes("Create Account to Unlock Module 7"));
+  check("ModuleNav.jsx module tabs have no lock icons", !moduleNavContent.includes("<Lock size={11}"));
+  check("CourseAccessGuard.jsx is unrestricted pass-through", guardContent.includes("return children"));
+  check("CloudComputing.jsx sidebar has no locked badges", !cloudContent.includes("<span>Locked</span>"));
+  check("SystemDesignCaching.jsx has no locked roadmap lessons", !cachingContent.includes("isLessonLocked"));
 
   console.log("\n====================================================");
   console.log(`TOTAL TESTS: ${passed + failed} | PASSED: ${passed} | FAILED: ${failed}`);

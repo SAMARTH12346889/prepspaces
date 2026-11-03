@@ -375,119 +375,7 @@ export default function ModuleNav({
   };
 
   // =========================================================================
-  // DIRECT URL BARRIER: If current module is locked (Module 7+ for guest), show barrier
-  // =========================================================================
-  if (!isCurrentUnlocked) {
-    if (isCurrentAuthRequired && !isAuthenticated) {
-      return (
-        <div className="fixed inset-0 z-50 bg-[#f6f4ee] flex items-center justify-center p-4 sm:p-6 overflow-y-auto antialiased">
-          <div className="relative z-10 max-w-lg w-full rounded-3xl border border-[#e7e3da] bg-white/95 p-6 sm:p-9 text-center shadow-xl backdrop-blur-xl my-auto">
-            <div className="mb-6 flex justify-center">
-              <Logo size="md" />
-            </div>
-
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-[#ea580c] shadow-sm">
-              <Lock size={26} />
-            </div>
-
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-50 border border-orange-200/80 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-3">
-              <Sparkles size={13} className="text-[#f97316]" />
-              <span>Registration Required</span>
-            </div>
-
-            <h2 className="text-xl sm:text-2xl font-black text-[#18181b] tracking-tight">
-              Unlock Module {currentOrder}: {currentModAccess?.name || "Advanced Module"}
-            </h2>
-
-            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-stone-600">
-              You have completed the first 6 modules as an anonymous guest! To unlock Module 7 and preserve your learning progress, please sign in or create your free PrepSpaces account.
-            </p>
-
-            <div className="mt-6 flex flex-col gap-2.5">
-              <Link
-                to="/login"
-                state={{ from: location.pathname }}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] py-3 text-xs sm:text-sm font-bold text-white shadow-md transition hover:bg-[#ea580c] active:scale-95 cursor-pointer"
-              >
-                <User size={16} />
-                <span>Sign In to Unlock Module {currentOrder}</span>
-                <ArrowRight size={15} />
-              </Link>
-
-              <Link
-                to="/register"
-                state={{ from: location.pathname }}
-                className="flex w-full items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white py-3 text-xs sm:text-sm font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs active:scale-95 cursor-pointer"
-              >
-                <span>Create Free Account</span>
-              </Link>
-
-              <button
-                type="button"
-                onClick={() => navigate("/learning")}
-                className="mt-2 text-xs font-semibold text-stone-500 hover:text-stone-800 transition cursor-pointer"
-              >
-                Return to Curriculum Overview
-              </button>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    // Sequential Prerequisite Barrier
-    const currentUnlockedMod = modules.find((m) => m.id === accessState.currentUnlockedModule);
-    return (
-      <div className="fixed inset-0 z-50 bg-[#f6f4ee] flex items-center justify-center p-4 sm:p-6 overflow-y-auto antialiased">
-        <div className="relative z-10 max-w-md w-full rounded-3xl border border-[#e7e3da] bg-white/95 p-6 sm:p-8 text-center shadow-xl backdrop-blur-xl my-auto">
-          <div className="mb-6 flex justify-center">
-            <Logo size="md" />
-          </div>
-
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-stone-100 text-stone-500 shadow-sm">
-            <Lock size={26} />
-          </div>
-
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-stone-600 mb-3">
-            <span>Sequential Learning Required</span>
-          </div>
-
-          <h2 className="text-xl font-black text-[#18181b] tracking-tight">
-            Module {currentOrder} is Locked
-          </h2>
-
-          <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-stone-600">
-            PrepSpaces courses follow a strict sequential curriculum. Please complete the previous module to unlock this content.
-          </p>
-
-          <div className="mt-6 flex flex-col gap-2.5">
-            {currentUnlockedMod && currentUnlockedMod.route && (
-              <button
-                type="button"
-                onClick={() => navigate(currentUnlockedMod.route)}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] py-3 text-xs sm:text-sm font-bold text-white shadow-md transition hover:bg-[#ea580c] active:scale-95 cursor-pointer"
-              >
-                <span>Continue from {currentUnlockedMod.name}</span>
-                <ArrowRight size={15} />
-              </button>
-            )}
-
-            <button
-              type="button"
-              onClick={() => navigate("/learning")}
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white py-2.5 text-xs font-semibold text-stone-700 hover:bg-stone-50 transition cursor-pointer"
-            >
-              <ArrowLeft size={14} />
-              <span>Back to All Courses</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // =========================================================================
-  // NORMAL RENDER (CURRENT MODULE IS UNLOCKED)
+  // NORMAL RENDER (ALL MODULES ARE UNRESTRICTED & ACCESSIBLE)
   // =========================================================================
   return (
     <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3">
@@ -613,35 +501,18 @@ export default function ModuleNav({
           className="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto rounded-xl sm:rounded-2xl border border-[#e7e3da] bg-white/90 p-1 sm:p-1.5 shadow-2xs backdrop-blur-md scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
-          {modules.map((mod, idx) => {
+          {modules.map((mod) => {
             const isActive = mod.id === currentModuleId;
-            const isFirstSix = idx < 6;
-            const isModuleSeven = idx === 6;
-            const prevModId = idx > 0 ? modules[idx - 1]?.id : null;
-            const prevCompleted = prevModId ? completedModuleIds.includes(prevModId) : false;
-
-            const modAccess = accessState?.modules?.find((m) => m.id === mod.id);
-            const isUnlocked = modAccess
-              ? modAccess.isUnlocked
-              : (isFirstSix || (isAuthenticated && (isModuleSeven || prevCompleted)));
             const isCompleted = completedModuleIds.includes(mod.id);
-            const requiresAuth = modAccess ? Boolean(modAccess.requiresAuth) : (!isFirstSix && !isAuthenticated);
 
             return (
               <button
                 key={mod.id}
                 data-active={isActive ? "true" : undefined}
-                onClick={async () => {
-                  if (idx === currentIdx + 1 && !completedModuleIds.includes(currentModuleId)) {
-                    await autoCompleteModule(resolvedCourseId, currentModuleId);
-                  }
-                  navigate(mod.route);
-                }}
+                onClick={() => navigate(mod.route)}
                 className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] inline-flex items-center gap-1.5 ${
                   isActive
                     ? "bg-[#f97316] text-white shadow-sm shadow-orange-500/25"
-                    : !isUnlocked
-                    ? "text-stone-400 bg-stone-100/40 hover:bg-stone-100/80"
                     : "text-stone-600 hover:bg-stone-100/80 hover:text-stone-900"
                 }`}
               >
@@ -658,15 +529,6 @@ export default function ModuleNav({
                     <span>Done</span>
                   </span>
                 )}
-                {!isUnlocked && (
-                  <span
-                    className="inline-flex items-center gap-0.5 rounded-md bg-stone-100 text-stone-400 border border-stone-200 px-1.5 py-0.5 text-[9px] font-bold shrink-0"
-                    title={requiresAuth ? "Registration Required" : "Complete previous module to unlock"}
-                  >
-                    <Lock size={9} />
-                    <span>Locked</span>
-                  </span>
-                )}
               </button>
             );
           })}
@@ -681,56 +543,6 @@ export default function ModuleNav({
         </button>
       </div>
 
-      {/* COMPULSORY AUTH MODAL (POPS UP WHEN GUEST COMPLETES MODULE 6) */}
-      {showAuthModal && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 antialiased">
-          <div className="relative max-w-md w-full rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 text-center shadow-2xl">
-            <button
-              onClick={() => setShowAuthModal(false)}
-              className="absolute top-4 right-4 p-1 rounded-lg text-stone-400 hover:text-stone-700 transition"
-              aria-label="Close modal"
-            >
-              <X size={18} />
-            </button>
-
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-[#ea580c]">
-              <Sparkles size={26} />
-            </div>
-
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-50 border border-orange-200/80 px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
-              <span>Milestone: Modules 1–6 Completed!</span>
-            </div>
-
-            <h3 className="text-xl font-black text-stone-900 tracking-tight">
-              Create Account to Unlock Module 7
-            </h3>
-
-            <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
-              Congratulations! You've completed the first 6 modules as a guest. To unlock Module 7 and save your progress permanently, sign in or create your free account.
-            </p>
-
-            <div className="mt-6 flex flex-col gap-2.5">
-              <Link
-                to="/login"
-                state={{ from: nextMod?.route || location.pathname }}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#f97316] py-3 text-xs sm:text-sm font-bold text-white shadow-md transition hover:bg-[#ea580c] cursor-pointer"
-              >
-                <User size={15} />
-                <span>Continue to Sign In / Register</span>
-                <ArrowRight size={14} />
-              </Link>
-
-              <button
-                type="button"
-                onClick={() => setShowAuthModal(false)}
-                className="text-xs font-semibold text-stone-500 hover:text-stone-800 transition py-1 cursor-pointer"
-              >
-                Continue Reviewing Module 6
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+      </div>
   );
 }

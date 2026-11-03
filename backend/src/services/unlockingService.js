@@ -62,44 +62,11 @@ export async function computeCourseAccessState(courseId, userOrGuest, env, reque
 
   for (let i = 0; i < modules.length; i++) {
     const mod = modules[i];
-    const isFirstSix = i < GUEST_MAX_FREE_MODULES; // Modules 1–6 (indices 0–5) are unlocked by default
-    const prevMod = i > 0 ? modules[i - 1] : null;
-    const prevCompleted = i === 0 || (prevMod && completedSet.has(prevMod.id));
-
-    // Module index 6 corresponds to Module 7 (1-indexed)
-    const exceedsGuestLimit = isGuest && i >= GUEST_MAX_FREE_MODULES;
-
-    let unlocked = false;
-    let requiresAuth = false;
-
-    if (isFirstSix) {
-      // First 6 modules (Modules 1 to 6) are freely unlocked for everyone (guests and users)
-      unlocked = true;
-    } else if (exceedsGuestLimit) {
-      // Module 7 onwards strictly requires an account for guests
-      unlocked = false;
-      requiresAuth = true;
-      if (!authRequiredForNext) {
-        authRequiredForNext = true;
-      }
-    } else {
-      // Authenticated students:
-      // Module 7 is ALWAYS unlocked for authenticated students.
-      // Modules after 7 (Module 8, 9, etc.) unlock sequentially as previous module is completed.
-      if (i === GUEST_MAX_FREE_MODULES) {
-        unlocked = true;
-      } else {
-        unlocked = Boolean(prevMod && completedSet.has(prevMod.id));
-      }
-    }
-
     const isCompleted = completedSet.has(mod.id);
 
-    if (unlocked) {
-      unlockedModuleIds.push(mod.id);
-      if (!isCompleted && !currentUnlockedModule) {
-        currentUnlockedModule = mod.id;
-      }
+    unlockedModuleIds.push(mod.id);
+    if (!isCompleted && !currentUnlockedModule) {
+      currentUnlockedModule = mod.id;
     }
 
     moduleStates.push({
@@ -108,8 +75,8 @@ export async function computeCourseAccessState(courseId, userOrGuest, env, reque
       route: mod.route,
       order: i + 1,
       isCompleted,
-      isUnlocked: unlocked,
-      requiresAuth,
+      isUnlocked: true,
+      requiresAuth: false,
     });
   }
 
@@ -160,17 +127,6 @@ export async function validateAndCompleteModule(courseId, moduleId, activityData
     };
   }
 
-  // If guest attempts to complete module beyond limit
-  if (isGuest && targetIndex >= GUEST_MAX_FREE_MODULES) {
-    return {
-      success: false,
-      error: "auth_required",
-      message: "Creating a free PrepSpaces account is required to unlock and complete Module 7 and beyond.",
-      requiresAuth: true,
-      status: 403,
-    };
-  }
-
   // Fetch current completed modules
   let progressRecord = null;
   if (isGuest) {
@@ -181,37 +137,17 @@ export async function validateAndCompleteModule(courseId, moduleId, activityData
 
   const completedSet = new Set(progressRecord?.completedModuleIds || []);
 
-  // For Module 8 and beyond (targetIndex > GUEST_MAX_FREE_MODULES),
-  // enforce that the immediately prior module in sequence is completed
-  if (targetIndex > GUEST_MAX_FREE_MODULES) {
-    const priorMod = modules[targetIndex - 1];
-    if (!completedSet.has(priorMod.id)) {
-      return {
-        success: false,
-        error: "prerequisite_missing",
-        message: `You must complete Module ${targetIndex} (${priorMod.name}) before completing this module.`,
-        requiredModuleId: priorMod.id,
-        status: 400,
-      };
-    }
-  }
-
-  // Mark module as completed
+  // Mark module as completed (free unrestricted navigation)
   completedSet.add(moduleId);
   const completedArray = Array.from(completedSet);
   const totalMods = modules.length || 24;
   const pct = Math.min(100, Math.round((completedArray.length / totalMods) * 100));
 
-  // Determine next accessible module
+  // Next module in sequence
   const nextIndex = targetIndex + 1;
   const nextMod = nextIndex < modules.length ? modules[nextIndex] : null;
-  let nextUnlockedModule = nextMod?.id || moduleId;
-  let promptAuthNow = false;
-
-  if (isGuest && nextIndex >= GUEST_MAX_FREE_MODULES) {
-    nextUnlockedModule = null; // Locked until login
-    promptAuthNow = true;
-  }
+  const nextUnlockedModule = nextMod?.id || moduleId;
+  const promptAuthNow = false;
 
   const updatedRecord = {
     courseId,

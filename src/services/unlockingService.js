@@ -101,25 +101,12 @@ export async function autoCompleteModule(courseId, moduleId) {
 }
 
 /**
- * Immediate synchronous access evaluator for rapid UI rendering without flashing.
- * Modules 1–6 (indices 0–5) are freely unlocked for all learners.
- * Module 7 (index 6) is immediately unlocked for authenticated students.
- * Module 8+ (index > 6) unlocks sequentially as previous modules complete.
+ * Synchronous access evaluator: All modules across all tracks are freely accessible.
  */
 export function getInitialModuleAccess(moduleIndex, isAuthenticated = false) {
-  const isFirstSix = moduleIndex >= 0 && moduleIndex < 6;
-  if (isFirstSix) {
-    return { isUnlocked: true, requiresAuth: false };
-  }
-  if (moduleIndex === 6) {
-    return {
-      isUnlocked: Boolean(isAuthenticated),
-      requiresAuth: !isAuthenticated,
-    };
-  }
   return {
-    isUnlocked: false,
-    requiresAuth: !isAuthenticated,
+    isUnlocked: true,
+    requiresAuth: false,
   };
 }
 
