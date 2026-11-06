@@ -36,12 +36,12 @@
     "id": "deep-learning",
     "courseId": "ai-engineering",
     "index": 4,
-    "name": "4. Deep Learning & Neural Networks (PyTorch)",
+    "name": "4. Deep Learning & Neural Network Engineering",
     "route": "/learning/ai/deep-learning",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "questionCount": 8,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "computer-vision",

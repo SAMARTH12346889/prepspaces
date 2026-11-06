@@ -144,7 +144,7 @@ export const AI_MODULES = [
   { id: "foundations", name: "1. AI Foundations & Python for AI", route: "/learning/ai" },
   { id: "math-for-ai", name: "2. Mathematics for AI & Machine Learning", route: "/learning/ai/math" },
   { id: "machine-learning", name: "3. Machine Learning Fundamentals", route: "/learning/ai/machine-learning" },
-  { id: "deep-learning", name: "4. Deep Learning & Neural Networks", route: "/learning/ai/deep-learning" },
+  { id: "deep-learning", name: "4. Deep Learning & Neural Network Engineering", route: "/learning/ai/deep-learning" },
   { id: "computer-vision", name: "5. Computer Vision & CNNs", route: "/learning/ai/computer-vision" },
   { id: "nlp", name: "6. NLP & Word Embeddings", route: "/learning/ai/nlp" },
   { id: "transformers", name: "7. Transformer Architecture & Attention", route: "/learning/ai/transformers" },

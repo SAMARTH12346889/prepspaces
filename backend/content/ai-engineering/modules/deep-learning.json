@@ -1,0 +1,71 @@
+{
+  "id": "deep-learning",
+  "courseId": "ai-engineering",
+  "index": 4,
+  "name": "4. Deep Learning & Neural Network Engineering",
+  "route": "/learning/ai/deep-learning",
+  "componentName": "AIDeepLearning",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of an activation function in an MLP?",
+      "options": ["To store model weights", "To introduce nonlinearity", "To split the dataset", "To calculate accuracy"],
+      "correctIndex": 1,
+      "explanation": "Without non-linear activations, stacking multiple linear layers collapses algebraically into a single linear matrix transformation."
+    },
+    {
+      "id": 2,
+      "question": "Which algorithm calculates gradients through a neural network?",
+      "options": ["Normalization", "Backpropagation", "Data augmentation", "Clustering"],
+      "correctIndex": 1,
+      "explanation": "Backpropagation applies the multivariate calculus chain rule to propagate error derivatives backward through the computational graph."
+    },
+    {
+      "id": 3,
+      "question": "Which PyTorch function calculates gradients from a loss?",
+      "options": ["optimizer.step()", "model.eval()", "loss.backward()", "torch.save()"],
+      "correctIndex": 2,
+      "explanation": "Calling loss.backward() triggers PyTorch Autograd to traverse the backward graph and accumulate partial derivatives into each parameter's .grad attribute."
+    },
+    {
+      "id": 4,
+      "question": "Which loss is a standard starting point for multiclass classification?",
+      "options": ["MSELoss", "CrossEntropyLoss", "L1Loss", "Hinge-free accuracy"],
+      "correctIndex": 1,
+      "explanation": "CrossEntropyLoss measures negative log-likelihood over categorical distributions and expects raw unnormalized logits."
+    },
+    {
+      "id": 5,
+      "question": "What is overfitting in deep neural networks?",
+      "options": [
+        "The model cannot learn the training data",
+        "The model memorizes training patterns and generalizes poorly",
+        "The optimizer is missing",
+        "All gradients are zero"
+      ],
+      "correctIndex": 1,
+      "explanation": "Overfitting occurs when high model capacity leads to memorizing sample noise, manifested by near-zero training loss but high validation error."
+    },
+    {
+      "id": 6,
+      "question": "What does optimizer.step() do?",
+      "options": ["Loads training data", "Calculates predictions", "Updates parameters using gradients", "Splits the dataset"],
+      "correctIndex": 2,
+      "explanation": "optimizer.step() updates weights and biases using the gradients computed during loss.backward() according to the optimization algorithm (e.g., AdamW)."
+    },
+    {
+      "id": 7,
+      "question": "Why do we call optimizer.zero_grad()?",
+      "options": ["To clear accumulated gradients", "To delete weights", "To reset training data", "To improve test accuracy automatically"],
+      "correctIndex": 0,
+      "explanation": "PyTorch accumulates gradients by default; calling optimizer.zero_grad() prevents gradients from prior batches from distorting the current update."
+    },
+    {
+      "id": 8,
+      "question": "What does high training accuracy and much lower validation accuracy suggest?",
+      "options": ["Likely overfitting", "Guaranteed underfitting", "Perfect generalization", "No activation functions"],
+      "correctIndex": 0,
+      "explanation": "A large generalization gap (high train accuracy, low validation accuracy) is the textbook indicator of model overfitting."
+    }
+  ]
+}

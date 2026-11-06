@@ -66,6 +66,11 @@ const routeMeta = {
     description: "Master supervised regression, classification algorithms, unsupervised clustering, feature engineering pipelines, cross-validation, and production model evaluation.",
     canonical: `${BASE_URL}/learning/ai/machine-learning`,
   },
+  "/learning/ai/deep-learning": {
+    title: "Module 4: Deep Learning & Neural Network Engineering | PrepSpaces",
+    description: "Master artificial neurons, multilayer perceptrons, backpropagation via the chain rule, activation functions, loss optimization, and deep learning in PyTorch.",
+    canonical: `${BASE_URL}/learning/ai/deep-learning`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

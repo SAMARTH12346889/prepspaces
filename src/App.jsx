@@ -96,6 +96,7 @@ import SystemDesignStorage from "./Componets/SystemDesignStorage";
 import AIFoundations from "./Componets/AIFoundations";
 import AIMathematics from "./Componets/AIMathematics";
 import AIMachineLearning from "./Componets/AIMachineLearning";
+import AIDeepLearning from "./Componets/AIDeepLearning";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1078,6 +1079,19 @@ function App() {
             <Route path="/learning/ai-engineering/module-3" element={<AIMachineLearning />} />
             <Route path="/learn/ai/machine-learning" element={<AIMachineLearning />} />
             <Route path="/learn/ai/ml" element={<AIMachineLearning />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 4: DEEP LEARNING & NEURAL NETWORK ENGINEERING */}
+            <Route path="/learning/ai/deep-learning" element={<AIDeepLearning />} />
+            <Route path="/learning/ai/neural-networks" element={<AIDeepLearning />} />
+            <Route path="/learning/ai/pytorch" element={<AIDeepLearning />} />
+            <Route path="/learning/ai/module-4" element={<AIDeepLearning />} />
+            <Route path="/learning/ai-engineering/deep-learning" element={<AIDeepLearning />} />
+            <Route path="/learning/ai-engineering/neural-networks" element={<AIDeepLearning />} />
+            <Route path="/learning/ai-engineering/pytorch" element={<AIDeepLearning />} />
+            <Route path="/learning/ai-engineering/module-4" element={<AIDeepLearning />} />
+            <Route path="/learn/ai/deep-learning" element={<AIDeepLearning />} />
+            <Route path="/learn/ai/neural-networks" element={<AIDeepLearning />} />
+            <Route path="/learn/ai/pytorch" element={<AIDeepLearning />} />
 
 
             {/* INTERVIEW PAGE */}
