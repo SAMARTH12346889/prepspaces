@@ -14,12 +14,12 @@
     "id": "math-for-ai",
     "courseId": "ai-engineering",
     "index": 2,
-    "name": "2. Mathematics for AI: Linear Algebra & Calculus",
-    "route": "/learning/ai/math-for-ai",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "2. Mathematics for AI & Machine Learning",
+    "route": "/learning/ai/math",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "machine-learning",

@@ -56,6 +56,11 @@ const routeMeta = {
     description: "Master AI engineering foundations, Python for AI, NumPy vectorization, Pandas data pipelines, and production AI architectures.",
     canonical: `${BASE_URL}/learning/ai`,
   },
+  "/learning/ai/math": {
+    title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
+    description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",
+    canonical: `${BASE_URL}/learning/ai/math`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

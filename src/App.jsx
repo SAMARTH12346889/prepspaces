@@ -94,6 +94,7 @@ import SystemDesignCaching from "./Componets/SystemDesignCaching";
 import SystemDesignReplication from "./Componets/SystemDesignReplication";
 import SystemDesignStorage from "./Componets/SystemDesignStorage";
 import AIFoundations from "./Componets/AIFoundations";
+import AIMathematics from "./Componets/AIMathematics";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1051,6 +1052,21 @@ function App() {
             <Route path="/learn/ai" element={<AIFoundations />} />
             <Route path="/learn/ai/foundations" element={<AIFoundations />} />
             <Route path="/learn/ai-engineering" element={<AIFoundations />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 2: MATHEMATICS FOR AI & MACHINE LEARNING */}
+            <Route path="/learning/ai/math" element={<AIMathematics />} />
+            <Route path="/learning/ai/math-for-ai" element={<AIMathematics />} />
+            <Route path="/learning/ai/mathematics" element={<AIMathematics />} />
+            <Route path="/learning/ai/module-2" element={<AIMathematics />} />
+            <Route path="/learning/ai/linear-algebra" element={<AIMathematics />} />
+            <Route path="/learning/ai-engineering/math" element={<AIMathematics />} />
+            <Route path="/learning/ai-engineering/math-for-ai" element={<AIMathematics />} />
+            <Route path="/learning/ai-engineering/mathematics" element={<AIMathematics />} />
+            <Route path="/learning/ai-engineering/module-2" element={<AIMathematics />} />
+            <Route path="/learn/ai/math" element={<AIMathematics />} />
+            <Route path="/learn/ai/math-for-ai" element={<AIMathematics />} />
+            <Route path="/learn/ai/mathematics" element={<AIMathematics />} />
+
 
             {/* INTERVIEW PAGE */}
             <Route

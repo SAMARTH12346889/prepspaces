@@ -1,0 +1,150 @@
+{
+  "id": "math-for-ai",
+  "courseId": "ai-engineering",
+  "index": 2,
+  "name": "2. Mathematics for AI & Machine Learning",
+  "route": "/learning/ai/math",
+  "componentName": "AIMathematics",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the result of the dot product of [1, 2] and [3, 4]?",
+      "options": ["7", "10", "11", "14"],
+      "correctIndex": 2,
+      "explanation": "The dot product is (1)(3) + (2)(4) = 3 + 8 = 11."
+    },
+    {
+      "id": 2,
+      "question": "A matrix with 3 rows and 4 columns has which shape?",
+      "options": ["(4, 3)", "(3, 4)", "(3, 3)", "(4, 4)"],
+      "correctIndex": 1,
+      "explanation": "Matrix shapes are standardly expressed as (rows, columns), so 3 rows and 4 columns is (3, 4)."
+    },
+    {
+      "id": 3,
+      "question": "When is a square matrix invertible?",
+      "options": [
+        "When its determinant is zero",
+        "When its determinant is nonzero",
+        "When all entries are positive",
+        "When its diagonal is zero"
+      ],
+      "correctIndex": 1,
+      "explanation": "A square matrix is invertible if and only if its determinant is non-zero."
+    },
+    {
+      "id": 4,
+      "question": "What does a derivative measure?",
+      "options": [
+        "Total number of values",
+        "Instantaneous rate of change",
+        "Probability of an event",
+        "Matrix dimension"
+      ],
+      "correctIndex": 1,
+      "explanation": "A derivative measures the instantaneous rate of change of a function with respect to an input variable."
+    },
+    {
+      "id": 5,
+      "question": "What is the gradient of f(x) = x^2 at x = 3?",
+      "options": ["3", "6", "9", "12"],
+      "correctIndex": 1,
+      "explanation": "f'(x) = 2x. At x = 3, f'(3) = 2(3) = 6."
+    },
+    {
+      "id": 6,
+      "question": "Which rule is used to differentiate a composite function f(g(x))?",
+      "options": ["Product rule", "Quotient rule", "Chain rule", "Complement rule"],
+      "correctIndex": 2,
+      "explanation": "The Chain Rule calculates the derivative of a composite function: d/dx[f(g(x))] = f'(g(x)) * g'(x)."
+    },
+    {
+      "id": 7,
+      "question": "What is the probability of rolling an even number on a fair six-sided die?",
+      "options": ["1/6", "1/3", "1/2", "2/3"],
+      "correctIndex": 2,
+      "explanation": "Even outcomes = {2, 4, 6} (3 outcomes out of 6) = 3/6 = 1/2."
+    },
+    {
+      "id": 8,
+      "question": "What does Bayes' theorem calculate?",
+      "options": [
+        "Matrix rank",
+        "Updated conditional probability given evidence",
+        "Matrix multiplication",
+        "Derivative"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bayes' theorem updates prior beliefs to calculate posterior conditional probabilities given new evidence: P(A|B) = P(B|A)P(A)/P(B)."
+    },
+    {
+      "id": 9,
+      "question": "Which measure is the square root of variance?",
+      "options": ["Mean", "Median", "Standard deviation", "Covariance"],
+      "correctIndex": 2,
+      "explanation": "Standard deviation sigma is the square root of variance: sigma = sqrt(Var(X))."
+    },
+    {
+      "id": 10,
+      "question": "What does the Central Limit Theorem describe?",
+      "options": [
+        "Matrix factorization",
+        "Sampling distributions of sample means tend toward normality as N increases",
+        "Vector normalization",
+        "Loss minimization"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Central Limit Theorem proves that the distribution of sample means approaches a normal distribution as sample size grows large."
+    },
+    {
+      "id": 11,
+      "question": "What is the main purpose of gradient descent?",
+      "options": [
+        "Increase matrix dimensions",
+        "Minimize an objective (loss) function",
+        "Generate random samples",
+        "Calculate medians"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gradient descent is an iterative optimization algorithm that updates parameters in the direction of negative gradient to minimize a loss function."
+    },
+    {
+      "id": 12,
+      "question": "Which loss is commonly used for continuous numerical regression?",
+      "options": ["Mean Squared Error (MSE)", "Binary cross-entropy only", "Hinge loss only", "Cosine similarity"],
+      "correctIndex": 0,
+      "explanation": "MSE measures average squared differences between continuous predictions and target values."
+    },
+    {
+      "id": 13,
+      "question": "What does an excessively high learning rate potentially cause?",
+      "options": [
+        "Guaranteed faster convergence",
+        "Overshooting or divergence",
+        "A zero gradient",
+        "A larger dataset"
+      ],
+      "correctIndex": 1,
+      "explanation": "A learning rate that is too high causes optimization updates to overshoot minimums or diverge to infinity."
+    },
+    {
+      "id": 14,
+      "question": "Which decomposition writes A = U * Sigma * V^T?",
+      "options": ["LU Decomposition", "QR Decomposition", "Singular Value Decomposition (SVD)", "Cholesky Decomposition"],
+      "correctIndex": 2,
+      "explanation": "Singular Value Decomposition factors a matrix into left singular vectors U, singular values Sigma, and transposed right singular vectors V^T."
+    },
+    {
+      "id": 15,
+      "question": "What is the primary purpose of L2 regularization?",
+      "options": [
+        "Reward large weights",
+        "Penalize large weights to prevent overfitting",
+        "Remove all training data",
+        "Increase test leakage"
+      ],
+      "correctIndex": 1,
+      "explanation": "L2 regularization adds a penalty proportional to the sum of squared weights, preventing individual parameters from growing excessively large."
+    }
+  ]
+}
