@@ -61,6 +61,11 @@ const routeMeta = {
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",
     canonical: `${BASE_URL}/learning/ai/math`,
   },
+  "/learning/ai/machine-learning": {
+    title: "Module 3: Machine Learning Fundamentals & Scikit-Learn | PrepSpaces",
+    description: "Master supervised regression, classification algorithms, unsupervised clustering, feature engineering pipelines, cross-validation, and production model evaluation.",
+    canonical: `${BASE_URL}/learning/ai/machine-learning`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

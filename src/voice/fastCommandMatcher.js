@@ -9,6 +9,8 @@
 const REGISTERED_ROUTES = {
   "ai-foundations": { route: "/learning/ai", label: "AI Engineering Foundations" },
   "ai-engineering": { route: "/learning/ai", label: "AI Engineering & Generative AI" },
+  "ai-math": { route: "/learning/ai/math", label: "Mathematics for AI & Machine Learning" },
+  "ai-ml": { route: "/learning/ai/machine-learning", label: "Machine Learning Fundamentals" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },

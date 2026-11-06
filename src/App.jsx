@@ -95,6 +95,7 @@ import SystemDesignReplication from "./Componets/SystemDesignReplication";
 import SystemDesignStorage from "./Componets/SystemDesignStorage";
 import AIFoundations from "./Componets/AIFoundations";
 import AIMathematics from "./Componets/AIMathematics";
+import AIMachineLearning from "./Componets/AIMachineLearning";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1066,6 +1067,17 @@ function App() {
             <Route path="/learn/ai/math" element={<AIMathematics />} />
             <Route path="/learn/ai/math-for-ai" element={<AIMathematics />} />
             <Route path="/learn/ai/mathematics" element={<AIMathematics />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 3: MACHINE LEARNING FUNDAMENTALS */}
+            <Route path="/learning/ai/machine-learning" element={<AIMachineLearning />} />
+            <Route path="/learning/ai/ml" element={<AIMachineLearning />} />
+            <Route path="/learning/ai/module-3" element={<AIMachineLearning />} />
+            <Route path="/learning/ai/scikit-learn" element={<AIMachineLearning />} />
+            <Route path="/learning/ai-engineering/machine-learning" element={<AIMachineLearning />} />
+            <Route path="/learning/ai-engineering/ml" element={<AIMachineLearning />} />
+            <Route path="/learning/ai-engineering/module-3" element={<AIMachineLearning />} />
+            <Route path="/learn/ai/machine-learning" element={<AIMachineLearning />} />
+            <Route path="/learn/ai/ml" element={<AIMachineLearning />} />
 
 
             {/* INTERVIEW PAGE */}

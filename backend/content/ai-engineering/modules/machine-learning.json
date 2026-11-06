@@ -1,0 +1,115 @@
+{
+  "id": "machine-learning",
+  "courseId": "ai-engineering",
+  "index": 3,
+  "name": "3. Machine Learning Fundamentals",
+  "route": "/learning/ai/machine-learning",
+  "componentName": "AIMachineLearning",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which learning paradigm uses labelled training examples?",
+      "options": ["Unsupervised learning", "Supervised learning", "Clustering", "Dimensionality reduction"],
+      "correctIndex": 1,
+      "explanation": "Supervised learning relies on paired input features and known ground-truth labels (X, y) to optimize model parameters."
+    },
+    {
+      "id": 2,
+      "question": "Predicting a house's selling price is which type of task?",
+      "options": ["Classification", "Clustering", "Regression", "Anomaly detection"],
+      "correctIndex": 2,
+      "explanation": "Predicting a continuous numerical quantity (such as currency, temperature, or exam score) is a regression task."
+    },
+    {
+      "id": 3,
+      "question": "What does the target variable represent?",
+      "options": ["A feature transformation", "The value a model is trained to predict", "A hyperparameter", "A clustering centroid"],
+      "correctIndex": 1,
+      "explanation": "The target (commonly denoted y) is the dependent outcome variable that the learning algorithm estimates."
+    },
+    {
+      "id": 4,
+      "question": "What is the purpose of a validation dataset?",
+      "options": ["Train all model parameters", "Tune and select model configurations", "Replace the training dataset", "Store the final model"],
+      "correctIndex": 1,
+      "explanation": "A validation set evaluates intermediate performance during development to tune hyperparameters without contaminating the test set."
+    },
+    {
+      "id": 5,
+      "question": "Which loss is commonly used for ordinary linear regression?",
+      "options": ["Cross-entropy only", "Mean squared error", "Cosine similarity", "Gini impurity"],
+      "correctIndex": 1,
+      "explanation": "Ordinary Least Squares (OLS) minimizes Mean Squared Error (MSE), penalizing large prediction errors quadratically."
+    },
+    {
+      "id": 6,
+      "question": "What does logistic regression estimate in binary classification?",
+      "options": ["Only a continuous house price", "A class probability", "A K-Means centroid", "A matrix inverse"],
+      "correctIndex": 1,
+      "explanation": "Logistic regression maps real-valued linear combinations to bounded probabilities P(y=1|x) using the sigmoid function."
+    },
+    {
+      "id": 7,
+      "question": "What does KNN use to make a prediction?",
+      "options": ["Only model weights", "Nearby training observations", "Matrix determinants", "Random centroids"],
+      "correctIndex": 1,
+      "explanation": "K-Nearest Neighbors is an instance-based non-parametric algorithm that aggregates labels from the K closest neighbors in feature space."
+    },
+    {
+      "id": 8,
+      "question": "Which algorithm creates a collection of decision trees?",
+      "options": ["Linear regression", "Random Forest", "Naive Bayes", "PCA"],
+      "correctIndex": 1,
+      "explanation": "Random Forest builds an ensemble of decorrelated decision trees using bootstrap aggregation and random feature subsampling."
+    },
+    {
+      "id": 9,
+      "question": "Which metric measures the fraction of predicted positive cases that are truly positive?",
+      "options": ["Recall", "Precision", "Specificity", "R-squared"],
+      "correctIndex": 1,
+      "explanation": "Precision is defined as TP / (TP + FP), measuring the reliability and exactness of positive predictions."
+    },
+    {
+      "id": 10,
+      "question": "Which metric is particularly important when missing positive cases is costly?",
+      "options": ["Recall", "MAE", "Inertia", "R-squared"],
+      "correctIndex": 0,
+      "explanation": "Recall (TP / (TP + FN)) measures completeness; in cancer diagnosis or fraud prevention, failing to detect a positive case is disastrous."
+    },
+    {
+      "id": 11,
+      "question": "Which algorithm groups observations using K centroids?",
+      "options": ["Logistic regression", "SVM", "K-Means", "Naive Bayes"],
+      "correctIndex": 2,
+      "explanation": "K-Means partitions observations into K geometric clusters by iteratively minimizing the within-cluster sum of squares to K centroids."
+    },
+    {
+      "id": 12,
+      "question": "What does DBSCAN identify in addition to clusters?",
+      "options": ["Regression residuals", "Noise observations", "Class probabilities", "Linear coefficients"],
+      "correctIndex": 1,
+      "explanation": "DBSCAN classifies sparse, isolated points as noise (-1) while discovering non-linear density-connected clusters."
+    },
+    {
+      "id": 13,
+      "question": "What is the purpose of StandardScaler?",
+      "options": ["Create target labels", "Standardize numerical features", "Perform clustering", "Train a Random Forest"],
+      "correctIndex": 1,
+      "explanation": "StandardScaler centers numerical features to zero mean and scales them to unit variance (z = (x - mu) / sigma)."
+    },
+    {
+      "id": 14,
+      "question": "What is data leakage?",
+      "options": ["Removing duplicate data", "Using unavailable or evaluation-related information during model learning", "Splitting a dataset correctly", "Reducing the number of features"],
+      "correctIndex": 1,
+      "explanation": "Data leakage occurs when evaluation signals or future test data leak into the training pipeline, leading to inflated performance that fails in production."
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of cross-validation?",
+      "options": ["Create more labels", "Estimate model performance across multiple data splits", "Eliminate every model error", "Replace all evaluation metrics"],
+      "correctIndex": 1,
+      "explanation": "Cross-validation estimates generalization error by training and evaluating models over multiple independent data partitions."
+    }
+  ]
+}
