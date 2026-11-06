@@ -93,6 +93,7 @@ import SystemDesignDatabases from "./Componets/SystemDesignDatabases";
 import SystemDesignCaching from "./Componets/SystemDesignCaching";
 import SystemDesignReplication from "./Componets/SystemDesignReplication";
 import SystemDesignStorage from "./Componets/SystemDesignStorage";
+import AIFoundations from "./Componets/AIFoundations";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";

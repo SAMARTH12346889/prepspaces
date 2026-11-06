@@ -1,0 +1,190 @@
+{
+  "id": "foundations",
+  "courseId": "ai-engineering",
+  "index": 1,
+  "name": "1. AI Foundations & Python for AI",
+  "route": "/learning/ai",
+  "componentName": "AIFoundations",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which statement best describes Artificial Intelligence?",
+      "options": [
+        "A programming language designed exclusively for neural networks",
+        "A field of computer science focused on creating computational systems that exhibit intelligent behaviour",
+        "A database management system optimized for vector embeddings",
+        "An operating system kernel written in C and Python"
+      ],
+      "correctIndex": 1,
+      "explanation": "Artificial Intelligence is the broad computer science discipline concerned with building systems capable of performing tasks typically requiring human intelligence: learning, reasoning, perception, planning, and problem solving."
+    },
+    {
+      "id": 2,
+      "question": "Which of these is a subfield of Machine Learning?",
+      "options": [
+        "Deep Learning",
+        "HTML5 Semantic Formatting",
+        "B-Tree Database Indexing",
+        "Operating System Memory Paging"
+      ],
+      "correctIndex": 0,
+      "explanation": "Deep Learning is a specialized subfield of Machine Learning that uses multi-layered artificial neural networks to learn representations of data automatically."
+    },
+    {
+      "id": 3,
+      "question": "Which learning paradigm uses explicitly labelled examples (features paired with target outcomes)?",
+      "options": [
+        "Unsupervised Learning",
+        "Reinforcement Learning",
+        "Supervised Learning",
+        "Rule-based Heuristic Programming"
+      ],
+      "correctIndex": 2,
+      "explanation": "Supervised Learning trains models using input features mapped to known target labels (e.g. house area and bedrooms mapped to price)."
+    },
+    {
+      "id": 4,
+      "question": "What does Python's built-in input() function return?",
+      "options": [
+        "An integer if digits were entered, otherwise a string",
+        "A float number",
+        "Always a string (str), regardless of input content",
+        "A Boolean value"
+      ],
+      "correctIndex": 2,
+      "explanation": "Python's input() function always returns user input as a string (str). To perform mathematical operations, you must explicitly convert it using int() or float()."
+    },
+    {
+      "id": 5,
+      "question": "Which Python data structure stores key-value pairs with fast hashing lookups?",
+      "options": [
+        "List",
+        "Tuple",
+        "Dictionary",
+        "Set"
+      ],
+      "correctIndex": 2,
+      "explanation": "A dictionary (dict) stores associations between unique keys and arbitrary values, providing average O(1) time complexity for insertions and lookups."
+    },
+    {
+      "id": 6,
+      "question": "Which keyword is used to define a reusable function in Python?",
+      "options": [
+        "function",
+        "define",
+        "def",
+        "method"
+      ],
+      "correctIndex": 2,
+      "explanation": "The 'def' keyword introduces a function definition in Python (e.g. def calculate_average(scores): ...)."
+    },
+    {
+      "id": 7,
+      "question": "What is the result of the Python integer floor division expression 11 // 2?",
+      "options": [
+        "5.5",
+        "5",
+        "6",
+        "1"
+      ],
+      "correctIndex": 1,
+      "explanation": "The floor division operator '//' divides two numbers and truncates towards negative infinity, producing the integer 5."
+    },
+    {
+      "id": 8,
+      "question": "Which of the following Python data structures is mutable (can be altered in-place after creation)?",
+      "options": [
+        "Tuple",
+        "String",
+        "List",
+        "Integer"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lists are mutable; you can append, remove, or modify elements in-place without creating an entirely new object."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of Python's try-except block?",
+      "options": [
+        "To speed up loop iterations",
+        "To catch and handle runtime exceptions gracefully without crashing the program",
+        "To declare object-oriented class inheritance",
+        "To import third-party packages from PyPI"
+      ],
+      "correctIndex": 1,
+      "explanation": "The try-except block intercepts runtime exceptions (e.g., ValueError, ZeroDivisionError), allowing the application to recover or log user-friendly error messages."
+    },
+    {
+      "id": 10,
+      "question": "What does a Python class define?",
+      "options": [
+        "Only a disk file format",
+        "A blueprint for creating objects that bundle state (attributes) and behavior (methods)",
+        "A relational database table",
+        "A while loop execution thread"
+      ],
+      "correctIndex": 1,
+      "explanation": "A class defines the structure and behavior of objects, encapsulating data attributes and callable methods through an initializer (__init__)."
+    },
+    {
+      "id": 11,
+      "question": "What is NumPy's central numerical data structure?",
+      "options": [
+        "Dictionary",
+        "DataFrame",
+        "ndarray",
+        "Linked List"
+      ],
+      "correctIndex": 2,
+      "explanation": "NumPy's core data structure is the ndarray (n-dimensional array), providing contiguous memory storage, fixed data types, and SIMD hardware acceleration."
+    },
+    {
+      "id": 12,
+      "question": "Which operator performs matrix multiplication between compatible 2D NumPy arrays?",
+      "options": [
+        "* (performs element-wise multiplication)",
+        "@ (matrix multiplication operator)",
+        "%",
+        "//"
+      ],
+      "correctIndex": 1,
+      "explanation": "In modern Python and NumPy, '@' performs algebraic matrix dot multiplication, while '*' performs element-wise multiplication."
+    },
+    {
+      "id": 13,
+      "question": "What does NumPy's broadcasting mechanism allow?",
+      "options": [
+        "Transmitting data over Wi-Fi sockets",
+        "Performing arithmetic operations between differently shaped arrays that meet compatibility rules without manual copying",
+        "Compressing CSV files on disk",
+        "Object-oriented class polymorphism"
+      ],
+      "correctIndex": 1,
+      "explanation": "Broadcasting describes how NumPy treats arrays with different shapes during arithmetic operations without making unnecessary duplicate memory copies."
+    },
+    {
+      "id": 14,
+      "question": "What is a Pandas DataFrame?",
+      "options": [
+        "A two-dimensional, size-mutable, tabular data structure with labelled rows and columns",
+        "A Python function decorator",
+        "A convolutional neural network layer",
+        "A binary serialization format"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Pandas DataFrame is a 2D tabular data structure with columns of potentially different types, supporting rich SQL-like relational and statistical operations."
+    },
+    {
+      "id": 15,
+      "question": "What is the primary purpose of Jupyter Notebook in AI engineering?",
+      "options": [
+        "Compiling bare-metal C kernels",
+        "An interactive computing environment combining live code, Markdown notes, math formulas, and visualizations for reproducible experiments",
+        "Serving high-throughput REST APIs in production",
+        "Managing encrypted user passwords"
+      ],
+      "correctIndex": 1,
+      "explanation": "Jupyter Notebook allows engineers to iteratively test code cells, inspect intermediate datasets, render Matplotlib visualizations, and document analytical reasoning in shareable notebooks."
+    }
+  ]
+}

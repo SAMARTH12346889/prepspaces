@@ -7,6 +7,8 @@
  */
 
 const REGISTERED_ROUTES = {
+  "ai-foundations": { route: "/learning/ai", label: "AI Engineering Foundations" },
+  "ai-engineering": { route: "/learning/ai", label: "AI Engineering & Generative AI" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -92,6 +94,10 @@ const QUESTION_PATTERNS = [
 
 // Patterns for unambiguous navigation
 const NAVIGATION_RULES = [
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(ai|artificial intelligence|generative ai|ai engineering|python for ai|ai foundations|ai course|ai module 1)$/i,
+    destination: "ai-foundations",
+  },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,
     destination: "interview",

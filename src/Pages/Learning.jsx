@@ -15,6 +15,7 @@ import {
   Cpu,
   Globe,
   Shield,
+  Brain,
   User,
   LogOut,
 } from "lucide-react";
@@ -43,6 +44,26 @@ function InstagramIcon({ size = 16, className = "" }) {
 }
 
 const learningTracks = [
+  {
+    id: "ai-engineering",
+    title: "AI Engineering & Generative AI",
+    tagline: "Foundations, LLMs, Neural Networks & Production Systems",
+    description:
+      "Master Artificial Intelligence, machine learning principles, deep learning, LLMs, RAG architectures, autonomous agents, and production AI engineering from mathematical and programming foundations to scalable enterprise systems.",
+    icon: Brain,
+    route: "/learning/ai",
+    tag: "Artificial Intelligence",
+    modulesCount: "24 Comprehensive Modules",
+    color: "from-stone-900 via-orange-950 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "AI Foundations & Python for AI",
+      "NumPy, Pandas & Data Pipelines",
+      "Machine Learning & Neural Networks",
+      "Transformers, LLMs & Prompt Engineering",
+      "RAG Architecture & Autonomous Agents",
+    ],
+  },
   {
     id: "cybersecurity",
     title: "Cybersecurity Masterclass",

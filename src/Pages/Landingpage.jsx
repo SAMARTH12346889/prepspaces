@@ -17,6 +17,7 @@ import {
   Network,
   Cpu,
   Globe,
+  Brain,
   Play,
   CheckCircle2,
   Clock,
@@ -55,6 +56,15 @@ export default function Landingpage() {
   
   // Real available learning tracks
   const availableTracks = [
+    {
+      id: "ai-engineering",
+      title: "AI Engineering & Generative AI",
+      subtitle: "Foundations, LLMs, RAG & Autonomous Agents",
+      route: "/learning/ai",
+      icon: Brain,
+      color: "from-stone-900 via-orange-950 to-orange-600",
+      tag: "Artificial Intelligence",
+    },
     {
       id: "system-design",
       title: "System Design Masterclass",

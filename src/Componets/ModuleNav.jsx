@@ -140,6 +140,33 @@ export const NETWORKS_MODULES = [
   { id: "final-capstone", name: "24. Final Capstone: Network Engineering Lab", route: "/learning/networks/final-capstone" },
 ];
 
+export const AI_MODULES = [
+  { id: "foundations", name: "1. AI Foundations & Python for AI", route: "/learning/ai" },
+  { id: "math-for-ai", name: "2. Math for AI: Linear Algebra & Calculus", route: "/learning/ai/math-for-ai" },
+  { id: "machine-learning", name: "3. Machine Learning & Scikit-Learn", route: "/learning/ai/machine-learning" },
+  { id: "deep-learning", name: "4. Deep Learning & Neural Networks", route: "/learning/ai/deep-learning" },
+  { id: "computer-vision", name: "5. Computer Vision & CNNs", route: "/learning/ai/computer-vision" },
+  { id: "nlp", name: "6. NLP & Word Embeddings", route: "/learning/ai/nlp" },
+  { id: "transformers", name: "7. Transformer Architecture & Attention", route: "/learning/ai/transformers" },
+  { id: "llms", name: "8. LLMs & Pretraining", route: "/learning/ai/llms" },
+  { id: "prompt-engineering", name: "9. Prompt Engineering & In-Context Learning", route: "/learning/ai/prompt-engineering" },
+  { id: "vector-databases", name: "10. Vector Databases & Semantic Search", route: "/learning/ai/vector-databases" },
+  { id: "rag-architecture", name: "11. Retrieval-Augmented Generation (RAG)", route: "/learning/ai/rag-architecture" },
+  { id: "advanced-rag", name: "12. Advanced RAG: Hybrid Search & Reranking", route: "/learning/ai/advanced-rag" },
+  { id: "fine-tuning", name: "13. Fine-Tuning LLMs: LoRA & QLoRA", route: "/learning/ai/fine-tuning" },
+  { id: "llm-evaluation", name: "14. LLM Evaluation & Guardrails", route: "/learning/ai/llm-evaluation" },
+  { id: "ai-agents", name: "15. AI Agents & Function Tool Calling", route: "/learning/ai/ai-agents" },
+  { id: "multi-agent-systems", name: "16. Multi-Agent Orchestration & Workflows", route: "/learning/ai/multi-agent-systems" },
+  { id: "multimodal-ai", name: "17. Multimodal Generative AI", route: "/learning/ai/multimodal-ai" },
+  { id: "diffusion-models", name: "18. Diffusion Models & Image Synthesis", route: "/learning/ai/diffusion-models" },
+  { id: "inference-serving", name: "19. AI Inference Serving & vLLM", route: "/learning/ai/inference-serving" },
+  { id: "mlops-llmops", name: "20. MLOps & LLMOps", route: "/learning/ai/mlops-llmops" },
+  { id: "ai-security", name: "21. AI Security & Prompt Injection Defense", route: "/learning/ai/ai-security" },
+  { id: "enterprise-system-design", name: "22. Enterprise System Design for GenAI", route: "/learning/ai/enterprise-system-design" },
+  { id: "ai-capstone-assistant", name: "23. Capstone: Autonomous Knowledge Assistant", route: "/learning/ai/ai-capstone-assistant" },
+  { id: "final-capstone", name: "24. Final Capstone: Enterprise GenAI Platform", route: "/learning/ai/final-capstone" },
+];
+
 export const CYBERSECURITY_MODULES = [
   { id: "intro", name: "1. Intro & Ethical Hacking", route: "/learning/cybersecurity" },
   { id: "networking", name: "2. Networking for Cyber", route: "/learning/cybersecurity/networking" },
@@ -190,6 +217,8 @@ export default function ModuleNav({
       ? NETWORKS_MODULES
       : track === "cybersecurity"
       ? CYBERSECURITY_MODULES
+      : track === "ai" || track === "ai-engineering"
+      ? AI_MODULES
       : CLOUD_MODULES;
 
   const [modules, setModules] = useState(initialModules);
@@ -201,6 +230,8 @@ export default function ModuleNav({
     "system-design": "system-design",
     cloud: "cloud",
     devops: "devops",
+    ai: "ai-engineering",
+    "ai-engineering": "ai-engineering",
   };
   const resolvedCourseId = courseIdMap[track] || track;
 
@@ -306,7 +337,7 @@ export default function ModuleNav({
   }, [currentModuleId, resolvedCourseId, modules, isAuthenticated, completedModuleIds]);
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : "cloud")
+    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : track === "ai" || track === "ai-engineering" ? "foundations" : "cloud")
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
@@ -318,6 +349,8 @@ export default function ModuleNav({
       ? "/learning/networks"
       : track === "cybersecurity"
       ? "/learning/cybersecurity"
+      : track === "ai" || track === "ai-engineering"
+      ? "/learning/ai"
       : "/learning/cloud";
 
   const { goBack } = useSafeBack(defaultFallback);
@@ -479,6 +512,8 @@ export default function ModuleNav({
                   ? "Computer Networks"
                   : track === "cybersecurity"
                   ? "Cybersecurity"
+                  : track === "ai" || track === "ai-engineering"
+                  ? "AI Engineering"
                   : "Cloud"
               }
             />

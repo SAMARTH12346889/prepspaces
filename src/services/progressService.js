@@ -7,6 +7,18 @@ export const PROGRESS_UPDATED_EVENT = "prepspaces_progress_updated";
 
 const DEFAULT_CATALOG = [
   {
+    id: "ai-engineering",
+    title: "AI Engineering & Generative AI",
+    tagline: "Foundations, LLMs, Neural Networks & Production Systems",
+    description: "Master Artificial Intelligence, machine learning principles, deep learning, LLMs, RAG architectures, autonomous agents, and production AI engineering.",
+    icon: "Brain",
+    route: "/learning/ai",
+    tag: "Artificial Intelligence",
+    color: "from-stone-900 to-orange-600",
+    badgeColor: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+    totalModules: 24,
+  },
+  {
     id: "system-design",
     title: "System Design Masterclass",
     tagline: "Scalability, Distributed Systems & Trade-offs",
