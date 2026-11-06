@@ -51,6 +51,16 @@ const routeMeta = {
     description: "Explore comprehensive, interactive preparation tracks for System Design, DevOps & SRE, Cloud Computing, and Operating Systems.",
     canonical: `${BASE_URL}/learning`,
   },
+  "/learning/ai": {
+    title: "AI Engineering & Generative AI Masterclass | PrepSpaces",
+    description: "Master AI engineering foundations, Python for AI, NumPy vectorization, Pandas data pipelines, and production AI architectures.",
+    canonical: `${BASE_URL}/learning/ai`,
+  },
+  "/learning/ai/foundations": {
+    title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
+    description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",
+    canonical: `${BASE_URL}/learning/ai/foundations`,
+  },
   "/learning/os": {
     title: "Operating Systems Master Course — Kernel Internals & Systems Thinking | PrepSpaces",
     description: "Master operating systems internals, kernel architectures, process scheduling, virtual memory, concurrency, and Linux systems programming.",

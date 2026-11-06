@@ -1036,6 +1036,22 @@ function App() {
             <Route path="/learn/cybersecurity/module-24" element={<CybersecurityFinalCapstone />} />
             <Route path="/learn/cybersecurity/capstone" element={<CybersecurityFinalCapstone />} />
 
+            
+            {/* AI ENGINEERING & GENERATIVE AI TRACK - MODULE 1: FOUNDATIONS & PYTHON FOR AI */}
+            <Route path="/learning/ai" element={<AIFoundations />} />
+            <Route path="/learning/ai/intro" element={<AIFoundations />} />
+            <Route path="/learning/ai/foundations" element={<AIFoundations />} />
+            <Route path="/learning/ai/python" element={<AIFoundations />} />
+            <Route path="/learning/ai/module-1" element={<AIFoundations />} />
+            <Route path="/learning/ai-engineering" element={<AIFoundations />} />
+            <Route path="/learning/ai-engineering/intro" element={<AIFoundations />} />
+            <Route path="/learning/ai-engineering/foundations" element={<AIFoundations />} />
+            <Route path="/learning/ai-engineering/python" element={<AIFoundations />} />
+            <Route path="/learning/ai-engineering/module-1" element={<AIFoundations />} />
+            <Route path="/learn/ai" element={<AIFoundations />} />
+            <Route path="/learn/ai/foundations" element={<AIFoundations />} />
+            <Route path="/learn/ai-engineering" element={<AIFoundations />} />
+
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"

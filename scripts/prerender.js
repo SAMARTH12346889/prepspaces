@@ -53,6 +53,7 @@ function getTrackNameFromPath(subPath) {
   if (subPath.startsWith("/learning/os")) return "Operating Systems";
   if (subPath.startsWith("/learning/networks")) return "Computer Networks";
   if (subPath.startsWith("/learning/cybersecurity")) return "Cybersecurity";
+  if (subPath.startsWith("/learning/ai")) return "AI Engineering";
   return "Engineering Curriculum";
 }
 
@@ -237,6 +238,11 @@ for (const [route, meta] of Object.entries(routeMeta)) {
           </header>
           <main>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+              <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/learning/ai" style="color: #ea580c; text-decoration: none;">AI Engineering & Generative AI</a></h2>
+                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Artificial intelligence foundations, Python for AI, NumPy vectorization, Pandas, deep learning, LLMs, RAG, and production agents.</p>
+                <a href="/learning/ai" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore 24 Modules &rarr;</a>
+              </div>
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
                 <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/learning/system-design" style="color: #ea580c; text-decoration: none;">System Design Masterclass</a></h2>
                 <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Large-scale distributed systems, high availability, database replication, microservices, consensus, traffic control, and architectural trade-offs.</p>
