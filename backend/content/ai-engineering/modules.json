@@ -55,22 +55,22 @@
     "hasScenarios": true
   },
   {
-    "id": "computer-vision",
-    "courseId": "ai-engineering",
-    "index": 6,
-    "name": "6. Computer Vision & CNNs",
-    "route": "/learning/ai/computer-vision",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
-  },
-  {
     "id": "transformers",
     "courseId": "ai-engineering",
-    "index": 7,
-    "name": "7. Transformer Architecture & Attention",
+    "index": 6,
+    "name": "6. Transformer Architecture from Scratch",
     "route": "/learning/ai/transformers",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "computer-vision",
+    "courseId": "ai-engineering",
+    "index": 7,
+    "name": "7. Computer Vision & CNNs",
+    "route": "/learning/ai/computer-vision",
     "questionCount": 10,
     "hasTopics": false,
     "hasCommands": false,

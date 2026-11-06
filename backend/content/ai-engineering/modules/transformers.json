@@ -1,0 +1,125 @@
+{
+  "id": "transformers",
+  "courseId": "ai-engineering",
+  "index": 6,
+  "name": "6. Transformer Architecture from Scratch",
+  "route": "/learning/ai/transformers",
+  "componentName": "AITransformerArchitecture",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the core sequence-processing mechanism used by the original Transformer architecture?",
+      "options": ["Recurrent hidden state", "Self-attention", "Convolutional filters only", "Decision trees"],
+      "correctIndex": 1,
+      "explanation": "The Transformer architecture relies entirely on attention mechanisms to capture dependencies between input and output tokens without any recurrence or convolution."
+    },
+    {
+      "id": 2,
+      "question": "In the attention mechanism, what does the Query vector represent?",
+      "options": [
+        "The final probability distribution over the vocabulary",
+        "A representation expressing what a token is searching for in other sequence positions",
+        "The total number of tokens in the vocabulary",
+        "The static positional encoding of the token"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Query represents the search criteria of the current token, matched against the Keys of other tokens to retrieve relevant Values."
+    },
+    {
+      "id": 3,
+      "question": "Why is scaled dot-product attention divided by the square root of d_k?",
+      "options": [
+        "To increase sequence length capacity",
+        "To control attention-score magnitudes and prevent softmax saturation",
+        "To eliminate the need for positional encodings",
+        "To calculate the vocabulary size"
+      ],
+      "correctIndex": 1,
+      "explanation": "As d_k grows, dot products grow large in magnitude, pushing softmax into flat regions with vanishingly small gradients. Dividing by sqrt(d_k) stabilizes the variance."
+    },
+    {
+      "id": 4,
+      "question": "What is the primary motivation for using Multi-Head Attention instead of a single attention head?",
+      "options": [
+        "To process multiple independent datasets simultaneously",
+        "To allow the model to jointly attend to information from different representation subspaces in parallel",
+        "To completely remove the decoder from sequence-to-sequence tasks",
+        "To replace the feed-forward network"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multi-head attention projects queries, keys, and values into multiple subspaces, enabling the network to learn multiple linguistic relationships (syntax, coreference, semantics) concurrently."
+    },
+    {
+      "id": 5,
+      "question": "Why does a pure self-attention mechanism require explicit positional information?",
+      "options": [
+        "Attention by itself is permutation-invariant and does not inherently encode the order of tokens in a sequence",
+        "Without positional information, softmax cannot be computed",
+        "To calculate the cross-entropy loss",
+        "To remove padding tokens"
+      ],
+      "correctIndex": 0,
+      "explanation": "Because self-attention computes dot products regardless of token position, the model cannot distinguish between permutations (e.g. 'dog chased cat' vs 'cat chased dog') without positional encodings."
+    },
+    {
+      "id": 6,
+      "question": "What does a causal mask in a Transformer decoder prevent?",
+      "options": [
+        "Attention to previous historical tokens",
+        "Attention to future target tokens during autoregressive training and inference",
+        "Attention to encoder representations",
+        "Attention between different attention heads"
+      ],
+      "correctIndex": 1,
+      "explanation": "Causal masking blocks attention to future positions (j > i) by replacing scores with -inf, preserving the autoregressive property that token t can only depend on tokens <= t."
+    },
+    {
+      "id": 7,
+      "question": "Where do Keys (K) and Values (V) originate in the Encoder-Decoder Cross-Attention layer?",
+      "options": [
+        "The target vocabulary embedding table",
+        "The final contextual output representations of the Encoder",
+        "The positional encodings only",
+        "The cross-entropy loss function"
+      ],
+      "correctIndex": 1,
+      "explanation": "In cross-attention, the Query comes from the decoder, while Keys and Values come from the encoder's output, enabling the decoder to access source sentence context."
+    },
+    {
+      "id": 8,
+      "question": "What is the primary mathematical purpose of a residual skip connection (x + Sublayer(x))?",
+      "options": [
+        "To delete unnecessary weights",
+        "To provide an unimpeded gradient highway directly through deep layers during backpropagation",
+        "To generate new vocabulary tokens",
+        "To normalize feature vectors to unit variance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Residual connections provide a direct identity path for gradients to propagate backwards through dozens or hundreds of layers without vanishing."
+    },
+    {
+      "id": 9,
+      "question": "Which normalization arrangement was used in the original 2017 Transformer paper?",
+      "options": [
+        "Pre-LayerNorm only",
+        "Post-LayerNorm (LayerNorm applied after residual addition)",
+        "Batch Normalization across sequence length",
+        "No normalization"
+      ],
+      "correctIndex": 1,
+      "explanation": "The original 2017 Transformer used Post-LN: Output = LayerNorm(x + Sublayer(x)). Modern LLMs frequently adopt Pre-LN for training stability."
+    },
+    {
+      "id": 10,
+      "question": "What occurs during autoregressive generation during inference?",
+      "options": [
+        "All future target tokens are provided simultaneously",
+        "The model generates output tokens sequentially one by one, feeding previous predictions back as input",
+        "All attention masks are removed",
+        "The encoder is retrained from scratch at every step"
+      ],
+      "correctIndex": 1,
+      "explanation": "During autoregressive inference, the model begins with [BOS], predicts token 1, appends it to the input, predicts token 2, and repeats until [EOS] is generated."
+    }
+  ]
+}

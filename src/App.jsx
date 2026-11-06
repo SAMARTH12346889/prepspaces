@@ -98,6 +98,7 @@ import AIMathematics from "./Componets/AIMathematics";
 import AIMachineLearning from "./Componets/AIMachineLearning";
 import AIDeepLearning from "./Componets/AIDeepLearning";
 import AINaturalLanguageProcessing from "./Componets/AINaturalLanguageProcessing";
+import AITransformerArchitecture from "./Componets/AITransformerArchitecture";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1105,6 +1106,18 @@ function App() {
             <Route path="/learning/ai-engineering/module-5" element={<AINaturalLanguageProcessing />} />
             <Route path="/learn/ai/nlp" element={<AINaturalLanguageProcessing />} />
             <Route path="/learn/ai/natural-language-processing" element={<AINaturalLanguageProcessing />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 6: TRANSFORMER ARCHITECTURE FROM SCRATCH */}
+            <Route path="/learning/ai/transformers" element={<AITransformerArchitecture />} />
+            <Route path="/learning/ai/transformer" element={<AITransformerArchitecture />} />
+            <Route path="/learning/ai/attention" element={<AITransformerArchitecture />} />
+            <Route path="/learning/ai/module-6" element={<AITransformerArchitecture />} />
+            <Route path="/learning/ai-engineering/transformers" element={<AITransformerArchitecture />} />
+            <Route path="/learning/ai-engineering/transformer" element={<AITransformerArchitecture />} />
+            <Route path="/learning/ai-engineering/attention" element={<AITransformerArchitecture />} />
+            <Route path="/learning/ai-engineering/module-6" element={<AITransformerArchitecture />} />
+            <Route path="/learn/ai/transformers" element={<AITransformerArchitecture />} />
+            <Route path="/learn/ai/transformer" element={<AITransformerArchitecture />} />
 
 
             {/* INTERVIEW PAGE */}

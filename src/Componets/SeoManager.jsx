@@ -76,6 +76,11 @@ const routeMeta = {
     description: "Master linguistic foundations, production regex preprocessing, BPE tokenization, lemmatization, POS & NER with spaCy, TF-IDF, Word2Vec, BiLSTMs in PyTorch, and attention.",
     canonical: `${BASE_URL}/learning/ai/nlp`,
   },
+  "/learning/ai/transformers": {
+    title: "Module 6: Transformer Architecture from Scratch | PrepSpaces",
+    description: "Build an encoder-decoder Transformer from scratch in PyTorch: scaled dot-product attention, multi-head subspaces, sinusoidal positional encodings, causal masks, and translation.",
+    canonical: `${BASE_URL}/learning/ai/transformers`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

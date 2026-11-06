@@ -13,6 +13,7 @@ const REGISTERED_ROUTES = {
   "ai-ml": { route: "/learning/ai/machine-learning", label: "Machine Learning Fundamentals" },
   "ai-dl": { route: "/learning/ai/deep-learning", label: "Deep Learning & Neural Networks" },
   "ai-nlp": { route: "/learning/ai/nlp", label: "Natural Language Processing (NLP) Engineering" },
+  "ai-transformers": { route: "/learning/ai/transformers", label: "Transformer Architecture from Scratch" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -105,6 +106,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(nlp|natural language processing|text processing|word embeddings|ai module 5)$/i,
     destination: "ai-nlp",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(transformers|transformer|attention mechanism|scaled dot product attention|ai module 6)$/i,
+    destination: "ai-transformers",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,
