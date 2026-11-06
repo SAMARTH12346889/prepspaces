@@ -1,0 +1,120 @@
+{
+  "id": "nlp",
+  "courseId": "ai-engineering",
+  "index": 5,
+  "name": "5. Natural Language Processing (NLP) Engineering",
+  "route": "/learning/ai/nlp",
+  "componentName": "AINaturalLanguageProcessing",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which linguistic level is primarily concerned with the grammatical arrangement of words into phrases and sentences?",
+      "options": ["Phonology", "Morphology", "Syntax", "Pragmatics"],
+      "correctIndex": 2,
+      "explanation": "Syntax studies the rules, principles, and processes that govern the structure and word order of sentences in a given language."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary advantage of subword tokenizers (e.g., BPE, WordPiece) over word-level tokenization?",
+      "options": [
+        "They eliminate the need for training neural networks",
+        "They handle out-of-vocabulary (OOV) words by decomposing them into known subwords with a compact vocabulary",
+        "They always generate shorter sequence lengths than word tokenizers",
+        "They guarantee 100% classification accuracy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subword tokenizers split rare or compound words into frequent subword fragments, bounding vocabulary size while preventing out-of-vocabulary errors."
+    },
+    {
+      "id": 3,
+      "question": "How does Lemmatization differ from Stemming?",
+      "options": [
+        "Lemmatization uses heuristic suffix stripping, while Stemming uses vocabulary dictionaries",
+        "Stemming considers Part-of-Speech context, while Lemmatization does not",
+        "Lemmatization reduces words to valid dictionary headwords using vocabulary and morphological analysis, whereas Stemming chops off word ends heuristically",
+        "Stemming is slower and requires more memory than Lemmatization"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lemmatization uses morphological dictionaries and POS tags to produce valid base words (lemmas), whereas stemming uses crude heuristics to strip affixes, often creating non-words."
+    },
+    {
+      "id": 4,
+      "question": "What is the core mathematical purpose of the Inverse Document Frequency (IDF) factor in TF-IDF?",
+      "options": [
+        "To penalize terms that appear in every document and boost terms that are rare and discriminative across the corpus",
+        "To ensure that long documents always receive higher weights than short documents",
+        "To calculate the cosine distance between two dense vectors",
+        "To replace the need for tokenization"
+      ],
+      "correctIndex": 0,
+      "explanation": "IDF lowers the weight of omnipresent words (like 'the', 'is') and elevates terms that appear in only a small subset of documents, enhancing discriminative power."
+    },
+    {
+      "id": 5,
+      "question": "What was the fundamental insight of Harris's Distributional Hypothesis upon which Word2Vec is built?",
+      "options": [
+        "Words should be represented by their alphabetical character positions",
+        "Words that occur in similar contexts tend to share similar semantic meanings",
+        "Grammatical trees can be evaluated using Markov models",
+        "Punctuation carries more semantic weight than nouns"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Distributional Hypothesis states that words occurring in similar linguistic environments (contexts) have similar meanings ('you shall know a word by the company it keeps')."
+    },
+    {
+      "id": 6,
+      "question": "In the Word2Vec Skip-Gram model with Negative Sampling (SGNS), what problem does Negative Sampling solve?",
+      "options": [
+        "It eliminates the need for backpropagation",
+        "It avoids computing the computationally prohibitive Softmax denominator over the entire vocabulary",
+        "It prevents words from having negative numerical vector coordinates",
+        "It automatically corrects spelling mistakes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Computing full softmax requires summing exponentials over the entire vocabulary (|V|). Negative sampling turns the multi-class problem into K binary logistic regressions."
+    },
+    {
+      "id": 7,
+      "question": "In an LSTM cell, which gate is specifically responsible for deciding which fraction of previous cell state information to discard?",
+      "options": ["Input Gate", "Candidate Gate", "Forget Gate", "Output Gate"],
+      "correctIndex": 2,
+      "explanation": "The Forget gate outputs numbers between 0 (completely discard) and 1 (completely retain) for each element in the previous cell state C_{t-1}."
+    },
+    {
+      "id": 8,
+      "question": "Why does a Bidirectional LSTM (BiLSTM) often outperform a unidirectional LSTM on text classification tasks?",
+      "options": [
+        "It has half the number of trainable parameters",
+        "It processes tokens from both past-to-future and future-to-past, providing full contextual representation at each token",
+        "It completely eliminates the need for word embeddings",
+        "It avoids using activation functions"
+      ],
+      "correctIndex": 1,
+      "explanation": "A BiLSTM runs two independent hidden layers (forward and backward), concatenating their hidden states to capture contextual dependencies from both left and right."
+    },
+    {
+      "id": 9,
+      "question": "What constitutes 'Data Leakage' during the text preprocessing stage of an NLP machine learning project?",
+      "options": [
+        "Fitting a TF-IDF vectorizer or building the tokenizer vocabulary on the entire dataset before splitting into train and test sets",
+        "Removing punctuation marks from training text",
+        "Using GPU acceleration during model inference",
+        "Using 8-bit dynamic quantization on model weights"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fitting vectorizers or vocabularies on data that includes the test partition leaks information about test frequencies and words into training, inflating validation metrics."
+    },
+    {
+      "id": 10,
+      "question": "What is the Scaled Dot-Product Attention equation introduced in Vaswani et al. (2017)?",
+      "options": [
+        "Attention(Q,K,V) = tanh(W_q Q + W_k K) V",
+        "Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) V",
+        "Attention(Q,K,V) = sigmoid(Q * K^T) * V",
+        "Attention(Q,K,V) = relu(QK^T) V"
+      ],
+      "correctIndex": 1,
+      "explanation": "Scaled Dot-Product Attention is defined as softmax((Q K^T) / sqrt(d_k)) V, where sqrt(d_k) prevents dot products from growing excessively large for high dimensions."
+    }
+  ]
+}

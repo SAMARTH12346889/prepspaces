@@ -71,6 +71,11 @@ const routeMeta = {
     description: "Master artificial neurons, multilayer perceptrons, backpropagation via the chain rule, activation functions, loss optimization, and deep learning in PyTorch.",
     canonical: `${BASE_URL}/learning/ai/deep-learning`,
   },
+  "/learning/ai/nlp": {
+    title: "Module 5: Natural Language Processing (NLP) Engineering | PrepSpaces",
+    description: "Master linguistic foundations, production regex preprocessing, BPE tokenization, lemmatization, POS & NER with spaCy, TF-IDF, Word2Vec, BiLSTMs in PyTorch, and attention.",
+    canonical: `${BASE_URL}/learning/ai/nlp`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

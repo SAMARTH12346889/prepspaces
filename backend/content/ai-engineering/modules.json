@@ -44,22 +44,22 @@
     "hasScenarios": true
   },
   {
-    "id": "computer-vision",
-    "courseId": "ai-engineering",
-    "index": 5,
-    "name": "5. Computer Vision & CNNs",
-    "route": "/learning/ai/computer-vision",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
-  },
-  {
     "id": "nlp",
     "courseId": "ai-engineering",
-    "index": 6,
-    "name": "6. Natural Language Processing & Embeddings",
+    "index": 5,
+    "name": "5. Natural Language Processing (NLP) Engineering",
     "route": "/learning/ai/nlp",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "computer-vision",
+    "courseId": "ai-engineering",
+    "index": 6,
+    "name": "6. Computer Vision & CNNs",
+    "route": "/learning/ai/computer-vision",
     "questionCount": 10,
     "hasTopics": false,
     "hasCommands": false,

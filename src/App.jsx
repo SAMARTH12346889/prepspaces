@@ -97,6 +97,7 @@ import AIFoundations from "./Componets/AIFoundations";
 import AIMathematics from "./Componets/AIMathematics";
 import AIMachineLearning from "./Componets/AIMachineLearning";
 import AIDeepLearning from "./Componets/AIDeepLearning";
+import AINaturalLanguageProcessing from "./Componets/AINaturalLanguageProcessing";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1092,6 +1093,18 @@ function App() {
             <Route path="/learn/ai/deep-learning" element={<AIDeepLearning />} />
             <Route path="/learn/ai/neural-networks" element={<AIDeepLearning />} />
             <Route path="/learn/ai/pytorch" element={<AIDeepLearning />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 5: NATURAL LANGUAGE PROCESSING (NLP) ENGINEERING */}
+            <Route path="/learning/ai/nlp" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learning/ai/natural-language-processing" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learning/ai/text-processing" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learning/ai/embeddings" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learning/ai/module-5" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learning/ai-engineering/nlp" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learning/ai-engineering/natural-language-processing" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learning/ai-engineering/module-5" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learn/ai/nlp" element={<AINaturalLanguageProcessing />} />
+            <Route path="/learn/ai/natural-language-processing" element={<AINaturalLanguageProcessing />} />
 
 
             {/* INTERVIEW PAGE */}
