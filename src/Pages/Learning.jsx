@@ -192,11 +192,21 @@ export default function Learning() {
   const { isAuthenticated, user, logout } = useAuth();
   const [courses, setCourses] = useState(learningTracks);
 
-  useEffect(() => {
+    useEffect(() => {
     let isMounted = true;
     getCoursesCatalog().then((catalog) => {
       if (isMounted && catalog && catalog.length > 0) {
-        setCourses(catalog);
+        const catalogMap = new Map(catalog.map((c) => [c.id, c]));
+        // Seamlessly merge remote catalog with fallback tracks so no course is omitted
+        const merged = learningTracks.map((local) =>
+          catalogMap.has(local.id) ? { ...local, ...catalogMap.get(local.id) } : local
+        );
+        for (const remote of catalog) {
+          if (!learningTracks.some((l) => l.id === remote.id)) {
+            merged.push(remote);
+          }
+        }
+        setCourses(merged);
       }
     });
     return () => {
@@ -292,11 +302,11 @@ export default function Learning() {
         {/* Metric Badges Banner */}
         <div className="mb-5 sm:mb-10 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-white/70 border border-[#e7e3da] backdrop-blur-md shadow-2xs">
           <div className="p-3 text-center">
-            <div className="text-xl sm:text-2xl font-black text-stone-900 font-mono">6</div>
+            <div className="text-xl sm:text-2xl font-black text-stone-900 font-mono">{courses.length || 7}</div>
             <div className="text-[11px] text-stone-500 font-medium mt-0.5">Comprehensive Tracks</div>
           </div>
           <div className="p-3 text-center border-l border-stone-200/70">
-            <div className="text-xl sm:text-2xl font-black text-orange-600 font-mono">80+</div>
+            <div className="text-xl sm:text-2xl font-black text-orange-600 font-mono">100+</div>
             <div className="text-[11px] text-stone-500 font-medium mt-0.5">In-Depth Modules</div>
           </div>
           <div className="p-3 text-center border-l border-stone-200/70">
