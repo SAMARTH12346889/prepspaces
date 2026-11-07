@@ -151,6 +151,11 @@ const routeMeta = {
     description: "Master high-scale AI engineering: Little's Law capacity planning, GPU VRAM dimensioning, GQA KV cache compression, TTFT/TPOT latency profiling, continuous iteration batching, Redis multi-tier caching, Prometheus & Grafana SRE golden signals, and resilient circuit breaking.",
     canonical: `${BASE_URL}/learning/ai/scalability-optimization`,
   },
+  "/learning/ai/fine-tuning-domain": {
+    title: "Module 21: Fine-Tuning LLMs for Domain-Specific Applications | PrepSpaces",
+    description: "Master enterprise domain LLM fine-tuning: parameter-efficient fine-tuning (PEFT), LoRA matrix decomposition, QLoRA 4-bit NF4 quantization, conversational JSONL dataset engineering, SFTTrainer with response-only loss masking, model merging, and vLLM deployment.",
+    canonical: `${BASE_URL}/learning/ai/fine-tuning-domain`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

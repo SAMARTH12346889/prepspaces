@@ -1,0 +1,154 @@
+{
+  "id": "fine-tuning-domain",
+  "courseId": "ai-engineering",
+  "index": 21,
+  "name": "21. Fine-Tuning LLMs for Domain-Specific Applications",
+  "route": "/learning/ai/fine-tuning-domain",
+  "componentName": "AIFineTuningDomain",
+  "quiz": [
+    {
+      "id": "quiz-01",
+      "question": "What is the primary objective of fine-tuning an LLM for a domain-specific application?",
+      "options": [
+        "To increase the GPU internet download bandwidth",
+        "To adapt the model's behavior, tone, evaluation criteria, and output formatting to specific domain requirements",
+        "To replace the model's neural network with a relational database",
+        "To compress text into image files"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fine-tuning adapts model behavior, style, scoring criteria, and formatting habits to domain specifications."
+    },
+    {
+      "id": "quiz-02",
+      "question": "In the LoRA weight decomposition W' = W_0 + (alpha / r) * B * A, what are the dimensions of matrix B if W_0 is d x k and rank is r?",
+      "options": [
+        "k x d",
+        "d x r",
+        "r x k",
+        "r x r"
+      ],
+      "correctIndex": 1,
+      "explanation": "Matrix B has dimension d x r, and matrix A has dimension r x k, producing a product B * A of dimension d x k."
+    },
+    {
+      "id": "quiz-03",
+      "question": "Why is matrix B initialized strictly to zeros at the beginning of LoRA training?",
+      "options": [
+        "To prevent PyTorch memory leaks",
+        "To ensure that Delta W = B * A = 0 initially, meaning the model starts training from the exact base model output",
+        "Because zero matrices execute faster on GPUs",
+        "To bypass CUDA gradient calculations"
+      ],
+      "correctIndex": 1,
+      "explanation": "Initializing B to zero ensures Delta W is zero at step 0, preserving the base model's initial outputs."
+    },
+    {
+      "id": "quiz-04",
+      "question": "What critical memory advantage does QLoRA provide over standard LoRA?",
+      "options": [
+        "It completely eliminates the need for an optimizer",
+        "It compresses the frozen base model weights into 4-bit NormalFloat (NF4), dramatically reducing baseline VRAM",
+        "It trains only on CPU host RAM",
+        "It runs without a tokenizer"
+      ],
+      "correctIndex": 1,
+      "explanation": "QLoRA loads the frozen base weights in 4-bit NF4, slashing base memory by up to 75% while training high-precision adapters."
+    },
+    {
+      "id": "quiz-05",
+      "question": "Why is response-only loss masking (setting prompt labels to -100) essential during supervised fine-tuning?",
+      "options": [
+        "It prevents the tokenizer from encoding punctuation",
+        "It prevents the optimizer from updating parameters based on predicting the user prompt, focusing learning on assistant responses",
+        "It converts the model from autoregressive to diffusion",
+        "It prevents GPU overheating"
+      ],
+      "correctIndex": 1,
+      "explanation": "Masking prompt tokens ensures the model is penalized and trained strictly for generating correct target assistant responses."
+    },
+    {
+      "id": "quiz-06",
+      "question": "What is catastrophic forgetting in LLM fine-tuning?",
+      "options": [
+        "When a GPU crashes due to a power outage",
+        "When training on a narrow domain degrades or erases the model's previously learned general reasoning capabilities",
+        "When a dataset file is accidentally deleted from disk",
+        "When the tokenizer runs out of token IDs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Catastrophic forgetting occurs when updates over a specialized dataset overwrite foundational reasoning and language knowledge."
+    },
+    {
+      "id": "quiz-07",
+      "question": "What happens when you execute merge_and_unload() on a trained PeftModel?",
+      "options": [
+        "The adapter weights are deleted permanently",
+        "The low-rank delta weights (alpha/r)*B*A are mathematically fused into the base weights, yielding a standard standalone model",
+        "The model is uploaded automatically to Hugging Face Hub",
+        "The dataset is converted into JSONL format"
+      ],
+      "correctIndex": 1,
+      "explanation": "merge_and_unload() adds the adapter updates directly into the base weights and unloads the adapter modules, creating a standalone model."
+    },
+    {
+      "id": "quiz-08",
+      "question": "Why should you NOT merge a LoRA adapter into an already 4-bit quantized base model?",
+      "options": [
+        "4-bit models cannot be saved to disk",
+        "Adding floating-point adapter updates into low-precision quantized weights introduces severe numerical corruption",
+        "PyTorch forbids using Python with 4-bit models",
+        "Safetensors only supports 8-bit models"
+      ],
+      "correctIndex": 1,
+      "explanation": "Merging into 4-bit quantized weights causes precision loss and output corruption; merging must occur in FP16 or BF16."
+    },
+    {
+      "id": "quiz-09",
+      "question": "If training loss continues dropping toward 0.1 while validation loss climbs from 1.1 to 1.8, what is occurring?",
+      "options": [
+        "Underfitting",
+        "Optimal convergence",
+        "Overfitting (memorization)",
+        "Zero gradient flow"
+      ],
+      "correctIndex": 2,
+      "explanation": "A widening gap where training loss plummets while validation loss increases is the textbook hallmark of overfitting."
+    },
+    {
+      "id": "quiz-010",
+      "question": "How does Direct Preference Optimization (DPO) differ from traditional RLHF?",
+      "options": [
+        "DPO requires training a separate reward model and running PPO reinforcement learning",
+        "DPO optimizes policy parameters directly on pairwise chosen/rejected data using closed-form mathematical substitution",
+        "DPO only works on computer vision models",
+        "DPO does not require any preference data"
+      ],
+      "correctIndex": 1,
+      "explanation": "DPO mathematically reparameterizes the reward function, training directly on pairwise chosen/rejected examples without complex RL loops."
+    },
+    {
+      "id": "quiz-011",
+      "question": "What is the typical learning rate used for LoRA supervised fine-tuning?",
+      "options": [
+        "1e-1 (0.1)",
+        "1e-4 to 3e-4 (e.g. 2e-4)",
+        "1e-7",
+        "5.0"
+      ],
+      "correctIndex": 1,
+      "explanation": "LoRA adapters are small, randomly initialized matrices that typically require learning rates around 1e-4 to 3e-4."
+    },
+    {
+      "id": "quiz-012",
+      "question": "Why is Perplexity (PPL) alone insufficient to prove that a fine-tuned model is production-ready?",
+      "options": [
+        "Perplexity cannot be computed on modern GPUs",
+        "Perplexity only measures token predictability fluency, but does not verify technical correctness or scoring fairness",
+        "Perplexity is only defined for classification models",
+        "Perplexity increases as the model gets better"
+      ],
+      "correctIndex": 1,
+      "explanation": "Perplexity measures next-token probability confidence, but does not evaluate pedagogical fairness, absence of hallucinations, or logic."
+    }
+  ]
+}

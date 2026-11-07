@@ -220,15 +220,15 @@
     "hasScenarios": true
   },
   {
-    "id": "ai-security",
+    "id": "fine-tuning-domain",
     "courseId": "ai-engineering",
     "index": 21,
-    "name": "21. AI Security & Prompt Injection Defense",
-    "route": "/learning/ai/ai-security",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "21. Fine-Tuning LLMs for Domain-Specific Applications",
+    "route": "/learning/ai/fine-tuning-domain",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "enterprise-system-design",

@@ -113,6 +113,7 @@ import AIInferenceServing from "./Componets/AIInferenceServing";
 import AIBackendEngineering from "./Componets/AIBackendEngineering";
 import AIMlopsDeployment from "./Componets/AIMlopsDeployment";
 import AIScalabilityOptimization from "./Componets/AIScalabilityOptimization";
+import AIFineTuningDomain from "./Componets/AIFineTuningDomain";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1294,6 +1295,17 @@ function App() {
             <Route path="/learning/ai-engineering/module-20" element={<AIScalabilityOptimization />} />
             <Route path="/learn/ai/scalability-optimization" element={<AIScalabilityOptimization />} />
             <Route path="/learn/ai/scalability" element={<AIScalabilityOptimization />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 21: FINE-TUNING LLMS FOR DOMAIN-SPECIFIC APPLICATIONS */}
+            <Route path="/learning/ai/fine-tuning-domain" element={<AIFineTuningDomain />} />
+            <Route path="/learning/ai/domain-fine-tuning" element={<AIFineTuningDomain />} />
+            <Route path="/learning/ai/lora-qlora" element={<AIFineTuningDomain />} />
+            <Route path="/learning/ai/fine-tuning-llms" element={<AIFineTuningDomain />} />
+            <Route path="/learning/ai/module-21" element={<AIFineTuningDomain />} />
+            <Route path="/learning/ai-engineering/fine-tuning-domain" element={<AIFineTuningDomain />} />
+            <Route path="/learning/ai-engineering/module-21" element={<AIFineTuningDomain />} />
+            <Route path="/learn/ai/fine-tuning-domain" element={<AIFineTuningDomain />} />
+            <Route path="/learn/ai/domain-fine-tuning" element={<AIFineTuningDomain />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"

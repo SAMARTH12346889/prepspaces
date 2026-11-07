@@ -28,6 +28,7 @@ const REGISTERED_ROUTES = {
   "ai-backend-engineering": { route: "/learning/ai/backend-engineering", label: "AI Backend Engineering & API Development" },
   "ai-mlops-deployment": { route: "/learning/ai/mlops-deployment", label: "AI MLOps, Deployment & CI/CD" },
   "ai-scalability-optimization": { route: "/learning/ai/scalability-optimization", label: "AI Scalability, Optimization & Observability" },
+  "ai-fine-tuning-domain": { route: "/learning/ai/fine-tuning-domain", label: "Fine-Tuning LLMs for Domain Applications" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -180,6 +181,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(scalability|ai scalability|optimization|ai optimization|observability|ai observability|ai module 20)$/i,
     destination: "ai-scalability-optimization",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(fine tuning|domain fine tuning|fine tuning llms|lora|qlora|domain adaptation|ai module 21)$/i,
+    destination: "ai-fine-tuning-domain",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,
