@@ -233,6 +233,18 @@ export default function ModuleNav({
     return rawTrack || "cloud";
   }, [rawTrack, location?.pathname]);
 
+  const courseIdMap = {
+    os: "operating-systems",
+    networks: "computer-networks",
+    cybersecurity: "cybersecurity",
+    "system-design": "system-design",
+    cloud: "cloud",
+    devops: "devops",
+    ai: "ai-engineering",
+    "ai-engineering": "ai-engineering",
+  };
+  const resolvedCourseId = courseIdMap[track] || track;
+
   const getModulesForTrack = useCallback((t) => {
     switch (t) {
       case "devops":
