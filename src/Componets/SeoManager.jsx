@@ -106,6 +106,11 @@ const routeMeta = {
     description: "Master enterprise RAG engineering: multi-format document ingestion, token-aware chunking, dense/sparse hybrid search with Reciprocal Rank Fusion, Cross-Encoder reranking, token budgeting, advanced agentic RAG, and Ragas evaluation.",
     canonical: `${BASE_URL}/learning/ai/rag-architecture`,
   },
+  "/learning/ai/multimodal-ai": {
+    title: "Module 12: Multimodal Generative AI (Vision & Audio) | PrepSpaces",
+    description: "Master multimodal AI architectures: Vision Transformers (ViT), Projection Adapters, CLIP contrastive learning, Faster-Whisper speech-to-text, neural TTS with HiFi-GAN vocoders, real-time voice agents with barge-in, and Multimodal RAG.",
+    canonical: `${BASE_URL}/learning/ai/multimodal-ai`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",
@@ -385,12 +390,6 @@ const routeMeta = {
     title: "DevOps Course and Interview Preparation | PrepSpaces",
     description: "Master modern production infrastructure, Linux systems, Docker, Kubernetes, CI/CD pipelines, and SRE interview preparation.",
     canonical: `${BASE_URL}/learning/devops/linux`,
-  },
-  "/interview": {
-    title: "Technical Mock Interview Platform — PrepSpaces",
-    description: "Practice technical and behavioral software engineering mock interviews. Status and roadmap updates for automated interview rooms.",
-    canonical: `${BASE_URL}/interview`,
-    robots: "noindex, follow",
   },
 
   // System Design Masterclass

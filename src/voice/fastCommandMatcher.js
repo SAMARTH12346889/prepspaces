@@ -19,6 +19,7 @@ const REGISTERED_ROUTES = {
   "ai-prompt-engineering": { route: "/learning/ai/prompt-engineering", label: "Prompt Engineering & Structured LLM Outputs" },
   "ai-vector-databases": { route: "/learning/ai/vector-databases", label: "Embeddings, Vector Databases & Semantic Search" },
   "ai-rag-architecture": { route: "/learning/ai/rag-architecture", label: "Retrieval-Augmented Generation (RAG) Engineering" },
+  "ai-multimodal-ai": { route: "/learning/ai/multimodal-ai", label: "Multimodal Generative AI (Vision & Audio)" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -135,6 +136,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(rag|retrieval augmented generation|rag architecture|rag engineering|ai module 11)$/i,
     destination: "ai-rag-architecture",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(multimodal|multimodal ai|multimodal generative ai|vision language|audio speech|ai module 12)$/i,
+    destination: "ai-multimodal-ai",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,

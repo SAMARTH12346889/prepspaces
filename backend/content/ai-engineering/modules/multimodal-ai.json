@@ -1,0 +1,130 @@
+{
+  "id": "multimodal-ai",
+  "courseId": "ai-engineering",
+  "index": 12,
+  "name": "12. Multimodal Generative AI (Vision & Audio)",
+  "route": "/learning/ai/multimodal-ai",
+  "componentName": "AIMultimodal",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is multimodal AI?",
+      "options": [
+        "AI that works only with text",
+        "AI that processes multiple data modalities",
+        "AI that only creates images",
+        "AI that only works with databases"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multimodal AI refers to systems capable of processing, understanding, combining, or generating information across multiple distinct modalities such as text, images, audio, and video."
+    },
+    {
+      "id": 2,
+      "question": "What is a Vision-Language Model?",
+      "options": [
+        "A model that combines visual inputs with language",
+        "A database for images",
+        "A text-only chatbot",
+        "An audio compression model"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Vision-Language Model (VLM) combines a vision encoder, a projection layer, and a language model to perform visual question answering, document understanding, and cross-modal reasoning."
+    },
+    {
+      "id": 3,
+      "question": "What does a ViT divide an image into?",
+      "options": [
+        "Audio frames",
+        "Text paragraphs",
+        "Image patches",
+        "Database records"
+      ],
+      "correctIndex": 2,
+      "explanation": "A Vision Transformer (ViT) divides a 2D image into a sequence of non-overlapping pixel patches (e.g., 16x16 pixels) and projects them into linear vector tokens similar to text tokens."
+    },
+    {
+      "id": 4,
+      "question": "What is CLIP primarily trained to associate?",
+      "options": [
+        "Images and matching text descriptions",
+        "Audio and video timestamps",
+        "SQL queries and tables",
+        "Code and compilers"
+      ],
+      "correctIndex": 0,
+      "explanation": "CLIP (Contrastive Language-Image Pretraining) trains separate image and text encoders on hundreds of millions of pairs using a contrastive loss to maximize similarity between matching image-text pairs."
+    },
+    {
+      "id": 5,
+      "question": "What does OCR do?",
+      "options": [
+        "Generate speech",
+        "Extract visible text from images",
+        "Create image embeddings only",
+        "Compress audio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Optical Character Recognition (OCR) converts optical images of text (scanned documents, photographs of whiteboards, code screenshots) into editable, machine-readable string characters."
+    },
+    {
+      "id": 6,
+      "question": "What does ASR stand for?",
+      "options": [
+        "Audio Signal Reconstruction",
+        "Automatic Speech Recognition",
+        "Advanced Speech Rendering",
+        "Audio Sequence Ranking"
+      ],
+      "correctIndex": 1,
+      "explanation": "ASR stands for Automatic Speech Recognition (also known as Speech-to-Text), which converts spoken audio acoustic waveforms into textual transcripts."
+    },
+    {
+      "id": 7,
+      "question": "What is VAD?",
+      "options": [
+        "A type of image encoder",
+        "A speech activity detector",
+        "A text generation model",
+        "An image diffusion method"
+      ],
+      "correctIndex": 1,
+      "explanation": "Voice Activity Detection (VAD) analyzes incoming audio signals to identify whether human speech is present or whether the audio is background silence/noise, crucial for turn detection."
+    },
+    {
+      "id": 8,
+      "question": "What does WER measure?",
+      "options": [
+        "Word recognition errors",
+        "Image resolution",
+        "Voice volume",
+        "Model parameter count"
+      ],
+      "correctIndex": 0,
+      "explanation": "Word Error Rate (WER = (Substitutions + Deletions + Insertions) / Total Reference Words) measures transcription accuracy in Automatic Speech Recognition systems."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of a vocoder in a traditional neural TTS pipeline?",
+      "options": [
+        "Extract video frames",
+        "Convert acoustic features into a waveform",
+        "Translate text",
+        "Classify an image"
+      ],
+      "correctIndex": 1,
+      "explanation": "In neural text-to-speech pipelines, a neural vocoder (such as HiFi-GAN or WaveNet) converts intermediate acoustic representations (like mel-spectrograms) into audible time-domain sound waveforms."
+    },
+    {
+      "id": 10,
+      "question": "What is multimodal RAG?",
+      "options": [
+        "A text-only database",
+        "A retrieval system involving multiple content modalities",
+        "A model-training optimizer",
+        "A speech recording format"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multimodal RAG extends standard retrieval-augmented generation by indexing, retrieving, and synthesizing evidence across multiple media types, including diagrams, audio recordings, video frames, and text documents."
+    }
+  ]
+}

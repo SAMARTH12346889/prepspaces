@@ -104,6 +104,7 @@ import AILlmFineTuning from "./Componets/AILlmFineTuning";
 import AILlmPromptEngineering from "./Componets/AILlmPromptEngineering";
 import AIVectorDatabases from "./Componets/AIVectorDatabases";
 import AIRagEngineering from "./Componets/AIRagEngineering";
+import AIMultimodal from "./Componets/AIMultimodal";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1181,6 +1182,17 @@ function App() {
             <Route path="/learning/ai-engineering/module-11" element={<AIRagEngineering />} />
             <Route path="/learn/ai/rag-architecture" element={<AIRagEngineering />} />
             <Route path="/learn/ai/rag" element={<AIRagEngineering />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 12: MULTIMODAL GENERATIVE AI */}
+            <Route path="/learning/ai/multimodal-ai" element={<AIMultimodal />} />
+            <Route path="/learning/ai/multimodal" element={<AIMultimodal />} />
+            <Route path="/learning/ai/vision-language" element={<AIMultimodal />} />
+            <Route path="/learning/ai/speech-audio" element={<AIMultimodal />} />
+            <Route path="/learning/ai/module-12" element={<AIMultimodal />} />
+            <Route path="/learning/ai-engineering/multimodal-ai" element={<AIMultimodal />} />
+            <Route path="/learning/ai-engineering/module-12" element={<AIMultimodal />} />
+            <Route path="/learn/ai/multimodal-ai" element={<AIMultimodal />} />
+            <Route path="/learn/ai/multimodal" element={<AIMultimodal />} />
 
 
             {/* INTERVIEW PAGE */}

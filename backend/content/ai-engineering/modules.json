@@ -121,15 +121,15 @@
     "hasScenarios": true
   },
   {
-    "id": "advanced-rag",
+    "id": "multimodal-ai",
     "courseId": "ai-engineering",
     "index": 12,
-    "name": "12. Advanced RAG: Hybrid Search & Reranking",
-    "route": "/learning/ai/advanced-rag",
+    "name": "12. Multimodal Generative AI (Vision & Audio)",
+    "route": "/learning/ai/multimodal-ai",
     "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "fine-tuning",
@@ -176,11 +176,11 @@
     "hasScenarios": false
   },
   {
-    "id": "multimodal-ai",
+    "id": "speech-video-ai",
     "courseId": "ai-engineering",
     "index": 17,
-    "name": "17. Multimodal Generative AI (Vision & Audio)",
-    "route": "/learning/ai/multimodal-ai",
+    "name": "17. Multimodal Video & Realtime Speech",
+    "route": "/learning/ai/speech-video-ai",
     "questionCount": 10,
     "hasTopics": false,
     "hasCommands": false,
