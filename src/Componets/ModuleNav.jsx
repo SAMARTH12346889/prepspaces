@@ -163,7 +163,7 @@ export const AI_MODULES = [
   { id: "scalability-optimization", name: "20. AI Scalability, Optimization & Observability", route: "/learning/ai/scalability-optimization" },
   { id: "fine-tuning-domain", name: "21. Fine-Tuning LLMs for Domain-Specific Applications", route: "/learning/ai/fine-tuning-domain" },
   { id: "scratch-slm", name: "22. Building Small Language Models from Scratch", route: "/learning/ai/scratch-slm" },
-  { id: "ai-capstone-assistant", name: "23. Capstone: Autonomous Knowledge Assistant", route: "/learning/ai/ai-capstone-assistant" },
+  { id: "ai-system-design", name: "23. AI System Design & Real-World Architecture", route: "/learning/ai/system-design" },
   { id: "final-capstone", name: "24. Final Capstone: Enterprise GenAI Platform", route: "/learning/ai/final-capstone" },
 ];
 

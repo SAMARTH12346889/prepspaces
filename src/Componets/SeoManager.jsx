@@ -161,6 +161,11 @@ const routeMeta = {
     description: "Learn how to build a small language model (SLM) from scratch in PyTorch: understand GPT architecture, character and BPE tokenization, learnable positional embeddings, scaled dot-product attention with causal masking, Pre-LayerNorm transformer blocks, next-token prediction with cross-entropy and AdamW, and autoregressive text generation.",
     canonical: `${BASE_URL}/learning/ai/scratch-slm`,
   },
+  "/learning/ai/system-design": {
+    title: "Module 23: AI System Design & Real-World Architecture | PrepSpaces",
+    description: "Design and scale enterprise AI systems: 6-layer production architecture, RAG vs fine-tuning decision matrices, circuit breakers and graceful degradation, polyglot storage, real-time voice streaming with VAD and barge-in, Little's Law GPU capacity planning, and OWASP GenAI Top 10 security.",
+    canonical: `${BASE_URL}/learning/ai/system-design`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

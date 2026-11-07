@@ -242,15 +242,15 @@
     "hasScenarios": true
   },
   {
-    "id": "ai-capstone-assistant",
+    "id": "ai-system-design",
     "courseId": "ai-engineering",
     "index": 23,
-    "name": "23. Production Capstone: Autonomous Knowledge Assistant",
-    "route": "/learning/ai/ai-capstone-assistant",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "23. AI System Design & Real-World Architecture",
+    "route": "/learning/ai/system-design",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "final-capstone",

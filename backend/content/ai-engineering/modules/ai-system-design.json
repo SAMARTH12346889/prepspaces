@@ -1,0 +1,154 @@
+{
+  "id": "ai-system-design",
+  "courseId": "ai-engineering",
+  "index": 23,
+  "name": "23. AI System Design & Real-World Architecture",
+  "route": "/learning/ai/system-design",
+  "componentName": "AISystemDesign",
+  "quiz": [
+    {
+      "id": "quiz-01",
+      "question": "What is the primary difference between an AI model and an AI system?",
+      "options": [
+        "They are identical terms in software engineering",
+        "An AI model is one isolated neural network component; an AI system encompasses models, APIs, databases, security, and application logic",
+        "An AI system does not contain any machine learning models",
+        "An AI model includes frontend user interfaces and database clustering"
+      ],
+      "correctIndex": 1,
+      "explanation": "An AI model is the neural network artifact, while an AI system includes all surrounding software infrastructure, persistence, auth, and reliability controls."
+    },
+    {
+      "id": "quiz-02",
+      "question": "When is Retrieval-Augmented Generation (RAG) strictly preferable to Fine-Tuning?",
+      "options": [
+        "When external knowledge changes frequently and must be cited from source documents",
+        "When the model's weights must be updated for every incoming prompt",
+        "When the system has zero documents available",
+        "When all generated responses must be 100% deterministic"
+      ],
+      "correctIndex": 0,
+      "explanation": "RAG allows dynamic, real-time knowledge retrieval and document-level grounding without costly periodic model retraining."
+    },
+    {
+      "id": "quiz-03",
+      "question": "What is the primary purpose of a Circuit Breaker in an AI application architecture?",
+      "options": [
+        "To automatically increase the model temperature during long conversations",
+        "To prevent cascading failures by immediately failing fast and avoiding calls to an unhealthy upstream AI dependency",
+        "To compress token embeddings into 8-bit integers",
+        "To permanently delete failed interview sessions"
+      ],
+      "correctIndex": 1,
+      "explanation": "A circuit breaker halts calls to a failing remote AI provider after a threshold of errors, allowing it to recover while executing fallback logic."
+    },
+    {
+      "id": "quiz-04",
+      "question": "What does Little's Law (L = lambda * W) calculate in system capacity planning?",
+      "options": [
+        "The accuracy of a fine-tuned language model",
+        "The average number of concurrent in-flight requests as a function of arrival rate and system latency",
+        "The exact dimensions of a vector embedding matrix",
+        "The database normalization index"
+      ],
+      "correctIndex": 1,
+      "explanation": "Little's Law L = lambda * W determines the concurrent load in the system based on arrival throughput and processing latency."
+    },
+    {
+      "id": "quiz-05",
+      "question": "Why must exponential backoff algorithms include randomized jitter when retrying failed AI requests?",
+      "options": [
+        "To bypass API key authentication",
+        "To prevent thundering herd spikes where multiple clients retry at the exact same millisecond",
+        "To increase the GPU clock speed",
+        "To decrease tokenizer vocabulary size"
+      ],
+      "correctIndex": 1,
+      "explanation": "Randomized jitter desynchronizes retries across clients, preventing synchronized traffic waves from overwhelming recovering services."
+    },
+    {
+      "id": "quiz-06",
+      "question": "Which architectural control correctly prevents cross-tenant data leakage in a RAG vector database?",
+      "options": [
+        "Asking the LLM in the system prompt to ignore other candidates' records",
+        "Enforcing tenant metadata authorization filters in the vector database query before documents are retrieved",
+        "Setting model temperature strictly to 0.0",
+        "Hashing the candidate's name in frontend JavaScript"
+      ],
+      "correctIndex": 1,
+      "explanation": "Security must be enforced at the database level; unauthorized records must never enter the model's retrieved context window."
+    },
+    {
+      "id": "quiz-07",
+      "question": "Why should server-side schema validation (e.g. Pydantic) be enforced on LLM outputs?",
+      "options": [
+        "To increase GPU memory bandwidth",
+        "To prevent malformed, unvalidated, or maliciously injected data from breaking application downstream logic",
+        "To eliminate the need for unit testing",
+        "To replace the relational database"
+      ],
+      "correctIndex": 1,
+      "explanation": "Even with structured generation modes, server-side validation is mandatory to enforce bounds, types, and required fields before persistence."
+    },
+    {
+      "id": "quiz-08",
+      "question": "What is Canary Deployment in generative AI operations?",
+      "options": [
+        "Deploying updates without running automated tests",
+        "Releasing a new model or prompt to a small percentage of live traffic (e.g. 5%) while monitoring errors and quality before full rollout",
+        "Deleting the previous production database schema immediately",
+        "Fine-tuning models on unvetted live user chat logs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canary rollouts expose a fraction of traffic to the new version to detect latent behavioral regressions or tail latency spikes safely."
+    },
+    {
+      "id": "quiz-09",
+      "question": "What is the primary benefit of dynamic Model Routing in an AI Gateway?",
+      "options": [
+        "To use the most expensive flagship model for every trivial operation",
+        "To route tasks dynamically to the most cost-effective model tier based on required reasoning complexity and latency",
+        "To eliminate the need for an API Gateway",
+        "To bypass user authentication"
+      ],
+      "correctIndex": 1,
+      "explanation": "Model routing dispatches simple tasks to small SLMs and reserves large models for complex reasoning, cutting costs by up to 90%."
+    },
+    {
+      "id": "quiz-10",
+      "question": "Why are asynchronous message queues used for resume parsing in the PrepSpaces platform?",
+      "options": [
+        "Because HTTP requests cannot transfer PDF files",
+        "To prevent long-running OCR and LLM operations from causing gateway timeouts and buffer traffic spikes during peak hiring hours",
+        "To eliminate the need for relational databases",
+        "To train the model on the fly"
+      ],
+      "correctIndex": 1,
+      "explanation": "Queues decouple long-running jobs from HTTP request threads, preventing timeouts and buffering workloads gracefully."
+    },
+    {
+      "id": "quiz-11",
+      "question": "What is Voice Activity Detection (VAD) endpointing in real-time conversational AI?",
+      "options": [
+        "Converting text into audio speech",
+        "Detecting speech energy and determining when a candidate has completed an utterance based on a continuous silence duration",
+        "Compressing MP3 files into WAV format",
+        "Translating audio between different foreign languages"
+      ],
+      "correctIndex": 1,
+      "explanation": "VAD endpointing tracks continuous silence (e.g. 700ms) after speech to trigger transcription and conversational response generation."
+    },
+    {
+      "id": "quiz-12",
+      "question": "What is continuous batching in high-throughput LLM serving engines like vLLM?",
+      "options": [
+        "Batching requests once every 24 hours",
+        "Dynamically adding incoming requests and removing completed sequences at the token level rather than waiting for entire static batches",
+        "Training models continuously without stopping",
+        "Writing database backups in continuous loops"
+      ],
+      "correctIndex": 1,
+      "explanation": "Continuous batching operates at the iteration level, maximizing GPU tensor core utilization and drastically reducing queue waiting times."
+    }
+  ]
+}

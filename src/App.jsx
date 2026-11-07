@@ -115,6 +115,7 @@ import AIMlopsDeployment from "./Componets/AIMlopsDeployment";
 import AIScalabilityOptimization from "./Componets/AIScalabilityOptimization";
 import AIFineTuningDomain from "./Componets/AIFineTuningDomain";
 import AIScratchLlm from "./Componets/AIScratchLlm";
+import AISystemDesign from "./Componets/AISystemDesign";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1319,6 +1320,17 @@ function App() {
             <Route path="/learning/ai-engineering/module-22" element={<AIScratchLlm />} />
             <Route path="/learn/ai/scratch-slm" element={<AIScratchLlm />} />
             <Route path="/learn/ai/tiny-gpt" element={<AIScratchLlm />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 23: AI SYSTEM DESIGN & REAL-WORLD ARCHITECTURE */}
+            <Route path="/learning/ai/system-design" element={<AISystemDesign />} />
+            <Route path="/learning/ai/ai-system-design" element={<AISystemDesign />} />
+            <Route path="/learning/ai/architecture" element={<AISystemDesign />} />
+            <Route path="/learning/ai/module-23" element={<AISystemDesign />} />
+            <Route path="/learning/ai-engineering/system-design" element={<AISystemDesign />} />
+            <Route path="/learning/ai-engineering/ai-system-design" element={<AISystemDesign />} />
+            <Route path="/learning/ai-engineering/module-23" element={<AISystemDesign />} />
+            <Route path="/learn/ai/system-design" element={<AISystemDesign />} />
+            <Route path="/learn/ai/ai-system-design" element={<AISystemDesign />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"
