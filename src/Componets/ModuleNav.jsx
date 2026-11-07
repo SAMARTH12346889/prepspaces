@@ -160,7 +160,7 @@ export const AI_MODULES = [
   { id: "inference-serving", name: "17. LLM Inference & Model Serving Engineering", route: "/learning/ai/inference-serving" },
   { id: "ai-backend-engineering", name: "18. AI Backend Engineering & API Development", route: "/learning/ai/backend-engineering" },
   { id: "mlops-deployment", name: "19. AI MLOps, Deployment & CI/CD", route: "/learning/ai/mlops-deployment" },
-  { id: "mlops-llmops", name: "20. MLOps & LLMOps", route: "/learning/ai/mlops-llmops" },
+  { id: "scalability-optimization", name: "20. AI Scalability, Optimization & Observability", route: "/learning/ai/scalability-optimization" },
   { id: "ai-security", name: "21. AI Security & Prompt Injection Defense", route: "/learning/ai/ai-security" },
   { id: "enterprise-system-design", name: "22. Enterprise System Design for GenAI", route: "/learning/ai/enterprise-system-design" },
   { id: "ai-capstone-assistant", name: "23. Capstone: Autonomous Knowledge Assistant", route: "/learning/ai/ai-capstone-assistant" },

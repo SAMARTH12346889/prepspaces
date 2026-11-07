@@ -209,15 +209,15 @@
     "hasScenarios": true
   },
   {
-    "id": "mlops-llmops",
+    "id": "scalability-optimization",
     "courseId": "ai-engineering",
     "index": 20,
-    "name": "20. MLOps & LLMOps: CI/CD, Tracing & Drift",
-    "route": "/learning/ai/mlops-llmops",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "20. AI Scalability, Optimization & Observability",
+    "route": "/learning/ai/scalability-optimization",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "ai-security",

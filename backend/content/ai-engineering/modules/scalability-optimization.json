@@ -1,0 +1,154 @@
+{
+  "id": "scalability-optimization",
+  "courseId": "ai-engineering",
+  "index": 20,
+  "name": "20. AI Scalability, Optimization & Observability",
+  "route": "/learning/ai/scalability-optimization",
+  "componentName": "AIScalabilityOptimization",
+  "quiz": [
+    {
+      "id": "quiz-01",
+      "question": "According to Little's Law (L = lambda * W), if a system receives 30 requests/second and average latency is 2.5 seconds, what is average concurrency L?",
+      "options": [
+        "12 requests",
+        "55 requests",
+        "75 requests",
+        "300 requests"
+      ],
+      "correctIndex": 2,
+      "explanation": "L = lambda * W = 30 * 2.5 = 75 concurrent requests in flight."
+    },
+    {
+      "id": "quiz-02",
+      "question": "Why is autoregressive token decoding primarily memory-bandwidth bound rather than compute bound?",
+      "options": [
+        "Tokenization requires massive disk I/O operations",
+        "Each generated token requires streaming the entire model parameter weight matrices from HBM for a single vector multiplication",
+        "CUDA does not support floating point operations in decode mode",
+        "FlashAttention only works during the prefill phase"
+      ],
+      "correctIndex": 1,
+      "explanation": "Autoregressive generation executes Matrix-Vector operations with arithmetic intensity ~1.0, meaning performance is bottlenecked by the speed of streaming weights from HBM to compute cores."
+    },
+    {
+      "id": "quiz-03",
+      "question": "In the KV cache memory formula M_KV = 2 * L * B * S * H_KV * D_H * Bytes, what does the factor 2 represent?",
+      "options": [
+        "Input and Output sequences",
+        "Key and Value tensor matrices",
+        "Forward and Backward gradient passes",
+        "Prefill and Decode phases"
+      ],
+      "correctIndex": 1,
+      "explanation": "The factor 2 accounts for storing both the Key (K) tensor and the Value (V) tensor for past sequence tokens."
+    },
+    {
+      "id": "quiz-04",
+      "question": "How does Grouped-Query Attention (GQA) reduce KV cache VRAM footprint?",
+      "options": [
+        "It completely eliminates the Key and Value matrices",
+        "Multiple Query heads share a smaller number of Key-Value head pairs",
+        "It compresses weights to 1-bit binary representations",
+        "It offloads all attention computation to CPU host memory"
+      ],
+      "correctIndex": 1,
+      "explanation": "GQA groups Query heads (e.g. 32 Query heads) to share fewer KV heads (e.g. 8 KV heads), reducing KV cache memory by 4x."
+    },
+    {
+      "id": "quiz-05",
+      "question": "What is the primary difference between TTFT and TPOT?",
+      "options": [
+        "TTFT measures training speed; TPOT measures evaluation speed",
+        "TTFT is latency until the first token appears; TPOT is the average duration to generate each subsequent token",
+        "TTFT is measured in gigabytes; TPOT is measured in seconds",
+        "TTFT applies only to CPU models; TPOT applies only to GPU models"
+      ],
+      "correctIndex": 1,
+      "explanation": "TTFT (Time to First Token) covers queue, network, and prefill to the first token; TPOT (Time Per Output Token) is the decode duration per subsequent token."
+    },
+    {
+      "id": "quiz-06",
+      "question": "Why does continuous (iteration-level) batching dramatically outperform static batching in LLM serving?",
+      "options": [
+        "It runs only during nighttime hours",
+        "It eliminates padding waste and dynamically evicts completed sequences while injecting new requests at each forward iteration",
+        "It compiles Python directly to x86 assembly",
+        "It avoids loading weights into GPU memory"
+      ],
+      "correctIndex": 1,
+      "explanation": "Continuous batching schedules at token-iteration granularity, evicting completed sequences immediately and eliminating padding waste."
+    },
+    {
+      "id": "quiz-07",
+      "question": "What is a Cache Stampede (Thundering Herd) in an AI caching architecture?",
+      "options": [
+        "When a GPU runs out of physical VRAM",
+        "When a cached key expires and hundreds of simultaneous requests all miss the cache, overwhelming the GPU cluster",
+        "When Redis runs out of disk storage space",
+        "When a database query has no WHERE clause"
+      ],
+      "correctIndex": 1,
+      "explanation": "A cache stampede occurs when expiration of a popular key causes massive concurrent cache misses, overwhelming upstream models with simultaneous requests."
+    },
+    {
+      "id": "quiz-08",
+      "question": "How does Speculative Decoding achieve speedups on large foundation models?",
+      "options": [
+        "It skips 50% of the transformer layers randomly",
+        "A fast draft model proposes candidate tokens that the large target model verifies in parallel in a single forward pass",
+        "It converts text directly to audio",
+        "It trains the model on synthetic data"
+      ],
+      "correctIndex": 1,
+      "explanation": "A small draft model proposes multiple candidate tokens; the large model verifies them in parallel in one forward pass, generating multiple accepted tokens per step."
+    },
+    {
+      "id": "quiz-09",
+      "question": "Which of the following is NOT one of Google's SRE Four Golden Signals?",
+      "options": [
+        "Latency",
+        "Saturation",
+        "Throughput",
+        "Errors"
+      ],
+      "correctIndex": 2,
+      "explanation": "The SRE Four Golden Signals are Latency, Traffic, Errors, and Saturation. (Throughput is an aspect of Traffic)."
+    },
+    {
+      "id": "quiz-010",
+      "question": "Which Prometheus metric type is most appropriate for tracking cumulative API request counts?",
+      "options": [
+        "Gauge",
+        "Histogram",
+        "Counter",
+        "Summary"
+      ],
+      "correctIndex": 2,
+      "explanation": "Counters are monotonically increasing values ideal for measuring cumulative event totals (such as total requests)."
+    },
+    {
+      "id": "quiz-011",
+      "question": "When a Circuit Breaker enters the 'Half-Open' state, what action does it take?",
+      "options": [
+        "It permanently blocks all incoming network traffic",
+        "It routes all requests to the primary cluster without restriction",
+        "It allows a limited number of trial probe requests to test whether the upstream service has recovered",
+        "It restarts the entire operating system kernel"
+      ],
+      "correctIndex": 2,
+      "explanation": "In Half-Open state, the breaker permits small probe requests to test if the failing service has recovered before resetting to Closed."
+    },
+    {
+      "id": "quiz-012",
+      "question": "Why should Kubernetes Horizontal Pod Autoscaling (HPA) for GPU inference pods avoid scaling on CPU metrics?",
+      "options": [
+        "Kubernetes does not support CPU metrics",
+        "GPU inference workloads run on accelerators; CPU utilization can stay low while the GPU is completely saturated and out of memory",
+        "CPUs are always faster than GPUs for inference",
+        "HPA only works with Docker Compose"
+      ],
+      "correctIndex": 1,
+      "explanation": "GPU pods perform heavy work on the GPU; host CPU utilization remains low and uncoupled from GPU VRAM, queue depth, or KV cache saturation."
+    }
+  ]
+}

@@ -146,6 +146,11 @@ const routeMeta = {
     description: "Master enterprise MLOps and cloud deployment: multi-stage Docker containerization, MLflow experiment tracking and model registry, DVC data versioning, GitHub Actions CI/CD with automated evaluation gates, Kubernetes Canary & Blue-Green rollouts, and Evidently AI data drift monitoring.",
     canonical: `${BASE_URL}/learning/ai/mlops-deployment`,
   },
+  "/learning/ai/scalability-optimization": {
+    title: "Module 20: AI Scalability, Optimization & Observability | PrepSpaces",
+    description: "Master high-scale AI engineering: Little's Law capacity planning, GPU VRAM dimensioning, GQA KV cache compression, TTFT/TPOT latency profiling, continuous iteration batching, Redis multi-tier caching, Prometheus & Grafana SRE golden signals, and resilient circuit breaking.",
+    canonical: `${BASE_URL}/learning/ai/scalability-optimization`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

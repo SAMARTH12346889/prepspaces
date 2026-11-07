@@ -112,6 +112,7 @@ import AIEvaluationSafety from "./Componets/AIEvaluationSafety";
 import AIInferenceServing from "./Componets/AIInferenceServing";
 import AIBackendEngineering from "./Componets/AIBackendEngineering";
 import AIMlopsDeployment from "./Componets/AIMlopsDeployment";
+import AIScalabilityOptimization from "./Componets/AIScalabilityOptimization";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1282,6 +1283,17 @@ function App() {
             <Route path="/learning/ai-engineering/module-19" element={<AIMlopsDeployment />} />
             <Route path="/learn/ai/mlops-deployment" element={<AIMlopsDeployment />} />
             <Route path="/learn/ai/mlops" element={<AIMlopsDeployment />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 20: AI SCALABILITY, OPTIMIZATION & OBSERVABILITY */}
+            <Route path="/learning/ai/scalability-optimization" element={<AIScalabilityOptimization />} />
+            <Route path="/learning/ai/scalability" element={<AIScalabilityOptimization />} />
+            <Route path="/learning/ai/optimization" element={<AIScalabilityOptimization />} />
+            <Route path="/learning/ai/observability" element={<AIScalabilityOptimization />} />
+            <Route path="/learning/ai/module-20" element={<AIScalabilityOptimization />} />
+            <Route path="/learning/ai-engineering/scalability-optimization" element={<AIScalabilityOptimization />} />
+            <Route path="/learning/ai-engineering/module-20" element={<AIScalabilityOptimization />} />
+            <Route path="/learn/ai/scalability-optimization" element={<AIScalabilityOptimization />} />
+            <Route path="/learn/ai/scalability" element={<AIScalabilityOptimization />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"
