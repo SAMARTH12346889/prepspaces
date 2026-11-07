@@ -187,22 +187,22 @@
     "hasScenarios": true
   },
   {
-    "id": "diffusion-models",
+    "id": "backend-engineering",
     "courseId": "ai-engineering",
     "index": 18,
-    "name": "18. Diffusion Models & Image Synthesis",
-    "route": "/learning/ai/diffusion-models",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "18. AI Backend Engineering & API Development",
+    "route": "/learning/ai/backend-engineering",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
-    "id": "speech-video-ai",
+    "id": "diffusion-models",
     "courseId": "ai-engineering",
     "index": 19,
-    "name": "19. Multimodal Video & Realtime Speech",
-    "route": "/learning/ai/speech-video-ai",
+    "name": "19. Diffusion Models & Image Synthesis",
+    "route": "/learning/ai/diffusion-models",
     "questionCount": 10,
     "hasTopics": false,
     "hasCommands": false,

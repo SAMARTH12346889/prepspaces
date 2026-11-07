@@ -136,6 +136,11 @@ const routeMeta = {
     description: "Master high-throughput LLM inference and serving: vLLM, PagedAttention, continuous iteration-level batching, Ollama local runtime, Hugging Face TGI, post-training quantization (AWQ, GPTQ, GGUF), KV cache memory formulas, prefill vs decode profiling, and Server-Sent Events (SSE) progressive streaming.",
     canonical: `${BASE_URL}/learning/ai/inference-serving`,
   },
+  "/learning/ai/backend-engineering": {
+    title: "Module 18: AI Backend Engineering & API Development | PrepSpaces",
+    description: "Master asynchronous AI backend engineering: FastAPI, Starlette ASGI, Pydantic V2 validation, Redis Token Bucket rate limiting, Server-Sent Events (SSE) token streaming, JWT Argon2id authentication, object-level authorization (BOLA defense), and Celery task fleets.",
+    canonical: `${BASE_URL}/learning/ai/backend-engineering`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

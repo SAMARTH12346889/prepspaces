@@ -158,7 +158,7 @@ export const AI_MODULES = [
   { id: "graph-rag", name: "15. Advanced RAG & Knowledge Engineering", route: "/learning/ai/graph-rag" },
   { id: "llm-evaluation", name: "16. AI Evaluation, Alignment & Safety Engineering", route: "/learning/ai/llm-evaluation" },
   { id: "inference-serving", name: "17. LLM Inference & Model Serving Engineering", route: "/learning/ai/inference-serving" },
-  { id: "diffusion-models", name: "18. Diffusion Models & Image Synthesis", route: "/learning/ai/diffusion-models" },
+  { id: "ai-backend-engineering", name: "18. AI Backend Engineering & API Development", route: "/learning/ai/backend-engineering" },
   { id: "speech-video-ai", name: "19. Multimodal Video & Realtime Speech", route: "/learning/ai/speech-video-ai" },
   { id: "mlops-llmops", name: "20. MLOps & LLMOps", route: "/learning/ai/mlops-llmops" },
   { id: "ai-security", name: "21. AI Security & Prompt Injection Defense", route: "/learning/ai/ai-security" },

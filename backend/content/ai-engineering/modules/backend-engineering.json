@@ -1,0 +1,154 @@
+{
+  "id": "backend-engineering",
+  "courseId": "ai-engineering",
+  "index": 18,
+  "name": "18. AI Backend Engineering & API Development",
+  "route": "/learning/ai/backend-engineering",
+  "componentName": "AIBackendEngineering",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the core difference between synchronous WSGI and asynchronous ASGI frameworks?",
+      "options": [
+        "WSGI supports WebSockets while ASGI only supports static HTML",
+        "ASGI uses an event loop allowing a single worker thread to handle concurrent I/O operations non-blockingly",
+        "WSGI runs on GPUs while ASGI runs on CPUs",
+        "ASGI compiles Python code directly to C++ binaries"
+      ],
+      "correctIndex": 1,
+      "explanation": "ASGI is an asynchronous server gateway interface built for non-blocking event loops, enabling cooperative concurrency, streaming, and WebSockets."
+    },
+    {
+      "id": 2,
+      "question": "What occurs if you call 'time.sleep(5)' inside an async def FastAPI endpoint?",
+      "options": [
+        "FastAPI automatically offloads the sleep to an external thread",
+        "The entire single-threaded event loop freezes, blocking all concurrent requests for 5 seconds",
+        "The sleep is ignored by the Python runtime",
+        "Only the current HTTP connection is paused without affecting others"
+      ],
+      "correctIndex": 1,
+      "explanation": "In an async def route, synchronous blocking functions block the event loop thread, stopping all other concurrent coroutines from progressing."
+    },
+    {
+      "id": 3,
+      "question": "Which HTTP status code is standard for asynchronous background jobs accepted for later processing?",
+      "options": [
+        "200 OK",
+        "201 Created",
+        "202 Accepted",
+        "204 No Content"
+      ],
+      "correctIndex": 2,
+      "explanation": "HTTP 202 Accepted indicates that the request has been accepted for processing, but execution is incomplete (typical for background task queues)."
+    },
+    {
+      "id": 4,
+      "question": "In the Token Bucket rate-limiting algorithm, what is the formula for new available tokens?",
+      "options": [
+        "T_new = C * r * Delta_t",
+        "T_new = min(C, T_old + r * Delta_t)",
+        "T_new = max(0, T_old - r)",
+        "T_new = C / Delta_t"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tokens accumulate at rate r over time Delta_t up to maximum bucket capacity C: T_new = min(C, T_old + r * Delta_t)."
+    },
+    {
+      "id": 5,
+      "question": "What MIME type must be set in HTTP headers for Server-Sent Events (SSE)?",
+      "options": [
+        "application/json",
+        "text/event-stream",
+        "application/octet-stream",
+        "multipart/form-data"
+      ],
+      "correctIndex": 1,
+      "explanation": "Server-Sent Events require Content-Type: text/event-stream to instruct the client to parse continuous event records."
+    },
+    {
+      "id": 6,
+      "question": "Is a standard signed JSON Web Token (JWT) encrypted?",
+      "options": [
+        "Yes, all fields are AES-256 encrypted by default",
+        "No, header and payload are Base64URL encoded and readable by anyone who holds the token",
+        "Only the header is encrypted",
+        "It is encrypted only when transferred over HTTPS"
+      ],
+      "correctIndex": 1,
+      "explanation": "A standard signed JWT is signed for integrity verification, but its payload is not encrypted. Never store private passwords or API keys in claims."
+    },
+    {
+      "id": 7,
+      "question": "What is Broken Object-Level Authorization (BOLA / IDOR)?",
+      "options": [
+        "A bug where the database fails to execute foreign key cascades",
+        "An attacker accessing or modifying another user's private resource by changing the ID in the request URL",
+        "A crash caused by invalid JSON payloads",
+        "A failure in generating OAuth2 authorization codes"
+      ],
+      "correctIndex": 1,
+      "explanation": "BOLA occurs when an API fails to verify that the authenticated caller owns or has explicit permission to access the specific object ID requested."
+    },
+    {
+      "id": 8,
+      "question": "Why is Argon2id considered the gold standard for password hashing in modern backends?",
+      "options": [
+        "It hashes passwords in under 1 nanosecond",
+        "It is memory-hard and compute-hard, preventing massive parallel GPU/ASIC brute-force cracking",
+        "It allows decrypting passwords back into plaintext",
+        "It is built directly into hardware motherboards"
+      ],
+      "correctIndex": 1,
+      "explanation": "Argon2id consumes configurable amounts of memory and CPU cycles, defeating mass GPU/ASIC cracking attempts that easily break fast hashes."
+    },
+    {
+      "id": 9,
+      "question": "Why should foundation model weights never be loaded directly inside Uvicorn worker processes?",
+      "options": [
+        "Uvicorn does not support Python machine learning libraries",
+        "Each Uvicorn worker is an independent process, so loading weights in N workers consumes N times the GPU/RAM memory, causing OOM crashes",
+        "Models run slower when loaded in FastAPI than in Flask",
+        "Uvicorn only supports CPU execution"
+      ],
+      "correctIndex": 1,
+      "explanation": "Uvicorn workers are separate processes. 4 workers loading a 14GB model would attempt to consume 56GB VRAM, quickly causing an Out Of Memory crash."
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of adding full jitter to exponential backoff during upstream API retries?",
+      "options": [
+        "To increase the total number of retries to 100",
+        "To randomize retry delays and prevent synchronized bursts (thundering herds) from overwhelming the recovering service",
+        "To encrypt network packets during transit",
+        "To bypass upstream rate limits completely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Full jitter randomizes delays across clients, de-correlating retry spikes and avoiding 'thundering herd' overload on recovering upstream servers."
+    },
+    {
+      "id": 11,
+      "question": "What is the difference between /health (liveness) and /ready (readiness) probes?",
+      "options": [
+        "They are identical and can be used interchangeably",
+        "Liveness verifies process survival (restarting if dead); readiness verifies dependencies are available to serve traffic",
+        "Liveness checks database health; readiness checks memory usage",
+        "Readiness is only used during local development"
+      ],
+      "correctIndex": 1,
+      "explanation": "Liveness checks if the process is alive; failure triggers a container restart. Readiness checks if external dependencies (DB, Redis) are healthy."
+    },
+    {
+      "id": 12,
+      "question": "What is the primary role of the FastAPI 'lifespan' context manager?",
+      "options": [
+        "To monitor CPU temperatures during execution",
+        "To manage application startup (initializing connection pools) and shutdown (gracefully cleaning up resources) in one place",
+        "To automatically restart the server on code changes",
+        "To generate automated Swagger UI documentation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The lifespan async context manager initializes shared connection pools before yield and gracefully cleans them up after yield."
+    }
+  ]
+}

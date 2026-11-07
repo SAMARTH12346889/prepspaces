@@ -110,6 +110,7 @@ import AIMultiAgent from "./Componets/AIMultiAgent";
 import AIGraphRag from "./Componets/AIGraphRag";
 import AIEvaluationSafety from "./Componets/AIEvaluationSafety";
 import AIInferenceServing from "./Componets/AIInferenceServing";
+import AIBackendEngineering from "./Componets/AIBackendEngineering";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1257,6 +1258,17 @@ function App() {
             <Route path="/learning/ai-engineering/module-17" element={<AIInferenceServing />} />
             <Route path="/learn/ai/inference-serving" element={<AIInferenceServing />} />
             <Route path="/learn/ai/llm-inference" element={<AIInferenceServing />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 18: AI BACKEND ENGINEERING & API DEVELOPMENT */}
+            <Route path="/learning/ai/backend-engineering" element={<AIBackendEngineering />} />
+            <Route path="/learning/ai/ai-backend" element={<AIBackendEngineering />} />
+            <Route path="/learning/ai/fastapi" element={<AIBackendEngineering />} />
+            <Route path="/learning/ai/api-development" element={<AIBackendEngineering />} />
+            <Route path="/learning/ai/module-18" element={<AIBackendEngineering />} />
+            <Route path="/learning/ai-engineering/backend-engineering" element={<AIBackendEngineering />} />
+            <Route path="/learning/ai-engineering/module-18" element={<AIBackendEngineering />} />
+            <Route path="/learn/ai/backend-engineering" element={<AIBackendEngineering />} />
+            <Route path="/learn/ai/ai-backend" element={<AIBackendEngineering />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"
