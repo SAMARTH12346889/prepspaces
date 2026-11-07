@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   ShieldCheck,
   Award,
@@ -17,7 +17,9 @@ import {
   Layers,
   Sparkles,
   Search,
-  CheckCircle2
+  CheckCircle2,
+  FileCheck,
+  CheckSquare
 } from "lucide-react";
 import ModuleNav from "./ModuleNav";
 import {
@@ -59,6 +61,7 @@ export default function AISystemDesign() {
   const [checkedCompetencies, setCheckedCompetencies] = useState({});
 
   const handleCopyCode = (code, id) => {
+    if (!code) return;
     navigator.clipboard.writeText(code);
     setCopiedCodeIdx(id);
     setTimeout(() => setCopiedCodeIdx(null), 2000);
@@ -94,28 +97,28 @@ export default function AISystemDesign() {
 
   const completedCompetenciesCount = Object.values(checkedCompetencies).filter(Boolean).length;
   const competencyProgressPercent = Math.round(
-    (completedCompetenciesCount / competencies.length) * 100
+    (completedCompetenciesCount / (competencies.length || 1)) * 100
   );
 
-  const categories = [
-    "All",
-    "Architecture",
-    "Requirements & SLOs",
-    "Data & RAG",
-    "Reliability",
-    "Real-Time Voice",
-    "Observability",
-    "Security",
-    "Capacity Planning"
-  ];
+  const categories = useMemo(() => {
+    const set = new Set();
+    theoryQuestions.forEach((q) => {
+      if (q.category) set.add(q.category);
+    });
+    return ["All", ...Array.from(set)];
+  }, []);
 
-  const filteredTheory = theoryQuestions.filter((q) => {
-    const matchesCat = theoryCategory === "All" || q.category === theoryCategory;
-    const matchesSearch =
-      q.question.toLowerCase().includes(theorySearch.toLowerCase()) ||
-      q.answer.toLowerCase().includes(theorySearch.toLowerCase());
-    return matchesCat && matchesSearch;
-  });
+  const filteredTheory = useMemo(() => {
+    return theoryQuestions.filter((q) => {
+      const matchesCat = theoryCategory === "All" || q.category === theoryCategory;
+      const matchesSearch =
+        q.question.toLowerCase().includes(theorySearch.toLowerCase()) ||
+        q.answer.toLowerCase().includes(theorySearch.toLowerCase());
+      return matchesCat && matchesSearch;
+    });
+  }, [theoryCategory, theorySearch]);
+
+  const currentUnit = curriculumUnits[selectedUnitIdx] || curriculumUnits[0];
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
@@ -237,14 +240,18 @@ export default function AISystemDesign() {
                           : "text-stone-700 hover:bg-stone-50 border border-transparent"
                       }`}
                     >
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold shrink-0 ${
-                        selectedUnitIdx === idx ? "bg-[#f97316] text-white" : "bg-stone-100 text-stone-600"
-                      }`}>
+                      <span
+                        className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold shrink-0 ${
+                          selectedUnitIdx === idx ? "bg-[#f97316] text-white" : "bg-stone-100 text-stone-600"
+                        }`}
+                      >
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                       <div className="min-w-0 flex-1">
-                        <div className="truncate">{unit.title}</div>
-                        <div className="text-[10px] text-stone-400 mt-0.5">{unit.duration}</div>
+                        <div className="truncate font-semibold">{unit.title}</div>
+                        <div className="text-[10px] text-stone-400 mt-0.5">
+                          {unit.readTime || unit.duration || "25 min"}
+                        </div>
                       </div>
                     </button>
                   ))}
@@ -258,71 +265,150 @@ export default function AISystemDesign() {
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e7e3da] pb-4">
                   <div>
                     <span className="text-xs font-mono font-bold text-[#f97316]">
-                      UNIT {String(selectedUnitIdx + 1).padStart(2, "0")} OF 12
+                      UNIT {String(selectedUnitIdx + 1).padStart(2, "0")} OF {curriculumUnits.length} ·{" "}
+                      {currentUnit.tag}
                     </span>
                     <h2 className="mt-1 text-xl sm:text-2xl font-bold text-stone-900">
-                      {curriculumUnits[selectedUnitIdx].title}
+                      {currentUnit.title}
                     </h2>
                   </div>
-                  <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-xs font-medium text-stone-600">
-                    {curriculumUnits[selectedUnitIdx].duration}
+                  <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-xs font-medium text-stone-600 flex items-center gap-1.5">
+                    <Clock className="h-3.5 w-3.5 text-stone-500" />
+                    {currentUnit.readTime || currentUnit.duration || "25 min"}
                   </span>
                 </div>
 
-                <div className="mt-4 rounded-xl border border-stone-200 bg-[#faf8f4] p-4 text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  {curriculumUnits[selectedUnitIdx].summary}
+                <div className="mt-4 rounded-xl border border-stone-200 bg-[#faf8f4] p-4 text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  {currentUnit.summary}
                 </div>
 
-                {/* Subsections */}
-                <div className="mt-6 space-y-6">
-                  {curriculumUnits[selectedUnitIdx].subsections.map((sub, sIdx) => (
-                    <div key={sIdx} className="space-y-3">
-                      <h3 className="text-base font-bold text-stone-900 border-l-3 border-[#f97316] pl-3">
-                        {sub.heading}
-                      </h3>
-                      <div className="text-xs sm:text-sm text-stone-700 leading-relaxed whitespace-pre-line space-y-3">
-                        {sub.paragraphs.map((p, pIdx) => {
-                          if (p.startsWith("```")) {
-                            const codeContent = p.replace(/```[a-z]*\n/, "").replace(/```$/, "");
-                            return (
-                              <div key={pIdx} className="relative my-4 rounded-xl border border-stone-800 bg-[#1c1917] p-4 font-mono text-xs sm:text-sm text-stone-100 overflow-x-auto">
-                                <button
-                                  onClick={() => handleCopyCode(codeContent, `${sIdx}-${pIdx}`)}
-                                  className="absolute right-3 top-3 rounded-lg border border-stone-700 bg-stone-800 px-2 py-1 text-xs text-stone-300 hover:text-white cursor-pointer"
-                                >
-                                  {copiedCodeIdx === `${sIdx}-${pIdx}` ? (
-                                    <span className="flex items-center gap-1 text-emerald-400">
-                                      <Check className="h-3 w-3" /> Copied
-                                    </span>
-                                  ) : (
-                                    <span className="flex items-center gap-1">
-                                      <Copy className="h-3 w-3" /> Copy
-                                    </span>
-                                  )}
-                                </button>
-                                <pre className="overflow-x-auto text-emerald-400">{codeContent}</pre>
-                              </div>
-                            );
-                          }
-                          return <p key={pIdx}>{p}</p>;
-                        })}
-                      </div>
-                    </div>
-                  ))}
+                {/* Unit Content Body */}
+                <div className="mt-6 prose prose-stone max-w-none text-stone-700 text-xs sm:text-sm leading-relaxed space-y-4">
+                  {currentUnit.content ? (
+                    currentUnit.content.split("\n\n").map((block, bIdx) => {
+                      const trimmed = block.trim();
+                      if (!trimmed) return null;
+
+                      if (trimmed.startsWith("### ")) {
+                        return (
+                          <h3
+                            key={bIdx}
+                            className="text-base sm:text-lg font-bold text-stone-900 mt-8 mb-2 border-l-3 border-[#f97316] pl-3"
+                          >
+                            {trimmed.replace(/^###\s+/, "")}
+                          </h3>
+                        );
+                      }
+
+                      if (trimmed.startsWith("#### ")) {
+                        return (
+                          <h4 key={bIdx} className="text-sm font-semibold text-[#f97316] mt-4 mb-1">
+                            {trimmed.replace(/^####\s+/, "")}
+                          </h4>
+                        );
+                      }
+
+                      if (trimmed.startsWith("```")) {
+                        const code = trimmed
+                          .replace(/^```[a-zA-Z0-9_-]*\n?/, "")
+                          .replace(/```$/, "")
+                          .trim();
+                        return (
+                          <div
+                            key={bIdx}
+                            className="relative my-4 rounded-xl border border-stone-800 bg-[#1c1917] p-4 font-mono text-xs sm:text-sm text-stone-100"
+                          >
+                            <button
+                              onClick={() => handleCopyCode(code, `unit-${selectedUnitIdx}-${bIdx}`)}
+                              className="absolute right-3 top-3 rounded-lg border border-stone-700 bg-stone-800 px-2.5 py-1 text-xs text-stone-300 hover:text-white cursor-pointer transition active:scale-95 z-10"
+                            >
+                              {copiedCodeIdx === `unit-${selectedUnitIdx}-${bIdx}` ? (
+                                <span className="flex items-center gap-1 text-emerald-400">
+                                  <Check className="h-3.5 w-3.5" /> Copied
+                                </span>
+                              ) : (
+                                <span className="flex items-center gap-1">
+                                  <Copy className="h-3.5 w-3.5" /> Copy
+                                </span>
+                              )}
+                            </button>
+                            <pre className="overflow-x-auto text-emerald-400 pt-3">{code}</pre>
+                          </div>
+                        );
+                      }
+
+                      if (trimmed.startsWith("|") && trimmed.includes("\n|")) {
+                        const rows = trimmed
+                          .split("\n")
+                          .filter((r) => r.trim().startsWith("|") && !r.includes("---"));
+                        return (
+                          <div
+                            key={bIdx}
+                            className="my-4 overflow-x-auto rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-2"
+                          >
+                            <table className="min-w-full text-xs text-left">
+                              <tbody>
+                                {rows.map((row, rIdx) => {
+                                  const cells = row
+                                    .split("|")
+                                    .slice(1, -1)
+                                    .map((c) => c.trim());
+                                  const isHeader = rIdx === 0;
+                                  return (
+                                    <tr
+                                      key={rIdx}
+                                      className={isHeader ? "border-b border-[#e7e3da] font-bold text-stone-900 bg-white" : "border-b border-stone-200/50"}
+                                    >
+                                      {cells.map((cell, cIdx) => (
+                                        <td key={cIdx} className="p-2 sm:p-2.5">
+                                          {cell}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  );
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        );
+                      }
+
+                      if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+                        const items = trimmed.split("\n").map((line) => line.replace(/^[-*]\s+/, ""));
+                        return (
+                          <ul key={bIdx} className="space-y-1.5 pl-4 list-disc text-stone-700">
+                            {items.map((it, iIdx) => (
+                              <li key={iIdx}>{it}</li>
+                            ))}
+                          </ul>
+                        );
+                      }
+
+                      return (
+                        <p key={bIdx} className="leading-relaxed text-stone-700 whitespace-pre-line">
+                          {trimmed}
+                        </p>
+                      );
+                    })
+                  ) : (
+                    <p className="text-stone-500">Curriculum unit content is loading...</p>
+                  )}
                 </div>
 
-                {/* Bottom Navigation */}
+                {/* Bottom Unit Pagination */}
                 <div className="mt-8 flex justify-between border-t border-[#e7e3da] pt-4">
                   <button
                     disabled={selectedUnitIdx === 0}
                     onClick={() => setSelectedUnitIdx((p) => Math.max(0, p - 1))}
-                    className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white px-4 py-2.5 text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-30 cursor-pointer"
+                    className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white px-4 py-2.5 text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-30 cursor-pointer shadow-2xs"
                   >
                     <ArrowLeft className="h-4 w-4" /> Previous Unit
                   </button>
                   <button
                     disabled={selectedUnitIdx === curriculumUnits.length - 1}
-                    onClick={() => setSelectedUnitIdx((p) => Math.min(curriculumUnits.length - 1, p + 1))}
+                    onClick={() =>
+                      setSelectedUnitIdx((p) => Math.min(curriculumUnits.length - 1, p + 1))
+                    }
                     className="flex items-center gap-2 rounded-xl bg-[#f97316] px-4 py-2.5 text-xs font-bold text-white hover:bg-orange-600 disabled:opacity-30 cursor-pointer shadow-xs"
                   >
                     Next Unit <ArrowRight className="h-4 w-4" />
@@ -353,55 +439,73 @@ export default function AISystemDesign() {
                 7 Production-Grade Architecture Labs
               </h2>
               <p className="mt-1 text-xs text-stone-500">
-                Complete, copyable Python engineering implementations designed for production resilience.
+                End-to-end practical engineering architectures covering chatbots, hybrid RAG, voice turn-taking, and security guardrails.
               </p>
             </div>
 
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               {guidedLabs.map((lab) => (
-                <div key={lab.id} className="rounded-2xl border border-[#e7e3da] bg-white p-6 flex flex-col justify-between shadow-xs">
-                  <div>
+                <div
+                  key={lab.id}
+                  className="rounded-2xl border border-[#e7e3da] bg-white p-6 flex flex-col justify-between shadow-xs"
+                >
+                  <div className="space-y-3">
                     <div className="flex items-center justify-between gap-2">
                       <span className="rounded-full bg-orange-100 border border-orange-200 px-2.5 py-0.5 text-xs font-mono font-bold text-orange-800">
-                        LAB 0{lab.id.replace("lab-", "")}
+                        {lab.number || `LAB ${lab.id}`}
                       </span>
-                      <span className="text-xs text-stone-500 flex items-center gap-1">
-                        <Clock className="h-3 w-3" /> {lab.duration}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-md bg-stone-100 border border-stone-200 px-2 py-0.5 text-[11px] font-semibold text-stone-700">
+                          {lab.difficulty}
+                        </span>
+                        <span className="text-xs text-stone-500 flex items-center gap-1 font-mono">
+                          <Clock className="h-3 w-3 text-stone-500" /> {lab.time || "45 min"}
+                        </span>
+                      </div>
                     </div>
-                    <h3 className="mt-3 text-base font-bold text-stone-900">{lab.title}</h3>
-                    <p className="mt-2 text-xs text-stone-600 leading-relaxed">{lab.objective}</p>
 
-                    <div className="mt-4">
-                      <div className="text-xs font-semibold text-stone-700">Implementation Steps:</div>
-                      <ul className="mt-1.5 space-y-1 text-xs text-stone-600">
-                        {lab.steps.map((st, i) => (
-                          <li key={i} className="flex items-start gap-1.5">
-                            <span className="text-[#f97316] font-bold mt-0.5">&bull;</span>
-                            <span>{st}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    <h3 className="text-base font-bold text-stone-900">{lab.title}</h3>
+
+                    <div className="rounded-xl border border-stone-200 bg-[#faf8f4] p-3 text-xs text-stone-700 leading-relaxed">
+                      <span className="font-bold text-stone-900 block mb-0.5">Objective:</span>
+                      {lab.objective}
                     </div>
+
+                    {lab.scenario && (
+                      <div className="text-xs text-stone-600 leading-relaxed">
+                        <span className="font-bold text-stone-800">Scenario: </span>
+                        {lab.scenario}
+                      </div>
+                    )}
+
+                    {lab.prerequisites && lab.prerequisites.length > 0 && (
+                      <div>
+                        <div className="text-[11px] font-bold text-stone-500 uppercase tracking-wider mb-1">
+                          Prerequisites:
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {lab.prerequisites.map((p, pIdx) => (
+                            <span
+                              key={pIdx}
+                              className="rounded-lg bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-700 border border-stone-200"
+                            >
+                              {p}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
-                  <div className="relative mt-5 rounded-xl border border-stone-800 bg-[#1c1917] p-4 font-mono text-xs text-emerald-400 overflow-x-auto">
-                    <button
-                      onClick={() => handleCopyCode(lab.code, lab.id)}
-                      className="absolute right-3 top-3 rounded-lg border border-stone-700 bg-stone-800 px-2 py-1 text-xs text-stone-300 hover:text-white cursor-pointer"
-                    >
-                      {copiedCodeIdx === lab.id ? (
-                        <span className="flex items-center gap-1 text-emerald-400">
-                          <Check className="h-3 w-3" /> Copied
-                        </span>
-                      ) : (
-                        <span className="flex items-center gap-1">
-                          <Copy className="h-3 w-3" /> Copy Code
-                        </span>
-                      )}
-                    </button>
-                    <pre className="overflow-x-auto text-xs font-mono">{lab.code}</pre>
-                  </div>
+                  {lab.deliverable && (
+                    <div className="mt-5 rounded-xl border border-emerald-500/20 bg-emerald-50/60 p-3 text-xs text-emerald-950 flex items-start gap-2">
+                      <FileCheck className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-bold text-emerald-900">Lab Deliverable: </span>
+                        <span className="font-mono text-emerald-800">{lab.deliverable}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -415,68 +519,100 @@ export default function AISystemDesign() {
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e7e3da] pb-4">
                 <div>
                   <span className="rounded-full bg-orange-100 border border-orange-200 px-3 py-0.5 text-xs font-mono font-bold uppercase text-orange-800">
-                    Capstone Architecture Blueprint
+                    {capstoneProject.tag || "Enterprise Capstone"}
                   </span>
                   <h2 className="mt-2 text-2xl font-bold text-stone-900">{capstoneProject.title}</h2>
                 </div>
-                <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-xs font-semibold text-stone-700">
-                  {capstoneProject.scale}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-xs font-semibold text-stone-700 flex items-center gap-1">
+                    <Clock className="h-3.5 w-3.5 text-stone-500" />
+                    {capstoneProject.duration}
+                  </span>
+                  <span className="rounded-full bg-orange-50 border border-orange-200 px-3 py-1 text-xs font-semibold text-[#f97316]">
+                    {capstoneProject.difficulty}
+                  </span>
+                </div>
               </div>
 
               <p className="mt-4 text-xs sm:text-sm text-stone-700 leading-relaxed">
-                {capstoneProject.description}
+                {capstoneProject.summary}
               </p>
 
-              {/* Requirements */}
-              <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-5">
-                  <h3 className="text-sm font-bold text-stone-900 uppercase tracking-wider text-orange-800">
-                    Functional Requirements
+              {/* System Specifications */}
+              {capstoneProject.specifications && (
+                <div className="mt-6">
+                  <h3 className="text-sm font-bold text-stone-900 uppercase tracking-wider mb-3">
+                    Target Architecture Specifications & SLOs
                   </h3>
-                  <ul className="mt-3 space-y-2 text-xs text-stone-700">
-                    {capstoneProject.functionalRequirements.map((fr, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-[#f97316] shrink-0 mt-0.5" />
-                        <span>{fr}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {Object.entries(capstoneProject.specifications).map(([key, value], sIdx) => {
+                      const label = key
+                        .replace(/([A-Z])/g, " $1")
+                        .replace(/^./, (s) => s.toUpperCase());
+                      return (
+                        <div
+                          key={sIdx}
+                          className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-3.5 space-y-1"
+                        >
+                          <div className="text-[11px] font-bold uppercase tracking-wider text-stone-500">
+                            {label}
+                          </div>
+                          <div className="text-xs font-semibold text-stone-900 leading-snug">
+                            {value}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
+              )}
 
-                <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-5">
-                  <h3 className="text-sm font-bold text-stone-900 uppercase tracking-wider text-stone-800">
-                    Non-Functional Requirements & SLOs
+              {/* Implementation Milestones */}
+              {capstoneProject.milestones && (
+                <div className="mt-6">
+                  <h3 className="text-sm font-bold text-stone-900 uppercase tracking-wider mb-3">
+                    5-Step Implementation Roadmap
                   </h3>
-                  <ul className="mt-3 space-y-2 text-xs text-stone-700">
-                    {capstoneProject.nonFunctionalRequirements.map((nfr, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-stone-600 shrink-0 mt-0.5" />
-                        <span>{nfr}</span>
-                      </li>
+                  <div className="space-y-3">
+                    {capstoneProject.milestones.map((m) => (
+                      <div
+                        key={m.step}
+                        className="rounded-xl border border-[#e7e3da] bg-white p-4 flex items-start gap-3 shadow-2xs"
+                      >
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#f97316] text-white text-xs font-bold font-mono">
+                          {m.step}
+                        </span>
+                        <div>
+                          <div className="text-xs font-bold text-stone-900">{m.name}</div>
+                          <div className="text-xs text-stone-600 mt-1 leading-relaxed">
+                            {m.details}
+                          </div>
+                        </div>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {/* Architecture Blueprint Code */}
-              <div className="relative mt-6 rounded-xl border border-stone-800 bg-[#1c1917] p-5 font-mono text-xs text-emerald-400 overflow-x-auto">
-                <button
-                  onClick={() => handleCopyCode(capstoneProject.architectureBlueprintCode, "capstone-code")}
-                  className="absolute right-3 top-3 rounded-lg border border-stone-700 bg-stone-800 px-2 py-1 text-xs text-stone-300 hover:text-white cursor-pointer"
-                >
-                  {copiedCodeIdx === "capstone-code" ? (
-                    <span className="flex items-center gap-1 text-emerald-400">
-                      <Check className="h-3 w-3" /> Copied
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-1">
-                      <Copy className="h-3 w-3" /> Copy Blueprint
-                    </span>
-                  )}
-                </button>
-                <pre className="overflow-x-auto text-xs font-mono">{capstoneProject.architectureBlueprintCode}</pre>
-              </div>
+              {/* Deliverables Checklist */}
+              {capstoneProject.deliverables && (
+                <div className="mt-6">
+                  <h3 className="text-sm font-bold text-stone-900 uppercase tracking-wider mb-3">
+                    Required Project Deliverables
+                  </h3>
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {capstoneProject.deliverables.map((del, dIdx) => (
+                      <div
+                        key={dIdx}
+                        className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-3 text-xs flex items-center gap-2"
+                      >
+                        <CheckSquare className="h-4 w-4 text-[#f97316] shrink-0" />
+                        <span className="font-mono text-stone-800">{del}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -498,12 +634,44 @@ export default function AISystemDesign() {
               {codingAssignments.map((task) => (
                 <div key={task.id} className="rounded-2xl border border-[#e7e3da] bg-white p-5 shadow-xs">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-xs font-mono font-bold text-[#f97316]">{task.title}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono font-bold text-[#f97316]">{task.title}</span>
+                      {task.category && (
+                        <span className="rounded-md bg-orange-50 border border-orange-200 px-2 py-0.5 text-[10px] font-bold text-orange-800">
+                          {task.category}
+                        </span>
+                      )}
+                    </div>
                     <span className="rounded-md bg-stone-100 border border-stone-200 px-2 py-0.5 text-[11px] font-semibold text-stone-700">
                       {task.difficulty}
                     </span>
                   </div>
-                  <p className="mt-2 text-xs sm:text-sm text-stone-700 leading-relaxed">{task.problem}</p>
+
+                  <p className="mt-2 text-xs sm:text-sm text-stone-700 leading-relaxed">
+                    {task.description || task.problem}
+                  </p>
+
+                  {/* Starter Code */}
+                  {task.starterCode && (
+                    <div className="relative mt-3 rounded-xl border border-stone-800 bg-[#1c1917] p-4 font-mono text-xs text-stone-200 overflow-x-auto">
+                      <div className="text-[10px] uppercase font-bold text-stone-500 mb-2">Starter Code:</div>
+                      <button
+                        onClick={() => handleCopyCode(task.starterCode, `starter-${task.id}`)}
+                        className="absolute right-3 top-3 rounded-lg border border-stone-700 bg-stone-800 px-2 py-1 text-xs text-stone-300 hover:text-white cursor-pointer"
+                      >
+                        {copiedCodeIdx === `starter-${task.id}` ? (
+                          <span className="flex items-center gap-1 text-emerald-400">
+                            <Check className="h-3 w-3" /> Copied
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-1">
+                            <Copy className="h-3 w-3" /> Copy Starter
+                          </span>
+                        )}
+                      </button>
+                      <pre className="overflow-x-auto text-xs font-mono">{task.starterCode}</pre>
+                    </div>
+                  )}
 
                   <div className="mt-3 flex items-center justify-between">
                     <button
@@ -517,20 +685,24 @@ export default function AISystemDesign() {
                   {expandedTaskSol[task.id] && (
                     <div className="relative mt-4 rounded-xl border border-stone-800 bg-[#1c1917] p-4 font-mono text-xs text-emerald-400 overflow-x-auto">
                       <button
-                        onClick={() => handleCopyCode(task.solution, task.id)}
+                        onClick={() =>
+                          handleCopyCode(task.solutionCode || task.solution, `sol-${task.id}`)
+                        }
                         className="absolute right-3 top-3 rounded-lg border border-stone-700 bg-stone-800 px-2 py-1 text-xs text-stone-300 hover:text-white cursor-pointer"
                       >
-                        {copiedCodeIdx === task.id ? (
+                        {copiedCodeIdx === `sol-${task.id}` ? (
                           <span className="flex items-center gap-1 text-emerald-400">
                             <Check className="h-3 w-3" /> Copied
                           </span>
                         ) : (
                           <span className="flex items-center gap-1">
-                            <Copy className="h-3 w-3" /> Copy
+                            <Copy className="h-3 w-3" /> Copy Solution
                           </span>
                         )}
                       </button>
-                      <pre className="overflow-x-auto text-xs font-mono">{task.solution}</pre>
+                      <pre className="overflow-x-auto text-xs font-mono">
+                        {task.solutionCode || task.solution}
+                      </pre>
                     </div>
                   )}
                 </div>
@@ -567,12 +739,12 @@ export default function AISystemDesign() {
                     className="w-full rounded-xl border border-[#e7e3da] bg-[#faf8f4] pl-10 pr-4 py-2 text-xs text-stone-900 outline-none focus:border-orange-500"
                   />
                 </div>
-                <div className="flex items-center gap-1.5 overflow-x-auto">
+                <div className="flex items-center gap-1.5 overflow-x-auto [scrollbar-width:none]">
                   {categories.map((cat) => (
                     <button
                       key={cat}
                       onClick={() => setTheoryCategory(cat)}
-                      className={`rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
+                      className={`whitespace-nowrap rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
                         theoryCategory === cat
                           ? "bg-[#f97316] text-white shadow-xs"
                           : "bg-white text-stone-600 hover:bg-stone-100 border border-[#e7e3da]"
@@ -595,7 +767,7 @@ export default function AISystemDesign() {
                       </span>
                     </div>
                     <h3 className="mt-2 text-sm font-bold text-stone-900">{item.question}</h3>
-                    <div className="mt-3 rounded-xl border border-stone-200 bg-[#faf8f4] p-4 text-xs sm:text-sm text-stone-700 leading-relaxed">
+                    <div className="mt-3 rounded-xl border border-stone-200 bg-[#faf8f4] p-4 text-xs sm:text-sm text-stone-700 leading-relaxed whitespace-pre-line">
                       {item.answer}
                     </div>
                   </div>
@@ -646,7 +818,7 @@ export default function AISystemDesign() {
                   return (
                     <div key={q.id} className="rounded-2xl border border-[#e7e3da] bg-white p-5 sm:p-6 shadow-xs">
                       <div className="text-xs font-mono font-bold text-[#f97316]">
-                        QUESTION {String(idx + 1).padStart(2, "0")} OF 12
+                        QUESTION {String(idx + 1).padStart(2, "0")} OF {quizQuestions.length}
                       </div>
                       <h3 className="mt-2 text-sm sm:text-base font-bold text-stone-900">{q.question}</h3>
 
@@ -751,7 +923,14 @@ export default function AISystemDesign() {
                         <span className="block text-[10px] font-mono font-bold text-[#f97316] uppercase">
                           {comp.category}
                         </span>
-                        <span className="text-xs font-medium leading-relaxed">{comp.label}</span>
+                        {comp.title && (
+                          <span className="block text-xs font-bold text-stone-900 mt-0.5">
+                            {comp.title}
+                          </span>
+                        )}
+                        <span className="text-xs font-medium leading-relaxed text-stone-600 block mt-0.5">
+                          {comp.description}
+                        </span>
                       </div>
                     </button>
                   );
@@ -785,7 +964,7 @@ export default function AISystemDesign() {
                     <div>
                       <div className="flex items-center justify-between text-xs">
                         <span className="rounded-md bg-orange-100 text-orange-800 font-mono font-bold px-2 py-0.5">
-                          {res.category}
+                          {res.type || res.category}
                         </span>
                         <ExternalLink className="h-4 w-4 text-stone-400" />
                       </div>
