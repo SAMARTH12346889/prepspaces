@@ -31,6 +31,7 @@ const REGISTERED_ROUTES = {
   "ai-fine-tuning-domain": { route: "/learning/ai/fine-tuning-domain", label: "Fine-Tuning LLMs for Domain Applications" },
   "ai-scratch-slm": { route: "/learning/ai/scratch-slm", label: "Building Small Language Models from Scratch" },
   "ai-system-design": { route: "/learning/ai/system-design", label: "AI System Design & Real-World Architecture" },
+  "ai-final-capstone": { route: "/learning/ai/final-capstone", label: "Final AI Engineering Capstone" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -195,6 +196,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(ai system design|ai architecture|enterprise ai system|ai systems engineering|ai module 23)$/i,
     destination: "ai-system-design",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(ai capstone|final ai capstone|ai engineering capstone|enterprise genai platform|ai module 24)$/i,
+    destination: "ai-final-capstone",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,

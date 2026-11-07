@@ -256,11 +256,11 @@
     "id": "final-capstone",
     "courseId": "ai-engineering",
     "index": 24,
-    "name": "24. Final Engineering Capstone: Enterprise GenAI Platform",
+    "name": "24. Final AI Engineering Capstone: Enterprise Platform & Portfolio",
     "route": "/learning/ai/final-capstone",
     "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

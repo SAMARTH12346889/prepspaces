@@ -1,0 +1,130 @@
+{
+  "id": "final-capstone",
+  "courseId": "ai-engineering",
+  "index": 24,
+  "name": "24. Final AI Engineering Capstone: Enterprise Platform & Portfolio",
+  "route": "/learning/ai/final-capstone",
+  "componentName": "AIFinalCapstone",
+  "quiz": [
+    {
+      "id": "quiz-01",
+      "question": "What is the primary objective of a comprehensive AI engineering capstone project?",
+      "options": [
+        "To build only a polished frontend user interface",
+        "To demonstrate end-to-end engineering knowledge by independently designing, building, evaluating, and deploying a complete AI system",
+        "To train the largest possible transformer model regardless of infrastructure cost",
+        "To create a conceptual architecture paper with no running code"
+      ],
+      "correctIndex": 1,
+      "explanation": "A capstone project integrates the entire lifecycle: requirements, architecture, data, models, backend, frontend, testing, security, deployment, and documentation into a working product."
+    },
+    {
+      "id": "quiz-02",
+      "question": "Why should non-functional requirements (SLOs) be formally defined before writing code?",
+      "options": [
+        "To choose the CSS framework for the frontend",
+        "To establish clear, measurable targets for latency, throughput, schema validity, and availability against which the system can be evaluated",
+        "To avoid having to write backend tests",
+        "To eliminate the need for databases"
+      ],
+      "correctIndex": 1,
+      "explanation": "Non-functional requirements set objective thresholds (e.g., p95 API latency < 500ms, >98% JSON validity) that guide architectural trade-offs."
+    },
+    {
+      "id": "quiz-03",
+      "question": "What is the key advantage of an Architecture Decision Record (ADR)?",
+      "options": [
+        "It automatically compiles TypeScript into JavaScript",
+        "It documents the context, alternatives considered, decision rationale, and accepted trade-offs for major engineering choices",
+        "It replaces the database schema migrations",
+        "It securely encrypts user passwords"
+      ],
+      "correctIndex": 1,
+      "explanation": "ADRs explain why an architectural decision was made and what consequences were accepted, which is vital for engineering defense and team collaboration."
+    },
+    {
+      "id": "quiz-04",
+      "question": "Why should candidate answers be persisted in the database BEFORE calling the LLM evaluation service?",
+      "options": [
+        "To increase the model's context window",
+        "To prevent data loss if the remote LLM provider times out or fails with a 503 error",
+        "To compress embedding vectors",
+        "To avoid using Redis caching"
+      ],
+      "correctIndex": 1,
+      "explanation": "Persisting the raw answer first guarantees crash consistency; the session can be safely retried without losing the candidate's work."
+    },
+    {
+      "id": "quiz-05",
+      "question": "What does an AI golden evaluation dataset contain?",
+      "options": [
+        "Random, unreviewed model outputs",
+        "Curated, expert-reviewed test cases with expected score bands, required concepts, and edge cases to benchmark model quality",
+        "Production API keys and secret tokens",
+        "Uncompressed audio files"
+      ],
+      "correctIndex": 1,
+      "explanation": "A golden dataset is the benchmark standard used to objectively evaluate output quality, regression, and rubric agreement across model versions."
+    },
+    {
+      "id": "quiz-06",
+      "question": "What is the purpose of an AI evaluation gate in a CI/CD pipeline?",
+      "options": [
+        "To generate synthetic resumes automatically",
+        "To automatically block deployment if model JSON validity or rubric agreement drops below predefined acceptance thresholds",
+        "To delete legacy database backups",
+        "To change the model temperature in production"
+      ],
+      "correctIndex": 1,
+      "explanation": "An evaluation gate prevents silent AI regressions from being promoted to live users."
+    },
+    {
+      "id": "quiz-07",
+      "question": "What is the primary benefit of a Canary Deployment in production AI serving?",
+      "options": [
+        "Exposing a new model or prompt version to a small percentage of live traffic (e.g. 5%) while monitoring errors and quality before wide rollout",
+        "Deleting the previous database schema immediately",
+        "Disabling automated integration testing",
+        "Increasing model token limits"
+      ],
+      "correctIndex": 0,
+      "explanation": "Canary rollouts allow engineers to verify real-world behavior and latency on a fraction of users before full commitment."
+    },
+    {
+      "id": "quiz-08",
+      "question": "Which metric accurately identifies tail latency bottlenecks in an AI system?",
+      "options": [
+        "Average token count",
+        "Vocabulary size",
+        "p95 or p99 response latency",
+        "Cosine similarity score"
+      ],
+      "correctIndex": 2,
+      "explanation": "Percentiles like p95 and p99 reveal the experience of the slowest 5% and 1% of users, highlighting queuing delays and generation spikes."
+    },
+    {
+      "id": "quiz-09",
+      "question": "Why should AI-generated interview scores be calculated by summing validated rubric criteria in Python/Node rather than trusting an LLM total?",
+      "options": [
+        "To make all candidates receive the identical score",
+        "To eliminate arithmetic hallucinations and ensure scores are deterministic, auditable, and bounded",
+        "To permanently eliminate human review",
+        "To decrease embedding dimensions"
+      ],
+      "correctIndex": 1,
+      "explanation": "LLMs frequently make basic arithmetic errors when summing numbers; summing validated criteria programmatically guarantees mathematical accuracy."
+    },
+    {
+      "id": "quiz-10",
+      "question": "What is the most important final deliverable of an engineering capstone?",
+      "options": [
+        "A conceptual screenshot of a chatbot",
+        "A long list of AI libraries without implementation",
+        "A working, tested, evaluated, secured, and documented AI platform with reproducible deployment",
+        "An uncommitted repository of scratch scripts"
+      ],
+      "correctIndex": 2,
+      "explanation": "An engineering capstone must deliver a functional, tested, documented, and observable system demonstrating end-to-end competency."
+    }
+  ]
+}

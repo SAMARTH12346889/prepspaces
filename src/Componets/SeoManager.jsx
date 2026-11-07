@@ -166,6 +166,11 @@ const routeMeta = {
     description: "Design and scale enterprise AI systems: 6-layer production architecture, RAG vs fine-tuning decision matrices, circuit breakers and graceful degradation, polyglot storage, real-time voice streaming with VAD and barge-in, Little's Law GPU capacity planning, and OWASP GenAI Top 10 security.",
     canonical: `${BASE_URL}/learning/ai/system-design`,
   },
+  "/learning/ai/final-capstone": {
+    title: "Module 24: Final AI Engineering Capstone | PrepSpaces",
+    description: "Build and deploy an enterprise AI Technical Interview Platform: end-to-end full-stack AI system, hybrid RAG with pgvector, server-authoritative 7-state machine, streaming voice with Silero VAD and barge-in, Pydantic rubric validation, golden evaluation datasets, and technical viva defense.",
+    canonical: `${BASE_URL}/learning/ai/final-capstone`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

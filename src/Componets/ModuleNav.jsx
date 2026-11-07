@@ -164,7 +164,7 @@ export const AI_MODULES = [
   { id: "fine-tuning-domain", name: "21. Fine-Tuning LLMs for Domain-Specific Applications", route: "/learning/ai/fine-tuning-domain" },
   { id: "scratch-slm", name: "22. Building Small Language Models from Scratch", route: "/learning/ai/scratch-slm" },
   { id: "ai-system-design", name: "23. AI System Design & Real-World Architecture", route: "/learning/ai/system-design" },
-  { id: "final-capstone", name: "24. Final Capstone: Enterprise GenAI Platform", route: "/learning/ai/final-capstone" },
+  { id: "final-capstone", name: "24. Final AI Engineering Capstone", route: "/learning/ai/final-capstone" },
 ];
 
 export const CYBERSECURITY_MODULES = [

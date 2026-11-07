@@ -116,6 +116,7 @@ import AIScalabilityOptimization from "./Componets/AIScalabilityOptimization";
 import AIFineTuningDomain from "./Componets/AIFineTuningDomain";
 import AIScratchLlm from "./Componets/AIScratchLlm";
 import AISystemDesign from "./Componets/AISystemDesign";
+import AIFinalCapstone from "./Componets/AIFinalCapstone";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1331,6 +1332,17 @@ function App() {
             <Route path="/learning/ai-engineering/module-23" element={<AISystemDesign />} />
             <Route path="/learn/ai/system-design" element={<AISystemDesign />} />
             <Route path="/learn/ai/ai-system-design" element={<AISystemDesign />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 24: FINAL AI ENGINEERING CAPSTONE */}
+            <Route path="/learning/ai/final-capstone" element={<AIFinalCapstone />} />
+            <Route path="/learning/ai/capstone" element={<AIFinalCapstone />} />
+            <Route path="/learning/ai/ai-capstone" element={<AIFinalCapstone />} />
+            <Route path="/learning/ai/module-24" element={<AIFinalCapstone />} />
+            <Route path="/learning/ai-engineering/final-capstone" element={<AIFinalCapstone />} />
+            <Route path="/learning/ai-engineering/capstone" element={<AIFinalCapstone />} />
+            <Route path="/learning/ai-engineering/module-24" element={<AIFinalCapstone />} />
+            <Route path="/learn/ai/final-capstone" element={<AIFinalCapstone />} />
+            <Route path="/learn/ai/capstone" element={<AIFinalCapstone />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"
