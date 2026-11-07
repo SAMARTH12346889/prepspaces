@@ -96,6 +96,11 @@ const routeMeta = {
     description: "Master production prompt engineering, message role hierarchies, zero-shot and few-shot demonstrations, Chain-of-Thought, strict JSON Schema generation, Pydantic validation, and prompt injection defense.",
     canonical: `${BASE_URL}/learning/ai/prompt-engineering`,
   },
+  "/learning/ai/vector-databases": {
+    title: "Module 10: Embeddings, Vector Databases & Semantic Search | PrepSpaces",
+    description: "Master dense embeddings, cosine similarity, Euclidean distance, FAISS indexing (Flat, IVF, HNSW, PQ), ChromaDB collections and metadata filtering, document chunking strategies, hybrid BM25 search, and cross-encoder rerankers.",
+    canonical: `${BASE_URL}/learning/ai/vector-databases`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

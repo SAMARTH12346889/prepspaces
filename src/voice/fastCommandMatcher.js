@@ -17,6 +17,7 @@ const REGISTERED_ROUTES = {
   "ai-llms": { route: "/learning/ai/llms", label: "Large Language Models: GPT, Llama & Qwen" },
   "ai-fine-tuning": { route: "/learning/ai/fine-tuning", label: "LLM Training & Fine-Tuning Foundations" },
   "ai-prompt-engineering": { route: "/learning/ai/prompt-engineering", label: "Prompt Engineering & Structured LLM Outputs" },
+  "ai-vector-databases": { route: "/learning/ai/vector-databases", label: "Embeddings, Vector Databases & Semantic Search" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -125,6 +126,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(prompt engineering|prompts|prompting|structured outputs|structured llm outputs|ai module 9)$/i,
     destination: "ai-prompt-engineering",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(vector databases|vector database|embeddings|semantic search|faiss|chroma|chromadb|ai module 10)$/i,
+    destination: "ai-vector-databases",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,

@@ -102,6 +102,7 @@ import AITransformerArchitecture from "./Componets/AITransformerArchitecture";
 import AILargeLanguageModels from "./Componets/AILargeLanguageModels";
 import AILlmFineTuning from "./Componets/AILlmFineTuning";
 import AILlmPromptEngineering from "./Componets/AILlmPromptEngineering";
+import AIVectorDatabases from "./Componets/AIVectorDatabases";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1156,6 +1157,18 @@ function App() {
             <Route path="/learning/ai-engineering/module-9" element={<AILlmPromptEngineering />} />
             <Route path="/learn/ai/prompt-engineering" element={<AILlmPromptEngineering />} />
             <Route path="/learn/ai/structured-outputs" element={<AILlmPromptEngineering />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 10: EMBEDDINGS, VECTOR DATABASES & SEMANTIC SEARCH */}
+            <Route path="/learning/ai/vector-databases" element={<AIVectorDatabases />} />
+            <Route path="/learning/ai/embeddings" element={<AIVectorDatabases />} />
+            <Route path="/learning/ai/semantic-search" element={<AIVectorDatabases />} />
+            <Route path="/learning/ai/faiss" element={<AIVectorDatabases />} />
+            <Route path="/learning/ai/chroma" element={<AIVectorDatabases />} />
+            <Route path="/learning/ai/module-10" element={<AIVectorDatabases />} />
+            <Route path="/learning/ai-engineering/vector-databases" element={<AIVectorDatabases />} />
+            <Route path="/learning/ai-engineering/module-10" element={<AIVectorDatabases />} />
+            <Route path="/learn/ai/vector-databases" element={<AIVectorDatabases />} />
+            <Route path="/learn/ai/embeddings" element={<AIVectorDatabases />} />
 
 
             {/* INTERVIEW PAGE */}

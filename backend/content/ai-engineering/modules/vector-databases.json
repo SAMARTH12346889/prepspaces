@@ -1,0 +1,130 @@
+{
+  "id": "vector-databases",
+  "courseId": "ai-engineering",
+  "index": 10,
+  "name": "10. Vector Databases & Semantic Search",
+  "route": "/learning/ai/vector-databases",
+  "componentName": "AIVectorDatabases",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does an AI embedding model generate when given text input?",
+      "options": [
+        "A relational SQL query table",
+        "A dense ordered vector of real floating-point numbers representing semantic characteristics",
+        "A compressed ZIP archive of character tokens",
+        "A compiled binary bytecode executable"
+      ],
+      "correctIndex": 1,
+      "explanation": "An embedding model converts natural language text into a dense vector of floating-point numbers (e.g. 384 or 768 dimensions) capturing semantic meaning."
+    },
+    {
+      "id": 2,
+      "question": "What does Cosine Similarity primarily measure between two vectors?",
+      "options": [
+        "The straight-line Euclidean distance between their endpoints",
+        "The cosine of the angle between their directional orientations, independent of vector magnitude",
+        "The total number of non-zero entries in both vectors",
+        "The elapsed compute latency required to generate the vectors"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cosine similarity measures the directional alignment between two vectors: CosSim(A, B) = (A . B) / (||A|| * ||B||). Two vectors pointing in the exact same direction have a cosine similarity of 1.0 regardless of magnitude."
+    },
+    {
+      "id": 3,
+      "question": "Which library specializes in ultra-fast similarity search and clustering of dense vectors developed by Meta FAIR?",
+      "options": [
+        "Flask",
+        "Django",
+        "FAISS (Facebook AI Similarity Search)",
+        "Pandas"
+      ],
+      "correctIndex": 2,
+      "explanation": "FAISS is Meta's high-performance library for efficient similarity search, nearest-neighbor retrieval, and clustering of dense vectors."
+    },
+    {
+      "id": 4,
+      "question": "What does ChromaDB organize its documents and embeddings into?",
+      "options": [
+        "Collections",
+        "Threads",
+        "Routers",
+        "Kernel Rings"
+      ],
+      "correctIndex": 0,
+      "explanation": "ChromaDB organizes documents, embeddings, IDs, and metadata into named namespaces called Collections."
+    },
+    {
+      "id": 5,
+      "question": "Why is document chunking mandatory when building a RAG retrieval system for large textbooks?",
+      "options": [
+        "To encrypt all text files before sending to the GPU",
+        "To divide large documents into focused, granular retrieval units so embeddings represent specific topics rather than broad averages",
+        "To train an entirely new foundation model from scratch",
+        "To convert 16-bit floats into integer bitmasks"
+      ],
+      "correctIndex": 1,
+      "explanation": "Embedding an entire 100-page document averages many unrelated concepts into one diluted vector. Chunking divides documents into coherent sections so queries match specific relevant passages."
+    },
+    {
+      "id": 6,
+      "question": "What does HNSW stand for in vector indexing algorithms?",
+      "options": [
+        "Hierarchical Navigable Small World",
+        "High Network Semantic Workflow",
+        "Hybrid Neural Search Window",
+        "Hierarchical Normalized Search Weight"
+      ],
+      "correctIndex": 0,
+      "explanation": "HNSW stands for Hierarchical Navigable Small World, a multi-layer graph-based algorithm that provides blazing-fast approximate nearest neighbor retrieval."
+    },
+    {
+      "id": 7,
+      "question": "What is the primary role of BM25 in a modern Hybrid Search architecture?",
+      "options": [
+        "Sparse keyword retrieval based on term frequency and document length, capturing exact identifiers and code symbols",
+        "Generating 768-dimensional multimodal image vectors",
+        "Training low-rank adapter matrices (LoRA)",
+        "Synthesizing speech from text"
+      ],
+      "correctIndex": 0,
+      "explanation": "BM25 is a sparse ranking algorithm that excels at exact keyword matching (e.g. function names, error codes), complementing dense semantic search."
+    },
+    {
+      "id": 8,
+      "question": "What is the primary purpose of a Cross-Encoder Reranker in a two-stage retrieval pipeline?",
+      "options": [
+        "To compress vectors using Product Quantization",
+        "To evaluate deep query-document cross-attention and reorder the top candidates retrieved by the bi-encoder for maximum relevance",
+        "To replace the vector database entirely for all 1,000,000 documents",
+        "To generate synthetic training questions"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Cross-Encoder performs joint all-to-all attention between the query and candidate passages, providing highly accurate relevance scores to reorder the top 20–100 candidates."
+    },
+    {
+      "id": 9,
+      "question": "If two vectors A and B are both L2-normalized (||A|| = 1 and ||B|| = 1), what is their dot product equal to?",
+      "options": [
+        "Their Euclidean distance squared",
+        "Their exact Cosine Similarity",
+        "Zero in all cases",
+        "The vector dimensionality"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because CosSim(A, B) = (A . B) / (||A|| * ||B||), when ||A|| = 1 and ||B|| = 1, the denominator equals 1.0, making the dot product exactly equal to cosine similarity."
+    },
+    {
+      "id": 10,
+      "question": "What must be done when an application upgrades its embedding model from 384 dimensions to 1536 dimensions?",
+      "options": [
+        "Simply query the old index directly since FAISS automatically converts dimensions",
+        "Pad the old 384 vectors with zeros to reach 1536",
+        "Re-embed the entire document corpus using the new model and rebuild the vector index from scratch",
+        "Average the old vectors with the new query vector"
+      ],
+      "correctIndex": 2,
+      "explanation": "Embeddings from different models inhabit completely different vector spaces and coordinate geometries. You cannot compare vectors across different models; the entire document corpus must be re-embedded."
+    }
+  ]
+}

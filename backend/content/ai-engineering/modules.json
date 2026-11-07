@@ -105,9 +105,9 @@
     "name": "10. Vector Databases & Semantic Search",
     "route": "/learning/ai/vector-databases",
     "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "rag-architecture",
