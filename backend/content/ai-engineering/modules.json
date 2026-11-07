@@ -231,15 +231,15 @@
     "hasScenarios": true
   },
   {
-    "id": "enterprise-system-design",
+    "id": "scratch-slm",
     "courseId": "ai-engineering",
     "index": 22,
-    "name": "22. Enterprise System Design for GenAI",
-    "route": "/learning/ai/enterprise-system-design",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "22. Building Small Language Models from Scratch",
+    "route": "/learning/ai/scratch-slm",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "ai-capstone-assistant",

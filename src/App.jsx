@@ -114,6 +114,7 @@ import AIBackendEngineering from "./Componets/AIBackendEngineering";
 import AIMlopsDeployment from "./Componets/AIMlopsDeployment";
 import AIScalabilityOptimization from "./Componets/AIScalabilityOptimization";
 import AIFineTuningDomain from "./Componets/AIFineTuningDomain";
+import AIScratchLlm from "./Componets/AIScratchLlm";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1306,6 +1307,18 @@ function App() {
             <Route path="/learning/ai-engineering/module-21" element={<AIFineTuningDomain />} />
             <Route path="/learn/ai/fine-tuning-domain" element={<AIFineTuningDomain />} />
             <Route path="/learn/ai/domain-fine-tuning" element={<AIFineTuningDomain />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 22: BUILDING SMALL LANGUAGE MODELS FROM SCRATCH */}
+            <Route path="/learning/ai/scratch-slm" element={<AIScratchLlm />} />
+            <Route path="/learning/ai/small-language-models" element={<AIScratchLlm />} />
+            <Route path="/learning/ai/tiny-gpt" element={<AIScratchLlm />} />
+            <Route path="/learning/ai/building-slm" element={<AIScratchLlm />} />
+            <Route path="/learning/ai/slm-from-scratch" element={<AIScratchLlm />} />
+            <Route path="/learning/ai/module-22" element={<AIScratchLlm />} />
+            <Route path="/learning/ai-engineering/scratch-slm" element={<AIScratchLlm />} />
+            <Route path="/learning/ai-engineering/module-22" element={<AIScratchLlm />} />
+            <Route path="/learn/ai/scratch-slm" element={<AIScratchLlm />} />
+            <Route path="/learn/ai/tiny-gpt" element={<AIScratchLlm />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"

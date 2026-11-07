@@ -156,6 +156,11 @@ const routeMeta = {
     description: "Master enterprise domain LLM fine-tuning: parameter-efficient fine-tuning (PEFT), LoRA matrix decomposition, QLoRA 4-bit NF4 quantization, conversational JSONL dataset engineering, SFTTrainer with response-only loss masking, model merging, and vLLM deployment.",
     canonical: `${BASE_URL}/learning/ai/fine-tuning-domain`,
   },
+  "/learning/ai/scratch-slm": {
+    title: "Module 22: Building Small Language Models from Scratch | PrepSpaces",
+    description: "Learn how to build a small language model (SLM) from scratch in PyTorch: understand GPT architecture, character and BPE tokenization, learnable positional embeddings, scaled dot-product attention with causal masking, Pre-LayerNorm transformer blocks, next-token prediction with cross-entropy and AdamW, and autoregressive text generation.",
+    canonical: `${BASE_URL}/learning/ai/scratch-slm`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

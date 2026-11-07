@@ -29,6 +29,7 @@ const REGISTERED_ROUTES = {
   "ai-mlops-deployment": { route: "/learning/ai/mlops-deployment", label: "AI MLOps, Deployment & CI/CD" },
   "ai-scalability-optimization": { route: "/learning/ai/scalability-optimization", label: "AI Scalability, Optimization & Observability" },
   "ai-fine-tuning-domain": { route: "/learning/ai/fine-tuning-domain", label: "Fine-Tuning LLMs for Domain Applications" },
+  "ai-scratch-slm": { route: "/learning/ai/scratch-slm", label: "Building Small Language Models from Scratch" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -185,6 +186,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(fine tuning|domain fine tuning|fine tuning llms|lora|qlora|domain adaptation|ai module 21)$/i,
     destination: "ai-fine-tuning-domain",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(small language models|slm|tiny gpt|building slm|slm from scratch|language model from scratch|ai module 22)$/i,
+    destination: "ai-scratch-slm",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,
