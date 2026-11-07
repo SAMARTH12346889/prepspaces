@@ -1,0 +1,154 @@
+{
+  "id": "mlops-deployment",
+  "courseId": "ai-engineering",
+  "index": 19,
+  "name": "19. AI MLOps, Deployment & CI/CD",
+  "route": "/learning/ai/mlops-deployment",
+  "componentName": "AIMlopsDeployment",
+  "quiz": [
+    {
+      "id": "quiz-01",
+      "question": "Why is traditional DevOps insufficient for managing machine learning systems?",
+      "options": [
+        "DevOps cannot deploy applications to the cloud",
+        "ML application behavior depends on code, model weights, and changing data distributions, requiring dataset and model lifecycle versioning",
+        "DevOps only works with compiled C++ binaries",
+        "ML models cannot be packaged inside Docker containers"
+      ],
+      "correctIndex": 1,
+      "explanation": "ML systems are uniquely stateful and data-driven; their performance can change without any code change when underlying data distributions shift."
+    },
+    {
+      "id": "quiz-02",
+      "question": "Why should large foundation model weights be decoupled from Docker container images?",
+      "options": [
+        "Docker does not support files larger than 100 megabytes",
+        "Baking multi-gigabyte weights into images causes massive CI/CD bloat, slow registry transfers, and prevents independent code updates",
+        "Model weights run faster when stored in Git repositories",
+        "Container runtimes cannot read binary weight files"
+      ],
+      "correctIndex": 1,
+      "explanation": "Decoupling weights allows application containers to remain lightweight (<250MB), enabling rapid CI/CD cycles while mounting or streaming weights from object storage."
+    },
+    {
+      "id": "quiz-03",
+      "question": "What is the primary advantage of a multi-stage Docker build for Python applications?",
+      "options": [
+        "It allows the container to run on both Windows and Linux simultaneously",
+        "It separates build tools and compilers from the final runtime image, drastically reducing container size and security vulnerabilities",
+        "It automatically trains machine learning models during the build step",
+        "It eliminates the need for requirements.txt"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multi-stage builds discard build tools, compilers, and pip caches, producing slim production images with smaller attack surfaces and faster pull times."
+    },
+    {
+      "id": "quiz-04",
+      "question": "How do modern MLflow Model Aliases (@champion / @challenger) improve model deployments?",
+      "options": [
+        "They automatically delete older model versions from disk",
+        "They allow inference services to resolve active production models dynamically without requiring application redeployment or code changes",
+        "They convert PyTorch models into JavaScript code",
+        "They enforce password authentication on model weights"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aliases allow inference clients to query '@champion' while operators reassign the alias pointer upon successful model validation."
+    },
+    {
+      "id": "quiz-05",
+      "question": "How does DVC track large datasets without committing binary files into Git?",
+      "options": [
+        "It compresses datasets into zip files before committing them to Git",
+        "It computes SHA-256 hashes, stores raw files in remote storage (S3/GCS), and commits lightweight .dvc metadata pointer files to Git",
+        "It converts datasets into SQL tables inside PostgreSQL",
+        "It deletes old datasets whenever new files are added"
+      ],
+      "correctIndex": 1,
+      "explanation": "DVC tracks data by storing raw files in content-addressable storage while committing tiny .dvc pointer files into Git."
+    },
+    {
+      "id": "quiz-06",
+      "question": "What is the primary operational mechanism of a Canary deployment?",
+      "options": [
+        "Instantly switching 100% of traffic from an old version to a new version",
+        "Routing a small percentage of live production traffic to the new model version while monitoring error rates and latency before expanding rollout",
+        "Running all requests in a development sandbox without user traffic",
+        "Rebuilding the model from scratch every time a user logs in"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canary rollouts expose a new version to a small slice of production traffic (e.g. 5%), mitigating the blast radius of unexpected regressions."
+    },
+    {
+      "id": "quiz-07",
+      "question": "What is the purpose of a Kubernetes Readiness Probe for an LLM inference pod?",
+      "options": [
+        "To restart the container if CPU usage exceeds 90%",
+        "To verify that model weights have finished loading into GPU memory before routing user traffic to the pod",
+        "To run automated unit tests on the container",
+        "To check whether the developer has logged into Docker Hub"
+      ],
+      "correctIndex": 1,
+      "explanation": "Readiness probes prevent traffic from reaching slow-loading model pods until weights are allocated and endpoints are ready to serve inference."
+    },
+    {
+      "id": "quiz-08",
+      "question": "What is Data Drift (Covariate Shift)?",
+      "options": [
+        "A database disk corruption error",
+        "A shift in the statistical distribution of input features P(X) compared to the baseline training dataset",
+        "A bug where the model produces random outputs",
+        "An increase in API server memory consumption"
+      ],
+      "correctIndex": 1,
+      "explanation": "Data drift occurs when incoming production prompt or feature distributions differ significantly from the data used during model training."
+    },
+    {
+      "id": "quiz-09",
+      "question": "What is the difference between Data Drift and Concept Drift?",
+      "options": [
+        "Data drift affects images; concept drift affects text",
+        "Data drift is a change in input distribution P(X); concept drift is a change in the relationship between inputs and target outputs P(Y|X)",
+        "They are identical terms with no practical difference",
+        "Concept drift only occurs during local development"
+      ],
+      "correctIndex": 1,
+      "explanation": "Data drift represents shifting inputs; concept drift represents a fundamental change in the definition of the correct target output for given inputs."
+    },
+    {
+      "id": "quiz-10",
+      "question": "In a statistical drift test like Kolmogorov-Smirnov, what indicates that drift has occurred?",
+      "options": [
+        "A p-value greater than 0.99",
+        "A p-value less than the significance threshold (typically p < 0.05)",
+        "The test takes longer than 10 seconds to execute",
+        "The dataset contains duplicate rows"
+      ],
+      "correctIndex": 1,
+      "explanation": "A p-value < 0.05 rejects the null hypothesis that reference and production datasets come from the same distribution, confirming drift."
+    },
+    {
+      "id": "quiz-11",
+      "question": "What is the purpose of Shadow Deployment in Generative AI systems?",
+      "options": [
+        "Hiding model weights behind encryption keys",
+        "Duplicating production user prompts to a candidate model in the background to evaluate real-world quality without exposing users to risk",
+        "Running models only during off-peak nighttime hours",
+        "Training models without supervised human labels"
+      ],
+      "correctIndex": 1,
+      "explanation": "Shadow deployments mirror live traffic to candidate models, allowing safe benchmarking of latency and output quality without affecting users."
+    },
+    {
+      "id": "quiz-12",
+      "question": "What are the two core telemetry metrics used to evaluate LLM generation responsiveness?",
+      "options": [
+        "Disk I/O and RAM usage",
+        "Time to First Token (TTFT) and Time Per Output Token (TPOT)",
+        "Ethernet bandwidth and CPU fan speed",
+        "SQL query time and table row count"
+      ],
+      "correctIndex": 1,
+      "explanation": "TTFT measures prefill responsiveness; TPOT measures the throughput of incremental autoregressive decode iterations."
+    }
+  ]
+}

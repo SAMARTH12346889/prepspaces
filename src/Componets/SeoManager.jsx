@@ -141,6 +141,11 @@ const routeMeta = {
     description: "Master asynchronous AI backend engineering: FastAPI, Starlette ASGI, Pydantic V2 validation, Redis Token Bucket rate limiting, Server-Sent Events (SSE) token streaming, JWT Argon2id authentication, object-level authorization (BOLA defense), and Celery task fleets.",
     canonical: `${BASE_URL}/learning/ai/backend-engineering`,
   },
+  "/learning/ai/mlops-deployment": {
+    title: "Module 19: AI MLOps, Deployment & CI/CD | PrepSpaces",
+    description: "Master enterprise MLOps and cloud deployment: multi-stage Docker containerization, MLflow experiment tracking and model registry, DVC data versioning, GitHub Actions CI/CD with automated evaluation gates, Kubernetes Canary & Blue-Green rollouts, and Evidently AI data drift monitoring.",
+    canonical: `${BASE_URL}/learning/ai/mlops-deployment`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

@@ -198,15 +198,15 @@
     "hasScenarios": true
   },
   {
-    "id": "diffusion-models",
+    "id": "mlops-deployment",
     "courseId": "ai-engineering",
     "index": 19,
-    "name": "19. Diffusion Models & Image Synthesis",
-    "route": "/learning/ai/diffusion-models",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "19. AI MLOps, Deployment & CI/CD",
+    "route": "/learning/ai/mlops-deployment",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "mlops-llmops",

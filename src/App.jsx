@@ -111,6 +111,7 @@ import AIGraphRag from "./Componets/AIGraphRag";
 import AIEvaluationSafety from "./Componets/AIEvaluationSafety";
 import AIInferenceServing from "./Componets/AIInferenceServing";
 import AIBackendEngineering from "./Componets/AIBackendEngineering";
+import AIMlopsDeployment from "./Componets/AIMlopsDeployment";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1269,6 +1270,18 @@ function App() {
             <Route path="/learning/ai-engineering/module-18" element={<AIBackendEngineering />} />
             <Route path="/learn/ai/backend-engineering" element={<AIBackendEngineering />} />
             <Route path="/learn/ai/ai-backend" element={<AIBackendEngineering />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 19: AI MLOPS, DEPLOYMENT & CI/CD */}
+            <Route path="/learning/ai/mlops-deployment" element={<AIMlopsDeployment />} />
+            <Route path="/learning/ai/mlops" element={<AIMlopsDeployment />} />
+            <Route path="/learning/ai/mlops-llmops" element={<AIMlopsDeployment />} />
+            <Route path="/learning/ai/deployment" element={<AIMlopsDeployment />} />
+            <Route path="/learning/ai/cicd" element={<AIMlopsDeployment />} />
+            <Route path="/learning/ai/module-19" element={<AIMlopsDeployment />} />
+            <Route path="/learning/ai-engineering/mlops-deployment" element={<AIMlopsDeployment />} />
+            <Route path="/learning/ai-engineering/module-19" element={<AIMlopsDeployment />} />
+            <Route path="/learn/ai/mlops-deployment" element={<AIMlopsDeployment />} />
+            <Route path="/learn/ai/mlops" element={<AIMlopsDeployment />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"

@@ -26,6 +26,7 @@ const REGISTERED_ROUTES = {
   "ai-llm-evaluation": { route: "/learning/ai/llm-evaluation", label: "AI Evaluation, Alignment & Safety Engineering" },
   "ai-inference-serving": { route: "/learning/ai/inference-serving", label: "LLM Inference & Model Serving Engineering" },
   "ai-backend-engineering": { route: "/learning/ai/backend-engineering", label: "AI Backend Engineering & API Development" },
+  "ai-mlops-deployment": { route: "/learning/ai/mlops-deployment", label: "AI MLOps, Deployment & CI/CD" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -170,6 +171,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(backend engineering|ai backend|fastapi|api development|backend api|ai module 18)$/i,
     destination: "ai-backend-engineering",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(mlops|ai mlops|deployment|mlops deployment|ci cd|ci\/cd|model deployment|ai module 19)$/i,
+    destination: "ai-mlops-deployment",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,
