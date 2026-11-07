@@ -86,6 +86,16 @@ const routeMeta = {
     description: "Master modern Large Language Models: GPT, Llama 4 MoE, Qwen3, decoder-only Transformer architecture, next-token prediction, KV-caching, quantization, and MiniGPT from scratch.",
     canonical: `${BASE_URL}/learning/ai/llms`,
   },
+  "/learning/ai/fine-tuning": {
+    title: "Module 8: LLM Training & Fine-Tuning Foundations (LoRA & QLoRA) | PrepSpaces",
+    description: "Master the complete LLM training lifecycle, supervised fine-tuning (SFT), assistant loss masking, parameter-efficient fine-tuning (PEFT), LoRA rank decomposition, and QLoRA 4-bit NF4 quantization.",
+    canonical: `${BASE_URL}/learning/ai/fine-tuning`,
+  },
+  "/learning/ai/prompt-engineering": {
+    title: "Module 9: Prompt Engineering & Structured LLM Outputs | PrepSpaces",
+    description: "Master production prompt engineering, message role hierarchies, zero-shot and few-shot demonstrations, Chain-of-Thought, strict JSON Schema generation, Pydantic validation, and prompt injection defense.",
+    canonical: `${BASE_URL}/learning/ai/prompt-engineering`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

@@ -1,0 +1,130 @@
+{
+  "id": "fine-tuning",
+  "courseId": "ai-engineering",
+  "index": 8,
+  "name": "8. LLM Training & Fine-Tuning Foundations",
+  "route": "/learning/ai/fine-tuning",
+  "componentName": "AILlmFineTuning",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary objective of Supervised Fine-Tuning (SFT)?",
+      "options": [
+        "Train a foundation model from random weight initialization on raw internet text",
+        "Adapt a pretrained model to follow instructions and execute specific tasks using curated input-output demonstrations",
+        "Compress the model vocabulary to reduce memory consumption",
+        "Convert a 16-bit neural network into INT4 precision without training"
+      ],
+      "correctIndex": 1,
+      "explanation": "Supervised fine-tuning takes a general-purpose pretrained model and conditions its output distribution on structured instruction-response pairs to teach specific styles, response formats, and domain behaviors."
+    },
+    {
+      "id": 2,
+      "question": "During LoRA fine-tuning, what happens to the base foundation model parameters W_0?",
+      "options": [
+        "They are deleted to make room for adapter matrices",
+        "They are completely frozen (requires_grad = False) and receive zero gradient updates",
+        "They are updated with a very high learning rate",
+        "They are quantized to 1-bit binary values"
+      ],
+      "correctIndex": 1,
+      "explanation": "LoRA freezes all original base parameters W_0 and updates only the small decomposed adapter matrices B and A, eliminating optimizer state overhead for base weights."
+    },
+    {
+      "id": 3,
+      "question": "What does the LoRA rank parameter r determine?",
+      "options": [
+        "The total number of training epochs",
+        "The inner bottleneck dimension of the update factorization matrices B (d_out x r) and A (r x d_in)",
+        "The maximum context sequence length supported by the model",
+        "The batch size used in gradient accumulation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rank r defines the inner dimension of factorization matrices B and A. Lower rank means fewer trainable parameters and lower memory; higher rank increases adaptation capacity."
+    },
+    {
+      "id": 4,
+      "question": "What is the key technological innovation of QLoRA compared to standard LoRA?",
+      "options": [
+        "It completely eliminates transformer attention mechanisms",
+        "It quantizes the frozen base model weights into 4-bit NormalFloat (NF4) while maintaining 16-bit LoRA adapter training",
+        "It trains all model weights in 32-bit floating point precision",
+        "It only fine-tunes the embedding vocabulary layer"
+      ],
+      "correctIndex": 1,
+      "explanation": "QLoRA combines a 4-bit NF4 quantized base model with 16-bit LoRA adapters, double quantization of scales, and paged optimizers, slashing base VRAM requirements by ~75% without sacrificing accuracy."
+    },
+    {
+      "id": 5,
+      "question": "What does NF4 stand for in the context of QLoRA quantization?",
+      "options": [
+        "NormalFloat 4-bit representation with quantile spacing optimized for zero-mean Gaussian weights",
+        "Non-Linear Feed-Forward 4-layer architecture",
+        "Neural Filtering 4-stage optimization pass",
+        "Number Formatting 4-byte precision"
+      ],
+      "correctIndex": 0,
+      "explanation": "NF4 (NormalFloat 4) is an information-theoretically optimal 4-bit data type designed specifically for weights following a zero-mean normal distribution, outperforming standard FP4."
+    },
+    {
+      "id": 6,
+      "question": "What is Double Quantization in QLoRA?",
+      "options": [
+        "Quantizing model weights twice to produce 2-bit representations",
+        "Quantizing the quantization scale constants themselves from 32-bit to 8-bit, saving ~0.37 bits per parameter",
+        "Running two identical forward passes for each microbatch",
+        "Fine-tuning both the base model and adapters simultaneously"
+      ],
+      "correctIndex": 1,
+      "explanation": "Double Quantization quantizes the first-stage quantization constants (scales) from 32-bit floats to 8-bit integers with a second scale, reducing memory overhead from 0.5 bits/param to 0.127 bits/param."
+    },
+    {
+      "id": 7,
+      "question": "Why is a validation set strictly required during LLM fine-tuning?",
+      "options": [
+        "To update the test set labels dynamically",
+        "To monitor generalization, detect overfitting, and guide early stopping decisions on unseen data",
+        "To increase the effective batch size during backpropagation",
+        "To replace the tokenizer subword vocabulary"
+      ],
+      "correctIndex": 1,
+      "explanation": "A held-out validation set provides an objective measure of generalization. If validation loss begins climbing while training loss continues falling, the model is overfitting on training examples."
+    },
+    {
+      "id": 8,
+      "question": "What does a saved LoRA adapter checkpoint contain?",
+      "options": [
+        "The entire base model weights along with the optimizer and dataset",
+        "Only the lightweight adapter weights (adapter_model.safetensors) and configuration (adapter_config.json)",
+        "Only the tokenizer vocabulary dictionary",
+        "Only the text outputs generated during evaluation"
+      ],
+      "correctIndex": 1,
+      "explanation": "A LoRA checkpoint contains only the adapter matrices B and A and configuration metadata (~80 MB for a 7B model), making it thousands of times smaller than a full 14 GB base model."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary function of Gradient Accumulation?",
+      "options": [
+        "It deletes old model checkpoints to free disk space",
+        "It accumulates gradients over multiple forward/backward microbatch passes before performing an optimizer step, simulating a large batch size",
+        "It converts 16-bit gradients directly to 4-bit integers",
+        "It doubles the learning rate after every epoch"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gradient accumulation allows practitioners to achieve a large effective batch size (e.g. 32 or 64) on memory-constrained GPUs by accumulating gradients across multiple smaller microbatches (e.g. 2) before calling optimizer.step()."
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of merge_and_unload() in the PEFT library?",
+      "options": [
+        "Delete the base foundation model from disk",
+        "Permanently fuse LoRA update weights (alpha/r)*B*A into base weights W_0, producing a standalone model with zero inference overhead",
+        "Unload the GPU driver to reset VRAM",
+        "Re-initialize all model parameters with random noise"
+      ],
+      "correctIndex": 1,
+      "explanation": "merge_and_unload() computes W_merged = W_0 + (alpha/r)*B*A directly in memory and discards the adapter hooks, producing standard standalone weights that can be served with zero latency overhead."
+    }
+  ]
+}

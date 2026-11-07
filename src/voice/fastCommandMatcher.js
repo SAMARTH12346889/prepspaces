@@ -15,6 +15,8 @@ const REGISTERED_ROUTES = {
   "ai-nlp": { route: "/learning/ai/nlp", label: "Natural Language Processing (NLP) Engineering" },
   "ai-transformers": { route: "/learning/ai/transformers", label: "Transformer Architecture from Scratch" },
   "ai-llms": { route: "/learning/ai/llms", label: "Large Language Models: GPT, Llama & Qwen" },
+  "ai-fine-tuning": { route: "/learning/ai/fine-tuning", label: "LLM Training & Fine-Tuning Foundations" },
+  "ai-prompt-engineering": { route: "/learning/ai/prompt-engineering", label: "Prompt Engineering & Structured LLM Outputs" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -115,6 +117,14 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(llms|llm|large language models|gpt|llama|qwen|ai module 7)$/i,
     destination: "ai-llms",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(fine tuning|fine-tuning|llm fine tuning|lora|qlora|sft|ai module 8)$/i,
+    destination: "ai-fine-tuning",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(prompt engineering|prompts|prompting|structured outputs|structured llm outputs|ai module 9)$/i,
+    destination: "ai-prompt-engineering",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,

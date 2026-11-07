@@ -80,23 +80,23 @@
     "id": "fine-tuning",
     "courseId": "ai-engineering",
     "index": 8,
-    "name": "8. LLM Fine-Tuning & Adaptation (LoRA & QLoRA)",
+    "name": "8. LLM Training & Fine-Tuning Foundations",
     "route": "/learning/ai/fine-tuning",
     "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "prompt-engineering",
     "courseId": "ai-engineering",
     "index": 9,
-    "name": "9. Prompt Engineering & In-Context Learning",
+    "name": "9. Prompt Engineering & Structured LLM Outputs",
     "route": "/learning/ai/prompt-engineering",
     "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "vector-databases",

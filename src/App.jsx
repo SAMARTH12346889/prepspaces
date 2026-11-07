@@ -100,6 +100,8 @@ import AIDeepLearning from "./Componets/AIDeepLearning";
 import AINaturalLanguageProcessing from "./Componets/AINaturalLanguageProcessing";
 import AITransformerArchitecture from "./Componets/AITransformerArchitecture";
 import AILargeLanguageModels from "./Componets/AILargeLanguageModels";
+import AILlmFineTuning from "./Componets/AILlmFineTuning";
+import AILlmPromptEngineering from "./Componets/AILlmPromptEngineering";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1131,6 +1133,29 @@ function App() {
             <Route path="/learning/ai-engineering/llms" element={<AILargeLanguageModels />} />
             <Route path="/learning/ai-engineering/module-7" element={<AILargeLanguageModels />} />
             <Route path="/learn/ai/llms" element={<AILargeLanguageModels />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 8: LLM TRAINING & FINE-TUNING FOUNDATIONS (LORA & QLORA) */}
+            <Route path="/learning/ai/fine-tuning" element={<AILlmFineTuning />} />
+            <Route path="/learning/ai/sft" element={<AILlmFineTuning />} />
+            <Route path="/learning/ai/lora" element={<AILlmFineTuning />} />
+            <Route path="/learning/ai/qlora" element={<AILlmFineTuning />} />
+            <Route path="/learning/ai/module-8" element={<AILlmFineTuning />} />
+            <Route path="/learning/ai-engineering/fine-tuning" element={<AILlmFineTuning />} />
+            <Route path="/learning/ai-engineering/module-8" element={<AILlmFineTuning />} />
+            <Route path="/learn/ai/fine-tuning" element={<AILlmFineTuning />} />
+            <Route path="/learn/ai/lora" element={<AILlmFineTuning />} />
+            <Route path="/learn/ai/qlora" element={<AILlmFineTuning />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 9: PROMPT ENGINEERING & STRUCTURED LLM OUTPUTS */}
+            <Route path="/learning/ai/prompt-engineering" element={<AILlmPromptEngineering />} />
+            <Route path="/learning/ai/prompts" element={<AILlmPromptEngineering />} />
+            <Route path="/learning/ai/prompting" element={<AILlmPromptEngineering />} />
+            <Route path="/learning/ai/structured-outputs" element={<AILlmPromptEngineering />} />
+            <Route path="/learning/ai/module-9" element={<AILlmPromptEngineering />} />
+            <Route path="/learning/ai-engineering/prompt-engineering" element={<AILlmPromptEngineering />} />
+            <Route path="/learning/ai-engineering/module-9" element={<AILlmPromptEngineering />} />
+            <Route path="/learn/ai/prompt-engineering" element={<AILlmPromptEngineering />} />
+            <Route path="/learn/ai/structured-outputs" element={<AILlmPromptEngineering />} />
 
 
             {/* INTERVIEW PAGE */}

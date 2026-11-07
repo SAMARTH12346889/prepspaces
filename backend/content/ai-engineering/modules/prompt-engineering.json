@@ -1,0 +1,130 @@
+{
+  "id": "prompt-engineering",
+  "courseId": "ai-engineering",
+  "index": 9,
+  "name": "9. Prompt Engineering & Structured LLM Outputs",
+  "route": "/learning/ai/prompt-engineering",
+  "componentName": "AILlmPromptEngineering",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary objective of Prompt Engineering?",
+      "options": [
+        "Train new Transformer weights from scratch on raw text",
+        "Design and optimize instructions and context to guide model outputs toward desired formats and behaviors without changing weights",
+        "Expand the tokenizer vocabulary size",
+        "Quantize model weights to 4-bit precision"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prompt engineering optimizes the input context P(Y | X, I, E, theta) to steer model completions without updating the underlying model parameters theta."
+    },
+    {
+      "id": 2,
+      "question": "What does a developer prompt primarily define in modern LLM APIs?",
+      "options": [
+        "GPU memory allocation limits",
+        "Application-specific instructions, business rules, and strict output requirements that take precedence over user input",
+        "The token embedding dimension",
+        "The database connection string"
+      ],
+      "correctIndex": 1,
+      "explanation": "Developer prompts establish business logic, scoring rubrics, and formatting constraints with higher instruction priority than user-submitted text, protecting against prompt injection."
+    },
+    {
+      "id": 3,
+      "question": "What is Zero-Shot prompting?",
+      "options": [
+        "Providing zero instructions to the model",
+        "Giving a task instruction without any demonstration input-output examples",
+        "Training a model with zero epochs",
+        "Generating zero tokens"
+      ],
+      "correctIndex": 1,
+      "explanation": "Zero-shot prompting asks the model to perform a task relying solely on its pre-existing knowledge and the prompt's instructions without input-output demonstrations."
+    },
+    {
+      "id": 4,
+      "question": "What is Few-Shot prompting?",
+      "options": [
+        "Fine-tuning a model using only a few gradient steps",
+        "Providing several demonstration examples within the prompt to steer the model's response pattern",
+        "Reducing model parameters to a few million",
+        "Using only single-letter prompt tokens"
+      ],
+      "correctIndex": 1,
+      "explanation": "Few-shot prompting provides demonstrations of the expected input-to-output mapping within the context window, enabling in-context learning of specific formats or policies."
+    },
+    {
+      "id": 5,
+      "question": "What is the core premise of Chain-of-Thought (CoT) prompting?",
+      "options": [
+        "Skip all reasoning and directly predict the final answer",
+        "Encourage the model to generate intermediate reasoning steps before arriving at a final answer for complex tasks",
+        "Increase the tokenizer vocabulary",
+        "Quantize intermediate layer activations"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chain-of-thought prompting breaks complex problem-solving into sequential intermediate reasoning steps, significantly improving accuracy on multi-step logic and mathematical tasks."
+    },
+    {
+      "id": 6,
+      "question": "What does JSON Schema define?",
+      "options": [
+        "GPU thread schedules",
+        "The expected structure, data types, required keys, and value constraints of a JSON payload",
+        "The model's learning rate schedule",
+        "The tokenizer subword vocabulary"
+      ],
+      "correctIndex": 1,
+      "explanation": "JSON Schema is a formal specification that declares the properties, data types, required attributes, enums, and allowed structures of machine-readable JSON data."
+    },
+    {
+      "id": 7,
+      "question": "What is the crucial difference between JSON Mode and Structured Outputs?",
+      "options": [
+        "JSON Mode enforces strict schema adherence, while Structured Outputs does not",
+        "JSON Mode only guarantees valid JSON syntax, whereas Structured Outputs strictly enforces adherence to a defined JSON Schema",
+        "They both perform model fine-tuning",
+        "Structured Outputs does not use JSON"
+      ],
+      "correctIndex": 1,
+      "explanation": "JSON Mode ensures the output parses as valid JSON but can omit keys or invent fields; Structured Outputs constrains logit sampling to strictly guarantee schema compliance."
+    },
+    {
+      "id": 8,
+      "question": "What is the primary function of Pydantic in an LLM application?",
+      "options": [
+        "Execute CUDA matrix multiplications",
+        "Define, validate, and serialize structured Python data models with runtime type safety",
+        "Train a Transformer tokenizer",
+        "Manage GPU memory allocation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pydantic provides runtime type validation, field boundary checking, and seamless JSON serialization for Python data models, ensuring LLM outputs conform to application contracts."
+    },
+    {
+      "id": 9,
+      "question": "What is Prompt Injection?",
+      "options": [
+        "Increasing the length of a prompt to improve accuracy",
+        "An adversarial attack where malicious instructions in user or third-party input attempt to hijack the model's intended behavior",
+        "Adding dropout layers to the transformer",
+        "Providing more few-shot examples"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prompt injection occurs when untrusted user input or retrieved external content contains instructions designed to override system instructions and hijack model behavior."
+    },
+    {
+      "id": 10,
+      "question": "What is the primary goal of systematic Prompt Optimization?",
+      "options": [
+        "Always make prompts as long as possible",
+        "Systematically improve measurable task accuracy, schema validity, and cost using empirical evaluation datasets",
+        "Increase the model parameter count",
+        "Remove all output validation checks"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prompt optimization is an empirical engineering discipline where prompts are tested against held-out benchmark datasets to optimize accuracy, schema conformance, latency, and cost."
+    }
+  ]
+}
