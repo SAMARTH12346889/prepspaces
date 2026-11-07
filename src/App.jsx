@@ -161,6 +161,7 @@ const DevOpsPlatform = React.lazy(() => import("./Componets/DevOpsPlatform"));
 const DevOpsCapstone = React.lazy(() => import("./Componets/DevOpsCapstone"));
 const BlockchainIntro = React.lazy(() => import("./Componets/BlockchainIntro"));
 const BlockchainCryptography = React.lazy(() => import("./Componets/BlockchainCryptography"));
+const BlockchainConsensus = React.lazy(() => import("./Componets/BlockchainConsensus"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1367,6 +1368,11 @@ function App() {
             <Route path="/learning/blockchain/module-2" element={<BlockchainCryptography />} />
             <Route path="/learn/blockchain/cryptography" element={<BlockchainCryptography />} />
             <Route path="/learn/blockchain/crypto" element={<BlockchainCryptography />} />
+            <Route path="/learning/blockchain/consensus" element={<BlockchainConsensus />} />
+            <Route path="/learning/blockchain/distributed-systems" element={<BlockchainConsensus />} />
+            <Route path="/learning/blockchain/module-3" element={<BlockchainConsensus />} />
+            <Route path="/learn/blockchain/consensus" element={<BlockchainConsensus />} />
+            <Route path="/learn/blockchain/distributed-systems" element={<BlockchainConsensus />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

@@ -196,9 +196,9 @@ export const CYBERSECURITY_MODULES = [
 
 export const BLOCKCHAIN_MODULES = [
   { id: "intro", name: "1. Intro to Blockchain Technology", route: "/learning/blockchain" },
-  { id: "cryptography", name: "2. Cryptography & PKI", route: "/learning/blockchain/cryptography" },
-  { id: "bitcoin-utxo", name: "3. Bitcoin Mechanics & UTXO", route: "/learning/blockchain/bitcoin-utxo" },
-  { id: "consensus", name: "4. Distributed Consensus (PoW/PoS)", route: "/learning/blockchain/consensus" },
+  { id: "cryptography", name: "2. Cryptography Fundamentals", route: "/learning/blockchain/cryptography" },
+  { id: "consensus", name: "3. Distributed Systems & Consensus", route: "/learning/blockchain/consensus" },
+  { id: "bitcoin-utxo", name: "4. Bitcoin Mechanics & UTXO", route: "/learning/blockchain/bitcoin-utxo" },
   { id: "ethereum-evm", name: "5. Ethereum, EVM & Smart Contracts", route: "/learning/blockchain/ethereum-evm" },
   { id: "solidity", name: "6. Solidity Engineering", route: "/learning/blockchain/solidity" },
   { id: "dapps-web3", name: "7. Web3 & dApp Development", route: "/learning/blockchain/dapps-web3" },

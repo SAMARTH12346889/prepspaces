@@ -99,6 +99,12 @@ const routeMeta = {
     keywords: "Blockchain cryptography, SHA-256 vs Keccak-256, Elliptic Curve Cryptography, secp256k1, ECDSA digital signatures, Merkle tree proofs, HD wallets, Ethereum address derivation",
     canonical: `${BASE_URL}/learning/blockchain/cryptography`,
   },
+  "/learning/blockchain/consensus": {
+    title: "Module 3: Distributed Systems & Consensus Mechanisms | PrepSpaces",
+    description: "Master distributed systems, node communication, Byzantine fault tolerance (BFT), Proof of Work (PoW), Nakamoto consensus, Proof of Stake (PoS), Proof of Authority (PoA), PBFT, chain reorganizations, finality models, CAP theorem, and FLP impossibility based on Stanford, MIT, ETH Zürich, and EPFL curricula.",
+    keywords: "Distributed systems, Byzantine Generals Problem, BFT quorums, Proof of Work mining, Nakamoto consensus, Proof of Stake, PBFT algorithm, CAP theorem, FLP impossibility result, chain reorganizations, probabilistic finality",
+    canonical: `${BASE_URL}/learning/blockchain/consensus`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",

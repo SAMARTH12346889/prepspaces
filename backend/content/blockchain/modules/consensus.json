@@ -1,0 +1,231 @@
+{
+  "id": "consensus",
+  "courseId": "blockchain",
+  "index": 3,
+  "title": "Distributed Systems & Consensus Mechanisms",
+  "name": "3. Distributed Systems & Consensus Mechanisms",
+  "description": "Master distributed computing fundamentals, node communication, failure models, the Byzantine Generals Problem, BFT quorums, Proof of Work mining, Nakamoto consensus, Proof of Stake, Proof of Authority, PBFT, chain reorganizations, probabilistic vs explicit finality, Sybil attacks, network partitions, the CAP theorem, and FLP impossibility based on Stanford, MIT, ETH Zürich, and EPFL curricula.",
+  "difficulty": "Intermediate",
+  "estimatedTime": "12–15 hours",
+  "programmingLanguage": "Python 3",
+  "route": "/learning/blockchain/consensus",
+  "totalQuizQuestions": 18,
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is distributed computing?",
+      "options": [
+        "Processing on one computer only",
+        "Multiple computers coordinating through a network",
+        "A type of cryptographic hash",
+        "A method of database encryption"
+      ],
+      "correct": 1,
+      "explanation": "Distributed computing is a computing model in which multiple independent computers work together over a network to solve problems or provide coordinated services."
+    },
+    {
+      "id": 2,
+      "question": "What is a Byzantine failure?",
+      "options": [
+        "A node permanently loses electricity",
+        "A node behaves arbitrarily or maliciously",
+        "A disk becomes full",
+        "A network uses TCP"
+      ],
+      "correct": 1,
+      "explanation": "A Byzantine failure describes arbitrary or malicious behavior where a faulty node may send conflicting, false, or forged messages to different participants."
+    },
+    {
+      "id": 3,
+      "question": "In the classical oral-message model, what is the minimum number of replicas needed to tolerate f Byzantine faults?",
+      "options": [
+        "2f + 1",
+        "f + 1",
+        "3f + 1",
+        "4f"
+      ],
+      "correct": 2,
+      "explanation": "Lamport, Shostak, and Pease proved that in the classical oral-message model without digital signatures, achieving Byzantine agreement requires at least n >= 3f + 1 total replicas to tolerate f traitors."
+    },
+    {
+      "id": 4,
+      "question": "What is a common BFT quorum size?",
+      "options": [
+        "f",
+        "f + 1",
+        "2f + 1",
+        "n / 4"
+      ],
+      "correct": 2,
+      "explanation": "In classical BFT protocols like PBFT, a quorum requires Q = 2f + 1 matching responses out of 3f + 1 replicas, guaranteeing that any two quorums overlap by at least f + 1 nodes, ensuring at least one honest participant in the intersection."
+    },
+    {
+      "id": 5,
+      "question": "What is the main participation resource in Proof of Work?",
+      "options": [
+        "Staked cryptocurrency",
+        "Computational work",
+        "Approved identity",
+        "Validator voting"
+      ],
+      "correct": 1,
+      "explanation": "In Proof of Work, participants (miners) compete by devoting computational hash power to find block headers satisfying a mathematical difficulty target."
+    },
+    {
+      "id": 6,
+      "question": "What does the Bitcoin miner change while searching for a valid block hash?",
+      "options": [
+        "User passwords",
+        "Nonce and other block construction inputs",
+        "The public key of every user",
+        "The blockchain protocol rules"
+      ],
+      "correct": 1,
+      "explanation": "Miners modify the block header nonce (and optionally extra-nonce fields in the coinbase transaction) to produce distinct candidate hashes until one meets the target."
+    },
+    {
+      "id": 7,
+      "question": "What is the main participation resource in Proof of Stake?",
+      "options": [
+        "Mining hardware",
+        "Staked assets",
+        "Electricity alone",
+        "A central server"
+      ],
+      "correct": 1,
+      "explanation": "Proof of Stake secures consensus through capital commitment: validators deposit and lock digital assets (stake) which grant proposal and attestation rights and can be slashed upon malicious behavior."
+    },
+    {
+      "id": 8,
+      "question": "What is Proof of Authority based on?",
+      "options": [
+        "Anonymous mining pools",
+        "Approved validator identities or authority",
+        "Only SHA-256 calculations",
+        "Random public identities"
+      ],
+      "correct": 1,
+      "explanation": "Proof of Authority restricts block creation and validation to pre-approved, legally or organizationally identified authorities with established reputations."
+    },
+    {
+      "id": 9,
+      "question": "Which is the typical number of Byzantine replicas PBFT can tolerate with seven replicas?",
+      "options": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "correct": 1,
+      "explanation": "Using f = floor((n - 1) / 3), with n = 7 replicas: f = floor(6 / 3) = 2. A 7-node PBFT network tolerates up to 2 Byzantine nodes with a quorum of 2(2) + 1 = 5 matching votes."
+    },
+    {
+      "id": 10,
+      "question": "What is Nakamoto consensus associated with?",
+      "options": [
+        "Proof of Work and accumulated-work chain selection",
+        "Only AES encryption",
+        "A central database administrator",
+        "Random validator identity counting"
+      ],
+      "correct": 0,
+      "explanation": "Nakamoto consensus uniquely synthesizes cryptographic Proof of Work, P2P gossip, economic block rewards, and the cumulative-work (heaviest chain) fork-choice rule."
+    },
+    {
+      "id": 11,
+      "question": "Why can temporary blockchain forks occur?",
+      "options": [
+        "All nodes share the same clock",
+        "Competing valid blocks may be received in different orders",
+        "Hashing is reversible",
+        "Transactions are always encrypted"
+      ],
+      "correct": 1,
+      "explanation": "Due to network latency and propagation delays, two miners may independently discover valid blocks at the same height nearly simultaneously, causing peer subsets to follow different candidate heads temporarily."
+    },
+    {
+      "id": 12,
+      "question": "What is a chain reorganization?",
+      "options": [
+        "Changing a wallet password",
+        "Replacing part of the current chain with an alternative valid branch",
+        "Generating a private key",
+        "Encrypting the ledger"
+      ],
+      "correct": 1,
+      "explanation": "A chain reorganization (reorg) occurs when a node discovers an alternative valid branch with strictly greater accumulated work, displacing previously accepted blocks back to the mempool."
+    },
+    {
+      "id": 13,
+      "question": "What is probabilistic finality?",
+      "options": [
+        "A block becomes increasingly difficult to replace as more work builds on it",
+        "A block is always final immediately",
+        "A validator owns the whole network",
+        "A node encrypts its transaction"
+      ],
+      "correct": 0,
+      "explanation": "In Nakamoto PoW, finality is probabilistic: the likelihood of a block being overturned decays exponentially with each confirming block mined on top, but it is never strictly zero mathematically."
+    },
+    {
+      "id": 14,
+      "question": "What is a Sybil attack?",
+      "options": [
+        "Creating many identities to gain disproportionate network influence",
+        "Breaking SHA-256",
+        "Deleting a block from memory",
+        "Increasing network latency"
+      ],
+      "correct": 0,
+      "explanation": "A Sybil attack occurs when an adversary spins up thousands of pseudonymous virtual identities to overwhelm majority-voting protocols, eclipse peers, or manipulate consensus."
+    },
+    {
+      "id": 15,
+      "question": "What does the CAP theorem describe?",
+      "options": [
+        "Hash collisions",
+        "Consistency and availability trade-offs during network partitions",
+        "Private key generation",
+        "Smart contract gas fees"
+      ],
+      "correct": 1,
+      "explanation": "Brewer's CAP theorem proves that in the presence of network partitions (P), a distributed data store can guarantee either strong Consistency (C) or Availability (A), but never both simultaneously."
+    },
+    {
+      "id": 16,
+      "question": "What does FLP demonstrate?",
+      "options": [
+        "PoW consumes no energy",
+        "Deterministic consensus cannot guarantee termination in every asynchronous execution with even one crash fault",
+        "All BFT systems require proof of work",
+        "Blockchain cannot use public keys"
+      ],
+      "correct": 1,
+      "explanation": "The Fischer-Lynch-Paterson (FLP) impossibility result proves that no deterministic asynchronous algorithm can guarantee consensus termination if even a single process is subject to unannounced crash failure."
+    },
+    {
+      "id": 17,
+      "question": "Which consensus approach is designed to tolerate Byzantine replicas in a known-membership system?",
+      "options": [
+        "PBFT",
+        "Simple client-server polling",
+        "Ordinary single-server execution",
+        "Basic hashing"
+      ],
+      "correct": 0,
+      "explanation": "Practical Byzantine Fault Tolerance (PBFT) was designed by Castro and Liskov specifically to achieve deterministic Byzantine agreement within a known-membership replicated system."
+    },
+    {
+      "id": 18,
+      "question": "What is the role of Ethereum validators?",
+      "options": [
+        "Only create user passwords",
+        "Propose and attest to blocks under protocol rules",
+        "Mine SHA-256 puzzles like Bitcoin",
+        "Control every user's private key"
+      ],
+      "correct": 1,
+      "explanation": "In Ethereum Proof of Stake, active validators are pseudo-randomly assigned to committees to propose new execution blocks and broadcast cryptographic attestations (votes) under Gasper rules."
+    }
+  ]
+}

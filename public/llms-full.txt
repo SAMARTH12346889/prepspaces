@@ -683,3 +683,13 @@
 - **Hands-On Lab:** Live interactive Merkle tree builder with visual sibling proof explorer, live private key and address derivation simulator, and complete Python toolkit with zero third-party blockchain dependencies.
 
 ---
+
+## Module 3: Distributed Systems & Consensus Mechanisms
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/consensus
+- **Alternative URL:** https://prepspaces.com/learning/blockchain/distributed-systems
+- **Level:** Intermediate | Theory + Mathematics + Programming | 12–15 hours
+- **Topic Summary:** Distributed computing fundamentals, node communication and failure models (crash, omission, timing, Byzantine), the Byzantine Generals Problem (n >= 3f + 1), Byzantine Fault Tolerance (BFT) and quorum intersection (Q = 2f + 1), Proof of Work (PoW) mining difficulty and expected attempts, Nakamoto consensus and heaviest chain selection, Proof of Stake (PoS) validator committees, Gasper and slashing, Proof of Authority (PoA), Practical Byzantine Fault Tolerance (PBFT) pre-prepare/prepare/commit phases, temporary forks, chain reorganizations (reorgs), probabilistic vs explicit finality, Sybil attacks and defense, network partitions, Brewer's CAP theorem (CP vs AP), and the Fischer-Lynch-Paterson (FLP) impossibility result.
+- **Key Concepts:** Safety vs liveness, quorum intersection (Q = 2f + 1), cumulative work fork choice, 16^d difficulty scaling, 2/3 stake supermajority, PBFT view changes, orphan blocks, mempool recycling, 51% attack threshold, selfish mining, asynchronous agreement impossibility.
+- **Hands-On Lab:** Live interactive Byzantine Generals simulator with customizable traitors and quorum verification, real-time in-browser SHA-256 Proof of Work mining sandbox with tamper detector, Proof of Stake validator lottery and committee approval visualizer, CAP theorem network partition sandbox, and complete Python implementations of Proof of Work (`proof_of_work.py`) and Proof of Stake (`proof_of_stake.py`).
+
+---
