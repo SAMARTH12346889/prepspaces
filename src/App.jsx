@@ -105,6 +105,7 @@ import AILlmPromptEngineering from "./Componets/AILlmPromptEngineering";
 import AIVectorDatabases from "./Componets/AIVectorDatabases";
 import AIRagEngineering from "./Componets/AIRagEngineering";
 import AIMultimodal from "./Componets/AIMultimodal";
+import AIAgents from "./Componets/AIAgents";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1193,6 +1194,17 @@ function App() {
             <Route path="/learning/ai-engineering/module-12" element={<AIMultimodal />} />
             <Route path="/learn/ai/multimodal-ai" element={<AIMultimodal />} />
             <Route path="/learn/ai/multimodal" element={<AIMultimodal />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 13: AI AGENTS & TOOL-CALLING SYSTEMS */}
+            <Route path="/learning/ai/ai-agents" element={<AIAgents />} />
+            <Route path="/learning/ai/agents" element={<AIAgents />} />
+            <Route path="/learning/ai/tool-calling" element={<AIAgents />} />
+            <Route path="/learning/ai/mcp" element={<AIAgents />} />
+            <Route path="/learning/ai/module-13" element={<AIAgents />} />
+            <Route path="/learning/ai-engineering/ai-agents" element={<AIAgents />} />
+            <Route path="/learning/ai-engineering/module-13" element={<AIAgents />} />
+            <Route path="/learn/ai/ai-agents" element={<AIAgents />} />
+            <Route path="/learn/ai/agents" element={<AIAgents />} />
 
 
             {/* INTERVIEW PAGE */}

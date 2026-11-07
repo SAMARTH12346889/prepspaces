@@ -1,0 +1,130 @@
+{
+  "id": "ai-agents",
+  "courseId": "ai-engineering",
+  "index": 13,
+  "name": "13. AI Agents & Tool-Calling Systems",
+  "route": "/learning/ai/ai-agents",
+  "componentName": "AIAgents",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary operational characteristic of an AI agent compared to a standard chatbot?",
+      "options": [
+        "It only outputs pre-written canned responses",
+        "It observes its environment, makes decisions, and executes actions via a control loop toward a goal",
+        "It can only run inside a GPU cluster without network access",
+        "It replaces all backend databases with neural weights"
+      ],
+      "correctIndex": 1,
+      "explanation": "An AI agent is characterized by a goal-oriented control loop (Observe-Think-Act-Observe) that interacts with external tools, maintains state, and adapts based on environmental feedback."
+    },
+    {
+      "id": 2,
+      "question": "What actually happens when an LLM requests a function call?",
+      "options": [
+        "The LLM directly runs assembly instructions on the host CPU",
+        "The LLM outputs structured parameters that the host backend application validates and executes",
+        "The LLM automatically writes new code to its own weight matrices",
+        "The LLM bypasses all backend security checks"
+      ],
+      "correctIndex": 1,
+      "explanation": "Function calling is parameter generation. The model generates structured arguments matching a predefined schema; the backend application intercepts, validates, authorizes, and executes the actual function."
+    },
+    {
+      "id": 3,
+      "question": "What are the core stages of the ReAct pattern?",
+      "options": [
+        "Read, Encrypt, Act, Terminate",
+        "Reasoning (Thought), Acting (Action), and Observation (Feedback)",
+        "Recurrent Activation and Contextual Tuning",
+        "Retrieve, Augment, Compile, Test"
+      ],
+      "correctIndex": 1,
+      "explanation": "ReAct stands for Reasoning and Acting. It interleaves explicit reasoning traces ('Thought'), tool calls ('Action'), and environmental feedback ('Observation')."
+    },
+    {
+      "id": 4,
+      "question": "Why should task plans be represented as Directed Acyclic Graphs (DAGs)?",
+      "options": [
+        "To prevent circular dependency deadlocks and allow safe parallel execution of independent tasks",
+        "To compress token embeddings into 8-bit integers",
+        "Because neural networks can only understand graphs and not text",
+        "To avoid writing backend validation schemas"
+      ],
+      "correctIndex": 0,
+      "explanation": "DAGs enforce mathematical prerequisite ordering, guarantee no circular dependencies exist, and clearly indicate which independent tasks can execute concurrently."
+    },
+    {
+      "id": 5,
+      "question": "What is the fundamental difference between Agent State and Agent Memory?",
+      "options": [
+        "State describes what is happening now in the active workflow; Memory stores past information across sessions",
+        "State is stored in vector databases while Memory is stored in CPU registers",
+        "State is permanent while Memory is deleted every 5 seconds",
+        "There is no difference; they are identical concepts"
+      ],
+      "correctIndex": 0,
+      "explanation": "State tracks current operational variables, task progress, and FSM lifecycle status. Memory stores past episodic experiences, user preferences, and knowledge across multiple sessions."
+    },
+    {
+      "id": 6,
+      "question": "What is tool idempotency, and why is it critical for agent reliability?",
+      "options": [
+        "It forces the LLM to increase its parameter count",
+        "It ensures repeated executions of the same request produce identical results without duplicate side-effects",
+        "It deletes old conversation turns automatically",
+        "It converts synchronous functions into WebSockets"
+      ],
+      "correctIndex": 1,
+      "explanation": "Network timeouts can cause an agent to retry an operation. An idempotent tool uses an idempotency key to prevent creating duplicate records or transactions on repeated invocations."
+    },
+    {
+      "id": 7,
+      "question": "In a Multi-Agent system, what is the 'Handoff' pattern?",
+      "options": [
+        "A technique where an agent deletes its memory and restarts",
+        "An architecture where full conversational control transfers from a router agent to a specialist agent",
+        "Running all agents on a single CPU thread sequentially",
+        "A method of compressing JSON schemas into base64 strings"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a handoff pattern, when an agent detects that a request belongs to a specialized domain, it transfers execution ownership and conversational context directly to the specialist agent."
+    },
+    {
+      "id": 8,
+      "question": "What are the three principal capability primitives exposed by a Model Context Protocol (MCP) server?",
+      "options": [
+        "Weights, Biases, and Activations",
+        "Tools, Resources, and Prompts",
+        "HTML, CSS, and JavaScript",
+        "Routers, Gateways, and Firewalls"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Model Context Protocol defines three core server capabilities: Tools (executable functions), Resources (contextual data streams), and Prompts (reusable parameterized prompt templates)."
+    },
+    {
+      "id": 9,
+      "question": "Why should the authenticated user's ID NEVER be a parameter generated by the LLM?",
+      "options": [
+        "Because user IDs are too long for context windows",
+        "To prevent prompt injection or hallucination from accessing or modifying another user's private data",
+        "Because JSON schema does not support string IDs",
+        "Because database keys must always be randomly generated numbers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Allowing an LLM to supply user IDs violates least privilege and opens catastrophic security flaws. The backend must inject the authenticated user ID directly from secure session tokens."
+    },
+    {
+      "id": 10,
+      "question": "What is Trajectory Evaluation in autonomous AI systems?",
+      "options": [
+        "Checking whether an agent selected appropriate intermediate tools and valid execution paths to achieve a goal",
+        "Measuring the download speed of model weights",
+        "Calculating the physical angle of a robot actuator",
+        "Evaluating only the final grammatical fluency of a chatbot"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trajectory evaluation inspects the complete trace of an agent's intermediate thoughts, tool calls, arguments, and states to verify that the task was accomplished efficiently, correctly, and safely."
+    }
+  ]
+}

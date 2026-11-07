@@ -111,6 +111,11 @@ const routeMeta = {
     description: "Master multimodal AI architectures: Vision Transformers (ViT), Projection Adapters, CLIP contrastive learning, Faster-Whisper speech-to-text, neural TTS with HiFi-GAN vocoders, real-time voice agents with barge-in, and Multimodal RAG.",
     canonical: `${BASE_URL}/learning/ai/multimodal-ai`,
   },
+  "/learning/ai/ai-agents": {
+    title: "Module 13: AI Agents & Tool-Calling Systems | PrepSpaces",
+    description: "Master autonomous AI agent architecture: structured function calling schemas, ReAct observe-think-act loops, task planning DAGs, durable FSM state checkpointing, cognitive memory systems, Model Context Protocol (MCP), and multi-agent orchestration.",
+    canonical: `${BASE_URL}/learning/ai/ai-agents`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

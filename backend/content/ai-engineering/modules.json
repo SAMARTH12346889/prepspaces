@@ -132,15 +132,15 @@
     "hasScenarios": true
   },
   {
-    "id": "fine-tuning",
+    "id": "ai-agents",
     "courseId": "ai-engineering",
     "index": 13,
-    "name": "13. Fine-Tuning LLMs: LoRA & QLoRA",
-    "route": "/learning/ai/fine-tuning",
+    "name": "13. AI Agents & Tool-Calling Systems",
+    "route": "/learning/ai/ai-agents",
     "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "llm-evaluation",
@@ -154,11 +154,11 @@
     "hasScenarios": false
   },
   {
-    "id": "ai-agents",
+    "id": "agentic-workflows",
     "courseId": "ai-engineering",
     "index": 15,
-    "name": "15. AI Agents & Function Tool Calling",
-    "route": "/learning/ai/ai-agents",
+    "name": "15. Agentic Workflows & Tool Sandboxing",
+    "route": "/learning/ai/agentic-workflows",
     "questionCount": 10,
     "hasTopics": false,
     "hasCommands": false,
