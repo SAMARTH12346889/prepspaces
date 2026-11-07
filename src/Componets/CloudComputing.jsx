@@ -2,7 +2,7 @@ import { getLucideIcon } from "../utils/iconMap";
 import useModuleContent from "../hooks/useModuleContent";
 import ModuleLoadingSkeleton from "./ModuleLoadingSkeleton";
 import ModuleErrorState from "./ModuleErrorState";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import {
   ArrowLeft,
   ArrowRight,
