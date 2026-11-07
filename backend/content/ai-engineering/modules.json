@@ -168,12 +168,12 @@
     "id": "llm-evaluation",
     "courseId": "ai-engineering",
     "index": 16,
-    "name": "16. LLM Evaluation, Benchmarks & Guardrails",
+    "name": "16. AI Evaluation, Alignment & Safety Engineering",
     "route": "/learning/ai/llm-evaluation",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "speech-video-ai",

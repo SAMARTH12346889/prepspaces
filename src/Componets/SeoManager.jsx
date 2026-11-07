@@ -126,6 +126,11 @@ const routeMeta = {
     description: "Master Graph RAG and Knowledge Engineering: Dense + BM25 hybrid search, Reciprocal Rank Fusion (RRF), Neo4j Cypher property graphs, automated triple extraction, Microsoft GraphRAG Leiden community detection, multi-hop reasoning, HyDE, and Ragas evaluation.",
     canonical: `${BASE_URL}/learning/ai/graph-rag`,
   },
+  "/learning/ai/llm-evaluation": {
+    title: "Module 16: AI Evaluation, Alignment & Safety Engineering | PrepSpaces",
+    description: "Master AI evaluation, alignment, and safety engineering: hallucination detection, atomic claim decomposition, LLM-as-a-judge, adversarial red teaming, OWASP Top 10 for LLMs, defense-in-depth guardrails, RLHF, DPO, Constitutional AI, and NIST AI RMF governance.",
+    canonical: `${BASE_URL}/learning/ai/llm-evaluation`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

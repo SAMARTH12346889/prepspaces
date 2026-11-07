@@ -1,0 +1,154 @@
+{
+  "id": "llm-evaluation",
+  "courseId": "ai-engineering",
+  "index": 16,
+  "name": "16. AI Evaluation, Alignment & Safety Engineering",
+  "route": "/learning/ai/llm-evaluation",
+  "componentName": "AIEvaluationSafety",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is AI evaluation?",
+      "options": [
+        "Increasing model parameters",
+        "Systematically measuring AI performance against defined criteria",
+        "Replacing training datasets",
+        "Only measuring GPU utilization"
+      ],
+      "correctIndex": 1,
+      "explanation": "AI evaluation is the structured, systematic measurement of whether an AI model or application performs its intended tasks correctly, accurately, and consistently against defined criteria."
+    },
+    {
+      "id": 2,
+      "question": "What is an AI hallucination?",
+      "options": [
+        "A GPU failure",
+        "Plausible but false or unsupported generated information",
+        "A database backup",
+        "A type of embedding"
+      ],
+      "correctIndex": 1,
+      "explanation": "An AI hallucination occurs when an AI model produces information that is false, fabricated, or completely unsupported by available ground truth or retrieved context."
+    },
+    {
+      "id": 3,
+      "question": "What does faithfulness measure in RAG?",
+      "options": [
+        "Database throughput",
+        "Whether generated claims are supported by retrieved context",
+        "The number of tokens",
+        "Image resolution"
+      ],
+      "correctIndex": 1,
+      "explanation": "Faithfulness evaluates whether claims made in the generated response are directly supported by the retrieved context, serving as a key metric for detecting hallucinations."
+    },
+    {
+      "id": 4,
+      "question": "What is a golden evaluation dataset?",
+      "options": [
+        "A dataset of random outputs",
+        "A manually validated reference collection for evaluation",
+        "A pretrained model",
+        "A database index"
+      ],
+      "correctIndex": 1,
+      "explanation": "A golden dataset is an expert-reviewed, high-quality collection of test cases with verified reference answers and rubrics used as the ground truth benchmark for evaluating systems."
+    },
+    {
+      "id": 5,
+      "question": "What is LLM-as-a-judge?",
+      "options": [
+        "A model that deletes data",
+        "Using a language model to evaluate other model outputs against a rubric",
+        "An image classification task",
+        "A method of vector compression"
+      ],
+      "correctIndex": 1,
+      "explanation": "LLM-as-a-judge is an automated evaluation method where an evaluator language model evaluates the output of candidate models against explicit rubrics or reference answers."
+    },
+    {
+      "id": 6,
+      "question": "What does GPQA primarily evaluate?",
+      "options": [
+        "Web development",
+        "Advanced scientific reasoning",
+        "Audio naturalness",
+        "Image segmentation"
+      ],
+      "correctIndex": 1,
+      "explanation": "GPQA (Graduate-Level Google-Proof Q&A) evaluates advanced graduate-level scientific reasoning across biology, physics, and chemistry."
+    },
+    {
+      "id": 7,
+      "question": "What is AI red teaming?",
+      "options": [
+        "Training a model on red-colored images",
+        "Adversarial testing to discover security and behavioral weaknesses",
+        "Reducing embedding dimensions",
+        "Generating synthetic speech"
+      ],
+      "correctIndex": 1,
+      "explanation": "AI red teaming is the practice of deliberately testing AI systems using adversarial, unexpected, or malicious inputs to discover security vulnerabilities and safety failures."
+    },
+    {
+      "id": 8,
+      "question": "What is indirect prompt injection?",
+      "options": [
+        "A normal user question",
+        "Malicious instructions embedded in external content processed by the AI",
+        "A database query",
+        "A fine-tuning method"
+      ],
+      "correctIndex": 1,
+      "explanation": "Indirect prompt injection occurs when malicious instructions are embedded within external third-party content (such as PDFs, web pages, or database records) that the AI ingests."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of least privilege?",
+      "options": [
+        "Give every agent administrator access",
+        "Allow components only the permissions needed for their tasks",
+        "Disable authentication",
+        "Expose more application data"
+      ],
+      "correctIndex": 1,
+      "explanation": "The principle of least privilege ensures agents and components operate with only the minimum necessary permissions required to fulfill their specific role, minimizing blast radius."
+    },
+    {
+      "id": 10,
+      "question": "What does RLHF stand for?",
+      "options": [
+        "Recurrent Language Handling Function",
+        "Reinforcement Learning from Human Feedback",
+        "Retrieval Learning with Hybrid Fusion",
+        "Ranked Language Hallucination Filtering"
+      ],
+      "correctIndex": 1,
+      "explanation": "RLHF stands for Reinforcement Learning from Human Feedback, an alignment technique that optimizes language models based on human preference data."
+    },
+    {
+      "id": 11,
+      "question": "What is DPO?",
+      "options": [
+        "A speech recognition model",
+        "A preference optimization technique using chosen and rejected responses",
+        "A graph traversal algorithm",
+        "A vector database"
+      ],
+      "correctIndex": 1,
+      "explanation": "DPO (Direct Preference Optimization) is an alignment method that directly optimizes model weights on chosen and rejected response pairs without training a separate reward model."
+    },
+    {
+      "id": 12,
+      "question": "What are the four NIST AI RMF core functions?",
+      "options": [
+        "Train, Test, Run, Deploy",
+        "Govern, Map, Measure, Manage",
+        "Input, Encode, Decode, Output",
+        "Collect, Embed, Retrieve, Generate"
+      ],
+      "correctIndex": 1,
+      "explanation": "The four core functions of the NIST AI Risk Management Framework are Govern, Map, Measure, and Manage."
+    }
+  ]
+}

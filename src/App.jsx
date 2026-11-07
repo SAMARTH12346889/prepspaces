@@ -108,6 +108,7 @@ import AIMultimodal from "./Componets/AIMultimodal";
 import AIAgents from "./Componets/AIAgents";
 import AIMultiAgent from "./Componets/AIMultiAgent";
 import AIGraphRag from "./Componets/AIGraphRag";
+import AIEvaluationSafety from "./Componets/AIEvaluationSafety";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1231,6 +1232,18 @@ function App() {
             <Route path="/learning/ai-engineering/module-15" element={<AIGraphRag />} />
             <Route path="/learn/ai/graph-rag" element={<AIGraphRag />} />
             <Route path="/learn/ai/advanced-rag" element={<AIGraphRag />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 16: AI EVALUATION, ALIGNMENT & SAFETY ENGINEERING */}
+            <Route path="/learning/ai/llm-evaluation" element={<AIEvaluationSafety />} />
+            <Route path="/learning/ai/ai-evaluation" element={<AIEvaluationSafety />} />
+            <Route path="/learning/ai/alignment-safety" element={<AIEvaluationSafety />} />
+            <Route path="/learning/ai/evaluation-safety" element={<AIEvaluationSafety />} />
+            <Route path="/learning/ai/safety-engineering" element={<AIEvaluationSafety />} />
+            <Route path="/learning/ai/module-16" element={<AIEvaluationSafety />} />
+            <Route path="/learning/ai-engineering/llm-evaluation" element={<AIEvaluationSafety />} />
+            <Route path="/learning/ai-engineering/module-16" element={<AIEvaluationSafety />} />
+            <Route path="/learn/ai/llm-evaluation" element={<AIEvaluationSafety />} />
+            <Route path="/learn/ai/ai-evaluation" element={<AIEvaluationSafety />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"
