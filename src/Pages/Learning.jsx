@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getCoursesCatalog } from "../services/courseContentService";
+import { getCoursesCatalog, getSynchronousCachedCatalog } from "../services/courseContentService";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import {
@@ -190,7 +190,22 @@ export default function Learning() {
   const navigate = useNavigate();
   const { goBack } = useSafeBack("/");
   const { isAuthenticated, user, logout } = useAuth();
-  const [courses, setCourses] = useState(learningTracks);
+  const [courses, setCourses] = useState(() => {
+    const cached = getSynchronousCachedCatalog();
+    if (cached && cached.length > 0) {
+      const catalogMap = new Map(cached.map((c) => [c.id, c]));
+      const merged = learningTracks.map((local) =>
+        catalogMap.has(local.id) ? { ...local, ...catalogMap.get(local.id) } : local
+      );
+      for (const remote of cached) {
+        if (!learningTracks.some((l) => l.id === remote.id)) {
+          merged.push(remote);
+        }
+      }
+      return merged;
+    }
+    return learningTracks;
+  });
 
     useEffect(() => {
     let isMounted = true;

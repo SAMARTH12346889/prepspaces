@@ -7,21 +7,62 @@
 // In-memory fallback cache for local dev / tests when KV is not attached
 const memoryStore = new Map();
 
+// Fast L1 in-isolate memory cache with TTL for Cloudflare Workers
+const l1MemoryCache = new Map();
+const L1_TTL_MS = 60000; // 60 seconds
+
+function getL1(key) {
+  const entry = l1MemoryCache.get(key);
+  if (!entry) return null;
+  if (Date.now() > entry.expiresAt) {
+    l1MemoryCache.delete(key);
+    return null;
+  }
+  return entry.value;
+}
+
+function setL1(key, value, ttlMs = L1_TTL_MS) {
+  l1MemoryCache.set(key, {
+    value,
+    expiresAt: Date.now() + ttlMs,
+  });
+}
+
+function deleteL1(key) {
+  l1MemoryCache.delete(key);
+}
+
 async function getStore(env) {
   if (env?.PREPSPACES_DB) {
     return {
       type: "kv",
       async get(key, type = "text") {
-        if (type === "json") {
-          return await env.PREPSPACES_DB.get(key, { type: "json" });
+        // 1. Check ultra-fast L1 isolate cache
+        const l1Val = getL1(key);
+        if (l1Val !== null && l1Val !== undefined) {
+          return l1Val;
         }
-        return await env.PREPSPACES_DB.get(key);
+
+        // 2. Fetch from Cloudflare KV with edge colo caching (cacheTtl: 60s)
+        let result = null;
+        if (type === "json") {
+          result = await env.PREPSPACES_DB.get(key, { type: "json", cacheTtl: 60 });
+        } else {
+          result = await env.PREPSPACES_DB.get(key, { cacheTtl: 60 });
+        }
+
+        if (result !== null && result !== undefined) {
+          setL1(key, result);
+        }
+        return result;
       },
       async put(key, value, options = {}) {
+        setL1(key, value);
         const valStr = typeof value === "string" ? value : JSON.stringify(value);
         return await env.PREPSPACES_DB.put(key, valStr, options);
       },
       async delete(key) {
+        deleteL1(key);
         return await env.PREPSPACES_DB.delete(key);
       },
     };
@@ -155,15 +196,19 @@ export async function getAllUserProgress(userId, env) {
   const metaKey = `progress:${userId}:meta`;
   const activeCourses = (await store.get(metaKey, "json")) || [];
 
-  const progressMap = {};
-  for (const courseId of activeCourses) {
-    const p = await store.get(`progress:${userId}:${courseId}`, "json");
-    if (p) {
-      progressMap[courseId] = p;
-    }
+  if (!Array.isArray(activeCourses) || activeCourses.length === 0) {
+    return {};
   }
 
-  return progressMap;
+  // Fetch all active course progress in parallel
+  const records = await Promise.all(
+    activeCourses.map(async (courseId) => {
+      const p = await store.get(`progress:${userId}:${courseId}`, "json");
+      return [courseId, p];
+    })
+  );
+
+  return Object.fromEntries(records.filter(([, p]) => Boolean(p)));
 }
 
 /**
@@ -203,15 +248,19 @@ export async function getAllGuestProgress(guestId, env) {
   const metaKey = `progress:guest:${guestId}:meta`;
   const activeCourses = (await store.get(metaKey, "json")) || [];
 
-  const progressMap = {};
-  for (const courseId of activeCourses) {
-    const p = await store.get(`progress:guest:${guestId}:${courseId}`, "json");
-    if (p) {
-      progressMap[courseId] = p;
-    }
+  if (!Array.isArray(activeCourses) || activeCourses.length === 0) {
+    return {};
   }
 
-  return progressMap;
+  // Fetch all active guest course progress in parallel
+  const records = await Promise.all(
+    activeCourses.map(async (courseId) => {
+      const p = await store.get(`progress:guest:${guestId}:${courseId}`, "json");
+      return [courseId, p];
+    })
+  );
+
+  return Object.fromEntries(records.filter(([, p]) => Boolean(p)));
 }
 
 /**

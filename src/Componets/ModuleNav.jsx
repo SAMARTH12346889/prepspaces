@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback, useMemo } from "react";
-import { getCourseModules } from "../services/courseContentService";
+import { getCourseModules, getSynchronousCachedCourseModules } from "../services/courseContentService";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -253,12 +253,20 @@ export default function ModuleNav({
     }
   }, []);
 
-  const [modules, setModules] = useState(() => getModulesForTrack(track));
+  const [modules, setModules] = useState(() => {
+    const cached = getSynchronousCachedCourseModules(resolvedCourseId);
+    return (Array.isArray(cached) && cached.length > 0) ? cached : getModulesForTrack(track);
+  });
 
   // Keep modules synchronized with track changes
   useEffect(() => {
-    setModules(getModulesForTrack(track));
-  }, [track, getModulesForTrack]);
+    const cached = getSynchronousCachedCourseModules(resolvedCourseId);
+    if (Array.isArray(cached) && cached.length > 0) {
+      setModules(cached);
+    } else {
+      setModules(getModulesForTrack(track));
+    }
+  }, [track, resolvedCourseId, getModulesForTrack]);
 
   const explicitModuleId = propCurrentModuleId || activeModuleId;
   const currentModuleId = useMemo(() => {
@@ -270,18 +278,6 @@ export default function ModuleNav({
     });
     return found ? found.id : (modules[0]?.id || "foundations");
   }, [explicitModuleId, location?.pathname, modules]);
-
-  const courseIdMap = {
-    os: "operating-systems",
-    networks: "computer-networks",
-    cybersecurity: "cybersecurity",
-    "system-design": "system-design",
-    cloud: "cloud",
-    devops: "devops",
-    ai: "ai-engineering",
-    "ai-engineering": "ai-engineering",
-  };
-  const resolvedCourseId = courseIdMap[track] || track;
 
   const [accessState, setAccessState] = useState(() => getCachedCourseAccess(resolvedCourseId));
   const [completedModuleIds, setCompletedModuleIds] = useState(() => {
@@ -307,7 +303,14 @@ export default function ModuleNav({
 
     const handleUnlock = (e) => {
       if (!e.detail?.courseId || e.detail.courseId === resolvedCourseId) {
-        loadAccess();
+        if (e.detail?.data) {
+          setAccessState(e.detail.data);
+          if (Array.isArray(e.detail.data.completedModuleIds)) {
+            setCompletedModuleIds(e.detail.data.completedModuleIds);
+          }
+        } else {
+          loadAccess();
+        }
       }
     };
 
@@ -321,11 +324,16 @@ export default function ModuleNav({
 
   useEffect(() => {
     let isMounted = true;
-    getCourseModules(resolvedCourseId).then((data) => {
-      if (isMounted && data && Array.isArray(data) && data.length > 0) {
-        setModules(data);
-      }
-    });
+    const cached = getSynchronousCachedCourseModules(resolvedCourseId);
+    if (cached && cached.length > 0) {
+      setModules(cached);
+    } else {
+      getCourseModules(resolvedCourseId).then((data) => {
+        if (isMounted && data && Array.isArray(data) && data.length > 0) {
+          setModules(data);
+        }
+      });
+    }
     return () => {
       isMounted = false;
     };

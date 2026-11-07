@@ -75,6 +75,8 @@ function emitUnlockUpdated(courseId, data) {
 
 const inFlightCompletions = new Set();
 const pendingAccessRequests = new Map();
+const accessMemoryCache = new Map();
+const ACCESS_CACHE_TTL_MS = 15000; // 15 seconds
 
 /**
  * Automatically marks a module completed in the background when the user
@@ -115,12 +117,20 @@ export function getInitialModuleAccess(moduleIndex, isAuthenticated = false) {
  * Fetch authoritative module access state from the backend.
  * Falls back to local cache if offline or server is unreachable.
  */
-export async function getCourseAccess(courseId) {
+export async function getCourseAccess(courseId, forceRefresh = false) {
   if (!courseId) return null;
 
   const token = getStoredToken();
   const guestId = !token ? getOrCreateGuestSessionId() : null;
   const requestKey = `${courseId}:${token || guestId}`;
+
+  // Instant cache hit if accessed recently (<15s)
+  if (!forceRefresh && accessMemoryCache.has(requestKey)) {
+    const cachedEntry = accessMemoryCache.get(requestKey);
+    if (Date.now() - cachedEntry.timestamp < ACCESS_CACHE_TTL_MS) {
+      return cachedEntry.data;
+    }
+  }
 
   // Deduplicate in-flight access calls across components
   if (pendingAccessRequests.has(requestKey)) {
@@ -144,6 +154,7 @@ export async function getCourseAccess(courseId) {
       if (res.ok) {
         const data = await res.json();
         if (data.success) {
+          accessMemoryCache.set(requestKey, { timestamp: Date.now(), data });
           setCachedCourseAccess(courseId, data);
           emitUnlockUpdated(courseId, data);
           return data;
@@ -211,8 +222,17 @@ export async function completeModule(courseId, moduleId, activityData = {}) {
     const data = await res.json();
 
     if (res.ok && data.success) {
-      // Re-fetch authoritative access to update caches and UI
-      await getCourseAccess(courseId);
+      // Direct local cache update using response payload without redundant network roundtrip
+      const currentCache = getCachedCourseAccess(courseId) || {};
+      const updatedCache = {
+        ...currentCache,
+        completedModuleIds: data.completedModuleIds || currentCache.completedModuleIds || [],
+        currentUnlockedModule: data.nextUnlockedModule || currentCache.currentUnlockedModule,
+        progressPercentage: data.progressPercentage ?? currentCache.progressPercentage,
+      };
+      setCachedCourseAccess(courseId, updatedCache);
+      accessMemoryCache.set(`${courseId}:${token || guestId}`, { timestamp: Date.now(), data: updatedCache });
+      emitUnlockUpdated(courseId, updatedCache);
       return data;
     }
 

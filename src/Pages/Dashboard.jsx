@@ -69,13 +69,18 @@ export default function Dashboard() {
   useEffect(() => {
     loadProgress();
 
-    // Listen for progress updates emitted anywhere in the app
+    // Debounced listener for progress updates to prevent multiple rapid network calls
+    let debounceTimer = null;
     const handleUpdate = () => {
-      loadProgress();
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        loadProgress();
+      }, 250);
     };
 
     window.addEventListener(PROGRESS_UPDATED_EVENT, handleUpdate);
     return () => {
+      clearTimeout(debounceTimer);
       window.removeEventListener(PROGRESS_UPDATED_EVENT, handleUpdate);
     };
   }, [token]);

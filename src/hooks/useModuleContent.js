@@ -1,21 +1,47 @@
-import { useState, useEffect, useCallback } from "react";
-import { getModuleContent } from "../services/courseContentService";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { getModuleContent, getSynchronousCachedModule } from "../services/courseContentService";
 import { recordModuleProgress } from "../services/progressService";
 
 /**
  * Custom React hook for loading module content dynamically from Cloudflare backend.
- * Provides loading, error, and cached data states with retry capabilities,
- * and tracks student progress.
+ * Provides instant synchronous cache hydration to eliminate skeleton flashing,
+ * in-flight request deduplication, and non-blocking background synchronization.
  */
 export function useModuleContent(courseId, moduleId) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // Synchronous cache hydration: If the module is already cached in memory or sessionStorage,
+  // load it immediately on the initial render frame with loading: false
+  const [data, setData] = useState(() => getSynchronousCachedModule(courseId, moduleId));
+  const [loading, setLoading] = useState(() => !getSynchronousCachedModule(courseId, moduleId));
   const [error, setError] = useState(null);
+  const recordedRef = useRef(null);
 
-  const loadContent = useCallback(async () => {
+  const loadContent = useCallback(async (forceRefresh = false) => {
     if (!courseId || !moduleId) return;
 
-    setLoading(true);
+    // Check synchronous cache first
+    const cached = getSynchronousCachedModule(courseId, moduleId);
+    if (cached && !forceRefresh) {
+      setData(cached);
+      setLoading(false);
+      setError(null);
+
+      // Record progress once per module without blocking
+      const visitKey = `${courseId}:${moduleId}`;
+      if (recordedRef.current !== visitKey) {
+        recordedRef.current = visitKey;
+        recordModuleProgress(courseId, {
+          moduleId,
+          moduleName: cached.name || moduleId,
+          moduleRoute: cached.route || (typeof window !== "undefined" ? window.location.pathname : ""),
+          completed: undefined,
+        });
+      }
+      return;
+    }
+
+    if (!data) {
+      setLoading(true);
+    }
     setError(null);
 
     try {
@@ -25,36 +51,37 @@ export function useModuleContent(courseId, moduleId) {
       }
       setData(payload);
 
-      // Record student module visit (preserves completed state, updates last studied)
-      recordModuleProgress(courseId, {
-        moduleId,
-        moduleName: payload.name || moduleId,
-        moduleRoute: payload.route || (typeof window !== "undefined" ? window.location.pathname : ""),
-        completed: undefined,
-      });
+      // Record student module visit
+      const visitKey = `${courseId}:${moduleId}`;
+      if (recordedRef.current !== visitKey) {
+        recordedRef.current = visitKey;
+        recordModuleProgress(courseId, {
+          moduleId,
+          moduleName: payload.name || moduleId,
+          moduleRoute: payload.route || (typeof window !== "undefined" ? window.location.pathname : ""),
+          completed: undefined,
+        });
+      }
     } catch (err) {
       console.error(`[useModuleContent] Error loading ${courseId}/${moduleId}:`, err);
-      setError(err.message || "Failed to load module content. Please check your network connection.");
+      // Fallback to cached data if network failed
+      if (!data) {
+        setError(err.message || "Failed to load module content. Please check your network connection.");
+      }
     } finally {
       setLoading(false);
     }
-  }, [courseId, moduleId]);
+  }, [courseId, moduleId, data]);
 
   useEffect(() => {
-    let isMounted = true;
-
     loadContent();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [loadContent]);
+  }, [courseId, moduleId]);
 
   return {
     data,
     loading,
     error,
-    reload: loadContent,
+    reload: () => loadContent(true),
   };
 }
 

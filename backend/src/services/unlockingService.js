@@ -39,16 +39,14 @@ export async function computeCourseAccessState(courseId, userOrGuest, env, reque
   const isGuest = Boolean(userOrGuest.isGuest);
   const identifier = isGuest ? userOrGuest.guestId : userOrGuest.userId;
 
-  const modules = await getOrderedCourseModules(courseId, env, requestUrl);
-  const courseMeta = await getCourseMetadata(courseId, env, requestUrl);
-
-  // Retrieve completed modules from backend store
-  let progressRecord = null;
-  if (isGuest) {
-    progressRecord = await getGuestCourseProgress(identifier, courseId, env);
-  } else {
-    progressRecord = await getCourseProgress(identifier, courseId, env);
-  }
+  // Execute module list, course metadata, and progress lookup concurrently
+  const [modules, courseMeta, progressRecord] = await Promise.all([
+    getOrderedCourseModules(courseId, env, requestUrl),
+    getCourseMetadata(courseId, env, requestUrl),
+    isGuest
+      ? getGuestCourseProgress(identifier, courseId, env)
+      : getCourseProgress(identifier, courseId, env),
+  ]);
 
   const completedModuleIds = Array.isArray(progressRecord?.completedModuleIds)
     ? progressRecord.completedModuleIds
@@ -115,7 +113,14 @@ export async function validateAndCompleteModule(courseId, moduleId, activityData
   const isGuest = Boolean(userOrGuest.isGuest);
   const identifier = isGuest ? userOrGuest.guestId : userOrGuest.userId;
 
-  const modules = await getOrderedCourseModules(courseId, env, requestUrl);
+  // Concurrently fetch module ordering and current progress
+  const [modules, progressRecord] = await Promise.all([
+    getOrderedCourseModules(courseId, env, requestUrl),
+    isGuest
+      ? getGuestCourseProgress(identifier, courseId, env)
+      : getCourseProgress(identifier, courseId, env),
+  ]);
+
   const targetIndex = modules.findIndex((m) => m.id === moduleId);
 
   if (targetIndex === -1) {
@@ -125,14 +130,6 @@ export async function validateAndCompleteModule(courseId, moduleId, activityData
       message: `Module '${moduleId}' does not exist in course '${courseId}'.`,
       status: 404,
     };
-  }
-
-  // Fetch current completed modules
-  let progressRecord = null;
-  if (isGuest) {
-    progressRecord = await getGuestCourseProgress(identifier, courseId, env);
-  } else {
-    progressRecord = await getCourseProgress(identifier, courseId, env);
   }
 
   const completedSet = new Set(progressRecord?.completedModuleIds || []);

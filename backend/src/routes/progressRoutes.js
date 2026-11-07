@@ -201,15 +201,23 @@ progressRouter.post("/migrate-guest", async (c) => {
 progressRouter.get("/", async (c) => {
   try {
     const userOrGuest = await resolveUserOrGuest(c);
-    const catalog = (await getCoursesCatalog(c.env, c.req.url)) || [];
 
-    let progressMap = {};
+    // Parallel retrieval of courses catalog and user/guest progress records
+    const [catalogRaw, progressMap] = await Promise.all([
+      getCoursesCatalog(c.env, c.req.url),
+      userOrGuest.isGuest
+        ? getAllGuestProgress(userOrGuest.guestId, c.env)
+        : getAllUserProgress(userOrGuest.userId, c.env),
+    ]);
+
+    const catalog = catalogRaw || [];
+
     if (userOrGuest.isGuest) {
-      progressMap = await getAllGuestProgress(userOrGuest.guestId, c.env);
       c.header("x-guest-session-id", userOrGuest.guestId);
-    } else {
-      progressMap = await getAllUserProgress(userOrGuest.userId, c.env);
     }
+
+    // Micro-cache private progress response to prevent redundant rapid polling
+    c.header("Cache-Control", "private, no-cache, no-store, must-revalidate");
 
     let totalCompletedModules = 0;
     let totalAvailableModules = 0;

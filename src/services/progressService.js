@@ -205,118 +205,147 @@ export function getSynchronousInitialProgress() {
   };
 }
 
+// In-flight deduplication and memory cache for student dashboard progress
+let pendingDashboardPromise = null;
+let lastDashboardData = null;
+let lastDashboardTime = 0;
+const DASHBOARD_CACHE_TTL = 15000; // 15 seconds
+
 /**
  * Fetch progress for all courses:
  * - If logged in, fetches from Cloudflare Workers backend and updates local cache.
  * - If guest, generates full course cards using local progress and catalog.
  */
-export async function getStudentDashboardProgress(token = getStoredToken()) {
-  // If user is authenticated, retrieve from server
-  if (token) {
-    try {
-      const res = await fetch(`${API_BASE_URL}/api/progress`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+export async function getStudentDashboardProgress(token = getStoredToken(), forceRefresh = false) {
+  const now = Date.now();
+  if (!forceRefresh && lastDashboardData && (now - lastDashboardTime < DASHBOARD_CACHE_TTL)) {
+    return lastDashboardData;
+  }
 
-      if (res.ok) {
-        const data = await res.json();
-        if (data.success && data.courses) {
-          // Cache to local for instant offline display
-          const localCache = {};
-          data.courses.forEach((c) => {
-            localCache[c.courseId] = c;
+  if (pendingDashboardPromise) {
+    return await pendingDashboardPromise;
+  }
+
+  pendingDashboardPromise = (async () => {
+    try {
+      // If user is authenticated, retrieve from server
+      if (token) {
+        try {
+          const res = await fetch(`${API_BASE_URL}/api/progress`, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           });
-          setLocalProgress(localCache);
-          return data;
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data.success && data.courses) {
+              // Cache to local for instant offline display
+              const localCache = {};
+              data.courses.forEach((c) => {
+                localCache[c.courseId] = c;
+              });
+              setLocalProgress(localCache);
+              lastDashboardData = data;
+              lastDashboardTime = Date.now();
+              return data;
+            }
+          }
+        } catch (err) {
+          console.warn("[progressService] Server progress fetch failed, falling back to local:", err);
         }
       }
-    } catch (err) {
-      console.warn("[progressService] Server progress fetch failed, falling back to local:", err);
+
+      // Guest / Offline fallback: Compute from catalog + local storage
+      let catalog = (await getCoursesCatalog());
+      if (!Array.isArray(catalog) || catalog.length === 0) {
+        catalog = DEFAULT_CATALOG;
+      }
+      const localProg = getLocalProgress();
+
+      let totalCompletedModules = 0;
+      let totalAvailableModules = 0;
+      let enrolledCoursesCount = 0;
+      let completedCoursesCount = 0;
+
+      const courseCards = catalog.map((course) => {
+        const lp = localProg[course.id] || {};
+        const completedList = Array.isArray(lp.completedModuleIds) ? lp.completedModuleIds : [];
+        const totalMods = course.totalModules || 24;
+        const completedCount = completedList.length;
+        const pct = Math.min(100, Math.round((completedCount / totalMods) * 100));
+
+        totalCompletedModules += completedCount;
+        totalAvailableModules += totalMods;
+
+        let status = "not-started";
+        if (pct === 100) {
+          status = "completed";
+          completedCoursesCount++;
+          enrolledCoursesCount++;
+        } else if (completedCount > 0 || lp.currentModuleId || lp.lastAccessedAt) {
+          status = "in-progress";
+          enrolledCoursesCount++;
+        }
+
+        return {
+          courseId: course.id,
+          title: course.title,
+          tagline: course.tagline,
+          description: course.description,
+          icon: course.icon,
+          route: course.route,
+          tag: course.tag,
+          color: course.color,
+          badgeColor: course.badgeColor,
+          totalModules: totalMods,
+          completedModules: completedCount,
+          completedModuleIds: completedList,
+          progressPercentage: pct,
+          currentModuleId: lp.currentModuleId || null,
+          currentModuleName: lp.currentModuleName || null,
+          currentModuleRoute: lp.currentModuleRoute || course.route,
+          lastAccessedAt: lp.lastAccessedAt || null,
+          status,
+        };
+      });
+
+      const withActivity = courseCards
+        .filter((c) => c.lastAccessedAt)
+        .sort((a, b) => new Date(b.lastAccessedAt).getTime() - new Date(a.lastAccessedAt).getTime());
+
+      const recentlyStudied = withActivity.length > 0 ? withActivity[0] : null;
+
+      const overallPercentage =
+        totalAvailableModules > 0
+          ? Math.min(100, Math.round((totalCompletedModules / totalAvailableModules) * 100))
+          : 0;
+
+      const fallbackResult = {
+        success: true,
+        isGuest: !token,
+        summary: {
+          totalCourses: catalog.length,
+          enrolledCourses: enrolledCoursesCount,
+          completedCourses: completedCoursesCount,
+          totalCompletedModules,
+          totalAvailableModules,
+          overallPercentage,
+          recentlyStudied,
+        },
+        courses: courseCards,
+      };
+
+      lastDashboardData = fallbackResult;
+      lastDashboardTime = Date.now();
+      return fallbackResult;
+    } finally {
+      pendingDashboardPromise = null;
     }
-  }
+  })();
 
-  // Guest / Offline fallback: Compute from catalog + local storage
-  let catalog = (await getCoursesCatalog());
-  if (!Array.isArray(catalog) || catalog.length === 0) {
-    catalog = DEFAULT_CATALOG;
-  }
-  const localProg = getLocalProgress();
-
-  let totalCompletedModules = 0;
-  let totalAvailableModules = 0;
-  let enrolledCoursesCount = 0;
-  let completedCoursesCount = 0;
-
-  const courseCards = catalog.map((course) => {
-    const lp = localProg[course.id] || {};
-    const completedList = Array.isArray(lp.completedModuleIds) ? lp.completedModuleIds : [];
-    const totalMods = course.totalModules || 24;
-    const completedCount = completedList.length;
-    const pct = Math.min(100, Math.round((completedCount / totalMods) * 100));
-
-    totalCompletedModules += completedCount;
-    totalAvailableModules += totalMods;
-
-    let status = "not-started";
-    if (pct === 100) {
-      status = "completed";
-      completedCoursesCount++;
-      enrolledCoursesCount++;
-    } else if (completedCount > 0 || lp.currentModuleId || lp.lastAccessedAt) {
-      status = "in-progress";
-      enrolledCoursesCount++;
-    }
-
-    return {
-      courseId: course.id,
-      title: course.title,
-      tagline: course.tagline,
-      description: course.description,
-      icon: course.icon,
-      route: course.route,
-      tag: course.tag,
-      color: course.color,
-      badgeColor: course.badgeColor,
-      totalModules: totalMods,
-      completedModules: completedCount,
-      completedModuleIds: completedList,
-      progressPercentage: pct,
-      currentModuleId: lp.currentModuleId || null,
-      currentModuleName: lp.currentModuleName || null,
-      currentModuleRoute: lp.currentModuleRoute || course.route,
-      lastAccessedAt: lp.lastAccessedAt || null,
-      status,
-    };
-  });
-
-  const withActivity = courseCards
-    .filter((c) => c.lastAccessedAt)
-    .sort((a, b) => new Date(b.lastAccessedAt).getTime() - new Date(a.lastAccessedAt).getTime());
-
-  const recentlyStudied = withActivity.length > 0 ? withActivity[0] : null;
-
-  const overallPercentage =
-    totalAvailableModules > 0
-      ? Math.min(100, Math.round((totalCompletedModules / totalAvailableModules) * 100))
-      : 0;
-
-  return {
-    success: true,
-    isGuest: !token,
-    summary: {
-      totalCourses: catalog.length,
-      enrolledCourses: enrolledCoursesCount,
-      completedCourses: completedCoursesCount,
-      totalCompletedModules,
-      totalAvailableModules,
-      overallPercentage,
-      recentlyStudied,
-    },
-    courses: courseCards,
-  };
+  return await pendingDashboardPromise;
 }
 
 /**
@@ -346,6 +375,10 @@ export async function recordModuleProgress(
     completedSet.delete(moduleId);
   }
 
+  const prevModId = currentCourse.currentModuleId;
+  const isModuleChanged = moduleId && prevModId !== moduleId;
+  const isCompletionChanged = completed !== undefined;
+
   const completedList = Array.from(completedSet);
   currentCourse.completedModuleIds = completedList;
   if (moduleId) currentCourse.currentModuleId = moduleId;
@@ -355,7 +388,12 @@ export async function recordModuleProgress(
 
   local[courseId] = currentCourse;
   setLocalProgress(local);
-  emitProgressUpdate();
+
+  // Guard: Only emit global progress update when completion or current module actually changes,
+  // preventing cascading re-fetch loops on simple re-renders.
+  if (isModuleChanged || isCompletionChanged) {
+    emitProgressUpdate();
+  }
 
   // 2. If authenticated, update server
   if (token) {

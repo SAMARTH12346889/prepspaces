@@ -179,10 +179,54 @@ export async function getModuleQuiz(courseId, moduleId) {
   return result?.quiz || null;
 }
 
+/**
+ * Synchronously retrieves cached module data for immediate initial component render.
+ */
+export function getSynchronousCachedModule(courseId, moduleId) {
+  if (!courseId || !moduleId) return null;
+  const cacheKey = `/api/courses/${courseId}/modules/${moduleId}`;
+  if (contentCache.has(cacheKey)) {
+    return contentCache.get(cacheKey);
+  }
+  return getFromSessionStorage(cacheKey);
+}
+
+/**
+ * Synchronously retrieves cached modules list for immediate initial component render.
+ */
+export function getSynchronousCachedCourseModules(courseId) {
+  if (!courseId) return null;
+  const cacheKey = `/api/courses/${courseId}/modules`;
+  if (contentCache.has(cacheKey)) {
+    return contentCache.get(cacheKey)?.modules || null;
+  }
+  const sessionCached = getFromSessionStorage(cacheKey);
+  return sessionCached?.modules || null;
+}
+
+/**
+ * Synchronously retrieves cached course catalog for immediate initial component render.
+ */
+export function getSynchronousCachedCatalog() {
+  const cacheKey = "/api/courses";
+  if (contentCache.has(cacheKey)) {
+    const mem = contentCache.get(cacheKey);
+    return Array.isArray(mem?.courses) ? mem.courses.map(hydrateCourseIcons) : null;
+  }
+  const sessionCached = getFromSessionStorage(cacheKey);
+  if (sessionCached && Array.isArray(sessionCached.courses)) {
+    return sessionCached.courses.map(hydrateCourseIcons);
+  }
+  return null;
+}
+
 export default {
   getCoursesCatalog,
   getCourseMetadata,
   getCourseModules,
   getModuleContent,
   getModuleQuiz,
+  getSynchronousCachedModule,
+  getSynchronousCachedCourseModules,
+  getSynchronousCachedCatalog,
 };
