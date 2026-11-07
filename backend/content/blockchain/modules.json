@@ -1,0 +1,134 @@
+[
+  {
+    "id": "intro",
+    "courseId": "blockchain",
+    "index": 1,
+    "name": "1. Intro to Blockchain Technology",
+    "route": "/learning/blockchain",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "cryptography",
+    "courseId": "blockchain",
+    "index": 2,
+    "name": "2. Cryptography & Public-Key Infrastructure",
+    "route": "/learning/blockchain/cryptography",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "bitcoin-utxo",
+    "courseId": "blockchain",
+    "index": 3,
+    "name": "3. Bitcoin Mechanics & UTXO Model",
+    "route": "/learning/blockchain/bitcoin-utxo",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "consensus",
+    "courseId": "blockchain",
+    "index": 4,
+    "name": "4. Distributed Consensus (PoW, PoS, BFT)",
+    "route": "/learning/blockchain/consensus",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "ethereum-evm",
+    "courseId": "blockchain",
+    "index": 5,
+    "name": "5. Ethereum, EVM & Smart Contracts",
+    "route": "/learning/blockchain/ethereum-evm",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "solidity",
+    "courseId": "blockchain",
+    "index": 6,
+    "name": "6. Smart Contract Engineering in Solidity",
+    "route": "/learning/blockchain/solidity",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "dapps-web3",
+    "courseId": "blockchain",
+    "index": 7,
+    "name": "7. Web3 Architecture & dApp Development",
+    "route": "/learning/blockchain/dapps-web3",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "enterprise-hyperledger",
+    "courseId": "blockchain",
+    "index": 8,
+    "name": "8. Enterprise Blockchain & Hyperledger Fabric",
+    "route": "/learning/blockchain/enterprise-hyperledger",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "scalability-l2",
+    "courseId": "blockchain",
+    "index": 9,
+    "name": "9. Layer 2 Rollups & Blockchain Scalability",
+    "route": "/learning/blockchain/scalability-l2",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "defi-protocols",
+    "courseId": "blockchain",
+    "index": 10,
+    "name": "10. Decentralized Finance (DeFi) Protocols",
+    "route": "/learning/blockchain/defi-protocols",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "security-auditing",
+    "courseId": "blockchain",
+    "index": 11,
+    "name": "11. Smart Contract Security & Formal Verification",
+    "route": "/learning/blockchain/security-auditing",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "capstone",
+    "courseId": "blockchain",
+    "index": 12,
+    "name": "12. Final Capstone: Decentralized Application Lab",
+    "route": "/learning/blockchain/capstone",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  }
+]

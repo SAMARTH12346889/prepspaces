@@ -194,6 +194,21 @@ export const CYBERSECURITY_MODULES = [
   { id: "final-capstone", name: "24. Final Capstone: Security Assessment & Defense", route: "/learning/cybersecurity/final-capstone" },
 ];
 
+export const BLOCKCHAIN_MODULES = [
+  { id: "intro", name: "1. Intro to Blockchain Technology", route: "/learning/blockchain" },
+  { id: "cryptography", name: "2. Cryptography & PKI", route: "/learning/blockchain/cryptography" },
+  { id: "bitcoin-utxo", name: "3. Bitcoin Mechanics & UTXO", route: "/learning/blockchain/bitcoin-utxo" },
+  { id: "consensus", name: "4. Distributed Consensus (PoW/PoS)", route: "/learning/blockchain/consensus" },
+  { id: "ethereum-evm", name: "5. Ethereum, EVM & Smart Contracts", route: "/learning/blockchain/ethereum-evm" },
+  { id: "solidity", name: "6. Solidity Engineering", route: "/learning/blockchain/solidity" },
+  { id: "dapps-web3", name: "7. Web3 & dApp Development", route: "/learning/blockchain/dapps-web3" },
+  { id: "enterprise-hyperledger", name: "8. Hyperledger Fabric", route: "/learning/blockchain/enterprise-hyperledger" },
+  { id: "scalability-l2", name: "9. Layer 2 Rollups & Scalability", route: "/learning/blockchain/scalability-l2" },
+  { id: "defi-protocols", name: "10. DeFi Protocols & AMMs", route: "/learning/blockchain/defi-protocols" },
+  { id: "security-auditing", name: "11. Smart Contract Auditing", route: "/learning/blockchain/security-auditing" },
+  { id: "capstone", name: "12. Final Capstone Project", route: "/learning/blockchain/capstone" },
+];
+
 export default function ModuleNav({
   track: propTrack,
   trackId,
@@ -220,6 +235,7 @@ export default function ModuleNav({
       if (rawTrack === "cybersecurity") return "cybersecurity";
       if (rawTrack === "system-design") return "system-design";
       if (rawTrack === "devops") return "devops";
+      if (rawTrack === "blockchain") return "blockchain";
       return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
@@ -229,6 +245,7 @@ export default function ModuleNav({
     if (path.includes("/learning/cybersecurity") || path.includes("/learn/cybersecurity")) return "cybersecurity";
     if (path.includes("/learning/system-design") || path.includes("/learn/system-design")) return "system-design";
     if (path.includes("/learning/devops") || path.includes("/learn/devops")) return "devops";
+    if (path.includes("/learning/blockchain") || path.includes("/learn/blockchain")) return "blockchain";
     if (path.includes("/learning/cloud") || path.includes("/learn/cloud")) return "cloud";
     return rawTrack || "cloud";
   }, [rawTrack, location?.pathname]);
@@ -242,6 +259,7 @@ export default function ModuleNav({
     devops: "devops",
     ai: "ai-engineering",
     "ai-engineering": "ai-engineering",
+    blockchain: "blockchain",
   };
   const resolvedCourseId = courseIdMap[track] || track;
 
@@ -260,6 +278,8 @@ export default function ModuleNav({
       case "ai":
       case "ai-engineering":
         return AI_MODULES;
+      case "blockchain":
+        return BLOCKCHAIN_MODULES;
       default:
         return CLOUD_MODULES;
     }
@@ -408,7 +428,7 @@ export default function ModuleNav({
   }, [currentModuleId, resolvedCourseId, modules, isAuthenticated, completedModuleIds]);
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : track === "ai" || track === "ai-engineering" ? "foundations" : "cloud")
+    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : track === "blockchain" ? "intro" : track === "ai" || track === "ai-engineering" ? "foundations" : "cloud")
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
@@ -420,6 +440,8 @@ export default function ModuleNav({
       ? "/learning/networks"
       : track === "cybersecurity"
       ? "/learning/cybersecurity"
+      : track === "blockchain"
+      ? "/learning/blockchain"
       : track === "ai" || track === "ai-engineering"
       ? "/learning/ai"
       : "/learning/cloud";
@@ -585,6 +607,8 @@ export default function ModuleNav({
                   ? "Cybersecurity"
                   : track === "ai" || track === "ai-engineering"
                   ? "AI Engineering"
+                  : track === "blockchain"
+                  ? "Blockchain"
                   : "Cloud"
               }
             />

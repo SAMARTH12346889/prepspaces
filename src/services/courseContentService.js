@@ -14,6 +14,7 @@ import {
   Brain,
   Bot,
   Sparkles,
+  Blocks,
 } from "lucide-react";
 
 const API_BASE = ((typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE_URL) || "https://api.prepspaces.com").replace(/\/+$/, "");
@@ -61,6 +62,7 @@ const ICON_MAP = {
   Brain,
   Bot,
   Sparkles,
+  Blocks,
 };
 
 /**

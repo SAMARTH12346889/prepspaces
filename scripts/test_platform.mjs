@@ -53,7 +53,7 @@ async function runPlatformTests() {
     const catalogRes = await fetch(`${apiBase}/api/courses`);
     const catalog = await catalogRes.json();
     check('Course catalog returns 200 OK', catalogRes.status === 200);
-    check('Catalog contains all 7 master tracks', Array.isArray(catalog.courses) && catalog.courses.length === 7);
+    check('Catalog contains all master tracks', Array.isArray(catalog.courses) && catalog.courses.length >= 7);
 
     const osModuleRes = await fetch(`${apiBase}/api/courses/operating-systems/modules/intro`);
     const osMod = await osModuleRes.json();
@@ -128,6 +128,7 @@ async function runPlatformTests() {
   check('App.jsx registers /learning/operating-systems/intro route', registeredRoutes.has('/learning/operating-systems/intro'));
   check('App.jsx registers /learning/computer-networks route', registeredRoutes.has('/learning/computer-networks'));
   check('App.jsx registers /learning/cybersecurity route', registeredRoutes.has('/learning/cybersecurity'));
+  check('App.jsx registers /learning/blockchain route', registeredRoutes.has('/learning/blockchain'));
   check('App.jsx registers /learning/system-design route', registeredRoutes.has('/learning/system-design'));
   check('App.jsx registers /learning/cloud route', registeredRoutes.has('/learning/cloud'));
   check('App.jsx registers /dashboard route', registeredRoutes.has('/dashboard'));

@@ -65,6 +65,7 @@ function getTrackNameFromPath(subPath) {
   if (subPath.startsWith("/learning/cybersecurity")) return "Cybersecurity";
   if (subPath.startsWith("/courses/generative-ai") || subPath.startsWith("/learning/ai/generative-ai")) return "Generative AI";
   if (subPath.startsWith("/courses/artificial-intelligence")) return "Artificial Intelligence";
+  if (subPath.startsWith("/learning/blockchain") || subPath.startsWith("/courses/blockchain")) return "Blockchain Technology";
   if (subPath.startsWith("/learning/ai")) return "Artificial Intelligence";
   return "Engineering Curriculum";
 }

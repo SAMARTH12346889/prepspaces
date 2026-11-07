@@ -659,3 +659,17 @@
 
 ---
 
+
+# Track: Blockchain Technology & Decentralized Systems (12 Modules)
+> University-style curriculum based on Stanford CS251, MIT, UC Berkeley, Cornell, and NIST IR 8202.
+> Track Overview: https://prepspaces.com/learning/blockchain
+
+## Module 1: Introduction to Blockchain Technology
+- **Canonical URL:** https://prepspaces.com/learning/blockchain
+- **Alternative URL:** https://prepspaces.com/courses/blockchain
+- **Level:** Beginner to Intermediate | Theory + Practical | 6–8 hours
+- **Topic Summary:** Centralized vs decentralized systems, distributed ledger technology (DLT), cryptographic hashing, SHA-256 properties, block anatomy, block linking, tamper-evident chains, and building a Python blockchain from scratch.
+- **Key Concepts:** SHA-256 collision resistance, pre-image resistance, avalanche effect, Previous Hash linking, cryptographic verification, state machine replication.
+- **Hands-On Lab:** Live interactive 4-block blockchain visualizer, real-time tampering simulator, and production-grade Python script with canonical JSON serialization and tamper detection.
+
+---

@@ -159,6 +159,7 @@ const DevOpsReliability = React.lazy(() => import("./Componets/DevOpsReliability
 const DevOpsSecOps = React.lazy(() => import("./Componets/DevOpsSecOps"));
 const DevOpsPlatform = React.lazy(() => import("./Componets/DevOpsPlatform"));
 const DevOpsCapstone = React.lazy(() => import("./Componets/DevOpsCapstone"));
+const BlockchainIntro = React.lazy(() => import("./Componets/BlockchainIntro"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1350,6 +1351,26 @@ function App() {
             <Route path="/learning/ai-engineering/module-24" element={<AIFinalCapstone />} />
             <Route path="/learn/ai/final-capstone" element={<AIFinalCapstone />} />
             <Route path="/learn/ai/capstone" element={<AIFinalCapstone />} />
+
+            {/* BLOCKCHAIN TECHNOLOGY & DECENTRALIZED SYSTEMS */}
+            <Route path="/learning/blockchain" element={<BlockchainIntro />} />
+            <Route path="/learning/blockchain/intro" element={<BlockchainIntro />} />
+            <Route path="/learning/blockchain/module-1" element={<BlockchainIntro />} />
+            <Route path="/learning/blockchain-technology" element={<BlockchainIntro />} />
+            <Route path="/courses/blockchain" element={<BlockchainIntro />} />
+            <Route path="/courses/blockchain-technology" element={<BlockchainIntro />} />
+            <Route path="/learn/blockchain" element={<BlockchainIntro />} />
+            <Route path="/learn/blockchain/intro" element={<BlockchainIntro />} />
+
+            {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
+            <Route path="/courses/operating-systems" element={<OSIntro />} />
+            <Route path="/courses/os" element={<OSIntro />} />
+            <Route path="/courses/computer-networks" element={<NetworkIntro />} />
+            <Route path="/courses/networks" element={<NetworkIntro />} />
+            <Route path="/courses/cybersecurity" element={<CybersecurityIntro />} />
+            <Route path="/courses/system-design" element={<SystemDesignIntro />} />
+            <Route path="/courses/cloud" element={<CloudComputing />} />
+            <Route path="/courses/devops" element={<DevOpsLinux />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"

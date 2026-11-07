@@ -1,0 +1,130 @@
+{
+  "id": "intro",
+  "courseId": "blockchain",
+  "index": 1,
+  "name": "1. Intro to Blockchain Technology",
+  "route": "/learning/blockchain",
+  "componentName": "BlockchainIntro",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of a blockchain?",
+      "options": [
+        "Store data on one central server",
+        "Maintain a shared, cryptographically linked ledger",
+        "Replace every traditional database",
+        "Encrypt all internet traffic"
+      ],
+      "correctIndex": 1,
+      "explanation": "A blockchain is designed to maintain a shared, cryptographically linked and synchronized ledger across a distributed network of participants according to agreed validation rules."
+    },
+    {
+      "id": 2,
+      "question": "What is DLT?",
+      "options": [
+        "A type of programming language",
+        "A cryptocurrency",
+        "A broad category of distributed ledger systems",
+        "A mining algorithm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Distributed Ledger Technology (DLT) is an umbrella category for systems maintaining synchronized records across multiple nodes; blockchain is one specific architecture within DLT."
+    },
+    {
+      "id": 3,
+      "question": "Which block contains the first record in a blockchain?",
+      "options": [
+        "Genesis block",
+        "Validation block",
+        "Mining block",
+        "Final block"
+      ],
+      "correctIndex": 0,
+      "explanation": "The first block in any blockchain sequence is universally known as the Genesis Block (Block 0), having an initial state and no predecessor hash."
+    },
+    {
+      "id": 4,
+      "question": "What does SHA-256 produce?",
+      "options": [
+        "A private key",
+        "A 256-bit hash digest",
+        "A blockchain network",
+        "An encrypted transaction"
+      ],
+      "correctIndex": 1,
+      "explanation": "SHA-256 (Secure Hash Algorithm 256-bit) deterministically converts input data of arbitrary size into a fixed 256-bit (32-byte / 64 hexadecimal character) hash digest."
+    },
+    {
+      "id": 5,
+      "question": "What does a previous block hash do?",
+      "options": [
+        "Stores a user's password",
+        "Connects a block to its predecessor",
+        "Creates a cryptocurrency",
+        "Encrypts the transaction body"
+      ],
+      "correctIndex": 1,
+      "explanation": "The previous block hash cryptographically binds the current block header to the parent block, creating an unbroken chain where altering any past record breaks all downstream hashes."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is a permissioned blockchain framework?",
+      "options": [
+        "Bitcoin",
+        "Ethereum Mainnet",
+        "Hyperledger Fabric",
+        "A public Bitcoin wallet"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hyperledger Fabric is an open-source enterprise permissioned blockchain framework where participants possess authorized identities, channels, and role-based policies."
+    },
+    {
+      "id": 7,
+      "question": "What is a node?",
+      "options": [
+        "A transaction fee",
+        "A computer participating in a blockchain network",
+        "A block's transaction list",
+        "A cryptographic algorithm"
+      ],
+      "correctIndex": 1,
+      "explanation": "A node is any computing device running protocol-compliant blockchain client software that receives, validates, transmits, or produces blocks on the peer-to-peer network."
+    },
+    {
+      "id": 8,
+      "question": "What happens when historical block data is modified?",
+      "options": [
+        "Its calculated hash changes",
+        "The previous data is automatically restored",
+        "All other nodes shut down",
+        "The transaction becomes encrypted"
+      ],
+      "correctIndex": 0,
+      "explanation": "Due to the deterministic and avalanche properties of cryptographic hashing, modifying even a single byte within a historical block causes its recalculated hash to change completely, mismatching the subsequent block's previous_hash."
+    },
+    {
+      "id": 9,
+      "question": "What solves the agreement problem across blockchain participants?",
+      "options": [
+        "HTML",
+        "CSS",
+        "Consensus mechanisms",
+        "A user interface"
+      ],
+      "correctIndex": 2,
+      "explanation": "Consensus mechanisms (such as Proof of Work, Proof of Stake, or Byzantine Fault Tolerance algorithms) allow distributed, mutually untrusting nodes to achieve deterministic agreement on transaction ordering and ledger state."
+    },
+    {
+      "id": 10,
+      "question": "When is a traditional database usually preferable?",
+      "options": [
+        "When one trusted organization controls the records and needs frequent updates",
+        "Whenever data must be public",
+        "Whenever a cryptocurrency is involved",
+        "When every participant must validate every record"
+      ],
+      "correctIndex": 0,
+      "explanation": "A traditional centralized or distributed relational/NoSQL database provides vastly superior latency, throughput, and operational simplicity when a single trusted organization maintains authoritative ownership of data."
+    }
+  ]
+}

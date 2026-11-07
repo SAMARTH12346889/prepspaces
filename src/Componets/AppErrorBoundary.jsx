@@ -39,16 +39,47 @@ export default class AppErrorBoundary extends React.Component {
               The page encountered a temporary display issue. You can safely return to the dashboard or refresh.
             </p>
 
-            {this.state.error?.message && (
-              <div className="mt-3.5 rounded-xl border border-orange-200/80 bg-orange-50/70 p-3 text-left">
-                <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-orange-700 mb-1">
-                  Diagnostics:
-                </span>
-                <p className="text-[11px] font-mono text-stone-700 break-words leading-relaxed">
-                  {this.state.error.message}
-                </p>
-              </div>
-            )}
+            {(() => {
+              const rawError = this.state.error;
+              const errorMessage =
+                rawError &&
+                (typeof rawError === "string"
+                  ? rawError
+                  : rawError.message || rawError.name || String(rawError));
+
+              const isChunkError =
+                errorMessage &&
+                (errorMessage.includes("Failed to fetch dynamically imported module") ||
+                  errorMessage.includes("Loading chunk") ||
+                  errorMessage.includes("dynamically imported module"));
+
+              if (isChunkError) {
+                return (
+                  <div className="mt-3.5 rounded-xl border border-amber-200/90 bg-amber-50/80 p-3.5 text-left">
+                    <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-amber-800 mb-1">
+                      New Platform Update Available:
+                    </span>
+                    <p className="text-[11px] leading-relaxed text-amber-900">
+                      A new version of PrepSpaces was just deployed. Please refresh your browser to load the latest curriculum content.
+                    </p>
+                  </div>
+                );
+              }
+
+              if (errorMessage) {
+                return (
+                  <div className="mt-3.5 rounded-xl border border-orange-200/80 bg-orange-50/70 p-3 text-left">
+                    <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-orange-700 mb-1">
+                      Diagnostics:
+                    </span>
+                    <p className="text-[11px] font-mono text-stone-700 break-words leading-relaxed">
+                      {errorMessage}
+                    </p>
+                  </div>
+                );
+              }
+              return null;
+            })()}
 
             <div className="mt-6 flex flex-col gap-2.5">
               <button

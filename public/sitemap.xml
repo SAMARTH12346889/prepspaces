@@ -765,6 +765,24 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://prepspaces.com/courses/blockchain</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://prepspaces.com/learning/blockchain</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://prepspaces.com/learning/blockchain/intro</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://prepspaces.com/learning/ai</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>

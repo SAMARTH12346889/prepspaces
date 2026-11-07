@@ -16,6 +16,7 @@ import {
   Globe,
   Shield,
   Brain,
+  Blocks,
   User,
   LogOut,
 } from "lucide-react";
@@ -183,6 +184,26 @@ const learningTracks = [
       "Network Topologies & Leaf-Spine Architecture",
       "Interactive Wireshark Packet Inspection",
       "Real-World CLI Diagnostics & Network Security",
+    ],
+  },
+  {
+    id: "blockchain",
+    title: "Blockchain Technology & Decentralized Systems",
+    tagline: "Cryptography, Distributed Ledgers, Consensus & Smart Contracts",
+    description:
+      "Master blockchain engineering, distributed ledgers, cryptographic primitives, SHA-256 linking, peer-to-peer network consensus, smart contracts, and decentralized application architecture based on Stanford, MIT, and UC Berkeley curricula.",
+    icon: Blocks,
+    route: "/learning/blockchain",
+    tag: "Decentralized Systems",
+    modulesCount: "12 University Modules",
+    color: "from-zinc-900 via-stone-900 to-amber-700",
+    badgeColor: "text-amber-700 bg-amber-50 border-amber-200",
+    highlights: [
+      "Cryptographic Hashing & SHA-256",
+      "Block Linking & Tamper Evident Ledgers",
+      "Bitcoin, Ethereum, Hyperledger & Solana",
+      "Consensus Mechanisms & P2P Networks",
+      "Python Blockchain from Scratch",
     ],
   },
 ];

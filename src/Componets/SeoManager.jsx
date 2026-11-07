@@ -75,6 +75,24 @@ const routeMeta = {
     keywords: "Generative AI course, GenAI course, Generative AI online learning, Large Language Models course, LLM course, Prompt engineering course, RAG course, Learn Generative AI",
     canonical: `${BASE_URL}/courses/generative-ai`,
   },
+  "/learning/blockchain": {
+    title: "Blockchain Technology Course — Learn Decentralized Systems | PrepSpaces",
+    description: "Master blockchain engineering, distributed ledgers, SHA-256 cryptographic linking, consensus protocols, and Python blockchain development on PrepSpaces.",
+    keywords: "Blockchain course, Learn Blockchain, Blockchain technology, Distributed ledger technology, Smart contracts course, Python blockchain, Decentralized systems",
+    canonical: `${BASE_URL}/learning/blockchain`,
+  },
+  "/courses/blockchain": {
+    title: "Blockchain Technology Course — Learn Decentralized Systems | PrepSpaces",
+    description: "Master blockchain engineering, distributed ledgers, SHA-256 cryptographic linking, consensus protocols, and Python blockchain development on PrepSpaces.",
+    keywords: "Blockchain course, Learn Blockchain, Blockchain technology, Distributed ledger technology, Smart contracts course, Python blockchain, Decentralized systems",
+    canonical: `${BASE_URL}/courses/blockchain`,
+  },
+  "/learning/blockchain/intro": {
+    title: "Module 1: Introduction to Blockchain Technology | PrepSpaces",
+    description: "Learn blockchain fundamentals, centralized vs decentralized systems, DLT, SHA-256 hashing, block structure, and build a verified Python blockchain from scratch.",
+    keywords: "Introduction to blockchain, Blockchain fundamentals, SHA-256 hashing, Distributed ledger, Block structure, Python blockchain tutorial",
+    canonical: `${BASE_URL}/learning/blockchain/intro`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",

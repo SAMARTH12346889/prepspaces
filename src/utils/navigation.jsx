@@ -39,6 +39,22 @@ export function getContextualFallback(pathname) {
     return "/learning";
   }
 
+  // Blockchain Technology Course (/learning/blockchain/..., /learn/blockchain/..., /courses/blockchain)
+  if (
+    p.startsWith("/learning/blockchain/") ||
+    p.startsWith("/learn/blockchain/")
+  ) {
+    const isBcRoot = p === "/learning/blockchain/intro";
+    return isBcRoot ? "/learning" : "/learning/blockchain";
+  }
+  if (
+    p === "/learning/blockchain" ||
+    p === "/learn/blockchain" ||
+    p === "/courses/blockchain"
+  ) {
+    return "/learning";
+  }
+
   // Operating Systems Course (/learning/os/..., /learning/operating-systems/..., /learn/os/...)
   if (
     p.startsWith("/learning/os/") ||
