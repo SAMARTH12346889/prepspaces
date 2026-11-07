@@ -176,15 +176,15 @@
     "hasScenarios": true
   },
   {
-    "id": "speech-video-ai",
+    "id": "inference-serving",
     "courseId": "ai-engineering",
     "index": 17,
-    "name": "17. Multimodal Video & Realtime Speech",
-    "route": "/learning/ai/speech-video-ai",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "17. LLM Inference & Model Serving Engineering",
+    "route": "/learning/ai/inference-serving",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "diffusion-models",
@@ -198,11 +198,11 @@
     "hasScenarios": false
   },
   {
-    "id": "inference-serving",
+    "id": "speech-video-ai",
     "courseId": "ai-engineering",
     "index": 19,
-    "name": "19. AI Inference Serving & vLLM Optimization",
-    "route": "/learning/ai/inference-serving",
+    "name": "19. Multimodal Video & Realtime Speech",
+    "route": "/learning/ai/speech-video-ai",
     "questionCount": 10,
     "hasTopics": false,
     "hasCommands": false,

@@ -1,0 +1,154 @@
+{
+  "id": "inference-serving",
+  "courseId": "ai-engineering",
+  "index": 17,
+  "name": "17. LLM Inference & Model Serving Engineering",
+  "route": "/learning/ai/inference-serving",
+  "componentName": "AIInferenceServing",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is LLM inference?",
+      "options": [
+        "Updating neural network weights using backpropagation",
+        "Generating predictions or responses from an input using a trained, frozen model",
+        "Scraping web data to prepare training corpora",
+        "Compressing database indexes into B-trees"
+      ],
+      "correctIndex": 1,
+      "explanation": "LLM inference is the execution stage where a trained model with frozen parameters processes inputs to generate outputs without updating its weights."
+    },
+    {
+      "id": 2,
+      "question": "Which phase of LLM inference is compute-bound and processes prompt tokens in parallel?",
+      "options": [
+        "Decode phase",
+        "Prefill phase",
+        "Backpropagation phase",
+        "Tokenization phase"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Prefill phase processes the entire prompt in parallel, computing Key and Value tensors for all prompt tokens. Because large matrix-matrix operations saturate tensor cores, prefill is compute-bound."
+    },
+    {
+      "id": 3,
+      "question": "Why is the autoregressive decode phase memory-bandwidth bound?",
+      "options": [
+        "It requires retraining optimizer states at each step",
+        "The entire model weight matrix must be streamed from HBM into SRAM to generate a single token",
+        "It cannot run on GPUs with Tensor Cores",
+        "It stores the entire dataset in CPU cache"
+      ],
+      "correctIndex": 1,
+      "explanation": "During autoregressive decoding, generating each individual token requires loading the full model weight tensor from High Bandwidth Memory (HBM) into compute registers, resulting in low arithmetic intensity."
+    },
+    {
+      "id": 4,
+      "question": "In the KV cache memory formula 2 * L * B * S * H_KV * D_H * Bytes, what does the factor 2 represent?",
+      "options": [
+        "Two forward passes per token",
+        "Key and Value matrices",
+        "Double precision floating-point storage",
+        "Two GPUs running in tensor parallel"
+      ],
+      "correctIndex": 1,
+      "explanation": "The factor 2 accounts for storing both the Key (K) and Value (V) tensors for each cached sequence position across all layers."
+    },
+    {
+      "id": 5,
+      "question": "How does Grouped-Query Attention (GQA) reduce KV cache memory compared to Multi-Head Attention (MHA)?",
+      "options": [
+        "By eliminating all attention layers in the transformer",
+        "By having multiple Query heads share fewer Key and Value heads",
+        "By reducing sequence length to 512 tokens",
+        "By training models using integer gradient descent"
+      ],
+      "correctIndex": 1,
+      "explanation": "Grouped-Query Attention (GQA) groups query heads together to share a smaller number of Key/Value heads (e.g. 32 Query heads sharing 8 KV heads), shrinking the KV cache by 4x."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary breakthrough of PagedAttention in vLLM?",
+      "options": [
+        "Translating Python code to WebAssembly",
+        "Managing KV cache memory in non-contiguous physical blocks via virtual page tables, reducing memory waste to <4%",
+        "Eliminating the need for GPUs in foundation model serving",
+        "Training transformer models without self-attention"
+      ],
+      "correctIndex": 1,
+      "explanation": "PagedAttention applies virtual memory concepts to LLM serving, allocating non-contiguous physical blocks dynamically to eliminate external fragmentation and memory reservation waste."
+    },
+    {
+      "id": 7,
+      "question": "What is continuous batching (iteration-level scheduling)?",
+      "options": [
+        "Waiting for 100 requests to accumulate before starting execution",
+        "Evicting finished sequences and scheduling new incoming requests dynamically at each token generation step",
+        "Processing batches only during off-peak night hours",
+        "Running all requests sequentially one after another"
+      ],
+      "correctIndex": 1,
+      "explanation": "Continuous batching operates at the token iteration level: completed sequences leave active execution immediately upon emitting [EOS], and new requests enter on the very next step."
+    },
+    {
+      "id": 8,
+      "question": "What is the approximate static weight storage required for a 7B parameter model stored in FP16 precision?",
+      "options": [
+        "3.5 GB",
+        "7 GB",
+        "14 GB",
+        "28 GB"
+      ],
+      "correctIndex": 2,
+      "explanation": "In FP16, each parameter requires 2 bytes. For 7 billion parameters: 7B * 2 bytes = 14 GB."
+    },
+    {
+      "id": 9,
+      "question": "Which post-training quantization method protects the top 1% salient weights corresponding to high activation channels?",
+      "options": [
+        "AWQ (Activation-Aware Weight Quantization)",
+        "Standard FP32 casting",
+        "Linear clipping without scaling",
+        "Naive scalar truncation"
+      ],
+      "correctIndex": 0,
+      "explanation": "AWQ identifies that not all weights are equally important; it selectively protects salient weights corresponding to high-magnitude activation channels from quantization noise."
+    },
+    {
+      "id": 10,
+      "question": "What protocol is standardly used for progressive real-time token streaming from server to browser?",
+      "options": [
+        "FTP (File Transfer Protocol)",
+        "Server-Sent Events (SSE)",
+        "SNMP (Simple Network Management Protocol)",
+        "SOAP XML"
+      ],
+      "correctIndex": 1,
+      "explanation": "Server-Sent Events (SSE) provide a lightweight, unidirectional text streaming protocol built over standard HTTP that delivers tokens incrementally to the client."
+    },
+    {
+      "id": 11,
+      "question": "What does Time to First Token (TTFT) measure?",
+      "options": [
+        "The time between token 10 and token 20 during generation",
+        "The duration from prompt submission until the client receives the first generated token",
+        "The time taken to download the model weights from Hugging Face Hub",
+        "The GPU temperature during prefill"
+      ],
+      "correctIndex": 1,
+      "explanation": "TTFT measures the complete duration from when a user submits a prompt until the first generated token is received, encompassing queuing, tokenization, and prompt prefill."
+    },
+    {
+      "id": 12,
+      "question": "What is Automatic Prefix Caching (APC) in vLLM?",
+      "options": [
+        "Deleting prompts longer than 1000 tokens",
+        "Reusing precomputed KV cache blocks across requests that share identical prompt prefixes or system instructions",
+        "Translating non-English queries to English automatically",
+        "Compressing token IDs using gzip"
+      ],
+      "correctIndex": 1,
+      "explanation": "Automatic Prefix Caching hashes prompt token blocks and reuses precomputed KV cache blocks across requests sharing identical system prompts or contexts, dropping TTFT by up to 80%."
+    }
+  ]
+}

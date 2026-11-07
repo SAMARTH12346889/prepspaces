@@ -131,6 +131,11 @@ const routeMeta = {
     description: "Master AI evaluation, alignment, and safety engineering: hallucination detection, atomic claim decomposition, LLM-as-a-judge, adversarial red teaming, OWASP Top 10 for LLMs, defense-in-depth guardrails, RLHF, DPO, Constitutional AI, and NIST AI RMF governance.",
     canonical: `${BASE_URL}/learning/ai/llm-evaluation`,
   },
+  "/learning/ai/inference-serving": {
+    title: "Module 17: LLM Inference & Model Serving Engineering | PrepSpaces",
+    description: "Master high-throughput LLM inference and serving: vLLM, PagedAttention, continuous iteration-level batching, Ollama local runtime, Hugging Face TGI, post-training quantization (AWQ, GPTQ, GGUF), KV cache memory formulas, prefill vs decode profiling, and Server-Sent Events (SSE) progressive streaming.",
+    canonical: `${BASE_URL}/learning/ai/inference-serving`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

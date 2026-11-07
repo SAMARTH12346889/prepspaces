@@ -109,6 +109,7 @@ import AIAgents from "./Componets/AIAgents";
 import AIMultiAgent from "./Componets/AIMultiAgent";
 import AIGraphRag from "./Componets/AIGraphRag";
 import AIEvaluationSafety from "./Componets/AIEvaluationSafety";
+import AIInferenceServing from "./Componets/AIInferenceServing";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1244,6 +1245,18 @@ function App() {
             <Route path="/learning/ai-engineering/module-16" element={<AIEvaluationSafety />} />
             <Route path="/learn/ai/llm-evaluation" element={<AIEvaluationSafety />} />
             <Route path="/learn/ai/ai-evaluation" element={<AIEvaluationSafety />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 17: LLM INFERENCE & MODEL SERVING ENGINEERING */}
+            <Route path="/learning/ai/inference-serving" element={<AIInferenceServing />} />
+            <Route path="/learning/ai/llm-inference" element={<AIInferenceServing />} />
+            <Route path="/learning/ai/model-serving" element={<AIInferenceServing />} />
+            <Route path="/learning/ai/vllm" element={<AIInferenceServing />} />
+            <Route path="/learning/ai/vllm-optimization" element={<AIInferenceServing />} />
+            <Route path="/learning/ai/module-17" element={<AIInferenceServing />} />
+            <Route path="/learning/ai-engineering/inference-serving" element={<AIInferenceServing />} />
+            <Route path="/learning/ai-engineering/module-17" element={<AIInferenceServing />} />
+            <Route path="/learn/ai/inference-serving" element={<AIInferenceServing />} />
+            <Route path="/learn/ai/llm-inference" element={<AIInferenceServing />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"

@@ -24,6 +24,7 @@ const REGISTERED_ROUTES = {
   "ai-multi-agent-systems": { route: "/learning/ai/multi-agent-systems", label: "Multi-Agent AI Systems & Orchestration" },
   "ai-graph-rag": { route: "/learning/ai/graph-rag", label: "Advanced RAG & Knowledge Engineering" },
   "ai-llm-evaluation": { route: "/learning/ai/llm-evaluation", label: "AI Evaluation, Alignment & Safety Engineering" },
+  "ai-inference-serving": { route: "/learning/ai/inference-serving", label: "LLM Inference & Model Serving Engineering" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -160,6 +161,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(llm evaluation|ai evaluation|evaluation|alignment and safety|ai safety|safety engineering|guardrails|red teaming|ai module 16)$/i,
     destination: "ai-llm-evaluation",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(inference serving|llm inference|model serving|vllm|pagedattention|continuous batching|ai module 17)$/i,
+    destination: "ai-inference-serving",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,
