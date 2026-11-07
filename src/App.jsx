@@ -106,6 +106,7 @@ import AIVectorDatabases from "./Componets/AIVectorDatabases";
 import AIRagEngineering from "./Componets/AIRagEngineering";
 import AIMultimodal from "./Componets/AIMultimodal";
 import AIAgents from "./Componets/AIAgents";
+import AIMultiAgent from "./Componets/AIMultiAgent";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1205,6 +1206,18 @@ function App() {
             <Route path="/learning/ai-engineering/module-13" element={<AIAgents />} />
             <Route path="/learn/ai/ai-agents" element={<AIAgents />} />
             <Route path="/learn/ai/agents" element={<AIAgents />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 14: MULTI-AGENT AI SYSTEMS & ORCHESTRATION */}
+            <Route path="/learning/ai/multi-agent-systems" element={<AIMultiAgent />} />
+            <Route path="/learning/ai/multi-agent" element={<AIMultiAgent />} />
+            <Route path="/learning/ai/multiagent" element={<AIMultiAgent />} />
+            <Route path="/learning/ai/agent-orchestration" element={<AIMultiAgent />} />
+            <Route path="/learning/ai/a2a" element={<AIMultiAgent />} />
+            <Route path="/learning/ai/module-14" element={<AIMultiAgent />} />
+            <Route path="/learning/ai-engineering/multi-agent-systems" element={<AIMultiAgent />} />
+            <Route path="/learning/ai-engineering/module-14" element={<AIMultiAgent />} />
+            <Route path="/learn/ai/multi-agent-systems" element={<AIMultiAgent />} />
+            <Route path="/learn/ai/multi-agent" element={<AIMultiAgent />} />
 
 
             {/* INTERVIEW PAGE */}

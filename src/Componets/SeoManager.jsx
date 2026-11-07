@@ -116,6 +116,11 @@ const routeMeta = {
     description: "Master autonomous AI agent architecture: structured function calling schemas, ReAct observe-think-act loops, task planning DAGs, durable FSM state checkpointing, cognitive memory systems, Model Context Protocol (MCP), and multi-agent orchestration.",
     canonical: `${BASE_URL}/learning/ai/ai-agents`,
   },
+  "/learning/ai/multi-agent-systems": {
+    title: "Module 14: Multi-Agent AI Systems & Orchestration | PrepSpaces",
+    description: "Master multi-agent AI systems: intelligent routing, planner-executor architecture, DAG dependency scheduling, sequential & parallel workflows, blackboard shared state, conflict resolution, circuit breakers, and Agent2Agent (A2A) protocol.",
+    canonical: `${BASE_URL}/learning/ai/multi-agent-systems`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

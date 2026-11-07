@@ -143,15 +143,15 @@
     "hasScenarios": true
   },
   {
-    "id": "llm-evaluation",
+    "id": "multi-agent-systems",
     "courseId": "ai-engineering",
     "index": 14,
-    "name": "14. LLM Evaluation, Benchmarks & Guardrails",
-    "route": "/learning/ai/llm-evaluation",
+    "name": "14. Multi-Agent AI Systems & Orchestration",
+    "route": "/learning/ai/multi-agent-systems",
     "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "agentic-workflows",
@@ -165,11 +165,11 @@
     "hasScenarios": false
   },
   {
-    "id": "multi-agent-systems",
+    "id": "llm-evaluation",
     "courseId": "ai-engineering",
     "index": 16,
-    "name": "16. Multi-Agent Orchestration & Workflows",
-    "route": "/learning/ai/multi-agent-systems",
+    "name": "16. LLM Evaluation, Benchmarks & Guardrails",
+    "route": "/learning/ai/llm-evaluation",
     "questionCount": 10,
     "hasTopics": false,
     "hasCommands": false,

@@ -21,6 +21,7 @@ const REGISTERED_ROUTES = {
   "ai-rag-architecture": { route: "/learning/ai/rag-architecture", label: "Retrieval-Augmented Generation (RAG) Engineering" },
   "ai-multimodal-ai": { route: "/learning/ai/multimodal-ai", label: "Multimodal Generative AI (Vision & Audio)" },
   "ai-agents": { route: "/learning/ai/ai-agents", label: "AI Agents & Tool-Calling Systems" },
+  "ai-multi-agent-systems": { route: "/learning/ai/multi-agent-systems", label: "Multi-Agent AI Systems & Orchestration" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -145,6 +146,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(agents|ai agents|tool calling|function calling|mcp|ai module 13)$/i,
     destination: "ai-agents",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(multi agent|multi-agent|multi agent systems|agent orchestration|a2a|ai module 14)$/i,
+    destination: "ai-multi-agent-systems",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,

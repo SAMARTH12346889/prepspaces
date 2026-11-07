@@ -1,0 +1,130 @@
+{
+  "id": "multi-agent-systems",
+  "courseId": "ai-engineering",
+  "index": 14,
+  "name": "14. Multi-Agent AI Systems & Orchestration",
+  "route": "/learning/ai/multi-agent-systems",
+  "componentName": "AIMultiAgent",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary architectural benefit of a Multi-Agent System (MAS) over a single monolithic agent?",
+      "options": [
+        "It completely eliminates the need for backend databases",
+        "It partitions complex goals across specialized agents with minimal tool sets and isolated contexts",
+        "It guarantees that LLM models never hallucinate",
+        "It reduces total token consumption to zero"
+      ],
+      "correctIndex": 1,
+      "explanation": "MAS decomposes complex problems across focused specialist agents, reducing prompt bloat, isolating tool permissions, and enabling parallel execution of independent subtasks."
+    },
+    {
+      "id": 2,
+      "question": "What is the core responsibility of the Orchestrator in a multi-agent architecture?",
+      "options": [
+        "Executing raw SQL queries directly without schemas",
+        "Selecting specialists, scheduling task dependencies, maintaining state, and aggregating results",
+        "Training foundational neural weights from scratch",
+        "Serving static CSS and HTML assets"
+      ],
+      "correctIndex": 1,
+      "explanation": "The orchestrator is the central coordinator responsible for intent routing, DAG task planning, dependency scheduling, inter-agent messaging, fault recovery, and final result synthesis."
+    },
+    {
+      "id": 3,
+      "question": "Why should multi-agent task execution plans be modeled as Directed Acyclic Graphs (DAGs)?",
+      "options": [
+        "To prevent circular dependency deadlocks and enable safe concurrent execution of independent tasks",
+        "Because neural networks can only process graph neural networks",
+        "To compress text tokens into 8-bit integers",
+        "To avoid having to write input validation schemas"
+      ],
+      "correctIndex": 0,
+      "explanation": "DAGs mathematically represent execution dependencies, ensure downstream tasks only run after prerequisites finish, identify parallel execution branches, and prevent circular deadlocks."
+    },
+    {
+      "id": 4,
+      "question": "In inter-agent messaging, what is the purpose of a Correlation ID?",
+      "options": [
+        "Encrypting the user's password",
+        "Linking related request-response message pairs across multi-hop agent handoffs",
+        "Calculating the cosine similarity of text embeddings",
+        "Setting the temperature parameter of the LLM"
+      ],
+      "correctIndex": 1,
+      "explanation": "A correlation ID ties related messages together across multi-step, multi-agent workflows, allowing orchestrators and telemetry systems to trace entire conversational trajectories."
+    },
+    {
+      "id": 5,
+      "question": "Which multi-agent workflow pattern is optimal for independent tasks that can run simultaneously?",
+      "options": [
+        "Sequential Workflow",
+        "Parallel Workflow",
+        "Circular Handoff Workflow",
+        "Single-Threaded Loop"
+      ],
+      "correctIndex": 1,
+      "explanation": "Parallel workflows execute independent agents concurrently (e.g., evaluating Java, Python, and SQL knowledge at the same time), minimizing wall-clock latency before aggregating results."
+    },
+    {
+      "id": 6,
+      "question": "What is the Blackboard architecture in multi-agent coordination?",
+      "options": [
+        "A dark-mode user interface theme",
+        "A shared central data repository where agents read inputs and post intermediate findings",
+        "A technique for deleting old user accounts",
+        "A specialized compiler for Python code"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Blackboard pattern provides a shared transactional information space where specialist agents post findings and read inputs without needing heavy point-to-point message passing."
+    },
+    {
+      "id": 7,
+      "question": "How does Optimistic Concurrency Control (OCC) prevent race conditions in shared agent state?",
+      "options": [
+        "By locking the entire database permanently",
+        "By verifying that the record's version number has not changed before committing an update",
+        "By forcing all agents to execute sequentially on a single thread",
+        "By deleting older records automatically"
+      ],
+      "correctIndex": 1,
+      "explanation": "OCC uses version numbers on records. An agent's update succeeds only if the expected version matches the current version, rejecting stale writes if another agent updated the record in the interim."
+    },
+    {
+      "id": 8,
+      "question": "What does the Agent2Agent (A2A) protocol primarily standardize?",
+      "options": [
+        "Connecting models to database tools and local files",
+        "Standardized discovery, communication, and task collaboration between independent AI agents",
+        "GPU memory allocation in PyTorch",
+        "Frontend CSS styling for agent chatbots"
+      ],
+      "correctIndex": 1,
+      "explanation": "The A2A protocol (stewarded by the Linux Foundation) standardizes how autonomous agents discover one another via Agent Cards, exchange structured messages, and coordinate tasks across different platforms."
+    },
+    {
+      "id": 9,
+      "question": "What is the crucial difference between the Model Context Protocol (MCP) and Agent2Agent (A2A)?",
+      "options": [
+        "They are identical protocols created by the same team",
+        "MCP connects models to external tools and context; A2A connects independent agents to each other",
+        "MCP is only for Python while A2A is only for JavaScript",
+        "A2A connects databases to browsers while MCP connects models to GPUs"
+      ],
+      "correctIndex": 1,
+      "explanation": "MCP enables an AI application or model to access tools, resources, and context. A2A enables autonomous agents to delegate tasks, discover skills, and collaborate with other independent agents."
+    },
+    {
+      "id": 10,
+      "question": "What happens when a 3-state Circuit Breaker transitions to the 'OPEN' state?",
+      "options": [
+        "It increases the model temperature to 1.0",
+        "It immediately rejects subsequent calls with fast failures, protecting the backend from cascading timeouts",
+        "It retries the failed operation 100 times in a tight loop",
+        "It deletes the agent registry"
+      ],
+      "correctIndex": 1,
+      "explanation": "When failures exceed a threshold, the circuit breaker trips to OPEN, immediately short-circuiting calls without making network requests, allowing the failing service time to recover."
+    }
+  ]
+}
