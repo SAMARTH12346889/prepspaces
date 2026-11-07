@@ -90,13 +90,9 @@ export default function AILargeLanguageModels() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f6f0] text-stone-900 antialiased selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Universal Course Navigation */}
-      <ModuleNav
-        currentModuleId="llms"
-        track="ai"
-        moduleTitle="Module 07: Large Language Models: GPT, Llama & Qwen"
-      />
+      <ModuleNav track="ai" currentModuleId="llms" />
 
       {/* Hero Header */}
       <header className="border-b border-[#e7e3da] bg-white/70 backdrop-blur-md pt-8 pb-6 px-4 sm:px-8">
@@ -164,11 +160,11 @@ export default function AILargeLanguageModels() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-3.5 py-2.5 rounded-t-xl text-xs font-bold transition border-b-2 cursor-pointer ${
                     isActive
-                      ? "border-orange-600 text-orange-700 bg-white shadow-2xs"
-                      : "border-transparent text-stone-600 hover:text-stone-900 hover:bg-stone-100/60"
+                      ? "bg-[#f97316] text-white shadow-xs font-bold"
+                      : "bg-white/80 text-stone-700 hover:border-orange-300 hover:text-[#f97316] border border-[#e7e3da]"
                   }`}
                 >
-                  <Icon size={14} className={isActive ? "text-orange-600" : "text-stone-400"} />
+                  <Icon size={14} className={isActive ? "text-white" : "text-stone-400"} />
                   <span>{tab.label}</span>
                 </button>
               );

@@ -85,7 +85,7 @@ export default function AIVectorDatabases() {
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white">
       {/* Top Navigation */}
-      <ModuleNav />
+      <ModuleNav track="ai" currentModuleId="vector-databases" />
 
       {/* Hero Header */}
       <header className="relative border-b border-stone-200/80 bg-white/70 backdrop-blur-md px-4 sm:px-6 py-8 sm:py-12">

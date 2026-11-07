@@ -900,7 +900,7 @@ if __name__ == "__main__":
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans pb-24">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Top Module Navigation Bar */}
       <ModuleNav track="ai" currentModuleId="foundations" />
 
@@ -978,11 +978,11 @@ if __name__ == "__main__":
             onClick={() => setActiveTab("curriculum")}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "curriculum"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <BookOpen size={16} className={activeTab === "curriculum" ? "text-orange-400" : "text-stone-400"} />
+            <BookOpen size={16} className={activeTab === "curriculum" ? "text-white" : "text-stone-400"} />
             Curriculum &amp; Theory (Sections 01–30)
           </button>
 
@@ -991,11 +991,11 @@ if __name__ == "__main__":
             onClick={() => setActiveTab("interactive-tools")}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "interactive-tools"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <Sliders size={16} className={activeTab === "interactive-tools" ? "text-orange-400" : "text-stone-400"} />
+            <Sliders size={16} className={activeTab === "interactive-tools" ? "text-white" : "text-stone-400"} />
             Interactive Simulators (5 Tools)
           </button>
 
@@ -1004,11 +1004,11 @@ if __name__ == "__main__":
             onClick={() => setActiveTab("labs")}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "labs"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <Terminal size={16} className={activeTab === "labs" ? "text-orange-400" : "text-stone-400"} />
+            <Terminal size={16} className={activeTab === "labs" ? "text-white" : "text-stone-400"} />
             Practical Labs (01–07)
           </button>
 
@@ -1017,11 +1017,11 @@ if __name__ == "__main__":
             onClick={() => setActiveTab("capstone")}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "capstone"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <ShieldCheck size={16} className={activeTab === "capstone" ? "text-orange-400" : "text-stone-400"} />
+            <ShieldCheck size={16} className={activeTab === "capstone" ? "text-white" : "text-stone-400"} />
             Capstone Project ({completedCount}/9)
           </button>
 
@@ -1030,11 +1030,11 @@ if __name__ == "__main__":
             onClick={() => setActiveTab("qa")}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "qa"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <Sparkles size={16} className={activeTab === "qa" ? "text-orange-400" : "text-stone-400"} />
+            <Sparkles size={16} className={activeTab === "qa" ? "text-white" : "text-stone-400"} />
             Senior AI Interview Scenarios
           </button>
 
@@ -1043,11 +1043,11 @@ if __name__ == "__main__":
             onClick={() => setActiveTab("quiz")}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "quiz"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <Award size={16} className={activeTab === "quiz" ? "text-orange-400" : "text-stone-400"} />
+            <Award size={16} className={activeTab === "quiz" ? "text-white" : "text-stone-400"} />
             Knowledge Assessment (15 MCQs)
           </button>
 
@@ -1056,11 +1056,11 @@ if __name__ == "__main__":
             onClick={() => setActiveTab("resources")}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "resources"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <ExternalLink size={16} className={activeTab === "resources" ? "text-orange-400" : "text-stone-400"} />
+            <ExternalLink size={16} className={activeTab === "resources" ? "text-white" : "text-stone-400"} />
             University References
           </button>
         </div>

@@ -93,8 +93,8 @@ export default function AIInferenceServing() {
   const activeUnit = curriculumUnits[selectedUnitIdx];
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900">
-      <ModuleNav currentModuleId="inference-serving" />
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
+      <ModuleNav track="ai" currentModuleId="inference-serving" />
 
       {/* Hero Header */}
       <header className="border-b border-stone-200/80 bg-white">
@@ -170,7 +170,7 @@ export default function AIInferenceServing() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-1.5 px-3 py-2 rounded-lg whitespace-nowrap transition-all duration-150 ${
                     activeTab === tab.id
-                      ? "bg-stone-900 text-white shadow-xs"
+                      ? "bg-[#f97316] text-white shadow-xs font-bold"
                       : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
                   }`}
                 >

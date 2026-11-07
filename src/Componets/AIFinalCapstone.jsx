@@ -147,59 +147,59 @@ export default function AIFinalCapstone() {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-950 text-stone-100">
-      <ModuleNav currentModuleId="final-capstone" track="ai" />
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
+      <ModuleNav track="ai" currentModuleId="final-capstone" />
 
       {/* Header Banner */}
-      <header className="relative border-b border-stone-800/80 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 px-4 py-12 sm:px-6 lg:px-8">
+      <header className="relative border-b border-[#e7e3da] bg-white/70 backdrop-blur-md px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+            <span className="rounded-full border border-orange-200/80 bg-orange-50/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#ea580c]">
               {capstoneMeta.badge}
             </span>
             <span className="flex items-center gap-1.5 text-xs text-stone-400">
               <Clock className="h-3.5 w-3.5 text-stone-500" />
               {capstoneMeta.duration}
             </span>
-            <span className="rounded-full border border-stone-800 bg-stone-900 px-2.5 py-0.5 text-xs text-stone-300">
+            <span className="rounded-full border border-[#e7e3da] bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-600">
               {capstoneMeta.level}
             </span>
           </div>
 
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
             Module {capstoneMeta.moduleNumber}: {capstoneMeta.title}
           </h1>
-          <p className="mt-3 max-w-4xl text-base text-stone-300 sm:text-lg">
+          <p className="mt-3 max-w-4xl text-base text-stone-600 sm:text-lg">
             {capstoneMeta.subtitle}
           </p>
 
-          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-stone-400">
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-stone-600">
             {capstoneMeta.summary}
           </p>
 
           {/* Quick Stats Grid */}
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-            <div className="rounded-xl border border-stone-800/80 bg-stone-900/50 p-3">
+            <div className="rounded-xl border border-[#e7e3da] bg-white shadow-xs p-3">
               <div className="text-xs font-medium text-stone-500">Curriculum</div>
               <div className="mt-1 text-xl font-bold text-emerald-400">12 Units</div>
             </div>
-            <div className="rounded-xl border border-stone-800/80 bg-stone-900/50 p-3">
+            <div className="rounded-xl border border-[#e7e3da] bg-white shadow-xs p-3">
               <div className="text-xs font-medium text-stone-500">Interactive Tools</div>
               <div className="mt-1 text-xl font-bold text-indigo-400">5 Simulators</div>
             </div>
-            <div className="rounded-xl border border-stone-800/80 bg-stone-900/50 p-3">
+            <div className="rounded-xl border border-[#e7e3da] bg-white shadow-xs p-3">
               <div className="text-xs font-medium text-stone-500">Project Tracks</div>
               <div className="mt-1 text-xl font-bold text-amber-400">3 Tracks</div>
             </div>
-            <div className="rounded-xl border border-stone-800/80 bg-stone-900/50 p-3">
+            <div className="rounded-xl border border-[#e7e3da] bg-white shadow-xs p-3">
               <div className="text-xs font-medium text-stone-500">Assignments</div>
               <div className="mt-1 text-xl font-bold text-sky-400">7 Milestones</div>
             </div>
-            <div className="rounded-xl border border-stone-800/80 bg-stone-900/50 p-3">
+            <div className="rounded-xl border border-[#e7e3da] bg-white shadow-xs p-3">
               <div className="text-xs font-medium text-stone-500">Viva Questions</div>
               <div className="mt-1 text-xl font-bold text-violet-400">20 Q&As</div>
             </div>
-            <div className="rounded-xl border border-stone-800/80 bg-stone-900/50 p-3">
+            <div className="rounded-xl border border-[#e7e3da] bg-white shadow-xs p-3">
               <div className="text-xs font-medium text-stone-500">Artifacts Checklist</div>
               <div className="mt-1 text-xl font-bold text-rose-400">{completedChecklistCount}/16 Ready</div>
             </div>
@@ -208,7 +208,7 @@ export default function AIFinalCapstone() {
       </header>
 
       {/* Tabs Navigation */}
-      <div className="sticky top-0 z-30 border-b border-stone-800 bg-stone-950/95 backdrop-blur-md">
+      <div className="sticky top-0 z-30 border-b border-[#e7e3da] bg-[#f6f4ee]/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 py-2 sm:px-6 lg:px-8">
           <div className="flex space-x-1 sm:space-x-2">
             {[
@@ -230,8 +230,8 @@ export default function AIFinalCapstone() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-3.5 py-2 text-xs sm:text-sm font-semibold transition-all ${
                     isActive
-                      ? "bg-emerald-600 text-white shadow-lg shadow-emerald-950/50"
-                      : "text-stone-400 hover:bg-stone-900 hover:text-stone-200"
+                      ? "bg-[#f97316] text-white shadow-xs font-bold"
+                      : "bg-white/80 text-stone-700 hover:border-orange-300 hover:text-[#f97316] border border-[#e7e3da]"
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -250,7 +250,7 @@ export default function AIFinalCapstone() {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
             {/* Sidebar Unit Selector */}
             <div className="lg:col-span-4">
-              <div className="sticky top-20 rounded-2xl border border-stone-800 bg-stone-900/60 p-4">
+              <div className="sticky top-20 rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-4">
                 <div className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-3 px-2">
                   12 Capstone Lifecycle Units
                 </div>
@@ -263,15 +263,15 @@ export default function AIFinalCapstone() {
                         onClick={() => setSelectedUnitIdx(idx)}
                         className={`w-full rounded-xl p-3 text-left transition-all ${
                           isSelected
-                            ? "bg-emerald-500/20 border border-emerald-500/40 text-white shadow-md shadow-emerald-950/30"
-                            : "hover:bg-stone-800/60 text-stone-400 border border-transparent"
+                            ? "bg-orange-50 text-orange-950 border border-orange-200 shadow-2xs font-bold"
+                            : "text-stone-700 hover:bg-stone-50 border border-transparent"
                         }`}
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-[11px] font-mono text-emerald-400">Unit {idx + 1}</span>
+                          <span className="text-[11px] font-mono text-orange-700 font-bold">Unit {idx + 1}</span>
                           <span className="text-[10px] text-stone-500">{unit.duration}</span>
                         </div>
-                        <div className="mt-1 text-xs font-semibold text-stone-200 line-clamp-1">
+                        <div className="mt-1 text-xs font-semibold text-stone-900 line-clamp-1">
                           {unit.title.replace(/^\d+\.\s*/, "")}
                         </div>
                       </button>
@@ -283,15 +283,15 @@ export default function AIFinalCapstone() {
 
             {/* Main Content Display */}
             <div className="lg:col-span-8 space-y-6">
-              <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6 sm:p-8">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-4">
+              <div className="rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-6 sm:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                    <span className="text-xs font-bold uppercase tracking-wider text-orange-700">
                       Unit {selectedUnitIdx + 1} of 12
                     </span>
-                    <h2 className="mt-1 text-2xl font-bold text-white">{currentUnit.title}</h2>
+                    <h2 className="mt-1 text-2xl font-bold text-stone-900">{currentUnit.title}</h2>
                   </div>
-                  <span className="rounded-lg bg-stone-800 px-3 py-1 text-xs font-medium text-stone-400">
+                  <span className="rounded-lg bg-stone-100 border border-stone-200 px-3 py-1 text-xs font-medium text-stone-600">
                     {currentUnit.duration}
                   </span>
                 </div>
@@ -301,7 +301,7 @@ export default function AIFinalCapstone() {
                   {currentUnit.coreConcepts.map((concept, i) => (
                     <span
                       key={i}
-                      className="rounded-lg border border-stone-700 bg-stone-800/80 px-2.5 py-1 text-xs font-medium text-stone-300"
+                      className="rounded-lg border border-[#e7e3da] bg-[#faf8f4] px-2.5 py-1 text-xs font-medium text-stone-700"
                     >
                       {concept}
                     </span>
@@ -313,7 +313,7 @@ export default function AIFinalCapstone() {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-stone-400">
                     Engineering Theory & Concepts
                   </h3>
-                  <div className="mt-3 text-sm leading-relaxed text-stone-300 whitespace-pre-line space-y-3 font-sans">
+                  <div className="mt-3 text-sm leading-relaxed text-stone-700 whitespace-pre-line space-y-3 font-sans">
                     {currentUnit.theory}
                   </div>
                 </div>
@@ -324,7 +324,7 @@ export default function AIFinalCapstone() {
                     <h3 className="text-sm font-bold uppercase tracking-wider text-stone-400">
                       System Topology / Data Flow
                     </h3>
-                    <div className="mt-2 rounded-xl border border-stone-800 bg-stone-950 p-4 font-mono text-xs text-indigo-300 overflow-x-auto">
+                    <div className="mt-2 rounded-xl border border-[#e7e3da] bg-[#1c1917] p-4 font-mono text-xs text-indigo-300 overflow-x-auto">
                       <pre>{currentUnit.architectureSnippet}</pre>
                     </div>
                   </div>
@@ -339,7 +339,7 @@ export default function AIFinalCapstone() {
                       </h3>
                       <button
                         onClick={() => handleCopyCode(currentUnit.codeExample, currentUnit.id)}
-                        className="flex items-center gap-1.5 rounded-lg border border-stone-700 bg-stone-800 px-2.5 py-1 text-xs text-stone-300 hover:bg-stone-700"
+                        className="flex items-center gap-1.5 rounded-lg border border-stone-700 bg-stone-800 px-2.5 py-1 text-xs text-stone-300 hover:bg-stone-700 cursor-pointer"
                       >
                         {copiedCodeIdx === currentUnit.id ? (
                           <>
@@ -354,7 +354,7 @@ export default function AIFinalCapstone() {
                         )}
                       </button>
                     </div>
-                    <div className="rounded-xl border border-stone-800 bg-stone-950 p-4 font-mono text-xs text-emerald-300 overflow-x-auto">
+                    <div className="rounded-xl border border-[#e7e3da] bg-[#1c1917] p-4 font-mono text-xs text-emerald-400 overflow-x-auto">
                       <pre>{currentUnit.codeExample}</pre>
                     </div>
                   </div>
@@ -365,7 +365,7 @@ export default function AIFinalCapstone() {
                   <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400">
                     Unit Key Takeaways
                   </h4>
-                  <ul className="mt-2 space-y-1.5 text-xs text-stone-300">
+                  <ul className="mt-2 space-y-1.5 text-xs text-emerald-950">
                     {currentUnit.takeaways.map((takeaway, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
@@ -376,18 +376,18 @@ export default function AIFinalCapstone() {
                 </div>
 
                 {/* Next / Previous Unit Navigation */}
-                <div className="mt-8 flex items-center justify-between border-t border-stone-800 pt-4">
+                <div className="mt-8 flex items-center justify-between border-t border-[#e7e3da] pt-4">
                   <button
                     disabled={selectedUnitIdx === 0}
                     onClick={() => setSelectedUnitIdx((prev) => prev - 1)}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-stone-400 hover:text-white disabled:opacity-30"
+                    className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white px-4 py-2 text-xs font-semibold text-stone-700 hover:bg-[#faf8f4] disabled:opacity-30 shadow-xs cursor-pointer"
                   >
                     <ArrowLeft className="h-4 w-4" /> Previous Unit
                   </button>
                   <button
                     disabled={selectedUnitIdx === curriculumUnits.length - 1}
                     onClick={() => setSelectedUnitIdx((prev) => prev + 1)}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 disabled:opacity-30"
+                    className="flex items-center gap-1.5 rounded-xl bg-[#f97316] px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-orange-600 disabled:opacity-30 cursor-pointer"
                   >
                     Next Unit <ArrowRight className="h-4 w-4" />
                   </button>
@@ -411,12 +411,12 @@ export default function AIFinalCapstone() {
         {/* 3. CAPSTONE TRACKS TAB */}
         {activeTab === "tracks" && (
           <div className="space-y-6">
-            <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <div className="rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-6">
+              <h2 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                 <Wrench className="h-5 w-5 text-amber-400" />
                 Selectable Capstone Project Tracks
               </h2>
-              <p className="mt-1 text-xs text-stone-400">
+              <p className="mt-1 text-xs text-stone-600">
                 Choose from 3 specialized engineering tracks. Track 1 matches the live PrepSpaces technical interview architecture.
               </p>
 
@@ -430,16 +430,16 @@ export default function AIFinalCapstone() {
                       onClick={() => setSelectedTrackId(track.id)}
                       className={`rounded-xl border p-5 text-left transition-all ${
                         isSelected
-                          ? "border-emerald-500 bg-emerald-500/10 text-white shadow-lg shadow-emerald-950/40 ring-1 ring-emerald-400"
-                          : "border-stone-800 bg-stone-950/70 text-stone-400 hover:border-stone-700 hover:text-stone-200"
+                          ? "border-orange-500 bg-orange-50 text-orange-950 shadow-xs ring-1 ring-[#f97316]"
+                          : "border-[#e7e3da] bg-[#faf8f4] text-stone-700 hover:border-orange-300 hover:bg-white"
                       }`}
                     >
-                      <span className="rounded-full bg-stone-800 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                      <span className="rounded-full bg-orange-100 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-orange-800">
                         {track.badge}
                       </span>
-                      <h3 className="mt-3 text-base font-bold text-white">{track.name}</h3>
-                      <p className="mt-2 text-xs leading-relaxed text-stone-300">{track.description}</p>
-                      <div className="mt-4 text-[11px] font-mono text-emerald-300 bg-stone-900/90 p-2 rounded-lg border border-stone-800">
+                      <h3 className="mt-3 text-base font-bold text-stone-900">{track.name}</h3>
+                      <p className="mt-2 text-xs leading-relaxed text-stone-600">{track.description}</p>
+                      <div className="mt-4 text-[11px] font-mono text-emerald-800 bg-emerald-50/70 p-2 rounded-lg border border-emerald-200">
                         {track.stack}
                       </div>
                     </button>
@@ -448,13 +448,13 @@ export default function AIFinalCapstone() {
               </div>
 
               {/* Selected Track Deep Dive */}
-              <div className="mt-8 rounded-xl border border-stone-800 bg-stone-950 p-6">
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-stone-800 pb-3">
+              <div className="mt-8 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-6">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e7e3da] pb-3">
                   <div>
-                    <span className="text-xs font-mono text-emerald-400">TRACK SPECIFICATION</span>
-                    <h3 className="text-lg font-bold text-white">{selectedTrack.name}</h3>
+                    <span className="text-xs font-mono text-orange-700 font-bold">TRACK SPECIFICATION</span>
+                    <h3 className="text-lg font-bold text-stone-900">{selectedTrack.name}</h3>
                   </div>
-                  <span className="rounded-lg bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 text-xs font-semibold text-emerald-400">
+                  <span className="rounded-lg bg-orange-50 border border-orange-200 px-3 py-1 text-xs font-semibold text-orange-700">
                     {selectedTrack.difficulty}
                   </span>
                 </div>
@@ -463,7 +463,7 @@ export default function AIFinalCapstone() {
                   <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400">
                     Required Production Deliverables
                   </h4>
-                  <ul className="mt-3 space-y-2 text-xs text-stone-300">
+                  <ul className="mt-3 space-y-2 text-xs text-stone-700">
                     {selectedTrack.deliverables.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
@@ -480,7 +480,7 @@ export default function AIFinalCapstone() {
         {/* 4. PRACTICAL ASSIGNMENTS TAB */}
         {activeTab === "assignments" && (
           <div className="space-y-6">
-            <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6">
+            <div className="rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-6">
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
                 <Code2 className="h-5 w-5 text-sky-400" />
                 7 Capstone Engineering Milestones & Assignments
@@ -491,16 +491,16 @@ export default function AIFinalCapstone() {
 
               <div className="mt-6 space-y-4">
                 {practicalAssignments.map((task, idx) => (
-                  <div key={task.id} className="rounded-xl border border-stone-800 bg-stone-950 p-5">
+                  <div key={task.id} className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <span className="text-xs font-mono text-sky-400">MILESTONE 0{idx + 1}</span>
-                      <span className="rounded-md bg-stone-800 px-2 py-0.5 text-[11px] font-semibold text-stone-300">
+                      <span className="rounded-md bg-stone-100 border border-stone-200 px-2 py-0.5 text-[11px] font-semibold text-stone-700">
                         {task.type}
                       </span>
                     </div>
                     <h3 className="mt-2 text-base font-bold text-white">{task.title}</h3>
                     <p className="mt-2 text-xs text-stone-300 leading-relaxed">{task.description}</p>
-                    <div className="mt-3 rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs">
+                    <div className="mt-3 rounded-lg bg-white p-3 border border-[#e7e3da] text-xs">
                       <span className="font-semibold text-stone-400">Expected Deliverables: </span>
                       <span className="text-emerald-300">{task.deliverables}</span>
                     </div>
@@ -514,8 +514,8 @@ export default function AIFinalCapstone() {
         {/* 5. VIVA DEFENSE Q&A TAB */}
         {activeTab === "viva" && (
           <div className="space-y-6">
-            <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+            <div className="rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                 <div>
                   <h2 className="text-xl font-bold text-white flex items-center gap-2">
                     <HelpCircle className="h-5 w-5 text-violet-400" />
@@ -536,7 +536,7 @@ export default function AIFinalCapstone() {
                     value={vivaSearch}
                     onChange={(e) => setVivaSearch(e.target.value)}
                     placeholder="Search viva questions or keywords..."
-                    className="w-full rounded-xl border border-stone-800 bg-stone-950 pl-9 pr-4 py-2 text-xs text-white placeholder-stone-500 focus:border-violet-500"
+                    className="w-full rounded-xl border border-[#e7e3da] bg-white pl-9 pr-4 py-2 text-xs text-stone-900 placeholder-stone-500 focus:border-[#f97316]"
                   />
                 </div>
                 <div className="flex items-center gap-1.5 overflow-x-auto">
@@ -547,8 +547,8 @@ export default function AIFinalCapstone() {
                         onClick={() => setVivaCategory(cat)}
                         className={`rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all ${
                           vivaCategory === cat
-                            ? "bg-violet-600 text-white"
-                            : "bg-stone-900 text-stone-400 hover:bg-stone-800 hover:text-stone-200"
+                            ? "bg-[#f97316] text-white font-bold shadow-xs"
+                            : "bg-white text-stone-600 border border-[#e7e3da] hover:border-orange-300 hover:text-stone-900"
                         }`}
                       >
                         {cat}
@@ -561,15 +561,15 @@ export default function AIFinalCapstone() {
               {/* Questions List */}
               <div className="mt-6 space-y-4">
                 {filteredViva.map((item, idx) => (
-                  <div key={item.id} className="rounded-xl border border-stone-800 bg-stone-950 p-5">
+                  <div key={item.id} className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono text-violet-400">QUESTION 0{idx + 1}</span>
+                      <span className="text-xs font-mono text-orange-700 font-bold">QUESTION 0{idx + 1}</span>
                       <span className="rounded-md bg-stone-800 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">
                         {item.category}
                       </span>
                     </div>
                     <h3 className="mt-2 text-sm font-bold text-white">{item.question}</h3>
-                    <div className="mt-3 rounded-lg bg-stone-900/80 p-3.5 border border-stone-800 text-xs leading-relaxed text-stone-300">
+                    <div className="mt-3 rounded-lg bg-white p-3.5 border border-[#e7e3da] text-xs leading-relaxed text-stone-700">
                       <strong className="text-emerald-400">Recommended Defense Answer: </strong>
                       {item.answer}
                     </div>
@@ -586,8 +586,8 @@ export default function AIFinalCapstone() {
             <CapstoneRubricEvaluationCalculator />
 
             {/* 16 Mandatory Submission Artifacts Checklist */}
-            <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+            <div className="rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
                     <ListOrdered className="h-5 w-5 text-rose-400" />
@@ -597,7 +597,7 @@ export default function AIFinalCapstone() {
                     Track your completion readiness across all 16 portfolio items required for final capstone submission.
                   </p>
                 </div>
-                <div className="rounded-xl border border-stone-700 bg-stone-800 px-3 py-1.5 text-center">
+                <div className="rounded-xl border border-[#e7e3da] bg-white px-3 py-1.5 text-center shadow-xs">
                   <div className="text-[10px] text-stone-400">Submission Readiness</div>
                   <div className="text-sm font-bold text-emerald-400">
                     {completedChecklistCount} / 16 ({Math.round((completedChecklistCount / 16) * 100)}%)
@@ -614,8 +614,8 @@ export default function AIFinalCapstone() {
                       onClick={() => toggleChecklistItem(item.key)}
                       className={`flex items-center gap-3 rounded-xl border p-3 text-left transition-all ${
                         isChecked
-                          ? "border-emerald-500/40 bg-emerald-500/10 text-white"
-                          : "border-stone-800 bg-stone-950/60 text-stone-400 hover:border-stone-700"
+                          ? "border-emerald-300 bg-emerald-50/70 text-emerald-950 shadow-2xs"
+                          : "border-[#e7e3da] bg-[#faf8f4] text-stone-700 hover:border-orange-300 hover:bg-white"
                       }`}
                     >
                       <div
@@ -639,8 +639,8 @@ export default function AIFinalCapstone() {
         {/* 7. FINAL EXAMINATION TAB */}
         {activeTab === "quiz" && (
           <div className="space-y-6">
-            <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+            <div className="rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                 <div>
                   <h2 className="text-xl font-bold text-white flex items-center gap-2">
                     <ShieldCheck className="h-5 w-5 text-emerald-400" />
@@ -660,7 +660,7 @@ export default function AIFinalCapstone() {
                     </div>
                     <button
                       onClick={handleResetQuiz}
-                      className="flex items-center gap-1.5 rounded-lg border border-stone-700 bg-stone-800 px-3 py-1.5 text-xs font-semibold text-stone-300 hover:bg-stone-700"
+                      className="flex items-center gap-1.5 rounded-lg border border-[#e7e3da] bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 hover:bg-[#faf8f4] shadow-xs cursor-pointer"
                     >
                       <RotateCcw className="h-3.5 w-3.5" /> Retake
                     </button>
@@ -676,7 +676,7 @@ export default function AIFinalCapstone() {
                   const isCorrect = isAnswered && selectedOpt === q.correctIndex;
 
                   return (
-                    <div key={q.id} className="rounded-xl border border-stone-800 bg-stone-950 p-5">
+                    <div key={q.id} className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-5">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-mono text-emerald-400">QUESTION 0{qIdx + 1}</span>
                         {showQuizResults && (
@@ -694,7 +694,7 @@ export default function AIFinalCapstone() {
                       <div className="mt-4 space-y-2">
                         {q.options.map((opt, optIdx) => {
                           const isOptionSelected = selectedOpt === optIdx;
-                          let btnStyle = "border-stone-800 bg-stone-900/60 text-stone-300 hover:bg-stone-800";
+                          let btnStyle = "border-[#e7e3da] bg-white shadow-xs text-stone-300 hover:bg-stone-800";
 
                           if (isOptionSelected) {
                             btnStyle = "border-emerald-500 bg-emerald-500/20 text-white";
@@ -706,7 +706,7 @@ export default function AIFinalCapstone() {
                             } else if (isOptionSelected && !isCorrect) {
                               btnStyle = "border-rose-500 bg-rose-500/30 text-rose-300";
                             } else {
-                              btnStyle = "border-stone-800 bg-stone-900/30 text-stone-500 opacity-60";
+                              btnStyle = "border-[#e7e3da] bg-[#faf8f4]/30 text-stone-500 opacity-60";
                             }
                           }
 
@@ -724,7 +724,7 @@ export default function AIFinalCapstone() {
                       </div>
 
                       {showQuizResults && (
-                        <div className="mt-3 rounded-lg bg-stone-900 p-3 border border-stone-800 text-xs text-stone-400">
+                        <div className="mt-3 rounded-lg bg-white p-3 border border-[#e7e3da] text-xs text-stone-400">
                           <strong className="text-emerald-400">Explanation: </strong>
                           {q.explanation}
                         </div>
@@ -751,8 +751,8 @@ export default function AIFinalCapstone() {
         {/* 8. 25 COMPETENCY MATRIX TAB */}
         {activeTab === "competencies" && (
           <div className="space-y-6">
-            <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+            <div className="rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                 <div>
                   <h2 className="text-xl font-bold text-white flex items-center gap-2">
                     <Target className="h-5 w-5 text-indigo-400" />
@@ -779,8 +779,8 @@ export default function AIFinalCapstone() {
                       onClick={() => toggleCompetency(comp.id)}
                       className={`flex items-start gap-3 rounded-xl border p-3.5 text-left transition-all ${
                         isChecked
-                          ? "border-emerald-500/40 bg-emerald-500/10 text-white"
-                          : "border-stone-800 bg-stone-950/60 text-stone-400 hover:border-stone-700 hover:text-stone-300"
+                          ? "border-emerald-300 bg-emerald-50/80 text-emerald-950 shadow-2xs"
+                          : "border-[#e7e3da] bg-[#faf8f4] text-stone-700 hover:border-orange-300 hover:bg-white hover:text-stone-300"
                       }`}
                     >
                       <div
@@ -807,7 +807,7 @@ export default function AIFinalCapstone() {
         {/* 9. PRODUCTION SPECS & REFERENCES TAB */}
         {activeTab === "specs" && (
           <div className="space-y-6">
-            <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6">
+            <div className="rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-6">
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
                 <Layers className="h-5 w-5 text-emerald-400" />
                 Authoritative Specifications & Technical References
@@ -823,7 +823,7 @@ export default function AIFinalCapstone() {
                     href={res.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-col justify-between rounded-xl border border-stone-800 bg-stone-950 p-4 transition-all hover:border-emerald-500 hover:shadow-md"
+                    className="flex flex-col justify-between rounded-xl border border-[#e7e3da] bg-white p-4 transition-all hover:border-emerald-500 hover:shadow-md"
                   >
                     <div>
                       <div className="flex items-center justify-between">

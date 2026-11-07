@@ -195,7 +195,8 @@ export const CYBERSECURITY_MODULES = [
 ];
 
 export default function ModuleNav({
-  track = "cloud",
+  track: propTrack = "cloud",
+  trackId,
   currentModuleId = "cloud",
   showAiTutor,
   onAiTutorToggle,
@@ -206,22 +207,54 @@ export default function ModuleNav({
   const { isAuthenticated, user, logout } = useAuth();
   const scrollRef = useRef(null);
 
-  const initialModules =
-    track === "devops"
-      ? DEVOPS_MODULES
-      : track === "system-design"
-      ? SYSTEM_DESIGN_MODULES
-      : track === "os"
-      ? OS_MODULES
-      : track === "networks"
-      ? NETWORKS_MODULES
-      : track === "cybersecurity"
-      ? CYBERSECURITY_MODULES
-      : track === "ai" || track === "ai-engineering"
-      ? AI_MODULES
-      : CLOUD_MODULES;
+  // Auto-detect track if omitted, defaulted to "cloud", or passed as trackId
+  const track = useMemo(() => {
+    if (propTrack && propTrack !== "cloud") {
+      return propTrack === "ai-engineering" ? "ai" : propTrack;
+    }
+    if (trackId) {
+      if (trackId === "ai-engineering" || trackId === "ai") return "ai";
+      if (trackId === "operating-systems") return "os";
+      if (trackId === "computer-networks") return "networks";
+      return trackId;
+    }
+    const path = (location?.pathname || "").toLowerCase();
+    if (path.includes("/learning/ai") || path.includes("/learn/ai")) return "ai";
+    if (path.includes("/learning/os") || path.includes("/learn/os")) return "os";
+    if (path.includes("/learning/networks") || path.includes("/learn/networks")) return "networks";
+    if (path.includes("/learning/cybersecurity") || path.includes("/learn/cybersecurity")) return "cybersecurity";
+    if (path.includes("/learning/system-design") || path.includes("/learn/system-design")) return "system-design";
+    if (path.includes("/learning/devops") || path.includes("/learn/devops")) return "devops";
+    if (path.includes("/learning/cloud") || path.includes("/learn/cloud")) return "cloud";
+    return propTrack || "cloud";
+  }, [propTrack, trackId, location?.pathname]);
 
-  const [modules, setModules] = useState(initialModules);
+  const getModulesForTrack = useCallback((t) => {
+    switch (t) {
+      case "devops":
+        return DEVOPS_MODULES;
+      case "system-design":
+        return SYSTEM_DESIGN_MODULES;
+      case "os":
+        return OS_MODULES;
+      case "networks":
+        return NETWORKS_MODULES;
+      case "cybersecurity":
+        return CYBERSECURITY_MODULES;
+      case "ai":
+      case "ai-engineering":
+        return AI_MODULES;
+      default:
+        return CLOUD_MODULES;
+    }
+  }, []);
+
+  const [modules, setModules] = useState(() => getModulesForTrack(track));
+
+  // Keep modules synchronized with track changes
+  useEffect(() => {
+    setModules(getModulesForTrack(track));
+  }, [track, getModulesForTrack]);
 
   const courseIdMap = {
     os: "operating-systems",

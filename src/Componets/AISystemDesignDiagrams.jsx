@@ -25,7 +25,7 @@ export const AiSystemArchitectureExplorer = () => {
       name: "1. Presentation Layer",
       icon: Mic,
       tech: "React 18 · Tailwind CSS · WebSockets",
-      color: "border-sky-500/40 bg-sky-950/20 text-sky-300",
+      color: "border-sky-200 bg-sky-50 text-sky-900",
       details: [
         "Real-time voice stream visualizer with live waveform feedback",
         "Full-duplex WebSocket client delivering binary audio PCM chunks",
@@ -38,7 +38,7 @@ export const AiSystemArchitectureExplorer = () => {
       name: "2. API & Security Gateway",
       icon: Shield,
       tech: "Cloudflare Workers · JWT · Token Bucket Rate Limiter",
-      color: "border-indigo-500/40 bg-indigo-950/20 text-indigo-300",
+      color: "border-indigo-200 bg-indigo-50 text-indigo-900",
       details: [
         "Cryptographic JWT authentication & role-based permission verification",
         "Token bucket rate limiting preventing unbounded request flooding",
@@ -51,7 +51,7 @@ export const AiSystemArchitectureExplorer = () => {
       name: "3. Application & AI Orchestrator",
       icon: Layers,
       tech: "Python FastAPI / Node.js · State Machine · Pydantic",
-      color: "border-violet-500/40 bg-violet-950/20 text-violet-300",
+      color: "border-purple-200 bg-purple-50 text-purple-900",
       details: [
         "Stateful interview session state machine tracking 10 sequential turns",
         "Pre-retrieval tenant isolation filter injection before vector queries",
@@ -64,7 +64,7 @@ export const AiSystemArchitectureExplorer = () => {
       name: "4. AI Model Gateway & Inference",
       icon: Cpu,
       tech: "vLLM · Whisper Turbo · Llama-3.3-70B · Circuit Breaker",
-      color: "border-emerald-500/40 bg-emerald-950/20 text-emerald-300",
+      color: "border-emerald-200 bg-emerald-50 text-emerald-900",
       details: [
         "Task-based dynamic model routing (Small SLM for classification, 70B for evaluation)",
         "3-state Circuit Breaker shielding backend from upstream provider outages",
@@ -77,7 +77,7 @@ export const AiSystemArchitectureExplorer = () => {
       name: "5. Polyglot Storage Tier",
       icon: Database,
       tech: "PostgreSQL 16 · pgvector · Cloudflare R2 · Redis 7",
-      color: "border-amber-500/40 bg-amber-950/20 text-amber-300",
+      color: "border-amber-200 bg-amber-50 text-amber-900",
       details: [
         "PostgreSQL: Transactional interview sessions, rubrics, scores, and users",
         "pgvector / Qdrant: Dense + Sparse hybrid retrieval index for Java 21 documentation",
@@ -90,7 +90,7 @@ export const AiSystemArchitectureExplorer = () => {
       name: "6. Asynchronous Queue Workers",
       icon: Brain,
       tech: "RabbitMQ / Redis Queue · Celery · Background OCR",
-      color: "border-rose-500/40 bg-rose-950/20 text-rose-300",
+      color: "border-rose-200 bg-rose-50 text-rose-900",
       details: [
         "Decoupled background worker fleet for 20-page resume PDF parsing and OCR",
         "Offline document ingestion, chunking, and vector embedding pipelines",
@@ -103,16 +103,16 @@ export const AiSystemArchitectureExplorer = () => {
   const activeLayer = layers.find((l) => l.id === selectedLayerId) || layers[1];
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
-          <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+          <span className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700 font-bold">
             System Topology
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             PrepSpaces Enterprise 6-Layer Architecture Explorer
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Click any architectural layer to inspect its internal micro-services, data contracts, and protocols.
           </p>
         </div>
@@ -129,13 +129,13 @@ export const AiSystemArchitectureExplorer = () => {
               onClick={() => setSelectedLayerId(l.id)}
               className={`flex items-start gap-3 rounded-xl border p-3.5 text-left transition-all ${
                 isSelected
-                  ? `${l.color} shadow-lg shadow-indigo-950/50 scale-[1.02]`
-                  : "border-stone-800 bg-stone-950 text-stone-400 hover:border-stone-700 hover:text-stone-200"
+                  ? `${l.color} shadow-lg shadow-xs scale-[1.02]`
+                  : "border-[#e7e3da] bg-white text-stone-600 hover:border-orange-300 hover:text-stone-900"
               }`}
             >
               <Icon className="h-5 w-5 shrink-0 mt-0.5" />
               <div>
-                <div className="text-xs font-bold text-stone-200">{l.name}</div>
+                <div className="text-xs font-bold text-stone-800">{l.name}</div>
                 <div className="mt-0.5 text-[10px] text-stone-500 font-mono line-clamp-1">
                   {l.tech}
                 </div>
@@ -146,11 +146,11 @@ export const AiSystemArchitectureExplorer = () => {
       </div>
 
       {/* Layer Detail Card */}
-      <div className="mt-6 rounded-xl border border-stone-800 bg-stone-950 p-6">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800/80 pb-4">
+      <div className="mt-6 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-6">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e7e3da] pb-4">
           <div className="flex items-center gap-2">
-            <span className="text-base font-bold text-white">{activeLayer.name}</span>
-            <span className="rounded-full bg-stone-800 px-2.5 py-0.5 text-xs font-mono text-stone-300">
+            <span className="text-base font-bold text-stone-900">{activeLayer.name}</span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-2.5 py-0.5 text-xs font-mono text-stone-700">
               {activeLayer.tech}
             </span>
           </div>
@@ -159,7 +159,7 @@ export const AiSystemArchitectureExplorer = () => {
 
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {activeLayer.details.map((detail, idx) => (
-            <div key={idx} className="flex items-start gap-2.5 rounded-lg border border-stone-800/60 bg-stone-900/40 p-3 text-xs text-stone-300">
+            <div key={idx} className="flex items-start gap-2.5 rounded-lg border border-[#e7e3da] bg-white p-3 text-xs text-stone-700">
               <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
               <span>{detail}</span>
             </div>
@@ -210,16 +210,16 @@ export const RagVsFineTuningDecisionMatrixTool = () => {
   }, [knowledgeVolatility, sourceCitationsNeeded, behavioralFormatRigidity, trainingDataVolume, budgetTolerance]);
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
-          <span className="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-violet-400">
+          <span className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700 font-bold">
             Decision Framework
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             RAG vs. Fine-Tuning Architectural Matrix
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Input your application requirements to evaluate suitability across RAG, Fine-Tuning, and Hybrid topologies.
           </p>
         </div>
@@ -228,9 +228,9 @@ export const RagVsFineTuningDecisionMatrixTool = () => {
       {/* Sliders Grid */}
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Knowledge Change Frequency:</span>
-            <span className="font-mono text-violet-400 font-bold">{knowledgeVolatility}/10</span>
+            <span className="font-mono text-orange-700 font-bold">{knowledgeVolatility}/10</span>
           </div>
           <input
             type="range"
@@ -238,15 +238,15 @@ export const RagVsFineTuningDecisionMatrixTool = () => {
             max="10"
             value={knowledgeVolatility}
             onChange={(e) => setKnowledgeVolatility(Number(e.target.value))}
-            className="mt-2 w-full accent-violet-500"
+            className="mt-2 w-full accent-[#f97316]"
           />
           <div className="text-[10px] text-stone-500 mt-1">1 = Static docs | 10 = Daily updates</div>
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Source Grounding & Citations:</span>
-            <span className="font-mono text-violet-400 font-bold">{sourceCitationsNeeded}/10</span>
+            <span className="font-mono text-orange-700 font-bold">{sourceCitationsNeeded}/10</span>
           </div>
           <input
             type="range"
@@ -254,15 +254,15 @@ export const RagVsFineTuningDecisionMatrixTool = () => {
             max="10"
             value={sourceCitationsNeeded}
             onChange={(e) => setSourceCitationsNeeded(Number(e.target.value))}
-            className="mt-2 w-full accent-violet-500"
+            className="mt-2 w-full accent-[#f97316]"
           />
           <div className="text-[10px] text-stone-500 mt-1">1 = General prose | 10 = Strict legal/audit citations</div>
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Behavioral Persona & Format Rigidity:</span>
-            <span className="font-mono text-violet-400 font-bold">{behavioralFormatRigidity}/10</span>
+            <span className="font-mono text-orange-700 font-bold">{behavioralFormatRigidity}/10</span>
           </div>
           <input
             type="range"
@@ -270,15 +270,15 @@ export const RagVsFineTuningDecisionMatrixTool = () => {
             max="10"
             value={behavioralFormatRigidity}
             onChange={(e) => setBehavioralFormatRigidity(Number(e.target.value))}
-            className="mt-2 w-full accent-violet-500"
+            className="mt-2 w-full accent-[#f97316]"
           />
           <div className="text-[10px] text-stone-500 mt-1">1 = Free-form chat | 10 = Strict JSON rubric scoring</div>
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Curated Training Data Available:</span>
-            <span className="font-mono text-violet-400 font-bold">{trainingDataVolume}/10</span>
+            <span className="font-mono text-orange-700 font-bold">{trainingDataVolume}/10</span>
           </div>
           <input
             type="range"
@@ -286,15 +286,15 @@ export const RagVsFineTuningDecisionMatrixTool = () => {
             max="10"
             value={trainingDataVolume}
             onChange={(e) => setTrainingDataVolume(Number(e.target.value))}
-            className="mt-2 w-full accent-violet-500"
+            className="mt-2 w-full accent-[#f97316]"
           />
           <div className="text-[10px] text-stone-500 mt-1">1 = Zero examples | 10 = 10,000+ verified interview pairs</div>
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Hardware & GPU Budget:</span>
-            <span className="font-mono text-violet-400 font-bold">{budgetTolerance}/10</span>
+            <span className="font-mono text-orange-700 font-bold">{budgetTolerance}/10</span>
           </div>
           <input
             type="range"
@@ -302,56 +302,56 @@ export const RagVsFineTuningDecisionMatrixTool = () => {
             max="10"
             value={budgetTolerance}
             onChange={(e) => setBudgetTolerance(Number(e.target.value))}
-            className="mt-2 w-full accent-violet-500"
+            className="mt-2 w-full accent-[#f97316]"
           />
           <div className="text-[10px] text-stone-500 mt-1">1 = Serverless API | 10 = Dedicated GPU training nodes</div>
         </div>
       </div>
 
       {/* Analytical Recommendation Banner */}
-      <div className="mt-6 rounded-xl border border-violet-500/40 bg-violet-950/20 p-5">
+      <div className="mt-6 rounded-xl border border-orange-200 bg-orange-50/60 p-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-violet-400">
+            <div className="text-xs font-bold uppercase tracking-wider text-orange-700">
               Architectural Recommendation
             </div>
-            <div className="mt-1 text-xl font-black text-white">
+            <div className="mt-1 text-xl font-black text-stone-900">
               {recommendation}
             </div>
           </div>
-          <div className="rounded-lg bg-violet-500/20 px-3 py-1.5 text-xs font-mono font-bold text-violet-300">
+          <div className="rounded-lg bg-orange-100 border border-orange-200 px-3 py-1.5 text-xs font-mono font-bold text-orange-800">
             Fit Score: {hybridScore}%
           </div>
         </div>
 
         {/* Score Meters */}
-        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 border-t border-stone-800/80 pt-4 text-xs font-mono">
+        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 border-t border-[#e7e3da] pt-4 text-xs font-mono">
           <div>
-            <div className="flex justify-between text-stone-400">
+            <div className="flex justify-between text-stone-600">
               <span>Pure RAG Fit:</span>
-              <span className="text-stone-200">{ragScore}%</span>
+              <span className="text-stone-800">{ragScore}%</span>
             </div>
-            <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-stone-800">
+            <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-stone-200">
               <div className="h-full bg-sky-500" style={{ width: `${ragScore}%` }} />
             </div>
           </div>
 
           <div>
-            <div className="flex justify-between text-stone-400">
+            <div className="flex justify-between text-stone-600">
               <span>Pure Fine-Tuning Fit:</span>
-              <span className="text-stone-200">{ftScore}%</span>
+              <span className="text-stone-800">{ftScore}%</span>
             </div>
-            <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-stone-800">
+            <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-stone-200">
               <div className="h-full bg-amber-500" style={{ width: `${ftScore}%` }} />
             </div>
           </div>
 
           <div>
-            <div className="flex justify-between text-stone-400">
+            <div className="flex justify-between text-stone-600">
               <span>Hybrid Topology Fit:</span>
-              <span className="text-stone-200">{hybridScore}%</span>
+              <span className="text-stone-800">{hybridScore}%</span>
             </div>
-            <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-stone-800">
+            <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-stone-200">
               <div className="h-full bg-emerald-500" style={{ width: `${hybridScore}%` }} />
             </div>
           </div>
@@ -418,16 +418,16 @@ export const CircuitBreakerReliabilitySimulator = () => {
   };
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
-          <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+          <span className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700 font-bold">
             Fault Tolerance
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             3-State Circuit Breaker Resilience Simulator
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Simulate third-party AI provider outages and watch the circuit breaker isolate failures and probe for recovery.
           </p>
         </div>
@@ -445,7 +445,7 @@ export const CircuitBreakerReliabilitySimulator = () => {
           </button>
           <button
             onClick={handleResetBreaker}
-            className="rounded-xl border border-stone-800 bg-stone-950 px-3 py-2 text-xs text-stone-400 hover:text-stone-200"
+            className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] px-3 py-2 text-xs text-stone-600 hover:text-stone-800"
           >
             <RotateCcw className="h-4 w-4" />
           </button>
@@ -457,46 +457,46 @@ export const CircuitBreakerReliabilitySimulator = () => {
         <div
           className={`rounded-xl border p-4 text-center transition-all ${
             circuitState === "CLOSED"
-              ? "border-emerald-500 bg-emerald-950/30 shadow-lg shadow-emerald-950/50"
-              : "border-stone-800 bg-stone-950 opacity-40"
+              ? "border-emerald-500 bg-emerald-50 text-emerald-900 shadow-xs"
+              : "border-[#e7e3da] bg-[#faf8f4] opacity-50"
           }`}
         >
           <div className="text-xs font-mono font-bold text-emerald-400">STATE 1</div>
-          <div className="mt-1 text-xl font-black text-white">CLOSED</div>
-          <div className="mt-1 text-[11px] text-stone-400">Normal operations. Passes all traffic to AI provider.</div>
+          <div className="mt-1 text-xl font-black text-stone-900">CLOSED</div>
+          <div className="mt-1 text-[11px] text-stone-600">Normal operations. Passes all traffic to AI provider.</div>
         </div>
 
         <div
           className={`rounded-xl border p-4 text-center transition-all ${
             circuitState === "OPEN"
-              ? "border-rose-500 bg-rose-950/30 shadow-lg shadow-rose-950/50"
-              : "border-stone-800 bg-stone-950 opacity-40"
+              ? "border-rose-500 bg-rose-50 text-rose-900 shadow-xs"
+              : "border-[#e7e3da] bg-[#faf8f4] opacity-50"
           }`}
         >
           <div className="text-xs font-mono font-bold text-rose-400">STATE 2</div>
-          <div className="mt-1 text-xl font-black text-white">OPEN</div>
-          <div className="mt-1 text-[11px] text-stone-400">Short-circuits (0ms). Routes immediately to fallback model.</div>
+          <div className="mt-1 text-xl font-black text-stone-900">OPEN</div>
+          <div className="mt-1 text-[11px] text-stone-600">Short-circuits (0ms). Routes immediately to fallback model.</div>
         </div>
 
         <div
           className={`rounded-xl border p-4 text-center transition-all ${
             circuitState === "HALF_OPEN"
-              ? "border-amber-500 bg-amber-950/30 shadow-lg shadow-amber-950/50"
-              : "border-stone-800 bg-stone-950 opacity-40"
+              ? "border-amber-500 bg-amber-50 text-amber-900 shadow-xs"
+              : "border-[#e7e3da] bg-[#faf8f4] opacity-50"
           }`}
         >
           <div className="text-xs font-mono font-bold text-amber-400">STATE 3</div>
-          <div className="mt-1 text-xl font-black text-white">HALF-OPEN</div>
-          <div className="mt-1 text-[11px] text-stone-400">Cooldown expired. Probing 1 canary request to test health.</div>
+          <div className="mt-1 text-xl font-black text-stone-900">HALF-OPEN</div>
+          <div className="mt-1 text-[11px] text-stone-600">Cooldown expired. Probing 1 canary request to test health.</div>
         </div>
       </div>
 
       {/* Action Controls */}
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-stone-800 bg-stone-950 p-4">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
         <div className="flex items-center gap-4">
           <button
             onClick={handleSendRequest}
-            className="flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-lg shadow-indigo-950/50 hover:bg-indigo-500"
+            className="flex items-center gap-2 rounded-xl bg-[#f97316] hover:bg-orange-600 px-5 py-2.5 text-xs font-bold text-white shadow-xs shadow-lg shadow-xs hover:bg-indigo-500"
           >
             <Play className="h-4 w-4" /> Send Request to AI Gateway
           </button>
@@ -511,19 +511,19 @@ export const CircuitBreakerReliabilitySimulator = () => {
           )}
         </div>
 
-        <div className="text-xs font-mono text-stone-400">
-          Failure Counter: <strong className="text-white">{consecutiveFailures} / {failureThreshold}</strong>
+        <div className="text-xs font-mono text-stone-600">
+          Failure Counter: <strong className="text-stone-900">{consecutiveFailures} / {failureThreshold}</strong>
         </div>
       </div>
 
       {/* Request Execution Log */}
       <div className="mt-6">
-        <label className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <label className="text-xs font-semibold uppercase tracking-wider text-stone-600">
           Live Gateway Telemetry Stream:
         </label>
         <div className="mt-2 space-y-2 font-mono text-xs">
           {requestHistory.length === 0 ? (
-            <div className="rounded-xl border border-stone-800 bg-stone-950 p-4 text-center text-stone-500">
+            <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4 text-center text-stone-500">
               Click 'Send Request to AI Gateway' to simulate live traffic.
             </div>
           ) : (
@@ -532,10 +532,10 @@ export const CircuitBreakerReliabilitySimulator = () => {
                 key={idx}
                 className={`flex items-center justify-between rounded-lg border p-2.5 ${
                   req.result === "SUCCESS_200"
-                    ? "border-emerald-500/30 bg-emerald-950/20 text-emerald-300"
+                    ? "border-emerald-200 bg-emerald-50 text-emerald-800"
                     : req.result === "BLOCKED_FAIL_FAST"
-                    ? "border-amber-500/30 bg-amber-950/20 text-amber-300"
-                    : "border-rose-500/30 bg-rose-950/20 text-rose-300"
+                    ? "border-amber-200 bg-amber-50 text-amber-800"
+                    : "border-rose-200 bg-rose-50 text-rose-800"
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -598,16 +598,16 @@ export const TokenCostAndCapacityCalculator = () => {
   const requiredGpuNodes = Math.ceil(inFlightConcurrentRequests / 16) + 1; // +1 HA redundancy
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
-          <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-400">
+          <span className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700 font-bold">
             Capacity & Cost Modeling
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             Enterprise Token Cost & GPU Capacity Sizing Planner
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Apply Little's Law ($L = \lambda W$) and token pricing models to project infrastructure and API budgets.
           </p>
         </div>
@@ -619,8 +619,8 @@ export const TokenCostAndCapacityCalculator = () => {
               onClick={() => setModelTier(key)}
               className={`rounded-lg px-2.5 py-1 text-xs font-semibold whitespace-nowrap transition-all ${
                 modelTier === key
-                  ? "bg-amber-600 text-white font-bold"
-                  : "bg-stone-950 text-stone-400 border border-stone-800"
+                  ? "bg-amber-600 text-stone-900 font-bold"
+                  : "bg-white text-stone-600 border border-[#e7e3da] hover:border-orange-300"
               }`}
             >
               {key.toUpperCase()}
@@ -632,7 +632,7 @@ export const TokenCostAndCapacityCalculator = () => {
       {/* Sliders Grid */}
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Daily Active Users (DAU):</span>
             <span className="font-mono text-amber-400 font-bold">{dau.toLocaleString()}</span>
           </div>
@@ -648,7 +648,7 @@ export const TokenCostAndCapacityCalculator = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Peak Concurrency Ratio:</span>
             <span className="font-mono text-amber-400 font-bold">{(peakRatio * 100).toFixed(0)}% ({Math.round(peakUsers)} users)</span>
           </div>
@@ -664,7 +664,7 @@ export const TokenCostAndCapacityCalculator = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Input Tokens / Eval:</span>
             <span className="font-mono text-amber-400 font-bold">{inputTokens.toLocaleString()}</span>
           </div>
@@ -680,7 +680,7 @@ export const TokenCostAndCapacityCalculator = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Output Tokens / Eval:</span>
             <span className="font-mono text-amber-400 font-bold">{outputTokens.toLocaleString()}</span>
           </div>
@@ -705,13 +705,13 @@ export const TokenCostAndCapacityCalculator = () => {
           <div className="mt-1 text-2xl font-black text-amber-200">
             ${Math.round(dailyTotalCost).toLocaleString()} / day
           </div>
-          <div className="mt-1 text-[11px] text-stone-400 font-mono">
+          <div className="mt-1 text-[11px] text-stone-600 font-mono">
             ${Math.round(monthlyTotalCost).toLocaleString()} / month
           </div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs font-semibold uppercase tracking-wider text-stone-600">
             Cost per 15-Min Interview
           </div>
           <div className="mt-1 text-2xl font-bold text-emerald-400">
@@ -722,8 +722,8 @@ export const TokenCostAndCapacityCalculator = () => {
           </div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs font-semibold uppercase tracking-wider text-stone-600">
             Little's Law Concurrent ($L$)
           </div>
           <div className="mt-1 text-2xl font-bold text-sky-400">
@@ -734,11 +734,11 @@ export const TokenCostAndCapacityCalculator = () => {
           </div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs font-semibold uppercase tracking-wider text-stone-600">
             Required GPU Nodes
           </div>
-          <div className="mt-1 text-2xl font-bold text-violet-400">
+          <div className="mt-1 text-2xl font-bold text-orange-700">
             {requiredGpuNodes} × A10G (24GB)
           </div>
           <div className="mt-1 text-[11px] text-stone-500 font-mono">
@@ -764,7 +764,7 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
       actor: "Client Browser",
       latency: "t = 0ms",
       desc: "Candidate speaks their answer. Browser audio context records PCM audio chunks (16kHz, 16-bit mono) and streams them via WebSocket.",
-      badge: "border-sky-500/40 bg-sky-950/20 text-sky-300"
+      badge: "border-sky-200 bg-sky-50 text-sky-900"
     },
     {
       step: 1,
@@ -772,7 +772,7 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
       actor: "Edge Audio Worker",
       latency: "t + 450ms",
       desc: "WebRTC VAD tracks speech energy. Candidate pauses; silence timer accumulates. At 700ms continuous silence, endpointing triggers.",
-      badge: "border-indigo-500/40 bg-indigo-950/20 text-indigo-300"
+      badge: "border-indigo-200 bg-indigo-50 text-indigo-900"
     },
     {
       step: 2,
@@ -780,7 +780,7 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
       actor: "Whisper Turbo",
       latency: "t + 780ms",
       desc: "Whisper Turbo transcribes accumulated audio buffer into text transcript: 'ConcurrentHashMap uses segment locks'.",
-      badge: "border-violet-500/40 bg-violet-950/20 text-violet-300"
+      badge: "border-purple-200 bg-purple-50 text-purple-900"
     },
     {
       step: 3,
@@ -788,7 +788,7 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
       actor: "AI Orchestrator & vLLM",
       latency: "t + 1,150ms",
       desc: "Java 21 concurrency guidelines retrieved via pgvector. LLM generates Token 1 ('Correct,') within 370ms TTFT.",
-      badge: "border-emerald-500/40 bg-emerald-950/20 text-emerald-300"
+      badge: "border-emerald-200 bg-emerald-50 text-emerald-900"
     },
     {
       step: 4,
@@ -796,7 +796,7 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
       actor: "Streaming Cloud TTS",
       latency: "t + 1,450ms",
       desc: "Tokens are streamed to TTS engine in 5-word sentence clauses. First synthesized audio buffer streams back to browser.",
-      badge: "border-amber-500/40 bg-amber-950/20 text-amber-300"
+      badge: "border-amber-200 bg-amber-50 text-amber-900"
     },
     {
       step: 5,
@@ -804,21 +804,21 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
       actor: "Candidate Speakers",
       latency: "t + 1,800ms",
       desc: "Audio plays back seamlessly. If candidate begins speaking again, client immediately triggers Barge-In cancellation.",
-      badge: "border-rose-500/40 bg-rose-950/20 text-rose-300"
+      badge: "border-rose-200 bg-rose-50 text-rose-900"
     }
   ];
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
           <span className="rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-sky-400">
             Real-Time Voice Architecture
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             Conversational Voice AI Turn-Taking Pipeline
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Step through the conversational voice pipeline from microphone capture to barge-in interruption.
           </p>
         </div>
@@ -826,13 +826,13 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
         <div className="flex gap-2">
           <button
             onClick={() => setPipelineStep((prev) => (prev + 1) % steps.length)}
-            className="flex items-center gap-2 rounded-xl bg-sky-600 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-sky-950/50 hover:bg-sky-500"
+            className="flex items-center gap-2 rounded-xl bg-sky-600 px-4 py-2 text-xs font-bold text-stone-900 shadow-lg shadow-sky-950/50 hover:bg-sky-500"
           >
             <Play className="h-4 w-4" /> Next Turn Phase
           </button>
           <button
             onClick={() => setPipelineStep(0)}
-            className="rounded-xl border border-stone-800 bg-stone-950 px-3 py-2 text-xs text-stone-400 hover:text-stone-200"
+            className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] px-3 py-2 text-xs text-stone-600 hover:text-stone-800"
           >
             <RotateCcw className="h-4 w-4" />
           </button>
@@ -847,8 +847,8 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
             onClick={() => setPipelineStep(idx)}
             className={`rounded-xl border p-2.5 text-left text-xs transition-all ${
               pipelineStep === idx
-                ? "border-sky-500 bg-sky-950/30 font-bold text-white shadow-md shadow-sky-950/40"
-                : "border-stone-800 bg-stone-950 text-stone-400 hover:border-stone-700"
+                ? "border-sky-500 bg-sky-950/30 font-bold text-stone-900 shadow-md shadow-sky-950/40"
+                : "border-[#e7e3da] bg-white text-stone-600 hover:border-orange-300 hover:text-stone-900"
             }`}
           >
             <div className="text-[10px] font-mono text-stone-500">PHASE 0{idx + 1}</div>
@@ -858,11 +858,11 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
       </div>
 
       {/* Active Phase Card */}
-      <div className="mt-6 rounded-xl border border-stone-800 bg-stone-950 p-6">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-800 pb-3">
+      <div className="mt-6 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-6">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e7e3da] pb-3">
           <div className="flex items-center gap-2">
-            <span className="text-lg font-bold text-white">{steps[pipelineStep].title}</span>
-            <span className="rounded-full bg-stone-800 px-2.5 py-0.5 text-xs font-mono text-stone-300">
+            <span className="text-lg font-bold text-stone-900">{steps[pipelineStep].title}</span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-2.5 py-0.5 text-xs font-mono text-stone-700">
               Actor: {steps[pipelineStep].actor}
             </span>
           </div>
@@ -871,11 +871,11 @@ export const RealtimeVoiceTurnTakingVisualizer = () => {
           </span>
         </div>
 
-        <p className="mt-4 text-sm text-stone-300 leading-relaxed">
+        <p className="mt-4 text-sm text-stone-700 leading-relaxed">
           {steps[pipelineStep].desc}
         </p>
 
-        <div className="mt-6 flex items-center justify-between border-t border-stone-800/80 pt-4 text-xs font-mono text-stone-500">
+        <div className="mt-6 flex items-center justify-between border-t border-[#e7e3da] pt-4 text-xs font-mono text-stone-500">
           <span>Target End-to-End Budget: &lt; 1,800ms</span>
           <span>Conversational State: {pipelineStep < 3 ? "CANDIDATE_TURN" : "AI_RESPONDING"}</span>
         </div>

@@ -81,14 +81,14 @@ export function CapstoneArchitectureExplorer() {
   const current = architectureTiers[selectedTier];
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6 backdrop-blur-sm">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs backdrop-blur-sm">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
         <div>
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+          <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
             <Layers className="h-5 w-5 text-indigo-400" />
             Interactive C4 High-Level Architecture Explorer
           </h3>
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-600">
             Click any architecture layer to inspect its component stack, data protocols, failure modes, and SLOs.
           </p>
         </div>
@@ -107,22 +107,22 @@ export function CapstoneArchitectureExplorer() {
               onClick={() => setSelectedTier(key)}
               className={`rounded-xl border p-2.5 text-left transition-all ${
                 isActive
-                  ? "border-indigo-500 bg-indigo-500/20 text-white shadow-md shadow-indigo-950/40"
-                  : "border-stone-800 bg-stone-950/60 text-stone-400 hover:border-stone-700 hover:text-stone-200"
+                  ? "border-indigo-500 bg-indigo-500/20 text-stone-900 shadow-md shadow-indigo-950/40"
+                  : "border-[#e7e3da] bg-[#faf8f4]/60 text-stone-600 hover:border-[#e7e3da] hover:text-stone-800"
               }`}
             >
               <div className="text-[11px] font-bold uppercase tracking-wider">{key}</div>
-              <div className="text-xs font-semibold truncate text-stone-200">{item.title.split(" ")[1]}</div>
+              <div className="text-xs font-semibold truncate text-stone-800">{item.title.split(" ")[1]}</div>
             </button>
           );
         })}
       </div>
 
       {/* Detailed Tier Display Card */}
-      <div className="mt-6 rounded-xl border border-stone-800 bg-stone-950/80 p-5">
+      <div className="mt-6 rounded-xl border border-[#e7e3da] bg-[#faf8f4]/80 p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h4 className="text-base font-bold text-white">{current.title}</h4>
-          <span className="rounded-md bg-stone-800 px-2 py-0.5 text-xs font-mono text-emerald-400">
+          <h4 className="text-base font-bold text-stone-900">{current.title}</h4>
+          <span className="rounded-md bg-stone-100 px-2 py-0.5 text-xs font-mono text-emerald-400">
             {current.protocol}
           </span>
         </div>
@@ -130,13 +130,13 @@ export function CapstoneArchitectureExplorer() {
         <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="space-y-3">
             <div>
-              <div className="text-xs font-medium text-stone-400">Technologies & Frameworks:</div>
-              <div className="mt-1 text-xs font-mono text-indigo-300 bg-stone-900 p-2 rounded-lg border border-stone-800">
+              <div className="text-xs font-medium text-stone-600">Technologies & Frameworks:</div>
+              <div className="mt-1 text-xs font-mono text-indigo-300 bg-[#faf8f4] p-2 rounded-lg border border-[#e7e3da]">
                 {current.tech}
               </div>
             </div>
             <div>
-              <div className="text-xs font-medium text-stone-400">Core Engineering Responsibilities:</div>
+              <div className="text-xs font-medium text-stone-600">Core Engineering Responsibilities:</div>
               <p className="mt-1 text-xs leading-relaxed text-stone-300">{current.role}</p>
             </div>
           </div>
@@ -261,20 +261,20 @@ export function InterviewStateMachineSimulator() {
   ];
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6 backdrop-blur-sm">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs backdrop-blur-sm">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
         <div>
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+          <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
             <Activity className="h-5 w-5 text-emerald-400" />
             Server-Authoritative 7-State FSM & Failure Recovery Simulator
           </h3>
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-600">
             Simulate normal interview progressions, upstream LLM 503 outages, and idempotent background recoveries.
           </p>
         </div>
         <button
           onClick={handleReset}
-          className="flex items-center gap-1.5 rounded-lg border border-stone-700 bg-stone-800 px-3 py-1.5 text-xs font-semibold text-stone-300 hover:bg-stone-700"
+          className="flex items-center gap-1.5 rounded-lg border border-[#e7e3da] bg-stone-100 px-3 py-1.5 text-xs font-semibold text-stone-300 hover:bg-stone-700"
         >
           <RotateCcw className="h-3.5 w-3.5" />
           Reset Simulator
@@ -282,7 +282,7 @@ export function InterviewStateMachineSimulator() {
       </div>
 
       {/* Visual State Pipeline */}
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-2 overflow-x-auto rounded-xl border border-stone-800 bg-stone-950/70 p-3">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-2 overflow-x-auto rounded-xl border border-[#e7e3da] bg-[#faf8f4]/70 p-3">
         {statesList.map((state, idx) => {
           const isCurrent = currentState === state;
           const isPast = statesList.indexOf(currentState) > idx;
@@ -291,10 +291,10 @@ export function InterviewStateMachineSimulator() {
               <div
                 className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-bold transition-all ${
                   isCurrent
-                    ? "bg-emerald-500 text-stone-950 ring-2 ring-emerald-400 shadow-md shadow-emerald-950/50"
+                    ? "bg-emerald-500 text-stone-950 ring-2 ring-emerald-400 shadow-md shadow-xs"
                     : isPast
-                    ? "bg-stone-800 text-stone-300"
-                    : "bg-stone-900/60 text-stone-600"
+                    ? "bg-stone-100 text-stone-300"
+                    : "bg-[#faf8f4]/60 text-stone-600"
                 }`}
               >
                 {isPast ? <CheckCircle2 className="h-3 w-3" /> : <div className="h-2 w-2 rounded-full bg-current" />}
@@ -313,28 +313,28 @@ export function InterviewStateMachineSimulator() {
         <button
           disabled={currentState !== "CREATED"}
           onClick={handleStartInterview}
-          className="rounded-xl border border-stone-700 bg-stone-800/80 p-3 text-left transition-all hover:border-emerald-500 disabled:opacity-30"
+          className="rounded-xl border border-[#e7e3da] bg-stone-100/80 p-3 text-left transition-all hover:border-emerald-500 disabled:opacity-30"
         >
-          <div className="text-xs font-bold text-white">1. Start Interview</div>
-          <div className="text-[11px] text-stone-400">CREATED &rarr; ACTIVE</div>
+          <div className="text-xs font-bold text-stone-900">1. Start Interview</div>
+          <div className="text-[11px] text-stone-600">CREATED &rarr; ACTIVE</div>
         </button>
 
         <button
           disabled={currentState !== "ACTIVE" && currentState !== "QUESTION_PENDING"}
           onClick={handleRequestQuestion}
-          className="rounded-xl border border-stone-700 bg-stone-800/80 p-3 text-left transition-all hover:border-indigo-500 disabled:opacity-30"
+          className="rounded-xl border border-[#e7e3da] bg-stone-100/80 p-3 text-left transition-all hover:border-indigo-500 disabled:opacity-30"
         >
-          <div className="text-xs font-bold text-white">2. Fetch Question ({questionCount}/{maxQuestions})</div>
-          <div className="text-[11px] text-stone-400">&rarr; AWAITING_ANSWER</div>
+          <div className="text-xs font-bold text-stone-900">2. Fetch Question ({questionCount}/{maxQuestions})</div>
+          <div className="text-[11px] text-stone-600">&rarr; AWAITING_ANSWER</div>
         </button>
 
         <button
           disabled={currentState !== "AWAITING_ANSWER"}
           onClick={() => handleSubmitAnswer(false)}
-          className="rounded-xl border border-stone-700 bg-stone-800/80 p-3 text-left transition-all hover:border-emerald-500 disabled:opacity-30"
+          className="rounded-xl border border-[#e7e3da] bg-stone-100/80 p-3 text-left transition-all hover:border-emerald-500 disabled:opacity-30"
         >
-          <div className="text-xs font-bold text-white">3. Submit Valid Answer</div>
-          <div className="text-[11px] text-stone-400">&rarr; EVALUATING (Normal)</div>
+          <div className="text-xs font-bold text-stone-900">3. Submit Valid Answer</div>
+          <div className="text-[11px] text-stone-600">&rarr; EVALUATING (Normal)</div>
         </button>
 
         <button
@@ -370,8 +370,8 @@ export function InterviewStateMachineSimulator() {
       </div>
 
       {/* Real-time State Log Console */}
-      <div className="mt-5 rounded-xl border border-stone-800 bg-stone-950 p-4 font-mono text-xs">
-        <div className="flex items-center justify-between border-b border-stone-800 pb-2 text-[11px] text-stone-500">
+      <div className="mt-5 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4 font-mono text-xs">
+        <div className="flex items-center justify-between border-b border-[#e7e3da] pb-2 text-[11px] text-stone-500">
           <span>SERVER TRANSACTION & AUDIT LOG</span>
           <span className="text-emerald-400">STATUS: {currentState}</span>
         </div>
@@ -433,23 +433,23 @@ export function GoldenDatasetEvaluatorTool() {
   const passedGate = passedSchemaGate && passedAgreementGate;
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6 backdrop-blur-sm">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs backdrop-blur-sm">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
         <div>
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+          <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
             <ShieldCheck className="h-5 w-5 text-indigo-400" />
             Golden Dataset Evaluation & CI/CD Release Gate
           </h3>
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-600">
             Compare model pipeline configurations against a curated 200-question technical benchmark.
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-stone-400">Test Cases:</span>
+          <span className="text-xs text-stone-600">Test Cases:</span>
           <select
             value={testCasesCount}
             onChange={(e) => setTestCasesCount(Number(e.target.value))}
-            className="rounded-lg border border-stone-700 bg-stone-800 px-2.5 py-1 text-xs text-white"
+            className="rounded-lg border border-[#e7e3da] bg-stone-100 px-2.5 py-1 text-xs text-stone-900"
           >
             <option value={50}>50 Quick Benchmark</option>
             <option value={100}>100 Standard Suite</option>
@@ -468,11 +468,11 @@ export function GoldenDatasetEvaluatorTool() {
               onClick={() => setSelectedConfig(key)}
               className={`rounded-xl border p-4 text-left transition-all ${
                 isSelected
-                  ? "border-indigo-500 bg-indigo-500/20 text-white shadow-md shadow-indigo-950/40"
-                  : "border-stone-800 bg-stone-950/60 text-stone-400 hover:border-stone-700 hover:text-stone-200"
+                  ? "border-indigo-500 bg-indigo-500/20 text-stone-900 shadow-md shadow-indigo-950/40"
+                  : "border-[#e7e3da] bg-[#faf8f4]/60 text-stone-600 hover:border-[#e7e3da] hover:text-stone-800"
               }`}
             >
-              <div className="text-xs font-bold text-white">{config.name}</div>
+              <div className="text-xs font-bold text-stone-900">{config.name}</div>
               <div className="mt-1 text-[11px] font-mono text-indigo-300">{config.model}</div>
               <div className="mt-3 flex items-center justify-between text-xs">
                 <span>Rubric Agree:</span>
@@ -485,38 +485,38 @@ export function GoldenDatasetEvaluatorTool() {
 
       {/* Benchmark Metric Cards */}
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-5">
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-3">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-3">
           <div className="text-[11px] text-stone-500">Technical Accuracy</div>
-          <div className="mt-1 text-xl font-bold text-white">{current.accuracy}%</div>
-          <div className="text-[10px] text-stone-400">Target: &ge; 90%</div>
+          <div className="mt-1 text-xl font-bold text-stone-900">{current.accuracy}%</div>
+          <div className="text-[10px] text-stone-600">Target: &ge; 90%</div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-3">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-3">
           <div className="text-[11px] text-stone-500">JSON Schema Validity</div>
           <div className={`mt-1 text-xl font-bold ${passedSchemaGate ? "text-emerald-400" : "text-rose-400"}`}>
             {current.schemaValidity}%
           </div>
-          <div className="text-[10px] text-stone-400">Gate: &ge; 98.0%</div>
+          <div className="text-[10px] text-stone-600">Gate: &ge; 98.0%</div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-3">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-3">
           <div className="text-[11px] text-stone-500">Rubric Agreement</div>
           <div className={`mt-1 text-xl font-bold ${passedAgreementGate ? "text-emerald-400" : "text-rose-400"}`}>
             {current.rubricAgreement}%
           </div>
-          <div className="text-[10px] text-stone-400">Gate: &ge; 85.0%</div>
+          <div className="text-[10px] text-stone-600">Gate: &ge; 85.0%</div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-3">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-3">
           <div className="text-[11px] text-stone-500">p95 Latency</div>
           <div className="mt-1 text-xl font-bold text-sky-400">{current.p95Latency}s</div>
-          <div className="text-[10px] text-stone-400">Target: &lt; 10.0s</div>
+          <div className="text-[10px] text-stone-600">Target: &lt; 10.0s</div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-3">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-3">
           <div className="text-[11px] text-stone-500">Cost / Interview</div>
           <div className="mt-1 text-xl font-bold text-amber-400">${current.tokenCostPerInterview}</div>
-          <div className="text-[10px] text-stone-400">10k DAU: ${(current.tokenCostPerInterview * 10000).toLocaleString()}/day</div>
+          <div className="text-[10px] text-stone-600">10k DAU: ${(current.tokenCostPerInterview * 10000).toLocaleString()}/day</div>
         </div>
       </div>
 
@@ -537,7 +537,7 @@ export function GoldenDatasetEvaluatorTool() {
             </div>
           </div>
         </div>
-        <span className="rounded-lg bg-stone-900/80 px-3 py-1 font-mono text-xs font-bold border border-stone-700">
+        <span className="rounded-lg bg-[#faf8f4]/80 px-3 py-1 font-mono text-xs font-bold border border-[#e7e3da]">
           {current.status}
         </span>
       </div>
@@ -588,24 +588,24 @@ export function CapstoneRubricEvaluationCalculator() {
   };
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6 backdrop-blur-sm">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs backdrop-blur-sm">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
         <div>
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+          <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
             <Calculator className="h-5 w-5 text-amber-400" />
             100-Mark Capstone Evaluation Rubric & Defense Calculator
           </h3>
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-600">
             Interactive academic and industry assessment rubric matching the official university capstone syllabus.
           </p>
         </div>
         <div className="flex items-center gap-3">
           <div className="text-right">
             <div className="text-xs text-stone-500">Overall Score</div>
-            <div className="text-2xl font-extrabold text-white">{totalScore} / 100</div>
+            <div className="text-2xl font-extrabold text-stone-900">{totalScore} / 100</div>
           </div>
-          <div className="rounded-xl border border-stone-700 bg-stone-800 px-3 py-1.5 text-center">
-            <div className="text-[10px] text-stone-400">Grade Tier</div>
+          <div className="rounded-xl border border-[#e7e3da] bg-stone-100 px-3 py-1.5 text-center">
+            <div className="text-[10px] text-stone-600">Grade Tier</div>
             <div className={`text-xs font-bold ${grade.color}`}>{grade.label}</div>
           </div>
         </div>
@@ -614,14 +614,14 @@ export function CapstoneRubricEvaluationCalculator() {
       {/* Sliders Grid */}
       <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         {categories.map((cat) => (
-          <div key={cat.key} className="rounded-xl border border-stone-800 bg-stone-950/70 p-4">
+          <div key={cat.key} className="rounded-xl border border-[#e7e3da] bg-[#faf8f4]/70 p-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-white">{cat.label}</span>
+              <span className="text-xs font-bold text-stone-900">{cat.label}</span>
               <span className="font-mono text-xs font-bold text-amber-400">
                 {scores[cat.key]} / {cat.max} pts
               </span>
             </div>
-            <p className="mt-1 text-[11px] text-stone-400">{cat.desc}</p>
+            <p className="mt-1 text-[11px] text-stone-600">{cat.desc}</p>
             <input
               type="range"
               min={0}
@@ -635,10 +635,10 @@ export function CapstoneRubricEvaluationCalculator() {
       </div>
 
       {/* Summary Interpretation Box */}
-      <div className="mt-6 rounded-xl border border-stone-800 bg-stone-950 p-4">
+      <div className="mt-6 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
         <div className="text-xs font-bold text-stone-300">Examiner Feedback & Readiness Verdict:</div>
-        <p className="mt-1 text-xs text-stone-400 leading-relaxed">
-          {grade.desc}. Total score of <strong className="text-white">{totalScore}/100</strong> qualifies this project for the{" "}
+        <p className="mt-1 text-xs text-stone-600 leading-relaxed">
+          {grade.desc}. Total score of <strong className="text-stone-900">{totalScore}/100</strong> qualifies this project for the{" "}
           <strong className={grade.color}>{grade.label}</strong> tier. Ensure all 16 mandatory submission artifacts are attached before technical viva defense.
         </p>
       </div>
@@ -698,14 +698,14 @@ export function LiveVoiceTurnTakingSimulator() {
   ];
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/60 p-6 backdrop-blur-sm">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-800 pb-4">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs backdrop-blur-sm">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
         <div>
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+          <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
             <Mic className="h-5 w-5 text-sky-400" />
             Real-Time Conversational Turn-Taking & Barge-In Timeline
           </h3>
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-600">
             Simulate human-like conversational turn transitions from candidate speech to audio playback.
           </p>
         </div>
@@ -713,7 +713,7 @@ export function LiveVoiceTurnTakingSimulator() {
           <button
             disabled={isSimulating}
             onClick={runTurnTakingSimulation}
-            className="flex items-center gap-1.5 rounded-xl bg-sky-600 px-4 py-2 text-xs font-bold text-white hover:bg-sky-500 disabled:opacity-40"
+            className="flex items-center gap-1.5 rounded-xl bg-sky-600 px-4 py-2 text-xs font-bold text-stone-900 hover:bg-sky-500 disabled:opacity-40"
           >
             <Play className="h-3.5 w-3.5" />
             Start Voice Turn Simulation
@@ -722,7 +722,7 @@ export function LiveVoiceTurnTakingSimulator() {
       </div>
 
       {/* Silence Threshold Slider */}
-      <div className="mt-5 rounded-xl border border-stone-800 bg-stone-950 p-4">
+      <div className="mt-5 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
         <div className="flex items-center justify-between">
           <span className="text-xs font-medium text-stone-300">VAD Silence Endpointing Threshold:</span>
           <span className="font-mono text-xs font-bold text-sky-400">{silenceThreshold}ms</span>
@@ -753,8 +753,8 @@ export function LiveVoiceTurnTakingSimulator() {
               key={stage.id}
               className={`rounded-xl border p-3.5 text-center transition-all ${
                 isActive
-                  ? `${stage.color} text-white shadow-lg ring-2 ring-white scale-105`
-                  : "border-stone-800 bg-stone-950 text-stone-500"
+                  ? `${stage.color} text-stone-900 shadow-lg ring-2 ring-white scale-105`
+                  : "border-[#e7e3da] bg-[#faf8f4] text-stone-500"
               }`}
             >
               <div className="text-[11px] font-bold">{stage.label}</div>
@@ -765,10 +765,10 @@ export function LiveVoiceTurnTakingSimulator() {
       </div>
 
       {/* Barge-In Trigger Control */}
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-stone-800 bg-stone-950 p-4">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
         <div>
-          <div className="text-xs font-bold text-white">Conversational Barge-In Interruption:</div>
-          <div className="text-[11px] text-stone-400">
+          <div className="text-xs font-bold text-stone-900">Conversational Barge-In Interruption:</div>
+          <div className="text-[11px] text-stone-600">
             Interrupt the AI during audio playback (Stage 5) to test sub-15ms cancellation.
           </div>
         </div>

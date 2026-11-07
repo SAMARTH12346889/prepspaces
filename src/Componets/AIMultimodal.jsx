@@ -82,8 +82,8 @@ export default function AIMultimodal() {
   const activeUnit = MULTIMODAL_CURRICULUM_UNITS[selectedUnitIdx];
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900 font-sans pb-16">
-      <ModuleNav />
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-24">
+      <ModuleNav track="ai" currentModuleId="multimodal-ai" />
 
       {/* Hero Header */}
       <header className="border-b border-stone-200 bg-white pt-8 pb-10 px-4 sm:px-6 lg:px-8">
@@ -146,8 +146,8 @@ export default function AIMultimodal() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-t-lg transition cursor-pointer ${
                     activeTab === tab.id
-                      ? "border-b-2 border-orange-600 text-orange-700 bg-orange-50/50"
-                      : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
+                      ? "bg-[#f97316] text-white shadow-xs font-bold"
+                      : "bg-white/80 text-stone-700 hover:border-orange-300 hover:text-[#f97316] border border-[#e7e3da]"
                   }`}
                 >
                   <Icon size={16} />

@@ -823,9 +823,9 @@ print(f"\nInference on new student: Estimated Exam Score = {pred_score[0]:.2f}/1
   }, [activeInterviewCategory]);
 
   return (
-    <div className="min-h-screen bg-[#faf8f4] text-stone-900 flex flex-col font-sans">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col antialiased selection:bg-[#f97316] selection:text-white pb-24">
       {/* Module Navigation Header */}
-      <ModuleNav currentModuleId="machine-learning" trackId="ai-engineering" />
+      <ModuleNav track="ai" currentModuleId="machine-learning" />
 
       {/* Hero Banner */}
       <div className="relative border-b border-[#e7e3da] bg-[#f5f2eb]/70 pt-8 pb-10 px-4 sm:px-6 lg:px-8">
@@ -884,11 +884,11 @@ print(f"\nInference on new student: Estimated Exam Score = {pred_score[0]:.2f}/1
             onClick={() => setActiveTab("curriculum")}
             className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "curriculum"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
             }`}
           >
-            <BookOpen size={16} className={activeTab === "curriculum" ? "text-orange-400" : "text-stone-400"} />
+            <BookOpen size={16} className={activeTab === "curriculum" ? "text-white" : "text-stone-400"} />
             Curriculum (33 Units)
           </button>
 
@@ -896,11 +896,11 @@ print(f"\nInference on new student: Estimated Exam Score = {pred_score[0]:.2f}/1
             onClick={() => setActiveTab("interactive-tools")}
             className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "interactive-tools"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
             }`}
           >
-            <Sliders size={16} className={activeTab === "interactive-tools" ? "text-orange-400" : "text-stone-400"} />
+            <Sliders size={16} className={activeTab === "interactive-tools" ? "text-white" : "text-stone-400"} />
             Interactive Simulators (5)
           </button>
 
@@ -908,11 +908,11 @@ print(f"\nInference on new student: Estimated Exam Score = {pred_score[0]:.2f}/1
             onClick={() => setActiveTab("labs")}
             className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "labs"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
             }`}
           >
-            <Terminal size={16} className={activeTab === "labs" ? "text-orange-400" : "text-stone-400"} />
+            <Terminal size={16} className={activeTab === "labs" ? "text-white" : "text-stone-400"} />
             Practical Labs (10)
           </button>
 
@@ -920,11 +920,11 @@ print(f"\nInference on new student: Estimated Exam Score = {pred_score[0]:.2f}/1
             onClick={() => setActiveTab("project")}
             className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "project"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
             }`}
           >
-            <ShieldCheck size={16} className={activeTab === "project" ? "text-orange-400" : "text-stone-400"} />
+            <ShieldCheck size={16} className={activeTab === "project" ? "text-white" : "text-stone-400"} />
             Capstone Project
           </button>
 
@@ -932,11 +932,11 @@ print(f"\nInference on new student: Estimated Exam Score = {pred_score[0]:.2f}/1
             onClick={() => setActiveTab("interview")}
             className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "interview"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
             }`}
           >
-            <Sparkles size={16} className={activeTab === "interview" ? "text-orange-400" : "text-stone-400"} />
+            <Sparkles size={16} className={activeTab === "interview" ? "text-white" : "text-stone-400"} />
             Interview Prep (40+)
           </button>
 
@@ -944,11 +944,11 @@ print(f"\nInference on new student: Estimated Exam Score = {pred_score[0]:.2f}/1
             onClick={() => setActiveTab("quiz")}
             className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "quiz"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
             }`}
           >
-            <Award size={16} className={activeTab === "quiz" ? "text-orange-400" : "text-stone-400"} />
+            <Award size={16} className={activeTab === "quiz" ? "text-white" : "text-stone-400"} />
             Assessment Quiz
           </button>
 
@@ -956,11 +956,11 @@ print(f"\nInference on new student: Estimated Exam Score = {pred_score[0]:.2f}/1
             onClick={() => setActiveTab("resources")}
             className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "resources"
-                ? "bg-stone-900 text-white shadow-xs"
+                ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
             }`}
           >
-            <ExternalLink size={16} className={activeTab === "resources" ? "text-orange-400" : "text-stone-400"} />
+            <ExternalLink size={16} className={activeTab === "resources" ? "text-white" : "text-stone-400"} />
             University Resources
           </button>
         </div>

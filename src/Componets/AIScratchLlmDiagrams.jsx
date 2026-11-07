@@ -64,16 +64,16 @@ export const CausalSelfAttentionMatrixVisualizer = () => {
   }, [currentTokenScores]);
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
-          <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+          <span className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700 font-bold">
             Self-Attention Mechanics
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             Causal Self-Attention Matrix & Masking Visualizer
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Inspect $Q K^T / \sqrt&#123;d_k&#125;$ dot products, lower-triangular causal masking ($-\infty$), and attention probability distributions.
           </p>
         </div>
@@ -93,7 +93,7 @@ export const CausalSelfAttentionMatrixVisualizer = () => {
 
       {/* Token Selector Tabs */}
       <div className="mt-6">
-        <label className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <label className="text-xs font-semibold uppercase tracking-wider text-stone-600">
           Select Active Query Token Position ($i$):
         </label>
         <div className="mt-2 flex flex-wrap gap-2">
@@ -103,8 +103,8 @@ export const CausalSelfAttentionMatrixVisualizer = () => {
               onClick={() => setSelectedTokenIdx(idx)}
               className={`flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition-all ${
                 selectedTokenIdx === idx
-                  ? "border-indigo-500 bg-indigo-600/20 text-indigo-300 shadow-lg shadow-indigo-950/50"
-                  : "border-stone-800 bg-stone-950 text-stone-400 hover:border-stone-700 hover:text-stone-200"
+                  ? "border-indigo-500 bg-indigo-600/20 text-indigo-300 shadow-lg shadow-xs"
+                  : "border-[#e7e3da] bg-[#faf8f4] text-stone-600 hover:border-stone-700 hover:text-stone-800"
               }`}
             >
               <span className="font-mono text-xs text-stone-500">pos {idx}:</span>
@@ -122,12 +122,12 @@ export const CausalSelfAttentionMatrixVisualizer = () => {
             className={`relative flex flex-col justify-between rounded-xl border p-4 transition-all ${
               item.isMasked
                 ? "border-red-950/40 bg-red-950/10 opacity-60"
-                : "border-stone-800 bg-stone-950/80"
+                : "border-[#e7e3da] bg-[#faf8f4]/80"
             }`}
           >
             <div>
               <div className="flex items-center justify-between text-xs">
-                <span className="font-mono text-stone-400">Key pos {colIdx}</span>
+                <span className="font-mono text-stone-600">Key pos {colIdx}</span>
                 {item.isMasked ? (
                   <span className="rounded bg-red-500/20 px-2 py-0.5 text-[10px] font-bold text-red-400">
                     MASKED (-∞)
@@ -139,11 +139,11 @@ export const CausalSelfAttentionMatrixVisualizer = () => {
                 )}
               </div>
 
-              <div className="mt-2 text-lg font-bold text-stone-200">
+              <div className="mt-2 text-lg font-bold text-stone-800">
                 "{item.targetToken}"
               </div>
 
-              <div className="mt-3 space-y-1 font-mono text-xs text-stone-400">
+              <div className="mt-3 space-y-1 font-mono text-xs text-stone-600">
                 <div className="flex justify-between">
                   <span>Raw $Q_i K_j$:</span>
                   <span className="text-stone-300">{item.rawScore.toFixed(2)}</span>
@@ -155,9 +155,9 @@ export const CausalSelfAttentionMatrixVisualizer = () => {
               </div>
             </div>
 
-            <div className="mt-4 border-t border-stone-800 pt-3">
+            <div className="mt-4 border-t border-[#e7e3da] pt-3">
               <div className="flex justify-between text-xs font-semibold">
-                <span className="text-stone-400">Softmax Weight:</span>
+                <span className="text-stone-600">Softmax Weight:</span>
                 <span className={item.isMasked ? "text-red-400" : "text-indigo-400"}>
                   {item.probability}%
                 </span>
@@ -176,11 +176,11 @@ export const CausalSelfAttentionMatrixVisualizer = () => {
       </div>
 
       {/* Analytical Callout */}
-      <div className="mt-6 rounded-xl border border-stone-800 bg-stone-950 p-4 text-xs text-stone-400">
+      <div className="mt-6 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4 text-xs text-stone-600">
         <div className="flex items-start gap-2">
           <Brain className="mt-0.5 h-4 w-4 shrink-0 text-indigo-400" />
           <div>
-            <span className="font-semibold text-stone-200">Mathematical Insight: </span>
+            <span className="font-semibold text-stone-800">Mathematical Insight: </span>
             When predicting after token <code className="text-indigo-300">"{ATTENTION_TOKENS[selectedTokenIdx]}"</code> (position {selectedTokenIdx}),
             {causalMaskEnabled ? (
               <span>
@@ -260,16 +260,16 @@ export const BpeMergeTokenizerVisualizer = () => {
   const totalTokens = tokenizedWords.reduce((acc, w) => acc + w.length, 0);
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
-          <span className="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-violet-400">
+          <span className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700 font-bold">
             Tokenization Engineering
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             Byte Pair Encoding (BPE) Iterative Merge Simulator
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Watch raw character sequences calculate bigram statistics and iteratively merge into compact subwords.
           </p>
         </div>
@@ -278,14 +278,14 @@ export const BpeMergeTokenizerVisualizer = () => {
           <button
             onClick={handleMergeNext}
             disabled={bigramCounts.length === 0}
-            className="flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-violet-950/50 hover:bg-violet-500 disabled:opacity-40"
+            className="flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-2 text-xs font-bold text-stone-900 shadow-lg shadow-violet-950/50 hover:bg-violet-500 disabled:opacity-40"
           >
             <Play className="h-4 w-4" />
             Merge Top Bigram
           </button>
           <button
             onClick={handleReset}
-            className="flex items-center gap-1 rounded-xl border border-stone-800 bg-stone-950 px-3 py-2 text-xs font-semibold text-stone-400 hover:text-stone-200"
+            className="flex items-center gap-1 rounded-xl border border-[#e7e3da] bg-[#faf8f4] px-3 py-2 text-xs font-semibold text-stone-600 hover:text-stone-800"
           >
             <RotateCcw className="h-4 w-4" />
             Reset
@@ -295,7 +295,7 @@ export const BpeMergeTokenizerVisualizer = () => {
 
       {/* Corpus Input */}
       <div className="mt-6">
-        <label className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <label className="text-xs font-semibold uppercase tracking-wider text-stone-600">
           Training Text Corpus:
         </label>
         <input
@@ -305,32 +305,32 @@ export const BpeMergeTokenizerVisualizer = () => {
             setCorpus(e.target.value);
             setMerges([]);
           }}
-          className="mt-2 w-full rounded-xl border border-stone-800 bg-stone-950 px-4 py-2.5 font-mono text-sm text-stone-200 outline-none focus:border-violet-500"
+          className="mt-2 w-full rounded-xl border border-[#e7e3da] bg-[#faf8f4] px-4 py-2.5 font-mono text-sm text-stone-800 outline-none focus:border-violet-500"
         />
       </div>
 
       {/* Live Stats */}
       <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div className="rounded-xl border border-stone-800 bg-stone-950/60 p-3">
-          <div className="text-xs text-stone-400">Total Characters</div>
-          <div className="mt-1 text-xl font-bold text-stone-200">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4]/60 p-3">
+          <div className="text-xs text-stone-600">Total Characters</div>
+          <div className="mt-1 text-xl font-bold text-stone-800">
             {corpus.replace(/\s+/g, "").length}
           </div>
         </div>
-        <div className="rounded-xl border border-stone-800 bg-stone-950/60 p-3">
-          <div className="text-xs text-stone-400">Current Token Count</div>
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4]/60 p-3">
+          <div className="text-xs text-stone-600">Current Token Count</div>
           <div className="mt-1 text-xl font-bold text-violet-400">
             {totalTokens}
           </div>
         </div>
-        <div className="rounded-xl border border-stone-800 bg-stone-950/60 p-3">
-          <div className="text-xs text-stone-400">Merge Steps Applied</div>
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4]/60 p-3">
+          <div className="text-xs text-stone-600">Merge Steps Applied</div>
           <div className="mt-1 text-xl font-bold text-emerald-400">
             {merges.length}
           </div>
         </div>
-        <div className="rounded-xl border border-stone-800 bg-stone-950/60 p-3">
-          <div className="text-xs text-stone-400">Compression Ratio</div>
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4]/60 p-3">
+          <div className="text-xs text-stone-600">Compression Ratio</div>
           <div className="mt-1 text-xl font-bold text-amber-400">
             {totalTokens > 0
               ? `${(
@@ -344,12 +344,12 @@ export const BpeMergeTokenizerVisualizer = () => {
 
       {/* Token Representation Preview */}
       <div className="mt-6">
-        <label className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <label className="text-xs font-semibold uppercase tracking-wider text-stone-600">
           Current Tokenized Sequence:
         </label>
-        <div className="mt-2 flex flex-wrap gap-2 rounded-xl border border-stone-800 bg-stone-950 p-4 font-mono text-sm">
+        <div className="mt-2 flex flex-wrap gap-2 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4 font-mono text-sm">
           {tokenizedWords.map((wordTokens, wIdx) => (
-            <div key={wIdx} className="flex flex-wrap items-center gap-1.5 rounded-lg border border-stone-800/80 bg-stone-900/60 px-2.5 py-1.5">
+            <div key={wIdx} className="flex flex-wrap items-center gap-1.5 rounded-lg border border-[#e7e3da] bg-[#faf8f4]/60 px-2.5 py-1.5">
               {wordTokens.map((t, tIdx) => (
                 <span
                   key={tIdx}
@@ -369,17 +369,17 @@ export const BpeMergeTokenizerVisualizer = () => {
 
       {/* Bigram Frequency Ranking Table */}
       <div className="mt-6">
-        <label className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <label className="text-xs font-semibold uppercase tracking-wider text-stone-600">
           Ranked Bigram Pairs (Candidate Merges):
         </label>
-        <div className="mt-2 max-h-48 overflow-y-auto rounded-xl border border-stone-800 bg-stone-950">
+        <div className="mt-2 max-h-48 overflow-y-auto rounded-xl border border-[#e7e3da] bg-[#faf8f4]">
           {bigramCounts.length === 0 ? (
             <div className="p-4 text-center text-xs text-stone-500">
               No further adjacent bigrams found to merge in this corpus.
             </div>
           ) : (
             <table className="w-full text-left text-xs">
-              <thead className="border-b border-stone-800 bg-stone-900/70 text-stone-400">
+              <thead className="border-b border-[#e7e3da] bg-[#faf8f4]/70 text-stone-600">
                 <tr>
                   <th className="py-2 pl-4">Rank</th>
                   <th className="py-2">Bigram Pair</th>
@@ -456,16 +456,16 @@ export const TransformerParameterCalculator = () => {
   );
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
-          <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-400">
+          <span className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700 font-bold">
             Parameter Accounting
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             Transformer Parameter & Memory Sizing Calculator
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Analytical breakdown of attention ($4C^2$), FFN ($8C^2$), and embedding tensors.
           </p>
         </div>
@@ -475,7 +475,7 @@ export const TransformerParameterCalculator = () => {
           className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold transition-all ${
             tieWeights
               ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
-              : "border border-stone-800 bg-stone-950 text-stone-400"
+              : "border border-[#e7e3da] bg-[#faf8f4] text-stone-600"
           }`}
         >
           <CheckCircle2 className="h-4 w-4" />
@@ -486,9 +486,9 @@ export const TransformerParameterCalculator = () => {
       {/* Sliders Grid */}
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Layers ($L$):</span>
-            <span className="font-mono text-stone-200">{layers}</span>
+            <span className="font-mono text-stone-800">{layers}</span>
           </div>
           <input
             type="range"
@@ -501,9 +501,9 @@ export const TransformerParameterCalculator = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Embedding Dim ($C$):</span>
-            <span className="font-mono text-stone-200">{embeddingDim}</span>
+            <span className="font-mono text-stone-800">{embeddingDim}</span>
           </div>
           <input
             type="range"
@@ -517,9 +517,9 @@ export const TransformerParameterCalculator = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Attention Heads ($h$):</span>
-            <span className="font-mono text-stone-200">{numHeads}</span>
+            <span className="font-mono text-stone-800">{numHeads}</span>
           </div>
           <input
             type="range"
@@ -532,9 +532,9 @@ export const TransformerParameterCalculator = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Context Length ($T$):</span>
-            <span className="font-mono text-stone-200">{contextLength}</span>
+            <span className="font-mono text-stone-800">{contextLength}</span>
           </div>
           <input
             type="range"
@@ -548,9 +548,9 @@ export const TransformerParameterCalculator = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Vocabulary Size ($V$):</span>
-            <span className="font-mono text-stone-200">{vocabSize}</span>
+            <span className="font-mono text-stone-800">{vocabSize}</span>
           </div>
           <input
             type="range"
@@ -564,9 +564,9 @@ export const TransformerParameterCalculator = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Head Dim ($d_k = C / h$):</span>
-            <span className="font-mono text-stone-200">
+            <span className="font-mono text-stone-800">
               {embeddingDim % numHeads === 0
                 ? embeddingDim / numHeads
                 : `${(embeddingDim / numHeads).toFixed(1)} (Non-integer!)`}
@@ -587,39 +587,39 @@ export const TransformerParameterCalculator = () => {
           <div className="mt-1 text-2xl font-black text-amber-200">
             {(totalParams / 1_000_000).toFixed(3)}M
           </div>
-          <div className="mt-1 text-xs text-stone-400 font-mono">
+          <div className="mt-1 text-xs text-stone-600 font-mono">
             {totalParams.toLocaleString()} parameters
           </div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs font-semibold uppercase tracking-wider text-stone-600">
             Transformer Blocks ($L={layers}$)
           </div>
-          <div className="mt-1 text-2xl font-bold text-stone-200">
+          <div className="mt-1 text-2xl font-bold text-stone-800">
             {((allBlocksParams / totalParams) * 100).toFixed(1)}%
           </div>
-          <div className="mt-1 text-xs text-stone-400 font-mono">
+          <div className="mt-1 text-xs text-stone-600 font-mono">
             {allBlocksParams.toLocaleString()} parameters
           </div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs font-semibold uppercase tracking-wider text-stone-600">
             Training VRAM Footprint
           </div>
           <div className="mt-1 text-2xl font-bold text-emerald-400">
             ~{totalTrainVramMB} MB
           </div>
-          <div className="mt-1 text-xs text-stone-400 font-mono">
+          <div className="mt-1 text-xs text-stone-600 font-mono">
             FP32 weights + AdamW states
           </div>
         </div>
       </div>
 
       {/* Tensor Parameter Breakdown */}
-      <div className="mt-6 space-y-2 rounded-xl border border-stone-800 bg-stone-950 p-4 text-xs font-mono">
-        <div className="flex justify-between border-b border-stone-800/60 pb-2 text-stone-400">
+      <div className="mt-6 space-y-2 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4 text-xs font-mono">
+        <div className="flex justify-between border-b border-[#e7e3da]/60 pb-2 text-stone-600">
           <span>Module Tensor</span>
           <span>Formula</span>
           <span>Count</span>
@@ -730,32 +730,32 @@ export const AutoregressiveGenerationSamplerVisualizer = () => {
   }, [topKFiltered, topP]);
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
           <span className="rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-sky-400">
             Decoding & Inference
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             Autoregressive Generation & Sampling Simulator
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Adjust Temperature $T$, Top-$K$, and Nucleus Top-$P$ to see candidate distributions reshape in real time.
           </p>
         </div>
       </div>
 
       {/* Input Prompt Box */}
-      <div className="mt-6 rounded-xl border border-stone-800 bg-stone-950 p-4 font-mono text-sm">
+      <div className="mt-6 rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4 font-mono text-sm">
         <span className="text-stone-500">Current Context: </span>
-        <span className="text-stone-200">{promptContext}</span>
+        <span className="text-stone-800">{promptContext}</span>
         <span className="animate-pulse font-bold text-sky-400">_</span>
       </div>
 
       {/* Sliders */}
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Temperature ($T$):</span>
             <span className="font-mono text-sky-400">{temperature.toFixed(2)}</span>
           </div>
@@ -774,7 +774,7 @@ export const AutoregressiveGenerationSamplerVisualizer = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Top-$K$ Filter:</span>
             <span className="font-mono text-sky-400">{topK} tokens</span>
           </div>
@@ -792,7 +792,7 @@ export const AutoregressiveGenerationSamplerVisualizer = () => {
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-medium text-stone-400">
+          <div className="flex justify-between text-xs font-medium text-stone-600">
             <span>Top-$P$ (Nucleus):</span>
             <span className="font-mono text-sky-400">{(topP * 100).toFixed(0)}%</span>
           </div>
@@ -819,12 +819,12 @@ export const AutoregressiveGenerationSamplerVisualizer = () => {
             className={`rounded-xl border p-3 transition-all ${
               c.active
                 ? "border-sky-500/40 bg-sky-950/20"
-                : "border-stone-800 bg-stone-950/40 opacity-40"
+                : "border-[#e7e3da] bg-[#faf8f4]/40 opacity-40"
             }`}
           >
             <div className="flex items-center justify-between text-xs">
               <div className="flex items-center gap-2">
-                <span className="font-mono font-bold text-stone-200">"{c.token}"</span>
+                <span className="font-mono font-bold text-stone-800">"{c.token}"</span>
                 <span className="text-stone-500 font-mono">
                   (logit: {c.rawLogit} → {c.scaledLogit})
                 </span>
@@ -883,16 +883,16 @@ export const TrainingLossPerplexitySimulator = () => {
   const isOverfitting = valOverfitPenalty > 0.2;
 
   return (
-    <div className="rounded-2xl border border-stone-800 bg-stone-900/90 p-6 backdrop-blur-sm">
-      <div className="flex flex-col justify-between gap-3 border-b border-stone-800 pb-4 md:flex-row md:items-center">
+    <div className="rounded-2xl border border-[#e7e3da] bg-white p-6 shadow-xs">
+      <div className="flex flex-col justify-between gap-3 border-b border-[#e7e3da] pb-4 md:flex-row md:items-center">
         <div>
-          <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+          <span className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700 font-bold">
             Training Dynamics
           </span>
-          <h3 className="mt-2 text-xl font-bold text-stone-100">
+          <h3 className="mt-2 text-xl font-bold text-stone-900">
             Training Loss & Perplexity Convergence Simulator
           </h3>
-          <p className="mt-1 text-sm text-stone-400">
+          <p className="mt-1 text-sm text-stone-600">
             Inspect the relationship between cross-entropy loss and Perplexity ($PPL = e^L$).
           </p>
         </div>
@@ -912,7 +912,7 @@ export const TrainingLossPerplexitySimulator = () => {
 
       {/* Step Slider */}
       <div className="mt-6">
-        <div className="flex justify-between text-xs font-medium text-stone-400">
+        <div className="flex justify-between text-xs font-medium text-stone-600">
           <span>Training Step:</span>
           <span className="font-mono text-emerald-400 font-bold">{step} / 2,000 steps</span>
         </div>
@@ -929,28 +929,28 @@ export const TrainingLossPerplexitySimulator = () => {
 
       {/* Metrics Row */}
       <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs text-stone-400">Training Loss</div>
-          <div className="mt-1 text-2xl font-bold text-stone-200">{trainLoss}</div>
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs text-stone-600">Training Loss</div>
+          <div className="mt-1 text-2xl font-bold text-stone-800">{trainLoss}</div>
           <div className="mt-1 text-[10px] text-stone-500 font-mono">Cross-entropy</div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs text-stone-400">Validation Loss</div>
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs text-stone-600">Validation Loss</div>
           <div className={`mt-1 text-2xl font-bold ${isOverfitting ? "text-amber-400" : "text-emerald-400"}`}>
             {valLoss}
           </div>
           <div className="mt-1 text-[10px] text-stone-500 font-mono">Held-out tokens</div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs text-stone-400">Train Perplexity</div>
-          <div className="mt-1 text-2xl font-bold text-stone-200">{trainPpl}</div>
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs text-stone-600">Train Perplexity</div>
+          <div className="mt-1 text-2xl font-bold text-stone-800">{trainPpl}</div>
           <div className="mt-1 text-[10px] text-stone-500 font-mono">PPL = e^Loss</div>
         </div>
 
-        <div className="rounded-xl border border-stone-800 bg-stone-950 p-4">
-          <div className="text-xs text-stone-400">Val Perplexity</div>
+        <div className="rounded-xl border border-[#e7e3da] bg-[#faf8f4] p-4">
+          <div className="text-xs text-stone-600">Val Perplexity</div>
           <div className={`mt-1 text-2xl font-bold ${isOverfitting ? "text-amber-400" : "text-emerald-400"}`}>
             {valPpl}
           </div>
