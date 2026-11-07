@@ -785,9 +785,9 @@ if __name__ == "__main__":
                 </div>
               </div>
 
-              {/* 1.4 Components */}
+              {/* 1.4 Architecture and Its Components */}
               <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-8 mb-4">
-                1.4 Architecture & Core Components
+                1.4 Blockchain Architecture and Its Components
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6">
                 <div className="p-4 rounded-2xl border border-stone-200 bg-white shadow-2xs">
@@ -847,6 +847,49 @@ if __name__ == "__main__":
               </div>
             </section>
 
+            {/* Section 1.5: Understanding Blocks, Transactions, Nodes and Ledgers */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
+                <Blocks size={15} />
+                <span>Core Conceptual Distinctions</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mb-4">
+                1.5 Understanding Blocks, Transactions, Nodes and Ledgers
+              </h2>
+              <p className="text-sm text-stone-600 leading-relaxed mb-4">
+                These four fundamental concepts constitute the pedagogical bedrock of blockchain systems engineering. Understanding the precise relationship between them prevents common architectural confusion:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div className="p-5 rounded-2xl border border-stone-200 bg-stone-50/60">
+                  <h4 className="font-bold text-xs uppercase tracking-wider text-amber-800 mb-2">
+                    Blocks: The "Pages in a Distributed Ledger Book"
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed mb-3">
+                    Think of a block as a single page in a shared accounting book. A block groups a discrete batch of validated transactions together with the cryptographic hash of the previous page.
+                  </p>
+                  <div className="bg-stone-900 text-stone-200 p-3 rounded-xl font-mono text-[11px]">
+                    <div className="text-amber-400 font-bold mb-1">SAMPLE BLOCK 1:</div>
+                    <div>TX 1: Alice -&gt; Bob ₹500</div>
+                    <div>TX 2: Bob -&gt; Charlie ₹200</div>
+                    <div>TX 3: Charlie -&gt; David ₹100</div>
+                    <div className="text-stone-400 mt-1">PrevHash: 000000... | CurrHash: 92f7de...</div>
+                  </div>
+                </div>
+
+                <div className="p-5 rounded-2xl border border-stone-200 bg-stone-50/60">
+                  <h4 className="font-bold text-xs uppercase tracking-wider text-amber-800 mb-2">
+                    Transactions, Nodes & Ledgers: The Core Distinctions
+                  </h4>
+                  <ul className="text-xs text-stone-600 space-y-2 leading-relaxed">
+                    <li><strong className="text-stone-900">Transaction:</strong> An individual atomic state transition (sender, receiver, value, digital signature) requested by a user.</li>
+                    <li><strong className="text-stone-900">Block:</strong> A sealed container bundling multiple verified transactions together with consensus metadata.</li>
+                    <li><strong className="text-stone-900">Node:</strong> A physical or virtual computer executing protocol software, verifying blocks, and keeping peers in sync.</li>
+                    <li><strong className="text-stone-900">Ledger:</strong> The complete historical journal and current global state database maintained synchronously across nodes.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
             {/* Part 2: How Blockchain Data is Organized */}
             <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-2">
@@ -854,7 +897,7 @@ if __name__ == "__main__":
                 <span>Part 2 — How Blockchain Data Is Organized</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mb-4">
-                1.6 Block Structure: Header and Body
+                1.6 Understanding Block Structure: Header and Body
               </h2>
               <p className="text-sm text-stone-600 leading-relaxed mb-4">
                 Every block is formally partitioned into a lightweight <strong>Block Header</strong> (metadata & commitments) and a heavyweight <strong>Block Body</strong> (the raw transaction list).
@@ -929,6 +972,66 @@ if __name__ == "__main__":
                   Where \(H_i\) is the current block hash, \(Data_i\) is the block's serialized transaction body, \(H_{'{i-1}'}\) is the parent block hash, and \(||\) represents canonical byte concatenation. If an attacker modifies any historical transaction in block \(k\), its hash \(H_k\) changes, which directly breaks the input for block \(k+1\), causing a cryptographic invalidation across all subsequent blocks \(k+1, \dots, N\).
                 </p>
               </div>
+
+              {/* 1.9 Immutable Records & Tamper Resistance */}
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-8 mb-4">
+                1.9 Immutable Records and Tamper Resistance
+              </h2>
+              <div className="space-y-4 mb-6">
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  Immutability refers to the profound technical difficulty and computational cost of modifying previously accepted blockchain records. Once a transaction is validated and confirmed under consensus rules, retroactively modifying its historical data is designed to be mathematically detectable and economically infeasible. However, in rigorous computer science, blockchain immutability is <strong>tamper-evidence</strong> rather than magical mathematical impossibility.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                  <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/60">
+                    <span className="font-mono text-[10px] font-bold uppercase text-amber-700">Property 1</span>
+                    <h4 className="font-bold text-xs text-stone-900 mt-1 mb-1.5">Cryptographic Linking</h4>
+                    <p className="text-xs text-stone-600 leading-relaxed">
+                      Every block embeds the cryptographic hash of its predecessor. Altering one byte in block \(k\) cascades forward, invalidating all subsequent block hash commitments across the chain.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/60">
+                    <span className="font-mono text-[10px] font-bold uppercase text-amber-700">Property 2</span>
+                    <h4 className="font-bold text-xs text-stone-900 mt-1 mb-1.5">Distributed Replication</h4>
+                    <p className="text-xs text-stone-600 leading-relaxed">
+                      Thousands of independent full nodes store exact copies of the ledger. An attacker modifying a local copy cannot force other honest peers to accept the altered history.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/60">
+                    <span className="font-mono text-[10px] font-bold uppercase text-amber-700">Property 3</span>
+                    <h4 className="font-bold text-xs text-stone-900 mt-1 mb-1.5">Consensus Invariants</h4>
+                    <p className="text-xs text-stone-600 leading-relaxed">
+                      To rewrite historical blocks, an attacker must overcome the network's consensus threshold (e.g. 51% proof-of-work hashrate or 67% proof-of-stake economic stake).
+                    </p>
+                  </div>
+                </div>
+
+                {/* Supply Chain Example & Integrity vs Truthfulness */}
+                <div className="rounded-2xl border border-stone-200 bg-stone-50/50 p-5">
+                  <h4 className="font-bold text-xs text-stone-900 uppercase tracking-wider mb-2">
+                    Supply-Chain Sequence & Crucial Technical Nuance
+                  </h4>
+                  <div className="flex flex-wrap items-center gap-2 mb-3 text-xs font-mono font-bold text-stone-700">
+                    <span className="px-2.5 py-1 bg-white border rounded-lg">Product Created</span>
+                    <ArrowRight size={12} className="text-orange-500" />
+                    <span className="px-2.5 py-1 bg-white border rounded-lg">Factory Inspection</span>
+                    <ArrowRight size={12} className="text-orange-500" />
+                    <span className="px-2.5 py-1 bg-white border rounded-lg">Warehouse Received</span>
+                    <ArrowRight size={12} className="text-orange-500" />
+                    <span className="px-2.5 py-1 bg-white border rounded-lg">Distributor Received</span>
+                    <ArrowRight size={12} className="text-orange-500" />
+                    <span className="px-2.5 py-1 bg-white border rounded-lg">Retail Store Received</span>
+                  </div>
+                  <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-3.5">
+                    <strong className="block text-xs font-bold text-amber-900 mb-1">
+                      Data Integrity vs. Data Truthfulness (The Oracle Problem):
+                    </strong>
+                    <p className="text-xs text-amber-950 leading-relaxed">
+                      If pharmaceutical temperature logs are recorded on a blockchain, the network cryptographically guarantees that the recorded records have not been altered after the fact. However, the blockchain cannot independently verify whether the factory sensor was malfunctioning or whether the operator entered false data initially. <em>A blockchain guarantees integrity of recorded data, not automatic truthfulness of external real-world events.</em>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </section>
 
             {/* Part 3 & 4: Network Types, Use Cases & Transaction Lifecycle */}
@@ -938,7 +1041,7 @@ if __name__ == "__main__":
                 <span>Part 3 & 4 — Network Types, Use Cases & Lifecycle</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mb-4">
-                1.10 Blockchain Network Taxonomy
+                1.10 Types of Blockchain
               </h2>
               <div className="overflow-x-auto rounded-2xl border border-[#e7e3da] mb-8">
                 <table className="w-full text-left text-xs sm:text-sm">
@@ -984,6 +1087,113 @@ if __name__ == "__main__":
                 </table>
               </div>
 
+              {/* 1.11 Permissionless vs Permissioned Blockchains */}
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mb-4">
+                1.11 Permissionless vs Permissioned Blockchains
+              </h2>
+              <div className="overflow-x-auto rounded-2xl border border-[#e7e3da] mb-8">
+                <table className="w-full text-left text-xs sm:text-sm">
+                  <thead className="bg-stone-50 border-b border-[#e7e3da] font-bold text-stone-700">
+                    <tr>
+                      <th className="p-3">Dimension</th>
+                      <th className="p-3">Permissionless (Public)</th>
+                      <th className="p-3">Permissioned (Enterprise / Consortium)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#e7e3da] text-stone-600">
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Network Access</td>
+                      <td className="p-3">Open to anyone worldwide; no credentials or approvals needed</td>
+                      <td className="p-3">Restricted; requires PKI certificate from network identity provider (CA)</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Validator Eligibility</td>
+                      <td className="p-3">Anyone can participate via PoW mining or PoS staking</td>
+                      <td className="p-3">Only known, vetted organizations designated by governance charter</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Throughput & Latency</td>
+                      <td className="p-3">Lower (typically 15–1,000 TPS) due to global geographic broadcast</td>
+                      <td className="p-3">High (thousands of TPS) due to low-latency crash fault-tolerant consensus</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Native Cryptocurrency</td>
+                      <td className="p-3">Required (fuels incentives, anti-spam gas fees, and Sybil defense)</td>
+                      <td className="p-3">Optional / Often none (participants have legal/contractual obligations)</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Consensus Algorithms</td>
+                      <td className="p-3">Proof of Work, Proof of Stake, Nakamoto consensus</td>
+                      <td className="p-3">Raft, PBFT, IBFT, Istanbul BFT, Execute-Order-Validate</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* 1.12 Blockchain Use Cases Across Industries */}
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mb-4">
+                1.12 Blockchain Use Cases Across Industries
+              </h2>
+              <p className="text-sm text-stone-600 leading-relaxed mb-6">
+                Beyond digital currencies, distributed ledgers provide foundational value wherever multiple mutually distrusting organizations must coordinate around shared records without yielding monopoly control to a single vendor.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-8">
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/50">
+                  <h4 className="font-bold text-xs text-stone-900 mb-1.5 flex items-center gap-1.5 text-amber-700">
+                    <Shield size={14} />
+                    <span>1. Finance & Banking</span>
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Instant cross-border gross settlement, atomic asset swaps, decentralized lending (DeFi), syndicated loan reconciliation, and tokenization of real-world treasuries.
+                  </p>
+                </div>
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/50">
+                  <h4 className="font-bold text-xs text-stone-900 mb-1.5 flex items-center gap-1.5 text-amber-700">
+                    <Layers size={14} />
+                    <span>2. Supply-Chain Tracking</span>
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    End-to-end component provenance, counterfeit defense in aerospace and electronics, cold-chain compliance verification, and verifiable ethical sourcing proofs.
+                  </p>
+                </div>
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/50">
+                  <h4 className="font-bold text-xs text-stone-900 mb-1.5 flex items-center gap-1.5 text-amber-700">
+                    <Activity size={14} />
+                    <span>3. Healthcare Systems</span>
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Patient medical record consent management, clinical trial telemetry integrity, pharmaceutical supply serialization (DSCSA compliance), and provider credentialing.
+                  </p>
+                </div>
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/50">
+                  <h4 className="font-bold text-xs text-stone-900 mb-1.5 flex items-center gap-1.5 text-amber-700">
+                    <BookOpen size={14} />
+                    <span>4. Education & Credentials</span>
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Cryptographically verifiable digital university diplomas, professional licenses, micro-credentials, and immutable academic transcript proofs without registrar delays.
+                  </p>
+                </div>
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/50">
+                  <h4 className="font-bold text-xs text-stone-900 mb-1.5 flex items-center gap-1.5 text-amber-700">
+                    <Lock size={14} />
+                    <span>5. Decentralized Identity</span>
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    W3C Decentralized Identifiers (DIDs), Self-Sovereign Identity (SSI), Zero-Knowledge age verification, and passwordless cryptographic authentication.
+                  </p>
+                </div>
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/50">
+                  <h4 className="font-bold text-xs text-stone-900 mb-1.5 flex items-center gap-1.5 text-amber-700">
+                    <Server size={14} />
+                    <span>6. Real Estate & Public Registries</span>
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Tamper-evident municipal land registries, title transfer audit trails, shared documentation escrow, and commercial property fractionalization.
+                  </p>
+                </div>
+              </div>
+
               {/* Transaction Lifecycle (9 Stages) */}
               <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mb-4">
                 1.13 The 9-Stage Blockchain Transaction Lifecycle
@@ -1021,22 +1231,155 @@ if __name__ == "__main__":
                 </div>
               </div>
 
-              {/* Where Blockchain is NOT a Good Fit */}
-              <div className="rounded-2xl border border-red-200 bg-red-50/50 p-5">
-                <h3 className="font-bold text-red-900 text-sm mb-2 flex items-center gap-1.5">
-                  <AlertTriangle size={16} className="text-red-600" />
-                  <span>Crucial Engineering Decision: Where Blockchain is NOT a Good Fit</span>
-                </h3>
-                <p className="text-xs text-stone-700 leading-relaxed mb-2">
-                  A traditional relational/NoSQL database is usually the superior engineering choice when:
+              {/* 1.14 Blockchain vs Traditional Databases */}
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-8 mb-4">
+                1.14 Blockchain vs Traditional Databases
+              </h2>
+              <p className="text-sm text-stone-600 leading-relaxed mb-4">
+                Engineers must understand that a blockchain is not a faster or cheaper drop-in replacement for an RDBMS. It deliberately trades raw query latency and write throughput for multi-party decentralization and Byzantine fault tolerance.
+              </p>
+              <div className="overflow-x-auto rounded-2xl border border-[#e7e3da] mb-6">
+                <table className="w-full text-left text-xs sm:text-sm">
+                  <thead className="bg-stone-50 border-b border-[#e7e3da] font-bold text-stone-700">
+                    <tr>
+                      <th className="p-3">Parameter</th>
+                      <th className="p-3">Traditional Database (e.g. PostgreSQL, DynamoDB)</th>
+                      <th className="p-3">Blockchain (e.g. Bitcoin, Ethereum, Fabric)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#e7e3da] text-stone-600">
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Architecture</td>
+                      <td className="p-3">Centralized or primary-replica cluster</td>
+                      <td className="p-3">Distributed peer-to-peer state machine</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Record Management</td>
+                      <td className="p-3">Database administrators with full superuser root permissions</td>
+                      <td className="p-3">Protocol rules verified independently by every node</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Data Operations</td>
+                      <td className="p-3">Full CRUD (Create, Read, Update, Delete)</td>
+                      <td className="p-3">Append-only; historical blocks cannot be overwritten or deleted</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Write Throughput</td>
+                      <td className="p-3">Tens of thousands to millions of writes per second</td>
+                      <td className="p-3">Constrained (15 TPS for Bitcoin, ~30 TPS for Ethereum L1)</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Read Query Latency</td>
+                      <td className="p-3">Sub-millisecond index lookups via SQL/B-Trees</td>
+                      <td className="p-3">Requires local RPC node or state trie traversal</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">Cost & Efficiency</td>
+                      <td className="p-3">Negligible compute overhead per row stored</td>
+                      <td className="p-3">High computational cost and gas fees to replicate across peers</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* The 5-Point Engineering Decision Framework */}
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/70 p-5 mb-8">
+                <h4 className="font-bold text-xs text-stone-900 uppercase tracking-wider mb-2">
+                  The 5-Point Engineering Decision Framework: When to Choose Blockchain
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-2.5 text-xs">
+                  <div className="p-3 rounded-xl bg-white border border-stone-200">
+                    <span className="font-bold text-amber-700 block mb-1">1. Multiple Writers?</span>
+                    <p className="text-stone-600">Do multiple independent entities write data without trusting one central party?</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white border border-stone-200">
+                    <span className="font-bold text-amber-700 block mb-1">2. No Central Admin?</span>
+                    <p className="text-stone-600">Is a trusted intermediary absent, undesirable, or expensive?</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white border border-stone-200">
+                    <span className="font-bold text-amber-700 block mb-1">3. Shared Verification?</span>
+                    <p className="text-stone-600">Do all participants need to independently verify rule compliance?</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white border border-stone-200">
+                    <span className="font-bold text-amber-700 block mb-1">4. Tamper Evidence?</span>
+                    <p className="text-stone-600">Is an immutable, auditable historical log strictly required?</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white border border-stone-200">
+                    <span className="font-bold text-amber-700 block mb-1">5. Tolerant to Trade-offs?</span>
+                    <p className="text-stone-600">Can the workload tolerate consensus latency and storage duplication?</p>
+                  </div>
+                </div>
+                <p className="text-[11px] text-stone-500 mt-3 italic">
+                  Rule of thumb: If the answer to any of the first four questions is "No", an RDBMS (PostgreSQL, MySQL) is the better engineering design.
                 </p>
-                <ul className="text-xs text-stone-700 space-y-1 list-disc pl-4">
-                  <li>One organization is fully trusted to maintain authoritative records.</li>
-                  <li>Applications require ultra-low millisecond latency (e.g. high-frequency trading, gaming).</li>
-                  <li>Data must be frequently edited, updated, or purged (e.g. GDPR right-to-be-forgotten).</li>
-                  <li>Participants do not need independent cryptographic verification.</li>
-                  <li>Operational costs of distributed consensus exceed the business value of decentralization.</li>
-                </ul>
+              </div>
+
+              {/* 1.15 Advantages, Limitations & Misconceptions */}
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-8 mb-4">
+                1.15 Advantages, Limitations & Common Misconceptions
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div className="p-5 rounded-2xl border border-emerald-200 bg-emerald-50/40">
+                  <h4 className="font-bold text-xs uppercase tracking-wider text-emerald-900 mb-3 flex items-center gap-1.5">
+                    <CheckCircle2 size={15} className="text-emerald-600" />
+                    <span>Real Architectural Advantages</span>
+                  </h4>
+                  <ul className="text-xs text-stone-700 space-y-2 list-disc pl-4">
+                    <li><strong>Trust Minimization:</strong> Enables collaboration between competitors without a monopolistic mediator.</li>
+                    <li><strong>Cryptographic Tamper-Evidence:</strong> Historical modification cannot be hidden from network nodes.</li>
+                    <li><strong>Fault Tolerance & High Availability:</strong> Network survives severe hardware and jurisdictional outages.</li>
+                    <li><strong>Programmable Logic:</strong> Smart contracts execute autonomously without discretionary human delays.</li>
+                    <li><strong>Auditable Provenance:</strong> Unbroken historical chain from Genesis block to present state.</li>
+                  </ul>
+                </div>
+
+                <div className="p-5 rounded-2xl border border-rose-200 bg-rose-50/40">
+                  <h4 className="font-bold text-xs uppercase tracking-wider text-rose-900 mb-3 flex items-center gap-1.5">
+                    <AlertTriangle size={15} className="text-rose-600" />
+                    <span>Technical & Operational Limitations</span>
+                  </h4>
+                  <ul className="text-xs text-stone-700 space-y-2 list-disc pl-4">
+                    <li><strong>Scalability Trilemma:</strong> Balancing security, decentralization, and high throughput is mathematically difficult.</li>
+                    <li><strong>Resource & Storage Bloat:</strong> Full nodes require ever-increasing SSD storage to retain complete history.</li>
+                    <li><strong>Finality Latency:</strong> Settlement is probabilistic in PoW and requires multiple consensus epochs in PoS.</li>
+                    <li><strong>Irreversibility of Key Loss:</strong> Losing a private key results in permanent loss of funds with no customer service desk.</li>
+                    <li><strong>Public Privacy Leakage:</strong> Transparent on-chain transactions permit sophisticated heuristic clustering.</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Misconceptions Table */}
+              <div className="overflow-x-auto rounded-2xl border border-[#e7e3da] mb-8">
+                <table className="w-full text-left text-xs sm:text-sm">
+                  <thead className="bg-stone-50 border-b border-[#e7e3da] font-bold text-stone-700">
+                    <tr>
+                      <th className="p-3">Common Industry Misconception</th>
+                      <th className="p-3">Technical Reality</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#e7e3da] text-stone-600">
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">"Blockchain and Bitcoin are synonymous"</td>
+                      <td className="p-3">Bitcoin is the pioneering cryptocurrency application built on blockchain; blockchain is the underlying distributed data structure and consensus paradigm.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">"All blockchains are public and transparent"</td>
+                      <td className="p-3">Enterprise consortium frameworks (e.g. Hyperledger Fabric, Corda) are strictly permissioned and confidential to certified participants.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">"Blockchain records are physically impossible to change"</td>
+                      <td className="p-3">Records are tamper-evident; if an attacker amasses &gt;50% hashrate or &gt;66% validator stake, historical chain reorganizations become technically possible.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">"Blockchains automatically prevent fraud"</td>
+                      <td className="p-3">Blockchains guarantee internal state transitions, but garbage entered at the input level remains garbage on-chain (The Oracle Problem).</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-bold text-stone-900">"Every blockchain requires cryptocurrency tokens"</td>
+                      <td className="p-3">Private and consortium blockchains function effectively without native cryptocurrency tokens, using PKI identities and legal governance instead.</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </section>
 
@@ -1317,6 +1660,94 @@ if __name__ == "__main__":
                 <p className="text-xs text-stone-600 mb-2">Save the code to <code className="font-mono text-stone-800">blockchain_lab.py</code> and execute:</p>
                 <div className="bg-stone-900 text-stone-100 px-3 py-2 rounded-xl font-mono text-xs">
                   python blockchain_lab.py
+                </div>
+              </div>
+
+              {/* 1.17 Lab Overview & Technical Specifications */}
+              <div className="mt-8 border-t border-stone-200 pt-6">
+                <h3 className="text-base font-bold text-stone-900 mb-3">
+                  1.17 Lab Overview & Technical Specifications
+                </h3>
+                <div className="overflow-x-auto rounded-2xl border border-stone-200 mb-6">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-stone-50 border-b border-stone-200 font-bold text-stone-700">
+                      <tr>
+                        <th className="p-2.5">Component</th>
+                        <th className="p-2.5">Technology Specification</th>
+                        <th className="p-2.5">Architectural Role</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-200 text-stone-600">
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Runtime</td>
+                        <td className="p-2.5 font-mono">Python 3.10+</td>
+                        <td className="p-2.5">Standard execution runtime for data modeling</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Cryptographic Hashing</td>
+                        <td className="p-2.5 font-mono">hashlib.sha256</td>
+                        <td className="p-2.5">Computes 256-bit parent hash and block commitments</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Serialization Engine</td>
+                        <td className="p-2.5 font-mono">json.dumps(sort_keys=True, separators=(',', ':'))</td>
+                        <td className="p-2.5">Guarantees canonical byte ordering without whitespace jitter</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Data Model</td>
+                        <td className="p-2.5 font-mono">@dataclass Block</td>
+                        <td className="p-2.5">Encapsulates block index, timestamp, transactions, previous_hash, nonce</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Verification Logic</td>
+                        <td className="p-2.5 font-mono">is_chain_valid() -&gt; bool</td>
+                        <td className="p-2.5">Audits genesis hash, link integrity, and transaction recalculations</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Step-by-Step Analysis of What Happened */}
+                <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-5 mb-6">
+                  <h4 className="font-bold text-xs uppercase tracking-wider text-amber-900 mb-2">
+                    Step-by-Step Analysis: How Cryptographic Tampering is Caught
+                  </h4>
+                  <ol className="text-xs text-stone-700 space-y-2 list-decimal pl-4 leading-relaxed">
+                    <li>Initially, every block references its predecessor's valid hash pointer: Genesis (0000...) &lt;- Block 1 &lt;- Block 2 &lt;- Block 3.</li>
+                    <li>When transaction amount in Block 1 is maliciously altered from <code className="bg-white px-1 py-0.5 rounded font-mono">500</code> to <code className="bg-white px-1 py-0.5 rounded font-mono">9999</code>, Block 1's serialized JSON byte sequence changes.</li>
+                    <li>Recalculating SHA-256 over Block 1 produces an entirely different 64-character hex digest due to the avalanche effect.</li>
+                    <li>Block 1's stored block_hash no longer matches its calculated hash (<code className="bg-white px-1 py-0.5 rounded font-mono">current_block.block_hash != current_block.calculate_hash()</code>).</li>
+                    <li>Furthermore, Block 2 still retains the old original Block 1 hash pointer, causing a parent hash mismatch (<code className="bg-white px-1 py-0.5 rounded font-mono">current_block.previous_hash != previous_block.block_hash</code>).</li>
+                    <li><code className="bg-white px-1 py-0.5 rounded font-mono">is_chain_valid()</code> detects the anomaly and returns <code className="bg-white px-1 py-0.5 rounded font-mono text-red-600 font-bold">False</code>.</li>
+                  </ol>
+                </div>
+
+                {/* Practical Extensions & Advanced Challenge */}
+                <h4 className="font-bold text-xs uppercase tracking-wider text-stone-900 mb-2">
+                  Hands-On Practical Lab Extensions:
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-6">
+                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
+                    <span className="font-bold text-stone-900 block mb-1">Exercise A: Multi-Block Expansion</span>
+                    <p className="text-stone-600">Append 10 distinct blocks with varying transaction payloads and verify execution time.</p>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
+                    <span className="font-bold text-stone-900 block mb-1">Exercise B: Cascade Tamper Audit</span>
+                    <p className="text-stone-600">Mutate Block 2 and write an automated diagnostic function pinpointing the exact broken index.</p>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
+                    <span className="font-bold text-stone-900 block mb-1">Exercise C: Block Explorer CLI</span>
+                    <p className="text-stone-600">Build an interactive terminal query function <code className="font-mono">find_transactions_by_address(addr)</code>.</p>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
+                    <span className="font-bold text-stone-900 block mb-1">Advanced Challenge: Proof of Work</span>
+                    <p className="text-stone-600">Implement a mining loop seeking a hash starting with <code className="font-mono">"0000"</code> by incrementing <code className="font-mono">nonce</code>.</p>
+                  </div>
+                </div>
+
+                {/* Educational Limitation Note */}
+                <div className="rounded-xl border border-stone-200 bg-stone-100/70 p-3.5 text-xs text-stone-600">
+                  <strong className="text-stone-800">Important Educational Lab Scope:</strong> This foundational Python script implements a local in-memory cryptographic hash chain. It demonstrates block linkage and tamper detection. Decentralized peer-to-peer networking, public-key digital signatures (ECDSA/secp256k1), and distributed consensus mechanisms are covered in detail in subsequent modules.
                 </div>
               </div>
             </section>

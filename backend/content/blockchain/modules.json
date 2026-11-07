@@ -14,9 +14,9 @@
     "id": "cryptography",
     "courseId": "blockchain",
     "index": 2,
-    "name": "2. Cryptography & Public-Key Infrastructure",
+    "name": "2. Cryptography Fundamentals for Blockchain",
     "route": "/learning/blockchain/cryptography",
-    "questionCount": 10,
+    "questionCount": 12,
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true

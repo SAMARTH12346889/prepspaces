@@ -1,0 +1,154 @@
+{
+  "id": "cryptography",
+  "courseId": "blockchain",
+  "index": 2,
+  "name": "2. Cryptography Fundamentals for Blockchain",
+  "route": "/learning/blockchain/cryptography",
+  "componentName": "BlockchainCryptography",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does SHA-256 produce?",
+      "options": [
+        "128-bit digest",
+        "256-bit digest",
+        "512-bit digest",
+        "Variable-length digest"
+      ],
+      "correctIndex": 1,
+      "explanation": "SHA-256 takes an input of arbitrary length and produces a fixed-length 256-bit (32-byte) cryptographic digest, typically represented as 64 hexadecimal characters."
+    },
+    {
+      "id": 2,
+      "question": "Which property makes it difficult to recover an input from its hash?",
+      "options": [
+        "Avalanche effect",
+        "Preimage resistance",
+        "Determinism",
+        "Compression"
+      ],
+      "correctIndex": 1,
+      "explanation": "Preimage resistance (one-wayness) ensures that given a hash digest y, it is computationally infeasible to find any original input x such that H(x) = y."
+    },
+    {
+      "id": 3,
+      "question": "Which hash function is associated with Ethereum account address derivation?",
+      "options": [
+        "MD5",
+        "SHA-1",
+        "Keccak-256",
+        "RIPEMD-160 alone"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ethereum uses Keccak-256 over the uncompressed public key (excluding the 0x04 format byte) and takes the last 20 bytes to form the account address."
+    },
+    {
+      "id": 4,
+      "question": "What is the main difference between symmetric and asymmetric cryptography?",
+      "options": [
+        "Symmetric uses shared secret keys; asymmetric uses public/private key pairs",
+        "Both always use the same key",
+        "Asymmetric has no keys",
+        "Symmetric always provides digital signatures"
+      ],
+      "correctIndex": 0,
+      "explanation": "Symmetric encryption uses a single shared secret for both encryption and decryption, whereas asymmetric cryptography uses mathematically related public and private key pairs."
+    },
+    {
+      "id": 5,
+      "question": "What is used to generate a public key in ECC?",
+      "options": [
+        "Private key scalar multiplication by the generator point",
+        "SHA-256 decryption",
+        "Randomly selecting a public address",
+        "Merkle root calculation"
+      ],
+      "correctIndex": 0,
+      "explanation": "In Elliptic Curve Cryptography, the public key point Q is computed via scalar point multiplication Q = d * G, where d is the private scalar and G is the curve base generator point."
+    },
+    {
+      "id": 6,
+      "question": "Which algorithm is used for conventional Ethereum account transaction signatures?",
+      "options": [
+        "AES",
+        "ECDSA",
+        "MD5",
+        "RSA by default"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ethereum conventional externally owned accounts (EOAs) use ECDSA (Elliptic Curve Digital Signature Algorithm) over the secp256k1 curve to authorize transactions."
+    },
+    {
+      "id": 7,
+      "question": "What does ECDSA produce?",
+      "options": [
+        "An encrypted wallet file",
+        "A digital signature",
+        "A Merkle root",
+        "A cryptocurrency address directly"
+      ],
+      "correctIndex": 1,
+      "explanation": "ECDSA outputs a cryptographic digital signature (the pair (r, s), along with recovery parameter v in Ethereum) that proves transaction authorization without revealing the private key."
+    },
+    {
+      "id": 8,
+      "question": "What is a Merkle root?",
+      "options": [
+        "A private key",
+        "The final cryptographic commitment of a Merkle tree",
+        "A wallet password",
+        "A transaction fee"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Merkle root is the top-level hash commitment of a binary Merkle tree, summarizing all transactions or state items committed into that tree."
+    },
+    {
+      "id": 9,
+      "question": "What does a Merkle proof establish?",
+      "options": [
+        "That a private key is valid",
+        "That a data item belongs to a committed tree",
+        "That a blockchain is private",
+        "That a transaction has no fees"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Merkle proof provides the logarithmic path of sibling hashes needed to verify that a specific transaction or leaf was included in a block's Merkle root."
+    },
+    {
+      "id": 10,
+      "question": "Which Python module is intended for secure random values?",
+      "options": [
+        "random",
+        "math",
+        "secrets",
+        "statistics"
+      ],
+      "correctIndex": 2,
+      "explanation": "Python's standard 'secrets' module accesses operating system CSPRNG entropy sources (like /dev/urandom or BCryptGenRandom) suitable for cryptographic keys, unlike 'random'."
+    },
+    {
+      "id": 11,
+      "question": "What happens if the same ECDSA nonce is reused with the same private key?",
+      "options": [
+        "It increases signature length",
+        "It can reveal the private key",
+        "It creates a Merkle root",
+        "It encrypts the public key"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reusing the per-signature nonce k across two different messages allows an attacker to algebraically calculate the private key d via simple modular arithmetic."
+    },
+    {
+      "id": 12,
+      "question": "What does Bitcoin's traditional P2PKH construction use?",
+      "options": [
+        "RIPEMD-160 after SHA-256 of the public key",
+        "Keccak-256 only",
+        "SHA3-256 only",
+        "AES encryption"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bitcoin P2PKH computes HASH160(PublicKey) = RIPEMD160(SHA256(PublicKey)), attaches a 0x00 version byte, appends a 4-byte checksum, and encodes with Base58Check."
+    }
+  ]
+}
