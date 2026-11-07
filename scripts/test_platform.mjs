@@ -53,7 +53,7 @@ async function runPlatformTests() {
     const catalogRes = await fetch(`${apiBase}/api/courses`);
     const catalog = await catalogRes.json();
     check('Course catalog returns 200 OK', catalogRes.status === 200);
-    check('Catalog contains exactly 6 master tracks', Array.isArray(catalog.courses) && catalog.courses.length === 6);
+    check('Catalog contains all 7 master tracks', Array.isArray(catalog.courses) && catalog.courses.length === 7);
 
     const osModuleRes = await fetch(`${apiBase}/api/courses/operating-systems/modules/intro`);
     const osMod = await osModuleRes.json();

@@ -20,6 +20,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { useSafeBack } from "../utils/navigation";
+import { getLucideIcon } from "../utils/iconMap";
 import Logo from "../Componets/Logo";
 
 function InstagramIcon({ size = 16, className = "" }) {
@@ -337,7 +338,7 @@ export default function Learning() {
         {/* LEARNING TRACKS GRID - Spacious, Balanced 2-Column Layout */}
         <div className="grid gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">
           {courses.map((card) => {
-            const Icon = card.icon;
+            const Icon = getLucideIcon(card.icon, Brain);
 
             return (
               <Link

@@ -16,7 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || "https://api.prepspaces.com").replace(/\/+$/, "");
+const API_BASE = ((typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE_URL) || "https://api.prepspaces.com").replace(/\/+$/, "");
 
 // In-memory content cache & in-flight promise deduplication
 const contentCache = new Map();
