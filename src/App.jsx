@@ -99,6 +99,7 @@ import AIMachineLearning from "./Componets/AIMachineLearning";
 import AIDeepLearning from "./Componets/AIDeepLearning";
 import AINaturalLanguageProcessing from "./Componets/AINaturalLanguageProcessing";
 import AITransformerArchitecture from "./Componets/AITransformerArchitecture";
+import AILargeLanguageModels from "./Componets/AILargeLanguageModels";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1118,6 +1119,18 @@ function App() {
             <Route path="/learning/ai-engineering/module-6" element={<AITransformerArchitecture />} />
             <Route path="/learn/ai/transformers" element={<AITransformerArchitecture />} />
             <Route path="/learn/ai/transformer" element={<AITransformerArchitecture />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 7: LARGE LANGUAGE MODELS (GPT, LLAMA, QWEN) */}
+            <Route path="/learning/ai/llms" element={<AILargeLanguageModels />} />
+            <Route path="/learning/ai/llm" element={<AILargeLanguageModels />} />
+            <Route path="/learning/ai/gpt" element={<AILargeLanguageModels />} />
+            <Route path="/learning/ai/llama" element={<AILargeLanguageModels />} />
+            <Route path="/learning/ai/qwen" element={<AILargeLanguageModels />} />
+            <Route path="/learning/ai/large-language-models" element={<AILargeLanguageModels />} />
+            <Route path="/learning/ai/module-7" element={<AILargeLanguageModels />} />
+            <Route path="/learning/ai-engineering/llms" element={<AILargeLanguageModels />} />
+            <Route path="/learning/ai-engineering/module-7" element={<AILargeLanguageModels />} />
+            <Route path="/learn/ai/llms" element={<AILargeLanguageModels />} />
 
 
             {/* INTERVIEW PAGE */}

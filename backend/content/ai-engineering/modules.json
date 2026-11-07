@@ -66,22 +66,22 @@
     "hasScenarios": true
   },
   {
-    "id": "computer-vision",
-    "courseId": "ai-engineering",
-    "index": 7,
-    "name": "7. Computer Vision & CNNs",
-    "route": "/learning/ai/computer-vision",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
-  },
-  {
     "id": "llms",
     "courseId": "ai-engineering",
-    "index": 8,
-    "name": "8. Large Language Models (LLMs) & Pretraining",
+    "index": 7,
+    "name": "7. Large Language Models: GPT, Llama & Qwen",
     "route": "/learning/ai/llms",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "fine-tuning",
+    "courseId": "ai-engineering",
+    "index": 8,
+    "name": "8. LLM Fine-Tuning & Adaptation (LoRA & QLoRA)",
+    "route": "/learning/ai/fine-tuning",
     "questionCount": 10,
     "hasTopics": false,
     "hasCommands": false,

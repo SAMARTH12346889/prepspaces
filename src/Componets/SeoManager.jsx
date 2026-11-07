@@ -81,6 +81,11 @@ const routeMeta = {
     description: "Build an encoder-decoder Transformer from scratch in PyTorch: scaled dot-product attention, multi-head subspaces, sinusoidal positional encodings, causal masks, and translation.",
     canonical: `${BASE_URL}/learning/ai/transformers`,
   },
+  "/learning/ai/llms": {
+    title: "Module 7: Large Language Models: GPT, Llama & Qwen | PrepSpaces",
+    description: "Master modern Large Language Models: GPT, Llama 4 MoE, Qwen3, decoder-only Transformer architecture, next-token prediction, KV-caching, quantization, and MiniGPT from scratch.",
+    canonical: `${BASE_URL}/learning/ai/llms`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

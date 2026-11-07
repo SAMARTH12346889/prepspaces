@@ -1,0 +1,130 @@
+{
+  "id": "llms",
+  "courseId": "ai-engineering",
+  "index": 7,
+  "name": "7. Large Language Models: GPT, Llama & Qwen",
+  "route": "/learning/ai/llms",
+  "componentName": "AILargeLanguageModels",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary training objective of a GPT-style base language model?",
+      "options": [
+        "Image segmentation across pixel masks",
+        "Next-token prediction using causal autoregressive context",
+        "Relational database query optimization",
+        "Unsupervised clustering via k-means"
+      ],
+      "correctIndex": 1,
+      "explanation": "GPT-style base language models are trained on the causal language modeling objective: maximizing the log-likelihood of predicting the true next token given all prior tokens."
+    },
+    {
+      "id": 2,
+      "question": "Which neural architecture is standard for modern generative foundation models (GPT, Llama, Qwen)?",
+      "options": [
+        "Bidirectional Encoder-only Transformer",
+        "Decoder-only Transformer with causal masking",
+        "Deep Convolutional Neural Network (CNN)",
+        "Recurrent Neural Network with Highway Connections"
+      ],
+      "correctIndex": 1,
+      "explanation": "Modern generative language models use decoder-only Transformers because all language generation tasks can be formulated as next-token prediction without requiring a separate bidirectional encoder."
+    },
+    {
+      "id": 3,
+      "question": "What is the primary function of a tokenizer in an LLM pipeline?",
+      "options": [
+        "Update neural network weight matrices during backpropagation",
+        "Convert natural language text strings into discrete numerical token IDs",
+        "Generate synthetic training labels automatically",
+        "Allocate GPU VRAM memory buffers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Neural networks process numerical tensors. A tokenizer decomposes raw text into discrete subwords or bytes and maps them to integer vocabulary IDs."
+    },
+    {
+      "id": 4,
+      "question": "What mechanism prevents a decoder position from accessing future tokens during training?",
+      "options": [
+        "Temperature scaling",
+        "Lower-triangular causal attention mask",
+        "Weight quantization",
+        "Dropout regularization"
+      ],
+      "correctIndex": 1,
+      "explanation": "A causal mask sets attention scores for all future positions (j > i) to negative infinity (-inf), ensuring Softmax assigns exactly 0.0 probability to future tokens."
+    },
+    {
+      "id": 5,
+      "question": "What happens during LLM pretraining?",
+      "options": [
+        "Only API calls are tested",
+        "The model learns patterns, grammar, and reasoning from a large training corpus",
+        "Weights are randomly deleted to compress storage",
+        "The tokenizer is replaced on every request"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pretraining is self-supervised training on trillions of tokens where the model learns linguistic structure, factual knowledge, and reasoning capabilities."
+    },
+    {
+      "id": 6,
+      "question": "What is a Mixture-of-Experts (MoE) architecture?",
+      "options": [
+        "A network with no Transformer blocks",
+        "A system that dynamically routes tokens through selected expert networks",
+        "A character-level tokenizer",
+        "A sampling algorithm"
+      ],
+      "correctIndex": 1,
+      "explanation": "An MoE model contains multiple feed-forward expert networks per block; a learned parametric router selects only top-k experts per token, decoupling total parameters from active compute."
+    },
+    {
+      "id": 7,
+      "question": "What does a context window define?",
+      "options": [
+        "Number of Transformer blocks",
+        "The applicable token budget for a sequence or request",
+        "Number of attention heads",
+        "Model vocabulary size"
+      ],
+      "correctIndex": 1,
+      "explanation": "The context window specifies the maximum number of tokens that the model can process concurrently in a single forward pass, shared across system prompt, history, query, and output."
+    },
+    {
+      "id": 8,
+      "question": "What is the primary purpose of Key-Value (KV) caching during autoregressive decoding?",
+      "options": [
+        "Store user login credentials in secure storage",
+        "Reuse earlier Key and Value representations during decoding to avoid redundant recalculation",
+        "Increase model vocabulary size dynamically",
+        "Apply model quantization"
+      ],
+      "correctIndex": 1,
+      "explanation": "Autoregressive generation generates one token at a time. KV caching stores earlier Key and Value representations in GPU memory, reducing per-token decoding complexity from O(T) to O(1)."
+    },
+    {
+      "id": 9,
+      "question": "What does top-p (nucleus) sampling control?",
+      "options": [
+        "Model parameter count",
+        "The cumulative probability mass threshold of eligible candidate tokens",
+        "Model embedding size",
+        "Training batch size"
+      ],
+      "correctIndex": 1,
+      "explanation": "Top-p sampling dynamically selects the smallest set of candidate tokens whose cumulative Softmax probability mass equals or exceeds threshold p."
+    },
+    {
+      "id": 10,
+      "question": "What is the main purpose of model quantization (e.g. FP16 -> INT4)?",
+      "options": [
+        "Increase model depth",
+        "Reduce numerical representation precision and potentially memory requirements",
+        "Add more training data",
+        "Replace the tokenizer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Quantization represents weights with lower bit-widths (e.g. 4 bits instead of 16 bits), slashing model VRAM requirements by up to 4x and speeding up memory-bound inference."
+    }
+  ]
+}
