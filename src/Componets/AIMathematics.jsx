@@ -729,7 +729,7 @@ if __name__ == "__main__":
                   University-Level Mathematics
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-stone-900 tracking-tight break-words">
                 Mathematics for AI &amp; Machine Learning
               </h1>
               <p className="mt-2 text-stone-600 text-sm sm:text-base max-w-3xl leading-relaxed">
@@ -783,11 +783,11 @@ if __name__ == "__main__":
         </div>
 
         {/* View Mode Navigation Tabs */}
-        <div className="flex overflow-x-auto no-scrollbar gap-2 border-b border-[#e7e3da] pb-3 mb-8">
+        <div className="flex overflow-x-auto gap-2 border-b border-[#e7e3da] pb-3 mb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x min-w-0">
           <button
             type="button"
             onClick={() => setActiveTab("curriculum")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "curriculum"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -800,7 +800,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("interactive-tools")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "interactive-tools"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -813,7 +813,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("labs")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "labs"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -826,7 +826,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("project")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "project"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -839,7 +839,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("interview")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "interview"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -852,7 +852,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("quiz")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "quiz"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -865,7 +865,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("resources")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "resources"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"

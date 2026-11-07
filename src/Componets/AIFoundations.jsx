@@ -918,7 +918,7 @@ if __name__ == "__main__":
                   University-Level Curriculum
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-stone-900 tracking-tight break-words">
                 AI Engineering Foundations &amp; Python for AI
               </h1>
               <p className="mt-2 text-stone-600 text-sm sm:text-base max-w-3xl leading-relaxed">
@@ -972,11 +972,11 @@ if __name__ == "__main__":
         </div>
 
         {/* View Mode Navigation Tabs */}
-        <div className="flex overflow-x-auto no-scrollbar gap-2 border-b border-[#e7e3da] pb-3 mb-8">
+        <div className="flex overflow-x-auto gap-2 border-b border-[#e7e3da] pb-3 mb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x min-w-0">
           <button
             type="button"
             onClick={() => setActiveTab("curriculum")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "curriculum"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -989,7 +989,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("interactive-tools")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "interactive-tools"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -1002,7 +1002,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("labs")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "labs"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -1015,7 +1015,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("capstone")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "capstone"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -1028,7 +1028,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("qa")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "qa"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -1041,7 +1041,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("quiz")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "quiz"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -1054,7 +1054,7 @@ if __name__ == "__main__":
           <button
             type="button"
             onClick={() => setActiveTab("resources")}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               activeTab === "resources"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "bg-white text-stone-600 border border-[#e7e3da] hover:bg-stone-50 hover:text-stone-900"
@@ -1110,7 +1110,7 @@ if __name__ == "__main__":
             {/* Main Section Explorer Layout: Section Grid Selector + Full In-Depth Content Viewer */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
               {/* Left Column: Quick Section List / Index */}
-              <div className="lg:col-span-4 rounded-2xl border border-[#e7e3da] bg-white p-4 shadow-xs max-h-[800px] overflow-y-auto">
+              <div className="lg:col-span-4 rounded-2xl border border-[#e7e3da] bg-white p-4 shadow-xs max-h-72 sm:max-h-96 lg:max-h-[800px] overflow-y-auto">
                 <div className="text-xs font-mono font-bold text-stone-400 uppercase tracking-wider mb-3 px-1">
                   Table of Contents
                 </div>

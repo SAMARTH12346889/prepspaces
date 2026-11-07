@@ -109,7 +109,7 @@ export function VectorCosineSimilarityTool() {
                 <span className="text-orange-700 font-bold">Vector A: X = {vecA.x}, Y = {vecA.y}</span>
                 <span className="text-stone-400">||A|| = {metrics.magA}</span>
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <input
                   type="range"
                   min="-5"
@@ -136,7 +136,7 @@ export function VectorCosineSimilarityTool() {
                 <span className="text-sky-700 font-bold">Vector B: X = {vecB.x}, Y = {vecB.y}</span>
                 <span className="text-stone-400">||B|| = {metrics.magB}</span>
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <input
                   type="range"
                   min="-5"
@@ -159,7 +159,7 @@ export function VectorCosineSimilarityTool() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 text-center text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center text-xs">
             <div className="p-2.5 rounded-xl bg-[#faf8f4] border border-[#e7e3da]">
               <span className="text-[10px] text-stone-400 font-mono block">Dot Product</span>
               <strong className="text-sm font-mono text-stone-900">{metrics.dot}</strong>
@@ -402,7 +402,7 @@ export function DerivativeTangentVisualizer() {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             <div className="p-3 rounded-xl bg-[#faf8f4] border border-[#e7e3da]">
               <span className="text-[10px] text-stone-400 font-mono block">Analytical Derivative f&apos;(x) = 2x</span>
               <strong className="text-base font-mono text-orange-600">{analyticalSlope.toFixed(4)}</strong>

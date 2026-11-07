@@ -444,7 +444,7 @@ export default function ModuleNav({
   // NORMAL RENDER (ALL MODULES ARE UNRESTRICTED & ACCESSIBLE)
   // =========================================================================
   return (
-    <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3">
+    <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3 px-4 sm:px-6 lg:px-8 pt-3 sm:pt-6">
       {/* Top Breadcrumb & User Actions */}
       <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-[#e7e3da] pb-3 sm:pb-4">
         <div className="flex items-center gap-2">

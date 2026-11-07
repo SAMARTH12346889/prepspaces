@@ -209,8 +209,8 @@ export default function AIFinalCapstone() {
 
       {/* Tabs Navigation */}
       <div className="sticky top-0 z-30 border-b border-[#e7e3da] bg-[#f6f4ee]/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 py-2 sm:px-6 lg:px-8">
-          <div className="flex space-x-1 sm:space-x-2">
+        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 py-2 sm:px-6 lg:px-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x min-w-0">
+          <div className="flex space-x-1 sm:space-x-2 shrink-0">
             {[
               { id: "curriculum", label: "Curriculum Units", icon: BookOpen },
               { id: "interactive", label: "Interactive Tools", icon: Sparkles },
@@ -250,11 +250,11 @@ export default function AIFinalCapstone() {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
             {/* Sidebar Unit Selector */}
             <div className="lg:col-span-4">
-              <div className="sticky top-20 rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-4">
+              <div className="relative lg:sticky lg:top-20 rounded-2xl border border-[#e7e3da] bg-white shadow-xs p-4">
                 <div className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-3 px-2">
                   12 Capstone Lifecycle Units
                 </div>
-                <div className="space-y-1.5 max-h-[70vh] overflow-y-auto pr-1">
+                <div className="space-y-1.5 max-h-72 sm:max-h-96 lg:max-h-[70vh] overflow-y-auto pr-1">
                   {curriculumUnits.map((unit, idx) => {
                     const isSelected = selectedUnitIdx === idx;
                     return (

@@ -529,7 +529,7 @@ export function Word2VecSemanticExplorer() {
             <div className="text-xs font-mono font-bold text-stone-700 uppercase tracking-wider mb-2">
               Calculate Cosine Similarity
             </div>
-            <div className="grid grid-cols-2 gap-2 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
               <div>
                 <label className="text-[11px] font-bold text-stone-600 block mb-1">Vector A</label>
                 <select

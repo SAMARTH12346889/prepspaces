@@ -144,11 +144,11 @@ export default function AIMultimodal() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-t-lg transition cursor-pointer ${
+                  className={`shrink-0 flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-t-lg transition cursor-pointer ${
                     activeTab === tab.id
                       ? "bg-[#f97316] text-white shadow-xs font-bold"
                       : "bg-white/80 text-stone-700 hover:border-orange-300 hover:text-[#f97316] border border-[#e7e3da]"
-                  }`}
+                  } whitespace-nowrap`}
                 >
                   <Icon size={16} />
                   <span>{tab.label}</span>

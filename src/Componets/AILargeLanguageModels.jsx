@@ -181,13 +181,13 @@ export default function AILargeLanguageModels() {
         {activeTab === "curriculum" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar Unit Selector */}
-            <div className="lg:col-span-4 bg-white rounded-2xl border border-stone-200 p-4 shadow-sm space-y-2 sticky top-6">
+            <div className="lg:col-span-4 bg-white rounded-2xl border border-stone-200 p-4 shadow-sm space-y-2 relative lg:sticky lg:top-6">
               <div className="flex items-center justify-between border-b border-stone-100 pb-3 mb-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-stone-500">Course Roadmap</span>
                 <span className="text-xs font-mono font-semibold text-orange-600">Unit {selectedUnitIdx + 1} of 10</span>
               </div>
 
-              <div className="space-y-1.5 max-h-[70vh] overflow-y-auto pr-1">
+              <div className="space-y-1.5 max-h-72 sm:max-h-96 lg:max-h-[70vh] overflow-y-auto pr-1">
                 {LLM_CURRICULUM_UNITS.map((unit, idx) => {
                   const isSelected = selectedUnitIdx === idx;
                   return (
@@ -339,7 +339,7 @@ export default function AILargeLanguageModels() {
                         )}
                       </button>
                     </div>
-                    <pre className="text-emerald-400 leading-relaxed">{activeUnit.codeSnippet}</pre>
+                    <pre className="overflow-x-auto text-emerald-400 leading-relaxed">{activeUnit.codeSnippet}</pre>
                   </div>
                 )}
 
@@ -458,7 +458,7 @@ export default function AILargeLanguageModels() {
                         )}
                       </button>
                     </div>
-                    <pre className="text-emerald-400 leading-relaxed">{lab.code}</pre>
+                    <pre className="overflow-x-auto text-emerald-400 leading-relaxed">{lab.code}</pre>
                   </div>
 
                   <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700">

@@ -111,7 +111,7 @@ export default function AIAgents() {
             </span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-900 tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-stone-900 tracking-tight break-words">
             {overview.title}
           </h1>
           <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-4xl leading-relaxed">
@@ -160,7 +160,7 @@ export default function AIAgents() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg whitespace-nowrap transition-all duration-150 ${
+                  className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg whitespace-nowrap transition-all duration-150 ${
                     activeTab === tab.id
                       ? "bg-[#f97316] text-white shadow-xs font-bold"
                       : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
@@ -181,7 +181,7 @@ export default function AIAgents() {
         {activeTab === "curriculum" && (
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar Syllabus Navigator */}
-            <div className="lg:col-span-4 bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 shadow-xs sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <div className="lg:col-span-4 bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 shadow-xs relative lg:sticky lg:top-20 max-h-72 sm:max-h-96 lg:max-h-[calc(100vh-6rem)] overflow-y-auto">
               <div className="flex items-center justify-between pb-3 mb-3 border-b border-stone-100">
                 <span className="font-bold text-xs uppercase tracking-wider text-stone-700">
                   Course Roadmap (12 Units)
@@ -328,7 +328,7 @@ export default function AIAgents() {
                               <Copy size={14} />
                             )}
                           </button>
-                          <pre>{sec.codeSnippet}</pre>
+                          <pre className="overflow-x-auto text-xs font-mono">{sec.codeSnippet}</pre>
                         </div>
                       )}
                     </section>
@@ -605,7 +605,7 @@ export default function AIAgents() {
                         <Copy size={13} />
                       )}
                     </button>
-                    <pre>{task.starterStub}</pre>
+                    <pre className="overflow-x-auto text-xs font-mono">{task.starterStub}</pre>
                   </div>
                 </div>
               ))}

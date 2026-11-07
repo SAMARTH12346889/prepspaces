@@ -198,7 +198,7 @@ export function TokenBucketRateLimiterSimulator() {
 
         {/* Action Controls & Dispatch Buttons */}
         <div className="md:col-span-7 space-y-3">
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <button
               onClick={() => handleConsume(1)}
               className="p-3 bg-stone-800 hover:bg-stone-700 active:scale-95 text-stone-100 rounded-lg text-xs font-bold border border-stone-700 flex flex-col items-center gap-1"
@@ -398,7 +398,7 @@ export function AsyncEventLoopConcurrencySimulator() {
       </div>
 
       {/* Mode Comparison Banner */}
-      <div className="grid grid-cols-2 gap-3 my-4 text-xs font-mono">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4 text-xs font-mono">
         <div
           className={`p-3 rounded-lg border ${
             mode === "sync"

@@ -232,7 +232,7 @@ export function CanaryVsBlueGreenDeploymentSimulator() {
               Stable
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-2 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center">
             <div className="p-2 bg-stone-900 rounded border border-stone-800">
               <span className="text-[10px] text-stone-500 block">Requests</span>
               <span className="text-sm font-bold text-white">{requestsV1}</span>
@@ -259,7 +259,7 @@ export function CanaryVsBlueGreenDeploymentSimulator() {
               Canary
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-2 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center">
             <div className="p-2 bg-stone-900 rounded border border-stone-800">
               <span className="text-[10px] text-stone-500 block">Requests</span>
               <span className="text-sm font-bold text-white">{requestsV2}</span>
@@ -355,7 +355,7 @@ export function DataDriftEvidentlyDistributionVisualizer() {
                 <span className="text-stone-300">{bin.label}</span>
                 <span className="text-stone-500">Ref: {bin.base}% · Prod: {bin.prod.toFixed(0)}%</span>
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div className="h-2.5 bg-stone-800 rounded-full overflow-hidden">
                   <div className="h-full bg-sky-500 rounded-full" style={{ width: `${bin.base}%` }}></div>
                 </div>
@@ -372,7 +372,7 @@ export function DataDriftEvidentlyDistributionVisualizer() {
       </div>
 
       {/* Statistical Metrics Scoreboard */}
-      <div className="grid grid-cols-3 gap-3 text-xs font-mono">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
         <div className="p-3 bg-stone-950 rounded-lg border border-stone-800">
           <span className="text-stone-500 text-[10px] block uppercase">KS Statistic ($D$)</span>
           <span className="text-white font-bold text-sm">{ksStatistic}</span>

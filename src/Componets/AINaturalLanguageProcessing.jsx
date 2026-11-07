@@ -160,10 +160,10 @@ export default function AINaturalLanguageProcessing() {
 
       {/* Primary Tab Navigation */}
       <div className="border-b border-[#e7e3da] bg-white sticky top-0 z-30 px-4 sm:px-6 lg:px-8 shadow-2xs">
-        <div className="max-w-6xl mx-auto flex items-center gap-1 sm:gap-2 overflow-x-auto py-2.5 no-scrollbar">
+        <div className="max-w-6xl mx-auto flex items-center gap-1 sm:gap-2 overflow-x-auto py-2.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x min-w-0">
           <button
             onClick={() => setActiveTab("curriculum")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "curriculum"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
@@ -175,7 +175,7 @@ export default function AINaturalLanguageProcessing() {
 
           <button
             onClick={() => setActiveTab("interactive-tools")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "interactive-tools"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
@@ -187,7 +187,7 @@ export default function AINaturalLanguageProcessing() {
 
           <button
             onClick={() => setActiveTab("labs")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "labs"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
@@ -199,7 +199,7 @@ export default function AINaturalLanguageProcessing() {
 
           <button
             onClick={() => setActiveTab("project")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "project"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
@@ -211,7 +211,7 @@ export default function AINaturalLanguageProcessing() {
 
           <button
             onClick={() => setActiveTab("interview")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "interview"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
@@ -223,7 +223,7 @@ export default function AINaturalLanguageProcessing() {
 
           <button
             onClick={() => setActiveTab("quiz")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "quiz"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
@@ -235,7 +235,7 @@ export default function AINaturalLanguageProcessing() {
 
           <button
             onClick={() => setActiveTab("resources")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all ${
               activeTab === "resources"
                 ? "bg-[#f97316] text-white shadow-xs font-bold"
                 : "text-stone-600 hover:text-stone-900 hover:bg-[#eae6df]"
@@ -255,7 +255,7 @@ export default function AINaturalLanguageProcessing() {
         {activeTab === "curriculum" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar Navigation */}
-            <div className="lg:col-span-4 bg-white rounded-2xl border border-[#e7e3da] p-4 shadow-xs sticky top-20 max-h-[82vh] flex flex-col">
+            <div className="lg:col-span-4 bg-white rounded-2xl border border-[#e7e3da] p-4 shadow-xs relative lg:sticky lg:top-20 max-h-72 sm:max-h-96 lg:max-h-[82vh] flex flex-col">
               <div className="mb-3">
                 <span className="text-[10px] font-mono uppercase font-bold text-stone-500 tracking-wider block">
                   Curriculum Navigator
@@ -468,7 +468,7 @@ export default function AINaturalLanguageProcessing() {
         {activeTab === "labs" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Labs list sidebar */}
-            <div className="lg:col-span-4 bg-white rounded-2xl border border-[#e7e3da] p-4 shadow-xs sticky top-20">
+            <div className="lg:col-span-4 bg-white rounded-2xl border border-[#e7e3da] p-4 shadow-xs relative lg:sticky lg:top-20">
               <div className="text-[10px] font-mono uppercase font-bold text-stone-500 tracking-wider mb-1">
                 Practical Laboratories
               </div>

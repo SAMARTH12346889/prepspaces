@@ -46,7 +46,7 @@ export default function Logo({
         decoding="async"
       />
       {suffix && (
-        <span className="inline-flex items-center justify-center rounded-full bg-orange-100/80 border border-orange-200/90 px-2.5 py-0.5 text-[10px] font-bold font-mono uppercase tracking-wider text-[#ea580c] leading-none whitespace-nowrap shadow-2xs self-center">
+        <span className="hidden min-[480px]:inline-flex items-center justify-center rounded-full bg-orange-100/80 border border-orange-200/90 px-2.5 py-0.5 text-[10px] font-bold font-mono uppercase tracking-wider text-[#ea580c] leading-none whitespace-nowrap shadow-2xs self-center">
           {suffix}
         </span>
       )}

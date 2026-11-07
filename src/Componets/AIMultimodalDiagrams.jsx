@@ -641,7 +641,7 @@ export function RealtimeVoiceBargeInSimulator() {
           <span className="font-mono text-orange-700">Total Latency: ~{latencyMs}ms</span>
         </div>
 
-        <div className="grid grid-cols-4 gap-2 text-center text-[11px] font-mono">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[11px] font-mono">
           <div className={`p-2.5 rounded-lg border ${sessionState === "USER_SPEAKING" ? "bg-orange-100 border-orange-400 font-bold" : "bg-white border-stone-200"}`}>
             <div>Client VAD</div>
             <div className="text-[10px] text-stone-500">Endpoint: ~800ms</div>

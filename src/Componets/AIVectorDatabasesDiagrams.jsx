@@ -102,7 +102,7 @@ export function CosineSimilarityVisualizer() {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label htmlFor={magAId} className="block text-xs font-semibold text-stone-700 mb-1.5">
                 ||A|| Magnitude: <span className="font-mono text-orange-700 font-bold">{magA}</span>
@@ -137,7 +137,7 @@ export function CosineSimilarityVisualizer() {
           </div>
 
           {/* Math breakdown */}
-          <div className="grid grid-cols-3 gap-2 p-3 rounded-xl bg-stone-50 border border-stone-200 font-mono text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 p-3 rounded-xl bg-stone-50 border border-stone-200 font-mono text-xs">
             <div className="p-2 bg-white rounded border border-stone-200">
               <div className="text-[10px] text-stone-400">Dot Product (A·B)</div>
               <div className="font-bold text-stone-900 mt-0.5">{dotProduct.toFixed(3)}</div>

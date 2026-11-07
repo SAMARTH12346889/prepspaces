@@ -138,7 +138,7 @@ export default function AISystemDesign() {
             </span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-900 tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-stone-900 tracking-tight break-words">
             Module {systemDesignMeta.moduleNumber}: {systemDesignMeta.title}
           </h1>
           <p className="mt-2 max-w-4xl text-sm sm:text-base text-stone-600 leading-relaxed">
@@ -181,8 +181,8 @@ export default function AISystemDesign() {
 
       {/* Tabs Navigation */}
       <div className="sticky top-0 z-30 border-b border-[#e7e3da] bg-[#f6f4ee]/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 py-2 sm:px-6 lg:px-8">
-          <div className="flex space-x-1 sm:space-x-2">
+        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 py-2 sm:px-6 lg:px-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x min-w-0">
+          <div className="flex space-x-1 sm:space-x-2 shrink-0">
             {[
               { id: "curriculum", label: "Curriculum", icon: BookOpen },
               { id: "interactive", label: "Interactive Tools", icon: Sparkles },
@@ -222,11 +222,11 @@ export default function AISystemDesign() {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
             {/* Sidebar Navigator */}
             <div className="lg:col-span-4">
-              <div className="sticky top-20 rounded-2xl border border-[#e7e3da] bg-white p-4 shadow-xs">
+              <div className="relative lg:sticky lg:top-20 rounded-2xl border border-[#e7e3da] bg-white p-4 shadow-xs">
                 <div className="mb-3 text-xs font-bold uppercase tracking-wider text-stone-500 px-1">
                   Course Units (12 Modules)
                 </div>
-                <div className="space-y-1.5 max-h-[70vh] overflow-y-auto pr-1">
+                <div className="space-y-1.5 max-h-72 sm:max-h-96 lg:max-h-[70vh] overflow-y-auto pr-1">
                   {curriculumUnits.map((unit, idx) => (
                     <button
                       key={unit.id}
@@ -300,7 +300,7 @@ export default function AISystemDesign() {
                                     </span>
                                   )}
                                 </button>
-                                <pre className="text-emerald-400">{codeContent}</pre>
+                                <pre className="overflow-x-auto text-emerald-400">{codeContent}</pre>
                               </div>
                             );
                           }
@@ -400,7 +400,7 @@ export default function AISystemDesign() {
                         </span>
                       )}
                     </button>
-                    <pre>{lab.code}</pre>
+                    <pre className="overflow-x-auto text-xs font-mono">{lab.code}</pre>
                   </div>
                 </div>
               ))}
@@ -475,7 +475,7 @@ export default function AISystemDesign() {
                     </span>
                   )}
                 </button>
-                <pre>{capstoneProject.architectureBlueprintCode}</pre>
+                <pre className="overflow-x-auto text-xs font-mono">{capstoneProject.architectureBlueprintCode}</pre>
               </div>
             </div>
           </div>
@@ -530,7 +530,7 @@ export default function AISystemDesign() {
                           </span>
                         )}
                       </button>
-                      <pre>{task.solution}</pre>
+                      <pre className="overflow-x-auto text-xs font-mono">{task.solution}</pre>
                     </div>
                   )}
                 </div>

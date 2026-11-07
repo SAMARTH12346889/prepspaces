@@ -318,7 +318,7 @@ export function KVCacheMemoryCalculator() {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
             <div>
               <label className="block font-semibold text-stone-700 mb-1">Attention Scheme:</label>
               <select

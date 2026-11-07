@@ -103,7 +103,7 @@ export function GpuMemoryVramAllocationCalculator() {
         {/* Quantization */}
         <div className="bg-stone-950 p-3 rounded-xl border border-stone-800 space-y-1.5">
           <label className="text-stone-400 block font-medium">Precision (Quantization)</label>
-          <div className="grid grid-cols-3 gap-1">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">
             {[
               { bits: 16, label: "FP16 (2B)" },
               { bits: 8, label: "INT8 (1B)" },
@@ -158,7 +158,7 @@ export function GpuMemoryVramAllocationCalculator() {
         {/* Attention Head Topology */}
         <div className="bg-stone-950 p-3 rounded-xl border border-stone-800 space-y-1.5">
           <label className="text-stone-400 block font-medium">Attention Architecture</label>
-          <div className="grid grid-cols-2 gap-1.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
             <button
               onClick={() => setUseGqa(true)}
               className={`p-1.5 rounded-lg text-xs font-mono transition-all ${

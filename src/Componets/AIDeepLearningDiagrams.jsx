@@ -99,7 +99,7 @@ export function NeuronActivationPlayground() {
         <div className="md:col-span-5 space-y-3.5">
           <div>
             <label className="text-xs font-bold text-stone-700 block mb-1">Activation Function f(z):</label>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
               {["relu", "sigmoid", "tanh", "leaky", "gelu", "linear"].map((fn) => (
                 <button
                   key={fn}
@@ -121,7 +121,7 @@ export function NeuronActivationPlayground() {
               <span>Inputs (x1, x2, x3):</span>
               <span className="text-stone-700 font-bold">{x1}, {x2}, {x3}</span>
             </div>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
               <input type="range" min="0" max="5" step="0.5" value={x1} onChange={(e) => setX1(parseFloat(e.target.value))} className="accent-stone-700" />
               <input type="range" min="0" max="5" step="0.5" value={x2} onChange={(e) => setX2(parseFloat(e.target.value))} className="accent-stone-700" />
               <input type="range" min="0" max="5" step="0.5" value={x3} onChange={(e) => setX3(parseFloat(e.target.value))} className="accent-stone-700" />
@@ -131,7 +131,7 @@ export function NeuronActivationPlayground() {
               <span>Weights (w1, w2, w3):</span>
               <span className="text-orange-600 font-bold">{w1}, {w2}, {w3}</span>
             </div>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
               <input type="range" min="-1" max="2" step="0.1" value={w1} onChange={(e) => setW1(parseFloat(e.target.value))} className="accent-orange-600" />
               <input type="range" min="-1" max="2" step="0.1" value={w2} onChange={(e) => setW2(parseFloat(e.target.value))} className="accent-orange-600" />
               <input type="range" min="-1" max="2" step="0.1" value={w3} onChange={(e) => setW3(parseFloat(e.target.value))} className="accent-orange-600" />
@@ -327,7 +327,7 @@ export function BackpropagationGradientSimulator() {
             <span className="text-stone-500">Inputs &rarr; Predictions &rarr; Loss</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 text-center text-[11px]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center text-[11px]">
             <div className="bg-white p-2 rounded-lg border border-[#e7e3da]">
               <span className="text-stone-500 block">Linear (z)</span>
               <span className="font-bold text-stone-900">z = {calc.z.toFixed(2)}</span>
@@ -347,7 +347,7 @@ export function BackpropagationGradientSimulator() {
             <span className="text-stone-500">dL/dw = (dL/dz) &times; (dz/dw)</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 text-center text-[11px]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center text-[11px]">
             <div className="bg-orange-50 p-2 rounded-lg border border-orange-200">
               <span className="text-stone-500 block">&part;L/&part;z = p - y</span>
               <span className="font-bold text-orange-900">{calc.dL_dz.toFixed(4)}</span>
@@ -390,7 +390,7 @@ export function BackpropagationGradientSimulator() {
 
           <div>
             <label className="text-xs font-bold text-stone-700 block mb-1">Target Class (y):</label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {[0, 1].map((val) => (
                 <button
                   key={val}
@@ -504,7 +504,7 @@ export function TensorDimensionArchitectureTool() {
 
         {/* Configuration Sliders */}
         <div className="md:col-span-5 space-y-3">
-          <div className="grid grid-cols-2 gap-3 text-xs font-mono">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
             <div>
               <label className="font-bold text-stone-700 block">Batch (B): {bSize}</label>
               <input type="range" min="8" max="128" step="8" value={bSize} onChange={(e) => setBSize(parseInt(e.target.value))} className="w-full accent-orange-600" />
@@ -645,7 +645,7 @@ export function OptimizerConvergenceSimulator() {
         <div className="md:col-span-5 space-y-4">
           <div>
             <label className="text-xs font-bold text-stone-700 block mb-1">Select Optimizer:</label>
-            <div className="grid grid-cols-4 gap-1.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
               {["sgd", "momentum", "rmsprop", "adam"].map((algo) => (
                 <button
                   key={algo}

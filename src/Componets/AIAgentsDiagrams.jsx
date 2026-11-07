@@ -415,7 +415,7 @@ export function FunctionCallingSchemaValidator() {
                   className="w-full rounded-lg border border-stone-300 bg-white px-3 py-1.5 text-stone-800 font-mono text-xs"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="font-semibold text-stone-700 block mb-1">Difficulty (enum):</label>
                   <select

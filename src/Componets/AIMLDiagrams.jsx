@@ -147,7 +147,7 @@ export function PolynomialOverfittingTool() {
               <span>Polynomial Degree (Complexity):</span>
               <span className="font-mono text-orange-600">Degree {degree === 10 ? "9+ (High)" : degree}</span>
             </label>
-            <div className="grid grid-cols-4 gap-2 mt-1.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-1.5">
               {[1, 2, 3, 10].map((d) => (
                 <button
                   key={d}
@@ -409,7 +409,7 @@ export function ConfusionMatrixMetricCalculator() {
           <div className="text-center font-mono text-[11px] font-bold text-stone-600 mb-2">
             PREDICTED CLASS
           </div>
-          <div className="grid grid-cols-2 gap-2 text-center font-mono">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-center font-mono">
             {/* TP */}
             <div className="bg-emerald-50 border-2 border-emerald-300 rounded-xl p-3 flex flex-col items-center">
               <span className="text-[10px] font-bold text-emerald-800 uppercase">True Positive (TP)</span>
@@ -473,7 +473,7 @@ export function ConfusionMatrixMetricCalculator() {
 
         {/* Derived Metrics Grid */}
         <div className="md:col-span-6 space-y-3">
-          <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
             <div className="bg-[#f5f2eb] p-3 rounded-xl border border-[#e7e3da]">
               <span className="text-stone-500 block text-[10px]">Accuracy</span>
               <span className="text-base font-bold text-stone-900">{(accuracy * 100).toFixed(1)}%</span>
