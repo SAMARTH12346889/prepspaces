@@ -654,7 +654,7 @@ return (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar Sticky Navigation */}
             <div className="lg:col-span-1">
-              <div className="sticky top-6 p-4 bg-white rounded-2xl border border-[#e7e3da] shadow-sm">
+              <div className="relative lg:sticky lg:top-6 p-4 bg-white rounded-2xl border border-[#e7e3da] shadow-sm">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-3 px-2">
                   Module 7 Sections
                 </h3>

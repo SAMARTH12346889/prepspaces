@@ -228,11 +228,11 @@ export default function Learning() {
           <button
             type="button"
             onClick={() => goBack("/")}
-            className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/80 px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer"
-            aria-label="Back to Overview"
+            className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/80 px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0"
+            aria-label="Back to Home"
           >
             <ArrowLeft size={16} />
-            <span>Back to Overview</span>
+            <span>Back to Home</span>
           </button>
 
           <div className="flex items-center gap-2.5 sm:gap-3">

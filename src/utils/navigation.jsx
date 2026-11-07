@@ -5,43 +5,146 @@ const NavigationContext = createContext(null);
 
 /**
  * Determine a logical hierarchy fallback when no in-app history entry exists
- * (e.g. direct URL visit, new tab, or hard refresh).
+ * (e.g. direct URL visit, new tab, external referrer, or hard refresh).
  */
 export function getContextualFallback(pathname) {
   if (!pathname || pathname === "/") return "/";
 
-  // Nested cloud module (/learning/cloud/networking) -> parent course (/learning/cloud)
-  if (pathname.startsWith("/learning/cloud/") && pathname !== "/learning/cloud") {
-    return "/learning/cloud";
-  }
+  // Normalize lower-case and strip trailing slash
+  const p = pathname.toLowerCase().replace(/\/+$/, "");
 
-  // Nested devops module (/learning/devops/git) -> devops course root (/learning/devops/linux)
-  if (pathname.startsWith("/learning/devops/") && pathname !== "/learning/devops/linux" && pathname !== "/learning/devops") {
-    return "/learning/devops/linux";
+  // AI & Generative AI Course (/learning/ai/..., /learn/ai/..., /learning/ai-engineering/...)
+  if (
+    p.startsWith("/learning/ai/") ||
+    p.startsWith("/learning/ai-engineering/") ||
+    p.startsWith("/learn/ai/") ||
+    p.startsWith("/learn/ai-engineering/")
+  ) {
+    const isAiRoot =
+      p === "/learning/ai/intro" ||
+      p === "/learning/ai/foundations" ||
+      p === "/learning/ai-engineering/intro" ||
+      p === "/learning/ai-engineering/foundations" ||
+      p === "/learn/ai/foundations";
+    return isAiRoot ? "/learning" : "/learning/ai";
   }
-
-  // Nested system design module (/learning/system-design/networking) -> course root (/learning/system-design)
-  if (pathname.startsWith("/learning/system-design/") && pathname !== "/learning/system-design") {
-    return "/learning/system-design";
-  }
-
-  // Nested OS module (/learning/os/processes) -> course root (/learning/os)
-  if (pathname.startsWith("/learning/os/") && pathname !== "/learning/os") {
-    return "/learning/os";
-  }
-
-  // Course main page (/learning/cloud, /learning/devops/linux, /learning/system-design) -> course catalog (/learning)
-  if (pathname.startsWith("/learning/") && pathname !== "/learning") {
+  if (
+    p === "/learning/ai" ||
+    p === "/learning/ai-engineering" ||
+    p === "/learn/ai" ||
+    p === "/learn/ai-engineering"
+  ) {
     return "/learning";
   }
 
-  // Curriculum listing (/learning) -> Home (/)
-  if (pathname === "/learning") {
+  // Operating Systems Course (/learning/os/..., /learning/operating-systems/..., /learn/os/...)
+  if (
+    p.startsWith("/learning/os/") ||
+    p.startsWith("/learning/operating-systems/") ||
+    p.startsWith("/learn/os/")
+  ) {
+    const isOsRoot =
+      p === "/learning/os/intro" ||
+      p === "/learning/operating-systems/intro";
+    return isOsRoot ? "/learning" : "/learning/os";
+  }
+  if (
+    p === "/learning/os" ||
+    p === "/learning/operating-systems" ||
+    p === "/learn/os"
+  ) {
+    return "/learning";
+  }
+
+  // Computer Networks Course (/learning/networks/..., /learning/computer-networks/..., /learn/networks/...)
+  if (
+    p.startsWith("/learning/networks/") ||
+    p.startsWith("/learning/computer-networks/") ||
+    p.startsWith("/learn/networks/")
+  ) {
+    const isNetRoot = p === "/learning/networks/intro";
+    return isNetRoot ? "/learning" : "/learning/networks";
+  }
+  if (
+    p === "/learning/networks" ||
+    p === "/learning/computer-networks" ||
+    p === "/learn/networks"
+  ) {
+    return "/learning";
+  }
+
+  // Cybersecurity Course (/learning/cybersecurity/..., /learn/cybersecurity/...)
+  if (
+    p.startsWith("/learning/cybersecurity/") ||
+    p.startsWith("/learn/cybersecurity/")
+  ) {
+    const isCyberRoot = p === "/learning/cybersecurity/intro";
+    return isCyberRoot ? "/learning" : "/learning/cybersecurity";
+  }
+  if (p === "/learning/cybersecurity" || p === "/learn/cybersecurity") {
+    return "/learning";
+  }
+
+  // System Design Course (/learning/system-design/..., /learn/system-design/...)
+  if (
+    p.startsWith("/learning/system-design/") ||
+    p.startsWith("/learn/system-design/")
+  ) {
+    const isSdRoot = p === "/learning/system-design/intro";
+    return isSdRoot ? "/learning" : "/learning/system-design";
+  }
+  if (p === "/learning/system-design" || p === "/learn/system-design") {
+    return "/learning";
+  }
+
+  // DevOps Course (/learning/devops/..., /learn/devops/...)
+  if (
+    p.startsWith("/learning/devops/") ||
+    p.startsWith("/learn/devops/")
+  ) {
+    const isDevOpsRoot =
+      p === "/learning/devops/linux" ||
+      p === "/learning/devops/intro" ||
+      p === "/learning/devops";
+    return isDevOpsRoot ? "/learning" : "/learning/devops/linux";
+  }
+  if (p === "/learning/devops" || p === "/learn/devops") {
+    return "/learning";
+  }
+
+  // Cloud Computing Course (/learning/cloud/..., /learn/cloud/...)
+  if (
+    p.startsWith("/learning/cloud/") ||
+    p.startsWith("/learn/cloud/")
+  ) {
+    const isCloudRoot =
+      p === "/learning/cloud/intro" ||
+      p === "/learning/cloud/foundations";
+    return isCloudRoot ? "/learning" : "/learning/cloud";
+  }
+  if (p === "/learning/cloud" || p === "/learn/cloud") {
+    return "/learning";
+  }
+
+  // Any other learning subroute -> course catalog (/learning)
+  if (p.startsWith("/learning/") || p.startsWith("/learn/")) {
+    return "/learning";
+  }
+
+  // Course catalog (/learning, /learn) -> Home (/)
+  if (p === "/learning" || p === "/learn") {
     return "/";
   }
 
-  // Interview room -> Home (/)
-  if (pathname === "/interview") {
+  // App routes -> Home (/)
+  if (
+    p === "/interview" ||
+    p === "/dashboard" ||
+    p === "/login" ||
+    p === "/register" ||
+    p === "/privacy-policy" ||
+    p === "/terms-of-service"
+  ) {
     return "/";
   }
 
@@ -75,15 +178,16 @@ export function NavigationProvider({ children }) {
 
   const goBack = useCallback((explicitFallback) => {
     const historyIdx = window.history.state?.idx;
+    const hasInAppStack = historyStackRef.current.length > 1;
 
     // If an in-app history entry exists before the current page
-    if (typeof historyIdx === "number" && historyIdx > 0) {
+    if (hasInAppStack || (typeof historyIdx === "number" && historyIdx > 0)) {
       isBackActionRef.current = true;
       navigate(-1);
     } else {
       // Safe hierarchical fallback: module -> course root -> /learning -> /
       const fallback = explicitFallback || getContextualFallback(location.pathname);
-      navigate(fallback, { replace: true });
+      navigate(fallback);
     }
   }, [navigate, location.pathname]);
 

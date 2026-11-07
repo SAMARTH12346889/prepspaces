@@ -6,7 +6,7 @@ import ModuleNav from "./ModuleNav";
  */
 export default function ModuleLoadingSkeleton({ track = "os", currentModuleId = "intro" }) {
   return (
-    <div className="min-h-screen bg-[#faf9f5] text-[#18181b] antialiased">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased">
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Module Navigation Placeholder */}
         <ModuleNav track={track} currentModuleId={currentModuleId} />

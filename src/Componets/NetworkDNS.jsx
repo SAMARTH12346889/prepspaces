@@ -425,52 +425,11 @@ prepspaces.com.         300     IN  AAAA 2606:4700:3037::ac43:80b5
   }
 return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
-      {/* Top Banner & Module Navigation Header */}
-      <div className="bg-[#18181b] text-white border-b border-stone-800 sticky top-0 z-50 shadow-md">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate("/learning/networks")}
-              className="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white transition cursor-pointer"
-              title="Return to Computer Networks Syllabus"
-            >
-              <ArrowLeft size={16} />
-            </button>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-orange-600 text-white">
-                  Module 11
-                </span>
-                <span className="text-xs font-mono text-stone-400">
-                  Computer Networks &amp; Internet Engineering
-                </span>
-              </div>
-              <h1 className="text-sm sm:text-base font-bold text-white tracking-tight">
-                DNS &amp; Internet Naming Architecture
-              </h1>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] font-mono bg-stone-900 border border-stone-700 px-2.5 py-1 rounded text-stone-300">
-              RFC 1034 · RFC 1035 · RFC 8484
-            </span>
-            <button
-              onClick={() => {
-                setActiveTab("quiz");
-                window.scrollTo({ top: 380, behavior: "smooth" });
-              }}
-              className="px-3 py-1.5 rounded-lg bg-orange-600 hover:bg-orange-700 text-xs font-bold text-white transition flex items-center gap-1.5 cursor-pointer shadow-sm"
-            >
-              <Award size={14} />
-              <span>Assessment</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* Top Module Navigation Bar */}
+      <ModuleNav track="networks" currentModuleId="dns" />
 
       {/* Main Course Content Container */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-1 w-full">
         {/* Module Header Card */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e7e3da] shadow-sm mb-8 relative overflow-hidden">
           <div className="absolute -top-12 -right-12 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -541,11 +500,6 @@ return (
           </div>
         </div>
 
-        {/* Global Module Navigation Bar */}
-        <div className="mb-8">
-          <ModuleNav currentModuleId="dns" course="networks" />
-        </div>
-
         {/* ------------------------------------------------------------------ */}
         {/* TAB 1: CORE THEORY CURRICULUM (SECTIONS 11.1 - 11.12)              */}
         {/* ------------------------------------------------------------------ */}
@@ -553,7 +507,7 @@ return (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Table of Contents Sticky Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl p-4 border border-[#e7e3da] sticky top-20 shadow-sm">
+              <div className="bg-white rounded-2xl p-4 border border-[#e7e3da] relative lg:sticky lg:top-20 shadow-sm">
                 <div className="flex items-center gap-2 pb-3 mb-3 border-b border-[#e7e3da] text-xs font-bold uppercase tracking-wider text-stone-500">
                   <Layers size={14} />
                   <span>Module 11 Sections</span>

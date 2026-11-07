@@ -624,7 +624,7 @@ export default function SystemDesignStorage() {
     return <ModuleErrorState track="system-design" currentModuleId="storage" error={error} onRetry={reload} />;
   }
 return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans pb-24">
+    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans pb-24">
 
       {/* Hero Header Banner */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">

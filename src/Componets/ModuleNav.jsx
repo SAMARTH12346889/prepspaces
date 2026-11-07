@@ -195,9 +195,11 @@ export const CYBERSECURITY_MODULES = [
 ];
 
 export default function ModuleNav({
-  track: propTrack = "cloud",
+  track: propTrack,
   trackId,
-  currentModuleId = "cloud",
+  course,
+  currentModuleId: propCurrentModuleId,
+  activeModuleId,
   showAiTutor,
   onAiTutorToggle,
   aiTutorLabel,
@@ -207,16 +209,18 @@ export default function ModuleNav({
   const { isAuthenticated, user, logout } = useAuth();
   const scrollRef = useRef(null);
 
-  // Auto-detect track if omitted, defaulted to "cloud", or passed as trackId
+  const rawTrack = propTrack || trackId || course;
+
+  // Auto-detect track if omitted, defaulted to "cloud", or passed as trackId/course
   const track = useMemo(() => {
-    if (propTrack && propTrack !== "cloud") {
-      return propTrack === "ai-engineering" ? "ai" : propTrack;
-    }
-    if (trackId) {
-      if (trackId === "ai-engineering" || trackId === "ai") return "ai";
-      if (trackId === "operating-systems") return "os";
-      if (trackId === "computer-networks") return "networks";
-      return trackId;
+    if (rawTrack && rawTrack !== "cloud") {
+      if (rawTrack === "ai-engineering" || rawTrack === "ai") return "ai";
+      if (rawTrack === "operating-systems" || rawTrack === "os") return "os";
+      if (rawTrack === "computer-networks" || rawTrack === "networks") return "networks";
+      if (rawTrack === "cybersecurity") return "cybersecurity";
+      if (rawTrack === "system-design") return "system-design";
+      if (rawTrack === "devops") return "devops";
+      return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
     if (path.includes("/learning/ai") || path.includes("/learn/ai")) return "ai";
@@ -226,8 +230,8 @@ export default function ModuleNav({
     if (path.includes("/learning/system-design") || path.includes("/learn/system-design")) return "system-design";
     if (path.includes("/learning/devops") || path.includes("/learn/devops")) return "devops";
     if (path.includes("/learning/cloud") || path.includes("/learn/cloud")) return "cloud";
-    return propTrack || "cloud";
-  }, [propTrack, trackId, location?.pathname]);
+    return rawTrack || "cloud";
+  }, [rawTrack, location?.pathname]);
 
   const getModulesForTrack = useCallback((t) => {
     switch (t) {
@@ -255,6 +259,17 @@ export default function ModuleNav({
   useEffect(() => {
     setModules(getModulesForTrack(track));
   }, [track, getModulesForTrack]);
+
+  const explicitModuleId = propCurrentModuleId || activeModuleId;
+  const currentModuleId = useMemo(() => {
+    if (explicitModuleId) return explicitModuleId;
+    const currentPath = (location?.pathname || "").toLowerCase().replace(/\/+$/, "");
+    const found = modules.find((m) => {
+      const routePath = (m.route || "").toLowerCase().replace(/\/+$/, "");
+      return routePath === currentPath || currentPath.endsWith("/" + m.id);
+    });
+    return found ? found.id : (modules[0]?.id || "foundations");
+  }, [explicitModuleId, location?.pathname, modules]);
 
   const courseIdMap = {
     os: "operating-systems",
@@ -447,11 +462,11 @@ export default function ModuleNav({
     <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3 px-4 sm:px-6 lg:px-8 pt-3 sm:pt-6">
       {/* Top Breadcrumb & User Actions */}
       <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-[#e7e3da] pb-3 sm:pb-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <button
             type="button"
-            onClick={() => goBack()}
-            className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3.5 py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer"
+            onClick={() => goBack(defaultFallback)}
+            className="flex items-center gap-1.5 rounded-xl border border-[#e7e3da] bg-white/90 px-3.5 py-2 text-xs font-bold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0"
             title="Go back to previous page"
             aria-label="Go back"
           >
@@ -462,7 +477,7 @@ export default function ModuleNav({
           <button
             type="button"
             onClick={() => navigate("/learning")}
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-xs font-semibold text-stone-500 hover:text-stone-900 transition cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-xs font-semibold text-stone-500 hover:text-stone-900 transition cursor-pointer shrink-0"
             title="Jump to Curriculum Overview"
           >
             <span>Curriculum Overview</span>

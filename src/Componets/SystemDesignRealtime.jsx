@@ -330,7 +330,7 @@ return (
 
       {/* Global Module Navigation Bar */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <ModuleNav />
+        <ModuleNav track="system-design" currentModuleId="realtime" />
       </div>
 
       {/* Main Content Area */}

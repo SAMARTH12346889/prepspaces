@@ -1028,8 +1028,9 @@ function InterviewRoomInner() {
           <div className="mb-8 flex items-center justify-between">
             <button
               type="button"
-              onClick={() => goBack("/")}
-              className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/80 px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-sm backdrop-blur-md active:scale-95"
+              onClick={() => goBack("/dashboard")}
+              className="flex items-center gap-2 rounded-xl border border-[#e7e3da] bg-white/80 px-4 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-[#f97316] transition shadow-xs backdrop-blur-md active:scale-95 cursor-pointer shrink-0"
+              aria-label="Back to Dashboard"
             >
               <ArrowLeft size={16} />
               <span>Back to Dashboard</span>

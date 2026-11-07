@@ -570,7 +570,7 @@ return (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Left Sticky Topic Outline */}
             <aside className="hidden lg:block col-span-1">
-              <div className="sticky top-28 bg-white/80 p-5 rounded-3xl border border-[#e7e3da] shadow-xs space-y-3">
+              <div className="relative lg:sticky lg:top-28 bg-white/80 p-5 rounded-3xl border border-[#e7e3da] shadow-xs space-y-3">
                 <span className="text-[11px] font-mono uppercase tracking-wider text-stone-500 font-bold block">
                   Module 5 Sections
                 </span>

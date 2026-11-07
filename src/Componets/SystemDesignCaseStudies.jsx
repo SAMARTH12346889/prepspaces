@@ -315,7 +315,7 @@ return (
     <div className="min-h-screen bg-[#f6f4ee] text-stone-900">
       
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
-        <ModuleNav />
+        <ModuleNav track="system-design" currentModuleId="case-studies" />
 
         {/* =====================================================================
             MODULE HERO / HEADER

@@ -425,7 +425,7 @@ return (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar / Lesson Navigation */}
             <div className="lg:col-span-1 space-y-2">
-              <div className="p-4 rounded-3xl bg-white border border-stone-200 shadow-xs sticky top-6">
+              <div className="p-4 rounded-3xl bg-white border border-stone-200 shadow-xs relative lg:sticky lg:top-6">
                 <p className="text-xs font-mono font-bold text-stone-600 uppercase tracking-wider mb-3">
                   Module Curriculum
                 </p>
