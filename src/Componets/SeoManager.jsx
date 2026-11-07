@@ -101,6 +101,11 @@ const routeMeta = {
     description: "Master dense embeddings, cosine similarity, Euclidean distance, FAISS indexing (Flat, IVF, HNSW, PQ), ChromaDB collections and metadata filtering, document chunking strategies, hybrid BM25 search, and cross-encoder rerankers.",
     canonical: `${BASE_URL}/learning/ai/vector-databases`,
   },
+  "/learning/ai/rag-architecture": {
+    title: "Module 11: Retrieval-Augmented Generation (RAG) Engineering | PrepSpaces",
+    description: "Master enterprise RAG engineering: multi-format document ingestion, token-aware chunking, dense/sparse hybrid search with Reciprocal Rank Fusion, Cross-Encoder reranking, token budgeting, advanced agentic RAG, and Ragas evaluation.",
+    canonical: `${BASE_URL}/learning/ai/rag-architecture`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

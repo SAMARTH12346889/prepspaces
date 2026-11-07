@@ -151,7 +151,7 @@ export const AI_MODULES = [
   { id: "fine-tuning", name: "8. LLM Training & Fine-Tuning Foundations", route: "/learning/ai/fine-tuning" },
   { id: "prompt-engineering", name: "9. Prompt Engineering & Structured LLM Outputs", route: "/learning/ai/prompt-engineering" },
   { id: "vector-databases", name: "10. Embeddings, Vector Databases & Semantic Search", route: "/learning/ai/vector-databases" },
-  { id: "rag-architecture", name: "11. Retrieval-Augmented Generation (RAG)", route: "/learning/ai/rag-architecture" },
+  { id: "rag-architecture", name: "11. Retrieval-Augmented Generation (RAG) Engineering", route: "/learning/ai/rag-architecture" },
   { id: "advanced-rag", name: "12. Advanced RAG: Hybrid Search & Reranking", route: "/learning/ai/advanced-rag" },
   { id: "fine-tuning", name: "13. Fine-Tuning LLMs: LoRA & QLoRA", route: "/learning/ai/fine-tuning" },
   { id: "llm-evaluation", name: "14. LLM Evaluation & Guardrails", route: "/learning/ai/llm-evaluation" },

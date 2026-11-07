@@ -103,6 +103,7 @@ import AILargeLanguageModels from "./Componets/AILargeLanguageModels";
 import AILlmFineTuning from "./Componets/AILlmFineTuning";
 import AILlmPromptEngineering from "./Componets/AILlmPromptEngineering";
 import AIVectorDatabases from "./Componets/AIVectorDatabases";
+import AIRagEngineering from "./Componets/AIRagEngineering";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1169,6 +1170,17 @@ function App() {
             <Route path="/learning/ai-engineering/module-10" element={<AIVectorDatabases />} />
             <Route path="/learn/ai/vector-databases" element={<AIVectorDatabases />} />
             <Route path="/learn/ai/embeddings" element={<AIVectorDatabases />} />
+
+            {/* AI ENGINEERING TRACK - MODULE 11: RETRIEVAL-AUGMENTED GENERATION (RAG) ENGINEERING */}
+            <Route path="/learning/ai/rag-architecture" element={<AIRagEngineering />} />
+            <Route path="/learning/ai/rag" element={<AIRagEngineering />} />
+            <Route path="/learning/ai/rag-engineering" element={<AIRagEngineering />} />
+            <Route path="/learning/ai/retrieval-augmented-generation" element={<AIRagEngineering />} />
+            <Route path="/learning/ai/module-11" element={<AIRagEngineering />} />
+            <Route path="/learning/ai-engineering/rag-architecture" element={<AIRagEngineering />} />
+            <Route path="/learning/ai-engineering/module-11" element={<AIRagEngineering />} />
+            <Route path="/learn/ai/rag-architecture" element={<AIRagEngineering />} />
+            <Route path="/learn/ai/rag" element={<AIRagEngineering />} />
 
 
             {/* INTERVIEW PAGE */}

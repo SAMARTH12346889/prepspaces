@@ -18,6 +18,7 @@ const REGISTERED_ROUTES = {
   "ai-fine-tuning": { route: "/learning/ai/fine-tuning", label: "LLM Training & Fine-Tuning Foundations" },
   "ai-prompt-engineering": { route: "/learning/ai/prompt-engineering", label: "Prompt Engineering & Structured LLM Outputs" },
   "ai-vector-databases": { route: "/learning/ai/vector-databases", label: "Embeddings, Vector Databases & Semantic Search" },
+  "ai-rag-architecture": { route: "/learning/ai/rag-architecture", label: "Retrieval-Augmented Generation (RAG) Engineering" },
   home: { route: "/", label: "Dashboard" },
   learning: { route: "/learning", label: "Learning Center" },
   os: { route: "/learning/os", label: "Operating Systems Master Course" },
@@ -130,6 +131,10 @@ const NAVIGATION_RULES = [
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(vector databases|vector database|embeddings|semantic search|faiss|chroma|chromadb|ai module 10)$/i,
     destination: "ai-vector-databases",
+  },
+  {
+    regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(rag|retrieval augmented generation|rag architecture|rag engineering|ai module 11)$/i,
+    destination: "ai-rag-architecture",
   },
   {
     regex: /^(open|go to|take me to|navigate to|view|show me|launch)\s+(interview|the interview|mock interview|interview room|practice room)$/i,

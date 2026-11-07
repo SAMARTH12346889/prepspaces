@@ -1,0 +1,130 @@
+{
+  "id": "rag-architecture",
+  "courseId": "ai-engineering",
+  "index": 11,
+  "name": "11. Retrieval-Augmented Generation (RAG) Engineering",
+  "route": "/learning/ai/rag-architecture",
+  "componentName": "AIRagEngineering",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of RAG?",
+      "options": [
+        "Train a new Transformer",
+        "Retrieve external knowledge and provide it to an LLM",
+        "Compress neural networks",
+        "Replace databases"
+      ],
+      "correctIndex": 1,
+      "explanation": "RAG retrieves relevant information from an external knowledge base at query time and augments the LLM context prompt to generate grounded responses without updating model weights."
+    },
+    {
+      "id": 2,
+      "question": "Which stage converts PDF content into usable document text?",
+      "options": [
+        "Reranking",
+        "Document extraction",
+        "Context compression",
+        "Generation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Document extraction (parsers like PyMuPDF, pypdf, or OCR engines) reads raw files and extracts textual content and structure into normalized document objects."
+    },
+    {
+      "id": 3,
+      "question": "Why is chunking used?",
+      "options": [
+        "To increase model parameters",
+        "To divide large documents into retrieval-friendly units",
+        "To encrypt documents",
+        "To generate audio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chunking breaks down long documents into focused, coherent passages so embedding vectors capture specific concepts rather than diluted topic averages."
+    },
+    {
+      "id": 4,
+      "question": "Which method combines semantic and keyword search?",
+      "options": [
+        "Hybrid retrieval",
+        "Fine-tuning",
+        "Max pooling",
+        "OCR"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hybrid retrieval combines dense semantic vector search (cosine similarity) with sparse lexical search (BM25 keyword matching) to achieve high recall across concepts and exact technical terms."
+    },
+    {
+      "id": 5,
+      "question": "What is BM25 primarily used for?",
+      "options": [
+        "Keyword retrieval and ranking",
+        "Audio recognition",
+        "LLM fine-tuning",
+        "Image classification"
+      ],
+      "correctIndex": 0,
+      "explanation": "BM25 is a probabilistic sparse ranking algorithm that evaluates term frequency and inverse document frequency, excelling at exact keyword, identifier, and error code matching."
+    },
+    {
+      "id": 6,
+      "question": "What does a reranker do?",
+      "options": [
+        "Changes the embedding dimension",
+        "Reorders candidate documents by query relevance",
+        "Deletes the source data",
+        "Trains the LLM"
+      ],
+      "correctIndex": 1,
+      "explanation": "A reranker (such as a Cross-Encoder) evaluates joint query-document relevance across the top retrieved candidates to reorder them with high precision before context assembly."
+    },
+    {
+      "id": 7,
+      "question": "What is Reciprocal Rank Fusion?",
+      "options": [
+        "A vector compression algorithm",
+        "A technique for combining ranked lists",
+        "An OCR system",
+        "A tokenization algorithm"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reciprocal Rank Fusion (RRF) combines ranked lists from multiple search algorithms (e.g. dense + sparse) using formula RRF(d) = sum(1 / (k + rank_r(d))) without requiring raw score normalization."
+    },
+    {
+      "id": 8,
+      "question": "What is context assembly?",
+      "options": [
+        "Loading source documents only",
+        "Selecting and organizing evidence for the LLM prompt",
+        "Training the embedding model",
+        "Creating SQL indexes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Context assembly deduplicates, filters, token-budgets, orders, and structures retrieved passages with source citations into the final prompt sent to the LLM."
+    },
+    {
+      "id": 9,
+      "question": "What does faithfulness evaluate?",
+      "options": [
+        "The speed of PDF loading",
+        "Whether generated claims are supported by retrieved context",
+        "Database storage size",
+        "Number of embedding dimensions"
+      ],
+      "correctIndex": 1,
+      "explanation": "Faithfulness measures factual consistency: whether every claim in the generated answer can be directly inferred from and supported by the retrieved context chunks."
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of a golden evaluation dataset?",
+      "options": [
+        "Store passwords",
+        "Provide verified questions and expected retrieval or answer outcomes",
+        "Generate embeddings automatically",
+        "Replace all source documents"
+      ],
+      "correctIndex": 1,
+      "explanation": "A golden dataset contains curated benchmark questions with ground-truth answers and relevant source chunk IDs, enabling systematic, empirical evaluation of RAG pipeline modifications."
+    }
+  ]
+}
