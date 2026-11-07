@@ -52,9 +52,28 @@ const routeMeta = {
     canonical: `${BASE_URL}/learning`,
   },
   "/learning/ai": {
-    title: "AI Engineering & Generative AI Masterclass | PrepSpaces",
-    description: "Master AI engineering foundations, Python for AI, NumPy vectorization, Pandas data pipelines, and production AI architectures.",
+    title: "Artificial Intelligence Course — Learn AI Fundamentals | PrepSpaces",
+    description: "Learn Artificial Intelligence from fundamentals to advanced concepts with university-level lessons, practical projects, AI algorithms, and hands-on learning on PrepSpaces.",
+    keywords: "Artificial Intelligence course, AI course online, Learn Artificial Intelligence, AI fundamentals course, Artificial Intelligence learning, AI algorithms course",
     canonical: `${BASE_URL}/learning/ai`,
+  },
+  "/courses/artificial-intelligence": {
+    title: "Artificial Intelligence Course — Learn AI Fundamentals | PrepSpaces",
+    description: "Learn Artificial Intelligence from fundamentals to advanced concepts with university-level lessons, practical projects, AI algorithms, and hands-on learning on PrepSpaces.",
+    keywords: "Artificial Intelligence course, AI course online, Learn Artificial Intelligence, AI fundamentals course, Artificial Intelligence learning, AI algorithms course",
+    canonical: `${BASE_URL}/courses/artificial-intelligence`,
+  },
+  "/courses/generative-ai": {
+    title: "Generative AI Course — Learn GenAI & LLMs | PrepSpaces",
+    description: "Master Generative AI, Large Language Models, transformers, prompt engineering, embeddings, RAG, fine-tuning, and AI application development with PrepSpaces.",
+    keywords: "Generative AI course, GenAI course, Generative AI online learning, Large Language Models course, LLM course, Prompt engineering course, RAG course, Learn Generative AI",
+    canonical: `${BASE_URL}/courses/generative-ai`,
+  },
+  "/learning/ai/generative-ai": {
+    title: "Generative AI Course — Learn GenAI & LLMs | PrepSpaces",
+    description: "Master Generative AI, Large Language Models, transformers, prompt engineering, embeddings, RAG, fine-tuning, and AI application development with PrepSpaces.",
+    keywords: "Generative AI course, GenAI course, Generative AI online learning, Large Language Models course, LLM course, Prompt engineering course, RAG course, Learn Generative AI",
+    canonical: `${BASE_URL}/courses/generative-ai`,
   },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
@@ -79,6 +98,7 @@ const routeMeta = {
   "/learning/ai/transformers": {
     title: "Module 6: Transformer Architecture from Scratch | PrepSpaces",
     description: "Build an encoder-decoder Transformer from scratch in PyTorch: scaled dot-product attention, multi-head subspaces, sinusoidal positional encodings, causal masks, and translation.",
+    keywords: "Transformer architecture, Attention is All You Need, PyTorch Transformer, self-attention, multi-head attention, LLM architecture, Generative AI course",
     canonical: `${BASE_URL}/learning/ai/transformers`,
   },
   "/learning/ai/llms": {
@@ -875,6 +895,53 @@ function updateCanonicalUrl(url) {
 /**
  * Helper to inject or update BreadcrumbList JSON-LD on nested pages
  */
+/**
+ * Helper to inject or update Schema.org Course JSON-LD dynamically
+ */
+function updateCourseSchema(pathname, meta) {
+  let script = document.getElementById("jsonld-course");
+  const isCoursePage =
+    pathname.startsWith("/learning/") ||
+    pathname.startsWith("/courses/") ||
+    pathname.startsWith("/learn/");
+
+  if (!isCoursePage || pathname === "/learning" || pathname === "/learn") {
+    if (script) script.remove();
+    return;
+  }
+
+  const cleanTitle = meta.title.split("—")[0].split("|")[0].trim();
+  const courseData = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": cleanTitle,
+    "description": meta.description,
+    "url": meta.canonical,
+    "educationalLevel": "University / Professional Systems Engineering",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "provider": {
+      "@type": "Organization",
+      "name": "PrepSpaces",
+      "url": "https://prepspaces.com",
+      "sameAs": ["https://www.instagram.com/prepspaces/"]
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "Online",
+      "courseWorkload": "PT2H",
+    },
+  };
+
+  if (!script) {
+    script = document.createElement("script");
+    script.id = "jsonld-course";
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+  script.text = JSON.stringify(courseData);
+}
+
 function updateBreadcrumbs(pathname, title) {
   let script = document.getElementById("jsonld-breadcrumbs");
   
@@ -945,6 +1012,9 @@ export default function SeoManager() {
 
     // 2. Update Standard Meta
     updateMetaTag("name", "description", meta.description);
+    if (meta.keywords) {
+      updateMetaTag("name", "keywords", meta.keywords);
+    }
     updateMetaTag("name", "robots", meta.robots || "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
 
     // 3. Update Canonical Link
@@ -964,8 +1034,9 @@ export default function SeoManager() {
     updateMetaTag("name", "twitter:description", meta.description);
     updateMetaTag("name", "twitter:image", `${BASE_URL}/logo-mark.png`);
 
-    // 6. Update Breadcrumbs Structured Data
+    // 6. Update Breadcrumbs & Course Structured Data
     updateBreadcrumbs(pathname, meta.title);
+    updateCourseSchema(pathname, meta);
 
     // 7. Track SPA page views in Google Analytics (gtag.js)
     if (typeof window !== "undefined" && typeof window.gtag === "function") {

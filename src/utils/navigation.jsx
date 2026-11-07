@@ -32,7 +32,9 @@ export function getContextualFallback(pathname) {
     p === "/learning/ai" ||
     p === "/learning/ai-engineering" ||
     p === "/learn/ai" ||
-    p === "/learn/ai-engineering"
+    p === "/learn/ai-engineering" ||
+    p === "/courses/artificial-intelligence" ||
+    p === "/courses/generative-ai"
   ) {
     return "/learning";
   }

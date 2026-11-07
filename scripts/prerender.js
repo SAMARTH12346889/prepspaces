@@ -31,16 +31,26 @@ if (!routeBlockMatch) {
 }
 
 const block = routeBlockMatch[1];
-const routeRegex = /"([^"]+)":\s*\{\s*title:\s*"([^"]+)",\s*description:\s*"([^"]+)",\s*canonical:\s*`\$\{BASE_URL\}([^`]*)`(?:\s*,\s*robots:\s*"([^"]+)")?/g;
-
+const routeEntryRegex = /"([^"]+)":\s*\{([\s\S]*?)\n\s*\},/g;
 let match;
-while ((match = routeRegex.exec(block)) !== null) {
-  routeMeta[match[1]] = {
-    title: match[2],
-    description: match[3],
-    canonical: `${BASE_URL}${match[4]}`,
-    robots: match[5] || "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-  };
+while ((match = routeEntryRegex.exec(block)) !== null) {
+  const route = match[1];
+  const body = match[2];
+  const titleMatch = body.match(/title:\s*"([^"]+)"/);
+  const descMatch = body.match(/description:\s*"([^"]+)"/);
+  const kwMatch = body.match(/keywords:\s*"([^"]+)"/);
+  const canMatch = body.match(/canonical:\s*`\$\{BASE_URL\}([^\`]*)`/);
+  const robMatch = body.match(/robots:\s*"([^"]+)"/);
+
+  if (titleMatch && descMatch) {
+    routeMeta[route] = {
+      title: titleMatch[1],
+      description: descMatch[1],
+      keywords: kwMatch ? kwMatch[1] : null,
+      canonical: canMatch ? `${BASE_URL}${canMatch[1]}` : `${BASE_URL}${route}`,
+      robots: robMatch ? robMatch[1] : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    };
+  }
 }
 
 console.log(`Loaded ${Object.keys(routeMeta).length} route definitions for prerendering.`);
@@ -53,7 +63,9 @@ function getTrackNameFromPath(subPath) {
   if (subPath.startsWith("/learning/os")) return "Operating Systems";
   if (subPath.startsWith("/learning/networks")) return "Computer Networks";
   if (subPath.startsWith("/learning/cybersecurity")) return "Cybersecurity";
-  if (subPath.startsWith("/learning/ai")) return "AI Engineering";
+  if (subPath.startsWith("/courses/generative-ai") || subPath.startsWith("/learning/ai/generative-ai")) return "Generative AI";
+  if (subPath.startsWith("/courses/artificial-intelligence")) return "Artificial Intelligence";
+  if (subPath.startsWith("/learning/ai")) return "Artificial Intelligence";
   return "Engineering Curriculum";
 }
 
@@ -184,6 +196,16 @@ for (const [route, meta] of Object.entries(routeMeta)) {
     `<meta name="description" content="${meta.description.replace(/"/g, '&quot;')}" />`
   );
 
+  // 2b. Inject or update Meta Keywords
+  if (meta.keywords) {
+    const kwTag = `<meta name="keywords" content="${meta.keywords.replace(/"/g, '&quot;')}" />`;
+    if (html.includes('<meta name="keywords"')) {
+      html = html.replace(/<meta\s+name="keywords"\s+content=".*?"\s*\/>/, kwTag);
+    } else {
+      html = html.replace('</head>', `    ${kwTag}\n  </head>`);
+    }
+  }
+
   // 3. Replace or inject Canonical Link
   if (html.includes('<link rel="canonical"')) {
     html = html.replace(/<link rel="canonical"\s+href=".*?"\s*\/>/, `<link rel="canonical" href="${meta.canonical}" />`);
@@ -222,9 +244,95 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   // 8. Inject Semantic Content inside <div id="root"></div> for zero-JS crawlers & AI Answer Engines
   const isCurriculumHub = route === "/learning";
   const isInterview = route === "/interview";
+  const isAiCourse = route === "/courses/artificial-intelligence" || route === "/learning/ai";
+  const isGenAiCourse = route === "/courses/generative-ai" || route === "/learning/ai/generative-ai";
   let semanticContent = "";
 
-  if (isCurriculumHub) {
+  if (isAiCourse) {
+    semanticContent = `<div id="root">
+        <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+          <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
+            <a href="/" style="color: #ea580c; text-decoration: none; font-weight: 600;">Home</a> &rarr; 
+            <a href="/learning" style="color: #ea580c; text-decoration: none; font-weight: 600;">Curriculum</a> &rarr; 
+            <span style="color: #1c1917; font-weight: 600;">Artificial Intelligence Course</span>
+          </nav>
+          <header style="margin-bottom: 2rem;">
+            <span style="display: inline-block; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #c2410c; background-color: #ffedd5; border: 1px solid #fed7aa; border-radius: 9999px; margin-bottom: 1rem;">University-Informed Masterclass • 24 Modules</span>
+            <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: #18181b;">Artificial Intelligence Course — Learn AI Fundamentals</h1>
+            <p style="font-size: 1.125rem; line-height: 1.6; color: #44403c; max-width: 56rem;">${meta.description}</p>
+          </header>
+          <main>
+            <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.5rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+              <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: #18181b;">Course Overview & Educational Objectives</h2>
+              <div style="background-color: #fbf9f4; border-left: 4px solid #f97316; padding: 1rem 1.25rem; margin-bottom: 1.5rem; border-radius: 0.5rem;">
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #292524; margin: 0;"><strong>Direct Course Definition:</strong> Comprehensive, self-paced masterclass covering artificial intelligence foundations, linear algebra and calculus for machine learning, supervised and unsupervised learning, deep neural networks, natural language processing, and scalable AI system design.</p>
+              </div>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Key AI Curriculum Tracks</h3>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><strong><a href="/learning/ai" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 1: AI Foundations & Python for AI</a></strong> — Python internals, SIMD vectorization with NumPy, Pandas dataframes, and agent architectures.</li>
+                <li><strong><a href="/learning/ai/math" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 2: Mathematics for AI & Machine Learning</a></strong> — Linear algebra, vector spaces, gradient descent, probability, and optimization.</li>
+                <li><strong><a href="/learning/ai/machine-learning" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 3: Machine Learning Fundamentals</a></strong> — Regression, classification, clustering, decision trees, cross-validation, and metrics.</li>
+                <li><strong><a href="/learning/ai/deep-learning" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 4: Deep Learning & Neural Networks</a></strong> — PyTorch tensors, autograd backpropagation, multi-layer perceptrons, and activation dynamics.</li>
+                <li><strong><a href="/learning/ai/nlp" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 5: Natural Language Processing</a></strong> — Tokenization, spaCy pipelines, TF-IDF, Word2Vec embeddings, and sequence models.</li>
+              </ul>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Verified Educational Standards</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: #44403c; margin-bottom: 1.5rem;">This course is designed according to university-standard computer science pedagogy (MIT, Stanford, CMU, and Berkeley curricula). All lesson modules, interactive simulators, coding tasks, and assessments are open and accessible for free on PrepSpaces without requiring paid paywalls.</p>
+            </article>
+
+            <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="/learning/ai" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Start Learning AI &rarr;</a>
+              <a href="/courses/generative-ai" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">Explore Generative AI Course &rarr;</a>
+              <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">All Courses</a>
+            </nav>
+          </main>
+        </div>
+      </div>`;
+  } else if (isGenAiCourse) {
+    semanticContent = `<div id="root">
+        <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+          <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
+            <a href="/" style="color: #ea580c; text-decoration: none; font-weight: 600;">Home</a> &rarr; 
+            <a href="/learning" style="color: #ea580c; text-decoration: none; font-weight: 600;">Curriculum</a> &rarr; 
+            <span style="color: #1c1917; font-weight: 600;">Generative AI Course</span>
+          </nav>
+          <header style="margin-bottom: 2rem;">
+            <span style="display: inline-block; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #c2410c; background-color: #ffedd5; border: 1px solid #fed7aa; border-radius: 9999px; margin-bottom: 1rem;">Production Generative AI • LLMs & Agents</span>
+            <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: #18181b;">Generative AI Course — Learn GenAI & LLMs</h1>
+            <p style="font-size: 1.125rem; line-height: 1.6; color: #44403c; max-width: 56rem;">${meta.description}</p>
+          </header>
+          <main>
+            <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.5rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+              <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: #18181b;">Mastering Generative AI & Large Language Models</h2>
+              <div style="background-color: #fbf9f4; border-left: 4px solid #f97316; padding: 1rem 1.25rem; margin-bottom: 1.5rem; border-radius: 0.5rem;">
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #292524; margin: 0;"><strong>Direct Course Definition:</strong> Advanced engineering masterclass covering modern transformer architectures, large language models (GPT, Llama, Qwen), LoRA and QLoRA fine-tuning, prompt engineering, embeddings and vector databases (pgvector/Pinecone), RAG architectures, autonomous AI agents, and production AI serving.</p>
+              </div>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Generative AI Core Modules</h3>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><strong><a href="/learning/ai/transformers" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 6: Transformer Architecture from Scratch</a></strong> — Multi-head self-attention, positional encodings, and encoder-decoder mechanisms in PyTorch.</li>
+                <li><strong><a href="/learning/ai/llms" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 7: Large Language Models (LLMs)</a></strong> — GPT, Llama, Qwen architectures, KV caching, tokenization, and quantization.</li>
+                <li><strong><a href="/learning/ai/fine-tuning" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 8: LLM Training & Fine-Tuning</a></strong> — Supervised fine-tuning (SFT), LoRA rank decomposition, and QLoRA 4-bit NF4 training.</li>
+                <li><strong><a href="/learning/ai/prompt-engineering" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 9: Prompt Engineering & Structured Outputs</a></strong> — Chain-of-Thought, JSON Schema generation, and prompt defense.</li>
+                <li><strong><a href="/learning/ai/vector-databases" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 10: Vector Databases & Embeddings</a></strong> — Dense vector retrieval, HNSW indexing, and semantic search.</li>
+                <li><strong><a href="/learning/ai/rag-architecture" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 11: Retrieval-Augmented Generation (RAG)</a></strong> — Chunking strategies, hybrid search, reranking, and hallucination reduction.</li>
+                <li><strong><a href="/learning/ai/ai-agents" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 13: AI Agents & Tool Calling</a></strong> — ReAct reasoning loops, function calling APIs, and autonomous task execution.</li>
+              </ul>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Interactive Practice & Production Systems</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: #44403c; margin-bottom: 1.5rem;">Includes hands-on browser simulators, terminal labs, code builders, and production deployment scenarios with vLLM, Ollama, and Triton inference servers.</p>
+            </article>
+
+            <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="/learning/ai/transformers" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Start Generative AI &rarr;</a>
+              <a href="/courses/artificial-intelligence" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">Artificial Intelligence Course &rarr;</a>
+              <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">All Courses</a>
+            </nav>
+          </main>
+        </div>
+      </div>`;
+  } else if (isCurriculumHub) {
     semanticContent = `<div id="root">
         <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
           <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">

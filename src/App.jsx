@@ -1062,6 +1062,11 @@ function App() {
             <Route path="/learn/cybersecurity/capstone" element={<CybersecurityFinalCapstone />} />
 
             
+                        {/* DIRECT SEO & CURRICULUM COURSE ALIASES */}
+            <Route path="/courses/artificial-intelligence" element={<AIFoundations />} />
+            <Route path="/courses/generative-ai" element={<AITransformerArchitecture />} />
+            <Route path="/learning/ai/generative-ai" element={<AITransformerArchitecture />} />
+
             {/* AI ENGINEERING & GENERATIVE AI TRACK - MODULE 1: FOUNDATIONS & PYTHON FOR AI */}
             <Route path="/learning/ai" element={<AIFoundations />} />
             <Route path="/learning/ai/intro" element={<AIFoundations />} />
