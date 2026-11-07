@@ -154,15 +154,15 @@
     "hasScenarios": true
   },
   {
-    "id": "agentic-workflows",
+    "id": "graph-rag",
     "courseId": "ai-engineering",
     "index": 15,
-    "name": "15. Agentic Workflows & Tool Sandboxing",
-    "route": "/learning/ai/agentic-workflows",
-    "questionCount": 10,
-    "hasTopics": false,
-    "hasCommands": false,
-    "hasScenarios": false
+    "name": "15. Advanced RAG & Knowledge Engineering",
+    "route": "/learning/ai/graph-rag",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   },
   {
     "id": "llm-evaluation",

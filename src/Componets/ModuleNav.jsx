@@ -155,7 +155,7 @@ export const AI_MODULES = [
   { id: "multimodal-ai", name: "12. Multimodal Generative AI (Vision & Audio)", route: "/learning/ai/multimodal-ai" },
   { id: "ai-agents", name: "13. AI Agents & Tool-Calling Systems", route: "/learning/ai/ai-agents" },
   { id: "multi-agent-systems", name: "14. Multi-Agent AI Systems & Orchestration", route: "/learning/ai/multi-agent-systems" },
-  { id: "agentic-workflows", name: "15. Agentic Workflows & Tool Sandboxing", route: "/learning/ai/agentic-workflows" },
+  { id: "graph-rag", name: "15. Advanced RAG & Knowledge Engineering", route: "/learning/ai/graph-rag" },
   { id: "llm-evaluation", name: "16. LLM Evaluation & Guardrails", route: "/learning/ai/llm-evaluation" },
   { id: "speech-video-ai", name: "17. Multimodal Video & Realtime Speech", route: "/learning/ai/speech-video-ai" },
   { id: "diffusion-models", name: "18. Diffusion Models & Image Synthesis", route: "/learning/ai/diffusion-models" },

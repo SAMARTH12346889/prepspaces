@@ -1,0 +1,154 @@
+{
+  "id": "graph-rag",
+  "courseId": "ai-engineering",
+  "index": 15,
+  "name": "15. Advanced RAG & Knowledge Engineering",
+  "route": "/learning/ai/graph-rag",
+  "componentName": "AIGraphRag",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary limitation of naive top-k dense vector retrieval that Knowledge Graphs overcome?",
+      "options": [
+        "Inability to compute cosine similarity on high-dimensional vectors",
+        "Failure to resolve multi-hop relational dependencies between concepts across disparate documents",
+        "Excessive storage requirements of inverted index data structures",
+        "Incompatibility with modern transformer embedding models"
+      ],
+      "correctIndex": 1,
+      "explanation": "Naive vector retrieval looks for chunks with high surface semantic similarity to the query string. When answering an inquiry requires following a chain of reasoning across distinct documents (A -> B -> C), vector search fails to retrieve intermediate bridge chunks, a problem natively solved by graph path traversals."
+    },
+    {
+      "id": 2,
+      "question": "In the BM25Okapi formula, what does parameter k1 control?",
+      "options": [
+        "The degree of document length normalization",
+        "The minimum score threshold for rare tokens",
+        "The term frequency saturation limit",
+        "The reciprocal rank smoothing factor"
+      ],
+      "correctIndex": 2,
+      "explanation": "Parameter k1 controls the term frequency saturation curve. As a word's count in a document increases, its score contribution asymptotes toward (k1 + 1) * IDF, preventing keyword repetition from skewing relevance."
+    },
+    {
+      "id": 3,
+      "question": "Why is Reciprocal Rank Fusion (RRF) preferred over raw linear score combination when fusing Dense and BM25 search results?",
+      "options": [
+        "RRF converts all documents into high-dimensional embeddings",
+        "Dense cosine distances and sparse BM25 scores follow fundamentally different, uncalibrated score distributions",
+        "RRF eliminates the need for first-stage candidate retrieval",
+        "Linear score combinations cannot be executed in parallel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dense vector similarities (typically bounded in [0, 1]) and BM25 scores (unbounded [0, infinity)) have drastically different distributions that shift from query to query. RRF bypasses score calibration by fusing purely ordinal rank positions."
+    },
+    {
+      "id": 4,
+      "question": "What is 'Index-Free Adjacency' in graph databases like Neo4j?",
+      "options": [
+        "The elimination of indexes on node properties to save disk space",
+        "Direct physical memory pointer offsets between connected node records, enabling O(1) traversal per hop",
+        "Using full-text inverted indexes instead of B-trees",
+        "Storing all graph relationships in an in-memory Redis key-value cache"
+      ],
+      "correctIndex": 1,
+      "explanation": "Index-Free Adjacency means every node record physically points directly to its connected relationship records on disk. Traversing an edge requires dereferencing an offset pointer (constant time), making traversal speed independent of total database size."
+    },
+    {
+      "id": 5,
+      "question": "In Microsoft GraphRAG, which algorithm is used to partition the entity knowledge graph into hierarchical communities?",
+      "options": [
+        "K-Means clustering",
+        "Dijkstra's shortest path",
+        "Leiden community detection algorithm",
+        "Principal Component Analysis (PCA)"
+      ],
+      "correctIndex": 2,
+      "explanation": "Microsoft GraphRAG uses the Leiden community detection algorithm to partition the knowledge graph into well-connected, modular clusters across multiple hierarchical levels (Level 0, 1, 2)."
+    },
+    {
+      "id": 6,
+      "question": "Which Microsoft GraphRAG search mode is best suited for holistic questions like 'What are the main systemic risks across the entire corpus?'",
+      "options": [
+        "Local Search",
+        "Global Search",
+        "Vector-only Search",
+        "Sentence Window Search"
+      ],
+      "correctIndex": 1,
+      "explanation": "Global Search synthesizes precomputed community summaries generated across the Leiden hierarchy using a map-reduce architecture, enabling comprehensive corpus-level understanding without scanning thousands of raw chunks."
+    },
+    {
+      "id": 7,
+      "question": "How does HyDE (Hypothetical Document Embeddings) improve retrieval performance?",
+      "options": [
+        "It compresses the document index using PCA dimensional reduction",
+        "An LLM generates a speculative answer passage, and its embedding is used to search the document vector space",
+        "It translates all documents into English prior to indexing",
+        "It replaces dense vectors with sparse BM25 tokens"
+      ],
+      "correctIndex": 1,
+      "explanation": "HyDE bridges the semantic gap between short questions and encyclopedic documents by having an LLM write a hypothetical answer paragraph. Embedding this passage maps the search directly into document space."
+    },
+    {
+      "id": 8,
+      "question": "What is the primary architectural difference between a Bi-Encoder and a Cross-Encoder?",
+      "options": [
+        "Bi-Encoders use recurrent neural networks, while Cross-Encoders use transformers",
+        "Bi-Encoders compute query and document representations independently, while Cross-Encoders apply full self-attention across query-document token pairs simultaneously",
+        "Bi-Encoders are used exclusively for reranking top-5 candidates",
+        "Cross-Encoders generate static vector embeddings for pre-indexing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bi-encoders encode queries and documents separately, enabling fast ANN vector search. Cross-encoders process the concatenated query and document through full self-attention layers, yielding superior relevance accuracy at higher computational cost."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of Parent Document Retrieval in modern RAG systems?",
+      "options": [
+        "To restrict search to only documents created by root administrators",
+        "To embed small child chunks for precise vector matching, while injecting the larger parent document into the LLM context",
+        "To automatically delete child chunks after 30 days",
+        "To serialize the knowledge graph into JSON-LD format"
+      ],
+      "correctIndex": 1,
+      "explanation": "Parent Document Retrieval resolves the chunk size dilemma: small child chunks guarantee high semantic retrieval precision, while retrieving the full parent document ensures the LLM receives complete narrative context."
+    },
+    {
+      "id": 10,
+      "question": "In graph reasoning, how does Personalized PageRank (PPR) select context for a specific user query?",
+      "options": [
+        "It ranks all documents alphabetically based on author credentials",
+        "It runs a random walk with teleportation biased towards the query's seed entities, scoring peripheral nodes by topical relevance",
+        "It deletes all nodes with an out-degree less than 3",
+        "It computes the Euclidean distance between node labels"
+      ],
+      "correctIndex": 1,
+      "explanation": "Personalized PageRank concentrates the teleport probability on the query's seed entities. Nodes with high steady-state probability are topologically relevant to those specific seeds, allowing objective context pruning."
+    },
+    {
+      "id": 11,
+      "question": "What does the 'Faithfulness' metric in the Ragas evaluation framework measure?",
+      "options": [
+        "The lexical overlap between the query and retrieved chunks",
+        "The proportion of claims in the generated response that are directly grounded in the retrieved context",
+        "The execution speed of the underlying Cypher queries",
+        "The percentage of user queries successfully parsed by the router"
+      ],
+      "correctIndex": 1,
+      "explanation": "Faithfulness evaluates whether the LLM's generated response is strictly grounded in the retrieved context, penalizing ungrounded hallucinations."
+    },
+    {
+      "id": 12,
+      "question": "What is the primary role of a Cross-Encoder Neural Reranker in a two-stage retrieval pipeline?",
+      "options": [
+        "To build the initial inverted index from raw text",
+        "To re-score and re-rank the top-50 candidates from first-stage retrieval to identify the top-5 highest-signal context passages",
+        "To execute multi-hop Cypher queries in Neo4j",
+        "To partition the graph into Leiden communities"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Cross-Encoder serves as a second-stage reranker. First-stage hybrid search quickly retrieves candidate chunks (e.g. top-50), and the cross-encoder applies deep cross-attention to isolate the top-5 most relevant passages for the generator."
+    }
+  ]
+}

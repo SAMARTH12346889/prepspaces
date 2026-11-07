@@ -121,6 +121,11 @@ const routeMeta = {
     description: "Master multi-agent AI systems: intelligent routing, planner-executor architecture, DAG dependency scheduling, sequential & parallel workflows, blackboard shared state, conflict resolution, circuit breakers, and Agent2Agent (A2A) protocol.",
     canonical: `${BASE_URL}/learning/ai/multi-agent-systems`,
   },
+  "/learning/ai/graph-rag": {
+    title: "Module 15: Advanced RAG & Knowledge Engineering | PrepSpaces",
+    description: "Master Graph RAG and Knowledge Engineering: Dense + BM25 hybrid search, Reciprocal Rank Fusion (RRF), Neo4j Cypher property graphs, automated triple extraction, Microsoft GraphRAG Leiden community detection, multi-hop reasoning, HyDE, and Ragas evaluation.",
+    canonical: `${BASE_URL}/learning/ai/graph-rag`,
+  },
   "/learning/ai/foundations": {
     title: "Module 1: AI Engineering Foundations & Python for AI | PrepSpaces",
     description: "Learn AI taxonomy, agent perception and reasoning, Python internals, SIMD vectorization with NumPy, Pandas dataframes, and end-to-end AI workflows.",

@@ -107,6 +107,7 @@ import AIRagEngineering from "./Componets/AIRagEngineering";
 import AIMultimodal from "./Componets/AIMultimodal";
 import AIAgents from "./Componets/AIAgents";
 import AIMultiAgent from "./Componets/AIMultiAgent";
+import AIGraphRag from "./Componets/AIGraphRag";
 import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
 import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
 import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
@@ -1219,7 +1220,17 @@ function App() {
             <Route path="/learn/ai/multi-agent-systems" element={<AIMultiAgent />} />
             <Route path="/learn/ai/multi-agent" element={<AIMultiAgent />} />
 
-
+            {/* AI ENGINEERING TRACK - MODULE 15: ADVANCED RAG & KNOWLEDGE ENGINEERING */}
+            <Route path="/learning/ai/graph-rag" element={<AIGraphRag />} />
+            <Route path="/learning/ai/advanced-rag" element={<AIGraphRag />} />
+            <Route path="/learning/ai/knowledge-graphs" element={<AIGraphRag />} />
+            <Route path="/learning/ai/knowledge-engineering" element={<AIGraphRag />} />
+            <Route path="/learning/ai/graphrag" element={<AIGraphRag />} />
+            <Route path="/learning/ai/module-15" element={<AIGraphRag />} />
+            <Route path="/learning/ai-engineering/graph-rag" element={<AIGraphRag />} />
+            <Route path="/learning/ai-engineering/module-15" element={<AIGraphRag />} />
+            <Route path="/learn/ai/graph-rag" element={<AIGraphRag />} />
+            <Route path="/learn/ai/advanced-rag" element={<AIGraphRag />} />
             {/* INTERVIEW PAGE */}
             <Route
               path="/interview"
