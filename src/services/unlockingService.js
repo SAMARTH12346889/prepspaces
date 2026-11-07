@@ -74,6 +74,7 @@ function emitUnlockUpdated(courseId, data) {
 }
 
 const inFlightCompletions = new Set();
+const pendingAccessRequests = new Map();
 
 /**
  * Automatically marks a module completed in the background when the user
@@ -119,48 +120,61 @@ export async function getCourseAccess(courseId) {
 
   const token = getStoredToken();
   const guestId = !token ? getOrCreateGuestSessionId() : null;
+  const requestKey = `${courseId}:${token || guestId}`;
 
-  const headers = {
-    Accept: "application/json",
-  };
-  if (token) {
-    headers["Authorization"] = `Bearer ${token}`;
-  } else if (guestId) {
-    headers["x-guest-session-id"] = guestId;
+  // Deduplicate in-flight access calls across components
+  if (pendingAccessRequests.has(requestKey)) {
+    return await pendingAccessRequests.get(requestKey);
   }
 
-  try {
-    const url = `${API_BASE_URL}/api/progress/${encodeURIComponent(courseId)}/access`;
-    const res = await fetch(url, { method: "GET", headers });
-
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success) {
-        setCachedCourseAccess(courseId, data);
-        emitUnlockUpdated(courseId, data);
-        return data;
-      }
+  const accessPromise = (async () => {
+    const headers = {
+      Accept: "application/json",
+    };
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    } else if (guestId) {
+      headers["x-guest-session-id"] = guestId;
     }
-  } catch (err) {
-    console.warn(`[unlockingService] Failed to fetch access for ${courseId}:`, err);
-  }
 
-  // Fallback to cached state
-  const cached = getCachedCourseAccess(courseId);
-  if (cached) return cached;
+    try {
+      const url = `${API_BASE_URL}/api/progress/${encodeURIComponent(courseId)}/access`;
+      const res = await fetch(url, { method: "GET", headers });
 
-  // Safe default: only first module unlocked
-  return {
-    courseId,
-    totalModules: 24,
-    completedModuleIds: [],
-    unlockedModuleIds: [],
-    currentUnlockedModule: null,
-    isGuest: !token,
-    progressPercentage: 0,
-    authRequiredForNext: false,
-    modules: [],
-  };
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success) {
+          setCachedCourseAccess(courseId, data);
+          emitUnlockUpdated(courseId, data);
+          return data;
+        }
+      }
+    } catch (err) {
+      console.warn(`[unlockingService] Failed to fetch access for ${courseId}:`, err);
+    } finally {
+      pendingAccessRequests.delete(requestKey);
+    }
+
+    // Fallback to cached state
+    const cached = getCachedCourseAccess(courseId);
+    if (cached) return cached;
+
+    // Safe default: only first module unlocked
+    return {
+      courseId,
+      totalModules: 24,
+      completedModuleIds: [],
+      unlockedModuleIds: [],
+      currentUnlockedModule: null,
+      isGuest: !token,
+      progressPercentage: 0,
+      authRequiredForNext: false,
+      modules: [],
+    };
+  })();
+
+  pendingAccessRequests.set(requestKey, accessPromise);
+  return await accessPromise;
 }
 
 /**

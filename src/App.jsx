@@ -1,3 +1,4 @@
+import ModuleLoadingSkeleton from "./Componets/ModuleLoadingSkeleton";
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
@@ -11,153 +12,153 @@ import { AuthProvider } from "./context/AuthContext";
 import Learning from "./Pages/Learning";
 import InterviewRoom from "./Pages/InterviewRoom";
 import NotFound from "./Pages/NotFound";
-import OSIntro from "./Componets/OSIntro";
-import OSArchitecture from "./Componets/OSArchitecture";
-import OSSystemsProgramming from "./Componets/OSSystemsProgramming";
-import OSSyscalls from "./Componets/OSSyscalls";
-import OSProcessLifecycle from "./Componets/OSProcessLifecycle";
-import OSScheduling from "./Componets/OSScheduling";
-import OSThreads from "./Componets/OSThreads";
-import OSConcurrency from "./Componets/OSConcurrency";
-import OSMemory from "./Componets/OSMemory";
-import OSVirtualMemory from "./Componets/OSVirtualMemory";
-import OSDemandPaging from "./Componets/OSDemandPaging";
-import OSVirtualization from "./Componets/OSVirtualization";
-import OSFilesystems from "./Componets/OSFilesystems";
-import OSStorage from "./Componets/OSStorage";
-import OSIPC from "./Componets/OSIPC";
-import OSCrashConsistency from "./Componets/OSCrashConsistency";
-import OSKernelArchitecture from "./Componets/OSKernelArchitecture";
-import OSPerformanceDiagnostics from "./Componets/OSPerformanceDiagnostics";
-import OSNetworking from "./Componets/OSNetworking";
-import OSSecurity from "./Componets/OSSecurity";
-import OSAdvancedSync from "./Componets/OSAdvancedSync";
-import OSDesignTesting from "./Componets/OSDesignTesting";
-import OSCapstone from "./Componets/OSCapstone";
-import OSFinalCapstone from "./Componets/OSFinalCapstone";
-import NetworkIntro from "./Componets/NetworkIntro";
-import NetworkModels from "./Componets/NetworkModels";
-import NetworkPhysical from "./Componets/NetworkPhysical";
-import NetworkDataLink from "./Componets/NetworkDataLink";
-import NetworkIPv4 from "./Componets/NetworkIPv4";
-import NetworkIPv6 from "./Componets/NetworkIPv6";
-import NetworkRouting from "./Componets/NetworkRouting";
-import NetworkConfig from "./Componets/NetworkConfig";
-import NetworkTCP from "./Componets/NetworkTCP";
-import NetworkUDP from "./Componets/NetworkUDP";
-import NetworkDNS from "./Componets/NetworkDNS";
-import NetworkAppLayer from "./Componets/NetworkAppLayer";
-import NetworkWireless from "./Componets/NetworkWireless";
-import NetworkSwitching from "./Componets/NetworkSwitching";
-import NetworkFirewalls from "./Componets/NetworkFirewalls";
-import NetworkEnterpriseCloud from "./Componets/NetworkEnterpriseCloud";
-import NetworkThreatModeling from "./Componets/NetworkThreatModeling";
-import NetworkPacketAnalysis from "./Componets/NetworkPacketAnalysis";
-import NetworkAttacksDefenses from "./Componets/NetworkAttacksDefenses";
-import NetworkIdsIpsSoc from "./Componets/NetworkIdsIpsSoc";
-import NetworkProgrammingAutomation from "./Componets/NetworkProgrammingAutomation";
-import NetworkAdvancedRouting from "./Componets/NetworkAdvancedRouting";
-import NetworkSecurityArchitecture from "./Componets/NetworkSecurityArchitecture";
-import NetworkFinalCapstone from "./Componets/NetworkFinalCapstone";
+const OSIntro = React.lazy(() => import("./Componets/OSIntro"));
+const OSArchitecture = React.lazy(() => import("./Componets/OSArchitecture"));
+const OSSystemsProgramming = React.lazy(() => import("./Componets/OSSystemsProgramming"));
+const OSSyscalls = React.lazy(() => import("./Componets/OSSyscalls"));
+const OSProcessLifecycle = React.lazy(() => import("./Componets/OSProcessLifecycle"));
+const OSScheduling = React.lazy(() => import("./Componets/OSScheduling"));
+const OSThreads = React.lazy(() => import("./Componets/OSThreads"));
+const OSConcurrency = React.lazy(() => import("./Componets/OSConcurrency"));
+const OSMemory = React.lazy(() => import("./Componets/OSMemory"));
+const OSVirtualMemory = React.lazy(() => import("./Componets/OSVirtualMemory"));
+const OSDemandPaging = React.lazy(() => import("./Componets/OSDemandPaging"));
+const OSVirtualization = React.lazy(() => import("./Componets/OSVirtualization"));
+const OSFilesystems = React.lazy(() => import("./Componets/OSFilesystems"));
+const OSStorage = React.lazy(() => import("./Componets/OSStorage"));
+const OSIPC = React.lazy(() => import("./Componets/OSIPC"));
+const OSCrashConsistency = React.lazy(() => import("./Componets/OSCrashConsistency"));
+const OSKernelArchitecture = React.lazy(() => import("./Componets/OSKernelArchitecture"));
+const OSPerformanceDiagnostics = React.lazy(() => import("./Componets/OSPerformanceDiagnostics"));
+const OSNetworking = React.lazy(() => import("./Componets/OSNetworking"));
+const OSSecurity = React.lazy(() => import("./Componets/OSSecurity"));
+const OSAdvancedSync = React.lazy(() => import("./Componets/OSAdvancedSync"));
+const OSDesignTesting = React.lazy(() => import("./Componets/OSDesignTesting"));
+const OSCapstone = React.lazy(() => import("./Componets/OSCapstone"));
+const OSFinalCapstone = React.lazy(() => import("./Componets/OSFinalCapstone"));
+const NetworkIntro = React.lazy(() => import("./Componets/NetworkIntro"));
+const NetworkModels = React.lazy(() => import("./Componets/NetworkModels"));
+const NetworkPhysical = React.lazy(() => import("./Componets/NetworkPhysical"));
+const NetworkDataLink = React.lazy(() => import("./Componets/NetworkDataLink"));
+const NetworkIPv4 = React.lazy(() => import("./Componets/NetworkIPv4"));
+const NetworkIPv6 = React.lazy(() => import("./Componets/NetworkIPv6"));
+const NetworkRouting = React.lazy(() => import("./Componets/NetworkRouting"));
+const NetworkConfig = React.lazy(() => import("./Componets/NetworkConfig"));
+const NetworkTCP = React.lazy(() => import("./Componets/NetworkTCP"));
+const NetworkUDP = React.lazy(() => import("./Componets/NetworkUDP"));
+const NetworkDNS = React.lazy(() => import("./Componets/NetworkDNS"));
+const NetworkAppLayer = React.lazy(() => import("./Componets/NetworkAppLayer"));
+const NetworkWireless = React.lazy(() => import("./Componets/NetworkWireless"));
+const NetworkSwitching = React.lazy(() => import("./Componets/NetworkSwitching"));
+const NetworkFirewalls = React.lazy(() => import("./Componets/NetworkFirewalls"));
+const NetworkEnterpriseCloud = React.lazy(() => import("./Componets/NetworkEnterpriseCloud"));
+const NetworkThreatModeling = React.lazy(() => import("./Componets/NetworkThreatModeling"));
+const NetworkPacketAnalysis = React.lazy(() => import("./Componets/NetworkPacketAnalysis"));
+const NetworkAttacksDefenses = React.lazy(() => import("./Componets/NetworkAttacksDefenses"));
+const NetworkIdsIpsSoc = React.lazy(() => import("./Componets/NetworkIdsIpsSoc"));
+const NetworkProgrammingAutomation = React.lazy(() => import("./Componets/NetworkProgrammingAutomation"));
+const NetworkAdvancedRouting = React.lazy(() => import("./Componets/NetworkAdvancedRouting"));
+const NetworkSecurityArchitecture = React.lazy(() => import("./Componets/NetworkSecurityArchitecture"));
+const NetworkFinalCapstone = React.lazy(() => import("./Componets/NetworkFinalCapstone"));
 
-import CybersecurityIntro from "./Componets/CybersecurityIntro";
-import CybersecurityNetworking from "./Componets/CybersecurityNetworking";
-import CybersecuritySystems from "./Componets/CybersecuritySystems";
-import CybersecurityThreatModeling from "./Componets/CybersecurityThreatModeling";
-import CybersecurityMethodology from "./Componets/CybersecurityMethodology";
-import CybersecurityOSINT from "./Componets/CybersecurityOSINT";
-import CybersecurityRecon from "./Componets/CybersecurityRecon";
-import CybersecurityVulnerabilityAssessment from "./Componets/CybersecurityVulnerabilityAssessment";
-import CybersecurityNetworkSecurity from "./Componets/CybersecurityNetworkSecurity";
-import CybersecurityOSSecurity from "./Componets/CybersecurityOSSecurity";
-import CybersecurityIAM from "./Componets/CybersecurityIAM";
-import CybersecurityCryptography from "./Componets/CybersecurityCryptography";
-import CybersecurityWebSecurity from "./Componets/CybersecurityWebSecurity";
-import CybersecurityOWASPTop10 from "./Componets/CybersecurityOWASPTop10";
-import CybersecurityAuthAPISecurity from "./Componets/CybersecurityAuthAPISecurity";
-import CybersecuritySecureCodeReview from "./Componets/CybersecuritySecureCodeReview";
-import CybersecurityWirelessSecurity from "./Componets/CybersecurityWirelessSecurity";
-import CybersecurityCloudSecurity from "./Componets/CybersecurityCloudSecurity";
-import CybersecurityMalwareAnalysis from "./Componets/CybersecurityMalwareAnalysis";
-import CybersecuritySOCSIEM from "./Componets/CybersecuritySOCSIEM";
-import CybersecurityPentestPlanning from "./Componets/CybersecurityPentestPlanning";
-import CybersecurityRedBluePurple from "./Componets/CybersecurityRedBluePurple";
-import CybersecurityPentestReports from "./Componets/CybersecurityPentestReports";
-import CybersecurityFinalCapstone from "./Componets/CybersecurityFinalCapstone";
+const CybersecurityIntro = React.lazy(() => import("./Componets/CybersecurityIntro"));
+const CybersecurityNetworking = React.lazy(() => import("./Componets/CybersecurityNetworking"));
+const CybersecuritySystems = React.lazy(() => import("./Componets/CybersecuritySystems"));
+const CybersecurityThreatModeling = React.lazy(() => import("./Componets/CybersecurityThreatModeling"));
+const CybersecurityMethodology = React.lazy(() => import("./Componets/CybersecurityMethodology"));
+const CybersecurityOSINT = React.lazy(() => import("./Componets/CybersecurityOSINT"));
+const CybersecurityRecon = React.lazy(() => import("./Componets/CybersecurityRecon"));
+const CybersecurityVulnerabilityAssessment = React.lazy(() => import("./Componets/CybersecurityVulnerabilityAssessment"));
+const CybersecurityNetworkSecurity = React.lazy(() => import("./Componets/CybersecurityNetworkSecurity"));
+const CybersecurityOSSecurity = React.lazy(() => import("./Componets/CybersecurityOSSecurity"));
+const CybersecurityIAM = React.lazy(() => import("./Componets/CybersecurityIAM"));
+const CybersecurityCryptography = React.lazy(() => import("./Componets/CybersecurityCryptography"));
+const CybersecurityWebSecurity = React.lazy(() => import("./Componets/CybersecurityWebSecurity"));
+const CybersecurityOWASPTop10 = React.lazy(() => import("./Componets/CybersecurityOWASPTop10"));
+const CybersecurityAuthAPISecurity = React.lazy(() => import("./Componets/CybersecurityAuthAPISecurity"));
+const CybersecuritySecureCodeReview = React.lazy(() => import("./Componets/CybersecuritySecureCodeReview"));
+const CybersecurityWirelessSecurity = React.lazy(() => import("./Componets/CybersecurityWirelessSecurity"));
+const CybersecurityCloudSecurity = React.lazy(() => import("./Componets/CybersecurityCloudSecurity"));
+const CybersecurityMalwareAnalysis = React.lazy(() => import("./Componets/CybersecurityMalwareAnalysis"));
+const CybersecuritySOCSIEM = React.lazy(() => import("./Componets/CybersecuritySOCSIEM"));
+const CybersecurityPentestPlanning = React.lazy(() => import("./Componets/CybersecurityPentestPlanning"));
+const CybersecurityRedBluePurple = React.lazy(() => import("./Componets/CybersecurityRedBluePurple"));
+const CybersecurityPentestReports = React.lazy(() => import("./Componets/CybersecurityPentestReports"));
+const CybersecurityFinalCapstone = React.lazy(() => import("./Componets/CybersecurityFinalCapstone"));
 
-import SystemDesignIntro from "./Componets/SystemDesignIntro";
-import SystemDesignRequirements from "./Componets/SystemDesignRequirements";
-import SystemDesignNetworking from "./Componets/SystemDesignNetworking";
-import SystemDesignArchitecture from "./Componets/SystemDesignArchitecture";
-import SystemDesignDatabases from "./Componets/SystemDesignDatabases";
-import SystemDesignCaching from "./Componets/SystemDesignCaching";
-import SystemDesignReplication from "./Componets/SystemDesignReplication";
-import SystemDesignStorage from "./Componets/SystemDesignStorage";
-import AIFoundations from "./Componets/AIFoundations";
-import AIMathematics from "./Componets/AIMathematics";
-import AIMachineLearning from "./Componets/AIMachineLearning";
-import AIDeepLearning from "./Componets/AIDeepLearning";
-import AINaturalLanguageProcessing from "./Componets/AINaturalLanguageProcessing";
-import AITransformerArchitecture from "./Componets/AITransformerArchitecture";
-import AILargeLanguageModels from "./Componets/AILargeLanguageModels";
-import AILlmFineTuning from "./Componets/AILlmFineTuning";
-import AILlmPromptEngineering from "./Componets/AILlmPromptEngineering";
-import AIVectorDatabases from "./Componets/AIVectorDatabases";
-import AIRagEngineering from "./Componets/AIRagEngineering";
-import AIMultimodal from "./Componets/AIMultimodal";
-import AIAgents from "./Componets/AIAgents";
-import AIMultiAgent from "./Componets/AIMultiAgent";
-import AIGraphRag from "./Componets/AIGraphRag";
-import AIEvaluationSafety from "./Componets/AIEvaluationSafety";
-import AIInferenceServing from "./Componets/AIInferenceServing";
-import AIBackendEngineering from "./Componets/AIBackendEngineering";
-import AIMlopsDeployment from "./Componets/AIMlopsDeployment";
-import AIScalabilityOptimization from "./Componets/AIScalabilityOptimization";
-import AIFineTuningDomain from "./Componets/AIFineTuningDomain";
-import AIScratchLlm from "./Componets/AIScratchLlm";
-import AISystemDesign from "./Componets/AISystemDesign";
-import AIFinalCapstone from "./Componets/AIFinalCapstone";
-import SystemDesignDistributedSystems from "./Componets/SystemDesignDistributedSystems";
-import SystemDesignConsistency from "./Componets/SystemDesignConsistency";
-import SystemDesignConsensus from "./Componets/SystemDesignConsensus";
-import SystemDesignMessaging from "./Componets/SystemDesignMessaging";
-import SystemDesignTransactions from "./Componets/SystemDesignTransactions";
-import SystemDesignTraffic from "./Componets/SystemDesignTraffic";
-import SystemDesignScalability from "./Componets/SystemDesignScalability";
-import SystemDesignMultiRegion from "./Componets/SystemDesignMultiRegion";
-import SystemDesignReliability from "./Componets/SystemDesignReliability";
-import SystemDesignSecurity from "./Componets/SystemDesignSecurity";
-import SystemDesignRealtime from "./Componets/SystemDesignRealtime";
-import SystemDesignSearch from "./Componets/SystemDesignSearch";
-import SystemDesignAIServing from "./Componets/SystemDesignAIServing";
-import SystemDesignCaseStudies from "./Componets/SystemDesignCaseStudies";
-import SystemDesignAdvancedCaseStudies from "./Componets/SystemDesignAdvancedCaseStudies";
-import SystemDesignCapstone from "./Componets/SystemDesignCapstone";
-import CloudComputing from "./Componets/CloudComputing";
-import CloudNetworking from "./Componets/CloudNetworking";
-import CloudCompute from "./Componets/CloudCompute";
-import CloudStorage from "./Componets/CloudStorage";
-import CloudDatabases from "./Componets/CloudDatabases";
-import CloudArchitecture from "./Componets/CloudArchitecture";
-import CloudAWS from "./Componets/CloudAWS";
-import CloudAzure from "./Componets/CloudAzure";
-import CloudGCP from "./Componets/CloudGCP";
-import CloudMultiCloud from "./Componets/CloudMultiCloud";
-import CloudSecurity from "./Componets/CloudSecurity";
-import CloudEconomics from "./Componets/CloudEconomics";
-import CloudAdvanced from "./Componets/CloudAdvanced";
-import DevOpsLinux from "./Componets/DevOpsLinux";
-import DevOpsGit from "./Componets/DevOpsGit";
-import DevOpsDocker from "./Componets/DevOpsDocker";
-import DevOpsK8s from "./Componets/DevOpsK8s";
-import DevOpsIaC from "./Componets/DevOpsIaC";
-import DevOpsCICD from "./Componets/DevOpsCICD";
-import DevOpsDeployment from "./Componets/DevOpsDeployment";
-import DevOpsSRE from "./Componets/DevOpsSRE";
-import DevOpsReliability from "./Componets/DevOpsReliability";
-import DevOpsSecOps from "./Componets/DevOpsSecOps";
-import DevOpsPlatform from "./Componets/DevOpsPlatform";
-import DevOpsCapstone from "./Componets/DevOpsCapstone";
+const SystemDesignIntro = React.lazy(() => import("./Componets/SystemDesignIntro"));
+const SystemDesignRequirements = React.lazy(() => import("./Componets/SystemDesignRequirements"));
+const SystemDesignNetworking = React.lazy(() => import("./Componets/SystemDesignNetworking"));
+const SystemDesignArchitecture = React.lazy(() => import("./Componets/SystemDesignArchitecture"));
+const SystemDesignDatabases = React.lazy(() => import("./Componets/SystemDesignDatabases"));
+const SystemDesignCaching = React.lazy(() => import("./Componets/SystemDesignCaching"));
+const SystemDesignReplication = React.lazy(() => import("./Componets/SystemDesignReplication"));
+const SystemDesignStorage = React.lazy(() => import("./Componets/SystemDesignStorage"));
+const AIFoundations = React.lazy(() => import("./Componets/AIFoundations"));
+const AIMathematics = React.lazy(() => import("./Componets/AIMathematics"));
+const AIMachineLearning = React.lazy(() => import("./Componets/AIMachineLearning"));
+const AIDeepLearning = React.lazy(() => import("./Componets/AIDeepLearning"));
+const AINaturalLanguageProcessing = React.lazy(() => import("./Componets/AINaturalLanguageProcessing"));
+const AITransformerArchitecture = React.lazy(() => import("./Componets/AITransformerArchitecture"));
+const AILargeLanguageModels = React.lazy(() => import("./Componets/AILargeLanguageModels"));
+const AILlmFineTuning = React.lazy(() => import("./Componets/AILlmFineTuning"));
+const AILlmPromptEngineering = React.lazy(() => import("./Componets/AILlmPromptEngineering"));
+const AIVectorDatabases = React.lazy(() => import("./Componets/AIVectorDatabases"));
+const AIRagEngineering = React.lazy(() => import("./Componets/AIRagEngineering"));
+const AIMultimodal = React.lazy(() => import("./Componets/AIMultimodal"));
+const AIAgents = React.lazy(() => import("./Componets/AIAgents"));
+const AIMultiAgent = React.lazy(() => import("./Componets/AIMultiAgent"));
+const AIGraphRag = React.lazy(() => import("./Componets/AIGraphRag"));
+const AIEvaluationSafety = React.lazy(() => import("./Componets/AIEvaluationSafety"));
+const AIInferenceServing = React.lazy(() => import("./Componets/AIInferenceServing"));
+const AIBackendEngineering = React.lazy(() => import("./Componets/AIBackendEngineering"));
+const AIMlopsDeployment = React.lazy(() => import("./Componets/AIMlopsDeployment"));
+const AIScalabilityOptimization = React.lazy(() => import("./Componets/AIScalabilityOptimization"));
+const AIFineTuningDomain = React.lazy(() => import("./Componets/AIFineTuningDomain"));
+const AIScratchLlm = React.lazy(() => import("./Componets/AIScratchLlm"));
+const AISystemDesign = React.lazy(() => import("./Componets/AISystemDesign"));
+const AIFinalCapstone = React.lazy(() => import("./Componets/AIFinalCapstone"));
+const SystemDesignDistributedSystems = React.lazy(() => import("./Componets/SystemDesignDistributedSystems"));
+const SystemDesignConsistency = React.lazy(() => import("./Componets/SystemDesignConsistency"));
+const SystemDesignConsensus = React.lazy(() => import("./Componets/SystemDesignConsensus"));
+const SystemDesignMessaging = React.lazy(() => import("./Componets/SystemDesignMessaging"));
+const SystemDesignTransactions = React.lazy(() => import("./Componets/SystemDesignTransactions"));
+const SystemDesignTraffic = React.lazy(() => import("./Componets/SystemDesignTraffic"));
+const SystemDesignScalability = React.lazy(() => import("./Componets/SystemDesignScalability"));
+const SystemDesignMultiRegion = React.lazy(() => import("./Componets/SystemDesignMultiRegion"));
+const SystemDesignReliability = React.lazy(() => import("./Componets/SystemDesignReliability"));
+const SystemDesignSecurity = React.lazy(() => import("./Componets/SystemDesignSecurity"));
+const SystemDesignRealtime = React.lazy(() => import("./Componets/SystemDesignRealtime"));
+const SystemDesignSearch = React.lazy(() => import("./Componets/SystemDesignSearch"));
+const SystemDesignAIServing = React.lazy(() => import("./Componets/SystemDesignAIServing"));
+const SystemDesignCaseStudies = React.lazy(() => import("./Componets/SystemDesignCaseStudies"));
+const SystemDesignAdvancedCaseStudies = React.lazy(() => import("./Componets/SystemDesignAdvancedCaseStudies"));
+const SystemDesignCapstone = React.lazy(() => import("./Componets/SystemDesignCapstone"));
+const CloudComputing = React.lazy(() => import("./Componets/CloudComputing"));
+const CloudNetworking = React.lazy(() => import("./Componets/CloudNetworking"));
+const CloudCompute = React.lazy(() => import("./Componets/CloudCompute"));
+const CloudStorage = React.lazy(() => import("./Componets/CloudStorage"));
+const CloudDatabases = React.lazy(() => import("./Componets/CloudDatabases"));
+const CloudArchitecture = React.lazy(() => import("./Componets/CloudArchitecture"));
+const CloudAWS = React.lazy(() => import("./Componets/CloudAWS"));
+const CloudAzure = React.lazy(() => import("./Componets/CloudAzure"));
+const CloudGCP = React.lazy(() => import("./Componets/CloudGCP"));
+const CloudMultiCloud = React.lazy(() => import("./Componets/CloudMultiCloud"));
+const CloudSecurity = React.lazy(() => import("./Componets/CloudSecurity"));
+const CloudEconomics = React.lazy(() => import("./Componets/CloudEconomics"));
+const CloudAdvanced = React.lazy(() => import("./Componets/CloudAdvanced"));
+const DevOpsLinux = React.lazy(() => import("./Componets/DevOpsLinux"));
+const DevOpsGit = React.lazy(() => import("./Componets/DevOpsGit"));
+const DevOpsDocker = React.lazy(() => import("./Componets/DevOpsDocker"));
+const DevOpsK8s = React.lazy(() => import("./Componets/DevOpsK8s"));
+const DevOpsIaC = React.lazy(() => import("./Componets/DevOpsIaC"));
+const DevOpsCICD = React.lazy(() => import("./Componets/DevOpsCICD"));
+const DevOpsDeployment = React.lazy(() => import("./Componets/DevOpsDeployment"));
+const DevOpsSRE = React.lazy(() => import("./Componets/DevOpsSRE"));
+const DevOpsReliability = React.lazy(() => import("./Componets/DevOpsReliability"));
+const DevOpsSecOps = React.lazy(() => import("./Componets/DevOpsSecOps"));
+const DevOpsPlatform = React.lazy(() => import("./Componets/DevOpsPlatform"));
+const DevOpsCapstone = React.lazy(() => import("./Componets/DevOpsCapstone"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -170,14 +171,15 @@ import PublicOnlyRoute from "./Componets/PublicOnlyRoute";
 
 function App() {
   return (
-    <BrowserRouter>
-      <SeoManager />
-      <AppErrorBoundary>
+    <AppErrorBoundary>
+      <BrowserRouter>
+        <SeoManager />
         <AuthProvider>
         <NavigationProvider>
           <VoiceProvider>
             <NovaProvider>
-              <Routes>
+              <React.Suspense fallback={<ModuleLoadingSkeleton />}>
+            <Routes>
             {/* LANDING PAGE */}
             <Route path="/" element={<Landingpage />} />
 
@@ -1356,13 +1358,18 @@ function App() {
             {/* NOT FOUND ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          {SHOW_NOVA_AI && <VoiceAssistant />}
+          </React.Suspense>
+          {SHOW_NOVA_AI && (
+            <React.Suspense fallback={null}>
+              <VoiceAssistant />
+            </React.Suspense>
+          )}
         </NovaProvider>
       </VoiceProvider>
     </NavigationProvider>
   </AuthProvider>
-  </AppErrorBoundary>
 </BrowserRouter>
+</AppErrorBoundary>
   );
 }
 

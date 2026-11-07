@@ -349,6 +349,9 @@ export default function ModuleNav({
   useEffect(() => {
     if (!currentModuleId || !resolvedCourseId) return;
 
+    // Skip if already recorded as completed
+    if (completedModuleIds.includes(currentModuleId)) return;
+
     // Only auto-complete if current module is unlocked
     const modIndex = modules.findIndex((m) => m.id === currentModuleId);
     const isUnlockedNow =

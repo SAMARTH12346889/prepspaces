@@ -5,6 +5,9 @@
 
 const VALID_ID_PATTERN = /^[a-z0-9-]+$/i;
 
+// In-memory cache for static asset JSONs within the Cloudflare Worker runtime isolate
+const assetMemoryCache = new Map();
+
 /**
  * Validates course or module ID to prevent path traversal and malformed requests.
  */
@@ -13,15 +16,20 @@ export function isValidIdentifier(id) {
 }
 
 /**
- * Fetch a JSON asset using Cloudflare Workers Static Assets binding.
+ * Fetch a JSON asset using Cloudflare Workers Static Assets binding with memory caching.
  */
 async function fetchAssetJson(assetPath, env, requestUrl) {
+  const cacheKey = assetPath.startsWith("/") ? assetPath : `/${assetPath}`;
+  if (assetMemoryCache.has(cacheKey)) {
+    return assetMemoryCache.get(cacheKey);
+  }
+
   if (!env?.ASSETS) {
     throw new Error("ASSETS binding is not configured in environment");
   }
 
   // Construct absolute URL for ASSETS binding fetch
-  const targetUrl = new URL(assetPath.startsWith("/") ? assetPath : `/${assetPath}`, requestUrl);
+  const targetUrl = new URL(cacheKey, requestUrl);
   const response = await env.ASSETS.fetch(targetUrl);
 
   if (!response.ok) {
@@ -31,7 +39,9 @@ async function fetchAssetJson(assetPath, env, requestUrl) {
     throw new Error(`Failed to load asset '${assetPath}': HTTP ${response.status}`);
   }
 
-  return await response.json();
+  const data = await response.json();
+  assetMemoryCache.set(cacheKey, data);
+  return data;
 }
 
 /**

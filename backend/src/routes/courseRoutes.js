@@ -10,6 +10,14 @@ import {
 
 export const courseRouter = new Hono();
 
+// Cache static course content at Cloudflare Edge and in browser for maximum performance
+courseRouter.use("*", async (c, next) => {
+  await next();
+  if (c.res.status === 200) {
+    c.header("Cache-Control", "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400");
+  }
+});
+
 /**
  * 1. List all courses
  * GET /api/courses

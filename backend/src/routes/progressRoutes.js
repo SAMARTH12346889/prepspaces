@@ -87,6 +87,9 @@ progressRouter.get("/:courseId/access", async (c) => {
       c.header("x-guest-session-id", userOrGuest.guestId);
     }
 
+    // Micro-cache private access response to prevent rapid duplicate roundtrips
+    c.header("Cache-Control", "private, max-age=15, stale-while-revalidate=30");
+
     return c.json({
       success: true,
       guestSessionId: userOrGuest.isGuest ? userOrGuest.guestId : null,
