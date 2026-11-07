@@ -90,6 +90,18 @@ const DEFAULT_CATALOG = [
     badgeColor: "bg-amber-500/10 text-amber-600 border-amber-500/20",
     totalModules: 15,
   },
+  {
+    id: "blockchain",
+    title: "Blockchain Technology & Decentralized Systems",
+    tagline: "Cryptography, Distributed Ledgers, Consensus & Smart Contracts",
+    description: "Master blockchain engineering, distributed ledgers, cryptographic primitives, SHA-256 linking, peer-to-peer network consensus, smart contracts, and decentralized application architecture.",
+    icon: "Blocks",
+    route: "/learning/blockchain",
+    tag: "Decentralized Systems",
+    color: "from-zinc-900 via-stone-900 to-amber-700",
+    badgeColor: "bg-amber-500/10 text-amber-700 border-amber-500/20",
+    totalModules: 12,
+  },
 ];
 
 /**

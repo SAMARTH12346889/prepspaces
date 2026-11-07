@@ -197,7 +197,7 @@
 - Canonical Course URL: [Blockchain Course](https://prepspaces.com/courses/blockchain)
 
 - [1. Intro to Blockchain Technology](https://prepspaces.com/learning/blockchain): Master blockchain fundamentals: centralized vs decentralized systems, distributed ledger technology (DLT), SHA-256 cryptographic hashing, block architecture, tamper-evident chains, and build a verified Python blockchain from scratch.
-- [2. Cryptography & PKI](https://prepspaces.com/learning/blockchain/cryptography): Master asymmetric cryptography, elliptic curve digital signatures (ECDSA/secp256k1), public/private key pairs, addresses, and digital signatures.
+- [2. Cryptography Fundamentals for Blockchain](https://prepspaces.com/learning/blockchain/cryptography): Master blockchain cryptography: modular arithmetic, finite groups, prime fields, SHA-256, Keccak-256 vs SHA3-256, secp256k1 elliptic curve scalar multiplication, ECDSA signing and nonce security, HD wallets (BIP-32), Ethereum and Bitcoin P2PKH address derivation, and binary Merkle trees with inclusion proofs.
 - [3. Bitcoin Mechanics & UTXO](https://prepspaces.com/learning/blockchain/bitcoin-utxo): Master Bitcoin architecture, Unspent Transaction Output (UTXO) accounting model, transaction scripts (Script), mempool, and block verification.
 - [4. Distributed Consensus (PoW/PoS)](https://prepspaces.com/learning/blockchain/consensus): Master Proof of Work, Proof of Stake, Byzantine Fault Tolerance (BFT), Nakamoto consensus, 51% attacks, and finality.
 - [5. Ethereum, EVM & Smart Contracts](https://prepspaces.com/learning/blockchain/ethereum-evm): Master Ethereum Virtual Machine (EVM), state transitions, gas mechanics, account-based model, and smart contract execution.

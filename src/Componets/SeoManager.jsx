@@ -93,6 +93,12 @@ const routeMeta = {
     keywords: "Introduction to blockchain, Blockchain fundamentals, SHA-256 hashing, Distributed ledger, Block structure, Python blockchain tutorial",
     canonical: `${BASE_URL}/learning/blockchain/intro`,
   },
+  "/learning/blockchain/cryptography": {
+    title: "Module 2: Cryptography Fundamentals for Blockchain | PrepSpaces",
+    description: "Master blockchain cryptography: modular arithmetic, finite groups, SHA-256, Keccak-256, secp256k1 ECC, ECDSA digital signatures, HD wallets, address derivation, and binary Merkle trees.",
+    keywords: "Blockchain cryptography, SHA-256 vs Keccak-256, Elliptic Curve Cryptography, secp256k1, ECDSA digital signatures, Merkle tree proofs, HD wallets, Ethereum address derivation",
+    canonical: `${BASE_URL}/learning/blockchain/cryptography`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",

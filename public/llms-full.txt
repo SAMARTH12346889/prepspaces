@@ -673,3 +673,13 @@
 - **Hands-On Lab:** Live interactive 4-block blockchain visualizer, real-time tampering simulator, and production-grade Python script with canonical JSON serialization and tamper detection.
 
 ---
+
+## Module 2: Cryptography Fundamentals for Blockchain
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/cryptography
+- **Alternative URL:** https://prepspaces.com/learning/blockchain/crypto
+- **Level:** Beginner to Intermediate | Mathematics + Programming | 10–12 hours
+- **Topic Summary:** Mathematical foundations of cryptography, modular arithmetic, prime fields, finite groups, SHA-256 vs Keccak-256 vs SHA3-256, symmetric vs asymmetric encryption, secp256k1 elliptic curve scalar multiplication, ECDSA signing and verification, nonce reuse vulnerabilities, HD wallets (BIP-32), Ethereum and Bitcoin P2PKH address generation, binary Merkle trees, and logarithmic inclusion proofs.
+- **Key Concepts:** One-way preimage and collision resistance, avalanche effect, ECDLP discrete log hardness, ECDSA (r, s) formulation, RFC 6979 deterministic nonces, X9.62 public key serialization, domain-separated Merkle proofs.
+- **Hands-On Lab:** Live interactive Merkle tree builder with visual sibling proof explorer, live private key and address derivation simulator, and complete Python toolkit with zero third-party blockchain dependencies.
+
+---
