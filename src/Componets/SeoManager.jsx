@@ -221,6 +221,12 @@ const routeMeta = {
     canonical: `${BASE_URL}/learning/blockchain/dex-lending`,
   },
 
+  "/learning/blockchain/oracles-chainlink": {
+    title: "Module 20: Oracles & Chainlink Architecture | PrepSpaces",
+    description: "Master blockchain oracles and Chainlink infrastructure: deterministic consensus boundaries, Data Feeds, latestRoundData() validation, VRF v2.5 verifiable randomness, Offchain Reporting (OCR), Chainlink Runtime Environment (CRE), and flash loan price manipulation defense.",
+    keywords: "blockchain oracles, Chainlink, Data Feeds, latestRoundData, AggregatorV3Interface, VRF v2.5, verifiable random function, Offchain Reporting, OCR, Chainlink Runtime Environment, CRE, data freshness, flash loan attack, oracle problem, proof of reserve, L2 sequencer uptime feed, decentralized oracle network, DON",
+    canonical: `${BASE_URL}/learning/blockchain/oracles-chainlink`,
+  },
   "/learning/blockchain/layer-2-scaling": {
     title: "Module 19: Layer 2 & Blockchain Scaling | PrepSpaces",
     description: "Master Ethereum Layer 2 architecture and blockchain scaling: Optimistic Rollups vs ZK Rollups, interactive dispute bisection, validity proofs, EIP-4844 blobs, data availability sampling, sequencer economics, and cross-chain bridge invariants.",

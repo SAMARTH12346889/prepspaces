@@ -178,6 +178,7 @@ const BlockchainDeFiProtocols = React.lazy(() => import("./Componets/BlockchainD
 const BlockchainDEXLending = React.lazy(() => import("./Componets/BlockchainDEXLending"));
 const BlockchainSecurityAuditing = React.lazy(() => import("./Componets/BlockchainSecurityAuditing"));
 const BlockchainLayer2Scaling = React.lazy(() => import("./Componets/BlockchainLayer2Scaling"));
+const BlockchainOraclesChainlink = React.lazy(() => import("./Componets/BlockchainOraclesChainlink"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1524,6 +1525,16 @@ function App() {
             <Route path="/learn/blockchain/layer-2-scaling" element={<BlockchainLayer2Scaling />} />
             <Route path="/learn/blockchain/layer-2" element={<BlockchainLayer2Scaling />} />
             <Route path="/learn/blockchain/module-19" element={<BlockchainLayer2Scaling />} />
+
+            {/* Blockchain Module 20: Oracles & Chainlink */}
+            <Route path="/learning/blockchain/oracles-chainlink" element={<BlockchainOraclesChainlink />} />
+            <Route path="/learning/blockchain/oracles" element={<BlockchainOraclesChainlink />} />
+            <Route path="/learning/blockchain/chainlink" element={<BlockchainOraclesChainlink />} />
+            <Route path="/learning/blockchain/module-20" element={<BlockchainOraclesChainlink />} />
+            <Route path="/learn/blockchain/oracles-chainlink" element={<BlockchainOraclesChainlink />} />
+            <Route path="/learn/blockchain/oracles" element={<BlockchainOraclesChainlink />} />
+            <Route path="/learn/blockchain/chainlink" element={<BlockchainOraclesChainlink />} />
+            <Route path="/learn/blockchain/module-20" element={<BlockchainOraclesChainlink />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
