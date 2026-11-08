@@ -173,6 +173,7 @@ const BlockchainWallets = React.lazy(() => import("./Componets/BlockchainWallets
 const BlockchainTokens = React.lazy(() => import("./Componets/BlockchainTokens"));
 const BlockchainWeb3Libraries = React.lazy(() => import("./Componets/BlockchainWeb3Libraries"));
 const BlockchainDAppDevelopment = React.lazy(() => import("./Componets/BlockchainDAppDevelopment"));
+const BlockchainStorageIPFS = React.lazy(() => import("./Componets/BlockchainStorageIPFS"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1474,6 +1475,15 @@ function App() {
             <Route path="/learn/blockchain/dapp-development" element={<BlockchainDAppDevelopment />} />
             <Route path="/learn/blockchain/fullstack-dapp" element={<BlockchainDAppDevelopment />} />
             <Route path="/learn/blockchain/module-14" element={<BlockchainDAppDevelopment />} />
+
+            {/* Blockchain Module 15: IPFS & Decentralized Storage */}
+            <Route path="/learning/blockchain/ipfs-storage" element={<BlockchainStorageIPFS />} />
+            <Route path="/learning/blockchain/decentralized-storage" element={<BlockchainStorageIPFS />} />
+            <Route path="/learning/blockchain/ipfs" element={<BlockchainStorageIPFS />} />
+            <Route path="/learning/blockchain/module-15" element={<BlockchainStorageIPFS />} />
+            <Route path="/learn/blockchain/ipfs-storage" element={<BlockchainStorageIPFS />} />
+            <Route path="/learn/blockchain/decentralized-storage" element={<BlockchainStorageIPFS />} />
+            <Route path="/learn/blockchain/module-15" element={<BlockchainStorageIPFS />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

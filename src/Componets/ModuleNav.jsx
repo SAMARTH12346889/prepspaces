@@ -209,8 +209,8 @@ export const BLOCKCHAIN_MODULES = [
   { id: "tokens", name: "12. ERC Token Standards (ERC-20, 721, 1155)", route: "/learning/blockchain/tokens" },
   { id: "web3-libraries", name: "13. Web3.js, Ethers.js & Viem", route: "/learning/blockchain/web3-libraries" },
   { id: "dapp-development", name: "14. Full-Stack DApp Development", route: "/learning/blockchain/dapp-development" },
-  { id: "security-auditing", name: "15. Smart Contract Security & Common Vulnerabilities", route: "/learning/blockchain/security-vulnerabilities" },
-  { id: "capstone", name: "16. Final Capstone Project", route: "/learning/blockchain/capstone" },
+  { id: "ipfs-storage", name: "15. IPFS & Decentralized Storage", route: "/learning/blockchain/ipfs-storage" },
+  { id: "defi-protocols", name: "16. Decentralized Finance (DeFi) Protocol Architecture", route: "/learning/blockchain/defi-protocols" },
 ];
 
 export default function ModuleNav({

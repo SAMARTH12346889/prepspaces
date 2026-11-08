@@ -2926,10 +2926,10 @@ export default function App() {
           </button>
 
           <button
-            onClick={() => navigate("/learning/blockchain/security-vulnerabilities")}
+            onClick={() => navigate("/learning/blockchain/ipfs-storage")}
             className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#ea580c] hover:bg-[#c2410c] font-bold text-sm text-white flex items-center justify-center gap-2 shadow-sm transition-colors"
           >
-            <span>Next: Module 15 — Smart Contract Security</span>
+            <span>Next: Module 15 — IPFS & Decentralized Storage</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

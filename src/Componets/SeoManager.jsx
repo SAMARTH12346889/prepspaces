@@ -201,6 +201,12 @@ const routeMeta = {
     keywords: "Full-Stack DApp, Web3 development, React Web3, Solidity voting dApp, Viem, Wagmi, SIWE, Sign-In with Ethereum, EIP-4361, The Graph protocol, event indexing, on-chain storage, IPFS, Sepolia testnet, DApp architecture",
     canonical: `${BASE_URL}/learning/blockchain/dapp-development`,
   },
+  "/learning/blockchain/ipfs-storage": {
+    title: "Module 15: IPFS & Decentralized Storage Architecture | PrepSpaces",
+    description: "Master decentralized storage architecture, IPFS, Content Identifiers (CIDv1), Multiformats, Kademlia DHT routing, Bitswap block exchange, pinning services, Arweave Permaweb, Filecoin deals, client-side AES-GCM encryption, and Solidity IPFSRegistry smart contracts.",
+    keywords: "IPFS, decentralized storage, Web3 storage, CID, Content Identifier, CIDv1, Multihash, Multicodec, libp2p, Kademlia DHT, Bitswap, Pinata, Web3.Storage, Arweave, Permaweb, Filecoin, Proof of Replication, Proof of Spacetime, client-side encryption, AES-GCM, Solidity IPFSRegistry",
+    canonical: `${BASE_URL}/learning/blockchain/ipfs-storage`,
+  },
   "/learning/blockchain/erc-token-standards": {
     title: "ERC Token Standards Architecture & Development | PrepSpaces",
     description: "Deep dive into ERC-20, ERC-721, and ERC-1155 token architecture. Learn allowance front-running mitigations, safeTransferFrom receiver callbacks, batch transfers, and vesting mathematics.",
