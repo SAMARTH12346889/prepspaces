@@ -105,6 +105,18 @@ const routeMeta = {
     keywords: "Distributed systems, Byzantine Generals Problem, BFT quorums, Proof of Work mining, Nakamoto consensus, Proof of Stake, PBFT algorithm, CAP theorem, FLP impossibility result, chain reorganizations, probabilistic finality",
     canonical: `${BASE_URL}/learning/blockchain/consensus`,
   },
+  "/learning/blockchain/bitcoin-utxo": {
+    title: "Module 4: Bitcoin Architecture & Transactions | PrepSpaces",
+    description: "Master Bitcoin internal architecture: P2P network gossip, UTXO model, 80-byte block headers, transaction serialization, Script stack execution, secp256k1 keys, PSBT workflow, mining & difficulty adjustment, mempool fee markets, SegWit, Lightning Network channels, and Regtest practical lab.",
+    keywords: "Bitcoin architecture, Bitcoin UTXO model, Bitcoin Script opcodes, P2PKH, P2SH, P2WPKH, Taproot, PSBT, Proof of Work mining, difficulty adjustment, Bitcoin halving, mempool sat/vB fee rate, SegWit block weight, Lightning Network HTLC, Bitcoin Core Regtest",
+    canonical: `${BASE_URL}/learning/blockchain/bitcoin-utxo`,
+  },
+  "/learning/blockchain/bitcoin": {
+    title: "Module 4: Bitcoin Architecture & Transactions | PrepSpaces",
+    description: "Master Bitcoin internal architecture: P2P network gossip, UTXO model, 80-byte block headers, transaction serialization, Script stack execution, secp256k1 keys, PSBT workflow, mining & difficulty adjustment, mempool fee markets, SegWit, Lightning Network channels, and Regtest practical lab.",
+    keywords: "Bitcoin architecture, Bitcoin UTXO model, Bitcoin Script opcodes, P2PKH, P2SH, P2WPKH, Taproot, PSBT, Proof of Work mining, difficulty adjustment, Bitcoin halving, mempool sat/vB fee rate, SegWit block weight, Lightning Network HTLC, Bitcoin Core Regtest",
+    canonical: `${BASE_URL}/learning/blockchain/bitcoin-utxo`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",
