@@ -221,6 +221,12 @@ const routeMeta = {
     canonical: `${BASE_URL}/learning/blockchain/dex-lending`,
   },
 
+  "/learning/blockchain/daos-governance": {
+    title: "Module 21: DAOs & Blockchain Governance | PrepSpaces",
+    description: "Master Decentralized Autonomous Organizations (DAOs) and governance architecture: ERC20Votes checkpoints, OpenZeppelin Governor, TimelockController security, quadratic voting, treasury management, and legal wrappers.",
+    keywords: "DAO, blockchain governance, decentralized autonomous organization, ERC20Votes, OpenZeppelin Governor, TimelockController, quadratic voting, treasury management, governance attack, Web3 governance",
+    canonical: `${BASE_URL}/learning/blockchain/daos-governance`,
+  },
   "/learning/blockchain/oracles-chainlink": {
     title: "Module 20: Oracles & Chainlink Architecture | PrepSpaces",
     description: "Master blockchain oracles and Chainlink infrastructure: deterministic consensus boundaries, Data Feeds, latestRoundData() validation, VRF v2.5 verifiable randomness, Offchain Reporting (OCR), Chainlink Runtime Environment (CRE), and flash loan price manipulation defense.",

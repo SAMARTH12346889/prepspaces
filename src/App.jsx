@@ -179,6 +179,7 @@ const BlockchainDEXLending = React.lazy(() => import("./Componets/BlockchainDEXL
 const BlockchainSecurityAuditing = React.lazy(() => import("./Componets/BlockchainSecurityAuditing"));
 const BlockchainLayer2Scaling = React.lazy(() => import("./Componets/BlockchainLayer2Scaling"));
 const BlockchainOraclesChainlink = React.lazy(() => import("./Componets/BlockchainOraclesChainlink"));
+const BlockchainDAOsGovernance = React.lazy(() => import("./Componets/BlockchainDAOsGovernance"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1535,6 +1536,17 @@ function App() {
             <Route path="/learn/blockchain/oracles" element={<BlockchainOraclesChainlink />} />
             <Route path="/learn/blockchain/chainlink" element={<BlockchainOraclesChainlink />} />
             <Route path="/learn/blockchain/module-20" element={<BlockchainOraclesChainlink />} />
+
+            {/* Blockchain Module 21: DAOs & Blockchain Governance */}
+            <Route path="/learning/blockchain/daos-governance" element={<BlockchainDAOsGovernance />} />
+            <Route path="/learning/blockchain/daos" element={<BlockchainDAOsGovernance />} />
+            <Route path="/learning/blockchain/dao" element={<BlockchainDAOsGovernance />} />
+            <Route path="/learning/blockchain/governance" element={<BlockchainDAOsGovernance />} />
+            <Route path="/learning/blockchain/module-21" element={<BlockchainDAOsGovernance />} />
+            <Route path="/learn/blockchain/daos-governance" element={<BlockchainDAOsGovernance />} />
+            <Route path="/learn/blockchain/daos" element={<BlockchainDAOsGovernance />} />
+            <Route path="/learn/blockchain/governance" element={<BlockchainDAOsGovernance />} />
+            <Route path="/learn/blockchain/module-21" element={<BlockchainDAOsGovernance />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
