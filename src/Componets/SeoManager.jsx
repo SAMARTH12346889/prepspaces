@@ -165,6 +165,18 @@ const routeMeta = {
     keywords: "Advanced Solidity, Smart contract design, UUPS proxy, EIP-2535 Diamond standard, Yul assembly, delegatecall, Reentrancy protection, Checks-Effects-Interactions, OpenZeppelin AccessControl, gas optimization, Hardhat testing",
     canonical: `${BASE_URL}/learning/blockchain/advanced-solidity`,
   },
+  "/learning/blockchain/architecture": {
+    title: "Module 9: Smart Contract Development & Architecture | PrepSpaces",
+    description: "Master end-to-end decentralized application engineering: requirements analysis, threat modeling, on-chain vs off-chain boundaries, factory pattern, registry pattern, pull payments, escrow state machines, multi-contract systems, OpenZeppelin integration, UUPS proxies, and The Graph event indexing.",
+    keywords: "Smart contract architecture, DApp lifecycle, Factory pattern, Escrow contract, Pull payment pattern, Checks-Effects-Interactions, State machine, The Graph indexer, Contract verification, OpenZeppelin",
+    canonical: `${BASE_URL}/learning/blockchain/architecture`,
+  },
+  "/learning/blockchain/contract-architecture": {
+    title: "Module 9: Smart Contract Development & Architecture | PrepSpaces",
+    description: "Master end-to-end decentralized application engineering: requirements analysis, threat modeling, on-chain vs off-chain boundaries, factory pattern, registry pattern, pull payments, escrow state machines, multi-contract systems, OpenZeppelin integration, UUPS proxies, and The Graph event indexing.",
+    keywords: "Smart contract architecture, DApp lifecycle, Factory pattern, Escrow contract, Pull payment pattern, Checks-Effects-Interactions, State machine, The Graph indexer, Contract verification, OpenZeppelin",
+    canonical: `${BASE_URL}/learning/blockchain/architecture`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",

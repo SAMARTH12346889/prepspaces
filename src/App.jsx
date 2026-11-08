@@ -167,6 +167,7 @@ const BlockchainEthereum = React.lazy(() => import("./Componets/BlockchainEthere
 const BlockchainEVM = React.lazy(() => import("./Componets/BlockchainEVM"));
 const BlockchainSolidity = React.lazy(() => import("./Componets/BlockchainSolidity"));
 const BlockchainAdvancedSolidity = React.lazy(() => import("./Componets/BlockchainAdvancedSolidity"));
+const BlockchainArchitecture = React.lazy(() => import("./Componets/BlockchainArchitecture"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1412,6 +1413,13 @@ function App() {
             <Route path="/learn/blockchain/advanced-solidity" element={<BlockchainAdvancedSolidity />} />
             <Route path="/learn/blockchain/smart-contract-design" element={<BlockchainAdvancedSolidity />} />
             <Route path="/learn/blockchain/dapps-web3" element={<BlockchainAdvancedSolidity />} />
+            {/* BLOCKCHAIN TECHNOLOGY - MODULE 9: SMART CONTRACT DEVELOPMENT & ARCHITECTURE */}
+            <Route path="/learning/blockchain/architecture" element={<BlockchainArchitecture />} />
+            <Route path="/learning/blockchain/contract-architecture" element={<BlockchainArchitecture />} />
+            <Route path="/learning/blockchain/module-9" element={<BlockchainArchitecture />} />
+            <Route path="/learning/blockchain/enterprise-hyperledger" element={<BlockchainArchitecture />} />
+            <Route path="/learn/blockchain/architecture" element={<BlockchainArchitecture />} />
+            <Route path="/learn/blockchain/contract-architecture" element={<BlockchainArchitecture />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

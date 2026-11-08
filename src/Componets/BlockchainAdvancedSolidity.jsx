@@ -2734,10 +2734,10 @@ Shared AppStorage (Unified Storage Slots)`}</code></pre>
               </button>
 
               <button
-                onClick={() => navigate("/learning/blockchain/enterprise-hyperledger")}
+                onClick={() => navigate("/learning/blockchain/architecture")}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-orange-600 text-white text-xs font-bold hover:bg-orange-700 transition cursor-pointer shadow-sm shadow-orange-500/25 active:scale-95"
               >
-                <span>Next Module: 9. Enterprise Blockchain &amp; Hyperledger Fabric</span>
+                <span>Next Module: 9. Smart Contract Development &amp; Architecture</span>
                 <ArrowRight size={16} />
               </button>
             </div>

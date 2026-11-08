@@ -203,7 +203,7 @@ export const BLOCKCHAIN_MODULES = [
   { id: "evm-internals", name: "6. Ethereum Virtual Machine (EVM)", route: "/learning/blockchain/evm-internals" },
   { id: "solidity", name: "7. Solidity Smart Contract Development", route: "/learning/blockchain/solidity" },
   { id: "advanced-solidity", name: "8. Advanced Solidity & Design", route: "/learning/blockchain/advanced-solidity" },
-  { id: "enterprise-hyperledger", name: "9. Hyperledger Fabric", route: "/learning/blockchain/enterprise-hyperledger" },
+  { id: "contract-architecture", name: "9. DApp Architecture & Escrow", route: "/learning/blockchain/architecture" },
   { id: "scalability-l2", name: "10. Layer 2 Rollups & Scalability", route: "/learning/blockchain/scalability-l2" },
   { id: "defi-protocols", name: "11. DeFi Protocols & AMMs", route: "/learning/blockchain/defi-protocols" },
   { id: "security-auditing", name: "12. Smart Contract Auditing", route: "/learning/blockchain/security-auditing" },
