@@ -202,7 +202,7 @@ export const BLOCKCHAIN_MODULES = [
   { id: "ethereum-evm", name: "5. Ethereum Architecture & Ecosystem", route: "/learning/blockchain/ethereum-evm" },
   { id: "evm-internals", name: "6. Ethereum Virtual Machine (EVM)", route: "/learning/blockchain/evm-internals" },
   { id: "solidity", name: "7. Solidity Smart Contract Development", route: "/learning/blockchain/solidity" },
-  { id: "dapps-web3", name: "8. Web3 & dApp Development", route: "/learning/blockchain/dapps-web3" },
+  { id: "advanced-solidity", name: "8. Advanced Solidity & Design", route: "/learning/blockchain/advanced-solidity" },
   { id: "enterprise-hyperledger", name: "9. Hyperledger Fabric", route: "/learning/blockchain/enterprise-hyperledger" },
   { id: "scalability-l2", name: "10. Layer 2 Rollups & Scalability", route: "/learning/blockchain/scalability-l2" },
   { id: "defi-protocols", name: "11. DeFi Protocols & AMMs", route: "/learning/blockchain/defi-protocols" },

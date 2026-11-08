@@ -166,6 +166,7 @@ const BlockchainBitcoin = React.lazy(() => import("./Componets/BlockchainBitcoin
 const BlockchainEthereum = React.lazy(() => import("./Componets/BlockchainEthereum"));
 const BlockchainEVM = React.lazy(() => import("./Componets/BlockchainEVM"));
 const BlockchainSolidity = React.lazy(() => import("./Componets/BlockchainSolidity"));
+const BlockchainAdvancedSolidity = React.lazy(() => import("./Componets/BlockchainAdvancedSolidity"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1402,6 +1403,15 @@ function App() {
             <Route path="/learning/blockchain/module-7" element={<BlockchainSolidity />} />
             <Route path="/learn/blockchain/solidity" element={<BlockchainSolidity />} />
             <Route path="/learn/blockchain/solidity-fundamentals" element={<BlockchainSolidity />} />
+
+            {/* BLOCKCHAIN TECHNOLOGY - MODULE 8: ADVANCED SOLIDITY & SMART CONTRACT DESIGN */}
+            <Route path="/learning/blockchain/advanced-solidity" element={<BlockchainAdvancedSolidity />} />
+            <Route path="/learning/blockchain/smart-contract-design" element={<BlockchainAdvancedSolidity />} />
+            <Route path="/learning/blockchain/module-8" element={<BlockchainAdvancedSolidity />} />
+            <Route path="/learning/blockchain/dapps-web3" element={<BlockchainAdvancedSolidity />} />
+            <Route path="/learn/blockchain/advanced-solidity" element={<BlockchainAdvancedSolidity />} />
+            <Route path="/learn/blockchain/smart-contract-design" element={<BlockchainAdvancedSolidity />} />
+            <Route path="/learn/blockchain/dapps-web3" element={<BlockchainAdvancedSolidity />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

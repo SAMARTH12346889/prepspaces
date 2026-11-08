@@ -153,6 +153,18 @@ const routeMeta = {
     keywords: "Solidity course, Solidity 0.8.38, smart contract development, Foundry testing, Forge, Cast, Anvil, StudentRegistry, Voting contract, reentrancy guard, EVM storage packing, custom errors",
     canonical: `${BASE_URL}/learning/blockchain/solidity`,
   },
+  "/learning/blockchain/advanced-solidity": {
+    title: "Module 8: Advanced Solidity & Smart Contract Design | PrepSpaces",
+    description: "Master advanced Solidity smart contract architecture: nested mappings, memory vs storage vs calldata, C3 linearization, abstract interfaces, internal libraries, RBAC access control, upgradeable proxies (UUPS, Transparent, Beacon), EIP-2535 Diamond standard, Yul inline assembly, and modular vault development.",
+    keywords: "Advanced Solidity, Smart contract design, UUPS proxy, EIP-2535 Diamond standard, Yul assembly, delegatecall, Reentrancy protection, Checks-Effects-Interactions, OpenZeppelin AccessControl, gas optimization, Hardhat testing",
+    canonical: `${BASE_URL}/learning/blockchain/advanced-solidity`,
+  },
+  "/learning/blockchain/smart-contract-design": {
+    title: "Module 8: Advanced Solidity & Smart Contract Design | PrepSpaces",
+    description: "Master advanced Solidity smart contract architecture: nested mappings, memory vs storage vs calldata, C3 linearization, abstract interfaces, internal libraries, RBAC access control, upgradeable proxies (UUPS, Transparent, Beacon), EIP-2535 Diamond standard, Yul inline assembly, and modular vault development.",
+    keywords: "Advanced Solidity, Smart contract design, UUPS proxy, EIP-2535 Diamond standard, Yul assembly, delegatecall, Reentrancy protection, Checks-Effects-Interactions, OpenZeppelin AccessControl, gas optimization, Hardhat testing",
+    canonical: `${BASE_URL}/learning/blockchain/advanced-solidity`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",
