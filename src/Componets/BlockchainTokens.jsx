@@ -720,7 +720,7 @@ export default function BlockchainTokens() {
   const erc20Addresses = ERC20_ADDRESSES;
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36 overflow-x-hidden">
       {/* Top Contextual Navigation Bar */}
       <ModuleNav track="blockchain" currentModuleId="tokens" />
 
@@ -1324,7 +1324,7 @@ export default function BlockchainTokens() {
 
                   <div className="mt-4 p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs">
                     <div className="text-amber-400 font-bold">// OpenSea &amp; EIP-721 Standard Metadata JSON Schema</div>
-                    <pre className="text-stone-300 mt-2 text-[11px] leading-relaxed">
+                    <pre className="text-stone-300 mt-2 text-[11px] leading-relaxed overflow-x-auto [scrollbar-width:thin]">
 {`{
   "name": "PrepSpaces Genesis Certificate #1",
   "description": "Verifiable University Blockchain Engineering Credential",
@@ -1518,7 +1518,7 @@ export default function BlockchainTokens() {
                   </p>
 
                   <div className="mt-4 p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs overflow-x-auto">
-                    <pre className="text-stone-300 leading-relaxed text-[11px]">
+                    <pre className="text-stone-300 leading-relaxed text-[11px] overflow-x-auto [scrollbar-width:thin]">
 {`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
@@ -2440,7 +2440,7 @@ contract PrepToken is ERC20, Ownable2Step {
                   </h3>
                   <div className="p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs overflow-x-auto">
                     <div className="text-amber-400 font-bold mb-1">// Terminal Setup Commands</div>
-                    <pre className="text-stone-300 leading-relaxed text-[11px]">
+                    <pre className="text-stone-300 leading-relaxed text-[11px] overflow-x-auto [scrollbar-width:thin]">
 {`mkdir erc-token-lab
 cd erc-token-lab
 npm init -y
@@ -2472,7 +2472,7 @@ npm install @openzeppelin/contracts`}
                     Step 2 — Implement Capped ERC-20 Token: contracts/PrepToken.sol
                   </h3>
                   <div className="p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs overflow-x-auto">
-                    <pre className="text-stone-300 leading-relaxed text-[11px]">
+                    <pre className="text-stone-300 leading-relaxed text-[11px] overflow-x-auto [scrollbar-width:thin]">
 {`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
@@ -2508,7 +2508,7 @@ contract PrepToken is ERC20, Ownable {
                     Step 3 — Implement ERC-721 NFT Collection: contracts/PrepSpacesNFT.sol
                   </h3>
                   <div className="p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs overflow-x-auto">
-                    <pre className="text-stone-300 leading-relaxed text-[11px]">
+                    <pre className="text-stone-300 leading-relaxed text-[11px] overflow-x-auto [scrollbar-width:thin]">
 {`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
@@ -2538,7 +2538,7 @@ contract PrepSpacesNFT is ERC721URIStorage, Ownable {
                     Step 4 — Create OpenSea Compatible Metadata: metadata/1.json
                   </h3>
                   <div className="p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs overflow-x-auto">
-                    <pre className="text-stone-300 leading-relaxed text-[11px]">
+                    <pre className="text-stone-300 leading-relaxed text-[11px] overflow-x-auto [scrollbar-width:thin]">
 {`{
   "name": "PrepSpaces Genesis Certificate #1",
   "description": "Certified University Blockchain Engineering Graduate",
@@ -2561,7 +2561,7 @@ contract PrepSpacesNFT is ERC721URIStorage, Ownable {
                   </h3>
                   <div className="p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs overflow-x-auto">
                     <div className="text-amber-400 font-bold mb-1">// test/PrepToken.test.js</div>
-                    <pre className="text-stone-300 leading-relaxed text-[11px]">
+                    <pre className="text-stone-300 leading-relaxed text-[11px] overflow-x-auto [scrollbar-width:thin]">
 {`const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
@@ -2609,7 +2609,7 @@ describe("PrepToken ERC-20 Test Suite", function () {
                     Step 7 — Sepolia Deployment &amp; Etherscan Verification
                   </h3>
                   <div className="p-4 rounded-2xl bg-stone-900 text-stone-200 font-mono text-xs overflow-x-auto">
-                    <pre className="text-stone-300 leading-relaxed text-[11px]">
+                    <pre className="text-stone-300 leading-relaxed text-[11px] overflow-x-auto [scrollbar-width:thin]">
 {`// Run deployment to Sepolia:
 npx hardhat run scripts/deploy.js --network sepolia
 

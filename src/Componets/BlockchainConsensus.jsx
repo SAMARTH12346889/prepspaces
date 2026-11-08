@@ -531,7 +531,7 @@ export default function BlockchainConsensus() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36 overflow-x-hidden">
       {/* Top Contextual Navigation Bar */}
       <ModuleNav track="blockchain" currentModuleId="consensus" />
 

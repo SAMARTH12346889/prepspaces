@@ -463,7 +463,7 @@ if __name__ == "__main__":
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-8 sm:py-10 md:px-12 antialiased selection:bg-[#f97316] selection:text-white">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-8 sm:py-10 md:px-12 antialiased selection:bg-[#f97316] selection:text-white overflow-x-hidden">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[130px]" />
@@ -917,7 +917,7 @@ if __name__ == "__main__":
                 <div className="rounded-2xl border border-stone-200 bg-stone-50/50 p-4">
                   <h3 className="font-bold text-stone-900 text-xs uppercase tracking-wider mb-2">Block Body Contents</h3>
                   <div className="bg-stone-900 text-stone-200 p-3 rounded-xl font-mono text-[11px] leading-relaxed">
-                    <pre>{`{
+                    <pre className="overflow-x-auto [scrollbar-width:thin]">{`{
   "transactions": [
     {"from": "Alice", "to": "Bob", "amount": 500},
     {"from": "Bob", "to": "Charlie", "amount": 200},
@@ -1650,7 +1650,7 @@ if __name__ == "__main__":
               </p>
 
               <div className="relative rounded-2xl bg-stone-950 p-4 sm:p-6 text-stone-200 font-mono text-xs overflow-x-auto shadow-inner">
-                <pre className="leading-relaxed">
+                <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">
                   <code>{pythonLabCode}</code>
                 </pre>
               </div>

@@ -917,49 +917,48 @@ export default function BlockchainFinalCapstone() {
   }, [selectedChecklistCategory]);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-orange-500 selection:text-white overflow-x-hidden">
       <ModuleNav track="blockchain" currentModuleId="final-capstone" />
-      {/* Top Banner Navigation */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Link
-            to="/learning/blockchain"
-            className="text-xs font-bold text-neutral-500 hover:text-neutral-900 transition flex items-center gap-1"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Curriculum</span>
-          </Link>
-          <span className="text-neutral-300">/</span>
-          <span className="text-xs font-bold text-orange-600 font-mono">Module 24 · Capstone</span>
-        </div>
+      {/* Module Mode & Tabs Bar */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 mt-1 sm:mt-2">
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-white/95 border border-[#e7e3da] rounded-2xl p-2.5 sm:p-3 shadow-2xs backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 pl-1 hidden sm:inline">View Mode:</span>
+            <div className="flex items-center gap-1 bg-[#f6f4ee] p-1 rounded-xl border border-[#e7e3da] text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => setActiveTab("theory")}
+                className={`px-3.5 py-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "theory"
+                    ? "bg-white text-neutral-900 shadow-xs border border-neutral-200/70"
+                    : "text-neutral-600 hover:text-neutral-900"
+                }`}
+              >
+                Specification & Blueprints
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("simulators")}
+                className={`px-3.5 py-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "simulators"
+                    ? "bg-white text-neutral-900 shadow-xs border border-neutral-200/70"
+                    : "text-neutral-600 hover:text-neutral-900"
+                }`}
+              >
+                Interactive Workbenches (4)
+              </button>
+            </div>
+          </div>
 
-        {/* View Switcher Tabs */}
-        <div className="flex items-center bg-[#f6f4ee] p-1 rounded-xl border border-[#e7e3da] text-xs font-bold">
-          <button
-            onClick={() => setActiveTab("theory")}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === "theory"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-600 hover:text-neutral-900"
-            }`}
-          >
-            Specification & Blueprints
-          </button>
-          <button
-            onClick={() => setActiveTab("simulators")}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === "simulators"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-600 hover:text-neutral-900"
-            }`}
-          >
-            Interactive Workbenches (4)
-          </button>
+          <div className="hidden md:flex items-center gap-2 text-xs font-mono text-neutral-500 pr-1">
+            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+            <span>Module 24 · Production DApp Capstone</span>
+          </div>
         </div>
-      </header>
+      </div>
 
       {/* Main Container */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-8 pt-8 space-y-12">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-4 space-y-8 sm:space-y-10">
         {/* Hero Header */}
         <div className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider font-mono">
@@ -1535,7 +1534,7 @@ export default function BlockchainFinalCapstone() {
             A classroom demonstration merely connects a browser wallet to a standalone smart contract. In contrast, a <strong>production-style Web3 application</strong> integrates a decoupled multi-tier architecture:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto leading-relaxed">
-            <pre>{`USER (Web Browser / Mobile Wallet)
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`USER (Web Browser / Mobile Wallet)
   |
   v
 REACT FRONTEND (Wagmi + Viem + Tailwind CSS)
@@ -1953,7 +1952,7 @@ SMART CONTRACTS (EVM / Solidity)      POSTGRESQL DATABASE (Fast Search / Indexin
         <div className="space-y-4 text-neutral-700 leading-relaxed text-sm sm:text-base">
           <h3 className="text-lg font-bold text-neutral-900">8.4 Core Vote Validation Logic</h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`// In VoteChain.sol:
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`// In VoteChain.sol:
 function vote(uint256 electionId, uint256 candidateId) external nonReentrant {
     Election storage election = elections[electionId];
     
@@ -2019,7 +2018,7 @@ function vote(uint256 electionId, uint256 candidateId) external nonReentrant {
           </div>
 
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`import { useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`import { useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 
 export function CastBallotButton({ electionId, candidateId }) {
   const { writeContract, data: hash, isPending: isSigning } = useWriteContract();
@@ -2127,7 +2126,7 @@ export function CastBallotButton({ electionId, candidateId }) {
             <div className="text-orange-400 font-bold uppercase text-[10px] tracking-wider mb-1">
               Core Ballot Conservation Invariant:
             </div>
-            <pre>{`// Invariant: Total Recorded Votes must exactly equal the sum of votes across all candidates
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`// Invariant: Total Recorded Votes must exactly equal the sum of votes across all candidates
 assert(election.totalVotes == sum(candidateVotes[1..n]));
 
 // Invariant: No voter address may cast more than 1 vote per election
@@ -2219,7 +2218,7 @@ assert(voterBallotsCast(voterAddress, electionId) <= 1);`}</pre>
             Storing rich media on-chain is cost-prohibitive ($190,000+ for 3.25 MB). Files are uploaded to IPFS and pinned via Pinata, with only the content-addressed CID stored on-chain:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`{
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`{
   "name": "Sarah Connor - Presidential Candidate",
   "description": "Platform manifesto for the 2026 Governance Election",
   "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
@@ -2559,7 +2558,7 @@ assert(voterBallotsCast(voterAddress, electionId) <= 1);`}</pre>
 
         <div className="space-y-4 text-neutral-700 leading-relaxed text-sm sm:text-base">
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto max-h-[380px] overflow-y-auto">
-            <pre>{`votechain/
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`votechain/
 ├── contracts/                     # Solidity Smart Contracts
 │   ├── ElectionManager.sol        # Lifecycle & schedule management
 │   ├── VotingEngine.sol           # Ballot casting & ballot conservation

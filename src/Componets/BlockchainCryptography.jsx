@@ -722,7 +722,7 @@ if __name__ == "__main__":
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-20">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-20 overflow-x-hidden">
       {/* Top Contextual Navigation Bar */}
       <ModuleNav track="blockchain" currentModuleId="cryptography" />
 
@@ -1344,7 +1344,7 @@ if __name__ == "__main__":
 
               <div className="bg-stone-900 text-stone-200 p-5 rounded-2xl font-mono text-xs mb-6 overflow-x-auto leading-relaxed">
                 <div className="text-amber-400 font-bold mb-2">Merkle Tree Architecture (4 Leaves):</div>
-                <pre>{`                       [ Merkle Root: H(AB + CD) ]
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`                       [ Merkle Root: H(AB + CD) ]
                                    /      \\
                         [ H_AB ]              [ H_CD ]
                         /      \\              /      \\
@@ -1885,7 +1885,7 @@ if __name__ == "__main__":
               </p>
 
               <div className="relative rounded-2xl bg-stone-950 p-4 sm:p-6 text-stone-200 font-mono text-xs overflow-x-auto shadow-inner">
-                <pre className="leading-relaxed">
+                <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">
                   <code>{pythonLabCode}</code>
                 </pre>
               </div>

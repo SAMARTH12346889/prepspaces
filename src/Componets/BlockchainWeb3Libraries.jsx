@@ -559,7 +559,7 @@ export default function BlockchainWeb3Libraries() {
   }, [totalFeeEth, ethPriceUsd]);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] pb-28 sm:pb-36">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] pb-28 sm:pb-36 overflow-x-hidden">
       {/* TOP HEADER */}
       <div className="bg-white border-b border-[#e7e3da] sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

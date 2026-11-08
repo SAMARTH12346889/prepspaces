@@ -820,53 +820,48 @@ export default function BlockchainLayer2Scaling() {
   }, [completedChecklist]);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-amber-200">
+    <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-amber-200 overflow-x-hidden">
       <ModuleNav track="blockchain" currentModuleId="layer-2-scaling" />
-      {/* Top Banner Navigation */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3.5 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Link
-            to="/learning/blockchain"
-            className="text-xs font-bold text-neutral-500 hover:text-neutral-900 flex items-center gap-1 transition"
-          >
-            &larr; <span className="hidden sm:inline">Blockchain Engineering</span>
-          </Link>
-          <span className="text-neutral-300">/</span>
-          <span className="text-xs font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-            Module 19
-          </span>
-          <span className="text-xs font-semibold text-neutral-600 truncate max-w-[200px] sm:max-w-xs">
-            Layer 2 & Blockchain Scaling
-          </span>
-        </div>
+      {/* Module Mode & Tabs Bar */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 mt-1 sm:mt-2">
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-white/95 border border-[#e7e3da] rounded-2xl p-2.5 sm:p-3 shadow-2xs backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 pl-1 hidden sm:inline">View Mode:</span>
+            <div className="flex items-center gap-1 bg-[#f6f4ee] p-1 rounded-xl border border-[#e7e3da] text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => setActiveTab("theory")}
+                className={`px-3.5 py-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "theory"
+                    ? "bg-white text-neutral-900 shadow-xs border border-neutral-200/70"
+                    : "text-neutral-600 hover:text-neutral-900"
+                }`}
+              >
+                Curriculum & Labs
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("simulators")}
+                className={`px-3.5 py-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "simulators"
+                    ? "bg-white text-neutral-900 shadow-xs border border-neutral-200/70"
+                    : "text-neutral-600 hover:text-neutral-900"
+                }`}
+              >
+                Simulators
+              </button>
+            </div>
+          </div>
 
-        {/* Tab Switcher */}
-        <div className="flex items-center gap-1 bg-[#f6f4ee] p-1 rounded-xl border border-[#e7e3da] text-xs font-bold">
-          <button
-            onClick={() => setActiveTab("theory")}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === "theory"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-600 hover:text-neutral-900"
-            }`}
-          >
-            Curriculum & Labs
-          </button>
-          <button
-            onClick={() => setActiveTab("simulators")}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === "simulators"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-600 hover:text-neutral-900"
-            }`}
-          >
-            Scaling Labs
-          </button>
+          <div className="hidden md:flex items-center gap-2 text-xs font-mono text-neutral-500 pr-1">
+            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+            <span>Module 19 · Layer 2 & Scaling</span>
+          </div>
         </div>
-      </header>
+      </div>
 
       {/* Main Container */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-8 space-y-12">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-4 space-y-8 sm:space-y-10">
         {/* Module Header */}
         <div className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-mono font-bold tracking-wide">
@@ -3065,7 +3060,7 @@ export default function BlockchainLayer2Scaling() {
                 <span className="text-xs font-mono text-neutral-500">Solidity ^0.8.20</span>
               </div>
               <div className="p-5 rounded-2xl bg-neutral-900 text-neutral-100 font-mono text-xs overflow-x-auto">
-                <pre className="leading-relaxed">
+                <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">
 {`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
@@ -3145,7 +3140,7 @@ contract L2Message {
               <div className="space-y-2">
                 <h4 className="text-sm font-bold text-neutral-900 font-mono">17.6.A foundry.toml</h4>
                 <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-                  <pre className="leading-relaxed">
+                  <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">
 {`[profile.default]
 src = "src"
 out = "out"
@@ -3163,7 +3158,7 @@ arbitrum_sepolia = "\${ARBITRUM_SEPOLIA_RPC}"`}
               <div className="space-y-2">
                 <h4 className="text-sm font-bold text-neutral-900 font-mono">17.6.B .env Configuration</h4>
                 <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-                  <pre className="leading-relaxed">
+                  <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">
 {`ARBITRUM_SEPOLIA_RPC="https://sepolia-rollup.arbitrum.io/rpc"
 PRIVATE_KEY="0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 ARBISCAN_API_KEY="YOUR_ARBISCAN_API_KEY"`}
@@ -3176,7 +3171,7 @@ ARBISCAN_API_KEY="YOUR_ARBISCAN_API_KEY"`}
             <div className="space-y-3">
               <h3 className="text-lg font-bold text-neutral-900 font-mono">17.7 Deployment Script: script/DeployL2Message.s.sol</h3>
               <div className="p-5 rounded-2xl bg-neutral-900 text-neutral-100 font-mono text-xs overflow-x-auto">
-                <pre className="leading-relaxed">
+                <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">
 {`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
@@ -3272,7 +3267,7 @@ contract DeployL2Message is Script {
             <div className="space-y-3">
               <h3 className="text-lg font-bold text-neutral-900 font-mono">18.1 Capstone Architecture & Directory Layout</h3>
               <div className="p-5 rounded-2xl bg-neutral-900 text-neutral-100 font-mono text-xs overflow-x-auto">
-                <pre className="leading-relaxed">
+                <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">
 {`mini-rollup-simulation/
 ├── contracts/
 │   ├── RollupSettlement.sol       # L1 Inbox, State Commitment Chain & Vault

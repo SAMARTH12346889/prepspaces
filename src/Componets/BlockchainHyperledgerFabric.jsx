@@ -852,55 +852,48 @@ export default function BlockchainHyperledgerFabric() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-amber-500 selection:text-white">
+    <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-amber-500 selection:text-white overflow-x-hidden">
       <ModuleNav track="blockchain" currentModuleId="hyperledger-fabric" />
-      {/* Top Banner Navigation */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Link
-            to="/learning/blockchain"
-            className="text-xs font-bold text-neutral-500 hover:text-neutral-900 flex items-center gap-1 transition-colors"
-          >
-            &larr; <span className="hidden sm:inline">Blockchain Engineering</span>
-          </Link>
-          <span className="text-neutral-300">/</span>
-          <span className="text-xs font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-            Module 22
-          </span>
-          <span className="text-xs font-semibold text-neutral-600 truncate max-w-[200px] sm:max-w-xs">
-            Hyperledger Fabric &amp; Enterprise Blockchain
-          </span>
-        </div>
+      {/* Module Mode & Tabs Bar */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 mt-1 sm:mt-2">
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-white/95 border border-[#e7e3da] rounded-2xl p-2.5 sm:p-3 shadow-2xs backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 pl-1 hidden sm:inline">View Mode:</span>
+            <div className="flex items-center gap-1 bg-[#f6f4ee] p-1 rounded-xl border border-[#e7e3da] text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => setActiveTab("theory")}
+                className={`px-3.5 py-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "theory"
+                    ? "bg-white text-neutral-900 shadow-xs border border-neutral-200/70"
+                    : "text-neutral-600 hover:text-neutral-900"
+                }`}
+              >
+                Curriculum & Labs
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("simulators")}
+                className={`px-3.5 py-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "simulators"
+                    ? "bg-white text-neutral-900 shadow-xs border border-neutral-200/70"
+                    : "text-neutral-600 hover:text-neutral-900"
+                }`}
+              >
+                Simulators
+              </button>
+            </div>
+          </div>
 
-        {/* Tab Switcher */}
-        <div className="flex items-center gap-1 bg-[#f6f4ee] p-1 rounded-xl border border-[#e7e3da] text-xs font-semibold">
-          <button
-            type="button"
-            onClick={() => setActiveTab("theory")}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === "theory"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-600 hover:text-neutral-900"
-            }`}
-          >
-            Curriculum &amp; Labs
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("simulators")}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === "simulators"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-600 hover:text-neutral-900"
-            }`}
-          >
-            Fabric Simulators
-          </button>
+          <div className="hidden md:flex items-center gap-2 text-xs font-mono text-neutral-500 pr-1">
+            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+            <span>Module 22 · Enterprise Blockchain</span>
+          </div>
         </div>
-      </header>
+      </div>
 
       {/* Main Container */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-8 space-y-12">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-4 space-y-8 sm:space-y-10">
         {/* Module Header */}
         <div className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-mono font-bold tracking-wide">
@@ -2377,7 +2370,7 @@ export default function BlockchainHyperledgerFabric() {
             <div className="space-y-3 pt-4">
               <h3 className="text-base font-bold text-neutral-900 font-mono">2. Enterprise Project Folder Hierarchy</h3>
               <div className="p-4 rounded-xl bg-neutral-900 text-neutral-100 font-mono text-xs overflow-x-auto leading-relaxed">
-                <pre>{`fabric-supply-chain/
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`fabric-supply-chain/
 ├── chaincode/
 │   └── supplychain/
 │       ├── main.go
@@ -2413,7 +2406,7 @@ export default function BlockchainHyperledgerFabric() {
                 <span className="px-2 py-0.5 rounded bg-neutral-100 text-neutral-700 text-xs font-mono">Go 1.20+ • Fabric Contract API</span>
               </div>
               <div className="p-4 rounded-xl bg-neutral-900 text-neutral-100 font-mono text-xs overflow-x-auto leading-relaxed max-h-[600px] overflow-y-auto">
-                <pre>{`package main
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`package main
 
 import (
 	"encoding/json"
@@ -2800,7 +2793,7 @@ func (s *SupplyChainContract) GetHistory(
               <div className="space-y-2">
                 <span className="font-bold text-neutral-900 font-mono text-xs block">4. Entrypoint: main.go</span>
                 <div className="p-4 rounded-xl bg-neutral-900 text-neutral-100 font-mono text-xs overflow-x-auto">
-                  <pre>{`package main
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`package main
 
 import (
 	"log"
@@ -2822,7 +2815,7 @@ func main() {
               <div className="space-y-2">
                 <span className="font-bold text-neutral-900 font-mono text-xs block">5. CouchDB Index: productStatus.json</span>
                 <div className="p-4 rounded-xl bg-neutral-900 text-neutral-100 font-mono text-xs overflow-x-auto">
-                  <pre>{`{
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`{
   "index": {
     "fields": [
       "docType",

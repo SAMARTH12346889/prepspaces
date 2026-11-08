@@ -501,7 +501,7 @@ export default function BlockchainArchitecture() {
 
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36 overflow-x-hidden">
       {/* Top Track Navigation */}
       <ModuleNav track="blockchain" currentModuleId="contract-architecture" />
 
@@ -622,7 +622,7 @@ export default function BlockchainArchitecture() {
                 <span className="text-[10px] font-mono uppercase tracking-wider text-orange-400 font-bold block mb-3">
                   Production Engineering Pipeline
                 </span>
-                <pre className="leading-relaxed">{`[ 1. Requirements Analysis ] -> [ 2. Threat Modeling ] -> [ 3. Architecture Design ]
+                <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">{`[ 1. Requirements Analysis ] -> [ 2. Threat Modeling ] -> [ 3. Architecture Design ]
                                                                        |
 +----------------------------------------------------------------------+
 |
@@ -864,7 +864,7 @@ v
                 <span className="text-[10px] font-mono uppercase tracking-wider text-orange-400 font-bold block mb-2">
                   Full Stack DApp Component Topology
                 </span>
-                <pre className="leading-relaxed">{`+-------------------------------------------------------------+
+                <pre className="leading-relaxed overflow-x-auto [scrollbar-width:thin]">{`+-------------------------------------------------------------+
 |                 Frontend Web Application                    |
 |             (React / Vite + Ethers.js / Viem)               |
 +---------------+-----------------------------+---------------+
@@ -903,7 +903,7 @@ v
                   The Factory Pattern allows a master contract to instantiate child contracts dynamically, maintaining an indexed registry of deployed addresses. In an escrow protocol, the <code>EscrowFactory</code> generates isolated agreement contracts for each trade, ensuring that storage and funds are isolated.
                 </p>
                 <div className="p-4 rounded-2xl bg-neutral-950 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                  <pre>{`// Factory instantiates child agreement and records address
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`// Factory instantiates child agreement and records address
 function createEscrow(address seller, address arbitrator, uint256 amount) external payable returns (address) {
     Escrow newEscrow = (new Escrow){value: msg.value}(msg.sender, seller, arbitrator, amount);
     deployedEscrows.push(address(newEscrow));
@@ -923,7 +923,7 @@ function createEscrow(address seller, address arbitrator, uint256 amount) extern
                   A Registry maintains a mapping between service identifiers (e.g. <code>bytes32</code> hashes like <code>keccak256("ESCROW_CORE")</code>) and deployed contract addresses. Dependent contracts query the registry dynamically, allowing subsystems to be upgraded without modifying dependent contract code.
                 </p>
                 <div className="p-4 rounded-2xl bg-neutral-950 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                  <pre>{`contract ContractRegistry is Ownable {
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`contract ContractRegistry is Ownable {
     mapping(bytes32 => address) private _contracts;
     event ContractRegistered(bytes32 indexed nameHash, address indexed contractAddr);
 
@@ -1080,7 +1080,7 @@ function createEscrow(address seller, address arbitrator, uint256 amount) extern
                   In a proxy pattern, the <strong>Proxy Contract</strong> maintains persistent state and ETH balance, delegating all execution calls via <code>DELEGATECALL</code> to the <strong>Implementation Contract</strong>. Upgrading replaces the implementation address while preserving proxy storage.
                 </p>
                 <div className="p-4 rounded-2xl bg-neutral-950 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                  <pre>{`// Upgradeable contracts use initialize() instead of constructors
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`// Upgradeable contracts use initialize() instead of constructors
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
@@ -1606,7 +1606,7 @@ contract UpgradeableVault is Initializable, UUPSUpgradeable, OwnableUpgradeable 
                     The Graph: Relational GraphQL Entity Store
                   </span>
                   <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs max-h-56 overflow-y-auto border border-neutral-800 text-emerald-400">
-                    <pre className="text-[11px] leading-relaxed">
+                    <pre className="text-[11px] leading-relaxed overflow-x-auto [scrollbar-width:thin]">
                       {JSON.stringify(graphEntities, null, 2)}
                     </pre>
                   </div>
@@ -1642,7 +1642,7 @@ contract UpgradeableVault is Initializable, UUPSUpgradeable, OwnableUpgradeable 
                 </span>
                 <h3 className="text-base font-bold text-stone-900 mb-3">System Architecture</h3>
                 <div className="p-4 bg-neutral-950 rounded-2xl font-mono text-[11px] text-neutral-300 border border-neutral-800 leading-relaxed overflow-x-auto">
-                  <pre>{`               +--------------------+
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`               +--------------------+
                |   EscrowFactory    | (Deploys instances, registers IDs)
                +---------+----------+
                          | createEscrow()
@@ -1717,7 +1717,7 @@ contract UpgradeableVault is Initializable, UUPSUpgradeable, OwnableUpgradeable 
               </span>
               <h3 className="text-lg font-bold text-[#18181b] mb-4">Production Hardhat / Foundry Repository Layout</h3>
               <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-300 border border-neutral-800">
-                <pre>{`escrow-protocol/
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`escrow-protocol/
 ├── contracts/
 │   ├── interfaces/
 │   │   └── IEscrow.sol          # Formal interface defining functions, events & errors
@@ -1780,7 +1780,7 @@ interface IEscrow {
               </div>
 
               <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-200 border border-neutral-800 overflow-x-auto leading-relaxed">
-                <pre>{`// SPDX-License-Identifier: MIT
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
 interface IEscrow {
@@ -1947,7 +1947,7 @@ contract Escrow is IEscrow {
               </div>
 
               <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-200 border border-neutral-800 overflow-x-auto leading-relaxed max-h-[500px]">
-                <pre>{`// SPDX-License-Identifier: MIT
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
 import "./interfaces/IEscrow.sol";
@@ -2133,7 +2133,7 @@ contract EscrowFactory {
               </div>
 
               <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-200 border border-neutral-800 overflow-x-auto leading-relaxed">
-                <pre>{`// SPDX-License-Identifier: MIT
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
 import "./Escrow.sol";
@@ -2330,7 +2330,7 @@ describe("Decentralized Escrow Protocol", function () {
                   </button>
                 </div>
                 <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-[11px] text-neutral-300 border border-neutral-800 overflow-x-auto">
-                  <pre>{`const { expect } = require("chai");
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 describe("Decentralized Escrow Protocol", function () {

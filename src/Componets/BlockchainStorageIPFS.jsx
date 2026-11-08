@@ -793,43 +793,27 @@ export default function BlockchainStorageIPFS() {
   }, [completedCount]);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] pb-28 sm:pb-36 selection:bg-amber-100 selection:text-amber-900">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] pb-28 sm:pb-36 selection:bg-amber-100 selection:text-amber-900 overflow-x-hidden">
       <ModuleNav track="blockchain" currentModuleId="ipfs-storage" />
-      {/* Top Banner Navigation */}
-      <div className="bg-[#18181b] text-white border-b border-neutral-800 sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <Link
-              to="/learning/blockchain/dapp-development"
-              className="text-xs text-neutral-400 hover:text-white transition flex items-center gap-1"
-            >
-              ← Module 14
-            </Link>
-            <span className="text-neutral-600">|</span>
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
-              Module 15: IPFS & Decentralized Storage
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-neutral-400">Mastery:</span>
-            <div className="w-20 bg-neutral-800 rounded-full h-2">
-              <div
-                className="bg-amber-500 h-2 rounded-full transition-all"
-                style={{ width: `${progressPercentage}%` }}
-              />
-            </div>
-            <span className="text-xs font-mono text-amber-400">{progressPercentage}%</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Tab Navigation Header */}
       <header className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-6">
         <div className="space-y-3">
-          <div className="flex items-center gap-2 text-xs font-bold text-amber-700 tracking-wider uppercase">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <div className="flex items-center gap-2 text-xs font-bold text-amber-700 tracking-wider uppercase">
             <span>PrepSpaces Web3 Curriculum</span>
             <span>•</span>
             <span>Distributed Systems Track</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/80 border border-[#e7e3da] px-3 py-1 rounded-xl shadow-2xs">
+              <span className="text-xs text-neutral-500 font-semibold">Mastery:</span>
+              <div className="w-20 sm:w-28 bg-neutral-200 rounded-full h-2">
+                <div
+                  className="bg-[#f97316] h-2 rounded-full transition-all"
+                  style={{ width: `${progressPercentage}%` }}
+                />
+              </div>
+              <span className="text-xs font-mono font-bold text-orange-600">{progressPercentage}%</span>
+            </div>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900">
             IPFS & Decentralized Storage Architecture
@@ -940,7 +924,7 @@ export default function BlockchainStorageIPFS() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                 <div className="p-4 bg-neutral-50 rounded-xl border border-neutral-200 space-y-2">
                   <h5 className="font-bold text-neutral-900 text-xs uppercase tracking-wide">Centralized Cloud Model</h5>
-                  <pre className="text-[11px] font-mono bg-white p-3 rounded border border-neutral-200 text-neutral-800 leading-snug">
+                  <pre className="text-[11px] font-mono bg-white p-3 rounded border border-neutral-200 text-neutral-800 leading-snug overflow-x-auto [scrollbar-width:thin]">
 {`User
   │
   ▼
@@ -962,7 +946,7 @@ Centralized Cloud Bucket (AWS S3)
 
                 <div className="p-4 bg-amber-50/50 rounded-xl border border-amber-200 space-y-2">
                   <h5 className="font-bold text-amber-900 text-xs uppercase tracking-wide">Decentralized P2P Model</h5>
-                  <pre className="text-[11px] font-mono bg-white p-3 rounded border border-amber-200 text-neutral-800 leading-snug">
+                  <pre className="text-[11px] font-mono bg-white p-3 rounded border border-amber-200 text-neutral-800 leading-snug overflow-x-auto [scrollbar-width:thin]">
 {`User / Web3 dApp
   │
   ▼

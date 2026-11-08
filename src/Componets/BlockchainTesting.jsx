@@ -456,7 +456,7 @@ export default function BlockchainTesting() {
   }, [benchMode]);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36 overflow-x-hidden">
       {/* Top Track Navigation */}
       <ModuleNav track="blockchain" currentModuleId="testing" />
 
@@ -1780,7 +1780,7 @@ jobs:
                 SmartContractTestingLab Layout
               </h3>
               <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                <pre>{`SmartContractTestingLab/
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`SmartContractTestingLab/
 ├── src/
 │   ├── PrepToken.sol          # OpenZeppelin-based ERC-20 token
 │   ├── Voting.sol             # Proposal voting with duplicate prevention & deadlines
@@ -1839,7 +1839,7 @@ contract PrepToken is ERC20 {
                   </button>
                 </div>
                 <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                  <pre>{`// SPDX-License-Identifier: MIT
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -1925,7 +1925,7 @@ contract PrepTokenTest is Test {
                   </button>
                 </div>
                 <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto max-h-72">
-                  <pre>{`// SPDX-License-Identifier: MIT
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
 import "forge-std/Test.sol";
@@ -2056,7 +2056,7 @@ contract Voting {
                   </button>
                 </div>
                 <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                  <pre>{`// SPDX-License-Identifier: MIT
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
 contract Voting {
@@ -2145,7 +2145,7 @@ contract VotingTest is Test {
                   </button>
                 </div>
                 <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                  <pre>{`// SPDX-License-Identifier: MIT
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
 import "forge-std/Test.sol";
@@ -2231,7 +2231,7 @@ contract MaliciousReceiver {
                   </button>
                 </div>
                 <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                  <pre>{`// SPDX-License-Identifier: MIT
+                  <pre className="overflow-x-auto [scrollbar-width:thin]">{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
 interface ITargetEscrow {
@@ -2269,7 +2269,7 @@ contract MaliciousReceiver {
               </div>
 
               <div className="bg-neutral-950 rounded-2xl p-4 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
-                <pre>{`name: Foundry Smart Contract Testing CI
+                <pre className="overflow-x-auto [scrollbar-width:thin]">{`name: Foundry Smart Contract Testing CI
 on:
   push:
     branches: [main]

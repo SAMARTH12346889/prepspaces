@@ -302,7 +302,7 @@ export default function BlockchainEthereum() {
   const progressPercent = Math.round((completedChecklistCount / checklistItems.length) * 100);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] flex flex-col font-sans overflow-x-hidden">
       {/* Top Navigation */}
       <ModuleNav track="blockchain" currentModuleId="ethereum-evm" />
 

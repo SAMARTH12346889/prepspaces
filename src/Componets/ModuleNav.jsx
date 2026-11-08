@@ -462,7 +462,8 @@ export default function ModuleNav({
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const offset = direction === "left" ? -200 : 200;
+      const scrollStep = Math.max(scrollRef.current.clientWidth * 0.75, 300);
+      const offset = direction === "left" ? -scrollStep : scrollStep;
       scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
     }
   };
@@ -531,10 +532,12 @@ export default function ModuleNav({
             <span>Back</span>
           </button>
 
+          <span className="hidden sm:inline text-stone-300 select-none">/</span>
+
           <button
             type="button"
             onClick={() => navigate("/learning")}
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-xs font-semibold text-stone-500 hover:text-stone-900 transition cursor-pointer shrink-0"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-2 py-1.5 text-xs font-semibold text-stone-500 hover:text-[#f97316] transition cursor-pointer shrink-0"
             title="Jump to Curriculum Overview"
           >
             <span>Curriculum Overview</span>
@@ -633,7 +636,7 @@ export default function ModuleNav({
         <button
           onClick={() => scroll("left")}
           aria-label="Scroll modules left"
-          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 transition mr-1 sm:mr-1.5 shadow-2xs active:scale-95 cursor-pointer"
+          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300 transition mr-1 sm:mr-1.5 shadow-2xs active:scale-95 cursor-pointer"
         >
           <ChevronLeft size={15} />
         </button>
@@ -658,7 +661,7 @@ export default function ModuleNav({
                     : "text-stone-600 hover:bg-stone-100/80 hover:text-stone-900"
                 }`}
               >
-                <span>{mod.name}</span>
+                <span className="truncate max-w-[240px] sm:max-w-none">{mod.name}</span>
                 {isCompleted && (
                   <span
                     className={`inline-flex items-center gap-0.5 rounded-md px-1.5 py-0.5 text-[9px] font-bold shrink-0 ${
@@ -679,7 +682,7 @@ export default function ModuleNav({
         <button
           onClick={() => scroll("right")}
           aria-label="Scroll modules right"
-          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 transition ml-1 sm:ml-1.5 shadow-2xs active:scale-95 cursor-pointer"
+          className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-[#e7e3da] bg-white/90 text-stone-500 hover:text-stone-900 hover:border-orange-300 transition ml-1 sm:ml-1.5 shadow-2xs active:scale-95 cursor-pointer"
         >
           <ChevronRight size={15} />
         </button>

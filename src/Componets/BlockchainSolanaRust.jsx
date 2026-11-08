@@ -973,49 +973,48 @@ export default function BlockchainSolanaRust() {
   }, [selectedChecklistCategory]);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-orange-500 selection:text-white overflow-x-hidden">
       <ModuleNav track="blockchain" currentModuleId="solana-rust" />
-      {/* Top Banner Navigation */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Link
-            to="/learning/blockchain"
-            className="text-xs font-bold text-neutral-500 hover:text-neutral-900 transition flex items-center gap-1"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Curriculum</span>
-          </Link>
-          <span className="text-neutral-300">/</span>
-          <span className="text-xs font-bold text-orange-600 font-mono">Module 23</span>
-        </div>
+      {/* Module Mode & Tabs Bar */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 mt-1 sm:mt-2">
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-white/95 border border-[#e7e3da] rounded-2xl p-2.5 sm:p-3 shadow-2xs backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 pl-1 hidden sm:inline">View Mode:</span>
+            <div className="flex items-center gap-1 bg-[#f6f4ee] p-1 rounded-xl border border-[#e7e3da] text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => setActiveTab("theory")}
+                className={`px-3.5 py-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "theory"
+                    ? "bg-white text-neutral-900 shadow-xs border border-neutral-200/70"
+                    : "text-neutral-600 hover:text-neutral-900"
+                }`}
+              >
+                Curriculum & Lab
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("simulators")}
+                className={`px-3.5 py-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "simulators"
+                    ? "bg-white text-neutral-900 shadow-xs border border-neutral-200/70"
+                    : "text-neutral-600 hover:text-neutral-900"
+                }`}
+              >
+                Interactive Simulators (4)
+              </button>
+            </div>
+          </div>
 
-        {/* View Switcher Tabs */}
-        <div className="flex items-center bg-[#f6f4ee] p-1 rounded-xl border border-[#e7e3da] text-xs font-bold">
-          <button
-            onClick={() => setActiveTab("theory")}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === "theory"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-600 hover:text-neutral-900"
-            }`}
-          >
-            Curriculum & Lab
-          </button>
-          <button
-            onClick={() => setActiveTab("simulators")}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === "simulators"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-600 hover:text-neutral-900"
-            }`}
-          >
-            Interactive Simulators (4)
-          </button>
+          <div className="hidden md:flex items-center gap-2 text-xs font-mono text-neutral-500 pr-1">
+            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+            <span>Module 23 · Solana & Rust Architecture</span>
+          </div>
         </div>
-      </header>
+      </div>
 
       {/* Main Container */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-8 pt-8 space-y-12">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-4 space-y-8 sm:space-y-10">
         {/* Hero Header */}
         <div className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider font-mono">
@@ -1317,7 +1316,7 @@ pub token_config: Account<'info, TokenConfig>,`}
               {cpiStepDescriptions[cpiStep].desc}
             </p>
             <div className="p-3 rounded bg-neutral-950 border border-neutral-800 text-[11px] overflow-x-auto text-emerald-400">
-              <pre>{cpiStepDescriptions[cpiStep].code}</pre>
+              <pre className="overflow-x-auto [scrollbar-width:thin]">{cpiStepDescriptions[cpiStep].code}</pre>
             </div>
           </div>
 
@@ -1762,7 +1761,7 @@ pub token_config: Account<'info, TokenConfig>,`}
           </p>
 
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`pub struct AccountInfo<'a> {
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`pub struct AccountInfo<'a> {
     pub key: &'a Pubkey,            // 32-byte public key identifying this account
     pub lamports: Rc<RefCell<&'a mut u64>>, // Account balance in lamports (1 SOL = 10^9 lamports)
     pub data: Rc<RefCell<&'a mut [u8]>>,   // Raw byte array storing custom serialized state
@@ -1807,7 +1806,7 @@ pub token_config: Account<'info, TokenConfig>,`}
             In Rust, custom data accounts are defined as structs with Borsh serialization attributes:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`use borsh::{BorshDeserialize, BorshSerialize};
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`use borsh::{BorshDeserialize, BorshSerialize};
 use solana_program::pubkey::Pubkey;
 
 #[derive(BorshSerialize, BorshDeserialize, Debug, PartialEq)]
@@ -1847,7 +1846,7 @@ pub struct StudentAccount {
             An <strong>instruction</strong> is the atomic unit of execution in Solana. Every instruction consists of three items:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`pub struct Instruction {
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`pub struct Instruction {
     pub program_id: Pubkey,         // The on-chain program to invoke
     pub accounts: Vec<AccountMeta>, // List of all accounts this instruction will read or write
     pub data: Vec<u8>,              // Serialized instruction arguments (method tag + parameters)
@@ -1874,7 +1873,7 @@ pub struct StudentAccount {
             Unlike Ethereum where executing multiple actions typically requires deploying a separate batching smart contract, a single Solana transaction can bundle multiple heterogeneous instructions executed sequentially and atomically:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`Transaction
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`Transaction
   |-- Instruction 1: SystemProgram::create_account (Allocates ATA data space)
   |-- Instruction 2: TokenProgram::initialize_account (Initializes token balance)
   |-- Instruction 3: CustomProgram::deposit_tokens (Transfers tokens into vault)
@@ -1982,7 +1981,7 @@ pub struct StudentAccount {
             A leader validator continuously runs a sequential SHA-256 loop where the output of iteration $N$ serves as the input to iteration $N+1$:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`H_0 = Initial_Seed
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`H_0 = Initial_Seed
 H_1 = SHA-256(H_0)
 H_2 = SHA-256(H_1)
 ...
@@ -1995,7 +1994,7 @@ H_n = SHA-256(H_{n-1})`}</pre>
             When transactions arrive, their hashes are appended directly into the sequence:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`H_{100} = SHA-256(H_{99})
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`H_{100} = SHA-256(H_{99})
 H_{101} = SHA-256(H_{100} + Hash(Transaction_A))
 H_{102} = SHA-256(H_{101})`}</pre>
           </div>
@@ -2071,7 +2070,7 @@ H_{102} = SHA-256(H_{101})`}</pre>
 
           <h3 className="text-lg font-bold text-neutral-900 mt-6">10.3 First Rust Program</h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`fn main() {
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`fn main() {
     println!("Welcome to Solana Development!");
     let blockchain = "Solana";
     let speed = 65000;
@@ -2086,13 +2085,13 @@ H_{102} = SHA-256(H_{101})`}</pre>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 font-mono text-xs">
             <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-900">
               <span className="font-bold">Immutable (Default - Compile Error if reassigned):</span>
-              <pre className="mt-2 text-neutral-800">{`let balance = 500;
+              <pre className="mt-2 text-neutral-800 overflow-x-auto [scrollbar-width:thin]">{`let balance = 500;
 // balance = 750; 
 // ^ ERROR: cannot assign twice to immutable variable`}</pre>
             </div>
             <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900">
               <span className="font-bold">Explicitly Mutable:</span>
-              <pre className="mt-2 text-neutral-800">{`let mut balance = 500;
+              <pre className="mt-2 text-neutral-800 overflow-x-auto [scrollbar-width:thin]">{`let mut balance = 500;
 balance = 750; // OK!
 println!("Updated Balance: {}", balance);`}</pre>
             </div>
@@ -2128,7 +2127,7 @@ println!("Updated Balance: {}", balance);`}</pre>
             When assigning a heap-allocated type (like <code>String</code> or <code>Vec&lt;u8&gt;</code>) to another variable, ownership is <strong>moved</strong>. The original variable becomes invalid:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`fn main() {
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`fn main() {
     let account1 = String::from("Alice");
     let account2 = account1; // account1's pointer is MOVED to account2
 
@@ -2149,14 +2148,14 @@ println!("Updated Balance: {}", balance);`}</pre>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 font-mono text-xs">
             <div className="p-4 rounded-xl bg-[#f6f4ee] border border-[#e7e3da]">
               <span className="font-bold text-neutral-900">Immutable Borrow (&T):</span>
-              <pre className="mt-2 text-neutral-800">{`fn display_balance(balance: &u64) {
+              <pre className="mt-2 text-neutral-800 overflow-x-auto [scrollbar-width:thin]">{`fn display_balance(balance: &u64) {
     println!("Balance: {}", balance);
 }
 // Any number of readers permitted simultaneously`}</pre>
             </div>
             <div className="p-4 rounded-xl bg-[#f6f4ee] border border-[#e7e3da]">
               <span className="font-bold text-orange-700">Mutable Borrow (&mut T):</span>
-              <pre className="mt-2 text-neutral-800">{`fn update_balance(balance: &mut u64) {
+              <pre className="mt-2 text-neutral-800 overflow-x-auto [scrollbar-width:thin]">{`fn update_balance(balance: &mut u64) {
     *balance += 100; // Dereference and mutate
 }
 // ONLY ONE writer permitted; no simultaneous readers`}</pre>
@@ -2168,7 +2167,7 @@ println!("Updated Balance: {}", balance);`}</pre>
             In Solana programs, instructions receive accounts borrowed from the runtime environment. In Anchor, the generic lifetime <code>'info</code> is used throughout account contexts:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`pub fn increase_balance(ctx: Context<UpdateBalance>, amount: u64) -> Result<()> {
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`pub fn increase_balance(ctx: Context<UpdateBalance>, amount: u64) -> Result<()> {
     let user_account = &mut ctx.accounts.user_account;
     user_account.balance = user_account.balance.checked_add(amount)
         .ok_or(ErrorCode::MathOverflow)?;
@@ -2199,7 +2198,7 @@ println!("Updated Balance: {}", balance);`}</pre>
             Structs group related fields into named data layouts. In Solana, structs represent both on-chain account data and instruction parameters:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`#[account]
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`#[account]
 pub struct TokenConfig {
     pub authority: Pubkey,  // 32 bytes
     pub mint: Pubkey,       // 32 bytes
@@ -2215,7 +2214,7 @@ pub struct TokenConfig {
             Rust enums are algebraic data types that represent mutually exclusive variants. Combined with the <code>match</code> expression, they guarantee exhaustive case coverage:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`#[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq)]
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`#[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq)]
 pub enum TokenStatus {
     Active,
     Paused,
@@ -2259,7 +2258,7 @@ fn check_status(status: TokenStatus) -> Result<()> {
             Rust rejects unchecked exceptions. Errors are first-class data values represented by the <code>Result&lt;T, E&gt;</code> enum:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`pub enum Result<T, E> {
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`pub enum Result<T, E> {
     Ok(T),  // Contains the successful return value
     Err(E), // Contains the error description
 }`}</pre>
@@ -2270,7 +2269,7 @@ fn check_status(status: TokenStatus) -> Result<()> {
             The <code>?</code> operator unwraps an <code>Ok</code> value or immediately returns the <code>Err</code> up the call stack, dramatically simplifying instruction logic:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`let new_balance = balance.checked_sub(amount)
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`let new_balance = balance.checked_sub(amount)
     .ok_or(error!(TokenError::InsufficientFunds))?;`}</pre>
           </div>
 
@@ -2298,7 +2297,7 @@ fn check_status(status: TokenStatus) -> Result<()> {
 
           <h3 className="text-lg font-bold text-neutral-900 mt-6">13.5 Custom Errors in Anchor (`#[error_code]`)</h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`#[error_code]
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`#[error_code]
 pub enum TokenError {
     #[msg("Insufficient token balance for transfer")]
     InsufficientFunds,
@@ -2332,7 +2331,7 @@ pub enum TokenError {
 
           <h3 className="text-lg font-bold text-neutral-900 mt-6">14.3 Sample Solana Program Cargo.toml</h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`[package]
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`[package]
 name = "preptoken-program"
 version = "0.1.0"
 edition = "2021"
@@ -2440,7 +2439,7 @@ solana-program = "~1.18.26"`}</pre>
 
           <h3 className="text-lg font-bold text-neutral-900 mt-6">16.3 Anatomy of an Anchor Program</h3>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`use anchor_lang::prelude::*;
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`use anchor_lang::prelude::*;
 
 declare_id!("TokenProg111111111111111111111111111111111");
 
@@ -2530,7 +2529,7 @@ pub mod token_management {
             The derivation algorithm is implemented in the Solana SDK via <code>Pubkey::find_program_address</code>:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`// In Rust:
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`// In Rust:
 let (pda_address, canonical_bump) = Pubkey::find_program_address(
     &[b"preptoken_config", authority.as_ref()],
     &program_id
@@ -2576,7 +2575,7 @@ let (pda_address, canonical_bump) = Pubkey::find_program_address(
             Anchor simplifies CPI calls using <code>CpiContext</code>. Here is how our PrepToken program signs for its config PDA to mint tokens via the SPL Token Program:
           </p>
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto">
-            <pre>{`let seeds = &[
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`let seeds = &[
     b"config".as_ref(),
     &[ctx.accounts.config.bump]
 ];
@@ -2834,7 +2833,7 @@ token::mint_to(cpi_ctx, amount)?;`}</pre>
           </p>
 
           <div className="p-4 rounded-xl bg-neutral-900 text-neutral-200 font-mono text-xs overflow-x-auto max-h-[550px] overflow-y-auto">
-            <pre>{`use anchor_lang::prelude::*;
+            <pre className="overflow-x-auto [scrollbar-width:thin]">{`use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Burn, Mint, MintTo, Token, TokenAccount, Transfer};
 use anchor_spl::associated_token::AssociatedToken;
 

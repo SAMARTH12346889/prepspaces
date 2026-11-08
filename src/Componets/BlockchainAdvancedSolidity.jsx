@@ -788,7 +788,7 @@ export default function BlockchainAdvancedSolidity() {
   }, [checklist]);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36 overflow-x-hidden">
       {/* Top Contextual Navigation Bar */}
       <ModuleNav track="blockchain" currentModuleId="advanced-solidity" />
 
@@ -920,7 +920,7 @@ export default function BlockchainAdvancedSolidity() {
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1">Example: Struct and Mapping</h3>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed">
-                    <pre><code>{`// SPDX-License-Identifier: MIT
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
 contract StudentRegistry {
@@ -987,7 +987,7 @@ contract StudentRegistry {
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1">Practical Example: On-Chain Voting System</h3>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed">
-                    <pre><code>{`// SPDX-License-Identifier: MIT
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
 contract VotingSystem {
@@ -1068,7 +1068,7 @@ contract VotingSystem {
                     Executing <code>delete numbers[0]</code> resets the element at index 0 to its default zero value, but <strong>does not reduce the array length</strong> or shift elements. To remove an item and shrink length gas-efficiently without leaving gaps, the swap-and-pop idiom is standard:
                   </p>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed mt-2">
-                    <pre><code>{`function removeAtIndex(uint256 index) external {
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`function removeAtIndex(uint256 index) external {
     require(index < numbers.length, "Out of bounds");
     numbers[index] = numbers[numbers.length - 1]; // Swap with last element
     numbers.pop(); // Decrements length & clears last slot
@@ -1159,7 +1159,7 @@ contract VotingSystem {
                     The EVM identifies external functions by a 4-byte selector derived from the Keccak-256 hash of its canonical signature (no parameter names or spaces):
                   </p>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed my-2">
-                    <pre><code>{`// Function: transfer(address to, uint256 amount)
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// Function: transfer(address to, uint256 amount)
 Canonical Signature: "transfer(address,uint256)"
 Keccak-256 Hash:     0xa9059cbb2ab09eb219583f4a59a5d0623ade346d962bcd4e46b11da047c9049b
 4-Byte Selector:     0xa9059cbb`}</code></pre>
@@ -1172,7 +1172,7 @@ Keccak-256 Hash:     0xa9059cbb2ab09eb219583f4a59a5d0623ade346d962bcd4e46b11da04
                     Solidity allows multiple functions to share the exact same name as long as their parameter types or parameter count differ. The compiler generates distinct 4-byte selectors for each overload:
                   </p>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed mt-2">
-                    <pre><code>{`// SPDX-License-Identifier: MIT
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
 contract Calculator {
@@ -1209,7 +1209,7 @@ contract Calculator {
                     When contracts inherit from multiple parent contracts, Solidity uses <strong>C3 Linearization</strong> to determine the inheritance order and method resolution. When overriding functions implemented in multiple parents, the contract must explicitly name all parents in <code>override(A, B)</code>:
                   </p>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed my-2">
-                    <pre><code>{`// SPDX-License-Identifier: MIT
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
 contract A {
@@ -1254,7 +1254,7 @@ contract C is A, B {
                       May contain state variables, internal methods, and functions without implementations. Serve as customizable blueprints for concrete child contracts.
                     </p>
                     <div className="bg-stone-900 text-stone-100 p-3 rounded-lg font-mono text-[11px]">
-                      <pre><code>{`abstract contract PaymentProcessor {
+                      <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`abstract contract PaymentProcessor {
     function processPayment(uint256 amount)
         public virtual returns (bool);
 }`}</code></pre>
@@ -1267,7 +1267,7 @@ contract C is A, B {
                       Cannot contain state variables or any function implementations. Define external function signatures required to interact with tokens (ERC-20, ERC-721) and DeFi protocols.
                     </p>
                     <div className="bg-stone-900 text-stone-100 p-3 rounded-lg font-mono text-[11px]">
-                      <pre><code>{`interface IToken {
+                      <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`interface IToken {
     function transfer(address to, uint256 amount)
         external returns (bool);
 }`}</code></pre>
@@ -1298,7 +1298,7 @@ contract C is A, B {
                 </ul>
 
                 <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed mt-2">
-                  <pre><code>{`// SPDX-License-Identifier: MIT
+                  <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
 library MathLibrary {
@@ -1338,7 +1338,7 @@ contract Calculator {
                     Rather than writing monolithic 1,000-line smart contracts, production protocols separate responsibilities into isolated, modular contracts:
                   </p>
                   <div className="p-4 bg-stone-900 rounded-xl text-stone-200 font-mono text-xs my-2 overflow-x-auto">
-                    <pre><code>{`Decentralized Application
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`Decentralized Application
           │
           ▼
    Main Controller
@@ -1406,7 +1406,7 @@ Role Hashes & Rights   VaultMath Library`}</code></pre>
                   <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl space-y-2">
                     <span className="text-xs font-bold text-rose-800 uppercase font-mono block">Vulnerable Pattern (Interaction First)</span>
                     <div className="bg-stone-900 text-stone-100 p-3 rounded-lg font-mono text-[11px] overflow-x-auto">
-                      <pre><code>{`// DANGEROUS: Interaction before Effect
+                      <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// DANGEROUS: Interaction before Effect
 (bool success, ) = msg.sender.call{value: amount}("");
 require(success, "Transfer failed");
 
@@ -1417,7 +1417,7 @@ balances[msg.sender] = 0; // TOO LATE!`}</code></pre>
                   <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl space-y-2">
                     <span className="text-xs font-bold text-emerald-800 uppercase font-mono block">Checks-Effects-Interactions (Secure)</span>
                     <div className="bg-stone-900 text-stone-100 p-3 rounded-lg font-mono text-[11px] overflow-x-auto">
-                      <pre><code>{`// SECURE: Update State BEFORE External Call
+                      <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SECURE: Update State BEFORE External Call
 balances[msg.sender] = 0; // State updated!
 
 (bool success, ) = msg.sender.call{value: amount}("");
@@ -1542,7 +1542,7 @@ require(success, "Transfer failed");`}</code></pre>
                     A Diamond contract acts as a central router holding unified storage (AppStorage). Calls to any function selector are dynamically forwarded to specific facets:
                   </p>
                   <div className="p-4 bg-stone-900 rounded-xl text-stone-200 font-mono text-xs my-2 overflow-x-auto">
-                    <pre><code>{`Client Transaction
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`Client Transaction
         │
         ▼
 Diamond Proxy (0x7777...)
@@ -1867,24 +1867,24 @@ Shared AppStorage (Unified Storage Slots)`}</code></pre>
                   <div>
                     <span className="text-amber-400 font-bold block text-[10px] uppercase mb-2">// Inline Yul Block</span>
                     {yulPreset === "add" && (
-                      <pre className="text-stone-300"><code>{`assembly {
+                      <pre className="text-stone-300 overflow-x-auto [scrollbar-width:thin]"><code>{`assembly {
     result := add(${yulParamA}, ${yulParamB})
 }`}</code></pre>
                     )}
                     {yulPreset === "mstore" && (
-                      <pre className="text-stone-300"><code>{`assembly {
+                      <pre className="text-stone-300 overflow-x-auto [scrollbar-width:thin]"><code>{`assembly {
     mstore(0x00, ${yulParamA})
     result := mload(0x00)
 }`}</code></pre>
                     )}
                     {yulPreset === "sstore" && (
-                      <pre className="text-stone-300"><code>{`assembly {
+                      <pre className="text-stone-300 overflow-x-auto [scrollbar-width:thin]"><code>{`assembly {
     // Write directly to Slot 0x00
     sstore(0x00, ${yulParamA})
 }`}</code></pre>
                     )}
                     {yulPreset === "selector" && (
-                      <pre className="text-stone-300"><code>{`assembly {
+                      <pre className="text-stone-300 overflow-x-auto [scrollbar-width:thin]"><code>{`assembly {
     // 4-byte selector calculation
     let hash := keccak256(...)
     selector := shr(224, hash)
@@ -2119,7 +2119,7 @@ Shared AppStorage (Unified Storage Slots)`}</code></pre>
 
               {/* Architecture Directory Tree */}
               <div className="p-4 bg-stone-900 rounded-xl text-stone-200 font-mono text-xs overflow-x-auto">
-                <pre><code>{`ModularVault/
+                <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`ModularVault/
 ├── contracts/
 │   ├── Vault.sol              # Core vault logic, deposits, withdrawals & CEI
 │   ├── AccessManager.sol      # Role-based access control (ADMIN & OPERATOR)
@@ -2150,7 +2150,7 @@ Shared AppStorage (Unified Storage Slots)`}</code></pre>
               </div>
 
               <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed max-h-96">
-                <pre><code>{VAULT_SOL}</code></pre>
+                <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{VAULT_SOL}</code></pre>
               </div>
             </div>
 
@@ -2171,7 +2171,7 @@ Shared AppStorage (Unified Storage Slots)`}</code></pre>
               </div>
 
               <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed max-h-80">
-                <pre><code>{ACCESS_MANAGER_SOL}</code></pre>
+                <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{ACCESS_MANAGER_SOL}</code></pre>
               </div>
             </div>
 
@@ -2192,7 +2192,7 @@ Shared AppStorage (Unified Storage Slots)`}</code></pre>
               </div>
 
               <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed max-h-64">
-                <pre><code>{VAULT_MATH_SOL}</code></pre>
+                <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{VAULT_MATH_SOL}</code></pre>
               </div>
             </div>
 
@@ -2213,7 +2213,7 @@ Shared AppStorage (Unified Storage Slots)`}</code></pre>
               </div>
 
               <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed max-h-96">
-                <pre><code>{VAULT_TEST_JS}</code></pre>
+                <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{VAULT_TEST_JS}</code></pre>
               </div>
             </div>
 

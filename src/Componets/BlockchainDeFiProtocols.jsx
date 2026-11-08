@@ -782,36 +782,8 @@ export default function BlockchainDeFiProtocols() {
   }, [completedCount]);
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] pb-28 sm:pb-36 selection:bg-amber-100 selection:text-amber-900">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] pb-28 sm:pb-36 selection:bg-amber-100 selection:text-amber-900 overflow-x-hidden">
       <ModuleNav track="blockchain" currentModuleId="defi-protocols" />
-      {/* Top Banner Navigation */}
-      <div className="bg-[#18181b] text-white border-b border-neutral-800 sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <Link
-              to="/learning/blockchain/ipfs-storage"
-              className="text-xs text-neutral-400 hover:text-white transition flex items-center gap-1"
-            >
-              ← Module 15
-            </Link>
-            <span className="text-neutral-600">|</span>
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
-              Module 16: Decentralized Finance (DeFi) Architecture
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-neutral-400">Mastery:</span>
-            <div className="w-20 bg-neutral-800 rounded-full h-2">
-              <div
-                className="bg-amber-500 h-2 rounded-full transition-all"
-                style={{ width: `${progressPercentage}%` }}
-              />
-            </div>
-            <span className="text-xs font-mono text-amber-400">{progressPercentage}%</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Tab Navigation Header */}
       <header className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-6">
         <div className="space-y-3">

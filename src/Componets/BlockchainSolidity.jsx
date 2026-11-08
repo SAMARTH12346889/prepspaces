@@ -496,7 +496,7 @@ export default function BlockchainSolidity() {
 
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36 overflow-x-hidden">
       {/* Top Contextual Navigation Bar */}
       <ModuleNav track="blockchain" currentModuleId="solidity" />
 
@@ -683,7 +683,7 @@ export default function BlockchainSolidity() {
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1">7.1.6 First Solidity Program</h3>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed">
-                    <pre><code>{`// SPDX-License-Identifier: MIT
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.38;
 
 contract HelloWorld {
@@ -734,7 +734,7 @@ contract HelloWorld {
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1">7.2.4 Compile a Solidity Contract</h3>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed">
-                    <pre><code>{`# Direct solc CLI compilation
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`# Direct solc CLI compilation
 solc --bin --abi --optimize --optimize-runs 200 src/HelloWorld.sol -o out/
 
 # Foundry Forge compilation
@@ -778,7 +778,7 @@ forge build`}</code></pre>
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1">7.3.3 Installing Foundry &amp; Initializing Project</h3>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed">
-                    <pre><code>{`# 1. Install Foundryup (Linux/macOS/WSL)
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`# 1. Install Foundryup (Linux/macOS/WSL)
 curl -L https://foundry.paradigm.xyz | bash
 foundryup
 
@@ -803,7 +803,7 @@ EOF`}</code></pre>
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1">7.3.8 Starting Anvil Local Node &amp; Deploying</h3>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed">
-                    <pre><code>{`# Terminal 1: Spin up local node
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`# Terminal 1: Spin up local node
 anvil
 
 # Terminal 2: Deploy contract with Forge
@@ -1302,7 +1302,7 @@ forge create src/StudentRegistry.sol:StudentRegistry \
                     Modifiers wrap function execution to enforce prerequisites declaratively. The merge symbol (<code>_;</code>) specifies where the modified function body is inserted:
                   </p>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed mt-2">
-                    <pre><code>{`modifier onlyAdministrator() {
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`modifier onlyAdministrator() {
     if (msg.sender != administrator) {
         revert Unauthorized(msg.sender);
     }
@@ -1317,7 +1317,7 @@ forge create src/StudentRegistry.sol:StudentRegistry \
                     To defend against reentrancy attacks where a malicious recipient re-calls the withdrawing function before state balances update, use the Checks-Effects-Interactions pattern or a reentrancy mutex modifier:
                   </p>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed mt-2">
-                    <pre><code>{`uint256 private _status = 1; // 1 = NOT_ENTERED, 2 = ENTERED
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`uint256 private _status = 1; // 1 = NOT_ENTERED, 2 = ENTERED
 
 modifier nonReentrant() {
     require(_status == 1, "ReentrancyGuard: reentrant call");
@@ -1437,7 +1437,7 @@ modifier nonReentrant() {
                     A mapping does not store keys or keep track of length. Instead, any key's storage location is calculated mathematically using Keccak-256 hashing:
                   </p>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed my-2">
-                    <pre><code>{`slot_address = keccak256(abi.encode(key, mapping_declaration_slot))`}</code></pre>
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`slot_address = keccak256(abi.encode(key, mapping_declaration_slot))`}</code></pre>
                   </div>
                   <p>
                     Because keys are not enumerated and length is undefined, mappings cannot be iterated over directly without maintaining an auxiliary tracking array.
@@ -1634,7 +1634,7 @@ modifier nonReentrant() {
                   Deploying smart contracts requires compile-time artifact generation followed by an on-chain transaction. Using Foundry's CLI suite:
                 </p>
                 <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed">
-                  <pre><code>{`# 1. Compile all contracts in project
+                  <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`# 1. Compile all contracts in project
 forge build
 
 # 2. Deploy to local Anvil node
@@ -2092,7 +2092,7 @@ cast send <CONTRACT_ADDRESS> "registerStudent(bytes32,string)" \
 
               {/* Contract Code Block */}
               <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed max-h-96">
-                <pre><code>{`// SPDX-License-Identifier: MIT
+                <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.38;
 
 contract StudentRegistry {
@@ -2283,7 +2283,7 @@ export REGISTRY_ADDR=&lt;DEPLOYED_CONTRACT_ADDRESS&gt;</code>
 
               {/* Voting Contract Code Block */}
               <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed max-h-96">
-                <pre><code>{`// SPDX-License-Identifier: MIT
+                <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.38;
 
 contract Voting {
@@ -2529,7 +2529,7 @@ cast rpc evm_mine --rpc-url $RPC</code>
                     </button>
                   </div>
                   <div className="bg-stone-900 text-stone-100 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed max-h-64">
-                    <pre><code>{`// SPDX-License-Identifier: MIT
+                    <pre className="overflow-x-auto [scrollbar-width:thin]"><code>{`// SPDX-License-Identifier: MIT
 pragma solidity 0.8.38;
 
 import {Test} from "forge-std/Test.sol";
