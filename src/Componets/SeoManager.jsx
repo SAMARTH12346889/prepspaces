@@ -221,6 +221,12 @@ const routeMeta = {
     canonical: `${BASE_URL}/learning/blockchain/dex-lending`,
   },
 
+  "/learning/blockchain/layer-2-scaling": {
+    title: "Module 19: Layer 2 & Blockchain Scaling | PrepSpaces",
+    description: "Master Ethereum Layer 2 architecture and blockchain scaling: Optimistic Rollups vs ZK Rollups, interactive dispute bisection, validity proofs, EIP-4844 blobs, data availability sampling, sequencer economics, and cross-chain bridge invariants.",
+    keywords: "Layer 2 scaling, blockchain scaling, Ethereum rollups, Optimistic Rollups, ZK Rollups, Arbitrum Nitro, Optimism OP Stack, Polygon CDK, zkSync Era, EIP-4844, blobs, proto-danksharding, data availability sampling, DAS, interactive bisection, fraud proofs, validity proofs, sequencers, cross-chain bridges, lock-and-mint invariant",
+    canonical: `${BASE_URL}/learning/blockchain/layer-2-scaling`,
+  },
   "/learning/blockchain/security-vulnerabilities": {
     title: "Module 18: Blockchain Security & Smart Contract Auditing | PrepSpaces",
     description: "Master Solidity smart contract security and auditing: threat modeling, reentrancy attacks, Checks-Effects-Interactions (CEI), flash loan oracle manipulation, delegatecall storage collisions, Slither static analysis, Foundry fuzzing, formal verification, and professional audit reports.",

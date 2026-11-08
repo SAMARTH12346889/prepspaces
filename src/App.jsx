@@ -177,6 +177,7 @@ const BlockchainStorageIPFS = React.lazy(() => import("./Componets/BlockchainSto
 const BlockchainDeFiProtocols = React.lazy(() => import("./Componets/BlockchainDeFiProtocols"));
 const BlockchainDEXLending = React.lazy(() => import("./Componets/BlockchainDEXLending"));
 const BlockchainSecurityAuditing = React.lazy(() => import("./Componets/BlockchainSecurityAuditing"));
+const BlockchainLayer2Scaling = React.lazy(() => import("./Componets/BlockchainLayer2Scaling"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1514,6 +1515,15 @@ function App() {
             <Route path="/learn/blockchain/security-vulnerabilities" element={<BlockchainSecurityAuditing />} />
             <Route path="/learn/blockchain/security-auditing" element={<BlockchainSecurityAuditing />} />
             <Route path="/learn/blockchain/module-18" element={<BlockchainSecurityAuditing />} />
+
+            {/* Blockchain Module 19: Layer 2 & Blockchain Scaling */}
+            <Route path="/learning/blockchain/layer-2-scaling" element={<BlockchainLayer2Scaling />} />
+            <Route path="/learning/blockchain/layer-2" element={<BlockchainLayer2Scaling />} />
+            <Route path="/learning/blockchain/rollups" element={<BlockchainLayer2Scaling />} />
+            <Route path="/learning/blockchain/module-19" element={<BlockchainLayer2Scaling />} />
+            <Route path="/learn/blockchain/layer-2-scaling" element={<BlockchainLayer2Scaling />} />
+            <Route path="/learn/blockchain/layer-2" element={<BlockchainLayer2Scaling />} />
+            <Route path="/learn/blockchain/module-19" element={<BlockchainLayer2Scaling />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
