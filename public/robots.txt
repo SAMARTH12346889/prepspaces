@@ -1,35 +1,55 @@
 # robots.txt for https://prepspaces.com/
-# Optimized for Web Search Engines, AI Answer Engines & LLM Citations
+# Optimized for Web Search Engines, Googlebot, AI Answer Engines & LLM Citations
 
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: Applebot
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
 
 # Authoritative XML Sitemap
 Sitemap: https://prepspaces.com/sitemap.xml

@@ -105,7 +105,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   const targetDir = path.dirname(targetFile);
   fs.mkdirSync(targetDir, { recursive: true });
 
-  const cleanTitle = meta.title.split("—")[0].split("|")[0].trim();
+  const cleanTitle = meta.title.split("—")[0].split("–")[0].split("|")[0].trim();
   const trackName = getTrackNameFromPath(route);
   const pathParts = route.split("/").filter(Boolean);
 
@@ -140,7 +140,8 @@ for (const [route, meta] of Object.entries(routeMeta)) {
     "itemListElement": breadcrumbItems,
   });
 
-  const courseJsonLd = JSON.stringify({
+  const isBlockchain = route.includes("blockchain");
+  const courseJsonLdObj = {
     "@context": "https://schema.org",
     "@type": "Course",
     "name": cleanTitle,
@@ -162,7 +163,24 @@ for (const [route, meta] of Object.entries(routeMeta)) {
       "courseMode": "Online",
       "courseWorkload": "PT2H",
     },
-  });
+  };
+
+  if (isBlockchain) {
+    courseJsonLdObj.courseCode = "BC-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Bitcoin architecture and UTXO transaction model",
+      "Ethereum Virtual Machine (EVM) opcode execution and gas dynamics",
+      "Solidity programming, inheritance, and design patterns",
+      "Smart contract auditing, reentrancy attacks, and formal verification",
+      "DeFi protocols, automated market makers (AMM), and lending pools",
+      "Layer 2 scaling, optimistic rollups, and zero-knowledge proofs",
+      "Decentralized oracle infrastructure with Chainlink price feeds",
+      "Enterprise blockchain with Hyperledger Fabric and Go chaincode",
+      "High-performance Solana development with Rust and Anchor"
+    ];
+  }
+
+  const courseJsonLd = JSON.stringify(courseJsonLdObj);
 
   const techArticleJsonLd = JSON.stringify({
     "@context": "https://schema.org",
@@ -247,9 +265,81 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   const isInterview = route === "/interview";
   const isAiCourse = route === "/courses/artificial-intelligence" || route === "/learning/ai";
   const isGenAiCourse = route === "/courses/generative-ai" || route === "/learning/ai/generative-ai";
+  const isBlockchainCourse = route === "/courses/blockchain" || route === "/learning/blockchain";
   let semanticContent = "";
 
-  if (isAiCourse) {
+  if (isBlockchainCourse) {
+    semanticContent = `<div id="root">
+        <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+          <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
+            <a href="/" style="color: #ea580c; text-decoration: none; font-weight: 600;">Home</a> &rarr; 
+            <a href="/learning" style="color: #ea580c; text-decoration: none; font-weight: 600;">Curriculum</a> &rarr; 
+            <span style="color: #1c1917; font-weight: 600;">Blockchain Development Course</span>
+          </nav>
+          <header style="margin-bottom: 2rem;">
+            <span style="display: inline-block; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #c2410c; background-color: #ffedd5; border: 1px solid #fed7aa; border-radius: 9999px; margin-bottom: 1rem;">University-Informed Masterclass &bull; 24 Modules</span>
+            <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: #18181b;">Blockchain Development Course | Solidity, Web3 &amp; Smart Contracts</h1>
+            <p style="font-size: 1.125rem; line-height: 1.6; color: #44403c; max-width: 56rem;">${meta.description}</p>
+          </header>
+          <main>
+            <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.5rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+              <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: #18181b;">Course Overview &amp; Educational Objectives</h2>
+              <div style="background-color: #fbf9f4; border-left: 4px solid #f97316; padding: 1rem 1.25rem; margin-bottom: 1.5rem; border-radius: 0.5rem;">
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #292524; margin: 0;"><strong>Direct Course Definition:</strong> Comprehensive, university-level engineering course covering blockchain cryptographic primitives, distributed consensus mechanisms, Bitcoin &amp; Ethereum internals, Solidity smart contract architecture, full-stack DApp integration, DeFi protocols, Layer 2 rollups, smart contract security auditing, enterprise Hyperledger Fabric, and high-performance Solana development with Rust.</p>
+              </div>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Complete 24-Module Blockchain Engineering Curriculum</h3>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><strong><a href="/learning/blockchain/intro" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 1: Introduction to Blockchain Technology</a></strong> &mdash; Centralized vs decentralized systems, distributed ledger technology, SHA-256 hashing, block structure, and tamper-evident Python blockchain.</li>
+                <li><strong><a href="/learning/blockchain/cryptography" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 2: Cryptography Fundamentals for Blockchain</a></strong> &mdash; Modular arithmetic, secp256k1 elliptic curve scalar multiplication, ECDSA signatures, HD wallets (BIP-32), and Merkle tree proofs.</li>
+                <li><strong><a href="/learning/blockchain/consensus" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 3: Distributed Systems &amp; Consensus Mechanisms</a></strong> &mdash; Byzantine Fault Tolerance, Nakamoto consensus, Proof of Work mining, Proof of Stake, PBFT, CAP theorem, and FLP impossibility.</li>
+                <li><strong><a href="/learning/blockchain/bitcoin-utxo" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 4: Bitcoin Architecture &amp; Transactions</a></strong> &mdash; UTXO accounting model, Bitcoin Script execution engine, P2PKH, P2SH, SegWit, mempool, and Coinbase mechanics.</li>
+                <li><strong><a href="/learning/blockchain/ethereum-evm" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 5: Ethereum &amp; EVM Architecture</a></strong> &mdash; Account model, Ethereum world state trie, Patricia Merkle trees, gas schedule, EIP-1559 fee market, and smart contracts.</li>
+                <li><strong><a href="/learning/blockchain/evm-internals" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 6: EVM Deep Dive &amp; Opcode Execution</a></strong> &mdash; Stack machine, memory allocation, storage slot layout, SSTORE/SLOAD gas mechanics, call opcodes, and bytecode disassembly.</li>
+                <li><strong><a href="/learning/blockchain/solidity" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 7: Solidity Programming Fundamentals</a></strong> &mdash; Syntax, value vs reference types, view/pure functions, modifiers, events, custom errors, and contract inheritance.</li>
+                <li><strong><a href="/learning/blockchain/advanced-solidity" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 8: Advanced Solidity &amp; Gas Optimization</a></strong> &mdash; Storage slot packing, calldata optimization, assembly Yul, memory vs storage caching, ERC-7201 namespaced storage, and immutable patterns.</li>
+                <li><strong><a href="/learning/blockchain/architecture" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 9: Smart Contract Development &amp; Architecture</a></strong> &mdash; Factory pattern, registry pattern, pull payments, escrow state machines, UUPS and Transparent upgradeable proxies.</li>
+                <li><strong><a href="/learning/blockchain/testing" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 10: Smart Contract Testing &amp; Security</a></strong> &mdash; Unit testing with Foundry Forge and Hardhat, fuzzing, property-based testing, invariant handlers, and mocks.</li>
+                <li><strong><a href="/learning/blockchain/wallets-keys" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 11: Wallets, Keys &amp; Transaction Signing</a></strong> &mdash; BIP-39 mnemonic phrases, BIP-44 derivation paths, EIP-712 structured data signing, SIWE, and hardware wallet integration.</li>
+                <li><strong><a href="/learning/blockchain/tokens" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 12: Token Standards: ERC-20, ERC-721, ERC-1155</a></strong> &mdash; Token mechanics, allowance race conditions, safe transfers, metadata URI hosting, batch operations, and tokenomics.</li>
+                <li><strong><a href="/learning/blockchain/web3-libraries" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 13: Web3 Front-End Integration</a></strong> &mdash; Ethers.js v6, Viem, Wagmi hooks, wallet connectors, contract read/write state handling, and event listening.</li>
+                <li><strong><a href="/learning/blockchain/dapp-development" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 14: Full-Stack DApp Development</a></strong> &mdash; End-to-end decentralized application development, indexing with The Graph, responsive Web3 UI, and testnet deployment.</li>
+                <li><strong><a href="/learning/blockchain/ipfs-storage" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 15: Decentralized Storage Architecture</a></strong> &mdash; IPFS content addressing, CIDv0/CIDv1, UnixFS, IPFS pinning services (Pinata), Filecoin, and Arweave permaweb.</li>
+                <li><strong><a href="/learning/blockchain/defi-protocols" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 16: DeFi Architecture &amp; Protocols</a></strong> &mdash; Automated Market Makers (x*y=k), constant product formula, liquidity provision, impermanent loss, and flash loans.</li>
+                <li><strong><a href="/learning/blockchain/dex-lending" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 17: DEXs &amp; Lending Protocols</a></strong> &mdash; Uniswap V3 concentrated liquidity, tick mathematics, multi-hop swap routing, Compound cTokens, Aave pools, and liquidation engines.</li>
+                <li><strong><a href="/learning/blockchain/security-vulnerabilities" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 18: Blockchain Security &amp; Smart Contract Auditing</a></strong> &mdash; Threat modeling, reentrancy attacks, CEI pattern, oracle manipulation, Slither static analysis, and formal verification.</li>
+                <li><strong><a href="/learning/blockchain/layer-2-scaling" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 19: Layer 2 &amp; Blockchain Scaling</a></strong> &mdash; Optimistic rollups (Arbitrum, Optimism), ZK-rollups (zkSync, Polygon zkEVM), interactive fraud proofs, validity proofs, and EIP-4844 blobs.</li>
+                <li><strong><a href="/learning/blockchain/oracles-chainlink" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 20: Oracles &amp; Chainlink Architecture</a></strong> &mdash; Decentralized oracle networks, Data Feeds, latestRoundData validation, VRF verifiable randomness, and Cross-Chain Interoperability (CCIP).</li>
+                <li><strong><a href="/learning/blockchain/daos-governance" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 21: DAOs &amp; Blockchain Governance</a></strong> &mdash; ERC20Votes checkpoints, OpenZeppelin Governor, TimelockController security, quadratic voting, and treasury execution.</li>
+                <li><strong><a href="/learning/blockchain/hyperledger-fabric" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 22: Hyperledger Fabric &amp; Enterprise Blockchain</a></strong> &mdash; Permissioned DLT, Membership Service Providers (MSP), channels, Go chaincode, CouchDB queries, and Raft consensus.</li>
+                <li><strong><a href="/learning/blockchain/solana-rust" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 23: Solana Development with Rust</a></strong> &mdash; Account model, Sealevel runtime, Proof of History, Program Derived Addresses (PDAs), CPI calls, and Anchor framework.</li>
+                <li><strong><a href="/learning/blockchain/final-capstone" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 24: Final Blockchain Capstone Project</a></strong> &mdash; Full production Web3 DApp engineering: requirements, verified smart contracts, off-chain indexing, frontend UI, security audit, and oral defense.</li>
+              </ul>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Core Technical Competencies &amp; Tooling</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: #44403c; margin-bottom: 1.5rem;">Graduates master industry-standard Web3 engineering tooling including Solidity 0.8+, Foundry (Forge, Cast, Anvil), Hardhat, Rust, Anchor, Web3.js, Ethers.js v6, Viem, OpenZeppelin Contracts, Slither static analysis, IPFS, Hyperledger Fabric 3.x, and Chainlink decentralized oracle networks.</p>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Academic Standards &amp; Free Access</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: #44403c; margin-bottom: 1.5rem;">Curriculum informed by top academic blockchain curricula (Stanford CS251, MIT, UC Berkeley, Princeton). All modules, code implementations, interactive simulators, and assessment suites are available 100% free with no paywall on PrepSpaces.</p>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Related Systems Engineering Masterclasses</h3>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><a href="/learning/system-design" style="color: #ea580c; text-decoration: none; font-weight: 600;">System Design Masterclass (24 Modules)</a> &mdash; Distributed consensus, replication, microservices, and high-availability architecture.</li>
+                <li><a href="/learning/cybersecurity" style="color: #ea580c; text-decoration: none; font-weight: 600;">Cybersecurity &amp; Ethical Hacking (24 Modules)</a> &mdash; Applied cryptography, network penetration testing, and secure code review.</li>
+                <li><a href="/learning/cloud" style="color: #ea580c; text-decoration: none; font-weight: 600;">Cloud Computing Architecture (13 Modules)</a> &mdash; AWS, Azure, GCP infrastructure, VPC networks, and serverless compute.</li>
+                <li><a href="/courses/artificial-intelligence" style="color: #ea580c; text-decoration: none; font-weight: 600;">Artificial Intelligence Course (24 Modules)</a> &mdash; AI engineering, deep learning, LLMs, and agentic workflows.</li>
+              </ul>
+            </article>
+
+            <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="/learning/blockchain/intro" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Start Learning Blockchain &rarr;</a>
+              <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">All Curriculum Tracks &rarr;</a>
+              <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">PrepSpaces Home</a>
+            </nav>
+          </main>
+        </div>
+      </div>`;
+  } else if (isAiCourse) {
     semanticContent = `<div id="root">
         <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
           <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
@@ -347,6 +437,11 @@ for (const [route, meta] of Object.entries(routeMeta)) {
           </header>
           <main>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+              <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/blockchain" style="color: #ea580c; text-decoration: none;">Blockchain Development & Web3 Engineering</a></h2>
+                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Cryptography, Bitcoin, Ethereum EVM, Solidity, smart contract security, DeFi protocols, Layer 2 rollups, Chainlink oracles, Hyperledger Fabric, and Solana Rust.</p>
+                <a href="/courses/blockchain" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore 24 Modules &rarr;</a>
+              </div>
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
                 <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/learning/ai" style="color: #ea580c; text-decoration: none;">AI Engineering & Generative AI</a></h2>
                 <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Artificial intelligence foundations, Python for AI, NumPy vectorization, Pandas, deep learning, LLMs, RAG, and production agents.</p>

@@ -75,16 +75,34 @@ const routeMeta = {
     keywords: "Generative AI course, GenAI course, Generative AI online learning, Large Language Models course, LLM course, Prompt engineering course, RAG course, Learn Generative AI",
     canonical: `${BASE_URL}/courses/generative-ai`,
   },
-  "/learning/blockchain": {
-    title: "Blockchain Technology Course — Learn Decentralized Systems | PrepSpaces",
-    description: "Master blockchain engineering, distributed ledgers, SHA-256 cryptographic linking, consensus protocols, and Python blockchain development on PrepSpaces.",
-    keywords: "Blockchain course, Learn Blockchain, Blockchain technology, Distributed ledger technology, Smart contracts course, Python blockchain, Decentralized systems",
-    canonical: `${BASE_URL}/learning/blockchain`,
-  },
   "/courses/blockchain": {
-    title: "Blockchain Technology Course — Learn Decentralized Systems | PrepSpaces",
-    description: "Master blockchain engineering, distributed ledgers, SHA-256 cryptographic linking, consensus protocols, and Python blockchain development on PrepSpaces.",
-    keywords: "Blockchain course, Learn Blockchain, Blockchain technology, Distributed ledger technology, Smart contracts course, Python blockchain, Decentralized systems",
+    title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
+    description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",
+    keywords: "Blockchain Development Course, Blockchain Course, Solidity Programming, Smart Contract Development, Web3 Development, Ethereum Development, DeFi Development, Blockchain Security, Bitcoin, Hyperledger Fabric, Solana Rust, Smart Contracts, PrepSpaces",
+    canonical: `${BASE_URL}/courses/blockchain`,
+  },
+  "/learning/blockchain": {
+    title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
+    description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",
+    keywords: "Blockchain Development Course, Blockchain Course, Solidity Programming, Smart Contract Development, Web3 Development, Ethereum Development, DeFi Development, Blockchain Security, Bitcoin, Hyperledger Fabric, Solana Rust, Smart Contracts, PrepSpaces",
+    canonical: `${BASE_URL}/courses/blockchain`,
+  },
+  "/courses/blockchain-technology": {
+    title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
+    description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",
+    keywords: "Blockchain Development Course, Blockchain Course, Solidity Programming, Smart Contract Development, Web3 Development, Ethereum Development, DeFi Development, Blockchain Security, Bitcoin, Hyperledger Fabric, Solana Rust, Smart Contracts, PrepSpaces",
+    canonical: `${BASE_URL}/courses/blockchain`,
+  },
+  "/learning/blockchain-technology": {
+    title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
+    description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",
+    keywords: "Blockchain Development Course, Blockchain Course, Solidity Programming, Smart Contract Development, Web3 Development, Ethereum Development, DeFi Development, Blockchain Security, Bitcoin, Hyperledger Fabric, Solana Rust, Smart Contracts, PrepSpaces",
+    canonical: `${BASE_URL}/courses/blockchain`,
+  },
+  "/learn/blockchain": {
+    title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
+    description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",
+    keywords: "Blockchain Development Course, Blockchain Course, Solidity Programming, Smart Contract Development, Web3 Development, Ethereum Development, DeFi Development, Blockchain Security, Bitcoin, Hyperledger Fabric, Solana Rust, Smart Contracts, PrepSpaces",
     canonical: `${BASE_URL}/courses/blockchain`,
   },
   "/learning/blockchain/intro": {
@@ -1124,7 +1142,7 @@ function updateCourseSchema(pathname, meta) {
     return;
   }
 
-  const cleanTitle = meta.title.split("—")[0].split("|")[0].trim();
+  const cleanTitle = meta.title.split("—")[0].split("–")[0].split("|")[0].trim();
   const courseData = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -1146,6 +1164,19 @@ function updateCourseSchema(pathname, meta) {
       "courseWorkload": "PT2H",
     },
   };
+
+  if (pathname.includes("blockchain")) {
+    courseData.teaches = [
+      "Bitcoin architecture and UTXO transaction model",
+      "Ethereum Virtual Machine (EVM) architecture and opcode execution",
+      "Solidity programming, inheritance, and architectural patterns",
+      "Smart contract security auditing, reentrancy defense, and formal verification",
+      "DeFi protocols, automated market makers (AMM), and lending pools",
+      "Layer 2 scaling, optimistic rollups, and zero-knowledge proofs",
+      "Enterprise blockchain with Hyperledger Fabric and Go chaincode",
+      "High-performance Solana development with Rust and Anchor"
+    ];
+  }
 
   if (!script) {
     script = document.createElement("script");

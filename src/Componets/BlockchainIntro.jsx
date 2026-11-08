@@ -1980,6 +1980,62 @@ if __name__ == "__main__":
                 </li>
               </ul>
             </section>
+
+            {/* Next Module & Related Tracks (Internal SEO & User Journey) */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#e7e3da] pb-6 mb-6">
+                <div>
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-amber-700">Next in Curriculum</span>
+                  <h3 className="text-lg sm:text-xl font-bold text-[#18181b] mt-1">
+                    Module 2: Cryptography Fundamentals for Blockchain
+                  </h3>
+                  <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-xl">
+                    Master modular arithmetic, finite groups, secp256k1 elliptic curve scalar multiplication, ECDSA signatures, and Merkle tree proofs.
+                  </p>
+                </div>
+                <button
+                  onClick={() => navigate("/learning/blockchain/cryptography")}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#f97316] text-white text-xs sm:text-sm font-bold shadow-xs hover:bg-orange-600 transition-all cursor-pointer whitespace-nowrap self-start sm:self-auto"
+                >
+                  <span>Continue to Module 2</span>
+                  <ArrowRight size={16} />
+                </button>
+              </div>
+
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">Explore Related Engineering Tracks</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                  <a
+                    href="/learning/system-design"
+                    className="p-3 rounded-xl border border-stone-200 bg-stone-50/70 hover:bg-white hover:border-amber-300 transition-all group"
+                  >
+                    <span className="block text-xs font-bold text-stone-900 group-hover:text-orange-600">System Design</span>
+                    <span className="block text-[11px] text-stone-500 mt-0.5">24 Modules · Distributed Systems</span>
+                  </a>
+                  <a
+                    href="/learning/cybersecurity"
+                    className="p-3 rounded-xl border border-stone-200 bg-stone-50/70 hover:bg-white hover:border-amber-300 transition-all group"
+                  >
+                    <span className="block text-xs font-bold text-stone-900 group-hover:text-orange-600">Cybersecurity</span>
+                    <span className="block text-[11px] text-stone-500 mt-0.5">24 Modules · Cryptography & Defense</span>
+                  </a>
+                  <a
+                    href="/courses/artificial-intelligence"
+                    className="p-3 rounded-xl border border-stone-200 bg-stone-50/70 hover:bg-white hover:border-amber-300 transition-all group"
+                  >
+                    <span className="block text-xs font-bold text-stone-900 group-hover:text-orange-600">AI Engineering</span>
+                    <span className="block text-[11px] text-stone-500 mt-0.5">24 Modules · Deep Learning & LLMs</span>
+                  </a>
+                  <a
+                    href="/learning/cloud"
+                    className="p-3 rounded-xl border border-stone-200 bg-stone-50/70 hover:bg-white hover:border-amber-300 transition-all group"
+                  >
+                    <span className="block text-xs font-bold text-stone-900 group-hover:text-orange-600">Cloud Architecture</span>
+                    <span className="block text-[11px] text-stone-500 mt-0.5">13 Modules · Enterprise Cloud</span>
+                  </a>
+                </div>
+              </div>
+            </section>
           </div>
         )}
       </div>

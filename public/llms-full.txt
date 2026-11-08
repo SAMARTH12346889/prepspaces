@@ -660,7 +660,7 @@
 ---
 
 
-# Track: Blockchain Technology & Decentralized Systems (12 Modules)
+# Track: Blockchain Technology & Decentralized Systems (24 Modules)
 > University-style curriculum based on Stanford CS251, MIT, UC Berkeley, Cornell, and NIST IR 8202.
 > Track Overview: https://prepspaces.com/learning/blockchain
 
@@ -693,3 +693,190 @@
 - **Hands-On Lab:** Live interactive Byzantine Generals simulator with customizable traitors and quorum verification, real-time in-browser SHA-256 Proof of Work mining sandbox with tamper detector, Proof of Stake validator lottery and committee approval visualizer, CAP theorem network partition sandbox, and complete Python implementations of Proof of Work (`proof_of_work.py`) and Proof of Stake (`proof_of_stake.py`).
 
 ---
+
+## Module 4: Bitcoin Architecture, Transactions & UTXO Model
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/bitcoin-utxo
+- **Level:** Intermediate | Theory + Systems Engineering | 10–12 hours
+- **Topic Summary:** Bitcoin architecture, Unspent Transaction Output (UTXO) accounting model, transaction scripts (Script), mempool, block verification, Coinbase transactions, and halving cycles.
+- **Key Concepts:** UTXO graph, Script stack execution (OP_DUP, OP_HASH160, OP_EQUALVERIFY, OP_CHECKSIG), P2PKH, P2SH, SegWit (BIP-141), transaction fees, block serialization.
+- **Hands-On Lab:** UTXO pool visualizer, Bitcoin Script stack execution simulator, and transaction verification engine.
+
+---
+
+## Module 5: Ethereum & EVM Architecture
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/ethereum-evm
+- **Level:** Intermediate | Theory + Architecture | 10–12 hours
+- **Topic Summary:** Ethereum Virtual Machine (EVM), state transitions, account model, world state trie, Patricia Merkle trees, gas schedule, EIP-1559 fee market, and smart contracts.
+- **Key Concepts:** Account state (nonce, balance, storageRoot, codeHash), modified Merkle Patricia Trie (MPT), gas limit vs gas price, base fee burning, priority tip, uncle blocks, and PoS consensus.
+- **Hands-On Lab:** Live EVM state transition simulator, Patricia Trie lookup inspector, and EIP-1559 gas fee calculator.
+
+---
+
+## Module 6: EVM Deep Dive & Opcode Execution
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/evm-internals
+- **Level:** Advanced | Low-Level Systems | 12–15 hours
+- **Topic Summary:** 256-bit EVM stack machine, volatile memory allocation, non-volatile storage slot layout, SSTORE/SLOAD gas mechanics, call opcodes (CALL, STATICCALL, DELEGATECALL), and bytecode disassembly.
+- **Key Concepts:** Stack overflow/underflow, memory expansion quadratic cost, storage collision vectors, EVM word alignment, fallback and receive functions, revert reasons, and assembly Yul.
+- **Hands-On Lab:** Interactive step-by-step EVM stack/memory/storage debugger and Yul bytecode tracer.
+
+---
+
+## Module 7: Solidity Programming Fundamentals
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/solidity
+- **Level:** Intermediate | Programming | 12–15 hours
+- **Topic Summary:** Solidity 0.8+ syntax, value types, reference types (memory, storage, calldata), visibility specifiers, view and pure functions, function modifiers, events, custom errors, and contract inheritance.
+- **Key Concepts:** ABI encoding/decoding, arithmetic checked math, reentrancy guards, event emission topics, interface definition, abstract contracts, and error handling with revert.
+- **Hands-On Lab:** Browser-based Solidity compiler sandbox with unit assertion checking.
+
+---
+
+## Module 8: Advanced Solidity & Gas Optimization
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/advanced-solidity
+- **Level:** Advanced | Optimization & Security | 12–15 hours
+- **Topic Summary:** Storage slot packing (256-bit word packing), calldata vs memory optimization, assembly Yul implementations, unchecked arithmetic blocks, memory caching of storage variables, ERC-7201 namespaced storage, and immutable patterns.
+- **Key Concepts:** SLOAD/SSTORE gas reduction, tight variable packing, transient storage (EIP-1153), calldata slice manipulation, bitwise operations for permissions, and custom assembly routines.
+- **Hands-On Lab:** Live gas benchmark comparator demonstrating 40%+ gas reduction across baseline vs optimized contracts.
+
+---
+
+## Module 9: Smart Contract Development & Architecture
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/architecture
+- **Level:** Advanced | Systems Design | 12–15 hours
+- **Topic Summary:** End-to-end decentralized application architecture: factory pattern, registry pattern, pull payments over push payments, escrow state machines, OpenZeppelin integration, UUPS and Transparent upgradeable proxies, and The Graph event indexing.
+- **Key Concepts:** Proxy delegatecall mechanisms, EIP-1967 storage slots, storage collision prevention, initialization vs constructor, emergency circuit breakers, and state machine transitions.
+- **Hands-On Lab:** Interactive proxy upgrade simulator with storage slot validation.
+
+---
+
+## Module 10: Smart Contract Testing & Security
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/testing
+- **Level:** Advanced | Quality Assurance | 10–12 hours
+- **Topic Summary:** Comprehensive smart contract testing using Foundry Forge and Hardhat: unit testing, fuzzing, property-based testing, invariant handlers, mock contracts, and gas snapshots.
+- **Key Concepts:** Invariant testing, fuzz test input generation, vm.prank and vm.deal cheatcodes, stateful vs stateless fuzzing, coverage analysis, and CI/CD testing pipelines.
+- **Hands-On Lab:** Live fuzz test runner diagnosing invariant violations.
+
+---
+
+## Module 11: Wallets, Keys & Transaction Signing
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/wallets-keys
+- **Level:** Intermediate | Cryptography & Security | 10–12 hours
+- **Topic Summary:** Hierarchical Deterministic (HD) wallets (BIP-32), mnemonic seed phrases (BIP-39), standard derivation paths (BIP-44), ECDSA transaction signing, EIP-1559 envelopes, EIP-712 typed structured data signing, Sign-In with Ethereum (SIWE), and nonce management.
+- **Key Concepts:** Entropy to mnemonic generation, master node derivation, public vs private child keys, replay attack mitigation (EIP-155), and typed structured hashes.
+- **Hands-On Lab:** Live BIP-39 mnemonic generator, BIP-44 address explorer, and EIP-712 signing simulator.
+
+---
+
+## Module 12: Token Standards: ERC-20, ERC-721, ERC-1155
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/tokens
+- **Level:** Intermediate | Token Engineering | 10–12 hours
+- **Topic Summary:** Token standard specifications: ERC-20 fungible tokens, ERC-721 non-fungible tokens, and ERC-1155 multi-tokens. Token allowances, race condition mitigations, safeTransferFrom hooks, metadata URI schemas, batch transfers, and tokenomics.
+- **Key Concepts:** IERC20, IERC721, IERC1155, ERC165 interface detection, ERC-721Enumerable, onERC721Received receiver callbacks, IPFS metadata pinning, and token vesting linear math.
+- **Hands-On Lab:** Interactive token minter, transfer tracer, and metadata URI inspector.
+
+---
+
+## Module 13: Web3 Front-End Integration
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/web3-libraries
+- **Level:** Intermediate | Full-Stack Web3 | 10–12 hours
+- **Topic Summary:** Connecting client applications to blockchains: Ethers.js v6, Viem, Wagmi React hooks, wallet connectors (MetaMask, WalletConnect, Coinbase Wallet), JSON-RPC providers, contract read/write state handling, and real-time event subscriptions.
+- **Key Concepts:** Provider vs Signer, ABI encoding, gas estimation, user rejected transaction handling, chain switching, and optimistic UI updates.
+- **Hands-On Lab:** Live Web3 wallet connector simulation and contract invocation console.
+
+---
+
+## Module 14: Full-Stack DApp Development
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/dapp-development
+- **Level:** Advanced | Full-Stack Engineering | 14–18 hours
+- **Topic Summary:** Building a production-grade decentralized application from scratch: requirements engineering, contract development with Foundry/Hardhat, local testnet nodes (Anvil/Hardhat Network), subgraphs on The Graph, frontend React integration, and testnet deployment.
+- **Key Concepts:** Full-stack architecture, indexing on-chain events into GraphQL subgraphs, responsive transaction notifications, and Etherscan contract verification.
+- **Hands-On Lab:** End-to-end full-stack DApp playground with simulated contract interactions.
+
+---
+
+## Module 15: Decentralized Storage Architecture: IPFS & Arweave
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/ipfs-storage
+- **Level:** Intermediate | Distributed Systems | 10–12 hours
+- **Topic Summary:** Decentralized storage networks: InterPlanetary File System (IPFS), content addressing, Content Identifiers (CIDv0 vs CIDv1), UnixFS DAGs, DHT routing, pinning services (Pinata, Web3.Storage), Filecoin incentives, and Arweave permanent permaweb.
+- **Key Concepts:** Location addressing vs content addressing, SHA-256 multihash, IPLD graph navigation, gateway resolution, garbage collection, and persistent storage economics.
+- **Hands-On Lab:** Live IPFS CID generator, DAG visualizer, and mock pinning workbench.
+
+---
+
+## Module 16: DeFi Architecture & Protocols
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/defi-protocols
+- **Level:** Advanced | Decentralized Finance | 14–16 hours
+- **Topic Summary:** Decentralized Finance architecture: Automated Market Makers (x * y = k), pooled lending markets, overcollateralization, Health Factor liquidations, kinked interest rate models, impermanent loss derivation, and flash loans.
+- **Key Concepts:** Constant product invariant, slippage, liquidity token shares, collateralization ratio, liquidation penalty, utilization rate, and atomic composability.
+- **Hands-On Lab:** Live AMM liquidity pool swap calculator and loan Health Factor liquidation sandbox.
+
+---
+
+## Module 17: Decentralized Exchanges & Lending Protocols
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/dex-lending
+- **Level:** Advanced | Financial Engineering | 14–16 hours
+- **Topic Summary:** Deep dive into production DEXs and Lending Protocols: Uniswap V2 vs V3 concentrated liquidity, tick mathematics, virtual reserves, multi-hop routing, Compound cTokens, Aave aTokens, variable debt tokens, and flash loan arbitrage.
+- **Key Concepts:** Concentrated liquidity capital efficiency, sqrtPriceX96, tick spacing, position NFTs, borrow indexes, interest accrual compounding, and atomic arbitrage cycles.
+- **Hands-On Lab:** Concentrated liquidity position simulator and multi-hop DEX trade router.
+
+---
+
+## Module 18: Blockchain Security & Smart Contract Auditing
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/security-vulnerabilities
+- **Level:** Advanced | Security Engineering | 15–20 hours
+- **Topic Summary:** Smart contract vulnerability analysis and auditing: threat modeling, reentrancy attacks, Checks-Effects-Interactions (CEI) pattern, flash loan oracle manipulation, delegatecall storage collisions, Slither static analysis, Foundry fuzzing, formal verification, and audit report generation.
+- **Key Concepts:** SWC registry, cross-function reentrancy, spot price vs TWAP manipulation, EIP-1967 compliance, property-based invariants, and responsible disclosure protocols.
+- **Hands-On Lab:** Interactive vulnerable contract exploit sandbox with automated security validator.
+
+---
+
+## Module 19: Layer 2 & Blockchain Scaling
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/layer-2-scaling
+- **Level:** Advanced | Protocol Architecture | 12–15 hours
+- **Topic Summary:** Ethereum Layer 2 scaling solutions: Optimistic Rollups vs Zero-Knowledge (ZK) Rollups, interactive dispute bisection, validity proofs, EIP-4844 data blobs, Proto-Danksharding, Data Availability (DA) sampling, sequencer architectures, and cross-chain bridge invariants.
+- **Key Concepts:** Fraud proofs vs validity proofs, Arbitrum Nitro, Optimism Bedrock, zkSync Era, STARKs vs SNARKs, blob gas market, sequencer centralization trade-offs, and lock-and-mint bridges.
+- **Hands-On Lab:** Interactive fraud proof dispute game bisection visualizer and blob gas estimator.
+
+---
+
+## Module 20: Oracles & Chainlink Architecture
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/oracles-chainlink
+- **Level:** Intermediate | Web3 Infrastructure | 10–12 hours
+- **Topic Summary:** Blockchain oracles and Chainlink infrastructure: deterministic consensus boundaries, Data Feeds, latestRoundData() validation, VRF v2.5 verifiable randomness, Offchain Reporting (OCR), Chainlink Runtime Environment (CRE), and flash loan price manipulation defense.
+- **Key Concepts:** Oracle problem, heartbeat, deviation threshold, stale price checks, proof of reserve, VRF proof verification on-chain, and Cross-Chain Interoperability Protocol (CCIP).
+- **Hands-On Lab:** Live Chainlink Data Feed consumer and VRF random number request-and-verify simulator.
+
+---
+
+## Module 21: DAOs & Blockchain Governance
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/daos-governance
+- **Level:** Advanced | Governance Systems | 10–12 hours
+- **Topic Summary:** Decentralized Autonomous Organizations (DAOs) and on-chain governance: ERC20Votes checkpoints, OpenZeppelin Governor architecture, TimelockController security, proposal lifecycles, quorum calculations, quadratic voting, treasury multi-sigs, and legal wrapper frameworks.
+- **Key Concepts:** Historical balance checkpoints, flash loan governance attacks, voting delay vs voting period, execution timelock, veto council, and delegated voting rights.
+- **Hands-On Lab:** Interactive proposal creation, vote tallying, and timelock execution simulator.
+
+---
+
+## Module 22: Hyperledger Fabric & Enterprise Blockchain
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/hyperledger-fabric
+- **Level:** Advanced | Enterprise DLT | 14–16 hours
+- **Topic Summary:** Permissioned enterprise blockchains: Hyperledger Fabric 3.1.x architecture, execute-order-validate consensus, Membership Service Providers (MSP), X.509 certificates, isolated channels, Private Data Collections (PDC), Go chaincode, CouchDB rich queries, and Docker deployment.
+- **Key Concepts:** Endorsement policies, Raft ordering service, ledger world state vs blockchain log, transient data protection, peer topologies, and chaincode lifecycle.
+- **Hands-On Lab:** Fabric channel transaction simulation and Go chaincode execution visualizer.
+
+---
+
+## Module 23: Solana Development with Rust
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/solana-rust
+- **Level:** Advanced | High-Performance Systems | 15–20 hours
+- **Topic Summary:** Solana high-throughput blockchain architecture: accounts model, Sealevel parallel runtime, Proof of History (PoH), Tower BFT, Program Derived Addresses (PDAs), Cross-Program Invocations (CPI), SPL Tokens, and Anchor framework.
+- **Key Concepts:** Rent exemption, AccountInfo, signer seeds, deterministic PDA derivation, instruction serialization with Borsh, account validation macros, and compute unit limits.
+- **Hands-On Lab:** Interactive Solana account model inspector and Anchor instruction invocation debugger.
+
+---
+
+## Module 24: Final Blockchain Capstone Project
+- **Canonical URL:** https://prepspaces.com/learning/blockchain/final-capstone
+- **Level:** Capstone | Production Engineering | 30–40 hours
+- **Topic Summary:** Complete production-grade decentralized application development: requirements analysis, multi-contract architecture, off-chain indexing with PostgreSQL/The Graph, IPFS storage pinning, automated invariant testing with Foundry, comprehensive security audit report, CI/CD pipeline, and oral viva defense.
+- **Key Concepts:** 3-tier Web3 architecture, end-to-end integration, production deployment, gas optimization benchmarks, security mitigation matrices, and viva defense evaluation.
+- **Hands-On Lab:** Complete Capstone blueprint generator, viva defense practice evaluator, and audit checklist workbench.
