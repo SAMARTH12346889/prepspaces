@@ -172,6 +172,7 @@ const BlockchainTesting = React.lazy(() => import("./Componets/BlockchainTesting
 const BlockchainWallets = React.lazy(() => import("./Componets/BlockchainWallets"));
 const BlockchainTokens = React.lazy(() => import("./Componets/BlockchainTokens"));
 const BlockchainWeb3Libraries = React.lazy(() => import("./Componets/BlockchainWeb3Libraries"));
+const BlockchainDAppDevelopment = React.lazy(() => import("./Componets/BlockchainDAppDevelopment"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1464,6 +1465,15 @@ function App() {
             <Route path="/learn/blockchain/web3-libraries" element={<BlockchainWeb3Libraries />} />
             <Route path="/learn/blockchain/ethers-viem" element={<BlockchainWeb3Libraries />} />
             <Route path="/learn/blockchain/module-13" element={<BlockchainWeb3Libraries />} />
+
+            {/* Blockchain Module 14: Full-Stack DApp Development */}
+            <Route path="/learning/blockchain/dapp-development" element={<BlockchainDAppDevelopment />} />
+            <Route path="/learning/blockchain/fullstack-dapp" element={<BlockchainDAppDevelopment />} />
+            <Route path="/learning/blockchain/full-stack-dapp" element={<BlockchainDAppDevelopment />} />
+            <Route path="/learning/blockchain/module-14" element={<BlockchainDAppDevelopment />} />
+            <Route path="/learn/blockchain/dapp-development" element={<BlockchainDAppDevelopment />} />
+            <Route path="/learn/blockchain/fullstack-dapp" element={<BlockchainDAppDevelopment />} />
+            <Route path="/learn/blockchain/module-14" element={<BlockchainDAppDevelopment />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

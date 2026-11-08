@@ -3179,10 +3179,10 @@ console.log("Received Transfer Events:", logs.length);`}</pre>
           </button>
 
           <button
-            onClick={() => navigate("/learning/blockchain/security-vulnerabilities")}
+            onClick={() => navigate("/learning/blockchain/dapp-development")}
             className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#ea580c] hover:bg-[#c2410c] font-bold text-sm text-white flex items-center justify-center gap-2 shadow-sm transition-colors"
           >
-            <span>Next: Module 14 — Smart Contract Security</span>
+            <span>Next: Module 14 — Full-Stack DApp Development</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

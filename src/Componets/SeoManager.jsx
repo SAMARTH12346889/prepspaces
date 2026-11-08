@@ -195,6 +195,12 @@ const routeMeta = {
     keywords: "Web3.js, Ethers.js, Viem, JSON-RPC, Ethereum JavaScript, dApp frontend, MetaMask integration, EIP-1193, ABI encoding, function selector, eth_call, gas estimation, React Web3, Wagmi, Sepolia testnet",
     canonical: `${BASE_URL}/learning/blockchain/web3-libraries`,
   },
+  "/learning/blockchain/dapp-development": {
+    title: "Module 14: Full-Stack DApp Development - React, Solidity & Web3 Architecture | PrepSpaces",
+    description: "Design, develop, and deploy full-stack decentralized applications: React and TypeScript frontends, Solidity smart contracts, EIP-1193 wallet connections, SIWE (EIP-4361) authentication, The Graph event indexing, hybrid on-chain/off-chain storage, and end-to-end decentralized voting on Sepolia.",
+    keywords: "Full-Stack DApp, Web3 development, React Web3, Solidity voting dApp, Viem, Wagmi, SIWE, Sign-In with Ethereum, EIP-4361, The Graph protocol, event indexing, on-chain storage, IPFS, Sepolia testnet, DApp architecture",
+    canonical: `${BASE_URL}/learning/blockchain/dapp-development`,
+  },
   "/learning/blockchain/erc-token-standards": {
     title: "ERC Token Standards Architecture & Development | PrepSpaces",
     description: "Deep dive into ERC-20, ERC-721, and ERC-1155 token architecture. Learn allowance front-running mitigations, safeTransferFrom receiver callbacks, batch transfers, and vesting mathematics.",
