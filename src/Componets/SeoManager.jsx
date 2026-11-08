@@ -177,6 +177,18 @@ const routeMeta = {
     keywords: "Smart contract testing, Foundry, Forge, Hardhat, Fuzz testing, Invariant testing, Mainnet fork testing, Anvil, Cast, Chisel, Solidity unit tests, gas benchmarking, forge snapshot, smart contract CI/CD, Web3 QA",
     canonical: `${BASE_URL}/learning/blockchain/testing`,
   },
+  "/learning/blockchain/wallets-keys": {
+    title: "Module 11: Wallets, Keys & Transaction Signing | PrepSpaces",
+    description: "Master blockchain wallet engineering: secp256k1 private keys, public key derivation, Keccak-256 address hashing, BIP-39 mnemonic phrases, BIP-32/BIP-44 HD account trees, EIP-1559 Type 2 ECDSA transaction signing, EIP-1193 providers, MetaMask architecture, WalletConnect v2, nonce management, and hardware security.",
+    keywords: "Blockchain wallets, private keys, secp256k1, BIP-39 mnemonic, BIP-32 HD wallet, BIP-44 derivation path, EIP-1193, MetaMask, WalletConnect, ECDSA signing, transaction nonces, hardware wallets, Web3 authentication",
+    canonical: `${BASE_URL}/learning/blockchain/wallets-keys`,
+  },
+  "/learning/blockchain/transaction-signing": {
+    title: "Ethereum Transaction Signing & ECDSA Cryptography | PrepSpaces",
+    description: "Deep dive into Ethereum transaction signing: EIP-1559 envelopes, ECDSA (r, s, v/yParity), personal_sign, Sign-In with Ethereum (SIWE), and nonce management.",
+    keywords: "Ethereum transaction signing, ECDSA, secp256k1, EIP-1559, personal_sign, SIWE, nonce gap, gas price replacement",
+    canonical: `${BASE_URL}/learning/blockchain/wallets-keys`,
+  },
   "/learning/blockchain/smart-contract-testing": {
     title: "Smart Contract Quality Assurance & Testing Frameworks | PrepSpaces",
     description: "Comprehensive guide to testing Solidity smart contracts using Foundry Forge and Hardhat. Learn unit testing, fuzzing, invariants, mocks, fixtures, and execution debugging.",

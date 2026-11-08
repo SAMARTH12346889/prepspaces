@@ -169,6 +169,7 @@ const BlockchainSolidity = React.lazy(() => import("./Componets/BlockchainSolidi
 const BlockchainAdvancedSolidity = React.lazy(() => import("./Componets/BlockchainAdvancedSolidity"));
 const BlockchainArchitecture = React.lazy(() => import("./Componets/BlockchainArchitecture"));
 const BlockchainTesting = React.lazy(() => import("./Componets/BlockchainTesting"));
+const BlockchainWallets = React.lazy(() => import("./Componets/BlockchainWallets"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1431,6 +1432,16 @@ function App() {
             <Route path="/learn/blockchain/testing" element={<BlockchainTesting />} />
             <Route path="/learn/blockchain/smart-contract-testing" element={<BlockchainTesting />} />
             <Route path="/learn/blockchain/foundry-hardhat" element={<BlockchainTesting />} />
+
+            {/* Blockchain Module 11: Wallets, Keys & Transaction Signing */}
+            <Route path="/learning/blockchain/wallets-keys" element={<BlockchainWallets />} />
+            <Route path="/learning/blockchain/wallets" element={<BlockchainWallets />} />
+            <Route path="/learning/blockchain/transaction-signing" element={<BlockchainWallets />} />
+            <Route path="/learning/blockchain/module-11" element={<BlockchainWallets />} />
+            <Route path="/learning/blockchain/defi-protocols" element={<BlockchainWallets />} />
+            <Route path="/learn/blockchain/wallets-keys" element={<BlockchainWallets />} />
+            <Route path="/learn/blockchain/wallets" element={<BlockchainWallets />} />
+            <Route path="/learn/blockchain/transaction-signing" element={<BlockchainWallets />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
