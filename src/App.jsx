@@ -181,6 +181,7 @@ const BlockchainLayer2Scaling = React.lazy(() => import("./Componets/BlockchainL
 const BlockchainOraclesChainlink = React.lazy(() => import("./Componets/BlockchainOraclesChainlink"));
 const BlockchainDAOsGovernance = React.lazy(() => import("./Componets/BlockchainDAOsGovernance"));
 const BlockchainHyperledgerFabric = React.lazy(() => import("./Componets/BlockchainHyperledgerFabric"));
+const BlockchainSolanaRust = React.lazy(() => import("./Componets/BlockchainSolanaRust"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1559,6 +1560,17 @@ function App() {
             <Route path="/learn/blockchain/fabric" element={<BlockchainHyperledgerFabric />} />
             <Route path="/learn/blockchain/hyperledger" element={<BlockchainHyperledgerFabric />} />
             <Route path="/learn/blockchain/module-22" element={<BlockchainHyperledgerFabric />} />
+
+            {/* Blockchain Module 23: Solana Development with Rust */}
+            <Route path="/learning/blockchain/solana-rust" element={<BlockchainSolanaRust />} />
+            <Route path="/learning/blockchain/solana" element={<BlockchainSolanaRust />} />
+            <Route path="/learning/blockchain/solana-development" element={<BlockchainSolanaRust />} />
+            <Route path="/learning/blockchain/anchor" element={<BlockchainSolanaRust />} />
+            <Route path="/learning/blockchain/module-23" element={<BlockchainSolanaRust />} />
+            <Route path="/learn/blockchain/solana-rust" element={<BlockchainSolanaRust />} />
+            <Route path="/learn/blockchain/solana" element={<BlockchainSolanaRust />} />
+            <Route path="/learn/blockchain/anchor" element={<BlockchainSolanaRust />} />
+            <Route path="/learn/blockchain/module-23" element={<BlockchainSolanaRust />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

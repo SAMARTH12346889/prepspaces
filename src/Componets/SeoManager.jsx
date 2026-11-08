@@ -221,6 +221,13 @@ const routeMeta = {
     canonical: `${BASE_URL}/learning/blockchain/dex-lending`,
   },
 
+  "/learning/blockchain/solana-rust": {
+    title: "Module 23: Solana Development with Rust | PrepSpaces",
+    description: "Master Solana development with Rust and Anchor: accounts model, Sealevel parallel execution, Proof of History, PDAs, Cross-Program Invocations (CPI), SPL Tokens, and build a full token-management DApp.",
+    keywords: "Solana, Rust, Anchor, Program Derived Address, PDA, CPI, SPL Token, Token-2022, Sealevel, Proof of History, Web3, Smart Contracts",
+    canonical: `${BASE_URL}/learning/blockchain/solana-rust`,
+  },
+
   "/learning/blockchain/hyperledger-fabric": {
     title: "Module 22: Hyperledger Fabric & Enterprise Blockchain | PrepSpaces",
     description: "Master Hyperledger Fabric 3.1.x and enterprise distributed ledgers: execute-order-validate consensus, MSP identity management, isolated channels, Private Data Collections (PDC), Go chaincode, CouchDB rich queries, and Docker deployment.",
