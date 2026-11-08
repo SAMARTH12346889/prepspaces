@@ -1,5 +1,6 @@
 // projectx/src/Componets/BlockchainDeFiProtocols.jsx
 import React, { useState, useEffect, useMemo, useCallback } from "react";
+import ModuleNav from "./ModuleNav";
 import { Link } from "react-router-dom";
 
 // Data Constants
@@ -782,6 +783,7 @@ export default function BlockchainDeFiProtocols() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] pb-28 sm:pb-36 selection:bg-amber-100 selection:text-amber-900">
+      <ModuleNav track="blockchain" currentModuleId="defi-protocols" />
       {/* Top Banner Navigation */}
       <div className="bg-[#18181b] text-white border-b border-neutral-800 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">

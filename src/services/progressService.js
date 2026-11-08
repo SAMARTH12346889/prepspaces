@@ -100,7 +100,7 @@ const DEFAULT_CATALOG = [
     tag: "Decentralized Systems",
     color: "from-zinc-900 via-stone-900 to-amber-700",
     badgeColor: "bg-amber-500/10 text-amber-700 border-amber-500/20",
-    totalModules: 12,
+    totalModules: 24,
   },
 ];
 

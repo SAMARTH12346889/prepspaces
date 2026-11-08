@@ -1523,10 +1523,12 @@ function App() {
 
             {/* Blockchain Module 19: Layer 2 & Blockchain Scaling */}
             <Route path="/learning/blockchain/layer-2-scaling" element={<BlockchainLayer2Scaling />} />
+            <Route path="/learning/blockchain/layer2-scaling" element={<BlockchainLayer2Scaling />} />
             <Route path="/learning/blockchain/layer-2" element={<BlockchainLayer2Scaling />} />
             <Route path="/learning/blockchain/rollups" element={<BlockchainLayer2Scaling />} />
             <Route path="/learning/blockchain/module-19" element={<BlockchainLayer2Scaling />} />
             <Route path="/learn/blockchain/layer-2-scaling" element={<BlockchainLayer2Scaling />} />
+            <Route path="/learn/blockchain/layer2-scaling" element={<BlockchainLayer2Scaling />} />
             <Route path="/learn/blockchain/layer-2" element={<BlockchainLayer2Scaling />} />
             <Route path="/learn/blockchain/module-19" element={<BlockchainLayer2Scaling />} />
 

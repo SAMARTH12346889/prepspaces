@@ -1,0 +1,270 @@
+{
+  "id": "wallets-keys",
+  "courseId": "blockchain",
+  "index": 11,
+  "name": "11. Wallets, Keys & Transaction Signing",
+  "route": "/learning/blockchain/wallets-keys",
+  "componentName": "BlockchainWallets",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why does a blockchain wallet not literally store or contain cryptocurrency?",
+      "options": [
+        "Because cryptocurrency is stored inside browser cache cookies and erased upon closing the application",
+        "Because account balances exist purely as state records on the distributed blockchain ledger; a wallet only manages the private keys that cryptographically authorize state transitions",
+        "Because Ethereum nodes store all private keys in a centralized validator registry",
+        "Because smart contracts hold custody of all native Ether, while wallets only store ERC-20 token balances"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Cryptocurrency is never held within a wallet file or device. All balances are global state recorded across blockchain nodes. A wallet stores the cryptographic private keys required to generate digital signatures that authorize spending or calling contracts from that account."
+    },
+    {
+      "id": 2,
+      "question": "What is the mathematical definition and valid range of an Ethereum private key on the secp256k1 curve?",
+      "options": [
+        "Any arbitrary 128-bit integer between 0 and 2^128 - 1",
+        "A 256-bit integer d uniformly selected within the range 1 <= d < n, where n is the order of the secp256k1 curve",
+        "The Keccak-256 hash of the user's password with no range restrictions",
+        "A 20-byte hexadecimal value formatted with an 0x prefix"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "An Ethereum private key is a positive 256-bit scalar integer d satisfying 1 <= d < n, where n is the order of the secp256k1 group (approximately 1.15792 x 10^77). Selecting a key outside this range or using insecure RNG creates invalid or vulnerable keys."
+    },
+    {
+      "id": 3,
+      "question": "How is an Ethereum public address derived from an uncompressed secp256k1 public key point Q?",
+      "options": [
+        "Address = SHA256(Q) truncated to the first 32 bytes",
+        "Address = last20bytes(Keccak256(Q_x || Q_y)), taking the last 20 bytes of the Keccak-256 hash of the 64-byte uncompressed coordinates",
+        "Address = RIPEMD160(SHA256(Q)) with an 0x04 prefix",
+        "Address = PBKDF2(Q, salt, 2048, 20)"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "An uncompressed public key consists of 0x04 || X (32 bytes) || Y (32 bytes). The 0x04 prefix is removed, leaving 64 bytes of coordinate data. Computing Keccak-256 over these 64 bytes and taking the final 20 bytes yields the 40-character hexadecimal Ethereum address."
+    },
+    {
+      "id": 4,
+      "question": "Why does Ethereum use Keccak-256 rather than standardized NIST SHA3-256 for address generation and hashing?",
+      "options": [
+        "Ethereum uses Keccak-256 because it was adopted in 2014 before NIST finalized the SHA-3 standard in 2015 with modified padding parameters",
+        "Keccak-256 produces 512-bit hashes while NIST SHA3-256 only produces 160-bit outputs",
+        "NIST SHA3-256 cannot be computed inside EVM bytecode",
+        "Keccak-256 is an asymmetric encryption cipher whereas SHA-3 is symmetric"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Ethereum adopted Keccak-256 during its inception in 2014-2015 based on the original submission to the SHA-3 competition. When NIST standardized SHA-3 (FIPS 202) in August 2015, they altered the internal domain separation padding. Ethereum preserved the original Keccak padding for backward compatibility."
+    },
+    {
+      "id": 5,
+      "question": "In the BIP-39 standard, how many checksum bits are appended to a 128-bit initial entropy value to produce a 12-word mnemonic phrase?",
+      "options": [
+        "8 bits (CS = ENT / 16)",
+        "4 bits (CS = ENT / 32, resulting in 128 + 4 = 132 bits, divided into twelve 11-bit word indices)",
+        "12 bits (one bit per word)",
+        "16 bits (two bytes of SHA-256)"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Under BIP-39, the checksum length is ENT / 32. For 128 bits of entropy: 128 / 32 = 4 checksum bits from the first nibble of SHA-256(entropy). 128 + 4 = 132 bits total. 132 / 11 bits per word = exactly 12 words."
+    },
+    {
+      "id": 6,
+      "question": "What cryptographic algorithm transforms a BIP-39 mnemonic phrase and optional salt into a 512-bit master seed?",
+      "options": [
+        "AES-256-GCM with 10,000 rounds",
+        "PBKDF2 using HMAC-SHA512, 2048 iterations, with password = mnemonic and salt = 'mnemonic' + optional passphrase",
+        "Scrypt with N=16384, r=8, p=1",
+        "Bcrypt with work factor 14"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "BIP-39 specifies PBKDF2-HMAC-SHA512 with 2,048 iterations. The password is the normalized UTF-8 mnemonic phrase, and the salt is the string literal 'mnemonic' concatenated with the user's optional 13th/25th passphrase."
+    },
+    {
+      "id": 7,
+      "question": "What is the crucial security benefit of hardened child key derivation in BIP-32 HD wallets?",
+      "options": [
+        "Hardened keys use quantum-resistant lattice encryption rather than elliptic curves",
+        "Hardened derivation prevents an attacker who discovers an extended public key (xpub) and one child private key from mathematically deriving the parent master private key",
+        "Hardened keys can be used across multiple blockchains simultaneously without changing coin_type",
+        "Hardened derivation compresses 65-byte public keys into 32-byte hash digests"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "In non-hardened derivation, if an attacker obtains the parent extended public key (xpub) and any child private key, the chain code allows the attacker to calculate the parent private key, compromising the entire wallet. Hardened derivation (indexes >= 2^31) uses parent private keys directly in the HMAC, breaking this vulnerability."
+    },
+    {
+      "id": 8,
+      "question": "What do the components of the standard Ethereum BIP-44 derivation path 'm/44'/60'/0'/0/0' represent?",
+      "options": [
+        "Master / BIP-44 purpose / Ethereum coin type / Account 0 / External receiving chain / Address index 0",
+        "Master / Gas limit / Block number / Transaction nonce / Contract address / Signature",
+        "Master / Mainnet chain ID / Gas price / Nonce / EOA identifier / Shard index",
+        "Master / EIP-1559 / ETH currency / Stake validator / Sub-account / Token ID"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In BIP-44: m = master key; 44' = standard purpose; 60' = registered SLIP-0044 coin type for Ethereum; 0' = account index (hardened); 0 = external chain (receiving addresses); 0 = first generated address index."
+    },
+    {
+      "id": 9,
+      "question": "How does an Externally Owned Account (EOA) differ fundamentally from an Ethereum Contract Account?",
+      "options": [
+        "EOAs cannot hold native ETH, whereas Contract Accounts can hold both ETH and ERC-20 tokens",
+        "EOAs are controlled by a private key and initiate transactions; Contract Accounts have code, storage, no private key, and execute only when called",
+        "Contract Accounts pay zero gas fees when executing functions",
+        "EOAs have deterministic addresses based on CREATE2, while Contract Accounts use secp256k1 public keys"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "EOAs are controlled by cryptographic private keys, possess a balance and nonce, and can initiate transactions by broadcasting signed payloads. Contract accounts have associated EVM bytecode and storage slots, no private key, and only execute state changes when called by an EOA or another contract."
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of EIP-55 mixed-capitalization checksum encoding on Ethereum addresses?",
+      "options": [
+        "It encrypts the recipient address so only the sender can read it on-chain",
+        "It provides error detection by capitalising characters based on the Keccak-256 hash of the lowercase address string, preventing funds from being sent to mistyped addresses",
+        "It enables smart contract addresses to bypass gas refund caps",
+        "It binds the Ethereum address to a specific ENS name registry"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "EIP-55 converts an address to lowercase, computes its Keccak-256 hash, and capitalizes hex letters (a-f) if the corresponding nibble in the hash is >= 8. Any single mistyped character will invalidate the checksum with 99.986% probability."
+    },
+    {
+      "id": 11,
+      "question": "What are the three core digital signature components (r, s, v) generated by ECDSA on secp256k1?",
+      "options": [
+        "r = ephemeral curve point x-coordinate, s = signature proof scalar, v = recovery identifier (y-parity)",
+        "r = random gas price, s = sender balance, v = verified transaction hash",
+        "r = recipient address, s = smart contract bytecode, v = version identifier",
+        "r = RLP encoding length, s = salt, v = validator signature"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In ECDSA: r is the x-coordinate of the ephemeral elliptic curve point R = kG (modulo n); s is the signature proof scalar s = k^-1 * (z + r*d) mod n; v (or yParity) is the recovery identifier (0 or 1, or 27/28) that allows ecrecover to disambiguate which of the curve points corresponds to the public key."
+    },
+    {
+      "id": 12,
+      "question": "What is the primary difference between signing a message (personal_sign) and signing a transaction (eth_sendTransaction)?",
+      "options": [
+        "Message signing costs 21,000 gas, whereas transaction signing is free",
+        "Message signing proves cryptographic identity or intent off-chain without spending gas or mutating ledger state; transaction signing authorizes an EVM execution that consumes gas and changes blockchain state",
+        "Transaction signing only works on testnets, while message signing works on mainnet",
+        "Message signing requires a hardware wallet, while transaction signing can only be done in software"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Off-chain message signing (personal_sign, EIP-712, SIWE) produces a signature over an arbitrary text or structured typed digest; it never touches the mempool and incurs zero gas. Transaction signing constructs and authorizes a payload intended for network broadcast and state mutation, requiring gas fees."
+    },
+    {
+      "id": 13,
+      "question": "How does an injected browser wallet (such as MetaMask) provide Ethereum capabilities to a web application under EIP-1193?",
+      "options": [
+        "It uploads the user's private key directly into the website's localStorage",
+        "It injects an Ethereum Provider object into window.ethereum that exposes an asynchronous request({ method, params }) API",
+        "It creates an SSH tunnel directly from the user's computer to the validator node",
+        "It recompiles the website's JavaScript bundle with Solidity compiler tools"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "EIP-1193 standardizes the wallet provider interface injected into browser contexts (window.ethereum). DApps interact with the wallet through provider.request({ method, params }). The wallet never exposes private keys to the web page."
+    },
+    {
+      "id": 14,
+      "question": "What is the primary role of an Ethereum account transaction nonce?",
+      "options": [
+        "It acts as a random salt to encrypt transaction calldata",
+        "It enforces sequential transaction execution order from an EOA and prevents transaction replay attacks on the same network",
+        "It counts how many tokens an account has minted",
+        "It defines the maximum amount of gas an account can spend in a single block"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "An account nonce is a strictly incrementing counter representing the number of transactions sent from that address. Nodes process transactions in strict sequential nonce order (0, 1, 2...). A transaction cannot be executed twice with the same nonce, preventing replay attacks."
+    },
+    {
+      "id": 15,
+      "question": "What occurs if an account submits a transaction with nonce 12 while its current on-chain nonce is 10?",
+      "options": [
+        "The transaction immediately executes and increments the nonce to 13",
+        "The transaction enters the node mempool and remains pending in a 'nonce gap' until transaction with nonce 10 and 11 are mined",
+        "The transaction is permanently deleted and the account is slashed",
+        "The blockchain automatically generates dummy transactions to fill nonces 10 and 11"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "A missing nonce creates a 'nonce gap'. Nodes hold transactions with future nonces in their pending transaction pool (mempool), but validators cannot include them in a block until all preceding nonces (10 and 11) have executed."
+    },
+    {
+      "id": 16,
+      "question": "How can a user replace or cancel a pending transaction that is stuck in the mempool due to low gas fees?",
+      "options": [
+        "Call the Ethereum foundation helpdesk to purge the transaction",
+        "Submit a new transaction from the same address with the EXACT same nonce and at least a 10% higher maxPriorityFeePerGas / maxFeePerGas",
+        "Delete the browser extension and reinstall it",
+        "Send a transaction with nonce = nonce + 1"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Under Geth/EVM mempool rules, a node replaces a pending transaction if a new transaction arrives with the identical sender address and nonce, provided the replacement offers at least a 10% higher priority fee. To cancel, users send a 0 ETH transfer to themselves with the same nonce."
+    },
+    {
+      "id": 17,
+      "question": "What is the difference between transaction block inclusion and transaction finality in Ethereum Proof-of-Stake?",
+      "options": [
+        "There is no difference; once a block is produced, it can never be changed",
+        "Block inclusion means a transaction is in a proposed block that could theoretically be re-organized; finality occurs when Casper FFG reaches 2/3 validator attestations across two checkpoint epochs (~12.8 minutes)",
+        "Block inclusion requires 10 confirmations, while finality requires 1,000 confirmations",
+        "Finality only applies to Layer 2 rollups"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Under Ethereum's Gasper PoS consensus, a block is included immediately by a proposer. However, probabilistic reorgs are possible until Casper FFG justifies and finalizes the epoch. Finality requires two consecutive justified epochs (~12.8 minutes), making reversal economically unviable."
+    },
+    {
+      "id": 18,
+      "question": "How do hardware wallets (such as Ledger or Trezor) physically isolate and protect private keys from host computer malware?",
+      "options": [
+        "They store private keys in the cloud and stream encrypted signatures over Bluetooth",
+        "They store private keys inside a certified Secure Element / microcontroller, perform cryptographic signing entirely on-device, and never export private keys over USB or Bluetooth",
+        "They change the user's private key every 60 seconds",
+        "They require the host operating system to store the key in RAM during signing"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Hardware wallets isolate the private key in a dedicated tamper-resistant Secure Element. The host computer transmits unsigned transaction data to the device; the device displays details on its independent screen for physical button confirmation, signs internally, and returns only the signature."
+    },
+    {
+      "id": 19,
+      "question": "What is the critical security danger of granting 'unlimited token approval' (type(uint256).max) to a decentralized application contract?",
+      "options": [
+        "It automatically drains the user's native ETH balance",
+        "If the smart contract contains an exploit, backdoor, or admin key compromise, the attacker can transfer all approved tokens out of the user's wallet without further authorization",
+        "It invalidates the user's BIP-39 recovery phrase",
+        "It increases the gas fee of all future transactions by 10x"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "An ERC-20 approval (allowance) grants a spender contract permission to call transferFrom(user, ...). If users approve type(uint256).max, any subsequent vulnerability or compromise in that contract allows attackers to drain the user's entire token balance at any point in the future."
+    },
+    {
+      "id": 20,
+      "question": "What is the 'Address Poisoning' phishing attack in blockchain wallets?",
+      "options": [
+        "An attacker sends 0-value token transfers from a spoofed vanity address that shares the same prefix and suffix as the victim's frequent contacts, hoping the victim copies it from transaction history",
+        "A virus that corrupts the memory of hardware wallet screens",
+        "A malicious smart contract that permanently locks an address from receiving Ether",
+        "An automated bot that floods Ethereum RPC nodes with invalid signatures"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In address poisoning, attackers generate vanity addresses that match the first and last 4-6 characters of addresses the victim transacts with, and send 0-value transactions to pollute their transaction history. If the victim carelessly copies the address from their wallet history, funds are sent to the attacker."
+    }
+  ]
+}

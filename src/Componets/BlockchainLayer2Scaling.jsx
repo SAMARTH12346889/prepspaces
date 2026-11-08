@@ -1,5 +1,6 @@
 // projectx/src/Componets/BlockchainLayer2Scaling.jsx
 import React, { useState, useMemo, useCallback } from "react";
+import ModuleNav from "./ModuleNav";
 import { Link } from "react-router-dom";
 import {
   Activity,
@@ -820,6 +821,7 @@ export default function BlockchainLayer2Scaling() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-amber-200">
+      <ModuleNav track="blockchain" currentModuleId="layer-2-scaling" />
       {/* Top Banner Navigation */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -3794,10 +3796,10 @@ contract DeployL2Message is Script {
               &larr; Previous: Module 18 (Security & Auditing)
             </Link>
             <Link
-              to="/learning/blockchain/modular-blockchains"
+              to="/learning/blockchain/oracles-chainlink"
               className="w-full sm:w-auto px-5 py-3 rounded-xl bg-amber-600 text-white hover:bg-amber-700 font-mono text-xs font-bold transition-all text-center shadow-sm"
             >
-              Next: Module 20 (Modular Blockchains & Celestia) &rarr;
+              Next: Module 20 (Oracles & Chainlink) &rarr;
             </Link>
           </div>
         </section>

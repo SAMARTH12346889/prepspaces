@@ -1,0 +1,270 @@
+{
+  "id": "solana-rust",
+  "courseId": "blockchain",
+  "index": 23,
+  "name": "23. Solana Development with Rust",
+  "route": "/learning/blockchain/solana-rust",
+  "componentName": "BlockchainSolanaRust",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the primary purpose of a Solana account?",
+      "options": [
+        "To store application and blockchain state",
+        "To execute JavaScript",
+        "To create private keys",
+        "To mine Bitcoin"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In Solana's decoupled architecture, programs are stateless executable code. All persistent application, balance, and protocol state is stored inside separate data accounts owned by programs."
+    },
+    {
+      "id": "q2",
+      "question": "What makes Sealevel parallel execution possible?",
+      "options": [
+        "Every transaction executes on a separate blockchain",
+        "Transactions declare their account dependencies and permissions upfront",
+        "Transactions do not require accounts",
+        "All transactions are executed by one wallet"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Solana transactions must explicitly declare all accounts they will read from or write to. This allows the Sealevel runtime to construct a dependency graph and execute non-overlapping transactions concurrently across CPU threads."
+    },
+    {
+      "id": "q3",
+      "question": "What is Rust ownership designed to manage?",
+      "options": [
+        "Token prices",
+        "Blockchain consensus",
+        "Memory safety and resource lifetime",
+        "Wallet connectivity"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Rust's ownership and borrowing system enforces strict compile-time checks on memory allocation, deallocation, and mutable references, preventing memory leaks, use-after-free, and data races without needing a garbage collector."
+    },
+    {
+      "id": "q4",
+      "question": "What is the main purpose of Anchor?",
+      "options": [
+        "Replacing the Solana blockchain",
+        "Simplifying Solana program development and account validation",
+        "Creating cryptocurrency prices",
+        "Running validators"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Anchor is an opinionated framework for Solana that provides macros (#[program], #[derive(Accounts)]), automatic account discriminator serialization/deserialization, security constraint verification, and IDL client generation."
+    },
+    {
+      "id": "q5",
+      "question": "What is a PDA (Program Derived Address)?",
+      "options": [
+        "A wallet with a publicly known private key",
+        "A randomly generated token",
+        "A deterministic off-curve address derived using seeds and a program ID",
+        "A Solana validator"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A PDA is derived deterministically from arbitrary seed bytes and a program ID, intentionally pushed off the Ed25519 elliptic curve so that no private key exists. Only the owning program can sign for it via invoke_signed."
+    },
+    {
+      "id": "q6",
+      "question": "Which CPI operation is used when a program must sign for its PDA?",
+      "options": [
+        "invoke_signed",
+        "println!",
+        "cargo build",
+        "transfer_checked"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The invoke_signed instruction allows a Solana program to perform a Cross-Program Invocation on behalf of a PDA by providing the seed bytes and canonical bump, which the runtime verifies against the PDA address."
+    },
+    {
+      "id": "q7",
+      "question": "What does a mint account represent?",
+      "options": [
+        "A user's browser session",
+        "An entire validator",
+        "A transaction history table",
+        "A specific token and its global supply information"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In the SPL Token standard, a Mint account defines the token itself: it records the total supply, decimals, mint authority, and optional freeze authority. Individual token holdings are stored in separate token accounts."
+    },
+    {
+      "id": "q8",
+      "question": "What does an ATA (Associated Token Account) represent?",
+      "options": [
+        "A validator identity",
+        "The standard associated token account for a wallet and mint",
+        "A smart-contract compiler",
+        "A Solana block"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "An Associated Token Account (ATA) is a PDA deterministically derived from a user's wallet address, the SPL Token Program ID, and the Token Mint address, ensuring each wallet has exactly one canonical token account per mint."
+    },
+    {
+      "id": "q9",
+      "question": "Which operation destroys token units?",
+      "options": [
+        "Mint",
+        "Transfer",
+        "Burn",
+        "Create ATA"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Burn instruction permanently removes token units from a token account and decrements the global total supply in the Token Mint account."
+    },
+    {
+      "id": "q10",
+      "question": "Why should a program validate account ownership and authority?",
+      "options": [
+        "To prevent unauthorized or invalid state modifications",
+        "To increase the token's market price",
+        "To avoid compiling Rust",
+        "To remove transaction signatures"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Because Solana callers pass arbitrary accounts to instructions, a program must verify that accounts are owned by the expected program and that sensitive instructions are signed by authorized signers to prevent unauthorized drain attacks."
+    },
+    {
+      "id": "q11",
+      "question": "What is the 8-byte discriminator that Anchor prepends to every account data buffer?",
+      "options": [
+        "A random nonce generated at runtime",
+        "First 8 bytes of the SHA-256 hash of 'account:<AccountStructName>'",
+        "The program ID's public key prefix",
+        "The account owner's Unix timestamp"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Anchor enforces type safety by writing the first 8 bytes of SHA-256('account:' + StructName) to the start of account data. When deserializing, Anchor checks this discriminator to ensure the account is of the expected type."
+    },
+    {
+      "id": "q12",
+      "question": "What is the default Compute Unit (CU) limit for a single Solana transaction?",
+      "options": [
+        "200,000 CUs",
+        "1,400,000 CUs",
+        "10,000 CUs",
+        "50,000,000 CUs"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The default execution budget is 200,000 Compute Units per transaction. A transaction can request up to 1,400,000 CUs by including a ComputeBudgetProgram::set_compute_unit_limit instruction."
+    },
+    {
+      "id": "q13",
+      "question": "What happens if an account's lamport balance drops below the minimum rent-exempt threshold?",
+      "options": [
+        "The account is frozen until more lamports are deposited",
+        "The transaction succeeds but validator fees double",
+        "The transaction fails or the account is purged by the runtime",
+        "The account data is converted into an NFT"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Solana enforces that any account created or modified must hold at least 2 years' worth of rent in lamports (rent-exempt minimum). Transactions that leave an account with data but below this threshold fail."
+    },
+    {
+      "id": "q14",
+      "question": "What is the role of Proof of History (PoH) in Solana's consensus?",
+      "options": [
+        "It is a Proof-of-Work mining algorithm",
+        "It is an encoded cryptographic clock (VDF) providing an unforgeable passage of time",
+        "It stores the entire transaction history off-chain",
+        "It validates user identity via zero-knowledge proofs"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Proof of History uses sequential SHA-256 hashing as a Verifiable Delay Function. It proves that event A occurred before event B in real time, eliminating the need for validators to chat back and forth to agree on timestamps."
+    },
+    {
+      "id": "q15",
+      "question": "Why is checked arithmetic (e.g. checked_add, checked_sub) mandatory in Solana programs?",
+      "options": [
+        "Rust forbids normal + and - operators entirely",
+        "In release mode, integer overflow wraps around silently, leading to catastrophic token exploits",
+        "Solana validators only support floating point numbers",
+        "The Anchor compiler fails without checked_add"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In Rust release builds (`--release`), integer overflow wraps around without panicking by default. If an attacker triggers an underflow or overflow in uninspected code, tokens could be created from thin air."
+    },
+    {
+      "id": "q16",
+      "question": "What is the difference between invoke and invoke_signed in Solana CPIs?",
+      "options": [
+        "invoke uses less gas than invoke_signed",
+        "invoke only works with the System Program",
+        "invoke passes existing transaction signatures; invoke_signed injects program PDA signatures using seeds",
+        "invoke_signed can only be called from TypeScript"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "When calling another program, `invoke` forwards existing transaction signatures. `invoke_signed` is used when the invoking program needs to sign on behalf of one of its own PDAs by providing seed bytes and bump."
+    },
+    {
+      "id": "q17",
+      "question": "What is Gulf Stream in the Solana validator architecture?",
+      "options": [
+        "A mempool-less transaction forwarding protocol that sends transactions to upcoming leaders in advance",
+        "A decentralized oracle network for price feeds",
+        "A hardware acceleration unit for GPUs",
+        "A secondary cold storage protocol for Solana ledgers"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Solana does not use a traditional validator mempool. Gulf Stream allows clients and validators to push transactions directly to the scheduled leader for upcoming slots ahead of time, reducing confirmation latency."
+    },
+    {
+      "id": "q18",
+      "question": "In Anchor, what constraint verifies that an account was signed by the caller?",
+      "options": [
+        "#[account(mut)]",
+        "Signer<'info>",
+        "UncheckedAccount<'info>",
+        "#[account(zero)]"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Using `pub authority: Signer<'info>` (or `#[account(signer)]`) ensures that Anchor automatically verifies `authority.is_signer == true` before executing the instruction body, rejecting unauthorized invocations."
+    },
+    {
+      "id": "q19",
+      "question": "What major enhancement does SPL Token-2022 provide over the classic SPL Token standard?",
+      "options": [
+        "It runs on the Ethereum Virtual Machine",
+        "Modular extensions including native transfer fees, interest-bearing tokens, and confidential transfers",
+        "It completely eliminates the need for Associated Token Accounts",
+        "It increases block time to 12 seconds"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Token-2022 (Token Extensions) introduces modular type-length-value (TLV) extensions directly into the mint and account data, enabling transfer fees, non-transferable (soulbound) tokens, metadata pointers, and zero-knowledge confidential transfers."
+    },
+    {
+      "id": "q20",
+      "question": "Which tool provides ultra-fast in-process Solana program testing in Rust without spinning up a full test validator?",
+      "options": [
+        "Hardhat",
+        "LiteSVM (or Mollusk)",
+        "Ganache",
+        "Anvil"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "LiteSVM and Mollusk are lightweight, in-process Solana Virtual Machine execution harnesses that run Solana program unit tests in pure Rust in sub-milliseconds without network overhead or solana-test-validator startup lag."
+    }
+  ]
+}

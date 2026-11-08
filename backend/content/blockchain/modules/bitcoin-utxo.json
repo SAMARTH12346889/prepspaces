@@ -1,0 +1,114 @@
+{
+  "id": "bitcoin-utxo",
+  "courseId": "blockchain",
+  "index": 4,
+  "name": "4. Bitcoin Mechanics & UTXO",
+  "route": "/learning/blockchain/bitcoin-utxo",
+  "componentName": "BlockchainBitcoin",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What data structure does Bitcoin use to track spendable transaction outputs?",
+      "options": [
+        "Account balance model",
+        "UTXO model",
+        "Relational database model",
+        "Centralized bank ledger"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Bitcoin does not track account balances. It maintains an unspent transaction output (UTXO) set in its chainstate database."
+    },
+    {
+      "id": 2,
+      "question": "What is the exact size of a traditional Bitcoin block header?",
+      "options": [
+        "64 bytes",
+        "72 bytes",
+        "80 bytes",
+        "128 bytes"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "A Bitcoin block header is exactly 80 bytes: 4B Version + 32B PrevBlockHash + 32B MerkleRoot + 4B Time + 4B nBits + 4B Nonce."
+    },
+    {
+      "id": 3,
+      "question": "Which cryptographic algorithm is traditionally used for Bitcoin block-header Proof of Work?",
+      "options": [
+        "Single SHA-1",
+        "MD5",
+        "Double SHA-256 (SHA256(SHA256(header)))",
+        "AES-256"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "Bitcoin block headers are hashed using double SHA-256 to guard against length-extension vulnerabilities."
+    },
+    {
+      "id": 4,
+      "question": "What is the Bitcoin difficulty retargeting interval?",
+      "options": [
+        "100 blocks",
+        "500 blocks",
+        "1,000 blocks",
+        "2,016 blocks (~14 days)"
+      ],
+      "correct": 3,
+      "correctIndex": 3,
+      "explanation": "Bitcoin difficulty retargets every 2,016 blocks, which corresponds to exactly 14 days at the target 10-minute block pace."
+    },
+    {
+      "id": 5,
+      "question": "What is the Bitcoin block subsidy following the April 2024 halving (and in 2026)?",
+      "options": [
+        "50 BTC",
+        "12.5 BTC",
+        "6.25 BTC",
+        "3.125 BTC"
+      ],
+      "correct": 3,
+      "correctIndex": 3,
+      "explanation": "The fourth halving at block 840,000 reduced the block subsidy from 6.25 BTC to 3.125 BTC."
+    },
+    {
+      "id": 6,
+      "question": "What does Segregated Witness (SegWit, BIP 141) separate from traditional transaction serialization?",
+      "options": [
+        "Output satoshi values",
+        "Witness signature data",
+        "Block timestamps",
+        "Previous block hashes"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "SegWit moves cryptographic signatures and scripts into a separate witness structure, eliminating transaction malleability and reducing effective vsize."
+    },
+    {
+      "id": 7,
+      "question": "What does the PSBT standard (BIP 174) stand for?",
+      "options": [
+        "Public Signature Bitcoin Transaction",
+        "Partially Signed Bitcoin Transaction",
+        "Private Script Blockchain Transfer",
+        "Protocol Signed Block Transaction"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Partially Signed Bitcoin Transaction (PSBT) provides a standard binary format for passing unsigned or partially signed transactions between wallets and signers."
+    },
+    {
+      "id": 8,
+      "question": "What is the role of an HTLC in the Lightning Network?",
+      "options": [
+        "PoW block mining",
+        "Enforcing conditional atomic payments using hash preimages and timelocks",
+        "Public key derivation",
+        "Pruning historical UTXOs"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Hashed Timelock Contracts (HTLCs) allow routed multi-hop off-chain payments to settle atomically across payment channels."
+    }
+  ]
+}

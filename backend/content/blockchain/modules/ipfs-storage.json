@@ -1,0 +1,270 @@
+{
+  "id": "ipfs-storage",
+  "courseId": "blockchain",
+  "index": 15,
+  "name": "15. IPFS & Decentralized Storage",
+  "route": "/learning/blockchain/ipfs-storage",
+  "componentName": "BlockchainStorageIPFS",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the primary difference between location-based addressing (HTTP) and content-based addressing (IPFS)?",
+      "options": [
+        "A) Location addressing identifies files by their cryptographic hash, while content addressing uses IP addresses",
+        "B) Location addressing identifies WHERE a resource is hosted on a specific server/URL, while content addressing identifies WHAT the file is based on its cryptographic digest",
+        "C) Location addressing is faster because it does not use TCP/IP",
+        "D) Content addressing can only be used for files smaller than 1 kilobyte"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Location addressing (e.g. https://example.com/file.png) points to a specific physical server and path. If the server goes down or changes the file, the URL breaks. Content addressing (ipfs://CID) points directly to the immutable cryptographic hash of the content itself, regardless of which node serves it."
+    },
+    {
+      "id": "q2",
+      "question": "Why is an IPFS Content Identifier (CIDv1) not simply a raw cryptographic hash?",
+      "options": [
+        "A) It is encrypted with a private key",
+        "B) It is a self-describing structured identifier containing multibase prefix, CID version, multicodec (content format), and multihash (hashing algorithm + length + digest)",
+        "C) It contains the uploader's Ethereum wallet address",
+        "D) It includes the server's domain name and DNS zone"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "CIDs are self-describing multiformats. CIDv1 includes a multibase prefix (e.g. 'b' for base32), CID version, multicodec (e.g. raw or dag-pb), and a multihash header indicating which hash function was used (e.g. sha2-256) and its length."
+    },
+    {
+      "id": "q3",
+      "question": "What happens if a single character inside a 10MB document uploaded to IPFS is modified?",
+      "options": [
+        "A) The CID remains identical because the file size is almost the same",
+        "B) The entire file is deleted by the IPFS network",
+        "C) Due to the avalanche effect of cryptographic hashing, the modified block produces a different hash, yielding a completely different root CID",
+        "D) The smart contract automatically updates the old CID"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Cryptographic hash functions exhibit the avalanche effect: changing even a single byte or character dramatically alters the hash digest, creating a new block hash and a completely different root CID."
+    },
+    {
+      "id": "q4",
+      "question": "What is the primary function of a Distributed Hash Table (DHT) in the IPFS network?",
+      "options": [
+        "A) To store the entire contents of all files uploaded to IPFS",
+        "B) To act as a distributed routing system that maps Content Identifiers (CIDs) to the peer IDs of nodes currently providing those content blocks",
+        "C) To execute Solidity smart contracts off-chain",
+        "D) To mine cryptocurrency blocks for Filecoin"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The DHT (based on Kademlia) does not store the files themselves; it stores routing 'provider records' that tell the network which peers currently advertise holding blocks for a specific CID."
+    },
+    {
+      "id": "q5",
+      "question": "Why is 'pinning' necessary to ensure that content remains available on an IPFS node?",
+      "options": [
+        "A) Unpinned content is automatically converted into Bitcoin",
+        "B) IPFS nodes run garbage collection (GC) to reclaim storage; pinning explicitly protects cached content blocks from being deleted during GC",
+        "C) Pinning is required to encrypt the file with AES-GCM",
+        "D) Pinning submits an on-chain transaction to Ethereum"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "IPFS is not automatically permanent. Nodes cache blocks temporarily. When disk limits are reached, the garbage collector purges unpinned blocks. Pinning locks blocks in the local blockstore or remote pinning service."
+    },
+    {
+      "id": "q6",
+      "question": "Does uploading a file to IPFS guarantee that the file will be stored permanently forever?",
+      "options": [
+        "A) Yes, every IPFS node in the world automatically replicates all uploaded files",
+        "B) No; content persistence requires that at least one online node continues to pin and serve the blocks, or that storage deals exist (e.g. via Filecoin/Arweave)",
+        "C) Yes, because IPFS is integrated directly into Ethereum consensus",
+        "D) Only if the file is smaller than 256 kilobytes"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "IPFS provides content addressing, not guaranteed permanent storage. If all nodes holding or pinning the file go offline or unpin the content, the file becomes irretrievable from the network."
+    },
+    {
+      "id": "q7",
+      "question": "What is the role of an IPFS Gateway (e.g. https://ipfs.io/ipfs/<CID>)?",
+      "options": [
+        "A) To bridge legacy HTTP/HTTPS web browsers with the peer-to-peer IPFS network by fetching blocks and streaming them over standard HTTP",
+        "B) To mine Proof-of-Work blocks for Bitcoin",
+        "C) To compile Solidity bytecode into ABI JSON",
+        "D) To store private keys in the browser"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Standard web browsers do not natively speak the peer-to-peer IPFS protocol (libp2p/Bitswap). Gateways act as HTTP translation proxies that resolve CIDs across the IPFS network and return content over HTTP."
+    },
+    {
+      "id": "q8",
+      "question": "In ERC-721 NFT smart contracts, why is the tokenURI() typically pointed to an IPFS CID rather than stored on-chain or on a centralized AWS S3 URL?",
+      "options": [
+        "A) Ethereum does not allow string return types in Solidity",
+        "B) Storing high-resolution artwork on-chain costs thousands of dollars in gas, while S3 URLs can be changed, deleted, or abandoned by the creator; IPFS provides tamper-proof content addressing at minimal cost",
+        "C) IPFS automatically pays royalties to the artist",
+        "D) AWS S3 blocks all Web3 traffic"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Storing megabytes of artwork on-chain is cost-prohibitive. Centralized URLs create 'rug-pull' risks where the server owner replaces the image. IPFS provides cryptographic immutability while storing the file off-chain."
+    },
+    {
+      "id": "q9",
+      "question": "If an NFT's tokenURI points to an immutable IPFS CID, is the NFT metadata guaranteed to be completely immutable?",
+      "options": [
+        "A) Yes, because IPFS makes everything immutable",
+        "B) Not necessarily; if the underlying smart contract includes an admin function (e.g. setTokenURI or setBaseURI), the contract owner can change the referenced CID to a completely different one",
+        "C) No, because CIDs expire after 30 days",
+        "D) Yes, all ERC-721 contracts lock tokenURI permanently by default"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "While the content associated with a given CID is immutable, the smart contract's state variable holding that CID may be mutable if the contract author implemented an owner-controlled setter function."
+    },
+    {
+      "id": "q10",
+      "question": "What is the fundamental architectural relationship between IPFS and Filecoin?",
+      "options": [
+        "A) Filecoin is a competitor that replaced IPFS entirely",
+        "B) IPFS provides content addressing and peer-to-peer data transport, while Filecoin provides an incentive layer and decentralized marketplace for verifiable, long-term storage deals",
+        "C) IPFS is for databases and Filecoin is for frontends",
+        "D) Filecoin only stores text while IPFS stores audio"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "IPFS and Filecoin are complementary sister protocols created by Protocol Labs. IPFS defines how data is addressed and moved; Filecoin provides the economic layer where clients pay storage providers who cryptographically prove ongoing storage."
+    },
+    {
+      "id": "q11",
+      "question": "How does Arweave's economic model differ from typical recurring monthly storage subscriptions?",
+      "options": [
+        "A) Arweave charges per-second CPU fees",
+        "B) Users pay a one-time upfront fee backed by a storage endowment fund that generates interest and pays miners to store data for hundreds of years (the Permaweb)",
+        "C) Arweave is completely free for all users forever without funding",
+        "D) Users must buy and burn Bitcoin to store files"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Arweave uses an endowment model: users pay an upfront fee calculated based on conservative assumptions about falling storage costs. The fee goes into an endowment pool that continuously rewards storage miners over centuries."
+    },
+    {
+      "id": "q12",
+      "question": "Why should sensitive personal or financial documents NEVER be uploaded to IPFS in plaintext?",
+      "options": [
+        "A) Because IPFS nodes reject PDF files",
+        "B) IPFS is a public peer-to-peer network where any node or gateway that knows or discovers the CID can download and read the unencrypted file bytes",
+        "C) Because smart contracts automatically publish all IPFS files to Twitter",
+        "D) Because IPFS files cannot be downloaded more than once"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "IPFS provides content addressing, not access control. Anyone who obtains the CID or discovers it via DHT provider records can retrieve the raw file. Sensitive data must be encrypted client-side before uploading."
+    },
+    {
+      "id": "q13",
+      "question": "Which symmetric encryption algorithm and cipher mode is recommended for client-side Web3 file encryption using the Web Crypto API?",
+      "options": [
+        "A) DES-ECB",
+        "B) AES-GCM (256-bit key) with a unique, cryptographically random 12-byte Initialization Vector (IV)",
+        "C) ROT13",
+        "D) MD5 with a password"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "AES-GCM (Galois/Counter Mode) with a 256-bit key is the industry standard authenticated encryption cipher. It provides both confidentiality and cryptographic integrity verification, requiring a fresh 12-byte IV per encryption."
+    },
+    {
+      "id": "q14",
+      "question": "Does possessing a valid IPFS CID prove that the uploader was the authentic, original creator of that content?",
+      "options": [
+        "A) Yes, CIDs verify legal copyright ownership",
+        "B) No; a CID only proves integrity (that the content matches the digest). It does not prove who authored the file, whether the content is truthful, or if the uploader had permission",
+        "C) Yes, because IPFS requires KYC verification",
+        "D) Only if the CID begins with 'bafy'"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Cryptographic integrity is distinct from provenance and authenticity. A CID proves that the bits have not changed since the CID was generated, but anyone can upload someone else's copyrighted file and generate a CID."
+    },
+    {
+      "id": "q15",
+      "question": "In the IPFSRegistry.sol smart contract, what does the contract actually store when registerDocument(string cid) is called?",
+      "options": [
+        "A) The entire binary file content in EVM bytecode",
+        "B) A Document struct containing the uploader address, the CID string reference, and the block timestamp",
+        "C) An encrypted copy of the user's private key",
+        "D) The AWS S3 bucket credentials"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The smart contract stores a lightweight reference (struct Document { address uploader; string cid; uint256 timestamp; }). It stores zero binary file bytes on-chain, keeping gas costs minimal."
+    },
+    {
+      "id": "q16",
+      "question": "What is a major security risk of uploading files directly from a React frontend to an IPFS pinning service API like Pinata?",
+      "options": [
+        "A) React cannot send HTTP POST requests",
+        "B) The developer's secret Pinata API JWT token would be exposed in the client-side JavaScript bundle where any user can steal it",
+        "C) IPFS rejects requests from browser fetch",
+        "D) Vite only supports Web3.Storage"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Embedding private API credentials in frontend code exposes them to the public. Production architectures route file uploads through a backend proxy (Node.js/Express) that keeps provider secrets secure."
+    },
+    {
+      "id": "q17",
+      "question": "What is Bitswap in the IPFS networking stack?",
+      "options": [
+        "A) A decentralized cryptocurrency exchange for trading Bitcoin",
+        "B) The core peer-to-peer data trading protocol in IPFS where connected nodes exchange wanted content blocks with peers using wantlists and havelists",
+        "C) A tool for compiling Solidity contracts",
+        "D) An algorithm for calculating Ethereum gas fees"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Bitswap is the message-based peer-to-peer block exchange protocol in IPFS. When a node wants a CID, Bitswap broadcasts wantlists to peers and pulls the corresponding blocks concurrently."
+    },
+    {
+      "id": "q18",
+      "question": "Why might two identical files produce different root CIDs on IPFS?",
+      "options": [
+        "A) Because CIDs change based on the time of day",
+        "B) If different chunking algorithms (e.g. 256KB vs 1MB), different DAG structures (UnixFSv1 vs UnixFSv2), or different CID versions (CIDv0 vs CIDv1) are used during import",
+        "C) Because IPFS randomly salts every file",
+        "D) Because Ethereum gas prices affect hashing"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A root CID represents the entire Merkle DAG of blocks. If the chunker splits the file at different boundaries, or if different CID formats or UnixFS versions are used, the resulting DAG structure and root CID will differ."
+    },
+    {
+      "id": "q19",
+      "question": "What is a 'Trustless Gateway' in the IPFS specification?",
+      "options": [
+        "A) A gateway that blocks all incoming requests",
+        "B) A gateway that returns verifiable raw content blocks (.car format or raw blocks) along with cryptographic proofs, allowing the client to verify the root CID locally without trusting the gateway operator",
+        "C) A gateway that does not require an internet connection",
+        "D) A private gateway hosted by a central bank"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Standard gateways return parsed HTTP responses that a malicious gateway could tamper with. Trustless gateways return raw content blocks and DAG-CBOR/CAR archives that client software cryptographically verifies against the requested CID."
+    },
+    {
+      "id": "q20",
+      "question": "What is the recommended multi-provider strategy for production Web3 applications requiring high availability for critical documents?",
+      "options": [
+        "A) Rely entirely on a single public Cloudflare gateway",
+        "B) Pin critical content across multiple independent pinning providers (e.g. Pinata + Web3.Storage + dedicated local node), monitor availability, and use fallback dedicated gateways",
+        "C) Store duplicate copies in Ethereum smart contract storage slots",
+        "D) Email the file to all users"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Relying on a single pinning service or gateway introduces a centralized point of failure. Multi-provider redundancy pins files across multiple independent networks, uses dedicated gateways with automated fallback, and monitors CID retrieval."
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "id": "hyperledger-fabric",
+  "courseId": "blockchain",
+  "index": 22,
+  "name": "22. Hyperledger Fabric & Enterprise Blockchain",
+  "route": "/learning/blockchain/hyperledger-fabric",
+  "componentName": "BlockchainHyperledgerFabric",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is Hyperledger Fabric?",
+      "options": [
+        "A public cryptocurrency",
+        "A permissioned enterprise blockchain framework",
+        "A wallet application",
+        "A cloud database"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Hyperledger Fabric is an open-source, permissioned enterprise distributed ledger technology framework hosted by the Linux Foundation, designed for consortium networks with identity control and modular consensus."
+    },
+    {
+      "id": "q2",
+      "question": "What is the responsibility of a Fabric peer?",
+      "options": [
+        "Only mining blocks",
+        "Hosting ledger and chaincode, and participating in endorsement and validation",
+        "Issuing all certificates",
+        "Only producing tokens"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Peers maintain the channel ledger (blockchain and world state), execute chaincode during proposal simulation to generate read/write sets, sign endorsements, and validate transactions prior to committing blocks."
+    },
+    {
+      "id": "q3",
+      "question": "What is the responsibility of an ordering node?",
+      "options": [
+        "Executing all chaincode",
+        "Registering users",
+        "Ordering transactions into blocks",
+        "Creating product records"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Ordering nodes receive endorsed transactions from clients, establish an agreed-upon deterministic sequence across the channel, package transactions into cryptographic blocks, and distribute them to committing peers."
+    },
+    {
+      "id": "q4",
+      "question": "What does MSP stand for?",
+      "options": [
+        "Membership Service Provider",
+        "Main Security Protocol",
+        "Multi-Signature Permission",
+        "Managed Storage Process"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "MSP stands for Membership Service Provider. It defines the trusted root certificate authorities, intermediate CAs, and administrative roles that validate whether an identity belongs to an authorized organization."
+    },
+    {
+      "id": "q5",
+      "question": "What is the primary function of a Certificate Authority (CA)?",
+      "options": [
+        "Create blocks",
+        "Issue and manage identity certificates",
+        "Execute smart contracts",
+        "Manage CouchDB indexes"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A Certificate Authority creates, registers, enrolls, signs, and manages X.509 digital certificates and private key credentials for network participants, peers, and ordering nodes."
+    },
+    {
+      "id": "q6",
+      "question": "What is a Fabric channel?",
+      "options": [
+        "An Ethereum wallet",
+        "A private communication and transaction environment with its own ledger",
+        "A Docker image",
+        "A mining pool"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A channel provides complete transaction isolation and confidentiality by maintaining a dedicated, independent blockchain ledger accessible strictly to the organizations joined to that channel."
+    },
+    {
+      "id": "q7",
+      "question": "What is a private data collection (PDC)?",
+      "options": [
+        "A public database",
+        "A method of sharing private data among selected channel members",
+        "An ordering algorithm",
+        "A certificate revocation list"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A private data collection enables a subset of organizations on a shared channel to exchange confidential data peer-to-peer; only a cryptographic hash of the private data is recorded on the public channel block ledger."
+    },
+    {
+      "id": "q8",
+      "question": "What does a chaincode endorsement policy specify?",
+      "options": [
+        "Which peers or organizations must endorse a transaction",
+        "How many tokens to mint",
+        "Which Docker image to execute",
+        "How to generate user passwords"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "An endorsement policy defines the exact combination of organization peers that must simulate and cryptographically sign a transaction proposal (e.g., AND('Org1MSP.peer', 'Org2MSP.peer')) for it to be valid."
+    },
+    {
+      "id": "q9",
+      "question": "Which database provides rich JSON queries in Fabric?",
+      "options": [
+        "Redis",
+        "CouchDB",
+        "SQLite",
+        "MySQL"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Apache CouchDB serves as an alternative world-state database to embedded LevelDB, supporting complex Mango JSON queries, index definitions, and field-level searches against ledger assets."
+    },
+    {
+      "id": "q10",
+      "question": "What are the two major parts of the Fabric ledger?",
+      "options": [
+        "Peer and orderer",
+        "Blockchain and world state",
+        "Wallet and token",
+        "MSP and CA"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Fabric ledger consists of the sequential, immutable, append-only block history (Blockchain) and the current snapshot of latest key values (World State database)."
+    },
+    {
+      "id": "q11",
+      "question": "What does Fabric Gateway simplify?",
+      "options": [
+        "Token mining",
+        "Endorsement collection, transaction submission and commit-status handling",
+        "Certificate authority installation",
+        "Docker image creation"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Fabric Gateway (embedded in peers since v2.4) abstracts client complexity by dynamically discovering endorsers, collecting endorsement signatures, submitting to orderers, and notifying clients upon block commit."
+    },
+    {
+      "id": "q12",
+      "question": "What is the main purpose of chaincode?",
+      "options": [
+        "Provide business logic for ledger transactions",
+        "Replace all databases",
+        "Issue identity certificates",
+        "Manage browser sessions"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Chaincode packages the executable business logic and smart contracts that inspect, validate, and alter the state of distributed ledger assets."
+    },
+    {
+      "id": "q13",
+      "question": "Why does Hyperledger Fabric use an Execute-Order-Validate architecture instead of Order-Execute?",
+      "options": [
+        "To require mining rewards for every node",
+        "To eliminate non-deterministic execution and enable high-concurrency simulation before ordering",
+        "To force all transactions to use public gas",
+        "To restrict network size to 3 peers"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "By executing transactions speculatively across endorsing peers before ordering, non-deterministic results can be filtered out, transactions run in parallel, and expensive computations do not stall the ordering service."
+    },
+    {
+      "id": "q14",
+      "question": "In Fabric transaction validation, what causes an MVCC (Multiversion Concurrency Control) conflict?",
+      "options": [
+        "The client pays insufficient gas",
+        "A key read during simulation was modified by another committed block before validation",
+        "The Docker container runs out of disk space",
+        "The chaincode is written in Go instead of JavaScript"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "An MVCC conflict occurs when the version of a key in the transaction's read set does not match the current version in world state at validation time, indicating concurrent modifications."
+    },
+    {
+      "id": "q15",
+      "question": "How many faulty nodes can a Raft ordering cluster of N nodes tolerate?",
+      "options": [
+        "f = (N - 1) / 2 crash faults",
+        "f = (N - 1) / 3 Byzantine faults",
+        "Any number of nodes",
+        "Zero nodes"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Raft is a Crash Fault Tolerant (CFT) consensus protocol requiring a strict majority quorum ((N/2) + 1). For N nodes, it can tolerate f = (N - 1) / 2 crash failures (e.g., 2 failures in a 5-node cluster)."
+    },
+    {
+      "id": "q16",
+      "question": "Why should chaincode NEVER use time.Now() from the host operating system clock?",
+      "options": [
+        "Because Go does not support time.Now()",
+        "Because each peer's host clock differs, causing non-deterministic read/write sets and endorsement mismatch reverts",
+        "Because Fabric requires timestamps in UNIX seconds only",
+        "Because Docker blocks system clock access"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Endorsing peers simulate proposals independently. If chaincode reads host time, each peer generates different timestamps and hashes, failing endorsement policy checks. Developers must use ctx.GetStub().GetTxTimestamp()."
+    },
+    {
+      "id": "q17",
+      "question": "What is the difference between an identity's registration and enrollment in Fabric CA?",
+      "options": [
+        "Registration issues the certificate; enrollment creates the username",
+        "Registration records the identity and role with the CA; enrollment exchanges the secret for private keys and X.509 certificates",
+        "They are identical operations",
+        "Enrollment is only for ordering nodes"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "An administrator registers an identity to assign its username, secret, and organizational attributes. The user then enrolls using that secret to generate their private key and receive their signed X.509 certificate."
+    },
+    {
+      "id": "q18",
+      "question": "In a 2-step custody transfer (TransferCustody followed by AcceptCustodyTransfer), why is PendingOwnerMSP utilized?",
+      "options": [
+        "To bypass endorsement policies",
+        "To prevent unilateral asset dumping by requiring the receiving organization to explicitly sign and accept responsibility",
+        "To avoid paying transaction gas fees",
+        "To delete the product from the world state"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A 2-step transfer ensures formal enterprise bilateral accountability. The current owner nominates the recipient via PendingOwnerMSP; custody does not change until the receiving organization confirms receipt."
+    },
+    {
+      "id": "q19",
+      "question": "Where must declarative CouchDB index files be placed inside a Go chaincode package?",
+      "options": [
+        "/etc/couchdb/indexes/",
+        "META-INF/statedb/couchdb/indexes/",
+        "/var/hyperledger/production/",
+        "src/indexes/"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Fabric peer lifecycle automatically discovers and builds CouchDB indexes located under META-INF/statedb/couchdb/indexes/ within the chaincode package during installation and commitment."
+    },
+    {
+      "id": "q20",
+      "question": "What is the primary trade-off of using CouchDB over LevelDB as the Fabric peer state database?",
+      "options": [
+        "LevelDB supports rich JSON queries while CouchDB only supports key lookups",
+        "CouchDB supports rich JSON queries and indexes but requires an external container service and exhibits lower raw key-value throughput than embedded LevelDB",
+        "CouchDB cannot be used with Go chaincode",
+        "LevelDB requires an external Docker network"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "LevelDB is an ultra-fast, embedded C++ key-value database ideal for simple key lookups. CouchDB runs as a separate container service, supporting complex JSON Mango queries and secondary indexes at the cost of network overhead."
+    }
+  ]
+}

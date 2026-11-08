@@ -1,0 +1,270 @@
+{
+  "id": "defi-protocols",
+  "courseId": "blockchain",
+  "index": 16,
+  "name": "16. Decentralized Finance (DeFi) Protocol Architecture",
+  "route": "/learning/blockchain/defi-protocols",
+  "componentName": "BlockchainDeFiProtocols",
+  "quiz": [
+    {
+      "id": "q-1",
+      "question": "What is the primary difference between how a token swap is settled on a centralized exchange (CEX) versus a decentralized exchange (DEX)?",
+      "options": [
+        "A CEX uses off-chain internal database ledger updates; a DEX executes swaps through public blockchain smart contracts and updates on-chain reserves",
+        "A CEX requires MetaMask; a DEX requires passport and KYC documents",
+        "A CEX has zero trading fees; a DEX charges 50% gas tax",
+        "A CEX uses the constant product formula x * y = k; a DEX matches orders with high-frequency trading matching engines"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "On a centralized exchange, trades are internal database credit/debit operations controlled by a single company. On a DEX, swaps are executed trustlessly by smart contracts that read and update on-chain liquidity pool reserves."
+    },
+    {
+      "id": "q-2",
+      "question": "In a Constant Product AMM (x * y = k) with 10 ETH (x) and 20,000 USDC (y), what is the initial spot price of ETH?",
+      "options": [
+        "$200 / ETH",
+        "$2,000 / ETH",
+        "$20,000 / ETH",
+        "$200,000 / ETH"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Spot price is defined as the ratio of quote reserve to base reserve: P = y / x = 20,000 / 10 = $2,000 USDC per ETH."
+    },
+    {
+      "id": "q-3",
+      "question": "In the same 10 ETH / 20,000 USDC pool (k = 200,000), if a trader deposits 1 ETH without fees, how much USDC do they receive?",
+      "options": [
+        "2,000.00 USDC",
+        "1,818.18 USDC",
+        "1,000.00 USDC",
+        "18,181.82 USDC"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "New ETH reserve x' = 10 + 1 = 11. Since x' * y' = k = 200,000, y' = 200,000 / 11 ≈ 18,181.82. The USDC received is y - y' = 20,000 - 18,181.82 = 1,818.18 USDC."
+    },
+    {
+      "id": "q-4",
+      "question": "What does a price impact of 9.09% mean in the previous swap (spot price $2,000, received 1,818.18 USDC)?",
+      "options": [
+        "The pool charged a 9.09% protocol gas fee",
+        "The trader paid 9.09% in slippage to arbitrage miners",
+        "The effective execution price ($1,818.18) deteriorated by 9.09% compared to the initial spot price ($2,000) due to pool reserve shifts",
+        "The transaction will automatically revert because it exceeds Ethereum limits"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "Price impact reflects the shifting reserve ratio caused by the size of the trade relative to total pool depth: (2000 - 1818.18) / 2000 = 9.09%."
+    },
+    {
+      "id": "q-5",
+      "question": "Why do smart contract DEX routers require users to supply a 'minAmountOut' parameter during a swap?",
+      "options": [
+        "To prevent the contract from running out of gas",
+        "To protect the trader from excessive slippage and front-running sandwich attacks by MEV bots",
+        "To calculate the maximum tax deduction for blockchain regulators",
+        "To verify that the user's wallet address has sufficient ETH balance"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Enforcing `require(amountOut >= minAmountOut)` ensures that if other transactions move the pool price or an MEV bot sandwiches the trade beyond the user's slippage tolerance, the transaction reverts safely."
+    },
+    {
+      "id": "q-6",
+      "question": "Which AMM curve is specifically optimized to minimize slippage for pegged assets trading at parity (e.g. USDC/USDT/DAI)?",
+      "options": [
+        "Constant Product AMM (Uniswap v2)",
+        "Stable-Swap Hybrid Invariant (Curve Finance)",
+        "Concentrated Liquidity Range Orders (Uniswap v3)",
+        "Dutch Auction AMM"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Curve's Stable-Swap invariant combines constant sum and constant product formulas to provide ultra-flat, low-slippage pricing around a 1:1 exchange rate."
+    },
+    {
+      "id": "q-7",
+      "question": "What is the primary role of a DEX Factory contract in the Uniswap v2 architecture?",
+      "options": [
+        "To hold the user's private keys",
+        "To deploy and index unique Pair contracts for token tuples and maintain the protocol fee recipient",
+        "To execute multi-hop swap math",
+        "To provide decentralized price feeds from Chainlink"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "The Factory contract is the core registry that creates deterministic Pair contracts (using CREATE2) for any two ERC-20 tokens and tracks all deployed pairs."
+    },
+    {
+      "id": "q-8",
+      "question": "A borrower deposits $5,000 worth of ETH collateral into a lending protocol with a maximum Loan-to-Value (LTV) of 65%. What is the maximum USDC they can borrow?",
+      "options": [
+        "$2,500",
+        "$3,250",
+        "$3,750",
+        "$5,000"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Maximum Borrow = Collateral Value * LTV = $5,000 * 0.65 = $3,250 USDC."
+    },
+    {
+      "id": "q-9",
+      "question": "If a borrower has $2,000 in collateral and $1,000 in debt, what are their Collateralization Ratio (CR) and current Loan-to-Value (LTV)?",
+      "options": [
+        "CR = 50%, LTV = 200%",
+        "CR = 200%, LTV = 50%",
+        "CR = 100%, LTV = 100%",
+        "CR = 150%, LTV = 75%"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "CR = (Collateral / Debt) * 100 = ($2,000 / $1,000) * 100 = 200%. LTV = (Debt / Collateral) * 100 = ($1,000 / $2,000) * 100 = 50%."
+    },
+    {
+      "id": "q-10",
+      "question": "How is a borrower's Health Factor (HF) calculated, and when does a position become eligible for liquidation?",
+      "options": [
+        "HF = Debt / Collateral; liquidatable when HF > 1",
+        "HF = (Collateral Value * Liquidation Threshold) / Debt Value; liquidatable when HF < 1.0",
+        "HF = Borrow Rate * Utilization; liquidatable when HF reaches 100%",
+        "HF = Gas Price / Slippage; liquidatable when gas exceeds 50 gwei"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Health Factor represents position safety. When HF < 1.0, the discounted collateral value no longer safely covers the debt threshold, allowing external liquidators to step in."
+    },
+    {
+      "id": "q-11",
+      "question": "Why do lending protocols provide a 'Liquidation Bonus' (e.g. 5% to 10%) to third-party liquidators?",
+      "options": [
+        "To refund the borrower's interest payments",
+        "To incentivize independent liquidators to monitor the mempool, repay risky debt, and prevent protocol insolvency",
+        "To pay protocol taxes to miners",
+        "To reward governance token stakers"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Liquidators spend their own capital and pay high gas fees to clear bad debt. The liquidation bonus allows them to buy borrower collateral at a discount, ensuring active insolvency protection."
+    },
+    {
+      "id": "q-12",
+      "question": "In a kinked interest rate model, why does the interest rate slope increase dramatically once pool utilization exceeds the optimal threshold (e.g. 80%)?",
+      "options": [
+        "To bankrupt borrowers and seize their tokens",
+        "To discourage new borrowing, incentivize existing borrowers to repay debt, and attract new liquidity providers to prevent bank runs",
+        "Because Ethereum gas fees increase above 80%",
+        "To automatically trigger DAO governance voting"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "If pool utilization reaches 100%, depositors cannot withdraw their funds. The sharp kink punishes borrowing above the optimal point and attracts new lenders, protecting pool liquidity."
+    },
+    {
+      "id": "q-13",
+      "question": "What is the key mathematical difference between Annual Percentage Rate (APR) and Annual Percentage Yield (APY)?",
+      "options": [
+        "APR includes gas fees; APY excludes gas fees",
+        "APR represents simple non-compounded interest; APY accounts for the exponential effects of periodic compounding",
+        "APR applies only to stablecoins; APY applies only to volatile tokens",
+        "APR is calculated on-chain; APY is calculated off-chain"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "APR is linear annualized interest (Annual Rewards / Deposit). APY = (1 + r/n)^n - 1, which incorporates interest earned on reinvested rewards over time."
+    },
+    {
+      "id": "q-14",
+      "question": "An LP deposits equal values of ETH and USDC into a constant product pool. The price of ETH doubles (2x price ratio r = 2). What is the resulting Impermanent Loss?",
+      "options": [
+        "0.00% (No loss occurs)",
+        "-5.72%",
+        "-13.40%",
+        "-50.00%"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "IL = (2 * sqrt(2)) / (1 + 2) - 1 = (2 * 1.4142) / 3 - 1 = 2.8284 / 3 - 1 ≈ -0.0572 = -5.72%."
+    },
+    {
+      "id": "q-15",
+      "question": "Under what condition does an LP experience net profitability despite suffering impermanent loss?",
+      "options": [
+        "If the price of ETH falls to zero",
+        "If cumulative swap fees and farming rewards earned exceed the dollar value of the impermanent loss",
+        "If the LP immediately removes liquidity during a price crash",
+        "If the protocol changes from AMM to order book"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Impermanent loss is an opportunity cost relative to holding. If trading fee yields and liquidity mining incentives exceed the IL divergence, the LP generates a positive net return."
+    },
+    {
+      "id": "q-16",
+      "question": "What defines a DeFi 'Flash Loan', and why does it not require upfront collateral?",
+      "options": [
+        "It is a microloan under $10 designed for testing",
+        "It is an uncollateralized loan that must be borrowed and fully repaid with fees within the exact same atomic transaction; otherwise the entire transaction reverts",
+        "It is an uncollateralized loan issued based on off-chain credit scores",
+        "It is a loan sponsored by Ethereum validators using MEV"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Due to EVM state atomicity, if the borrower does not return the borrowed principal plus the protocol fee before the end of the transaction, the execution reverts completely as if it never occurred."
+    },
+    {
+      "id": "q-17",
+      "question": "Which of the following is a legitimate and common use case for a flash loan?",
+      "options": [
+        "Holding borrowed funds in cold storage for 6 months",
+        "Cross-DEX price arbitrage, self-liquidation, collateral swaps, and debt refinancing without upfront capital",
+        "Purchasing real-world estate assets",
+        "Permanently locking tokens in a staking contract"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Flash loans allow capital-intensive atomic operations—such as buying an undervalued token on Uniswap and selling on Sushiswap, or swapping debt collateral in a single block."
+    },
+    {
+      "id": "q-18",
+      "question": "What does 'Composability' (Money Legos) refer to in the context of DeFi architecture?",
+      "options": [
+        "The ability to translate Solidity contracts into JavaScript",
+        "The permissionless interoperability of smart contracts, allowing one protocol to build upon, wrap, or call contracts from another protocol seamlessly",
+        "The physical hardware components powering Ethereum validator nodes",
+        "The legal structure of decentralized autonomous organizations"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Composability enables protocols to interact trustlessly (e.g., depositing Lido stETH into Aave to borrow DAI, and supplying DAI to Curve to earn trading fees)."
+    },
+    {
+      "id": "q-19",
+      "question": "How does an attacker exploit an AMM spot price oracle to drain a vulnerable lending protocol?",
+      "options": [
+        "By cracking the private key of the router contract",
+        "By executing a massive swap or flash loan to artificially inflate the AMM spot price, borrowing against overvalued collateral in the lending market, and walking away",
+        "By shutting down the Ethereum network via DDoS",
+        "By deploying a malicious ERC-20 token that returns false balances"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "If a lending protocol reads instantaneous spot reserves (`reserveB / reserveA`), an attacker can skew reserves inside a flash loan, borrow excessive funds against manipulated pricing, and repay the loan."
+    },
+    {
+      "id": "q-20",
+      "question": "Why is the Checks-Effects-Interactions (CEI) pattern essential in DeFi smart contract design?",
+      "options": [
+        "It reduces the size of compiled bytecode",
+        "It updates internal state balances before making external contract or ETH transfer calls, preventing recursive reentrancy attacks",
+        "It ensures tokens use 18 decimals instead of 6",
+        "It automatically generates OpenZeppelin unit tests"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Updating state variables (`balances[msg.sender] -= amount`) before performing external calls (`call{value: amount}`) guarantees that any malicious fallback reentry sees an updated, zeroed balance and fails."
+    }
+  ]
+}

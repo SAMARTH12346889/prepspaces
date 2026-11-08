@@ -1,0 +1,140 @@
+{
+  "id": "ethereum-evm",
+  "courseId": "blockchain",
+  "index": 5,
+  "name": "5. Ethereum Architecture & Ecosystem",
+  "route": "/learning/blockchain/ethereum-evm",
+  "componentName": "BlockchainEthereum",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is Ethereum's native cryptocurrency?",
+      "options": [
+        "BTC",
+        "ETH (Ether)",
+        "USDT",
+        "SOL"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Ether (ETH) is the native cryptocurrency used for gas execution fees, value transfer, and Proof of Stake consensus collateral."
+    },
+    {
+      "id": 2,
+      "question": "What is the execution environment for Ethereum smart contracts?",
+      "options": [
+        "Java Virtual Machine (JVM)",
+        "Ethereum Virtual Machine (EVM)",
+        "Docker Container",
+        "Node.js V8 Engine"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "The Ethereum Virtual Machine (EVM) is the decentralized stack-based virtual computer executing compiled contract bytecode."
+    },
+    {
+      "id": 3,
+      "question": "Which two clients are required for a complete Ethereum full node post-Merge?",
+      "options": [
+        "Wallet and miner",
+        "Execution client and consensus client",
+        "Browser and relational database",
+        "Validator client and block explorer"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Since The Merge, an Ethereum full node requires an Execution Client (e.g. Geth) and a Consensus Client (e.g. Lighthouse) communicating via the Engine API."
+    },
+    {
+      "id": 4,
+      "question": "What is the byte length of a standard Ethereum address?",
+      "options": [
+        "16 bytes",
+        "20 bytes (160 bits)",
+        "32 bytes (256 bits)",
+        "64 bytes"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "An Ethereum address is exactly 20 bytes (40 hexadecimal characters), derived by taking the last 20 bytes of the Keccak-256 hash of the public key."
+    },
+    {
+      "id": 5,
+      "question": "What is the network Chain ID of the Ethereum Sepolia public testnet?",
+      "options": [
+        "1",
+        "5",
+        "11155111 (0xaa36a7)",
+        "31337"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "Sepolia's Chain ID is 11155111 (hexadecimal 0xaa36a7), protecting against transaction replay attacks across networks (EIP-155)."
+    },
+    {
+      "id": 6,
+      "question": "What is the smallest atomic unit of Ether?",
+      "options": [
+        "Gwei (10^9 Wei)",
+        "Wei (1 Wei = 10^-18 ETH)",
+        "Finney (10^15 Wei)",
+        "Szabo (10^12 Wei)"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Wei is the base indivisible denomination: 1 ETH = 10^18 Wei = 1,000,000,000,000,000,000 Wei."
+    },
+    {
+      "id": 7,
+      "question": "What is the duration of one Ethereum Proof of Stake slot?",
+      "options": [
+        "5 seconds",
+        "10 seconds",
+        "12 seconds",
+        "60 seconds"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "Each slot is exactly 12 seconds. There are 32 slots in an epoch (384 seconds = 6.4 minutes)."
+    },
+    {
+      "id": 8,
+      "question": "Which field in an Ethereum execution block commits cryptographically to the global account state?",
+      "options": [
+        "parentHash",
+        "stateRoot",
+        "nonce",
+        "gasLimit"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "The stateRoot is the 32-byte Merkle Patricia Trie root hash committing to all account balances, nonces, code hashes, and storage roots in Ethereum."
+    },
+    {
+      "id": 9,
+      "question": "Under the EIP-1559 fee mechanism, what happens to the baseFeePerGas?",
+      "options": [
+        "It is paid directly to the block fee recipient",
+        "It is permanently burned (destroyed from supply)",
+        "It is escrowed in the Beacon deposit contract",
+        "It is refunded 100% to the sender"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Under EIP-1559, the base fee is burned, removing ETH from circulation. Only the priority fee (tip) is paid to the validator."
+    },
+    {
+      "id": 10,
+      "question": "Which of the following software implementations is an Ethereum execution client?",
+      "options": [
+        "Lighthouse",
+        "Prysm",
+        "Geth (Go Ethereum)",
+        "Teku"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "Geth, Nethermind, Besu, Erigon, and Reth are execution clients. Lighthouse, Prysm, Teku, Nimbus, and Lodestar are consensus clients."
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 // projectx/src/Componets/BlockchainDAOsGovernance.jsx
 import React, { useState, useMemo, useCallback } from "react";
+import ModuleNav from "./ModuleNav";
 import { Link } from "react-router-dom";
 import {
   Activity,
@@ -844,6 +845,7 @@ export default function BlockchainDAOsGovernance() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-amber-500 selection:text-white">
+      <ModuleNav track="blockchain" currentModuleId="daos-governance" />
       {/* Top Banner Navigation */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -3817,10 +3819,10 @@ contract DAOTreasury is Ownable {
               <span>Previous: Module 20 (Oracles &amp; Chainlink)</span>
             </Link>
             <Link
-              to="/learning/blockchain/modular-blockchains"
+              to="/learning/blockchain/hyperledger-fabric"
               className="w-full sm:w-auto px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-mono font-bold transition-all flex items-center justify-center gap-2 group shadow-sm"
             >
-              <span>Next: Module 22 (Modular Blockchains)</span>
+              <span>Next: Module 22 (Hyperledger Fabric & Enterprise Blockchain)</span>
               <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

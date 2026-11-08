@@ -1,0 +1,270 @@
+{
+  "id": "final-capstone",
+  "courseId": "blockchain",
+  "index": 24,
+  "name": "24. Final Blockchain Capstone Project",
+  "route": "/learning/blockchain/final-capstone",
+  "componentName": "BlockchainFinalCapstone",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the primary role of a smart contract in a production-style Web3 decentralized application?",
+      "options": [
+        "To replace traditional web servers and render HTML templates",
+        "To authoritatively enforce business rules, state transitions, and asset ownership",
+        "To store full-text search indexes and user interface preferences",
+        "To run continuous background database cron jobs"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In production Web3 architectures, smart contracts act as the definitive, immutable source of truth for critical state transitions and access control. Off-chain databases serve only for caching, indexing, and search."
+    },
+    {
+      "id": "q2",
+      "question": "Why should an application indexer like The Graph or a custom Node/PostgreSQL service be used instead of querying RPC nodes directly for search queries?",
+      "options": [
+        "Smart contracts cannot store any data at all",
+        "Direct RPC queries for complex historical filtering are slow, expensive, and rate-limited",
+        "Blockchain nodes do not support cryptography",
+        "PostgreSQL is more decentralized than Ethereum"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Querying historical blockchain logs or complex aggregations directly across Ethereum RPC nodes is computationally slow and costly. Indexing contract events into a relational database (PostgreSQL) allows instant filtering and search."
+    },
+    {
+      "id": "q3",
+      "question": "What critical security limitation must be acknowledged when building a transparent on-chain voting system like VoteChain?",
+      "options": [
+        "Votes cannot be counted until the next year",
+        "Public blockchain storage allows anyone to observe which address cast which ballot, lacking secret voting",
+        "EVM smart contracts cannot store boolean mappings",
+        "Voters must pay with physical currency"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "All on-chain state and event logs are completely transparent. Unless advanced cryptography (such as zero-knowledge proofs or commit-reveal encryption) is used, any observer can link a voter's address to their vote."
+    },
+    {
+      "id": "q4",
+      "question": "Which software architectural pattern protects Solidity contracts against catastrophic reentrancy exploits during withdrawals?",
+      "options": [
+        "Interactions-Checks-Effects pattern",
+        "Checks-Effects-Interactions (CEI) pattern",
+        "Model-View-Controller pattern",
+        "Singleton Factory pattern"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Checks-Effects-Interactions (CEI) pattern requires validating prerequisites first (Checks), updating internal balances and state next (Effects), and only then performing external value transfers (Interactions)."
+    },
+    {
+      "id": "q5",
+      "question": "In the DeFi Lending Blueprint (Project D), what does a Health Factor (HF) below 1.0 indicate?",
+      "options": [
+        "The user has zero borrowed balance",
+        "The position has breached the modeled collateral safety threshold and is eligible for liquidation",
+        "The smart contract has run out of gas",
+        "The Chainlink price oracle has paused updates"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Health Factor is calculated as (Collateral Value * Liquidation Threshold) / Borrowed Value. When HF drops below 1.0, the loan is under-collateralized relative to the safety threshold and liquidators can seize collateral to repay debt."
+    },
+    {
+      "id": "q6",
+      "question": "Why is IPFS pinning mandatory for media assets in an NFT marketplace or supply chain DApp?",
+      "options": [
+        "Without pinning, unpinned IPFS nodes may garbage-collect files, leading to dead content links",
+        "Pinning encrypts the user's private key",
+        "Pinning automatically pays gas fees on the Ethereum mainnet",
+        "IPFS nodes cannot read JSON without pinning"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "IPFS operates on cache and demand. If content is not pinned by dedicated nodes (or pinning services like Pinata), nodes will garbage-collect cached data when storage thresholds are reached, making the CID unresolvable."
+    },
+    {
+      "id": "q7",
+      "question": "What is the core purpose of Sign-In with Ethereum (SIWE / EIP-4361)?",
+      "options": [
+        "To send ETH directly to the website owner upon every login",
+        "To securely authenticate user sessions off-chain using cryptographic wallet signatures and nonces",
+        "To generate private keys inside Google Chrome",
+        "To bypass all smart contract access control"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "SIWE standardizes off-chain authentication by prompting the user's wallet to sign a structured message containing domain, nonce, timestamp, and address, allowing the backend to verify wallet ownership without gas fees."
+    },
+    {
+      "id": "q8",
+      "question": "What invariant mathematical condition must hold true in a secure voting smart contract at all times?",
+      "options": [
+        "Total Recorded Votes == Sum of all Candidate Votes",
+        "Candidate Votes > Total Eligible Voters",
+        "Gas Used == Number of Voters",
+        "Total Votes == Current Block Number"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Conservation of ballots dictates that the global total votes counter must exactly equal the sum of votes recorded across each candidate (Total Votes = ∑ Candidate Votes_i)."
+    },
+    {
+      "id": "q9",
+      "question": "In gas optimization for Solidity, why should external function arguments that are only read be typed as 'calldata' instead of 'memory'?",
+      "options": [
+        "Calldata is stored permanently in blockchain state",
+        "Calldata avoids copying the array or string from transaction input data into memory, saving gas",
+        "Memory can only store integers up to 255",
+        "The Solidity compiler rejects memory in external functions"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Calldata is an immutable, read-only allocation where transaction data is held. Using calldata prevents the EVM from allocating memory and copying array elements, dramatically reducing execution gas."
+    },
+    {
+      "id": "q10",
+      "question": "What does contract bytecode verification on a block explorer (e.g. Etherscan / Sepolia Explorer) accomplish?",
+      "options": [
+        "It grants the developer administrative control over the network",
+        "It proves the published Solidity source code and compiler metadata match the exact on-chain bytecode",
+        "It ensures that the contract can never be attacked by hackers",
+        "It automatically mints testnet ETH"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Verification compiles the submitted source code with the identical compiler settings and checks for an exact cryptographic bytecode match, enabling public transparency and independent code inspection."
+    },
+    {
+      "id": "q11",
+      "question": "Which ERC standard defines the standardized royalty query interface for NFT marketplaces?",
+      "options": [
+        "ERC-20",
+        "ERC-2981",
+        "ERC-4337",
+        "ERC-165"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "ERC-2981 specifies the `royaltyInfo(tokenId, salePrice)` interface, allowing marketplace contracts to query the recipient address and royalty fee amount for secondary NFT sales."
+    },
+    {
+      "id": "q12",
+      "question": "What is the primary danger of relying on a centralized off-chain database as the authoritative source of truth in a DApp?",
+      "options": [
+        "PostgreSQL is too fast for blockchain users",
+        "A malicious database administrator or SQL injection could tamper with balances, votes, or ownership records",
+        "Off-chain databases cannot store timestamps",
+        "Relational databases do not support strings"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A central database can be altered, corrupted, or compromised without consensus. Treating it as authoritative defeats decentralization; the on-chain smart contract state must always remain the supreme source of truth."
+    },
+    {
+      "id": "q13",
+      "question": "In a continuous integration (CI/CD) pipeline for smart contracts, what should NEVER be committed to GitHub source code?",
+      "options": [
+        "Solidity contracts (.sol)",
+        "Private keys, seed phrases, and production RPC credentials",
+        "Hardhat configuration files",
+        "Unit test scripts (.ts)"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Private keys, mnemonic seed phrases, and sensitive production secrets committed to public or private git repositories are immediately harvested by automated bot scrapers, leading to total protocol loss."
+    },
+    {
+      "id": "q14",
+      "question": "In the Supply Chain Blueprint (Project C), what prevents a distributor from marking a product as 'Delivered' prematurely?",
+      "options": [
+        "The blockchain physically locks the delivery truck",
+        "The smart contract enforces a strict role-based state machine validating allowed transitions and caller role",
+        "The retailer must transfer 100 ETH",
+        "IPFS deletes the product metadata"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A state machine contract verifies that the product is currently in state `InTransit` and that `msg.sender` has the authorized `Retailer` or `Courier` role before permitting transition to `Delivered`."
+    },
+    {
+      "id": "q15",
+      "question": "What is the primary role of Chainlink Data Feeds in a DeFi lending protocol?",
+      "options": [
+        "To send email alerts to users when loans are due",
+        "To supply tamper-resistant, decentralized market asset prices for collateral valuation and liquidation checks",
+        "To store user identity documents",
+        "To execute transactions without gas fees"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Lending protocols require accurate real-time asset pricing to calculate collateral ratios and health factors. Chainlink decentralized oracle networks aggregate price data from multiple liquid exchanges to prevent manipulation."
+    },
+    {
+      "id": "q16",
+      "question": "How does invariant testing differ from standard unit testing?",
+      "options": [
+        "Invariant testing only tests frontend CSS styles",
+        "Unit testing checks specific known scenarios; invariant testing verifies properties that must hold true across randomized fuzz calls",
+        "Invariant testing does not require Solidity",
+        "Unit testing cannot test smart contracts"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Unit tests assert expected outcomes on single functions with deterministic inputs. Invariant tests assert that global system rules (e.g. Total Solvency, No Double-Voting) never break across thousands of randomized sequences."
+    },
+    {
+      "id": "q17",
+      "question": "What is the OWASP Smart Contract Security Verification Standard (SCSVS)?",
+      "options": [
+        "A hardware mining rig specification",
+        "An open framework of structured security requirements used to assess smart contracts and DApps",
+        "A programming language that replaces Solidity",
+        "A browser wallet extension"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The OWASP SCSVS provides a standardized checklist covering architecture, access control, arithmetic, external calls, event logging, and incident response for professional smart contract audits."
+    },
+    {
+      "id": "q18",
+      "question": "Why does storing large document files directly in Solidity contract storage violate production engineering best practices?",
+      "options": [
+        "EVM storage operations (SSTORE) are exponentially expensive in gas, whereas IPFS content addressing is cost-efficient",
+        "Ethereum nodes automatically delete strings larger than 100 characters",
+        "Solidity only supports numbers",
+        "Smart contracts cannot read bytes"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Writing 1MB to Ethereum storage costs millions of gas units (thousands of dollars). Decentralized applications store files off-chain on IPFS/Arweave and record only the 32-byte cryptographic hash or CID on-chain."
+    },
+    {
+      "id": "q19",
+      "question": "In a production incident response plan, what limitation must developers remember regarding smart contract emergency pauses?",
+      "options": [
+        "Pausing will automatically delete the hacker's wallet",
+        "An emergency pause only blocks new function calls; it cannot retroactively reverse previously finalized transactions",
+        "Pausing changes the consensus mechanism of Ethereum",
+        "Smart contracts cannot be paused"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Blockchain state transitions are immutable once finalized. An emergency circuit breaker (pause) stops future state mutations, but funds already extracted in previous blocks cannot be unilaterally rolled back."
+    },
+    {
+      "id": "q20",
+      "question": "What distinguishes a production-style capstone project from a simple tutorial or classroom demonstration?",
+      "options": [
+        "A tutorial only uses HTML; production uses Python",
+        "Production encompasses full-stack architecture, automated CI/CD testing, security threat modeling, error resilience, and verified deployment",
+        "Production projects never require smart contracts",
+        "A capstone project must be deployed on mainnet with real money"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Production engineering spans requirements, decoupled 3-tier architecture, comprehensive test coverage (unit, negative, invariant), formal security audits, gas optimization, CI/CD pipelines, and verified deployments."
+    }
+  ]
+}

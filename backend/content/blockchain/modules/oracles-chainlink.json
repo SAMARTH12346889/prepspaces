@@ -1,0 +1,270 @@
+{
+  "id": "oracles-chainlink",
+  "courseId": "blockchain",
+  "index": 20,
+  "name": "20. Oracles & Chainlink",
+  "route": "/learning/blockchain/oracles-chainlink",
+  "componentName": "BlockchainOraclesChainlink",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the primary purpose of a blockchain oracle?",
+      "options": [
+        "To generate new blockchain blocks",
+        "To connect smart contracts with external information",
+        "To replace consensus protocols",
+        "To mine cryptocurrency"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Smart contracts execute in deterministic, sandboxed blockchain environments without direct access to external APIs or off-chain data. An oracle securely retrieves, verifies, and delivers real-world external data onto the blockchain."
+    },
+    {
+      "id": "q2",
+      "question": "What is the oracle problem in blockchain development?",
+      "options": [
+        "The inability to create cryptocurrency wallets",
+        "The challenge of securely delivering reliable external data to blockchains",
+        "The inability to compile and deploy Solidity smart contracts",
+        "The financial cost of storing data on blockchain ledgers"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Blockchains are deterministic systems where every node must arrive at the exact same state. External real-world data is non-deterministic, varying across APIs and exchanges. The oracle problem is the security challenge of bringing external data on-chain without introducing centralized points of failure or manipulation."
+    },
+    {
+      "id": "q3",
+      "question": "Which Chainlink service provides aggregated on-chain market prices for DeFi?",
+      "options": [
+        "Chainlink VRF",
+        "Chainlink CCIP",
+        "Chainlink Data Feeds",
+        "MetaMask JSON-RPC"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Chainlink Data Feeds provide decentralized, on-chain price and financial data aggregated from multiple independent market providers and oracle node operators."
+    },
+    {
+      "id": "q4",
+      "question": "Which function of the AggregatorV3Interface retrieves the latest price answer and timestamp?",
+      "options": [
+        "getBalance()",
+        "latestRoundData()",
+        "transfer()",
+        "approve()"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The latestRoundData() function returns: (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound)."
+    },
+    {
+      "id": "q5",
+      "question": "In the latestRoundData() response, what does the updatedAt field represent?",
+      "options": [
+        "The contract creation time",
+        "The Unix timestamp when the price answer was last updated on-chain",
+        "The user's wallet creation time",
+        "The target block gas limit"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "updatedAt is the block timestamp (seconds since Unix epoch) recorded by the aggregator when the current round's answer was validated and written to the blockchain."
+    },
+    {
+      "id": "q6",
+      "question": "What does Chainlink VRF (Verifiable Random Function) provide?",
+      "options": [
+        "Cryptographically verifiable randomness and proof verified on-chain",
+        "Automatic token minting for staking rewards",
+        "Proof of Work blockchain mining acceleration",
+        "Biometric wallet authentication"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Chainlink VRF generates random values along with a cryptographic proof (public key elliptic curve evaluation). Smart contracts can verify this proof on-chain to guarantee the randomness was not manipulated by miners, sequencers, or oracle operators."
+    },
+    {
+      "id": "q7",
+      "question": "Which Chainlink VRF version should developers use for modern implementations as of late 2026?",
+      "options": [
+        "VRF v1",
+        "VRF v2",
+        "VRF v2.5",
+        "Any unsupported legacy version"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Chainlink VRF v2.5 is the current production standard supporting both subscription and direct funding modes. Legacy VRF v1 is scheduled for shutdown on Nov 18, 2026, and VRF v2 on Nov 30, 2026."
+    },
+    {
+      "id": "q8",
+      "question": "What is a 'heartbeat threshold' in Chainlink Data Feeds?",
+      "options": [
+        "A wallet inactivity timeout",
+        "A time-based trigger that forces a feed update even if the price has not moved beyond the deviation threshold",
+        "A private key cryptographic entropy measure",
+        "A Proof of Stake validator liveness penalty"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Chainlink feeds update whenever the price moves beyond a defined deviation threshold (e.g. 0.5%) OR after a maximum time duration elapses (the heartbeat threshold, e.g. 3600 seconds), ensuring data freshness even during stable market periods."
+    },
+    {
+      "id": "q9",
+      "question": "What is the primary architectural purpose of oracle aggregation?",
+      "options": [
+        "To combine independent observations into a single reliable result that resists outliers and compromised nodes",
+        "To artificially increase Ethereum gas prices",
+        "To delete historical transactions from the ledger",
+        "To generate private keys for multi-sig contracts"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Aggregation (such as taking the median of independent observations reported by multiple Decentralized Oracle Network nodes) prevents any single compromised or malicious node from manipulating the final on-chain answer."
+    },
+    {
+      "id": "q10",
+      "question": "What is Chainlink's modern standard for workflow orchestration and decentralized off-chain computation?",
+      "options": [
+        "Legacy Chainlink Functions only",
+        "Chainlink Runtime Environment (CRE)",
+        "MetaMask Browser Extensions",
+        "ERC-20 Token Transfers"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Chainlink Runtime Environment (CRE) is the modern orchestration standard for connecting external APIs, data sources, and off-chain computation via TypeScript/Go workflows with BFT consensus, replacing sunsetted legacy Functions and Automation services."
+    },
+    {
+      "id": "q11",
+      "question": "If an ETH/USD Chainlink price feed has 8 decimal places and returns a raw answer of 350000000000, what is the actual price in USD?",
+      "options": [
+        "$35,000",
+        "$3,500",
+        "$350",
+        "$35.00"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Price = RawAnswer / 10^Decimals = 350000000000 / 10^8 = $3,500.00."
+    },
+    {
+      "id": "q12",
+      "question": "Why is generating random numbers with 'keccak256(abi.encodePacked(block.timestamp, block.prevrandao, msg.sender))' unsafe for high-stakes games?",
+      "options": [
+        "Because Solidity does not allow keccak256 hashing.",
+        "Because block miners/validators and sequencers can bias, predict, or selectively withhold blocks containing unfavorable random outcomes.",
+        "Because the EVM gas cost exceeds 30 million gas.",
+        "Because timestamps can never be read inside smart contracts."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "On-chain variables like block.timestamp and prevrandao are visible to block builders/validators before a block is published. A validator or MEV bot can simulate the transaction outcome and choose not to publish the block if they lose, making it highly exploitable."
+    },
+    {
+      "id": "q13",
+      "question": "Why is Median Aggregation preferred over Mean (Average) Aggregation in decentralized oracle networks?",
+      "options": [
+        "Because median requires more complex quadratic equations.",
+        "Because median is robust against extreme outliers and malicious minority nodes reporting manipulated prices.",
+        "Because mean cannot be computed with integer arithmetic.",
+        "Because median eliminates the need for price feeds."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In an oracle network of 5 nodes where 4 report ~$3,000 and 1 rogue node reports $300,000, the Mean becomes $62,400 (drastically distorted), whereas the Median remains $3,000 (completely unaffected by extreme outliers)."
+    },
+    {
+      "id": "q14",
+      "question": "What vulnerability occurs when a DeFi lending contract checks 'answer > 0' but neglects to check 'block.timestamp - updatedAt <= maxPriceAge'?",
+      "options": [
+        "Integer Underflow Vulnerability",
+        "Stale Data Attack (the contract continues executing transactions using an outdated price after the feed stops updating)",
+        "Reentrancy Attack via ERC-777",
+        "Gas Limit Denial of Service"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "If a feed stops updating due to upstream API outages, network congestion, or deprecation, the latestRoundData() will still return the last positive answer with an old timestamp. Without freshness validation, attackers can exploit the frozen price after the true market price moves."
+    },
+    {
+      "id": "q15",
+      "question": "What is the purpose of Chainlink L2 Sequencer Uptime Feeds on networks like Arbitrum and Optimism?",
+      "options": [
+        "To track the sequencer's electricity consumption.",
+        "To detect when an L2 sequencer goes offline and enforce a grace period after restart before allowing liquidations.",
+        "To mine proof-of-work hashes for L2 blocks.",
+        "To replace Layer 1 consensus entirely."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "When an L2 sequencer goes down, users cannot submit transactions to repay loans. If prices move on L1 during downtime, restarting the sequencer could trigger mass unfair liquidations before users can post collateral. Uptime Feeds enforce a mandatory post-restart grace period."
+    },
+    {
+      "id": "q16",
+      "question": "How does an attacker execute a Flash Loan Oracle Manipulation Attack against an AMM spot price?",
+      "options": [
+        "By mining empty blocks for 24 hours.",
+        "By borrowing millions in uncollateralized capital within a single tx, swapping into a low-liquidity pool to skew the spot price, and borrowing against inflated collateral in a vulnerable protocol.",
+        "By guessing the private key of the Chainlink multi-sig.",
+        "By submitting invalid signatures to the EVM."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "An attacker borrows capital via a flash loan, executes a huge swap in a single low-liquidity Uniswap pool to artificially inflate the spot price, calls a vulnerable lending protocol that reads that spot price directly, borrows real assets against the synthetic valuation, and returns the flash loan with profit."
+    },
+    {
+      "id": "q17",
+      "question": "In Chainlink Data Feeds architecture, what is the role of the Proxy Contract?",
+      "options": [
+        "To hide the identity of the developer from users.",
+        "To provide a persistent, unchanging contract address for consumer dapps while allowing the underlying Aggregator implementation to be upgraded seamlessly.",
+        "To convert ERC-20 tokens into native ETH.",
+        "To verify ECDSA signatures on Layer 2."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Proxy contract holds a constant address that consumer smart contracts call. If Chainlink deploys a new aggregator with improved OCR algorithms or node sets, the proxy pointer is updated without requiring hundreds of client dapps to redeploy."
+    },
+    {
+      "id": "q18",
+      "question": "How does Offchain Reporting (OCR) save gas compared to original Chainlink v1 on-chain aggregation?",
+      "options": [
+        "By deleting transaction calldata completely.",
+        "By having oracle nodes communicate peer-to-peer off-chain, aggregate observations, and submit a single combined cryptographic report signed by a quorum to L1 in one transaction.",
+        "By replacing Ethereum nodes with cloud servers.",
+        "By converting all numbers to 8-bit integers."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In v1, every oracle node submitted an independent on-chain transaction costing N transactions per round. OCR enables nodes to exchange observations off-chain, compute the median, sign the aggregate report, and submit it on-chain in a single transaction, slashing gas consumption by over 90%."
+    },
+    {
+      "id": "q19",
+      "question": "What is the formula to convert an ETH amount in wei (18 decimals) into USD using a raw price with D decimals?",
+      "options": [
+        "USD = (ethAmountWei * rawPrice) / 1e18",
+        "USD = ethAmountWei + rawPrice",
+        "USD = (ethAmountWei / rawPrice) * 1e8",
+        "USD = rawPrice * 1e18"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Because 1 ETH = 10^18 wei, dividing by 1e18 normalizes the wei amount to whole ETH, while the product with rawPrice retains the feed's D decimal precision: USD_raw = (ethAmountWei * rawPrice) / 1e18."
+    },
+    {
+      "id": "q20",
+      "question": "What is Chainlink Data Streams, and how does its architectural model differ from standard Data Feeds?",
+      "options": [
+        "It is an audio streaming service for crypto podcasts.",
+        "It is a low-latency, pull-based oracle architecture delivering sub-second market reports off-chain that are cryptographically verified on-chain only when a user executes a trade.",
+        "It is a proof-of-work algorithm for mining LINK tokens.",
+        "It is a database for storing blockchain block headers."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Standard Data Feeds use a push model where updates are written on-chain periodically. Data Streams uses a pull model where high-frequency sub-second reports are published off-chain; trading dapps pull the signed report and verify it on-chain during trade execution, enabling ultra-low latency DeFi derivatives."
+    }
+  ]
+}

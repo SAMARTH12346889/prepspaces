@@ -1,0 +1,270 @@
+{
+  "id": "dex-lending",
+  "courseId": "blockchain",
+  "index": 17,
+  "name": "17. Decentralized Exchanges & Lending Protocols",
+  "route": "/learning/blockchain/dex-lending",
+  "componentName": "BlockchainDEXLending",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "In Uniswap V2, why does the pair contract mandate strict token address ordering (token0 < token1)?",
+      "options": [
+        "To reduce gas costs by sorting calldata alphabetically",
+        "To prevent the creation of duplicate pools for the same pair and guarantee deterministic CREATE2 addresses",
+        "To ensure higher-priced tokens are always indexed as token0",
+        "To enforce that only ERC-20 tokens with 18 decimals can be deployed"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Token ordering guarantees that for any token pair (e.g., WETH and USDC), exactly one unique pair contract exists in the Factory registry regardless of which token is passed first into createPair. It also enables deterministic CREATE2 deployment."
+    },
+    {
+      "id": 2,
+      "question": "When swapping 1 ETH in an AMM containing 10 ETH and 20,000 USDC with zero fee, what is the exact output of USDC received?",
+      "options": [
+        "2,000.00 USDC",
+        "1,818.18 USDC",
+        "1,909.09 USDC",
+        "1,997.00 USDC"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Initial invariant k = 10 * 20,000 = 200,000. New x' = 10 + 1 = 11 ETH. New y' = 200,000 / 11 = 18,181.81818 USDC. Output Δy = 20,000 - 18,181.81818 = 1,818.18182 USDC."
+    },
+    {
+      "id": 3,
+      "question": "In the fee-adjusted constant product formula with a 0.3% trading fee (f = 0.003), how is integer precision maintained in Solidity?",
+      "options": [
+        "By casting amounts to float64 before dividing",
+        "By computing amountInWithFee = amountIn * 997 and denominator = reserveIn * 1000 + amountIn * 997",
+        "By dividing amountIn by 1003 before multiplying by reserveOut",
+        "By storing fees in a separate off-chain database"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Because EVM lacks native floating-point math, 1 - 0.003 = 0.997 is represented as 997/1000. Multiplying the numerator by 997 and the denominator base by 1000 preserves precision without rounding loss."
+    },
+    {
+      "id": 4,
+      "question": "Why does Uniswap V2 permanently burn MINIMUM_LIQUIDITY (1,000 wei) of LP tokens to address(0) during initial pool creation?",
+      "options": [
+        "To pay protocol initialization taxes to the factory deployer",
+        "To prevent the first liquidity provider from exploiting the pool via an LP share inflation attack",
+        "To ensure the pool can never run out of gas during rebalancing",
+        "To calibrate the initial spot price to exactly 1.0001"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Burning 1,000 wei of LP tokens ensures the total LP token supply is never zero and prevents an attacker from donating tokens to inflate the LP share price to astronomical levels, which would cause rounding down to zero for subsequent depositors."
+    },
+    {
+      "id": 5,
+      "question": "In Uniswap V3 concentrated liquidity, what happens to an LP position if the market price rises above the upper price bound (P > Pb)?",
+      "options": [
+        "The position automatically liquidates and sends ETH to the owner",
+        "The position earns double fees due to higher volatility",
+        "The position becomes entirely composed of Token 1 (the depreciated asset) and stops earning trading fees",
+        "The position switches into an automated limit order on the lower bound"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "As price rises past Pb, traders continuously swap Token 1 into the pool in exchange for Token 0 until all Token 0 in the position is exhausted. The position becomes 100% Token 1, goes out of range, and earns zero fees until price drops back into range."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary architectural difference between price impact and slippage?",
+      "options": [
+        "Price impact is caused by transaction latency; slippage is caused by fee tiers",
+        "Price impact is the deterministic price movement caused by trade size relative to pool depth; slippage is the unexpected difference between quote and execution due to concurrent block activity",
+        "Price impact applies only to order books; slippage applies only to AMMs",
+        "Price impact is refundable via the Router; slippage is permanently lost"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Price impact is the mathematical consequence of walking the AMM bonding curve with a given order size. Slippage encompasses execution variance caused by trades confirmed ahead of the user in the same or previous blocks."
+    },
+    {
+      "id": 7,
+      "question": "In Compound V2, how do liquidity suppliers earn interest on their deposited assets?",
+      "options": [
+        "Their cToken wallet balance increases every block",
+        "The protocol air-drops governance COMP tokens daily",
+        "The cToken exchange rate increases over time, making each cToken redeemable for more underlying assets",
+        "Borrowers transfer interest directly to depositors' wallets"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In Compound V2, a supplier's cToken balance remains static. As borrowers pay interest into the pool, total underlying assets increase while total cTokens remain constant, monotonically driving up the Exchange Rate = (Cash + Borrows - Reserves) / cTokenSupply."
+    },
+    {
+      "id": 8,
+      "question": "How does Aave V3 represent a supplier's accruing interest compared to Compound V2?",
+      "options": [
+        "Aave uses rebasing aTokens where the wallet balance grows continuously with the liquidity index",
+        "Aave pays interest only in ETH regardless of the supplied token",
+        "Aave requires users to manually execute a claimYield() transaction every hour",
+        "Aave locks interest in a multi-signature treasury for 1 year"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Aave's aTokens are rebasing tokens: balanceOf(user) dynamically multiplies the user's stored scaled balance by the pool's current global liquidity index, so 1 aUSDC remains pegged 1:1 with 1 USDC while the token count in the wallet grows."
+    },
+    {
+      "id": 9,
+      "question": "A borrower deposits $10,000 worth of ETH into a lending protocol with a Liquidation Threshold of 80% and borrows $6,000 USDC. What is their Health Factor?",
+      "options": [
+        "0.75",
+        "1.20",
+        "1.3333",
+        "1.6667"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Health Factor = (Collateral * LiquidationThreshold) / TotalDebt = ($10,000 * 0.80) / $6,000 = $8,000 / $6,000 = 1.3333. Because HF > 1.0, the loan is solvent."
+    },
+    {
+      "id": 10,
+      "question": "If the borrower's ETH collateral drops from $10,000 to $7,000 while debt remains $6,000 (LT = 80%), what is the new Health Factor and status?",
+      "options": [
+        "HF = 1.05; Safe",
+        "HF = 0.9333; Eligible for liquidation",
+        "HF = 0.80; Insolvent with zero collateral remaining",
+        "HF = 1.1667; Warning level"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "New HF = ($7,000 * 0.80) / $6,000 = $5,600 / $6,000 = 0.9333. Since HF < 1.0, the position has breached its liquidation threshold and is immediately eligible for liquidation."
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of the 'Close Factor' in lending protocols like Compound and Aave?",
+      "options": [
+        "To specify the interest rate charged when a pool closes at midnight",
+        "To cap the maximum percentage of outstanding debt a liquidator can repay in a single transaction (e.g. 50%)",
+        "To prevent flash loans from accessing the reserve",
+        "To set the fee paid to Chainlink node operators"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Close Factor (typically 50%) limits how much debt a liquidator can repay in one go. This prevents a borrower from having their entire collateral liquidated during a temporary price spike and reduces liquidation cascade shock."
+    },
+    {
+      "id": 12,
+      "question": "If a liquidator repays $2,000 of debt for a liquidated borrower where the protocol offers a 5% liquidation bonus, what value of collateral does the liquidator seize?",
+      "options": [
+        "$2,000",
+        "$2,050",
+        "$2,100",
+        "$2,200"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Collateral Seized = Debt Repaid * (1 + Liquidation Bonus) = $2,000 * 1.05 = $2,100. The extra $100 serves as the liquidator's economic incentive to execute the liquidation and protect protocol solvency."
+    },
+    {
+      "id": 13,
+      "question": "When reading a Chainlink price feed with 8 decimals returning 200000000000 for ETH/USD, how must a contract normalize it for 18-decimal debt accounting?",
+      "options": [
+        "Divide by 10^10",
+        "Multiply by 10^10",
+        "Multiply by 10^8",
+        "No conversion is necessary because uint256 ignores decimals"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "To scale from 8 decimals to 18 decimals, the price must be multiplied by 10^(18 - 8) = 10^10. 200,000,000,000 * 10^10 = 2,000 * 10^18."
+    },
+    {
+      "id": 14,
+      "question": "Why is relying on a DEX pool's instantaneous spot price as an oracle for a lending protocol dangerous?",
+      "options": [
+        "DEX spot prices are updated only once per day",
+        "An attacker can manipulate the spot price within a single atomic transaction using a flash loan and drain the lending pool",
+        "DEX contracts cannot be called by external lending contracts",
+        "Spot prices require off-chain signatures to be read"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Because AMM spot prices reflect the immediate ratio of reserves, an attacker can borrow millions in a flash loan, execute a massive swap to drastically distort the AMM price, borrow against the artificially inflated collateral in the lending pool, and repay the flash loan in the same transaction."
+    },
+    {
+      "id": 15,
+      "question": "What core EVM mechanism enables flash loans to guarantee zero default risk for the lending pool?",
+      "options": [
+        "EVM state changes atomically revert if the callback transaction fails to return borrowed tokens plus fees",
+        "Borrowers must deposit a legal escrow contract before calling flashLoan",
+        "Flash loans are underwritten by the Ethereum Foundation validator pool",
+        "The lender signs a multisig insurance policy prior to block inclusion"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "If the flash loan receiver does not approve or return the borrowed funds plus the protocol fee before execution ends, the contract triggers a revert. In the EVM, a revert rolls back all state changes within the transaction as if it never occurred."
+    },
+    {
+      "id": 16,
+      "question": "In a sandwich attack on a decentralized exchange, what does the attacker's front-run transaction do?",
+      "options": [
+        "Cancels the victim's transaction in the mempool",
+        "Buys the target asset before the victim, driving the price up to the victim's maximum slippage boundary",
+        "Drains the LP tokens from the Factory contract",
+        "Votes to shut down the DEX router"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The sandwich attacker front-runs the victim with a buy order, pushing the price up to the edge of the victim's slippage limit. The victim's order executes at the worse price, pushing it higher still, and the attacker immediately back-runs by selling at the peak for a guaranteed profit."
+    },
+    {
+      "id": 17,
+      "question": "How does global borrow index tracking eliminate the need for O(n) loops over all borrowers when interest accrues?",
+      "options": [
+        "It forces all borrowers to pay their interest at midnight UTC",
+        "It computes UserDebt = Principal * (CurrentIndex / UserIndex) on-demand whenever a user interacts with the pool",
+        "It offloads debt tracking to an external Chainlink keeper bot",
+        "It resets all loan balances to zero when utilization exceeds 90%"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "By maintaining a single cumulative borrow index updated over elapsed time, each user's debt is lazily evaluated only when they deposit, borrow, or repay: UserDebt = Principal * (CurrentBorrowIndex / UserSnapshotIndex)."
+    },
+    {
+      "id": 18,
+      "question": "Why should a production AMM pair contract check actual token balances with token.balanceOf(address(this)) rather than solely tracking internal reserve variables?",
+      "options": [
+        "To detect direct token transfers, balance skimming, fee-on-transfer tokens, and enforce invariant k against true holdings",
+        "Because ERC-20 tokens delete internal reserves every 256 blocks",
+        "Because Solidity private variables cannot be accessed by external callers",
+        "To bypass EVM reentrancy locks"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Direct token donations, fee-on-transfer tokens, or rebasing tokens can alter actual contract balances without triggering swap functions. Verifying balance0 * balance1 >= reserve0 * reserve1 prevents balance-sync desynchronization vulnerabilities."
+    },
+    {
+      "id": 19,
+      "question": "In multi-hop routing (e.g. Token A -> Token B -> Token C), how must the input amount for the second hop be determined?",
+      "options": [
+        "Using a pre-calculated fixed estimate from the user's frontend",
+        "Using the exact output amount returned by the first hop (amountOut1)",
+        "By taking the average price across all DEX pools",
+        "By dividing the initial amountIn by the number of hops"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Multi-hop routing chains outputs sequentially. The exact output of Token B from Pool A/B becomes the exact input into Pool B/C. If any pool produces less than expected, the router verifies minimum output constraints across the entire route."
+    },
+    {
+      "id": 20,
+      "question": "What is the primary role of the Comptroller contract in Compound V2?",
+      "options": [
+        "It mints ERC-20 governance tokens for miners",
+        "It serves as the risk engine that verifies collateral factors, account liquidity, and liquidation eligibility before operations execute",
+        "It manages the frontend CSS styles and DNS records",
+        "It executes off-chain order book matching for limit orders"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Comptroller is Compound's central risk orchestrator. Whenever a user attempts to borrow, redeem, or transfer cTokens, the market calls the Comptroller to verify whether the account has sufficient collateral value and meets protocol risk rules."
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "id": "dapp-development",
+  "courseId": "blockchain",
+  "index": 14,
+  "name": "14. Full-Stack DApp Development",
+  "route": "/learning/blockchain/dapp-development",
+  "componentName": "BlockchainDAppDevelopment",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the primary architectural difference between a traditional Web2 application and a Web3 DApp?",
+      "options": [
+        "A) Web2 applications use HTML while DApps use WebAssembly bytecode exclusively",
+        "B) In a DApp, core business logic and state are enforced trustlessly by smart contracts on a blockchain rather than a centralized server and database",
+        "C) Web2 applications use mobile apps whereas DApps can only run inside desktop Chrome extensions",
+        "D) DApps cannot have backend APIs or databases under any circumstances"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "DApps use smart contracts on a distributed consensus network to enforce business logic and maintain canonical state trustlessly, whereas traditional Web2 applications rely on centralized servers and proprietary database administrators."
+    },
+    {
+      "id": "q2",
+      "question": "Why must a Web3 backend service NEVER be treated as the ultimate authority for blockchain state?",
+      "options": [
+        "A) Because backend servers run slower than Ethereum nodes",
+        "B) Because off-chain databases can become out of sync, hacked, or manipulated; the blockchain consensus state is the single source of truth",
+        "C) Because SQL databases do not support hexadecimal strings",
+        "D) Because smart contracts cannot read JSON data"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Off-chain databases are centralized and susceptible to state drift, caching delays, or manipulation. Financial or authorization decisions must always be verified directly against on-chain smart contract storage or cryptographically verified RPC logs."
+    },
+    {
+      "id": "q3",
+      "question": "Why is JavaScript's native 'BigInt' mandatory when handling Ethereum Wei and token values in TypeScript frontends?",
+      "options": [
+        "A) Standard JavaScript Numbers are 64-bit floats that lose precision above Number.MAX_SAFE_INTEGER (9,007,199,254,740,991), while Wei values require 256-bit integer precision",
+        "B) BigInt values automatically submit transactions without gas",
+        "C) BigInt compiles directly to Solidity opcode MLOAD",
+        "D) Web browsers do not support standard integers in TypeScript"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Ethereum uses 256-bit unsigned integers (uint256). JavaScript's standard Number type is an IEEE 754 float with only 53 bits of precision (~9e15), causing catastrophic precision loss for typical 18-decimal token balances (1e18 Wei)."
+    },
+    {
+      "id": "q4",
+      "question": "Which Viem function is used to execute a read-only smart contract call without requiring wallet approval or gas fees?",
+      "options": [
+        "A) walletClient.writeContract()",
+        "B) publicClient.readContract()",
+        "C) publicClient.sendTransaction()",
+        "D) walletClient.signMessage()"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "publicClient.readContract() simulates a call against the node's local state trie via eth_call without creating a transaction, incurring zero gas and requiring no wallet signature."
+    },
+    {
+      "id": "q5",
+      "question": "When a user executes a state-changing transaction via walletClient.writeContract(), what does the immediately returned hash represent?",
+      "options": [
+        "A) Conclusive proof that the transaction was successfully executed and state was updated",
+        "B) An identifier proving the transaction was broadcast to the mempool, but NOT that it was mined or succeeded",
+        "C) The block hash where the transaction is permanently finalized",
+        "D) The deployed smart contract address"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The transaction hash is merely a broadcast identifier. The transaction can remain pending in the mempool, get dropped, replaced, or revert on-chain. Success is only confirmed when waitForTransactionReceipt returns status === 'success'."
+    },
+    {
+      "id": "q6",
+      "question": "In Sign-In with Ethereum (SIWE / EIP-4361), why does the backend generate a unique, unpredictable nonce for every login request?",
+      "options": [
+        "A) To calculate the gas fee for the cryptographic signature",
+        "B) To prevent replay attacks where an attacker intercepts a valid signature and reuses it to impersonate the user",
+        "C) To encrypt the user's private key before sending it to the database",
+        "D) To convert the user's address from base58 to hexadecimal"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A cryptographic signature of a static message would allow anyone who intercepts it to replay that signature forever. A single-use, cryptographically random nonce tied to the user's session guarantees freshness and prevents replay attacks."
+    },
+    {
+      "id": "q7",
+      "question": "Which EIP-1193 error code is returned when a user manually clicks 'Reject' or cancels a transaction prompt in MetaMask?",
+      "options": [
+        "A) 4900 (Provider Disconnected)",
+        "B) 4001 (User Rejected Request)",
+        "C) 4901 (Chain Disconnected)",
+        "D) -32603 (Internal JSON-RPC Error)"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "EIP-1193 standardizes error code 4001 as 'User Rejected Request'. Production dApps should catch code 4001 and display an informative cancellation message rather than a generic crash alert."
+    },
+    {
+      "id": "q8",
+      "question": "Why is querying historical event logs from block 0 (fromBlock: 0n) discouraged in production dApps?",
+      "options": [
+        "A) Solidity contracts delete logs after 256 blocks",
+        "B) RPC providers enforce query range limits (e.g. max 2,000 to 10,000 blocks) and will throw rate-limit or timeout errors",
+        "C) Event logs can only be read inside Hardhat test runners",
+        "D) The eth_getLogs method is deprecated in Ethereum post-Merge"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Querying millions of historical blocks places massive load on RPC nodes and violates provider range limits. Production dApps query specific block windows, rely on indexed subgraphs (The Graph), or maintain an off-chain indexer."
+    },
+    {
+      "id": "q9",
+      "question": "What is the primary role of The Graph Protocol in modern full-stack Web3 architectures?",
+      "options": [
+        "A) To compile Solidity smart contracts into WebAssembly",
+        "B) To index on-chain event logs into a relational store and expose high-performance GraphQL query APIs",
+        "C) To store decentralized user profile pictures and videos",
+        "D) To sign transactions automatically on behalf of offline users"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Graph is a decentralized indexing protocol that listens for smart contract events, executes mapping functions, stores normalized entity records, and exposes a flexible GraphQL endpoint for frontend dApps."
+    },
+    {
+      "id": "q10",
+      "question": "In a decentralized voting dApp, what is the best architectural strategy to store candidate profile pictures?",
+      "options": [
+        "A) Store base64-encoded image strings directly in Solidity state variables (string public photo)",
+        "B) Upload images to IPFS/Arweave or cloud storage and store only the content hash / URI on-chain or in the backend",
+        "C) Compile the image pixels into EVM bytecode opcodes",
+        "D) Ask voters to upload the candidate photo with every vote transaction"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Storing megabytes of raw image data on Ethereum costs thousands of dollars in gas. Decentralized media architectures store media on IPFS/Arweave or object storage and reference only the immutable hash (e.g. ipfs://Qm...) in smart contracts or databases."
+    },
+    {
+      "id": "q11",
+      "question": "What is a 'blockchain reorganization' (reorg) and how does it affect event indexers?",
+      "options": [
+        "A) When an Ethereum node reboots and re-indexes its hard drive",
+        "B) When a longer valid proof-of-stake chain replaces a previously accepted block, causing transactions in the orphaned block to be rolled back or re-mined",
+        "C) When a smart contract upgrades its proxy implementation",
+        "D) When the Ethereum Foundation changes the Solidity compiler version"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A reorg occurs when validators switch to a competing fork. If an indexer processed an event from an orphaned block without waiting for finality or tracking block hashes, its database contains invalid phantom data. Indexers must support block rollbacks."
+    },
+    {
+      "id": "q12",
+      "question": "In React Web3 development, why should window.ethereum event listeners ('accountsChanged', 'chainChanged') be removed during component cleanup?",
+      "options": [
+        "A) Because MetaMask disconnects if too many listeners are registered",
+        "B) To prevent memory leaks, duplicate state dispatches, and stale closure bugs when components re-render or unmount",
+        "C) Because EIP-1193 permits only one listener across the entire browser",
+        "D) Because listeners consume gas on every block"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Failing to remove event listeners in the return cleanup function of useEffect causes memory leaks and duplicate handler invocations whenever the user switches accounts or networks."
+    },
+    {
+      "id": "q13",
+      "question": "What happens if a dApp updates its UI optimistically before waiting for the transaction receipt?",
+      "options": [
+        "A) The transaction fee is refunded to the user",
+        "B) The UI displays an unverified assumption that will mislead the user if the transaction reverts on-chain or fails to mine",
+        "C) The transaction is guaranteed to be accepted by validators",
+        "D) The user's wallet automatically signs a second transaction"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Optimistic UI can improve perceived responsiveness, but in Web3, transactions frequently revert due to out-of-gas, slipped slippage, or state conflicts. Frontends must track pending states and reconcile with receipt.status."
+    },
+    {
+      "id": "q14",
+      "question": "In the Voting.sol contract, how does the contract prevent a single wallet address from voting multiple times?",
+      "options": [
+        "A) By verifying the user's government national ID number",
+        "B) By tracking voter addresses in a mapping(address => bool) public hasVoted and requiring !hasVoted[msg.sender]",
+        "C) By deleting the contract after the first vote",
+        "D) By requiring the voter to send 100 ETH with their vote"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Voting.sol maintains a mapping(address => bool) public hasVoted. When a vote is cast, it asserts require(!hasVoted[msg.sender], 'Already voted') and immediately sets hasVoted[msg.sender] = true."
+    },
+    {
+      "id": "q15",
+      "question": "What is the primary limitation of preventing duplicate votes solely by wallet address (msg.sender) in smart contracts?",
+      "options": [
+        "A) Mappings can only hold up to 256 addresses",
+        "B) A single human user can easily generate unlimited wallet addresses (Sybil attack), bypassing the restriction without Proof of Humanity or identity checks",
+        "C) Addresses expire after 30 days",
+        "D) Ethereum does not allow checking msg.sender in view functions"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Address-based restrictions are vulnerable to Sybil attacks because creating new cryptographic key pairs is virtually free. Real-world elections require zero-knowledge identity, WorldID, Soulbound tokens, or Merkle-allowlists."
+    },
+    {
+      "id": "q16",
+      "question": "Which HTTP header and cookie flag configuration should be used to protect a SIWE backend session token against XSS attacks?",
+      "options": [
+        "A) localStorage.setItem('token', jwt)",
+        "B) Set-Cookie with HttpOnly; Secure; SameSite=Strict",
+        "C) document.cookie = 'auth=' + token",
+        "D) Access-Control-Allow-Origin: *"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Storing session tokens in HttpOnly cookies prevents client-side malicious scripts from accessing the authentication token via JavaScript, mitigating cross-site scripting (XSS) session hijacking."
+    },
+    {
+      "id": "q17",
+      "question": "What is the function of the Subgraph Manifest (subgraph.yaml) in The Graph?",
+      "options": [
+        "A) It compiles the React frontend into static HTML",
+        "B) It defines target smart contract addresses, network (e.g. Sepolia), ABI, event signatures to listen for, and mapping handlers",
+        "C) It encrypts the Postgres database password",
+        "D) It hosts the MetaMask wallet extension"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "subgraph.yaml is the configuration blueprint for a Subgraph. It specifies data sources, target networks, contract ABIs, events to trigger on, and which AssemblyScript mapping functions to invoke."
+    },
+    {
+      "id": "q18",
+      "question": "When connecting MetaMask on Sepolia, what decimal chain ID must the dApp validate against?",
+      "options": [
+        "A) 1 (Mainnet)",
+        "B) 11155111 (Sepolia)",
+        "C) 137 (Polygon)",
+        "D) 42161 (Arbitrum)"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Sepolia testnet has hexadecimal chain ID 0xaa36a7, which equals decimal 11155111. Mainnet is 1, Polygon is 137, and Arbitrum One is 42161."
+    },
+    {
+      "id": "q19",
+      "question": "Why does a production DApp architecture separate state into Local UI, Wallet, Blockchain, and Server Cache?",
+      "options": [
+        "A) To satisfy React component naming conventions",
+        "B) Because each state category has fundamentally different update latencies, lifecycles, authorities, and invalidation rules",
+        "C) Because browsers only permit 4 useState hooks per file",
+        "D) Because Solidity requires 4-tier state variables"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Local UI is instant and ephemeral; Wallet state depends on injected extensions and user permissions; Blockchain state is canonical but slow (~12s blocks); Server Cache is fast but potentially stale. Conflating them causes severe bugs."
+    },
+    {
+      "id": "q20",
+      "question": "What is the recommended approach for frontend environment variable security when integrating RPC endpoints in Vite?",
+      "options": [
+        "A) Embed private Alchemy admin keys directly inside client App.tsx",
+        "B) Prefix public URLs with VITE_, restrict RPC keys by origin domain / contract address in the provider dashboard, and proxy sensitive calls via backend",
+        "C) Encrypt the .env file with a Solidity smart contract",
+        "D) Check the private keys into public GitHub repositories"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Any variable prefixed with VITE_ is bundled into client JavaScript in plaintext. Never put private master keys in client code; always apply domain/contract allowlists in your RPC provider dashboard or route requests through a secure server proxy."
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "id": "layer-2-scaling",
+  "courseId": "blockchain",
+  "index": 19,
+  "name": "19. Layer 2 & Blockchain Scaling",
+  "route": "/learning/blockchain/layer-2-scaling",
+  "componentName": "BlockchainLayer2Scaling",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What is the primary factor limiting Ethereum Layer 1 throughput to approximately 15-30 transactions per second?",
+      "options": [
+        "The cryptographic complexity of Keccak-256 hashing.",
+        "The block gas limit (30M gas) combined with the requirement that every full node worldwide must independently execute and verify every transaction.",
+        "The physical speed of fiber-optic cables connecting international mining pools.",
+        "The maximum memory size allowed in Solidity EVM contracts."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Ethereum L1 prioritizes decentralization and consumer-grade node operation. With a target block gas limit of 30M gas every 12 seconds, throughput is mathematically bounded by the gas consumed per transaction and the necessity for thousands of geographically distributed commodity hardware nodes to re-execute every opcode."
+    },
+    {
+      "id": "q2",
+      "question": "In Vitalik Buterin's Scalability Trilemma, which three properties cannot be simultaneously maximized at Layer 1 without architectural trade-offs?",
+      "options": [
+        "Throughput, Latency, and Cost.",
+        "Decentralization, Security, and Scalability.",
+        "EVM Equivalence, Zero Knowledge, and Portability.",
+        "Privacy, Interoperability, and Finality."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Scalability Trilemma asserts that a public blockchain can achieve at most two of the three properties: Decentralization, Security, and Scalability. Monolithic chains that scale L1 directly do so by elevating node hardware requirements, severely hurting decentralization."
+    },
+    {
+      "id": "q3",
+      "question": "What is the fundamental difference between a true Layer 2 Rollup and an independent Sidechain (like Polygon PoS)?",
+      "options": [
+        "Rollups use Proof of Work, whereas sidechains always use Proof of Stake.",
+        "Rollups derive their core security and state validity from Layer 1 Ethereum; if rollup operators vanish, users can unilaterally recover funds using L1 data. Sidechains rely on their own independent validator set.",
+        "Sidechains are EVM-compatible, whereas rollups can never support the Ethereum Virtual Machine.",
+        "Rollups do not require bridge smart contracts on Ethereum."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A rollup posts transaction data or state diffs directly to Ethereum L1, inheriting Ethereum's censorship resistance and security. If sidechain validators collude, they can forge state and drain bridge custody contracts without L1 having any mathematical recourse."
+    },
+    {
+      "id": "q4",
+      "question": "How do State Channels (e.g., Bitcoin Lightning or Ethereum state channels) achieve near-infinite throughput between two parties?",
+      "options": [
+        "By eliminating cryptographic signatures for fast transactions.",
+        "By executing only two transactions on-chain (opening escrow and closing settlement), while intermediate state transitions are cryptographically exchanged peer-to-peer off-chain with incrementing nonces.",
+        "By offloading transaction execution to centralized AWS cloud instances.",
+        "By storing transaction history permanently in Ethereum Calldata."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "State channels lock assets in an on-chain multisig escrow contract. Parties exchange arbitrary numbers of signed off-chain balance updates. Only when a party wants to settle or disputes arise is the final highest-nonce state submitted to L1."
+    },
+    {
+      "id": "q5",
+      "question": "In an Optimistic Rollup, why is there a mandatory 7-day challenge period before withdrawals can be finalized on Ethereum L1?",
+      "options": [
+        "Because Ethereum block confirmations require 7 days to reach finality.",
+        "To allow the ZK prover sufficient time to compute complex zero-knowledge polynomial proofs.",
+        "To provide an ample window for honest watchers/validators to detect fraudulent state roots submitted by sequencers and submit a fraud proof, even under severe L1 network congestion or censorship.",
+        "To comply with international banking settlement regulations."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Optimistic rollups assume submitted state roots are valid unless challenged. The 7-day window ensures that even if an attacker attempts to censor challenger transactions on L1 by gas-bidding or block stuffing, honest watchers have plenty of time to get their fraud proof included."
+    },
+    {
+      "id": "q6",
+      "question": "How does an interactive bisection dispute game (used in Arbitrum Nitro) reduce L1 verification gas costs compared to single-round fraud proofs?",
+      "options": [
+        "By requiring validators to submit zero-knowledge proofs.",
+        "By engaging proposer and challenger in an off-chain binary search that bisects execution steps until pinpointing a single disputed EVM instruction, which L1 then executes.",
+        "By ignoring smart contract code and letting L1 miners vote on balances.",
+        "By compressing calldata into gzip format."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In single-round fraud proofs, an entire block or transaction execution must be re-run on L1, which can easily exceed L1 block gas limits. Interactive bisection recursively cuts the disputed range in half until a single EVM instruction (opcode) is isolated and evaluated on L1 via a One-Step Prover."
+    },
+    {
+      "id": "q7",
+      "question": "Why do Zero-Knowledge Rollups (e.g., zkSync, Starknet, Scroll) NOT require a 7-day dispute challenge window?",
+      "options": [
+        "Because they only process non-financial data.",
+        "Because every batch is accompanied by a cryptographic validity proof (SNARK or STARK) that is verified mathematically by an L1 smart contract before the state root is updated.",
+        "Because sequencers on ZK rollups are legally bonded by government entities.",
+        "Because state is never posted to Ethereum L1."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "ZK rollups rely on validity proofs rather than fraud proofs. An invalid state transition cannot mathematically produce a valid SNARK/STARK proof. The L1 verifier contract will revert immediately if the proof is invalid, granting instant cryptographic finality upon proof verification."
+    },
+    {
+      "id": "q8",
+      "question": "What is the primary trade-off of Zero-Knowledge Rollups compared to Optimistic Rollups?",
+      "options": [
+        "ZK rollups have weaker security than Optimistic rollups.",
+        "Generating cryptographic validity proofs requires immense computational resources (GPUs/FPGAs) and complex prover circuits, leading to higher off-chain hardware overhead.",
+        "ZK rollups cannot process ERC-20 token transfers.",
+        "ZK rollups require higher L1 calldata storage than optimistic rollups for every transaction."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "While verification on L1 is fast and cheap, the off-chain prover generation requires evaluating massive polynomial arithmetic circuits over large cryptographic fields, necessitating expensive server clusters and hardware accelerators."
+    },
+    {
+      "id": "q9",
+      "question": "What is the 'Data Availability Problem' in rollup architectures?",
+      "options": [
+        "The difficulty of retrieving user profile pictures on IPFS.",
+        "The risk that a rollup sequencer updates the state root on L1 but withholds the underlying transaction data, preventing other nodes from reconstructing state or generating fraud/validity proofs.",
+        "The inability of hard drives to store more than 1 TB of blockchain history.",
+        "The latency involved in querying RPC providers like Infura."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Data Availability means ensuring that all transaction inputs and state diffs are published where anyone can download and verify them. If a sequencer posts a state root without publishing the tx data (data withholding), honest nodes cannot verify whether the root is correct, effectively freezing user funds."
+    },
+    {
+      "id": "q10",
+      "question": "What architectural innovation did EIP-4844 (Proto-Danksharding) introduce to dramatically reduce rollup transaction fees?",
+      "options": [
+        "It increased the Ethereum block gas limit to 300 million gas.",
+        "It introduced ephemeral 'Blob-carrying transactions' with an independent EIP-1559 blob gas market, storing data for ~18 days rather than permanently in EVM calldata.",
+        "It allowed smart contracts to run on the Bitcoin blockchain.",
+        "It replaced Solidity with WebAssembly natively on Ethereum L1."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "EIP-4844 introduced 'blobs' (up to 6 blobs of 128 KB each per L1 block). Blobs are not accessible to EVM execution (only their KZG commitment is accessible), and they are purged by consensus nodes after ~18 days. This separated rollup data pricing from L1 execution gas, slashing rollup fees by 90-99%."
+    },
+    {
+      "id": "q11",
+      "question": "What is the primary role of a centralized Sequencer in current production rollups (e.g., Arbitrum, Optimism)?",
+      "options": [
+        "To mine proof-of-work hashes.",
+        "To collect transactions from users, order them, provide instant sub-second soft confirmations, and compress transactions into batches for L1 publication.",
+        "To hold all user private keys in an escrow vault.",
+        "To manually approve KYC for all smart contract deployments."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Sequencers provide immediate user responsiveness with sub-second soft receipts, aggregate transactions into batches, and post them to L1. While fast, centralized sequencers introduce censorship and MEV risks."
+    },
+    {
+      "id": "q12",
+      "question": "What is the difference between 'Soft Finality' and 'Hard Finality' on an Ethereum Layer 2?",
+      "options": [
+        "Soft finality is encrypted; hard finality is unencrypted.",
+        "Soft finality is a promise from the sequencer that a tx is ordered (sub-second); hard finality occurs once the batch is posted and finalized on Ethereum L1 (and challenge period expires or ZK proof verified).",
+        "Soft finality applies to ERC-20 tokens; hard finality applies to ETH only.",
+        "Soft finality is recorded in memory; hard finality is written to paper."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "When a sequencer receives your transaction, it gives a soft receipt (soft finality) in ~200ms. However, if the sequencer crashes or is malicious, that receipt could theoretically be reordered until the batch is committed to L1 blocks and reaches consensus finality (hard finality)."
+    },
+    {
+      "id": "q13",
+      "question": "If a rollup sequencer goes offline or attempts to censor a user's transaction, how does a user exit or force their transaction through?",
+      "options": [
+        "They cannot; their funds are lost forever.",
+        "By submitting their transaction directly to the L1 Rollup Inbox contract (Force Inclusion / enqueueTransaction), which the rollup state must process within a mandatory timeout.",
+        "By contacting the sequencer support team on Discord.",
+        "By deploying a new hard fork of the Ethereum network."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Canonical rollups include an L1 'Inbox' or 'Delayed Inbox'. If a sequencer ignores a user transaction, the user invokes `forceInclusion` on L1. If the sequencer does not include it within a defined grace period (e.g. 24 hours), the L1 contract halts sequencer batching or permits anyone to submit the state transition."
+    },
+    {
+      "id": "q14",
+      "question": "In a canonical Lock-and-Mint cross-chain bridge, what invariant must always hold to prevent protocol insolvency?",
+      "options": [
+        "Bridged Token Supply on L2 must always be strictly greater than Locked Reserve on L1.",
+        "Bridged Token Supply on L2 must always be less than or equal to the Locked Reserve on L1 Custody Contract (Bridged Supply <= Locked Assets).",
+        "The bridge contract must be owned by the Ethereum Foundation.",
+        "Gas fees on L2 must match gas fees on L1 exactly."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "If bridged tokens on L2 exceed locked assets on L1, the bridge is backed by unbacked debt. Any exploit (such as double-minting or forged proofs) that creates synthetic L2 tokens without locking equal collateral on L1 causes insolvency when users attempt to bridge back."
+    },
+    {
+      "id": "q15",
+      "question": "What is the purpose of Data Availability Sampling (DAS)?",
+      "options": [
+        "To compress images before uploading to IPFS.",
+        "To allow light nodes to verify with high statistical certainty that 100% of block data is available by randomly downloading a small number of small chunks, without downloading the entire block.",
+        "To test whether RPC nodes respond within 50 milliseconds.",
+        "To sample random private keys for auditing."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Using 2D Reed-Solomon erasure coding and KZG commitments, DAS allows consumer devices (light clients) to query random data chunks. If an attacker withholds even 1% of the original data, erasure coding requires them to hide >50% of the coded block, which light clients detect with near-100% probability after just ~30 random samples."
+    },
+    {
+      "id": "q16",
+      "question": "On Arbitrum Nitro, what is the key difference between Arbitrum One and Arbitrum Nova?",
+      "options": [
+        "Arbitrum One uses Proof of Work; Arbitrum Nova uses Proof of Stake.",
+        "Arbitrum One is a full Rollup (posts all data to Ethereum calldata/blobs); Arbitrum Nova is an AnyTrust chain (posts data to an off-chain Data Availability Committee, drastically lowering fees for gaming/social).",
+        "Arbitrum One only supports Solidity; Arbitrum Nova only supports Rust.",
+        "Arbitrum One has a 1-day challenge window; Arbitrum Nova has a 30-day challenge window."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Arbitrum One is a Rollup adhering to strict L1 data availability. Arbitrum Nova implements the AnyTrust protocol, which uses an off-chain Data Availability Committee (DAC) to certify data availability. If the committee fails, it falls back to full rollup mode. This makes Nova ideal for high-volume, low-value use cases like gaming."
+    },
+    {
+      "id": "q17",
+      "question": "In Solidity development on Arbitrum, what does accessing 'block.number' return by default?",
+      "options": [
+        "The current timestamp in milliseconds.",
+        "The approximate Layer 1 Ethereum block number (for L2 block number, developers query ArbSys.arbBlockNumber()).",
+        "The total number of transactions executed in the contract.",
+        "Zero, because block numbers do not exist on Layer 2."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "To maintain compatibility with contracts relying on L1 block times for vesting or staking schedules, Arbitrum Nitro maps `block.number` to the underlying L1 block number. To read the fast L2 block count, developers must invoke the native precompile `ArbSys(100).arbBlockNumber()`."
+    },
+    {
+      "id": "q18",
+      "question": "What is the primary risk of relying on third-party 'fast liquidity bridges' (e.g., Hop, Across) rather than canonical rollup bridges?",
+      "options": [
+        "Fast bridges do not support Ethereum.",
+        "Fast bridge liquidity pools can become depleted, and users take on liquidity provider / relayer counterparty and contract risks instead of pure L1 consensus security.",
+        "Fast bridges always take 7 days to settle transactions.",
+        "Fast bridges require running a full Ethereum archive node."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Fast bridges use off-chain liquidity providers (market makers) who front funds on L1 in exchange for a fee, taking on the 7-day rollup withdrawal wait themselves. If a fast bridge contract is hacked or pools run dry, users cannot perform instant cross-chain exits."
+    },
+    {
+      "id": "q19",
+      "question": "How does Calldata Compression reduce L1 publication costs for rollup batches?",
+      "options": [
+        "By deleting transaction nonces and signatures, and using address lookup tables (converting 20-byte addresses to 4-byte indexes).",
+        "By encrypting the entire payload with AES-256.",
+        "By removing gas fees from transactions.",
+        "By executing smart contracts off-chain without state trees."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Standard Ethereum transactions are ~110 bytes (mostly 20-byte addresses, 32-byte values, 65-byte signatures). Rollup batch compressors replace 20-byte addresses with 4-byte state index identifiers, aggregate signatures (in ZK or BLS), and pack integers using variable-length encoding, reducing tx size to ~12-15 bytes."
+    },
+    {
+      "id": "q20",
+      "question": "What is the Optimism Superchain concept?",
+      "options": [
+        "A single supercomputer hosted by Optimism PBC to run all smart contracts.",
+        "A horizontally scalable network of independent OP Stack Layer 2 chains sharing open-source code, standardized security, shared bridges, and atomic interoperability.",
+        "A hard fork of Bitcoin that adds EVM compatibility.",
+        "A database software developed by Oracle for enterprise banking."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Superchain is Optimism's vision of an interconnected network of L2s (Base, OP Mainnet, Zora, Mode, etc.) built on the modular OP Stack. By standardizing execution, data availability, and cross-chain message passing, it aims to unify fragmented liquidity into a seamless web of chains."
+    }
+  ]
+}

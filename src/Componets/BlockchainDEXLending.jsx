@@ -1,5 +1,6 @@
 // projectx/src/Componets/BlockchainDEXLending.jsx
 import React, { useState, useEffect, useMemo, useCallback } from "react";
+import ModuleNav from "./ModuleNav";
 import { Link } from "react-router-dom";
 import {
   Activity,
@@ -817,6 +818,7 @@ export default function BlockchainDEXLending() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-amber-200">
+      <ModuleNav track="blockchain" currentModuleId="dex-lending" />
       {/* Top Banner Navigation */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">

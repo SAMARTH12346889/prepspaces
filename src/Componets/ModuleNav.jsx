@@ -211,6 +211,14 @@ export const BLOCKCHAIN_MODULES = [
   { id: "dapp-development", name: "14. Full-Stack DApp Development", route: "/learning/blockchain/dapp-development" },
   { id: "ipfs-storage", name: "15. IPFS & Decentralized Storage", route: "/learning/blockchain/ipfs-storage" },
   { id: "defi-protocols", name: "16. Decentralized Finance (DeFi) Protocol Architecture", route: "/learning/blockchain/defi-protocols" },
+  { id: "dex-lending", name: "17. Decentralized Exchanges & Lending Protocols", route: "/learning/blockchain/dex-lending" },
+  { id: "security-auditing", name: "18. Blockchain Security & Smart Contract Auditing", route: "/learning/blockchain/security-auditing" },
+  { id: "layer-2-scaling", name: "19. Layer 2 & Blockchain Scaling", route: "/learning/blockchain/layer-2-scaling" },
+  { id: "oracles-chainlink", name: "20. Oracles & Chainlink", route: "/learning/blockchain/oracles-chainlink" },
+  { id: "daos-governance", name: "21. DAOs & Blockchain Governance", route: "/learning/blockchain/daos-governance" },
+  { id: "hyperledger-fabric", name: "22. Hyperledger Fabric & Enterprise Blockchain", route: "/learning/blockchain/hyperledger-fabric" },
+  { id: "solana-rust", name: "23. Solana Development with Rust", route: "/learning/blockchain/solana-rust" },
+  { id: "final-capstone", name: "24. Final Blockchain Capstone Project", route: "/learning/blockchain/final-capstone" },
 ];
 
 export default function ModuleNav({

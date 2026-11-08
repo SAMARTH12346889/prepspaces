@@ -1,0 +1,270 @@
+{
+  "id": "web3-libraries",
+  "courseId": "blockchain",
+  "index": 13,
+  "name": "13. Web3.js, Ethers.js & Viem",
+  "route": "/learning/blockchain/web3-libraries",
+  "componentName": "BlockchainWeb3Libraries",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary role of JSON-RPC in Ethereum client-server communication?",
+      "options": [
+        "It is a database query language designed specifically to replace SQL in decentralized networks.",
+        "It is a stateless, lightweight remote procedure call specification that allows frontend applications to invoke methods on an Ethereum node over HTTP or WebSocket.",
+        "It is a consensus algorithm that replaces Proof of Stake for browser clients.",
+        "It is a Solidity compiler plugin that compiles smart contracts into WebAssembly."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "JSON-RPC 2.0 is the standard protocol exposed by Ethereum execution clients (Geth, Nethermind, Besu). Frontend applications send structured JSON requests (e.g. eth_blockNumber, eth_call) to query blockchain state and broadcast transactions."
+    },
+    {
+      "id": 2,
+      "question": "How does a Web3 application architecture fundamentally differ from a traditional Web2 web application?",
+      "options": [
+        "Web3 applications do not use HTML, CSS, or JavaScript in the user interface.",
+        "In Web2, clients interact with centralized backend APIs that mutate a private database; in Web3, the frontend connects to an RPC node/wallet to interact directly with immutable smart contracts on a decentralized blockchain.",
+        "Web3 applications can only run inside mobile apps and cannot run in web browsers.",
+        "Web3 applications eliminate the need for computer networks."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In traditional Web2 architectures, user requests pass through centralized servers that authenticate and write to private databases. In Web3, the application interface connects via JSON-RPC to decentralized blockchain nodes, and transactions are cryptographically authorized by user wallets rather than backend servers."
+    },
+    {
+      "id": 3,
+      "question": "What is the current official status of the Web3.js library in modern blockchain engineering?",
+      "options": [
+        "It is the only officially supported Ethereum library for new projects started in 2026.",
+        "Web3.js was sunset on March 4, 2025; while version 4 remains documented for maintaining legacy systems, new projects predominantly use Viem or Ethers.js.",
+        "It was renamed to Solidity.js and merged into the EVM core protocol.",
+        "It has been deprecated by the W3C and is illegal to use in commercial projects."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Web3.js was officially sunset on March 4, 2025. While understanding its architecture is critical for legacy maintenance and migration tasks, modern greenfield Web3 applications primarily select Viem (for TypeScript-first applications) or Ethers.js v6."
+    },
+    {
+      "id": 4,
+      "question": "In Ethers.js v6, what is the core architectural difference between a Provider and a Signer?",
+      "options": [
+        "A Provider can sign transactions, while a Signer can only read data.",
+        "A Provider is an abstraction for a connection to the Ethereum network (read-only operations like getBalance, getBlockNumber), while a Signer has access to a private key or wallet to sign transactions and messages.",
+        "A Provider is used for Bitcoin, while a Signer is used for Ethereum.",
+        "There is no difference; they are aliases for the same class."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In Ethers.js, a Provider provides read-only connectivity to an RPC node (querying state, fetching receipts). A Signer represents an authorized account capable of producing cryptographic signatures for state-changing transactions."
+    },
+    {
+      "id": 5,
+      "question": "What is a smart contract Application Binary Interface (ABI)?",
+      "options": [
+        "The encrypted binary executable deployed to Ethereum mining nodes.",
+        "A standardized JSON schema defining a smart contract's functions, parameters, return types, events, and custom errors, allowing client libraries to encode and decode EVM calldata.",
+        "The legal contract signed by the protocol founders and auditors.",
+        "The physical hardware interface between an Ethereum validator and the network card."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The ABI (Application Binary Interface) serves as the contract's interface specification. It defines function names, argument types, and return values so client libraries can serialize high-level JavaScript calls into raw EVM bytecode calldata."
+    },
+    {
+      "id": 6,
+      "question": "What is an EVM function selector and how is it mathematically calculated?",
+      "options": [
+        "It is the first 4 bytes of the Keccak-256 hash of the canonical function signature (e.g. 'transfer(address,uint256)' yields '0xa9059cbb').",
+        "It is the SHA-256 hash of the smart contract's deployed Ethereum address.",
+        "It is a random 32-bit integer chosen by the compiler during contract deployment.",
+        "It is the gas cost required to call the function."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The EVM uses the first 4 bytes (8 hexadecimal characters) of `keccak256('functionName(type1,type2)')` to identify which function to dispatch when calldata is received by a contract."
+    },
+    {
+      "id": 7,
+      "question": "Is ABI encoding equivalent to data encryption?",
+      "options": [
+        "Yes, ABI encoding securely encrypts function arguments using AES-256.",
+        "No, ABI encoding is merely a serialization format; encoded calldata is completely public and can be decoded by anyone with the function signature.",
+        "Yes, only the recipient smart contract holds the private key to decrypt ABI calldata.",
+        "Only when calling functions marked with the 'private' keyword."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "ABI encoding is strictly serialization (formatting addresses, uints, and bytes into 32-byte chunks for the EVM), NOT cryptographic encryption. Any transaction broadcast to the blockchain can be inspected and decoded by anyone."
+    },
+    {
+      "id": 8,
+      "question": "What are the three essential components required to instantiate an Ethers.js or Web3 contract instance?",
+      "options": [
+        "IPFS CID, validator private key, and seed phrase.",
+        "Contract deployment address, contract ABI JSON array, and a Provider or Signer.",
+        "Token name, total supply, and decimal count.",
+        "GitHub repository URL, npm package name, and node ID."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "To create a contract instance (e.g. `new ethers.Contract(address, abi, runner)`), JavaScript requires the target contract address, the ABI describing its functions, and a Provider (for read calls) or Signer (for write calls)."
+    },
+    {
+      "id": 9,
+      "question": "What is the key execution difference between eth_call and eth_sendTransaction?",
+      "options": [
+        "eth_call executes locally on the connected node without creating a mined transaction or consuming user gas, whereas eth_sendTransaction broadcasts a state-changing transaction requiring signatures and gas.",
+        "eth_call costs 10x more gas than eth_sendTransaction.",
+        "eth_call is used only for deploying new contracts.",
+        "eth_sendTransaction can only be used by validator nodes."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "`eth_call` simulates execution against the node's local state without publishing a transaction or consuming gas (used for view/pure functions). `eth_sendTransaction` submits a signed state change to the mempool for block inclusion."
+    },
+    {
+      "id": 10,
+      "question": "Why does receiving a transaction hash NOT guarantee that the transaction succeeded?",
+      "options": [
+        "Because transaction hashes are only generated after 100 block confirmations.",
+        "A transaction hash only proves the transaction was broadcast to the network; it may still revert during execution, run out of gas, or remain pending indefinitely in the mempool.",
+        "Transaction hashes are generated by the browser and have no relation to the blockchain.",
+        "All transactions with hashes are guaranteed to succeed by the EVM."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A transaction hash is an identifier generated immediately upon signing and broadcast. It does not indicate execution status. The transaction could revert (e.g. require statement failed) or be dropped; the application must inspect the mined transaction receipt (`receipt.status === 1`)."
+    },
+    {
+      "id": 11,
+      "question": "Where are smart contract events stored in the Ethereum blockchain structure?",
+      "options": [
+        "Inside the contract's persistent storage trie slots (SSTORE).",
+        "Inside the transaction receipt's logs array, indexed in the block's receipts bloom filter.",
+        "In off-chain AWS S3 buckets managed by the Ethereum Foundation.",
+        "Inside the compiler bytecode table."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Events emitted via the EVM LOG opcodes are stored in transaction execution logs on-chain. Smart contracts cannot read past logs, but external nodes and indexers query them via bloom filters and `eth_getLogs`."
+    },
+    {
+      "id": 12,
+      "question": "What distinguishes an 'indexed' parameter from a non-indexed parameter in Solidity events?",
+      "options": [
+        "Indexed parameters are converted to floating-point numbers.",
+        "Indexed parameters are stored as searchable 32-byte topics (up to 3 per event), allowing client applications to filter logs by specific addresses or values, while non-indexed parameters are packed into log data.",
+        "Indexed parameters can only be read by the contract owner.",
+        "Non-indexed parameters are automatically deleted after 24 hours."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "An event can have up to 3 `indexed` parameters, which become 'topics' in the log structure. Bloom filters allow nodes to quickly search for logs matching specific indexed topics without parsing the raw data payload."
+    },
+    {
+      "id": 13,
+      "question": "What is the primary architectural advantage of Viem over older Ethereum JavaScript libraries?",
+      "options": [
+        "It runs on the Bitcoin network without EVM compatibility.",
+        "It features a modular, tree-shakeable client/action architecture with end-to-end TypeScript type inference derived directly from ABIs using 'as const'.",
+        "It completely eliminates the need for gas fees on Ethereum.",
+        "It replaces MetaMask with an AI assistant."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Viem was built from the ground up for modern TypeScript. When an ABI is defined with `as const`, TypeScript automatically infers the exact function names, argument types, and return values, catching errors at compile time."
+    },
+    {
+      "id": 14,
+      "question": "In Viem, what is the role of a 'Public Client' versus a 'Wallet Client'?",
+      "options": [
+        "A Public Client is accessible to anyone on the web for read actions, while a Wallet Client is bound to an account/transport to perform signing and state-mutating write actions.",
+        "A Public Client is only used on testnets, while a Wallet Client is used on mainnet.",
+        "A Public Client requires a hardware security module (HSM).",
+        "There is no difference; they are interchangeable."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Viem separates responsibilities: `createPublicClient` provides read-only RPC actions (`getBalance`, `readContract`), while `createWalletClient` interfaces with an account (or browser provider `window.ethereum`) to execute signing and write actions."
+    },
+    {
+      "id": 15,
+      "question": "Under the EIP-1193 standard, which RPC method must a dApp invoke to request wallet connection in MetaMask?",
+      "options": [
+        "eth_connectUserAccount",
+        "eth_requestAccounts",
+        "wallet_authorizeDapp",
+        "personal_openSession"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "EIP-1193 specifies `window.ethereum.request({ method: 'eth_requestAccounts' })` to trigger the wallet connection modal and return the user's authorized Ethereum addresses."
+    },
+    {
+      "id": 16,
+      "question": "Under the EIP-1559 gas fee model, how is the total transaction fee calculated?",
+      "options": [
+        "Transaction Fee = Gas Used * (Base Fee + Priority Fee / Tip)",
+        "Transaction Fee = Gas Limit * Gas Price * 2",
+        "Transaction Fee = Block Number * 21,000",
+        "Transaction Fee = Total Token Supply / 100"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Under EIP-1559, the effective gas price is `Base Fee + Priority Fee` (capped by `Max Fee Per Gas`). The total transaction fee deducted from the user's account is `Gas Used * Effective Gas Price`."
+    },
+    {
+      "id": 17,
+      "question": "What does a transaction receipt status of 1 indicate in Ethereum?",
+      "options": [
+        "The transaction is still pending in the mempool.",
+        "The transaction was successfully executed and committed to blockchain state without reverting.",
+        "The transaction reverted due to a failed require statement.",
+        "The transaction was cancelled by the miner."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A receipt status of `1` (or hex `'0x1'`) indicates EVM execution success. A status of `0` (or hex `'0x0'`) indicates the transaction reverted during execution."
+    },
+    {
+      "id": 18,
+      "question": "Why is storing an RPC API key (such as Alchemy or Infura) directly in frontend client code a security consideration?",
+      "options": [
+        "Because frontend code cannot make HTTP requests.",
+        "Because any code running in the user's browser is publicly readable; malicious actors can extract the API key and exhaust your rate limits or quotas unless domain/origin restrictions or backend proxies are configured.",
+        "Because Ethereum nodes will reject requests that include API keys.",
+        "Because API keys can be used to steal the user's private key."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Frontend environment variables (`VITE_...`) are bundled into client-side JavaScript. Anyone inspecting network requests or bundle files can view the API key. Developers must set up domain allowlists, request throttling, or route through a backend proxy."
+    },
+    {
+      "id": 19,
+      "question": "What standard EIP-1193 error code is thrown when a user rejects a transaction in MetaMask?",
+      "options": [
+        "Error code 500 (Internal Server Error)",
+        "Error code 4001 (User Rejected Request)",
+        "Error code 404 (Not Found)",
+        "Error code 1337 (Hacker Revert)"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "EIP-1193 explicitly defines error code `4001` as 'User Rejected Request' (the user clicked 'Reject' on the wallet confirmation prompt)."
+    },
+    {
+      "id": 20,
+      "question": "Why must React applications remove event listeners during component unmounting?",
+      "options": [
+        "Because React will crash if more than one listener is active.",
+        "To prevent memory leaks, duplicate state updates, and unnecessary background network/WebSocket polling after the user navigates away.",
+        "Because Ethereum nodes charge gas for active event listeners.",
+        "Because MetaMask can only support 1 event listener across all browser tabs."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Failing to remove listeners (`token.removeAllListeners()` or `window.ethereum.removeListener()`) causes memory leaks and duplicate handler invocations whenever the component re-mounts."
+    }
+  ]
+}

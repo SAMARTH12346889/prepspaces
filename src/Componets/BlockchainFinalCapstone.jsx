@@ -1,5 +1,6 @@
 // projectx/src/Componets/BlockchainFinalCapstone.jsx
 import React, { useState, useMemo, useCallback } from "react";
+import ModuleNav from "./ModuleNav";
 import { Link } from "react-router-dom";
 import {
   ChevronDown,
@@ -917,6 +918,7 @@ export default function BlockchainFinalCapstone() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-orange-500 selection:text-white">
+      <ModuleNav track="blockchain" currentModuleId="final-capstone" />
       {/* Top Banner Navigation */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">

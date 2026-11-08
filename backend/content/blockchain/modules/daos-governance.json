@@ -1,0 +1,270 @@
+{
+  "id": "daos-governance",
+  "courseId": "blockchain",
+  "index": 21,
+  "name": "21. DAOs & Blockchain Governance",
+  "route": "/learning/blockchain/daos-governance",
+  "componentName": "BlockchainDAOsGovernance",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "What does DAO stand for in blockchain engineering?",
+      "options": [
+        "Distributed Application Operation",
+        "Decentralized Autonomous Organization",
+        "Digital Asset Ownership",
+        "Decentralized Application Oracle"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A DAO is an organization coordinated through smart contracts and decentralized community governance, enabling transparent, rules-based decision making without centralized executive hierarchies."
+    },
+    {
+      "id": "q2",
+      "question": "Which OpenZeppelin contract extension tracks historical token voting power and prevents double-voting?",
+      "options": [
+        "ERC20Permit",
+        "ERC20Votes",
+        "ERC721URIStorage",
+        "ERC20Burnable"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "ERC20Votes records historical checkpoints of voting power per block or timestamp. When a proposal is created, voting power is snapshot at that historical point, preventing users from voting, transferring tokens to another wallet, and voting again."
+    },
+    {
+      "id": "q3",
+      "question": "What does a Proposal Threshold determine in a Governor smart contract?",
+      "options": [
+        "The minimum voter turnout required for a vote to pass",
+        "The minimum voting power an account must hold or have delegated to create a new governance proposal",
+        "The duration of the timelock execution delay",
+        "The total maximum token supply"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The proposal threshold restricts proposal creation to accounts holding a minimum amount of voting tokens (e.g. 100 PSG or 1% of total supply), preventing proposal spam on the network."
+    },
+    {
+      "id": "q4",
+      "question": "What is Quorum in a DAO voting system?",
+      "options": [
+        "The minimum total voting participation required for a proposal to be valid",
+        "A token transfer fee paid to miners",
+        "A multisig owner private key",
+        "A smart contract compiler version"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Quorum is the minimum number of votes (or percentage of voting supply) that must participate in a vote. If quorum is not reached, the proposal fails even if 100% of the cast votes were in favor."
+    },
+    {
+      "id": "q5",
+      "question": "What is the primary architectural purpose of a Timelock contract (e.g. TimelockController)?",
+      "options": [
+        "To automatically mint new governance tokens every hour",
+        "To introduce a mandatory waiting delay between proposal approval and execution, giving the community a review window",
+        "To increase user voting power proportionally over time",
+        "To create non-fungible tokens"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A timelock delays the execution of approved proposals (e.g. by 24-48 hours). This gives community members and security councils time to review scheduled transactions, detect malicious proposals, and exit or cancel the action before funds move."
+    },
+    {
+      "id": "q6",
+      "question": "Which platform is widely used by Web3 communities for gasless, off-chain signature-based voting?",
+      "options": [
+        "Remix IDE",
+        "MetaMask JSON-RPC",
+        "Snapshot",
+        "Sepolia Etherscan"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Snapshot allows token holders to sign off-chain cryptographic messages using their wallets at zero gas cost. Votes are aggregated off-chain according to custom token-balance strategies."
+    },
+    {
+      "id": "q7",
+      "question": "What does a '3-of-5' Multisignature Wallet (e.g. Safe) configuration mean?",
+      "options": [
+        "Five transactions must be executed across three blocks",
+        "At least 3 authorized signers out of 5 total designated signers must confirm a transaction before it executes",
+        "Three wallets share ownership of five governance tokens",
+        "Five proposals require three voting rounds"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "M-of-N multisig requires a threshold of M unique cryptographic signatures out of N registered owners. In a 3-of-5 setup, any 3 of the 5 keyholders must sign to execute a transaction."
+    },
+    {
+      "id": "q8",
+      "question": "Which attack vector attempts to hijack governance by borrowing tokens uncollateralized within a single block?",
+      "options": [
+        "Sybil attack",
+        "Flash-loan governance attack",
+        "Phishing attack",
+        "Replay attack"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In a flash-loan governance attack, an attacker borrows millions in governance tokens via a flash loan, votes on or creates a proposal in the same transaction, and returns the loan. Checkpointed historical voting power (ERC20Votes) prevents this."
+    },
+    {
+      "id": "q9",
+      "question": "Which voting options are supported by OpenZeppelin's standard GovernorCountingSimple module?",
+      "options": [
+        "Yes and No only",
+        "For (1), Against (0), and Abstain (2)",
+        "Buy and Sell",
+        "Approve and Transfer"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "GovernorCountingSimple supports 3 choices: 0 = Against, 1 = For, and 2 = Abstain. Crucially, For and Abstain votes count toward meeting the quorum requirement, while Against votes do not."
+    },
+    {
+      "id": "q10",
+      "question": "Who should ideally be the owner and sole authorized caller of a DAO's treasury contract?",
+      "options": [
+        "Any random wallet on the network",
+        "The original deployer's private key permanently",
+        "The governance-controlled TimelockController contract",
+        "An unverified external REST API"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "To ensure true decentralization, the treasury contract should be owned exclusively by the TimelockController. Transfers can only be executed after an on-chain proposal passes community voting and the timelock delay expires."
+    },
+    {
+      "id": "q11",
+      "question": "In OpenZeppelin GovernorCountingSimple, how is quorum calculated regarding the three vote types?",
+      "options": [
+        "All votes (For + Against + Abstain) count toward quorum.",
+        "Only For votes count toward quorum.",
+        "For and Abstain votes count toward quorum; Against votes do NOT count toward quorum.",
+        "Quorum is calculated using only token transfers."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Under GovernorCountingSimple, `_quorumReached()` checks `quorum <= forVotes + abstainVotes`. Against votes do not contribute to reaching quorum, meaning a controversial vote with 90k Against and 10k For fails quorum if 40k is required."
+    },
+    {
+      "id": "q12",
+      "question": "How does Quadratic Voting prevent wealthy token whales from completely dominating governance decisions?",
+      "options": [
+        "By banning whales from holding more than 100 tokens.",
+        "By making the credit cost of votes quadratic (Cost = Votes^2), meaning 10 votes cost 100 credits, allowing broad community majorities to outvote concentrated capital.",
+        "By using proof-of-work mining for every vote.",
+        "By randomizing voting results using Chainlink VRF."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In quadratic voting, each additional vote becomes quadratically more expensive ($V^2$). A whale with 10,000 credits gets only 100 votes ($\\sqrt{10,000}$), whereas 100 community members with 100 credits each get 10 votes each (1,000 total votes), giving the community $10\\times$ the voting power of the single whale."
+    },
+    {
+      "id": "q13",
+      "question": "Why must an account call 'delegate()' before its token balance can be counted as active voting power in ERC20Votes?",
+      "options": [
+        "Because tokens are burned when voting.",
+        "Because ERC20Votes separates token ownership accounting from checkpointed voting weight to support delegation without transferring asset custody.",
+        "Because delegation converts tokens into NFTs.",
+        "Because the EVM cannot read ERC-20 balances directly."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "ERC20Votes maintains independent checkpoint trees for voting weight. Holding tokens does not automatically allocate voting weight; a user must explicitly delegate to themselves (`delegate(msg.sender)`) or another address to write the checkpoint."
+    },
+    {
+      "id": "q14",
+      "question": "During the deployment and role setup of TimelockController, what critical step must be executed to eliminate centralized backdoors?",
+      "options": [
+        "Transfer all tokens to a burn address.",
+        "Grant PROPOSER_ROLE to the Governor, revoke PROPOSER_ROLE from the deployer, and renounce DEFAULT_ADMIN_ROLE so the deployer retains zero administrative privileges.",
+        "Increase the minDelay to 10 years.",
+        "Delete the smart contract bytecode."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "During initial deployment, the deployer holds temporary admin rights to configure the Governor. Once the Governor is granted PROPOSER_ROLE and CANCELLER_ROLE, the deployer MUST revoke their own proposer role and renounce DEFAULT_ADMIN_ROLE, leaving TimelockController as its own sole administrator."
+    },
+    {
+      "id": "q15",
+      "question": "What is 'Governance Fatigue' and how does it endanger decentralized protocols?",
+      "options": [
+        "Hardware servers overheating due to high gas usage.",
+        "Voter apathy resulting from too many frequent, complex proposals, leading to low turnout where small colluding factions can pass malicious takeovers.",
+        "A smart contract compilation error.",
+        "The expiration of an SSL certificate on a DAO website."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Governance fatigue occurs when community members stop voting due to cognitive overload. In low-turnout environments, an attacker with only 3-5% of the total token supply can easily satisfy low quorum thresholds and pass treasury-draining proposals."
+    },
+    {
+      "id": "q16",
+      "question": "What is a 'Legal Wrapper' in DAO organizational structuring?",
+      "options": [
+        "A cryptographic encryption envelope for smart contracts.",
+        "A recognized legal entity (such as an LLC, Foundation, or Unincorporated Nonprofit Association) that interfaces the DAO with real-world law, contracts, and taxation.",
+        "A software wrapper around Ethers.js.",
+        "A patent protecting blockchain algorithms."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Without a legal wrapper, courts may treat DAO token holders as general partners in an unincorporated partnership, making members personally liable for the DAO's debts. Wrappers (e.g. Swiss Foundations, Marshall Islands DAOs, or Wyoming UNA/LLCs) provide limited liability."
+    },
+    {
+      "id": "q17",
+      "question": "What security role does an Emergency Security Council play in advanced DAOs like ENS and Aave?",
+      "options": [
+        "They manually trade tokens on decentralized exchanges.",
+        "They possess restricted, multi-sig powers (such as a 4-of-8 threshold) to cancel malicious proposals in the timelock queue or pause protocols during active exploits.",
+        "They hold all user private keys in cold storage.",
+        "They approve every single forum post."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Security Councils act as a defense-in-depth circuit breaker. If an attacker exploits a governance flaw or executes a flash-loan takeover, the council can invoke `timelock.cancel()` during the waiting period to halt malicious execution before funds are drained."
+    },
+    {
+      "id": "q18",
+      "question": "In OpenZeppelin Governor, what is the 'descriptionHash' parameter used for in queue() and execute()?",
+      "options": [
+        "It is a random number generated by Chainlink VRF.",
+        "It is the keccak256 hash of the proposal description string, binding the exact human-readable text to the executable targets and calldatas.",
+        "It stores the user's IP address.",
+        "It is the compiler optimization flag."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The Governor binds proposals via `keccak256(bytes(description))`. When calling `queue()` or `execute()`, the caller must supply the matching `descriptionHash`, guaranteeing that the exact parameters voted on by the community match the executed payload."
+    },
+    {
+      "id": "q19",
+      "question": "Why is an on-chain proposal with targets, values, and calldatas safer than an off-chain vote that promises manual execution?",
+      "options": [
+        "Because on-chain proposals are free of gas costs.",
+        "Because approved on-chain proposals are executed trustlessly and atomically by smart contracts without relying on human administrators to follow through.",
+        "Because off-chain proposals can never be stored on computers.",
+        "Because on-chain proposals do not require quorum."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "On-chain governance with Governor and Timelock executes transactions programmatically through smart contracts. Off-chain votes (like basic Snapshot) are non-binding social signals that require a trusted multi-sig signer group to manually execute the transfer, reintroducing centralization."
+    },
+    {
+      "id": "q20",
+      "question": "How can an attacker exploit a proposal using a 'Trojan Horse' or malicious calldata payload?",
+      "options": [
+        "By writing a computer virus in Solidity.",
+        "By giving the proposal a benign description (e.g. 'Fund Developer Grants') while encoding a malicious function call (e.g. `treasury.release(attacker, allFunds)`) in the raw calldata.",
+        "By sending zero ether to the contract.",
+        "By changing the chain ID."
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Attackers disguise dangerous function calls behind attractive titles. Governance UIs must decode the raw `calldatas` against contract ABIs so voters inspect the actual recipient address and transfer amounts rather than relying on human-written titles."
+    }
+  ]
+}

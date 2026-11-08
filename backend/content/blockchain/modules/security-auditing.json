@@ -1,0 +1,270 @@
+{
+  "id": "security-auditing",
+  "courseId": "blockchain",
+  "index": 18,
+  "name": "18. Blockchain Security & Smart Contract Auditing",
+  "route": "/learning/blockchain/security-auditing",
+  "componentName": "BlockchainSecurityAuditing",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is declaring a state variable 'private' in a Solidity smart contract insufficient for keeping sensitive data confidential?",
+      "options": [
+        "Private variables are automatically made public after 256 blocks",
+        "Public blockchain state is completely transparent, allowing anyone to inspect raw contract storage slots off-chain",
+        "The compiler converts private variables into public getters during ABI generation",
+        "Private variables can be decrypted using the contract owner's public address"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In Ethereum and EVM-compatible chains, all blockchain data is publicly visible to all nodes. The 'private' keyword in Solidity only restricts other smart contracts from reading the variable on-chain; anyone running a node or using web3.eth.getStorageAt() can inspect the raw 32-byte storage slot."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary root cause of a classic reentrancy vulnerability during a token or ETH withdrawal?",
+      "options": [
+        "Using uint256 instead of int256 for tracking balances",
+        "Calling an external contract or recipient address before updating internal account balances in storage",
+        "Failing to compile with optimization enabled in foundry.toml",
+        "Deploying on an EVM chain that does not support the PUSH0 opcode"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "When an external interaction (such as sending ETH via .call{value: amount}(\"\")) is executed before the user's internal balance is decremented, the recipient's fallback/receive function can recursively call back into withdraw() and repeatedly claim funds against stale storage state."
+    },
+    {
+      "id": 3,
+      "question": "How does the Checks-Effects-Interactions (CEI) pattern eliminate single-function reentrancy vulnerabilities?",
+      "options": [
+        "It forces all external calls to execute inside a delegatecall proxy",
+        "It guarantees that internal storage modifications (Effects) occur before any external contract interactions (Interactions) take place",
+        "It encrypts the msg.sender address before transferring tokens",
+        "It cancels transactions if the recipient contract consumes more than 2,300 gas"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Under the CEI pattern, the contract first checks prerequisites (e.g. require(balance >= amount)), immediately updates internal state (balances[msg.sender] -= amount), and only then performs external transfers. Any recursive reentrant call finds a balance of zero."
+    },
+    {
+      "id": 4,
+      "question": "Why is using tx.origin for caller authentication (e.g. require(tx.origin == owner)) a severe security flaw?",
+      "options": [
+        "tx.origin is deprecated and causes an immediate EVM revert in Solidity 0.8+",
+        "An attacker can trick the owner into interacting with a malicious contract that calls the target contract, passing the tx.origin check",
+        "tx.origin changes every 12 seconds with new Ethereum blocks",
+        "tx.origin returns the miner's coinbase address rather than a user address"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "tx.origin returns the original external account (EOA) that initiated the transaction chain. If the owner interacts with an attacker's phishing contract, that malicious contract can call into the vulnerable contract. Since the transaction originated from the owner, tx.origin == owner evaluates to true."
+    },
+    {
+      "id": 5,
+      "question": "In Solidity 0.8.0 and later, what is the default behavior when an arithmetic operation overflows or underflows?",
+      "options": [
+        "The calculation wraps around silently (e.g., 255 + 1 becomes 0 for uint8)",
+        "The EVM transaction automatically reverts with a panic code (0x11)",
+        "The contract is paused and owner privileges are revoked",
+        "The variable is converted to a dynamic uint256 array"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Solidity 0.8.0 introduced native overflow and underflow checks into the compiler. Any arithmetic operation that exceeds the type boundary reverts automatically with Panic(0x11), eliminating the need for SafeMath unless explicitly wrapped in an unchecked block."
+    },
+    {
+      "id": 6,
+      "question": "Why can an unbounded for-loop (such as iterating over a dynamic array of all token depositors) result in a Denial of Service (DoS)?",
+      "options": [
+        "Arrays larger than 100 elements are automatically deleted by the EVM garbage collector",
+        "As the array grows, the gas required to iterate through every element exceeds the block gas limit, making the function unexecutable",
+        "Solidity loops cannot read storage variables declared outside the function",
+        "The compiler enforces a strict 50-iteration limit on all on-chain loops"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Every storage read and loop increment consumes gas. If an array grows large enough, the gas cost of executing the loop exceeds the maximum gas limit of an Ethereum block (typically 30M gas). The transaction becomes impossible to mine, permanently freezing the contract function."
+    },
+    {
+      "id": 7,
+      "question": "What is the key mechanism behind an MEV sandwich attack on a decentralized exchange?",
+      "options": [
+        "The attacker steals the victim's private key from the mempool",
+        "The attacker front-runs a victim's buy order to inflate the price, allows the victim to buy at the peak, and back-runs by selling for profit",
+        "The attacker submits invalid block headers to pause the DEX router",
+        "The attacker drains liquidity by calling CREATE2 with identical bytecode"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A sandwich attack wraps the victim's pending transaction between two attacker transactions: a front-run buy that pushes the price up to the victim's maximum slippage bound, followed by the victim's execution at the worse price, followed by a back-run sell where the attacker pockets the price difference."
+    },
+    {
+      "id": 8,
+      "question": "Why is relying on an instantaneous DEX AMM spot price (e.g., reservesUSDC / reservesETH) as an oracle for lending dangerous?",
+      "options": [
+        "AMM spot prices update only once every 24 hours",
+        "An attacker can temporarily distort AMM pool reserves within a single transaction using a flash loan, manipulating collateral valuation",
+        "DEX pairs cannot return prices to contracts with different licenses",
+        "AMM spot prices ignore ERC-20 decimal scaling"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Because AMM spot prices reflect the immediate ratio of reserves, an attacker can borrow millions in an uncollateralized flash loan, execute a massive swap to drastically manipulate the spot price, exploit the lending contract's inflated collateral valuation, and repay the flash loan in the same atomic block."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary role of the domain separator in EIP-712 structured data signing?",
+      "options": [
+        "It stores the user's ENS domain name on IPFS",
+        "It binds the signature to a specific contract address and chain ID, preventing cross-contract and cross-chain replay attacks",
+        "It calculates the gas fee required to execute the transaction",
+        "It replaces the secp256k1 elliptic curve with RSA-2048"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The EIP-712 domain separator incorporates the contract name, version, verifyingContract address, and chainId into the hash. This ensures that a signature signed for a specific protocol on Ethereum cannot be replayed on a fork or on a different contract on Arbitrum."
+    },
+    {
+      "id": 10,
+      "question": "What happens when contract A executes a delegatecall to contract B?",
+      "options": [
+        "Contract B runs in its own storage context and msg.sender is set to contract A",
+        "Contract B's code executes in contract A's storage context, with contract A's address(this), and preserving the original msg.sender",
+        "Contract A transfers all its ETH reserves to contract B automatically",
+        "The EVM pauses all state transitions until contract B emits an event"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "delegatecall executes the code of target contract B inside the context (storage, balance, address(this)) of calling contract A. Crucially, msg.sender and msg.value remain unchanged from the caller of contract A. If contract B writes to slot 0, it modifies slot 0 of contract A."
+    },
+    {
+      "id": 11,
+      "question": "What is a 'storage collision' in upgradeable proxy architectures?",
+      "options": [
+        "Two validators submitting blocks with the same block number",
+        "A proxy and implementation contract assigning different state variables to the same physical storage slot, corrupting state",
+        "A hard drive hardware failure on an Ethereum archive node",
+        "Deploying two ERC-20 tokens with identical ticker symbols"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Because proxy contracts use delegatecall, state variables in the proxy and the implementation must align perfectly in storage slots. If the implementation declares uint256 public fee in slot 0 while the proxy stores address public admin in slot 0, updating fee will overwrite and corrupt the admin address."
+    },
+    {
+      "id": 12,
+      "question": "Why should block.timestamp never be used as a source of high-value randomness in on-chain lotteries or games?",
+      "options": [
+        "Timestamps on Ethereum are frozen at Unix epoch 0",
+        "Block proposers (validators) can manipulate block timestamps within acceptable bounds (typically up to ~15 seconds) to favor themselves",
+        "Timestamps require off-chain Chainlink automation to be read",
+        "Solidity contracts cannot cast uint256 timestamps into pseudorandom numbers"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Validators have discretionary control over the exact block.timestamp within consensus limits (a timestamp must be greater than the parent block and within plausible drift). If substantial financial gain is at stake, a validator can selectively adjust the timestamp or withhold blocks to win the lottery."
+    },
+    {
+      "id": 13,
+      "question": "What is the primary operational difference between static analysis (e.g. Slither) and fuzz testing (e.g. Foundry)?",
+      "options": [
+        "Static analysis requires deploying to mainnet; fuzz testing runs locally",
+        "Static analysis examines AST code structure without execution; fuzz testing dynamically executes code with thousands of randomized inputs",
+        "Static analysis only checks gas usage; fuzz testing only checks access control",
+        "Static analysis requires Rust; fuzz testing requires Python"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Static analysis tools like Slither parse Solidity Abstract Syntax Trees (AST) and control flow graphs without executing the code, identifying known anti-patterns. Fuzz testing dynamically compiles and executes functions with thousands of pseudo-random edge-case inputs to uncover invariant violations."
+    },
+    {
+      "id": 14,
+      "question": "What does a formal verification tool prove about a smart contract?",
+      "options": [
+        "That the contract has zero gas cost across all functions",
+        "Mathematically proves that defined formal specifications and invariants hold across all possible execution states under assumed constraints",
+        "Guarantees that the market price of the token will never decrease",
+        "Ensures that no reentrancy guard can ever be bypassed by miners"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Formal verification translates smart contract logic and user-defined specifications (invariants, pre/postconditions) into mathematical formulas (SMT/First-Order Logic) and uses automated solvers to mathematically prove that the code satisfies the specification in all reachable states."
+    },
+    {
+      "id": 15,
+      "question": "In Hoare logic notation {P} C {Q}, what does P represent?",
+      "options": [
+        "The Protocol fee percentage",
+        "The Precondition: a predicate that must hold true before the program command C executes",
+        "The Proxy contract implementation address",
+        "The Proof-of-Work hash target"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In Hoare triples {P} C {Q}, P represents the Precondition (state requirement prior to execution), C is the Command or program operation, and Q represents the Postcondition that is guaranteed to hold true upon successful termination."
+    },
+    {
+      "id": 16,
+      "question": "Why is using OpenZeppelin's SafeERC20 library recommended when calling transfer() or transferFrom() on arbitrary ERC-20 tokens?",
+      "options": [
+        "It speeds up transaction mining by 50%",
+        "Some tokens (like USDT) do not return a boolean on transfer, while others return false on failure instead of reverting",
+        "It prevents flash loan attacks on the ERC-20 contract",
+        "It automatically mints replacement tokens if balances run low"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The original ERC-20 specification requires transfer to return a bool. However, several widely used tokens (such as USDT) omit the return value, while others return false rather than reverting on failure. SafeERC20 inspects return data size and decodes the result, reverting if the transfer failed."
+    },
+    {
+      "id": 17,
+      "question": "In a security audit report, how is a 'Critical' severity finding defined?",
+      "options": [
+        "A minor code styling violation that fails linter formatting",
+        "A vulnerability that allows direct, unauthorized theft of user funds, protocol insolvency, or permanent loss of contract control with zero prerequisites",
+        "A typo in a NatSpec comment",
+        "An optimization suggestion that saves 50 gas on deployment"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A Critical finding represents a flaw that directly leads to catastrophic protocol compromise—such as unrestricted fund draining, uncollateralized minting, or total loss of administrative ownership—requiring immediate remediation before any deployment."
+    },
+    {
+      "id": 18,
+      "question": "What is 'read-only reentrancy' and why is it particularly insidious in DeFi protocols?",
+      "options": [
+        "An attacker reads private variables using an archive node",
+        "A callback reenters during a state-modifying function, reading temporarily inconsistent balances from a view function to exploit a dependent protocol",
+        "A reentrancy attack that occurs only when calling pure functions",
+        "A bug that disables compiler optimizations for view functions"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "In read-only reentrancy, the vulnerable contract's view function (e.g. getVirtualPrice()) is called during a transient state before pool reserves are balanced. While the contract itself may not be drained directly, third-party lending protocols relying on that view function get manipulated prices and are exploited."
+    },
+    {
+      "id": 19,
+      "question": "What is the primary ethical requirement of responsible vulnerability disclosure in Web3?",
+      "options": [
+        "Publicly tweet the exploit code immediately to warn all users",
+        "Privately notify the project's security team through authorized channels, reproduce in a local fork without exploiting live funds, and allow time for remediation",
+        "Drain 10% of protocol funds as an advance on the bug bounty",
+        "Sell the exploit to the highest bidder on darknet forums"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Responsible disclosure mandates that researchers coordinate privately with the protocol's designated security contacts, test exploits strictly in local or simulated environments without harming live user assets, and refrain from public disclosure until an effective patch has been deployed."
+    },
+    {
+      "id": 20,
+      "question": "Why does a clean security audit report not guarantee that a smart contract is 100% bug-free or unhackable?",
+      "options": [
+        "Auditors do not read Solidity source code",
+        "Audits review code against known vulnerabilities at a point in time; novel attack vectors, complex economic conditions, and external dependencies can still emerge",
+        "Security audit firms are legally barred from finding critical bugs",
+        "Compiler bugs automatically invalidate all human audits"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "An audit is a time-constrained security assessment evaluating code against established threat models and known attack vectors. It cannot foresee novel 0-day compiler defects, unexpected composability side effects with future protocols, or irrational off-chain market dynamics."
+    }
+  ]
+}

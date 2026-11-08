@@ -1,0 +1,140 @@
+{
+  "id": "contract-architecture",
+  "courseId": "blockchain",
+  "index": 9,
+  "name": "9. DApp Architecture & Escrow",
+  "route": "/learning/blockchain/architecture",
+  "componentName": "BlockchainArchitecture",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is the Pull Payment pattern strictly preferred over direct address.transfer(amount) in Solidity?",
+      "options": [
+        "Direct transfers consume 0 gas, which violates the EVM yellow paper execution model",
+        "Direct push transfers allow malicious recipients to revert execution in their receive/fallback hook, causing a permanent Denial of Service (DoS)",
+        "Solidity 0.8.x completely deprecated the address type for direct ETH balance queries",
+        "Pull payments automatically execute off-chain via Chainlink automation at zero cost"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "If a contract pushes funds to an arbitrary address via transfer or call{value}, a malicious recipient contract can deliberately revert in its receive() or fallback() function, blocking the entire calling transaction and freezing funds for all other participants. Pull payments isolate payouts into individual balances where users must withdraw their own funds independently."
+    },
+    {
+      "id": 2,
+      "question": "In the Checks-Effects-Interactions (CEI) pattern, why must internal state updates precede external contract calls?",
+      "options": [
+        "To save gas by allowing the EVM to pack storage slots before memory expansion",
+        "Because external calls immediately erase the caller contract's memory buffer",
+        "To prevent reentrancy attacks, ensuring that if an external call re-enters the contract, the state already reflects the completed operation",
+        "Because Solidity enforces a compile-time error if state variables are modified after an emit statement"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "By updating state variables (e.g. setting balances[msg.sender] = 0 or state = EscrowState.Released) before invoking an external address.call{value: ...}(''), any malicious reentrant call back into the contract will see the updated state and will fail guards, preventing double-spend drains."
+    },
+    {
+      "id": 3,
+      "question": "What is the primary role of the Factory Pattern in smart contract engineering?",
+      "options": [
+        "To compile Solidity source code directly into EVM bytecode on the blockchain at runtime",
+        "To programmatically deploy standardized, isolated contract instances (e.g., individual Escrow agreements or Uniswap pools) and register their deployed addresses",
+        "To bypass transaction gas limits by running contract construction inside an off-chain enclave",
+        "To automatically upgrade older contract instances without requiring user transaction signatures"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "The Factory Pattern allows a master contract to instantiate child contracts with standardized bytecode, isolated storage, and verified parameters using the `new` keyword or `create2`, while indexing created instances in an internal registry array or mapping."
+    },
+    {
+      "id": 4,
+      "question": "How does the Registry Pattern improve multi-contract architecture in decentralized systems?",
+      "options": [
+        "It combines all contract code into a single 24KB monolithic bytecode binary",
+        "It provides a centralized or governance-controlled directory mapping service identifiers (e.g. keccak256('ESCROW_MANAGER')) to current contract addresses, allowing modular component upgrades",
+        "It eliminates the need for ABI definitions when calling external functions",
+        "It encrypts on-chain storage keys so other smart contracts cannot inspect contract state"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "A Registry contract acts as an on-chain DNS or service locator. Instead of hardcoding contract addresses into dependent contracts, systems query the registry using a constant bytes32 identifier. Upgrading a subsystem only requires updating the registry entry."
+    },
+    {
+      "id": 5,
+      "question": "In a 3-party Escrow agreement (Buyer, Seller, Arbitrator), when can the Arbitrator intervene?",
+      "options": [
+        "Arbitrators can unilaterally withdraw funds to their own wallet at any point in time",
+        "Arbitrators can only take action when the contract has entered the Disputed state, and can only route funds to either the Buyer (refund) or Seller (payout)",
+        "Arbitrators must sign every transaction from contract creation to final delivery",
+        "Arbitrators are restricted to off-chain IPFS document storage only"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "To minimize trust and eliminate custodial risk, the escrow state machine enforces that the arbitrator address can only trigger resolution functions (`resolveToSeller()` or `resolveToBuyer()`) while the contract is strictly in `EscrowState.Disputed`. The arbitrator cannot siphon funds to themselves."
+    },
+    {
+      "id": 6,
+      "question": "Why should large media assets (images, PDFs, video proofs) NEVER be stored in contract storage variables?",
+      "options": [
+        "The EVM does not support strings longer than 32 bytes in memory",
+        "Storage operations in the EVM cost 20,000 gas per 32-byte slot (SSTORE), making large file storage economically prohibitive (costing thousands of dollars per MB)",
+        "Ethereum nodes automatically delete strings larger than 1MB after 256 blocks",
+        "Smart contracts can only store integer types; string arrays are illegal in Solidity 0.8"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "On-chain Ethereum storage requires perpetual replication across thousands of validating nodes globally. Storing 1MB of raw data on-chain costs over 600 million gas (thousands of dollars). Best practice stores raw files on IPFS, Arweave, or S3, and stores only the 32-byte cryptographic content hash (CID) on-chain."
+    },
+    {
+      "id": 7,
+      "question": "In Upgradeable Proxy Architecture (ERC-1967), why must implementation contracts use 'initialize()' functions instead of standard Solidity 'constructor()'?",
+      "options": [
+        "Constructors run in the context of the implementation contract's deployment transaction and modify its own storage, not the Proxy's storage where state actually lives",
+        "The EVM disables constructor opcodes whenever delegatecall is invoked",
+        "OpenZeppelin deprecates constructors in all smart contracts for gas optimization",
+        "Initializers are required by EIP-20 tokens to register symbol and decimals"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Constructors execute once during implementation contract deployment and write to the implementation's storage. Because users interact with the Proxy via delegatecall, the Proxy needs its own storage variables initialized. The `initialize()` function (guarded by `initializer` modifier) executes in the Proxy's storage context."
+    },
+    {
+      "id": 8,
+      "question": "What is the primary function of indexed event parameters in Solidity (e.g. event EscrowCreated(address indexed buyer, address indexed seller, uint256 amount))?",
+      "options": [
+        "Indexed parameters can be read directly by other smart contracts via internal function calls",
+        "Up to 3 indexed parameters are stored as bloom filter topics in the transaction receipt, allowing off-chain indexers (like The Graph) to filter and query specific logs efficiently",
+        "Indexed parameters reduce the transaction fee of emitting events to 0 gas",
+        "Indexed parameters encrypt the logged data for privacy compliance"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Indexed event parameters become `topics` in the EVM log entry (up to 3 indexed topics per event). EVM logs cannot be accessed by other smart contracts on-chain, but off-chain RPC nodes and indexers can instantly filter logs matching specific buyers, sellers, or contract IDs using topic filters."
+    },
+    {
+      "id": 9,
+      "question": "What is an Architecture Decision Record (ADR) and why is it critical in smart contract development?",
+      "options": [
+        "An automated GitHub Action that compiles Solidity code into bytecode",
+        "A structured document that captures an architectural decision, its business context, considered alternatives, and engineering consequences for auditability and team alignment",
+        "A legal contract signed with the Ethereum Foundation before deploying to mainnet",
+        "A private key backup scheme used by multi-signature wallets"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "An Architecture Decision Record (ADR) documents significant architectural decisions (e.g. Choosing UUPS vs Transparent Proxy, or Pull vs Push payments). Because smart contract bugs can lead to irreversible financial loss, ADRs establish rationale, tradeoffs, and assumptions for security auditors and future developers."
+    },
+    {
+      "id": 10,
+      "question": "During contract verification on block explorers (Etherscan/Sourcify), what ensures that source code matches the on-chain deployed bytecode?",
+      "options": [
+        "The contract deployer submits their private key to Etherscan for digital signature matching",
+        "The explorer compiles the submitted source code with the exact same compiler version, optimizer settings, and libraries, then matches the resulting bytecode against the runtime bytecode on the blockchain",
+        "Etherscan automatically decompiles all on-chain bytecodes into Solidity using AI",
+        "Contract verification only checks that the ABI format is valid JSON"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Verification recompiles the provided Solidity code using the exact compiler version, EVM target, and optimizer runs specified by the developer. If the resulting runtime bytecode is an exact bit-for-bit match with the bytecode residing at the contract address, the explorer marks the contract as verified."
+    }
+  ]
+}

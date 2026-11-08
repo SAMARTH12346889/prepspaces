@@ -1,5 +1,6 @@
 // projectx/src/Componets/BlockchainSolanaRust.jsx
 import React, { useState, useMemo, useCallback } from "react";
+import ModuleNav from "./ModuleNav";
 import { Link } from "react-router-dom";
 import {
   ChevronDown,
@@ -973,6 +974,7 @@ export default function BlockchainSolanaRust() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-orange-500 selection:text-white">
+      <ModuleNav track="blockchain" currentModuleId="solana-rust" />
       {/* Top Banner Navigation */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -3839,10 +3841,10 @@ pub struct PauseToggled {
           <span>Previous: Module 22 — Hyperledger Fabric</span>
         </Link>
         <Link
-          to="/learning/blockchain/modular-blockchains"
+          to="/learning/blockchain/final-capstone"
           className="flex items-center gap-2 text-neutral-600 hover:text-neutral-900 transition"
         >
-          <span>Next: Module 24 — Modular Blockchains & Rollups</span>
+          <span>Next: Module 24 — Final Blockchain Capstone Project</span>
           <ArrowRight className="w-4 h-4 text-orange-600" />
         </Link>
       </footer>

@@ -1,5 +1,6 @@
 // projectx/src/Componets/BlockchainHyperledgerFabric.jsx
 import React, { useState, useMemo, useCallback } from "react";
+import ModuleNav from "./ModuleNav";
 import { Link } from "react-router-dom";
 import {
   Activity,
@@ -852,6 +853,7 @@ export default function BlockchainHyperledgerFabric() {
 
   return (
     <div className="min-h-screen bg-[#f6f4ee] text-neutral-900 pb-28 sm:pb-36 selection:bg-amber-500 selection:text-white">
+      <ModuleNav track="blockchain" currentModuleId="hyperledger-fabric" />
       {/* Top Banner Navigation */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -3594,10 +3596,10 @@ func main() {
               <span>Previous: Module 21 (DAOs &amp; Governance)</span>
             </Link>
             <Link
-              to="/learning/blockchain/modular-blockchains"
+              to="/learning/blockchain/solana-rust"
               className="w-full sm:w-auto px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-mono font-bold transition-all flex items-center justify-center gap-2 group shadow-sm"
             >
-              <span>Next: Module 23 (Modular Blockchains)</span>
+              <span>Next: Module 23 (Solana Development with Rust)</span>
               <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

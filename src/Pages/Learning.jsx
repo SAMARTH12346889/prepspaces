@@ -195,7 +195,7 @@ const learningTracks = [
     icon: Blocks,
     route: "/learning/blockchain",
     tag: "Decentralized Systems",
-    modulesCount: "12 University Modules",
+    modulesCount: "24 Comprehensive Modules",
     color: "from-zinc-900 via-stone-900 to-amber-700",
     badgeColor: "text-amber-700 bg-amber-50 border-amber-200",
     highlights: [

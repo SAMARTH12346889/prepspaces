@@ -1,0 +1,260 @@
+{
+  "id": "evm-internals",
+  "courseId": "blockchain",
+  "index": 6,
+  "name": "6. Ethereum Virtual Machine (EVM)",
+  "route": "/learning/blockchain/evm-internals",
+  "componentName": "BlockchainEVM",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Concept Question 1",
+      "options": [
+        {
+          "text": "128 items",
+          "correct": false
+        },
+        {
+          "text": "256 items",
+          "correct": false
+        },
+        {
+          "text": "1,024 items",
+          "correct": true
+        },
+        {
+          "text": "4,096 items",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The EVM stack has a fixed maximum depth limit of 1,024 items. Pushing onto a full stack triggers a fatal Stack Overflow halt."
+    },
+    {
+      "id": 2,
+      "question": "Concept Question 2",
+      "options": [
+        {
+          "text": "8 bits (1 byte)",
+          "correct": false
+        },
+        {
+          "text": "32 bits (4 bytes)",
+          "correct": false
+        },
+        {
+          "text": "128 bits (16 bytes)",
+          "correct": false
+        },
+        {
+          "text": "256 bits (32 bytes)",
+          "correct": true
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The EVM is a 256-bit virtual machine. Every item in the stack is natively 256 bits (32 bytes), optimized for Keccak-256 and elliptic curve operations."
+    },
+    {
+      "id": 3,
+      "question": "Concept Question 3",
+      "options": [
+        {
+          "text": "SLOAD",
+          "correct": false
+        },
+        {
+          "text": "MLOAD",
+          "correct": true
+        },
+        {
+          "text": "CALLDATALOAD",
+          "correct": false
+        },
+        {
+          "text": "TLOAD",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "MLOAD (0x51) pops a byte offset from the stack, reads 32 bytes from memory starting at that offset, and pushes the 32-byte word onto the stack."
+    },
+    {
+      "id": 4,
+      "question": "Concept Question 4",
+      "options": [
+        {
+          "text": "MSTORE",
+          "correct": false
+        },
+        {
+          "text": "PUSH1",
+          "correct": false
+        },
+        {
+          "text": "SSTORE",
+          "correct": true
+        },
+        {
+          "text": "POP",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "SSTORE (0x55) pops a 32-byte storage key and a 32-byte value, permanently storing the value in the contract's state Merkle Patricia Trie."
+    },
+    {
+      "id": 5,
+      "question": "Concept Question 5",
+      "options": [
+        {
+          "text": "Mining blocks and selecting consensus validators",
+          "correct": false
+        },
+        {
+          "text": "Standardizing contract communication, function selector encoding, and data serialization",
+          "correct": true
+        },
+        {
+          "text": "Securing private keys during cryptographic signing",
+          "correct": false
+        },
+        {
+          "text": "Calculating Proof of Stake rewards",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "EVM bytecode has no function names or data types. The ABI standardizes how function selectors and parameters are serialized and decoded."
+    },
+    {
+      "id": 6,
+      "question": "Concept Question 6",
+      "options": [
+        {
+          "text": "Runtime bytecode",
+          "correct": false
+        },
+        {
+          "text": "Creation bytecode (init code)",
+          "correct": true
+        },
+        {
+          "text": "Event topics log",
+          "correct": false
+        },
+        {
+          "text": "ABI JSON interface",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Creation bytecode executes the constructor and returns the runtime bytecode. The creation code is never saved into the contract's persistent code hash."
+    },
+    {
+      "id": 7,
+      "question": "Concept Question 7",
+      "options": [
+        {
+          "text": "STOP (0x00)",
+          "correct": false
+        },
+        {
+          "text": "RETURN (0xf3)",
+          "correct": false
+        },
+        {
+          "text": "REVERT (0xfd)",
+          "correct": true
+        },
+        {
+          "text": "JUMP (0x56)",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "REVERT (0xfd) halts execution, reverts all state modifications in the current call frame, and refunds all remaining unspent gas to the sender."
+    },
+    {
+      "id": 8,
+      "question": "Concept Question 8",
+      "options": [
+        {
+          "text": "8 bytes",
+          "correct": false
+        },
+        {
+          "text": "16 bytes",
+          "correct": false
+        },
+        {
+          "text": "32 bytes",
+          "correct": true
+        },
+        {
+          "text": "64 bytes",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Every storage slot in the EVM is exactly 32 bytes (256 bits). Contiguous variables smaller than 32 bytes can be packed into a single slot."
+    },
+    {
+      "id": 9,
+      "question": "Concept Question 9",
+      "options": [
+        {
+          "text": "SLOAD",
+          "correct": true
+        },
+        {
+          "text": "MLOAD",
+          "correct": false
+        },
+        {
+          "text": "PUSH0",
+          "correct": false
+        },
+        {
+          "text": "DUP1",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "SLOAD (0x54) reads a 32-byte word from a specified storage slot key into the stack. Cold storage reads cost 2,100 gas; warm reads cost 100 gas."
+    },
+    {
+      "id": 10,
+      "question": "Concept Question 10",
+      "options": [
+        {
+          "text": "Automatic gas estimation for complex contracts",
+          "correct": false
+        },
+        {
+          "text": "Deterministic, counterfactual contract address generation independent of sender nonce",
+          "correct": true
+        },
+        {
+          "text": "Faster EVM block mining times",
+          "correct": false
+        },
+        {
+          "text": "Built-in quantum-resistant signatures",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "CREATE2 derives the new contract address from sender, salt, and init code hash: keccak256(0xff ++ sender ++ salt ++ hash(initCode)), enabling counterfactual deployments."
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "advanced-solidity",
+  "courseId": "blockchain",
+  "index": 8,
+  "name": "8. Advanced Solidity & Design",
+  "route": "/learning/blockchain/advanced-solidity",
+  "componentName": "BlockchainAdvancedSolidity",
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "Which data location is non-modifiable, cheapest for external function parameters, and avoids copying data into EVM memory?",
+      "options": [
+        "storage",
+        "memory",
+        "calldata",
+        "transient"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "calldata is an immutable byte array passed with the transaction payload. Functions marked external can read directly from calldata without paying memory allocation and expansion costs."
+    },
+    {
+      "id": "q2",
+      "question": "What does the first 4 bytes of Keccak-256(canonical_function_signature) represent in the EVM?",
+      "options": [
+        "Contract nonce",
+        "Function selector",
+        "Event Topic 0",
+        "Storage slot address"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "The first 4 bytes of the Keccak-256 hash of the canonical function signature (e.g. transfer(address,uint256)) is the function selector, used by the EVM dispatcher to route function calls."
+    },
+    {
+      "id": "q3",
+      "question": "In multiple inheritance, which algorithm does the Solidity compiler use to linearize the contract hierarchy order?",
+      "options": [
+        "Dijkstra's shortest path",
+        "C3 Linearization",
+        "Depth-First Search (DFS)",
+        "Topological Kahn ordering"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Solidity uses Python-style C3 Linearization to guarantee that base contracts are listed from 'most base-like' to 'most derived', resolving diamond inheritance deterministically."
+    },
+    {
+      "id": "q4",
+      "question": "How does delegatecall differ from standard call() when invoking an external contract?",
+      "options": [
+        "It modifies the target contract's storage instead of caller storage",
+        "It executes target code within the caller's context, preserving msg.sender, msg.value, and caller storage",
+        "It prevents all state changes and reverts if an SSTORE is attempted",
+        "It sends native Ether automatically without requiring payable"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "delegatecall runs the target contract's bytecode inside the caller's storage context and preserves the original msg.sender and msg.value. This is the cornerstone of proxy upgradeability."
+    },
+    {
+      "id": "q5",
+      "question": "In the UUPS (Universal Upgradeable Proxy Standard) proxy pattern, where does the upgrade authorization logic reside?",
+      "options": [
+        "Inside the proxy contract itself",
+        "Inside the implementation contract",
+        "Inside an external Beacon contract",
+        "In the EVM client runtime"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "In UUPS, the upgrade logic (upgradeToAndCall) resides in the implementation contract, resulting in significantly cheaper proxy deployment and the ability to remove upgradeability in future versions."
+    },
+    {
+      "id": "q6",
+      "question": "Which Ethereum Improvement Proposal standardizes the Multi-Facet Diamond Proxy pattern?",
+      "options": [
+        "ERC-20",
+        "ERC-721",
+        "EIP-2535",
+        "EIP-1153"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "EIP-2535 defines the Diamond Standard, enabling a single contract address to delegate function calls to multiple implementation facets via a function selector map, bypassing the 24KB Spurious Dragon contract size limit."
+    },
+    {
+      "id": "q7",
+      "question": "What is a 'storage collision' in upgradeable smart contract architecture?",
+      "options": [
+        "Two functions sharing the same 4-byte selector",
+        "Two state variables in the proxy and implementation sharing the same storage slot index, corrupting state",
+        "Exceeding the 30,000,000 block gas limit during SSTORE",
+        "Failing to emit an event on transfer"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "A storage collision happens when an upgrade modifies the declaration order or type of state variables, causing the new implementation to read or overwrite the proxy's storage slots incorrectly."
+    },
+    {
+      "id": "q8",
+      "question": "Why does the Checks-Effects-Interactions (CEI) pattern neutralize reentrancy attacks?",
+      "options": [
+        "It hashes the caller address with SHA-256",
+        "It zeroes or updates user balance before making the external call, rendering subsequent reentrant calls harmless",
+        "It restricts all functions to view mutability",
+        "It automatically deploys a multi-sig guardian"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "By updating internal state variables (Effects) before initiating external calls (Interactions), any recursive reentrant call finds the balance already reduced to zero and reverts."
+    },
+    {
+      "id": "q9",
+      "question": "Which Yul opcode is used to write a 32-byte word into persistent contract storage?",
+      "options": [
+        "mstore",
+        "mload",
+        "sstore",
+        "sload"
+      ],
+      "correct": 2,
+      "correctIndex": 2,
+      "explanation": "sstore(slot, value) writes a 32-byte word into persistent contract storage, consuming 20,000 gas for a cold non-zero write."
+    },
+    {
+      "id": "q10",
+      "question": "How does storage packing reduce Ethereum gas consumption?",
+      "options": [
+        "It compresses bytecode using gzip",
+        "It packs adjacent variables whose combined bit-width is <= 256 bits into a single 32-byte slot, saving 20,000 gas SSTOREs",
+        "It moves state variables into calldata",
+        "It bypasses the EVM stack machine"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Multiple variables like uint128, uint64, and address that fit within 32 bytes (256 bits) share a single storage slot, requiring only one SSTORE instead of multiple costly writes."
+    }
+  ]
+}

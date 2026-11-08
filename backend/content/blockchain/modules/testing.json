@@ -1,0 +1,140 @@
+{
+  "id": "testing",
+  "courseId": "blockchain",
+  "index": 10,
+  "name": "10. Smart Contract Testing (Foundry & Hardhat)",
+  "route": "/learning/blockchain/testing",
+  "componentName": "BlockchainTesting",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is 100% line coverage insufficient to guarantee smart contract security?",
+      "options": [
+        "Because Solidity compiler optimizations delete covered lines from EVM bytecode at runtime",
+        "Because line coverage only verifies that code was executed, not that it correctly handles adversarial inputs, unauthorized permissions, economic exploits, or unexpected external reentrancy",
+        "Because Hardhat and Foundry do not support coverage analysis for internal library functions",
+        "Because line coverage cannot measure statements inside constructor bodies"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Line coverage merely records whether an execution path traversed a statement. It does not evaluate whether edge-case inputs cause logic flaws, whether role permissions can be bypassed, whether price oracles can be manipulated, or whether unexpected external calls trigger reentrancy."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary difference between stateless fuzz testing and stateful invariant testing?",
+      "options": [
+        "Stateless fuzz testing tests one function with random arguments in isolation; stateful invariant testing executes randomized sequences of multiple transactions across actors while asserting invariant rules",
+        "Stateless fuzzing only runs on local testnets; invariant testing requires an active mainnet fork",
+        "Stateless fuzzing is exclusive to Hardhat; invariant testing can only be run in Python",
+        "Stateless fuzzing tests private functions; invariant testing only tests public view functions"
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Stateless fuzz testing generates random arguments for a single function call (e.g. testing `transfer(address, uint256)`). Stateful invariant testing initializes a handler contract and invokes randomized sequences of diverse calls (deposit, transfer, withdraw, dispute) across multiple blocks to discover bugs that only manifest after specific historical states."
+    },
+    {
+      "id": 3,
+      "question": "What does the Foundry cheatcode `vm.assume(bool condition)` do during a fuzz test run?",
+      "options": [
+        "It forces the EVM to skip compiler optimization passes for that transaction",
+        "It discards the current fuzz input if the condition is false and prompts Forge to generate a new input, filtering out invalid test inputs",
+        "It permanently sets a storage slot to a constant boolean value in the contract",
+        "It halts the entire test suite and reports a critical security vulnerability"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "`vm.assume(condition)` acts as a precondition filter. If a fuzz-generated input violates the assumption (e.g. `vm.assume(recipient != address(0))`), Forge immediately rejects that input without failing the test and generates a fresh input within the valid domain."
+    },
+    {
+      "id": 4,
+      "question": "How does the Foundry cheatcode `vm.prank(address caller)` affect transaction execution?",
+      "options": [
+        "It temporarily assigns the specified address infinite ETH in the local test network",
+        "It changes `msg.sender` for the very next external call to the specified address, allowing developers to test role-restricted permissions",
+        "It permanently overwrites the contract's owner variable with the prank address",
+        "It mocks all return values originating from the prank address"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "`vm.prank(address)` sets `msg.sender` for the next call only (or `vm.startPrank` for multiple consecutive calls). This enables unit tests to impersonate buyers, sellers, attackers, or governance admins to verify access controls."
+    },
+    {
+      "id": 5,
+      "question": "When testing custom errors in Solidity 0.8.4+ with Foundry, what is the best practice for asserting a revert?",
+      "options": [
+        "Assert that the transaction gas consumed exceeds 30,000,000 gas",
+        "Use `vm.expectRevert(CustomError.selector)` to verify both that the transaction reverted and that it reverted with the exact intended error signature",
+        "Catch the revert inside a try/catch block and check that error string equals 'REVERT'",
+        "Inspect the transaction receipt logs using Cast CLI"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Testing merely that a transaction reverted (`vm.expectRevert()`) is dangerous because the transaction might have failed due to an unrelated bug (e.g. out of gas or null pointer). Passing `CustomError.selector` ensures the contract reverted specifically due to the intended error condition."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary benefit of mainnet fork testing (`vm.createSelectFork`) in DeFi protocol development?",
+      "options": [
+        "It automatically deploys contracts directly to Ethereum mainnet without gas fees",
+        "It creates a local sandbox pre-populated with real mainnet state (Uniswap pools, Chainlink oracles, Aave lending pools, real token balances) at a pinned block number",
+        "It eliminates the need to compile Solidity contracts locally",
+        "It encrypts transaction data so third-party searchers cannot frontrun local tests"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Fork testing loads the actual bytecode, storage, and balances of live mainnet contracts into a local Anvil or Hardhat EVM at a specific block number. This allows developers to test realistic interactions with complex DeFi protocols without relying on fragile or incomplete mocks."
+    },
+    {
+      "id": 7,
+      "question": "In property-based testing of an ERC-20 token, what is the 'Token Conservation' property?",
+      "options": [
+        "The token price in USD must not drop by more than 10% during a test run",
+        "For any standard transfer between accounts (without minting or burning), the sum of all account balances plus contract holdings must strictly equal the initial total supply",
+        "The contract must burn 1% of every transaction to reduce circulating supply",
+        "Only the deployer address is allowed to hold more than 50% of the token supply"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "The token conservation property states that internal transfers are zero-sum: `balanceOf[sender] + balanceOf[recipient] == initialSender + initialRecipient`. Total supply must remain invariant unless mint or burn functions are explicitly invoked."
+    },
+    {
+      "id": 8,
+      "question": "What is the role of `vm.warp(uint256 newTimestamp)` in testing time-dependent contracts (e.g. Vesting, Auctions, Voting)?",
+      "options": [
+        "It speeds up CPU clock cycles so unit tests execute in fewer milliseconds",
+        "It sets the block timestamp (`block.timestamp`) in the EVM environment, allowing developers to fast-forward past voting deadlines or vesting periods",
+        "It synchronizes the local EVM clock with UTC atomic time servers",
+        "It forces the contract to use real-world off-chain time via an oracle"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "`vm.warp()` directly overwrites `block.timestamp`. This allows instant simulation of weeks or years passing, enabling thorough verification of time-locked vesting schedules, auction expiries, and deadline enforcement without waiting in real time."
+    },
+    {
+      "id": 9,
+      "question": "How does `forge snapshot --diff` help prevent gas regressions in smart contract development?",
+      "options": [
+        "It automatically rewrites Solidity functions in Yul assembly to reduce bytecode size",
+        "It compares gas usage of all test cases against a recorded `.gas-snapshot` baseline file, alerting developers if code refactors introduce unexpected gas overhead",
+        "It submits a gas refund claim directly to the Ethereum Foundation",
+        "It measures the network bandwidth required to broadcast transactions across P2P nodes"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "`forge snapshot` outputs a `.gas-snapshot` record of exact gas consumed by each test function. Running `forge snapshot --diff` highlights exact gas deltas (increases or decreases) introduced by code changes, catching expensive regressions before deployment."
+    },
+    {
+      "id": 10,
+      "question": "In a Continuous Integration (CI) pipeline for smart contracts, why should toolchain dependencies and action versions be pinned to exact commit hashes?",
+      "options": [
+        "Because unpinned dependencies cause Ethereum nodes to reject compiled bytecode",
+        "To ensure deterministic, reproducible builds and protect against supply-chain attacks where third-party GitHub Actions or npm packages are silently compromised",
+        "Because GitHub Actions does not allow semantic versioning tags in workflow YAML files",
+        "To reduce the storage space consumed by git repository clones"
+      ],
+      "correct": 1,
+      "correctIndex": 1,
+      "explanation": "Smart contracts secure irreversible financial assets. Pinning exact compiler versions (e.g. `solc 0.8.28`), Foundry toolchain versions, and GitHub Action commit SHAs ensures that build and test execution is 100% reproducible and immune to upstream dependency tampering."
+    }
+  ]
+}

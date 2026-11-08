@@ -1,0 +1,260 @@
+{
+  "id": "solidity",
+  "courseId": "blockchain",
+  "index": 7,
+  "name": "7. Solidity Smart Contract Development",
+  "route": "/learning/blockchain/solidity",
+  "componentName": "BlockchainSolidity",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Concept Question 1",
+      "options": [
+        {
+          "text": "Relational database administration",
+          "correct": false
+        },
+        {
+          "text": "Smart contract development on EVM-compatible blockchains",
+          "correct": true
+        },
+        {
+          "text": "Operating system kernel development",
+          "correct": false
+        },
+        {
+          "text": "Image processing and computer vision",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Solidity is a high-level, statically typed language specifically built to develop smart contracts executing on the Ethereum Virtual Machine (EVM)."
+    },
+    {
+      "id": 2,
+      "question": "Concept Question 2",
+      "options": [
+        {
+          "text": "javac",
+          "correct": false
+        },
+        {
+          "text": "solc",
+          "correct": true
+        },
+        {
+          "text": "gcc",
+          "correct": false
+        },
+        {
+          "text": "tsc",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "solc is the official Solidity compiler, converting source code into ABI, creation bytecode, deployed runtime bytecode, and Yul IR."
+    },
+    {
+      "id": 3,
+      "question": "Concept Question 3",
+      "options": [
+        {
+          "text": "uint256",
+          "correct": false
+        },
+        {
+          "text": "address",
+          "correct": true
+        },
+        {
+          "text": "bytes32",
+          "correct": false
+        },
+        {
+          "text": "string",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "The address type represents a 20-byte (160-bit) Ethereum address. Use address payable when the contract needs to transfer ETH to it."
+    },
+    {
+      "id": 4,
+      "question": "Concept Question 4",
+      "options": [
+        {
+          "text": "Memory",
+          "correct": false
+        },
+        {
+          "text": "Calldata",
+          "correct": false
+        },
+        {
+          "text": "Storage",
+          "correct": true
+        },
+        {
+          "text": "Stack",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Storage holds persistent state variables in the contract's 32-byte slot layout across transactions. Memory and calldata are volatile/temporary."
+    },
+    {
+      "id": 5,
+      "question": "Concept Question 5",
+      "options": [
+        {
+          "text": "private",
+          "correct": false
+        },
+        {
+          "text": "internal",
+          "correct": false
+        },
+        {
+          "text": "public",
+          "correct": true
+        },
+        {
+          "text": "external",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "public functions can be invoked both externally (via transactions or message-calls) and internally from within the contract and derived contracts."
+    },
+    {
+      "id": 6,
+      "question": "Concept Question 6",
+      "options": [
+        {
+          "text": "view",
+          "correct": false
+        },
+        {
+          "text": "pure",
+          "correct": false
+        },
+        {
+          "text": "payable",
+          "correct": true
+        },
+        {
+          "text": "private",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Without the payable modifier, functions automatically reject transactions that carry non-zero msg.value."
+    },
+    {
+      "id": 7,
+      "question": "Concept Question 7",
+      "options": [
+        {
+          "text": "Read historical event logs from storage",
+          "correct": false
+        },
+        {
+          "text": "Initialize contract state once during contract creation",
+          "correct": true
+        },
+        {
+          "text": "Mine new blocks on the network",
+          "correct": false
+        },
+        {
+          "text": "Delete blockchain transaction history",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A constructor executes exactly once during contract deployment as part of creation bytecode, setting initial state and returning runtime bytecode."
+    },
+    {
+      "id": 8,
+      "question": "Concept Question 8",
+      "options": [
+        {
+          "text": "Array",
+          "correct": false
+        },
+        {
+          "text": "Mapping",
+          "correct": true
+        },
+        {
+          "text": "Enum",
+          "correct": false
+        },
+        {
+          "text": "Modifier",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "A mapping(KeyType => ValueType) is a hash table where keys are hashed with slot indices to derive storage locations; keys are not iterable."
+    },
+    {
+      "id": 9,
+      "question": "Concept Question 9",
+      "options": [
+        {
+          "text": "Events",
+          "correct": true
+        },
+        {
+          "text": "Constructors",
+          "correct": false
+        },
+        {
+          "text": "Local variables",
+          "correct": false
+        },
+        {
+          "text": "While loops",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "Events emit logs into transaction receipts (accessible off-chain via eth_getLogs), allowing up to 3 indexed topic parameters."
+    },
+    {
+      "id": 10,
+      "question": "Concept Question 10",
+      "options": [
+        {
+          "text": "Handle all external function calls regardless of selector",
+          "correct": false
+        },
+        {
+          "text": "Handle plain ETH transfers sent with empty calldata",
+          "correct": true
+        },
+        {
+          "text": "Iterate mapping keys",
+          "correct": false
+        },
+        {
+          "text": "Deploy child contracts dynamically",
+          "correct": false
+        }
+      ],
+      "correct": 0,
+      "correctIndex": 0,
+      "explanation": "receive() external payable is triggered specifically when a transaction sends ETH with completely empty calldata (e.g. plain wallet transfers)."
+    }
+  ]
+}
