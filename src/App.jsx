@@ -182,6 +182,7 @@ const BlockchainOraclesChainlink = React.lazy(() => import("./Componets/Blockcha
 const BlockchainDAOsGovernance = React.lazy(() => import("./Componets/BlockchainDAOsGovernance"));
 const BlockchainHyperledgerFabric = React.lazy(() => import("./Componets/BlockchainHyperledgerFabric"));
 const BlockchainSolanaRust = React.lazy(() => import("./Componets/BlockchainSolanaRust"));
+const BlockchainFinalCapstone = React.lazy(() => import("./Componets/BlockchainFinalCapstone"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1571,6 +1572,16 @@ function App() {
             <Route path="/learn/blockchain/solana" element={<BlockchainSolanaRust />} />
             <Route path="/learn/blockchain/anchor" element={<BlockchainSolanaRust />} />
             <Route path="/learn/blockchain/module-23" element={<BlockchainSolanaRust />} />
+
+            {/* Blockchain Module 24: Final Blockchain Capstone Project */}
+            <Route path="/learning/blockchain/final-capstone" element={<BlockchainFinalCapstone />} />
+            <Route path="/learning/blockchain/capstone" element={<BlockchainFinalCapstone />} />
+            <Route path="/learning/blockchain/capstone-project" element={<BlockchainFinalCapstone />} />
+            <Route path="/learning/blockchain/module-24" element={<BlockchainFinalCapstone />} />
+            <Route path="/learn/blockchain/final-capstone" element={<BlockchainFinalCapstone />} />
+            <Route path="/learn/blockchain/capstone" element={<BlockchainFinalCapstone />} />
+            <Route path="/learn/blockchain/capstone-project" element={<BlockchainFinalCapstone />} />
+            <Route path="/learn/blockchain/module-24" element={<BlockchainFinalCapstone />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

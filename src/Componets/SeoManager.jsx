@@ -221,6 +221,13 @@ const routeMeta = {
     canonical: `${BASE_URL}/learning/blockchain/dex-lending`,
   },
 
+  "/learning/blockchain/final-capstone": {
+    title: "Module 24: Final Blockchain Capstone Project | PrepSpaces",
+    description: "Complete final year blockchain capstone project: build, test, audit, and deploy a production-style Web3 DApp. Covers VoteChain, NFT marketplaces, supply chain provenance, DeFi lending protocols, and oral defense.",
+    keywords: "Blockchain Capstone, Final Year Project, Web3 DApp, Solidity, Hardhat, Foundry, Wagmi, Viem, React, IPFS, Security Audit, Etherscan Verification",
+    canonical: `${BASE_URL}/learning/blockchain/final-capstone`,
+  },
+
   "/learning/blockchain/solana-rust": {
     title: "Module 23: Solana Development with Rust | PrepSpaces",
     description: "Master Solana development with Rust and Anchor: accounts model, Sealevel parallel execution, Proof of History, PDAs, Cross-Program Invocations (CPI), SPL Tokens, and build a full token-management DApp.",
