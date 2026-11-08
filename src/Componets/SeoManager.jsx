@@ -129,6 +129,18 @@ const routeMeta = {
     keywords: "Ethereum architecture, Ethereum Virtual Machine, EVM bytecode, Geth, Lighthouse, Merkle Patricia Trie, stateRoot, EIP-1559 gas fee, Proof of Stake, Casper FFG finality, Sepolia testnet, JSON-RPC, eth_getBalance, smart contracts",
     canonical: `${BASE_URL}/learning/blockchain/ethereum-evm`,
   },
+  "/learning/blockchain/evm-internals": {
+    title: "Module 6: Ethereum Virtual Machine (EVM) Internals | PrepSpaces",
+    description: "Master EVM low-level architecture, stack machine execution, opcodes, memory expansion, storage packing, Solidity compilation pipeline, ABI calldata encoding, contract deployment lifecycle, gas economics, and execution tracing.",
+    keywords: "Ethereum Virtual Machine, EVM internals, EVM opcodes, EVM bytecode, Solidity compilation pipeline, ABI calldata encoding, storage packing, memory expansion gas, CREATE2 address derivation, Foundry Forge Anvil, opcode execution trace",
+    canonical: `${BASE_URL}/learning/blockchain/evm-internals`,
+  },
+  "/learning/blockchain/evm": {
+    title: "Module 6: Ethereum Virtual Machine (EVM) Internals | PrepSpaces",
+    description: "Master EVM low-level architecture, stack machine execution, opcodes, memory expansion, storage packing, Solidity compilation pipeline, ABI calldata encoding, contract deployment lifecycle, gas economics, and execution tracing.",
+    keywords: "Ethereum Virtual Machine, EVM internals, EVM opcodes, EVM bytecode, Solidity compilation pipeline, ABI calldata encoding, storage packing, memory expansion gas, CREATE2 address derivation, Foundry Forge Anvil, opcode execution trace",
+    canonical: `${BASE_URL}/learning/blockchain/evm-internals`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",

@@ -164,6 +164,7 @@ const BlockchainCryptography = React.lazy(() => import("./Componets/BlockchainCr
 const BlockchainConsensus = React.lazy(() => import("./Componets/BlockchainConsensus"));
 const BlockchainBitcoin = React.lazy(() => import("./Componets/BlockchainBitcoin"));
 const BlockchainEthereum = React.lazy(() => import("./Componets/BlockchainEthereum"));
+const BlockchainEVM = React.lazy(() => import("./Componets/BlockchainEVM"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1383,10 +1384,17 @@ function App() {
             <Route path="/learn/blockchain/bitcoin" element={<BlockchainBitcoin />} />
             <Route path="/learning/blockchain/ethereum-evm" element={<BlockchainEthereum />} />
             <Route path="/learning/blockchain/ethereum" element={<BlockchainEthereum />} />
-            <Route path="/learning/blockchain/evm" element={<BlockchainEthereum />} />
             <Route path="/learning/blockchain/module-5" element={<BlockchainEthereum />} />
             <Route path="/learn/blockchain/ethereum-evm" element={<BlockchainEthereum />} />
             <Route path="/learn/blockchain/ethereum" element={<BlockchainEthereum />} />
+
+            {/* BLOCKCHAIN TECHNOLOGY - MODULE 6: ETHEREUM VIRTUAL MACHINE (EVM) */}
+            <Route path="/learning/blockchain/evm-internals" element={<BlockchainEVM />} />
+            <Route path="/learning/blockchain/evm" element={<BlockchainEVM />} />
+            <Route path="/learning/blockchain/module-6" element={<BlockchainEVM />} />
+            <Route path="/learn/blockchain/evm-internals" element={<BlockchainEVM />} />
+            <Route path="/learn/blockchain/evm" element={<BlockchainEVM />} />
+            <Route path="/learning/blockchain/solidity" element={<BlockchainEVM />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

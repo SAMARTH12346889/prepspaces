@@ -2492,10 +2492,10 @@ main().catch(console.error);`}
                 <ArrowLeft size={16} /> Previous: 4. Bitcoin Mechanics &amp; UTXO
               </button>
               <button
-                onClick={() => navigate("/learning/blockchain/solidity")}
+                onClick={() => navigate("/learning/blockchain/evm-internals")}
                 className="w-full sm:w-auto px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 shadow-sm"
               >
-                Next Module: 6. Solidity Engineering <ArrowRight size={16} />
+                Next Module: 6. Ethereum Virtual Machine (EVM) <ArrowRight size={16} />
               </button>
             </div>
           </div>

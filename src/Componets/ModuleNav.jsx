@@ -199,14 +199,15 @@ export const BLOCKCHAIN_MODULES = [
   { id: "cryptography", name: "2. Cryptography Fundamentals", route: "/learning/blockchain/cryptography" },
   { id: "consensus", name: "3. Distributed Systems & Consensus", route: "/learning/blockchain/consensus" },
   { id: "bitcoin-utxo", name: "4. Bitcoin Mechanics & UTXO", route: "/learning/blockchain/bitcoin-utxo" },
-  { id: "ethereum-evm", name: "5. Ethereum, EVM & Smart Contracts", route: "/learning/blockchain/ethereum-evm" },
-  { id: "solidity", name: "6. Solidity Engineering", route: "/learning/blockchain/solidity" },
-  { id: "dapps-web3", name: "7. Web3 & dApp Development", route: "/learning/blockchain/dapps-web3" },
-  { id: "enterprise-hyperledger", name: "8. Hyperledger Fabric", route: "/learning/blockchain/enterprise-hyperledger" },
-  { id: "scalability-l2", name: "9. Layer 2 Rollups & Scalability", route: "/learning/blockchain/scalability-l2" },
-  { id: "defi-protocols", name: "10. DeFi Protocols & AMMs", route: "/learning/blockchain/defi-protocols" },
-  { id: "security-auditing", name: "11. Smart Contract Auditing", route: "/learning/blockchain/security-auditing" },
-  { id: "capstone", name: "12. Final Capstone Project", route: "/learning/blockchain/capstone" },
+  { id: "ethereum-evm", name: "5. Ethereum Architecture & Ecosystem", route: "/learning/blockchain/ethereum-evm" },
+  { id: "evm-internals", name: "6. Ethereum Virtual Machine (EVM)", route: "/learning/blockchain/evm-internals" },
+  { id: "solidity", name: "7. Solidity Smart Contract Development", route: "/learning/blockchain/solidity" },
+  { id: "dapps-web3", name: "8. Web3 & dApp Development", route: "/learning/blockchain/dapps-web3" },
+  { id: "enterprise-hyperledger", name: "9. Hyperledger Fabric", route: "/learning/blockchain/enterprise-hyperledger" },
+  { id: "scalability-l2", name: "10. Layer 2 Rollups & Scalability", route: "/learning/blockchain/scalability-l2" },
+  { id: "defi-protocols", name: "11. DeFi Protocols & AMMs", route: "/learning/blockchain/defi-protocols" },
+  { id: "security-auditing", name: "12. Smart Contract Auditing", route: "/learning/blockchain/security-auditing" },
+  { id: "capstone", name: "13. Final Capstone Project", route: "/learning/blockchain/capstone" },
 ];
 
 export default function ModuleNav({
