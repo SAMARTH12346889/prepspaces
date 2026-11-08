@@ -221,6 +221,12 @@ const routeMeta = {
     canonical: `${BASE_URL}/learning/blockchain/dex-lending`,
   },
 
+  "/learning/blockchain/hyperledger-fabric": {
+    title: "Module 22: Hyperledger Fabric & Enterprise Blockchain | PrepSpaces",
+    description: "Master Hyperledger Fabric 3.1.x and enterprise distributed ledgers: execute-order-validate consensus, MSP identity management, isolated channels, Private Data Collections (PDC), Go chaincode, CouchDB rich queries, and Docker deployment.",
+    keywords: "Hyperledger Fabric, enterprise blockchain, permissioned blockchain, Go chaincode, Membership Service Provider, MSP, Fabric CA, Private Data Collections, PDC, CouchDB, execute-order-validate, Raft consensus, supply chain blockchain",
+    canonical: `${BASE_URL}/learning/blockchain/hyperledger-fabric`,
+  },
   "/learning/blockchain/daos-governance": {
     title: "Module 21: DAOs & Blockchain Governance | PrepSpaces",
     description: "Master Decentralized Autonomous Organizations (DAOs) and governance architecture: ERC20Votes checkpoints, OpenZeppelin Governor, TimelockController security, quadratic voting, treasury management, and legal wrappers.",

@@ -180,6 +180,7 @@ const BlockchainSecurityAuditing = React.lazy(() => import("./Componets/Blockcha
 const BlockchainLayer2Scaling = React.lazy(() => import("./Componets/BlockchainLayer2Scaling"));
 const BlockchainOraclesChainlink = React.lazy(() => import("./Componets/BlockchainOraclesChainlink"));
 const BlockchainDAOsGovernance = React.lazy(() => import("./Componets/BlockchainDAOsGovernance"));
+const BlockchainHyperledgerFabric = React.lazy(() => import("./Componets/BlockchainHyperledgerFabric"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1547,6 +1548,17 @@ function App() {
             <Route path="/learn/blockchain/daos" element={<BlockchainDAOsGovernance />} />
             <Route path="/learn/blockchain/governance" element={<BlockchainDAOsGovernance />} />
             <Route path="/learn/blockchain/module-21" element={<BlockchainDAOsGovernance />} />
+
+            {/* Blockchain Module 22: Hyperledger Fabric & Enterprise Blockchain */}
+            <Route path="/learning/blockchain/hyperledger-fabric" element={<BlockchainHyperledgerFabric />} />
+            <Route path="/learning/blockchain/fabric" element={<BlockchainHyperledgerFabric />} />
+            <Route path="/learning/blockchain/hyperledger" element={<BlockchainHyperledgerFabric />} />
+            <Route path="/learning/blockchain/enterprise-blockchain" element={<BlockchainHyperledgerFabric />} />
+            <Route path="/learning/blockchain/module-22" element={<BlockchainHyperledgerFabric />} />
+            <Route path="/learn/blockchain/hyperledger-fabric" element={<BlockchainHyperledgerFabric />} />
+            <Route path="/learn/blockchain/fabric" element={<BlockchainHyperledgerFabric />} />
+            <Route path="/learn/blockchain/hyperledger" element={<BlockchainHyperledgerFabric />} />
+            <Route path="/learn/blockchain/module-22" element={<BlockchainHyperledgerFabric />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
