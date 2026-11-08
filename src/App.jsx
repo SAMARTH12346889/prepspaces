@@ -174,6 +174,7 @@ const BlockchainTokens = React.lazy(() => import("./Componets/BlockchainTokens")
 const BlockchainWeb3Libraries = React.lazy(() => import("./Componets/BlockchainWeb3Libraries"));
 const BlockchainDAppDevelopment = React.lazy(() => import("./Componets/BlockchainDAppDevelopment"));
 const BlockchainStorageIPFS = React.lazy(() => import("./Componets/BlockchainStorageIPFS"));
+const BlockchainDeFiProtocols = React.lazy(() => import("./Componets/BlockchainDeFiProtocols"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1484,6 +1485,15 @@ function App() {
             <Route path="/learn/blockchain/ipfs-storage" element={<BlockchainStorageIPFS />} />
             <Route path="/learn/blockchain/decentralized-storage" element={<BlockchainStorageIPFS />} />
             <Route path="/learn/blockchain/module-15" element={<BlockchainStorageIPFS />} />
+
+            {/* Blockchain Module 16: Decentralized Finance (DeFi) Architecture */}
+            <Route path="/learning/blockchain/defi-protocols" element={<BlockchainDeFiProtocols />} />
+            <Route path="/learning/blockchain/defi" element={<BlockchainDeFiProtocols />} />
+            <Route path="/learning/blockchain/decentralized-finance" element={<BlockchainDeFiProtocols />} />
+            <Route path="/learning/blockchain/module-16" element={<BlockchainDeFiProtocols />} />
+            <Route path="/learn/blockchain/defi-protocols" element={<BlockchainDeFiProtocols />} />
+            <Route path="/learn/blockchain/defi" element={<BlockchainDeFiProtocols />} />
+            <Route path="/learn/blockchain/module-16" element={<BlockchainDeFiProtocols />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

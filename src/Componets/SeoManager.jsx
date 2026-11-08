@@ -207,6 +207,12 @@ const routeMeta = {
     keywords: "IPFS, decentralized storage, Web3 storage, CID, Content Identifier, CIDv1, Multihash, Multicodec, libp2p, Kademlia DHT, Bitswap, Pinata, Web3.Storage, Arweave, Permaweb, Filecoin, Proof of Replication, Proof of Spacetime, client-side encryption, AES-GCM, Solidity IPFSRegistry",
     canonical: `${BASE_URL}/learning/blockchain/ipfs-storage`,
   },
+  "/learning/blockchain/defi-protocols": {
+    title: "Module 16: Decentralized Finance (DeFi) Architecture | PrepSpaces",
+    description: "Master Decentralized Finance architecture: Automated Market Makers (x * y = k), pooled lending markets, overcollateralization, Health Factor liquidations, kinked interest rate models, impermanent loss derivation, flash loans, and Solidity DEX smart contracts.",
+    keywords: "DeFi architecture, Automated Market Makers, AMM, constant product, x * y = k, Uniswap, Curve, Aave, Compound, overcollateralization, Health Factor, liquidation bonus, kinked interest rate, yield farming, impermanent loss, flash loans, composability, money legos, DeFi security, reentrancy",
+    canonical: `${BASE_URL}/learning/blockchain/defi-protocols`,
+  },
   "/learning/blockchain/erc-token-standards": {
     title: "ERC Token Standards Architecture & Development | PrepSpaces",
     description: "Deep dive into ERC-20, ERC-721, and ERC-1155 token architecture. Learn allowance front-running mitigations, safeTransferFrom receiver callbacks, batch transfers, and vesting mathematics.",
