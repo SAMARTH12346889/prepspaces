@@ -1188,7 +1188,7 @@ if __name__ == "__main__":
                 2.10 Elliptic Curve Cryptography (secp256k1)
               </h2>
               <p className="text-sm text-stone-600 leading-relaxed mb-4">
-                Both Bitcoin and Ethereum adopt the <strong>secp256k1</strong> Koblitz curve specified by Certicom. Calculations are performed over the finite prime field \(\mathbb{F}_p\):
+                Both Bitcoin and Ethereum adopt the <strong>secp256k1</strong> Koblitz curve specified by Certicom. Calculations are performed over the finite prime field <span className="font-mono font-bold">F_p</span>:
               </p>
 
               <div className="bg-stone-900 text-stone-100 p-4 rounded-2xl font-mono text-xs mb-6">
@@ -1209,12 +1209,12 @@ if __name__ == "__main__":
                     Signing Algorithm (Sender Alice)
                   </h4>
                   <ol className="text-xs text-stone-700 space-y-2 list-decimal pl-4 leading-relaxed">
-                    <li>Calculate message hash integer \(z = \text{SHA256}(message)\).</li>
-                    <li>Generate a cryptographically secure ephemeral nonce \(k\) (\(1 \le k &lt; n\)).</li>
-                    <li>Compute curve point \(R = k \cdot G = (x_R, y_R)\).</li>
-                    <li>Calculate \(r = x_R \bmod n\). If \(r = 0\), choose new \(k\).</li>
-                    <li>Calculate \(s = k^{-1}(z + r \cdot d) \bmod n\). If \(s = 0\), choose new \(k\).</li>
-                    <li>Signature is the pair \((r, s)\).</li>
+                    <li>Calculate message hash integer <span className="font-mono font-bold">z = SHA256(message)</span>.</li>
+                    <li>Generate a cryptographically secure ephemeral nonce <span className="font-mono">k</span> (where <span className="font-mono">1 ≤ k &lt; n</span>).</li>
+                    <li>Compute curve point <span className="font-mono">R = k · G = (x_R, y_R)</span>.</li>
+                    <li>Calculate <span className="font-mono font-bold">r = x_R mod n</span>. If <span className="font-mono">r = 0</span>, choose a new <span className="font-mono">k</span>.</li>
+                    <li>Calculate <span className="font-mono font-bold">{"s = k^(-1) · (z + r · d) mod n"}</span>. If <span className="font-mono">s = 0</span>, choose a new <span className="font-mono">k</span>.</li>
+                    <li>Signature is the pair <span className="font-mono font-bold">(r, s)</span>.</li>
                   </ol>
                 </div>
 
@@ -1223,12 +1223,12 @@ if __name__ == "__main__":
                     Verification Algorithm (Any Node)
                   </h4>
                   <ol className="text-xs text-stone-700 space-y-2 list-decimal pl-4 leading-relaxed">
-                    <li>Verify \(r, s \in [1, n-1]\).</li>
-                    <li>Calculate \(z = \text{SHA256}(message)\).</li>
-                    <li>Compute modular inverse \(w = s^{-1} \bmod n\).</li>
-                    <li>Calculate scalars \(u_1 = z \cdot w \bmod n\) and \(u_2 = r \cdot w \bmod n\).</li>
-                    <li>Compute point \(X = u_1 \cdot G + u_2 \cdot Q = (x_X, y_X)\).</li>
-                    <li>Signature is <strong>VALID</strong> if and only if \(x_X \bmod n = r\).</li>
+                    <li>Verify signature integers <span className="font-mono">r, s ∈ [1, n-1]</span>.</li>
+                    <li>Calculate message hash integer <span className="font-mono font-bold">z = SHA256(message)</span>.</li>
+                    <li>Compute modular inverse <span className="font-mono font-bold">{"w = s^(-1) mod n"}</span>.</li>
+                    <li>Calculate scalars <span className="font-mono font-bold">u₁ = z · w mod n</span> and <span className="font-mono font-bold">u₂ = r · w mod n</span>.</li>
+                    <li>Compute point <span className="font-mono font-bold">X = u₁ · G + u₂ · Q = (x_X, y_X)</span>.</li>
+                    <li>Signature is <strong>VALID</strong> if and only if <span className="font-mono font-bold">x_X mod n = r</span>.</li>
                   </ol>
                 </div>
               </div>
@@ -1242,8 +1242,32 @@ if __name__ == "__main__":
                   <br />
                   <code className="font-mono font-bold">s1 - s2 = k^-1 * (z1 - z2) mod n  =&gt;  k = (z1 - z2) / (s1 - s2) mod n</code>
                   <br />
-                  Once \(k\) is known, private key \(d\) is exposed instantly: <code className="font-mono font-bold">d = (s1 * k - z1) * r^-1 mod n</code>. This exact vulnerability led to high-profile hacks (PlayStation 3 private key recovery and Android Bitcoin wallet thefts). Use RFC 6979 deterministic nonce generation.
+                  Once <span className="font-mono font-bold">k</span> is known, private key <span className="font-mono font-bold">d</span> is exposed instantly: <code className="font-mono font-bold">d = (s1 * k - z1) * r^-1 mod n</code>. This exact vulnerability led to high-profile hacks (PlayStation 3 private key recovery and Android Bitcoin wallet thefts). Use RFC 6979 deterministic nonce generation.
                 </p>
+              </div>
+
+              {/* 2.12 Digital Signatures */}
+              <div className="pt-6 border-t border-stone-100">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#18181b] mb-4">
+                  2.12 Digital Signatures &amp; Transaction Authentication
+                </h3>
+                <p className="text-sm text-stone-600 leading-relaxed mb-4">
+                  A digital signature is a cryptographic value generated using a private key that can be verified by any participant using the corresponding public key. In decentralized blockchains, digital signatures replace wet signatures and passwords, establishing irrefutable mathematical proof of authorization:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mb-4">
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="block text-stone-900 mb-1">1. Authentication</strong>
+                    Guarantees the transaction was originated by the rightful owner of the private key.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="block text-stone-900 mb-1">2. Non-Repudiation</strong>
+                    The signer cannot later deny having authorized the transaction once committed to the ledger.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="block text-stone-900 mb-1">3. Message Integrity</strong>
+                    Any modification to recipient, amount, or nonce alters the hash, immediately invalidating the signature.
+                  </div>
+                </div>
               </div>
             </section>
 
@@ -1293,12 +1317,12 @@ if __name__ == "__main__":
                     Bitcoin P2PKH Address Derivation
                   </h4>
                   <ol className="text-xs text-stone-700 space-y-2 list-decimal pl-4 leading-relaxed">
-                    <li>Private key scalar \(d\).</li>
+                    <li>Private key scalar <span className="font-mono">d</span>.</li>
                     <li>Compute secp256k1 public key.</li>
                     <li>Compute SHA-256 of public key bytes.</li>
-                    <li>Compute RIPEMD-160 of the SHA-256 hash (\(\text{HASH160}\), 20 bytes).</li>
+                    <li>Compute RIPEMD-160 of the SHA-256 hash (<span className="font-mono font-bold">HASH160</span>, 20 bytes).</li>
                     <li>Prepend mainnet version prefix <code className="font-mono bg-white px-1">0x00</code> (21 bytes).</li>
-                    <li>Append 4-byte checksum (\(\text{Double-SHA256}\) first 4 bytes).</li>
+                    <li>Append 4-byte checksum (<span className="font-mono font-bold">Double-SHA256</span> first 4 bytes).</li>
                     <li>Encode 25 bytes in <strong>Base58Check</strong> (starts with '1').</li>
                   </ol>
                 </div>
@@ -1315,7 +1339,7 @@ if __name__ == "__main__":
                 2.15, 2.16 &amp; 2.17 Binary Merkle Trees &amp; Sibling Proofs
               </h2>
               <p className="text-sm text-stone-600 leading-relaxed mb-4">
-                A Merkle tree organizes transaction hashes into a balanced binary tree where every parent node is the hash of its children: \(H_{AB} = H(H_A \parallel H_B)\). The single root commitments in block headers allow light clients to verify transactions in \(O(\log_2 N)\) time without downloading the whole block.
+                A Merkle tree organizes transaction hashes into a balanced binary tree where every parent node is the hash of its children: <span className="font-mono font-bold">{"H_AB = H(H_A || H_B)"}</span>. The single root commitments in block headers allow light clients to verify transactions in <span className="font-mono font-bold">O(log₂ N)</span> time without downloading the whole block.
               </p>
 
               <div className="bg-stone-900 text-stone-200 p-5 rounded-2xl font-mono text-xs mb-6 overflow-x-auto leading-relaxed">
@@ -1335,6 +1359,24 @@ if __name__ == "__main__":
 
               <div className="rounded-xl border border-stone-200 bg-stone-50 p-4 text-xs text-stone-700">
                 <strong>Ethereum State Architecture Note:</strong> Ethereum uses modified <strong>Merkle Patricia Tries (MPT)</strong> rather than plain binary Merkle trees to store account states, storage, and transaction receipts, enabling authenticated key-value lookups.
+              </div>
+
+              {/* 2.18 Hash-Based Data Integrity */}
+              <div className="pt-6 border-t border-stone-100">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#18181b] mb-4">
+                  2.18 Hash-Based Data Integrity &amp; Verification
+                </h3>
+                <p className="text-sm text-stone-600 leading-relaxed mb-4">
+                  Data integrity ensures that records remain identical to their original creation and have not undergone accidental bit rot, network transmission corruption, or intentional tampering.
+                </p>
+                <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-xs text-amber-950">
+                  <strong className="block text-amber-900 font-bold mb-1">
+                    Integrity vs. Truthfulness: The Critical Difference
+                  </strong>
+                  <p className="leading-relaxed">
+                    Cryptographic hashing guarantees <strong>integrity</strong> (the bits have not changed since the hash was generated), but it does <strong>not</strong> guarantee <strong>truthfulness</strong>. If false or corrupted data is hashed at the source, hashing simply produces an integrity verification of false data. Blockchain protocols pair cryptographic hashing with consensus incentives to encourage honest data input.
+                  </p>
+                </div>
               </div>
             </section>
 
@@ -1383,6 +1425,162 @@ if __name__ == "__main__":
                   <p className="text-xs text-stone-600">
                     Future large-scale quantum computers running Shor's algorithm could solve ECDLP. NIST standardized FIPS 204/205.
                   </p>
+                </div>
+              </div>
+            </section>
+
+            {/* PART 12: Practical Lab Architecture */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-4">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-1">
+                <Terminal size={15} />
+                <span>Part 12 — Practical Programming Implementation</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b]">
+                2.21 Practical Lab: Implement Cryptographic Functions Using Python
+              </h2>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                Students implement a complete, standalone cryptographic suite in Python with zero third-party blockchain dependencies using only standard library modules (<code className="font-mono">hashlib</code>, <code className="font-mono">secrets</code>, <code className="font-mono">hmac</code>) and <code className="font-mono">cryptography</code> for secp256k1 curves.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="block text-stone-900 mb-1">Hashing &amp; Address Pipeline</strong>
+                  Implements SHA-256, Keccak-256 (via standard sha3 or pure Python), uncompressed 65-byte public key serialization, and Ethereum 20-byte address extraction.
+                </div>
+                <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="block text-stone-900 mb-1">Merkle Proof Engine</strong>
+                  Binary Merkle tree construction with domain separation prefixes (<code className="font-mono">\x00</code> for leaves, <code className="font-mono">\x01</code> for branches), odd leaf replication, and logarithmic sibling proof verification.
+                </div>
+              </div>
+              <div className="pt-2">
+                <span className="text-xs text-stone-500">
+                  The complete copyable script and execution steps are available in the <strong>Python Cryptography Lab Tab</strong>.
+                </span>
+              </div>
+            </section>
+
+            {/* PART 13: Additional Hands-on Assignments */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-4">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-1">
+                <FileCode size={15} />
+                <span>Part 13 — Hands-On Engineering Assignments</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b]">
+                2.22 Additional Hands-on Assignments
+              </h2>
+              <div className="space-y-3 text-xs">
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 1 — Hash Algorithm Showdown</strong>
+                  Create a script computing SHA-256, SHA3-256, Keccak-256, and Double-SHA-256 over identical inputs. Compare padding differences and document why Keccak-256 is distinct from standardized SHA3-256.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 2 — Digital Signature Authentication</strong>
+                  Build an offline authentication service: generate secp256k1 keypairs, sign structured payment payloads, tamper with payload amounts, and verify signature rejection.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 3 — Dual Address Derivation Pipeline</strong>
+                  Take a raw 256-bit private key scalar and derive both its Ethereum 0x hex address and its Bitcoin Base58Check P2PKH address, verifying checksum algorithms.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 4 — Merkle Proof Verification Under Tampering</strong>
+                  Build an 8-leaf Merkle tree, extract an inclusion proof for leaf #5, alter leaf #5's payload by 1 character, and verify that the calculated root fails to match the block commitment.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 5 — Deterministic Nonce Reuse Exploit Simulation</strong>
+                  Mathematically demonstrate private key extraction when two distinct messages are signed with identical ephemeral nonces $k$, proving the vulnerability of naive PRNGs.
+                </div>
+              </div>
+            </section>
+
+            {/* PART 14 & 15: Assessment, References & Outcomes */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ea580c] mb-1">
+                <Award size={15} />
+                <span>Part 14 &amp; 15 — Assessment, Academic Standards &amp; Competencies</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#18181b]">
+                2.23, 2.24, 2.25 &amp; 2.26 Assessment, References &amp; Final Outcomes
+              </h2>
+
+              {/* 2.23 */}
+              <div>
+                <h3 className="text-base font-bold text-[#18181b]">
+                  2.23 Module 2 Knowledge Assessment (12 Questions)
+                </h3>
+                <p className="mt-1 text-xs text-stone-600 leading-relaxed">
+                  Students complete a 12-question rigorous technical examination covering hash pre-image properties, modular arithmetic, ECDSA (r, s) verification, nonce reuse attacks, HD derivation paths, and Merkle tree inclusion logic. Available in the <strong>Knowledge Quiz Tab</strong>.
+                </p>
+              </div>
+
+              {/* 2.24 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b] mb-2">
+                  2.24 Official University and Technical References
+                </h3>
+                <div className="overflow-x-auto text-xs">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-stone-200 bg-stone-50">
+                        <th className="p-2.5 font-bold text-stone-800">Resource / Institution</th>
+                        <th className="p-2.5 font-bold text-stone-800">Key Conceptual Contribution</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-100 text-stone-600">
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Stanford CS255 (Introduction to Cryptography)</td>
+                        <td className="p-2.5">Hash functions, symmetric and asymmetric cryptography, digital signatures, ECC, and key management.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">MIT (Foundations of Cryptography)</td>
+                        <td className="p-2.5">Mathematical foundations, finite groups, cryptographic security definitions, and signature hardness proofs.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">NIST (FIPS 180-4 / 186-5)</td>
+                        <td className="p-2.5">Federal standards for secure hash algorithms (SHA) and digital signature standards (ECDSA).</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Bitcoin BIP-32 / BIP-39 Specification</td>
+                        <td className="p-2.5">Hierarchical Deterministic wallets, mnemonic entropy encoding, and master child key derivation.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* 2.25 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b] mb-1">
+                  2.25 Module 2 Completion Tracker (24 Core Competencies)
+                </h3>
+                <p className="text-xs text-stone-600">
+                  Track your mastery across all 24 required learning outcomes in the <strong>Learning Tracker Tab</strong>.
+                </p>
+              </div>
+
+              {/* 2.26 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b] mb-2">
+                  2.26 Final Learning Outcomes &amp; Next Module Progression
+                </h3>
+                <p className="text-xs text-stone-600 leading-relaxed mb-4">
+                  Graduates of Module 2 possess complete mathematical and practical fluency with one-way hashing, elliptic curve discrete logarithms, digital signature authentication, and logarithmic Merkle tree proofs.
+                </p>
+                <div className="rounded-2xl bg-gradient-to-br from-stone-900 via-stone-950 to-orange-950 p-6 text-white">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400 block mb-1">
+                    Up Next in Track
+                  </span>
+                  <h4 className="text-lg font-bold">
+                    Module 3 — Distributed Systems &amp; Consensus Mechanisms
+                  </h4>
+                  <p className="text-xs text-stone-300 mt-2 leading-relaxed">
+                    Explore how independent network nodes communicate, coordinate, tolerate Byzantine failures, and reach agreement on transaction ordering without central coordinators.
+                  </p>
+                  <button
+                    onClick={() => navigate("/learning/blockchain/consensus")}
+                    className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f97316] text-white text-xs font-bold hover:bg-[#ea580c] transition cursor-pointer"
+                  >
+                    <span>Proceed to Module 3: Distributed Consensus</span>
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
               </div>
             </section>
@@ -1930,10 +2128,10 @@ if __name__ == "__main__":
                   </p>
                 </div>
                 <button
-                  onClick={() => navigate("/learning/blockchain/bitcoin-utxo")}
+                  onClick={() => navigate("/learning/blockchain/consensus")}
                   className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-600 text-white text-xs font-bold hover:bg-orange-700 transition cursor-pointer shadow-xs active:scale-95"
                 >
-                  <span>Preview Module 3</span>
+                  <span>Proceed to Module 3: Distributed Systems &amp; Consensus</span>
                   <ArrowRight size={14} />
                 </button>
               </div>

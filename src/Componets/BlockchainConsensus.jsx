@@ -531,37 +531,12 @@ export default function BlockchainConsensus() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased">
-      {/* Top Breadcrumb & Actions Bar */}
-      <div className="border-b border-[#e7e3da] bg-white/80 backdrop-blur-md sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={goBack}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-stone-900 transition-colors cursor-pointer"
-            >
-              <ArrowLeft size={14} />
-              <span>Back to Track</span>
-            </button>
-            <span className="text-[#e7e3da]">/</span>
-            <span className="text-xs font-semibold text-[#f97316]">Module 3</span>
-            <span className="text-[#e7e3da] hidden sm:inline">/</span>
-            <span className="text-xs text-stone-500 hidden sm:inline">
-              Distributed Systems & Consensus
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 px-2.5 py-0.5 text-[11px] font-bold text-amber-800 border border-amber-500/20">
-              <Sparkles size={11} className="text-amber-600" />
-              <span>Stanford EE374 • MIT • ETH Zürich</span>
-            </span>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-[#f97316] selection:text-white pb-28 sm:pb-36">
+      {/* Top Contextual Navigation Bar */}
+      <ModuleNav track="blockchain" currentModuleId="consensus" />
 
       {/* Hero Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-6">
         <div className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-10 shadow-xs relative overflow-hidden">
           <div className="absolute -top-12 -right-12 w-96 h-96 rounded-full bg-gradient-to-br from-orange-200/40 via-amber-100/20 to-transparent blur-3xl pointer-events-none" />
 
@@ -900,14 +875,72 @@ export default function BlockchainConsensus() {
               </div>
             </section>
 
-            {/* PART 3 & 4 */}
+            {/* PART 3: Consensus Algorithms */}
             <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
               <div className="border-b border-stone-200 pb-4">
                 <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
-                  Parts 3 & 4
+                  Part 3
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
-                  Proof of Work (PoW) & Nakamoto Consensus
+                  Consensus Algorithms &amp; Foundations
+                </h2>
+              </div>
+
+              {/* 3.8 */}
+              <div>
+                <h3 className="text-base font-bold text-[#18181b]">3.8 What Are Consensus Algorithms?</h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  A consensus algorithm is a formal protocol that enables a network of distributed participants to agree on a common decision, total transaction order, or system state despite asynchronous communication delays, packet drops, and arbitrary node failures.
+                </p>
+                <div className="mt-3 p-4 rounded-2xl bg-stone-50 border border-stone-200 text-xs">
+                  <strong className="block text-stone-900 font-bold mb-2">General Consensus Workflow (7 Steps):</strong>
+                  <ol className="list-decimal pl-4 space-y-1 text-stone-700 leading-relaxed">
+                    <li><strong>Proposal Creation:</strong> A candidate block or transaction bundle is constructed by a node.</li>
+                    <li><strong>Distribution:</strong> The proposal is disseminated via gossip to peer participants.</li>
+                    <li><strong>Independent Verification:</strong> Peers validate transaction syntax, balances, and signatures.</li>
+                    <li><strong>Consensus Evidence Exchange:</strong> Nodes broadcast votes, attestations, or proof-of-work hashes.</li>
+                    <li><strong>Agreement Rule Application:</strong> Protocol applies its threshold or heaviest-chain selection rule.</li>
+                    <li><strong>Ledger Commitment:</strong> The winning block is appended to the local replica's ledger.</li>
+                    <li><strong>State Machine Transition:</strong> Nodes execute state updates deterministically.</li>
+                  </ol>
+                </div>
+              </div>
+
+              {/* 3.9 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">3.9 Types of Consensus Algorithms</h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Consensus approaches fall into four major operational categories:
+                </p>
+                <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">A. Crash Fault Tolerant (CFT)</strong>
+                    Tolerates fail-stop nodes that crash, but assumes honest nodes never send malicious data. Examples: <strong>Raft</strong>, <strong>Paxos</strong>. Used in enterprise databases and internal clusters.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">B. Byzantine Fault Tolerant (BFT)</strong>
+                    Tolerates up to ⌊(n-1)/3⌋ arbitrarily malicious nodes in known-membership systems. Examples: <strong>PBFT</strong>, <strong>Tendermint</strong>, <strong>HotStuff</strong>.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">C. Permissionless Blockchain Consensus</strong>
+                    Open participation where anyone can join without authorization. Requires cryptographic Sybil resistance: <strong>Proof of Work (Bitcoin)</strong>, <strong>Proof of Stake (Ethereum)</strong>.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">D. Permissioned Blockchain Consensus</strong>
+                    Participation restricted to authorized identities: <strong>Hyperledger Fabric (Raft / SmartBFT)</strong>, <strong>Proof of Authority (Clique)</strong>.
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* PART 4: Proof of Work */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 4
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Proof of Work (PoW) &amp; Nakamoto Consensus
                 </h2>
               </div>
 
@@ -972,10 +1005,89 @@ export default function BlockchainConsensus() {
 
               {/* 3.12 */}
               <div>
-                <h3 className="text-base font-bold text-[#18181b]">3.12 Proof of Stake Architecture & Slashing</h3>
+                <h3 className="text-base font-bold text-[#18181b]">3.12 Proof of Stake Architecture &amp; Slashing</h3>
                 <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
                   Proof of Stake replaces physical electrical expenditure with economic capital lockup. Validators deposit native tokens (e.g., 32 ETH in Ethereum) into a consensus deposit contract. Pseudo-random beacon randomness selects proposers and attestation committees. Malicious behavior—such as signing two conflicting blocks or attestations for the same slot (equivocation)—results in protocol-enforced <strong>slashing</strong>: destroying staked assets and evicting the validator.
                 </p>
+              </div>
+
+              {/* 3.13 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">3.13 Proof of Work vs Proof of Stake</h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Understanding the structural trade-offs between computational consensus and stake-weighted consensus is essential for distributed systems engineering:
+                </p>
+                <div className="mt-3 overflow-x-auto">
+                  <table className="w-full text-xs text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-stone-200 bg-stone-50">
+                        <th className="p-2.5 font-bold text-stone-800">Parameter</th>
+                        <th className="p-2.5 font-bold text-stone-800">Proof of Work (PoW)</th>
+                        <th className="p-2.5 font-bold text-stone-800">Proof of Stake (PoS)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-100 text-stone-600">
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Participation Resource</td>
+                        <td className="p-2.5">Computational hashrate &amp; electrical energy</td>
+                        <td className="p-2.5">Staked digital capital assets</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Block Producer</td>
+                        <td className="p-2.5">Miner solving cryptographic puzzle</td>
+                        <td className="p-2.5">Assigned validator chosen via beacon randomness</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Sybil Resistance</td>
+                        <td className="p-2.5">Physical compute power (1-CPU/GPU-1-vote)</td>
+                        <td className="p-2.5">Token economic weighting (1-Coin-1-vote)</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Energy Footprint</td>
+                        <td className="p-2.5 text-rose-600 font-semibold">High continuous energy demand</td>
+                        <td className="p-2.5 text-emerald-700 font-semibold">~99.95% reduction in electricity</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Attack Economics</td>
+                        <td className="p-2.5">Must rent or purchase 51% of global hashrate</td>
+                        <td className="p-2.5">Must purchase 51% (or 33%) of all circulating staked tokens</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Finality Mechanism</td>
+                        <td className="p-2.5">Probabilistic (decays exponentially with depth)</td>
+                        <td className="p-2.5">Explicit checkpoint finality (Casper FFG)</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Hardware Demands</td>
+                        <td className="p-2.5">High-end ASIC / GPU mining rigs</td>
+                        <td className="p-2.5">Standard commodity server with high uptime</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Production Standard</td>
+                        <td className="p-2.5">Bitcoin (SHA-256d)</td>
+                        <td className="p-2.5">Ethereum (Gasper: Casper FFG + LMD-GHOST)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* 3.14 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">3.14 Proof of Authority (PoA)</h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Proof of Authority is a consensus model where block creation and validation rights are assigned strictly to authorized validators whose legal or organizational identities are verified under network governance rules. Instead of burning electricity or locking tokens, validators stake their real-world institutional reputations.
+                </p>
+                <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">PoA Advantages:</strong>
+                    Zero energy waste, high transaction throughput, predictable sub-second block intervals, and clear administrative accountability.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">PoA Limitations:</strong>
+                    Centralized authority selection, risk of validator collusion, censorship susceptibility, and unsuitable for open permissionless digital currencies.
+                  </div>
+                </div>
               </div>
 
               {/* 3.15 */}
@@ -1060,6 +1172,106 @@ export default function BlockchainConsensus() {
               </div>
             </section>
 
+            {/* PART 7: Nakamoto Consensus, Mining and Validators */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 7
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Nakamoto Consensus, Mining and Validators
+                </h2>
+              </div>
+
+              {/* 3.17 */}
+              <div>
+                <h3 className="text-base font-bold text-[#18181b]">3.17 Mining and Validator Responsibilities</h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Mining and validation are related blockchain activities, but they operate under fundamentally different mechanics:
+                </p>
+
+                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/70">
+                    <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider mb-2">
+                      A. Miner Responsibilities in Proof of Work
+                    </h4>
+                    <ul className="text-xs text-stone-700 space-y-1.5 list-disc pl-4 leading-relaxed">
+                      <li>Receives pending unconfirmed transactions from the P2P mempool.</li>
+                      <li>Selects transactions to construct a candidate block header and Merkle root.</li>
+                      <li>Verifies transaction syntax, inputs, Script signatures, and balances.</li>
+                      <li>Calculates the SHA-256 block-header hash repeatedly across incrementing nonces.</li>
+                      <li>Searches for a hash strictly satisfying the current numerical difficulty target.</li>
+                      <li>Broadcasts the valid block to the network for immediate peer validation.</li>
+                      <li>Receives the block subsidy and transaction fee rewards if accepted into the canonical chain.</li>
+                    </ul>
+                  </div>
+
+                  <div className="p-4 rounded-2xl border border-orange-200 bg-orange-50/50">
+                    <h4 className="text-xs font-bold text-orange-950 uppercase tracking-wider mb-2">
+                      B. Validator Responsibilities in Proof of Stake
+                    </h4>
+                    <ul className="text-xs text-stone-700 space-y-1.5 list-disc pl-4 leading-relaxed">
+                      <li>Maintains a fully synchronized execution and consensus client node.</li>
+                      <li>Locks protocol-required digital assets (e.g., 32 ETH) into a staking contract.</li>
+                      <li>Proposes new execution blocks when pseudo-randomly assigned by the beacon chain.</li>
+                      <li>Verifies proposed blocks received from other committee leaders.</li>
+                      <li>Signs and broadcasts cryptographic attestations (votes) for the head of the chain.</li>
+                      <li>Participates in fork-choice rules (LMD-GHOST) and checkpoint finality (Casper FFG).</li>
+                      <li>Avoids slashable offenses (equivocation, double signing, surround voting).</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full text-xs text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-stone-200 bg-stone-50">
+                        <th className="p-2.5 font-bold text-stone-800">Responsibility</th>
+                        <th className="p-2.5 font-bold text-stone-800">PoW Miner</th>
+                        <th className="p-2.5 font-bold text-stone-800">PoS Validator</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-100 text-stone-600">
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Consensus Participation</td>
+                        <td className="p-2.5">Continuous computational hash-rate competition</td>
+                        <td className="p-2.5">Capital commitment and committee attestation voting</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Block Proposal</td>
+                        <td className="p-2.5">First miner to discover valid nonce hash</td>
+                        <td className="p-2.5">Assigned proposer selected by beacon randomness</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Transaction Verification</td>
+                        <td className="p-2.5">Yes — verifies inputs, balances, and scripts</td>
+                        <td className="p-2.5">Yes — executes EVM state transitions and verifies gas</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Voting &amp; Attestations</td>
+                        <td className="p-2.5">No — votes expressed implicitly through accumulated work</td>
+                        <td className="p-2.5">Yes — explicit BLS aggregate signature attestations</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Penalties for Malice</td>
+                        <td className="p-2.5">Wasted electricity and lost hardware opportunity cost</td>
+                        <td className="p-2.5 text-rose-600 font-bold">Protocol slashing: staked capital permanently burned</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mt-4 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/90 text-xs text-amber-950">
+                  <strong className="block text-amber-900 font-bold mb-1">
+                    Fundamental Architecture Principle: Why Full Nodes Remain Sovereign
+                  </strong>
+                  <p className="leading-relaxed">
+                    Miners and validators only propose candidate blocks. Every non-mining <strong>Full Node</strong> independently enforces every single consensus rule. A miner with 99% of the world's hash power cannot force honest full nodes to accept an invalid payment, spend coins without a valid signature, or inflate the 21M Bitcoin supply. Honest nodes reject invalid blocks instantly, making any computational work spent on invalid blocks completely worthless.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* PART 8 & 9 */}
             <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
               <div className="border-b border-stone-200 pb-4">
@@ -1089,7 +1301,7 @@ export default function BlockchainConsensus() {
 
               {/* 3.20 */}
               <div className="pt-4 border-t border-stone-100">
-                <h3 className="text-base font-bold text-[#18181b]">3.20 Probabilistic vs. Explicit Finality</h3>
+                <h3 className="text-base font-bold text-[#18181b]">3.20 Finality in Blockchain</h3>
                 <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                   <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50">
                     <strong className="text-stone-900 block mb-1">Probabilistic Finality (e.g., Bitcoin)</strong>
@@ -1103,6 +1315,36 @@ export default function BlockchainConsensus() {
                       Once a checkpoint receives a 2/3 supermajority of attestations across two consecutive epochs (Casper FFG), the block is finalized. Reverting it requires at least 1/3 of the entire network's staked assets to be burned through slashing.
                     </p>
                   </div>
+                </div>
+              </div>
+
+              {/* 3.21 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">3.21 Sybil Attacks in Distributed Systems</h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  A Sybil attack occurs when an adversary spins up thousands of pseudonymous virtual identities to overwhelm majority-voting protocols, eclipse honest peers, or manipulate consensus.
+                </p>
+                <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">Sybil Defense in PoW:</strong>
+                    Tying voting power to physical thermodynamic compute (hashrate). Creating a million IP addresses grants zero voting power without devoted ASIC hashing power.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">Sybil Defense in PoS &amp; PoA:</strong>
+                    In PoS, influence is bounded strictly by capital deposited into the staking contract. In PoA, participation is gated by institutional legal identities.
+                  </div>
+                </div>
+              </div>
+
+              {/* 3.22 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">3.22 Network Partitions and Latency</h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Network latency is the time required for a block or transaction to traverse the physical internet. High latency directly increases the orphan rate and temporary fork frequency because miners discover competing blocks before hearing about remote proposals.
+                </p>
+                <div className="mt-3 p-4 rounded-2xl bg-stone-50 border border-stone-200 text-xs text-stone-700">
+                  <strong className="block text-stone-900 font-bold mb-1">Partition Behavior Across Protocols:</strong>
+                  In Bitcoin, both partitioned clusters continue mining independent chains (favoring Availability); upon partition heal, the cluster with higher cumulative work forces a massive reorg on the shorter cluster. In PBFT and Tendermint, consensus halts if neither partition commands a 2/3 quorum (favoring Consistency over Availability).
                 </div>
               </div>
             </section>
@@ -1155,8 +1397,535 @@ export default function BlockchainConsensus() {
                     "In an asynchronous network, no deterministic consensus protocol can guarantee agreement in every execution if even a single process is subject to unannounced crash failure."
                   </div>
                   <div className="mt-2 text-stone-400">
-                    Why? Because an asynchronous system has no upper bound on transmission delay: other nodes cannot distinguish between a node that has crashed vs. a node that is merely running slow! Practical systems circumvent FLP by introducing partial synchrony (timeouts, $\Delta$), failure detectors, or randomization.
+                    Why? Because an asynchronous system has no upper bound on transmission delay: other nodes cannot distinguish between a node that has crashed vs. a node that is merely running slow! Practical systems circumvent FLP by introducing partial synchrony (timeouts, delta-synchrony Δ bounds), failure detectors, or randomization.
                   </div>
+                </div>
+              </div>
+            </section>
+
+            {/* PART 11: Comparative Architecture and Engineering Decisions */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 11
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Comparative Architecture and Engineering Decisions
+                </h2>
+              </div>
+
+              {/* 3.25 */}
+              <div>
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.25 Choosing the Appropriate Consensus Mechanism
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  A software architect must never choose a consensus protocol based solely on hype, marketing slogans, or synthetic TPS benchmarks. Consensus mechanism selection is dictated strictly by the participant trust model, threat boundaries, network synchrony, and legal finality requirements:
+                </p>
+
+                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                  <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/70">
+                    <strong className="text-stone-900 block font-bold mb-1">
+                      Scenario 1 — Public Digital Currency (e.g., Bitcoin)
+                    </strong>
+                    <p className="text-stone-600 leading-relaxed mb-2">
+                      <strong>Requirements:</strong> Censorship-resistant store of value with globally open, pseudonymous, permissionless participation and zero trusted central authorities.
+                    </p>
+                    <span className="font-bold text-[#ea580c] block">
+                      Recommended: Proof of Work (Nakamoto Consensus)
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      Anchor security into physical thermodynamics. Heaviest-chain fork choice ensures anyone can join and sync without trusted checkpoints.
+                    </span>
+                  </div>
+
+                  <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/70">
+                    <strong className="text-stone-900 block font-bold mb-1">
+                      Scenario 2 — Interbank Settlement Consortium
+                    </strong>
+                    <p className="text-stone-600 leading-relaxed mb-2">
+                      <strong>Requirements:</strong> 8 identified commercial banks settling cross-border FX transactions. Requires sub-second deterministic finality, zero fork probability, and legal auditability.
+                    </p>
+                    <span className="font-bold text-[#ea580c] block">
+                      Recommended: Practical Byzantine Fault Tolerance (PBFT) / BFT-SMaRt
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      Known membership allows quorum voting without token stakes. Instant deterministic commit eliminates reorg risks.
+                    </span>
+                  </div>
+
+                  <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50/70">
+                    <strong className="text-stone-900 block font-bold mb-1">
+                      Scenario 3 — University Credential &amp; Degree Verification
+                    </strong>
+                    <p className="text-stone-600 leading-relaxed mb-2">
+                      <strong>Requirements:</strong> 15 accredited universities issuing verifiable academic diplomas. Low transaction frequency, high institutional reputation, zero cryptocurrency overhead.
+                    </p>
+                    <span className="font-bold text-[#ea580c] block">
+                      Recommended: Proof of Authority (PoA) / Clique
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      Institutions sign blocks in round-robin fashion using legally tied keys. Minimal compute and operational expenses.
+                    </span>
+                  </div>
+
+                  <div className="p-4 rounded-2xl border border-orange-200 bg-orange-50/50">
+                    <strong className="text-orange-950 block font-bold mb-1">
+                      Scenario 4 — High-Throughput Global Decentralized Applications (DeFi / Web3)
+                    </strong>
+                    <p className="text-stone-700 leading-relaxed mb-2">
+                      <strong>Requirements:</strong> Smart contract composability, open participation, low energy footprint, fast finality, and robust economic security.
+                    </p>
+                    <span className="font-bold text-[#ea580c] block">
+                      Recommended: Proof of Stake with Checkpoint Finality (Gasper / Tendermint)
+                    </span>
+                    <span className="text-stone-500 text-[11px]">
+                      Capital staking disincentivizes attacks via automated slashing. Checkpoint epochs guarantee economic finality.
+                    </span>
+                  </div>
+                </div>
+
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full text-xs text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-stone-200 bg-stone-50">
+                        <th className="p-2.5 font-bold text-stone-800">Operational Requirement</th>
+                        <th className="p-2.5 font-bold text-stone-800">Network Type</th>
+                        <th className="p-2.5 font-bold text-stone-800">Sybil Defense</th>
+                        <th className="p-2.5 font-bold text-stone-800">Finality Guarantee</th>
+                        <th className="p-2.5 font-bold text-stone-800">Recommended Consensus</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-100 text-stone-600">
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Thermodynamic Open Settlement</td>
+                        <td className="p-2.5">Public / Permissionless</td>
+                        <td className="p-2.5">Proof of Work (Hashrate)</td>
+                        <td className="p-2.5">Probabilistic (Heaviest chain)</td>
+                        <td className="p-2.5 font-mono text-orange-700 font-bold">PoW (Nakamoto)</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Energy-Efficient Smart Contracts</td>
+                        <td className="p-2.5">Public / Permissionless</td>
+                        <td className="p-2.5">Capital Stake Lockup</td>
+                        <td className="p-2.5">Explicit 2/3 Checkpoint</td>
+                        <td className="p-2.5 font-mono text-orange-700 font-bold">PoS (Gasper / CometBFT)</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Regulated Institutional Consortium</td>
+                        <td className="p-2.5">Private / Consortium</td>
+                        <td className="p-2.5">Cryptographic Identity / PKI</td>
+                        <td className="p-2.5">Deterministic (Instant)</td>
+                        <td className="p-2.5 font-mono text-orange-700 font-bold">PBFT / Istanbul BFT</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Internal Enterprise Microservices</td>
+                        <td className="p-2.5">Private / Single Admin</td>
+                        <td className="p-2.5">Zero Malicious Adversaries</td>
+                        <td className="p-2.5">Crash-Fault Tolerant</td>
+                        <td className="p-2.5 font-mono text-orange-700 font-bold">Raft / Paxos (CFT)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            {/* PART 12: Practical Lab Documentation */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 12
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Practical Lab: Simulating PoW and PoS Using Python
+                </h2>
+              </div>
+
+              {/* 3.26 */}
+              <div>
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.26 Practical Lab Overview &amp; Technical Requirements
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  In this practical lab, students build two distinct Python consensus implementations from scratch using only standard libraries (<code className="font-mono">hashlib</code>, <code className="font-mono">json</code>, <code className="font-mono">time</code>, <code className="font-mono">random</code>) with zero third-party blockchain dependencies:
+                </p>
+                <div className="mt-3 p-4 rounded-2xl bg-stone-50 border border-stone-200 text-xs">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div>
+                      <span className="text-stone-500 block text-[10px] uppercase font-bold">Language</span>
+                      <strong className="text-stone-900 font-mono">Python 3.10+</strong>
+                    </div>
+                    <div>
+                      <span className="text-stone-500 block text-[10px] uppercase font-bold">Hashing</span>
+                      <strong className="text-stone-900 font-mono">hashlib.sha256</strong>
+                    </div>
+                    <div>
+                      <span className="text-stone-500 block text-[10px] uppercase font-bold">Serialization</span>
+                      <strong className="text-stone-900 font-mono">json (sort_keys=True)</strong>
+                    </div>
+                    <div>
+                      <span className="text-stone-500 block text-[10px] uppercase font-bold">Randomness</span>
+                      <strong className="text-stone-900 font-mono">random.Random(42)</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3.27 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.27 Project A — Build a Proof of Work Simulation (proof_of_work.py)
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Implements canonical JSON serialization (<code className="font-mono">sort_keys=True, separators=(',', ':')</code>), SHA-256 header hashing, incrementing nonce search against dynamic leading zero targets (<code className="font-mono">"0" * difficulty</code>), and a full blockchain validator that verifies both hash difficulty and parent hash linkage.
+                </p>
+                <div className="mt-3 bg-stone-900 text-stone-200 p-3.5 rounded-2xl font-mono text-xs">
+                  <div className="text-amber-400 font-bold mb-1">// Mining Output &amp; Tamper Verification</div>
+                  <div>$ python proof_of_work.py</div>
+                  <div className="text-emerald-400">BLOCK MINED: Block #0 | Nonce: 18451 | Hash: 0000a7f8... (Attempts: 18452, Time: 0.04s)</div>
+                  <div className="text-emerald-400">BLOCK MINED: Block #1 | Nonce: 56320 | Hash: 0000c192... (Attempts: 56321, Time: 0.12s)</div>
+                  <div className="text-emerald-400">Blockchain Valid: True</div>
+                  <div className="text-rose-400">Valid after tampering: False (Stored hash does not match recalculation!)</div>
+                </div>
+              </div>
+
+              {/* 3.28 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.28 Project B — Build a Proof of Stake Simulation (proof_of_stake.py)
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Implements dynamic validator registration with stake balances, weighted pseudo-random proposer selection using cumulative probability distributions, candidate block generation, and an attestation aggregation engine enforcing a 2/3 (66.67%) stake supermajority.
+                </p>
+                <div className="mt-3 bg-stone-900 text-stone-200 p-3.5 rounded-2xl font-mono text-xs">
+                  <div className="text-amber-400 font-bold mb-1">// Validator Staking &amp; Quorum Decision</div>
+                  <div>$ python proof_of_stake.py</div>
+                  <div>Validator registered: Validator A, Stake: 50 (50.0%)</div>
+                  <div>Validator registered: Validator B, Stake: 30 (30.0%)</div>
+                  <div>Validator registered: Validator C, Stake: 20 (20.0%)</div>
+                  <div>Selected Proposer: Validator A</div>
+                  <div className="text-emerald-400">Approved Stake: 80 / 100 (80.0%)</div>
+                  <div className="text-emerald-400">Consensus: BLOCK ACCEPTED (≥ 66.67% Threshold Met)</div>
+                </div>
+              </div>
+
+              {/* 3.29 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.29 Comparative Practical Lab — PoW vs PoS &amp; CLI Challenge
+                </h3>
+                <div className="mt-3 overflow-x-auto">
+                  <table className="w-full text-xs text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-stone-200 bg-stone-50">
+                        <th className="p-2.5 font-bold text-stone-800">Experiment Parameter</th>
+                        <th className="p-2.5 font-bold text-stone-800">Proof of Work</th>
+                        <th className="p-2.5 font-bold text-stone-800">Proof of Stake</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-100 text-stone-600">
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Main Participation Resource</td>
+                        <td className="p-2.5">Computational Work</td>
+                        <td className="p-2.5">Stake Capital</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Selection Mechanism</td>
+                        <td className="p-2.5">Hash-search competition</td>
+                        <td className="p-2.5">Stake-weighted protocol selection</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Mining Nonce</td>
+                        <td className="p-2.5">Used continuously</td>
+                        <td className="p-2.5">Not used for mining</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2.5 font-bold text-stone-900">Validator Voting</td>
+                        <td className="p-2.5">Implicit in work</td>
+                        <td className="p-2.5">Explicit 2/3 committee attestations</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mt-4 p-4 rounded-2xl bg-stone-100 border border-stone-200 text-xs text-stone-800">
+                  <strong className="block font-bold mb-1">
+                    Final Practical Challenge (Section 3.29 Deliverable):
+                  </strong>
+                  <p className="leading-relaxed">
+                    Build a command-line program that allows users to: select PoW or PoS, add custom transactions, mine or propose a block, evaluate quorum criteria, validate the chain, and measure computational cost and execution duration across difficulty levels 1 through 5.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* PART 13: Advanced Distributed Systems Concepts */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 13
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Advanced Distributed Systems Concepts &amp; Security Attacks
+                </h2>
+              </div>
+
+              {/* 3.30 */}
+              <div>
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.30 Security Attacks Against Consensus Mechanisms
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Even when cryptographic hashes and digital signatures are mathematically unbreakable, consensus mechanisms can be attacked at the game-theoretic and network routing layers:
+                </p>
+
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block font-bold mb-1 text-rose-700">1. 51% Attack</strong>
+                    An attacker controlling &gt;50% of hash power can mine a secret longer chain, overtake the public chain, reorganize recent history, and double-spend coins. Cannot forge signatures.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block font-bold mb-1 text-rose-700">2. Selfish Mining</strong>
+                    Discovered by Eyal &amp; Sirer (Cornell). A pool withholds mined blocks strategically and broadcasts them only when honest miners discover competing blocks, wasting honest energy.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block font-bold mb-1 text-rose-700">3. Nothing-at-Stake</strong>
+                    In naive PoS without slashing, validators can vote on every competing fork at zero cost, preventing network convergence during partitions.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block font-bold mb-1 text-rose-700">4. Long-Range Attack</strong>
+                    An attacker acquires old discarded validator keys that once held majority stake and builds an alternative historical chain from genesis. Mitigated by weak subjectivity checkpoints.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block font-bold mb-1 text-rose-700">5. Eclipse Attack</strong>
+                    An adversary monopolizes all inbound and outbound P2P connections to a specific node, feeding it a completely false, isolated view of the blockchain.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block font-bold mb-1 text-rose-700">6. BGP Hijacking &amp; Partitions</strong>
+                    Adversaries exploit autonomous system routing flaws to split the network into isolated subnets, facilitating double-spends across partition boundaries.
+                  </div>
+                </div>
+              </div>
+
+              {/* 3.31 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.31 Essential Distributed Systems Research Concepts
+                </h3>
+                <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">A. Leader Election</strong>
+                    Protocols for dynamically choosing a coordinator (Raft term leader, PoS slot proposer).
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">B. Reliable Broadcast</strong>
+                    All-or-nothing delivery guarantees: if one honest node delivers message M, all honest nodes deliver M.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">C. Atomic Broadcast</strong>
+                    Guarantees total order delivery across all replicas; mathematically equivalent to distributed consensus.
+                  </div>
+                  <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                    <strong className="text-stone-900 block mb-1">D. Logical Time &amp; Vector Clocks</strong>
+                    Leslie Lamport's happens-before relation (→) ordering events without synchronized physical quartz clocks.
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* PART 14: Industry Case Studies */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 14
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Industry Case Studies: Production Consensus Systems
+                </h2>
+              </div>
+
+              {/* 3.32 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50">
+                  <span className="text-[10px] font-bold uppercase text-orange-600 block">Case Study 1</span>
+                  <strong className="text-stone-900 text-sm font-bold block mt-0.5">Bitcoin (Nakamoto Consensus)</strong>
+                  <p className="text-stone-600 mt-2 leading-relaxed">
+                    Pure Proof of Work over SHA-256 with 10-minute target block time. Cumulative-work chain selection. Dynamic difficulty retargeting every 2,016 blocks (~2 weeks). Delivers asymptotic probabilistic finality without validator lists.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50">
+                  <span className="text-[10px] font-bold uppercase text-orange-600 block">Case Study 2</span>
+                  <strong className="text-stone-900 text-sm font-bold block mt-0.5">Ethereum (Gasper Architecture)</strong>
+                  <p className="text-stone-600 mt-2 leading-relaxed">
+                    Combines Casper FFG (checkpoint finality) with LMD-GHOST (Latest Message Driven Greediest Heaviest Observed SubTree) fork-choice. Over 1,000,000 validators with 32 ETH stakes grouped into dynamic committees, finalized every 2 epochs (~12.8 minutes).
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50">
+                  <span className="text-[10px] font-bold uppercase text-orange-600 block">Case Study 3</span>
+                  <strong className="text-stone-900 text-sm font-bold block mt-0.5">Hyperledger Fabric (Enterprise Ordering)</strong>
+                  <p className="text-stone-600 mt-2 leading-relaxed">
+                    Modular permissioned architecture separating transaction execution from ordering. Employs Raft crash-tolerant or SmartBFT Byzantine fault-tolerant ordering clusters across enterprise consortium organizations without native tokens or mining.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl border border-stone-200 bg-stone-50">
+                  <span className="text-[10px] font-bold uppercase text-orange-600 block">Case Study 4</span>
+                  <strong className="text-stone-900 text-sm font-bold block mt-0.5">PBFT (Castro &amp; Liskov Research)</strong>
+                  <p className="text-stone-600 mt-2 leading-relaxed">
+                    The seminal 1999 paper demonstrating practical Byzantine agreement with $O(R^2)$ communication complexity. Demonstrates view changes when leaders fail, proving safety across arbitrary message delays under partial synchrony.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* PART 15: Module Assignments */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 15
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Module Assignments: Applied Engineering Tasks
+                </h2>
+              </div>
+
+              {/* 3.33 */}
+              <div className="space-y-3 text-xs">
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 1 — Distributed Architecture Analysis</strong>
+                  Design an architectural topology for 10 geodistributed nodes. Provide packet flow diagrams for transaction gossip, failure modes when 3 nodes crash, and analyze whether BFT is mandatory. Deliverable: 1,000-word engineering report and topology diagram.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 2 — Byzantine Generals Simulation</strong>
+                  Write a Python simulator modeling 7 generals with 2 traitors and 5 loyal lieutenants. Demonstrate how conflicting commander messages are resolved or fail depending on the $n \ge 3f + 1$ threshold.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 3 — Consensus Mechanism Evaluation Matrix</strong>
+                  Produce an exhaustive technical evaluation comparing PoW, PoS, PoA, and PBFT across hardware barriers, finality guarantees, energy consumption, and Sybil resistance.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 4 — Chain Reorganization Simulation</strong>
+                  Simulate two competing branches diverging from genesis block #100. Implement the cumulative-work chain selection rule and log what happens to displaced mempool transactions when Branch B overtakes Branch A.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 5 — CAP Theorem Partition Analysis</strong>
+                  Model a distributed payment service across 3 data centers. Simulate an undersea cable severance. Detail state behavior under CP mode vs AP mode and document partition reconciliation.
+                </div>
+                <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
+                  <strong className="text-stone-900 block font-bold mb-1">Assignment 6 — Final Engineering Capstone Consensus Simulator</strong>
+                  Build a unified CLI program that allows operators to switch between PoW and PoS, inject transactions, measure mining wall-clock times, and simulate consensus failures.
+                </div>
+              </div>
+
+              {/* 3.34 */}
+              <div className="pt-4 border-t border-stone-100">
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.34 Module 3 Knowledge Assessment (18 Questions)
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Students complete an 18-question interactive examination covering distributed computing foundations, Byzantine failure thresholds, BFT quorum overlap mathematics, Proof of Work mining difficulty, Nakamoto cumulative work, Proof of Stake slashing, PBFT phases, chain reorganizations, probabilistic finality, Sybil attacks, CAP theorem trade-offs, and FLP impossibility. Available in the <strong>Knowledge Quiz Tab</strong>.
+                </p>
+              </div>
+            </section>
+
+            {/* PART 16: Recommended University & Technical Resources */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 16
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Recommended University and Technical Resources
+                </h2>
+              </div>
+
+              {/* 3.35 */}
+              <div className="overflow-x-auto text-xs">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-stone-200 bg-stone-50">
+                      <th className="p-2.5 font-bold text-stone-800">Resource &amp; Institution</th>
+                      <th className="p-2.5 font-bold text-stone-800">Recommended Topic of Study</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-stone-100 text-stone-600">
+                    <tr>
+                      <td className="p-2.5 font-bold text-stone-900">Stanford EE374 (Blockchain Infrastructure)</td>
+                      <td className="p-2.5">Distributed consensus, Bitcoin mechanics, Proof of Stake, and BFT systems.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2.5 font-bold text-stone-900">Stanford CS251 (Blockchain Technologies)</td>
+                      <td className="p-2.5">Classical consensus, synchronous vs asynchronous network models, and Nakamoto consensus.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2.5 font-bold text-stone-900">MIT 6.852 (Distributed Algorithms)</td>
+                      <td className="p-2.5">Fault-tolerant algorithms, Byzantine agreement proofs, and consensus impossibility results.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2.5 font-bold text-stone-900">EPFL (Distributed Algorithms Course)</td>
+                      <td className="p-2.5">Reliable broadcast, atomic multicast, and epidemic consensus protocols.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2.5 font-bold text-stone-900">Ethereum Consensus Documentation</td>
+                      <td className="p-2.5">Proof of Stake architecture, validator lifecycles, Gasper, and slashing specifications.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2.5 font-bold text-stone-900">Bitcoin Developer Guide</td>
+                      <td className="p-2.5">Proof of Work block validation, difficulty retargeting, and reorganization handling.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2.5 font-bold text-stone-900">Castro &amp; Liskov (OSDI 1999 PBFT Paper)</td>
+                      <td className="p-2.5">Foundational Practical Byzantine Fault Tolerance protocol mechanics and view changes.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2.5 font-bold text-stone-900">Fischer, Lynch &amp; Paterson (FLP 1985 Paper)</td>
+                      <td className="p-2.5">Formal proof of consensus impossibility in asynchronous distributed systems.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* PART 17: Module Completion Requirements & Learning Outcomes */}
+            <section className="rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="border-b border-stone-200 pb-4">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#ea580c]">
+                  Part 17
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#18181b] mt-1">
+                  Module Completion Requirements &amp; Learning Outcomes
+                </h2>
+              </div>
+
+              {/* 3.36 & 3.37 */}
+              <div>
+                <h3 className="text-base font-bold text-[#18181b]">
+                  3.37 Final Learning Outcomes &amp; Next Module Preview
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Upon completing Module 3, students are capable of rigorously evaluating distributed architectures, proving quorum bounds, explaining fork-choice rules, identifying network security threats, and implementing custom consensus algorithms in code.
+                </p>
+
+                <div className="mt-6 rounded-2xl bg-gradient-to-br from-stone-900 via-stone-950 to-orange-950 p-6 text-white">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400 block mb-1">
+                    Up Next in Track
+                  </span>
+                  <h4 className="text-lg font-bold">
+                    Module 4 — Bitcoin Architecture, Transactions and the UTXO Model
+                  </h4>
+                  <p className="text-xs text-stone-300 mt-2 leading-relaxed">
+                    Explore Bitcoin node architecture and peer-to-peer networking, transaction serialization, the Unspent Transaction Output (UTXO) accounting model, transaction inputs and outputs, Bitcoin Script execution, mempool policies, Merkle trees in block headers, coinbase transactions, and dynamic difficulty adjustment algorithms.
+                  </p>
+                  <button
+                    onClick={() => navigate("/learning/blockchain/bitcoin-utxo")}
+                    className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f97316] text-white text-xs font-bold hover:bg-[#ea580c] transition cursor-pointer"
+                  >
+                    <span>Proceed to Module 4: Bitcoin Architecture</span>
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
               </div>
             </section>
@@ -2081,9 +2850,6 @@ if __name__ == "__main__":
           </div>
         )}
       </div>
-
-      {/* Global Module Navigation Footer */}
-      <ModuleNav track="blockchain" currentModuleId="consensus" />
     </div>
   );
 }
