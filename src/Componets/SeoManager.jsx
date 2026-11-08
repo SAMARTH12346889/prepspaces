@@ -141,6 +141,18 @@ const routeMeta = {
     keywords: "Ethereum Virtual Machine, EVM internals, EVM opcodes, EVM bytecode, Solidity compilation pipeline, ABI calldata encoding, storage packing, memory expansion gas, CREATE2 address derivation, Foundry Forge Anvil, opcode execution trace",
     canonical: `${BASE_URL}/learning/blockchain/evm-internals`,
   },
+  "/learning/blockchain/solidity": {
+    title: "Module 7: Solidity Programming Fundamentals | PrepSpaces",
+    description: "Master Solidity smart contract development pinned to Solidity 0.8.38: data types, storage layout, modifiers, custom errors, events, Foundry testing, and full StudentRegistry & Voting projects.",
+    keywords: "Solidity course, Solidity 0.8.38, smart contract development, Foundry testing, Forge, Cast, Anvil, StudentRegistry, Voting contract, reentrancy guard, EVM storage packing, custom errors",
+    canonical: `${BASE_URL}/learning/blockchain/solidity`,
+  },
+  "/learning/blockchain/solidity-fundamentals": {
+    title: "Module 7: Solidity Programming Fundamentals | PrepSpaces",
+    description: "Master Solidity smart contract development pinned to Solidity 0.8.38: data types, storage layout, modifiers, custom errors, events, Foundry testing, and full StudentRegistry & Voting projects.",
+    keywords: "Solidity course, Solidity 0.8.38, smart contract development, Foundry testing, Forge, Cast, Anvil, StudentRegistry, Voting contract, reentrancy guard, EVM storage packing, custom errors",
+    canonical: `${BASE_URL}/learning/blockchain/solidity`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",

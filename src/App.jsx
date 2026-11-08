@@ -165,6 +165,7 @@ const BlockchainConsensus = React.lazy(() => import("./Componets/BlockchainConse
 const BlockchainBitcoin = React.lazy(() => import("./Componets/BlockchainBitcoin"));
 const BlockchainEthereum = React.lazy(() => import("./Componets/BlockchainEthereum"));
 const BlockchainEVM = React.lazy(() => import("./Componets/BlockchainEVM"));
+const BlockchainSolidity = React.lazy(() => import("./Componets/BlockchainSolidity"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1394,7 +1395,13 @@ function App() {
             <Route path="/learning/blockchain/module-6" element={<BlockchainEVM />} />
             <Route path="/learn/blockchain/evm-internals" element={<BlockchainEVM />} />
             <Route path="/learn/blockchain/evm" element={<BlockchainEVM />} />
-            <Route path="/learning/blockchain/solidity" element={<BlockchainEVM />} />
+
+            {/* BLOCKCHAIN TECHNOLOGY - MODULE 7: SOLIDITY PROGRAMMING FUNDAMENTALS */}
+            <Route path="/learning/blockchain/solidity" element={<BlockchainSolidity />} />
+            <Route path="/learning/blockchain/solidity-fundamentals" element={<BlockchainSolidity />} />
+            <Route path="/learning/blockchain/module-7" element={<BlockchainSolidity />} />
+            <Route path="/learn/blockchain/solidity" element={<BlockchainSolidity />} />
+            <Route path="/learn/blockchain/solidity-fundamentals" element={<BlockchainSolidity />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
