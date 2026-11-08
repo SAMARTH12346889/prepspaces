@@ -189,6 +189,12 @@ const routeMeta = {
     keywords: "ERC-20, ERC-721, ERC-1155, token standards, Ethereum tokens, NFTs, OpenZeppelin, token minting, token burning, allowance, transferFrom, tokenomics, token vesting, ERC-2981, ERC-2612",
     canonical: `${BASE_URL}/learning/blockchain/tokens`,
   },
+  "/learning/blockchain/web3-libraries": {
+    title: "Module 13: Web3.js, Ethers.js & Viem - Frontend Blockchain Engineering | PrepSpaces",
+    description: "Master JavaScript and TypeScript Ethereum libraries: JSON-RPC fundamentals, Ethers.js v6 providers and signers, Viem typed clients and actions, ABI encoding, function selectors, EIP-1193 MetaMask wallet integration, gas estimation, and React dApp development.",
+    keywords: "Web3.js, Ethers.js, Viem, JSON-RPC, Ethereum JavaScript, dApp frontend, MetaMask integration, EIP-1193, ABI encoding, function selector, eth_call, gas estimation, React Web3, Wagmi, Sepolia testnet",
+    canonical: `${BASE_URL}/learning/blockchain/web3-libraries`,
+  },
   "/learning/blockchain/erc-token-standards": {
     title: "ERC Token Standards Architecture & Development | PrepSpaces",
     description: "Deep dive into ERC-20, ERC-721, and ERC-1155 token architecture. Learn allowance front-running mitigations, safeTransferFrom receiver callbacks, batch transfers, and vesting mathematics.",

@@ -207,8 +207,9 @@ export const BLOCKCHAIN_MODULES = [
   { id: "testing", name: "10. Smart Contract Testing (Foundry & Hardhat)", route: "/learning/blockchain/testing" },
   { id: "wallets-keys", name: "11. Wallets, Keys & Transaction Signing", route: "/learning/blockchain/wallets-keys" },
   { id: "tokens", name: "12. ERC Token Standards (ERC-20, 721, 1155)", route: "/learning/blockchain/tokens" },
-  { id: "security-auditing", name: "13. Smart Contract Security & Common Vulnerabilities", route: "/learning/blockchain/security-vulnerabilities" },
-  { id: "capstone", name: "14. Final Capstone Project", route: "/learning/blockchain/capstone" },
+  { id: "web3-libraries", name: "13. Web3.js, Ethers.js & Viem", route: "/learning/blockchain/web3-libraries" },
+  { id: "security-auditing", name: "14. Smart Contract Security & Common Vulnerabilities", route: "/learning/blockchain/security-vulnerabilities" },
+  { id: "capstone", name: "15. Final Capstone Project", route: "/learning/blockchain/capstone" },
 ];
 
 export default function ModuleNav({

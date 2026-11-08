@@ -171,6 +171,7 @@ const BlockchainArchitecture = React.lazy(() => import("./Componets/BlockchainAr
 const BlockchainTesting = React.lazy(() => import("./Componets/BlockchainTesting"));
 const BlockchainWallets = React.lazy(() => import("./Componets/BlockchainWallets"));
 const BlockchainTokens = React.lazy(() => import("./Componets/BlockchainTokens"));
+const BlockchainWeb3Libraries = React.lazy(() => import("./Componets/BlockchainWeb3Libraries"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1454,6 +1455,15 @@ function App() {
             <Route path="/learn/blockchain/erc-token-standards" element={<BlockchainTokens />} />
             <Route path="/learn/blockchain/token-standards" element={<BlockchainTokens />} />
             <Route path="/learn/blockchain/module-12" element={<BlockchainTokens />} />
+
+            {/* Blockchain Module 13: Web3.js, Ethers.js & Viem */}
+            <Route path="/learning/blockchain/web3-libraries" element={<BlockchainWeb3Libraries />} />
+            <Route path="/learning/blockchain/ethers-viem" element={<BlockchainWeb3Libraries />} />
+            <Route path="/learning/blockchain/web3js-ethers-viem" element={<BlockchainWeb3Libraries />} />
+            <Route path="/learning/blockchain/module-13" element={<BlockchainWeb3Libraries />} />
+            <Route path="/learn/blockchain/web3-libraries" element={<BlockchainWeb3Libraries />} />
+            <Route path="/learn/blockchain/ethers-viem" element={<BlockchainWeb3Libraries />} />
+            <Route path="/learn/blockchain/module-13" element={<BlockchainWeb3Libraries />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

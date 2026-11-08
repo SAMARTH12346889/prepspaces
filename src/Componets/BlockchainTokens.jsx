@@ -2984,10 +2984,10 @@ npx hardhat verify --network sepolia <DEPLOYED_TOKEN_ADDRESS>`}
           </button>
 
           <button
-            onClick={() => navigate("/learning/blockchain/security-vulnerabilities")}
+            onClick={() => navigate("/learning/blockchain/web3-libraries")}
             className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#f97316] text-white text-xs font-bold hover:bg-[#ea580c] transition cursor-pointer shadow-md"
           >
-            <span>Next: 13. Smart Contract Security &amp; Common Vulnerabilities</span>
+            <span>Next: 13. Web3.js, Ethers.js &amp; Viem</span>
             <ArrowRight size={14} />
           </button>
         </div>
