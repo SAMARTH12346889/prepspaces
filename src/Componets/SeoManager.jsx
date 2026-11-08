@@ -117,6 +117,18 @@ const routeMeta = {
     keywords: "Bitcoin architecture, Bitcoin UTXO model, Bitcoin Script opcodes, P2PKH, P2SH, P2WPKH, Taproot, PSBT, Proof of Work mining, difficulty adjustment, Bitcoin halving, mempool sat/vB fee rate, SegWit block weight, Lightning Network HTLC, Bitcoin Core Regtest",
     canonical: `${BASE_URL}/learning/blockchain/bitcoin-utxo`,
   },
+  "/learning/blockchain/ethereum-evm": {
+    title: "Module 5: Ethereum Architecture, EVM & Ecosystem | PrepSpaces",
+    description: "Master Ethereum architecture: execution & consensus layers, Geth/Lighthouse clients, account-based state model, Merkle Patricia Tries, EVM bytecode, EIP-1559 gas economics, Proof of Stake, staking lifecycle, and Sepolia JSON-RPC development.",
+    keywords: "Ethereum architecture, Ethereum Virtual Machine, EVM bytecode, Geth, Lighthouse, Merkle Patricia Trie, stateRoot, EIP-1559 gas fee, Proof of Stake, Casper FFG finality, Sepolia testnet, JSON-RPC, eth_getBalance, smart contracts",
+    canonical: `${BASE_URL}/learning/blockchain/ethereum-evm`,
+  },
+  "/learning/blockchain/ethereum": {
+    title: "Module 5: Ethereum Architecture, EVM & Ecosystem | PrepSpaces",
+    description: "Master Ethereum architecture: execution & consensus layers, Geth/Lighthouse clients, account-based state model, Merkle Patricia Tries, EVM bytecode, EIP-1559 gas economics, Proof of Stake, staking lifecycle, and Sepolia JSON-RPC development.",
+    keywords: "Ethereum architecture, Ethereum Virtual Machine, EVM bytecode, Geth, Lighthouse, Merkle Patricia Trie, stateRoot, EIP-1559 gas fee, Proof of Stake, Casper FFG finality, Sepolia testnet, JSON-RPC, eth_getBalance, smart contracts",
+    canonical: `${BASE_URL}/learning/blockchain/ethereum-evm`,
+  },
   "/learning/ai/math": {
     title: "Module 2: Mathematics for AI & Machine Learning | PrepSpaces",
     description: "Master linear algebra, vector calculus, probability distributions, statistics, and loss optimization for artificial intelligence and machine learning.",

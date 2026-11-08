@@ -163,6 +163,7 @@ const BlockchainIntro = React.lazy(() => import("./Componets/BlockchainIntro"));
 const BlockchainCryptography = React.lazy(() => import("./Componets/BlockchainCryptography"));
 const BlockchainConsensus = React.lazy(() => import("./Componets/BlockchainConsensus"));
 const BlockchainBitcoin = React.lazy(() => import("./Componets/BlockchainBitcoin"));
+const BlockchainEthereum = React.lazy(() => import("./Componets/BlockchainEthereum"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1380,6 +1381,12 @@ function App() {
             <Route path="/learning/blockchain/module-4" element={<BlockchainBitcoin />} />
             <Route path="/learn/blockchain/bitcoin-utxo" element={<BlockchainBitcoin />} />
             <Route path="/learn/blockchain/bitcoin" element={<BlockchainBitcoin />} />
+            <Route path="/learning/blockchain/ethereum-evm" element={<BlockchainEthereum />} />
+            <Route path="/learning/blockchain/ethereum" element={<BlockchainEthereum />} />
+            <Route path="/learning/blockchain/evm" element={<BlockchainEthereum />} />
+            <Route path="/learning/blockchain/module-5" element={<BlockchainEthereum />} />
+            <Route path="/learn/blockchain/ethereum-evm" element={<BlockchainEthereum />} />
+            <Route path="/learn/blockchain/ethereum" element={<BlockchainEthereum />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
