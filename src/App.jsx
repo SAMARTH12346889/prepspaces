@@ -175,6 +175,7 @@ const BlockchainWeb3Libraries = React.lazy(() => import("./Componets/BlockchainW
 const BlockchainDAppDevelopment = React.lazy(() => import("./Componets/BlockchainDAppDevelopment"));
 const BlockchainStorageIPFS = React.lazy(() => import("./Componets/BlockchainStorageIPFS"));
 const BlockchainDeFiProtocols = React.lazy(() => import("./Componets/BlockchainDeFiProtocols"));
+const BlockchainDEXLending = React.lazy(() => import("./Componets/BlockchainDEXLending"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1494,6 +1495,15 @@ function App() {
             <Route path="/learn/blockchain/defi-protocols" element={<BlockchainDeFiProtocols />} />
             <Route path="/learn/blockchain/defi" element={<BlockchainDeFiProtocols />} />
             <Route path="/learn/blockchain/module-16" element={<BlockchainDeFiProtocols />} />
+
+            {/* Blockchain Module 17: Decentralized Exchanges & Lending Protocols */}
+            <Route path="/learning/blockchain/dex-lending" element={<BlockchainDEXLending />} />
+            <Route path="/learning/blockchain/dexes-and-lending" element={<BlockchainDEXLending />} />
+            <Route path="/learning/blockchain/dex-protocols" element={<BlockchainDEXLending />} />
+            <Route path="/learning/blockchain/module-17" element={<BlockchainDEXLending />} />
+            <Route path="/learn/blockchain/dex-lending" element={<BlockchainDEXLending />} />
+            <Route path="/learn/blockchain/dexes-and-lending" element={<BlockchainDEXLending />} />
+            <Route path="/learn/blockchain/module-17" element={<BlockchainDEXLending />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

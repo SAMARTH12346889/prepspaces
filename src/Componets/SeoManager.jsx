@@ -213,6 +213,13 @@ const routeMeta = {
     keywords: "DeFi architecture, Automated Market Makers, AMM, constant product, x * y = k, Uniswap, Curve, Aave, Compound, overcollateralization, Health Factor, liquidation bonus, kinked interest rate, yield farming, impermanent loss, flash loans, composability, money legos, DeFi security, reentrancy",
     canonical: `${BASE_URL}/learning/blockchain/defi-protocols`,
   },
+
+  "/learning/blockchain/dex-lending": {
+    title: "Module 17: Decentralized Exchanges & Lending Protocols | PrepSpaces",
+    description: "Master Decentralized Exchanges (DEXs) and Lending Protocols: Uniswap V2/V3 concentrated liquidity, tick math, constant product formulas, multi-hop routing, Compound cTokens, Aave aTokens, collateral factors, Health Factors, liquidation engines, Chainlink oracles, and flash loan arbitrage.",
+    keywords: "Decentralized Exchanges, DEX architecture, AMM, Uniswap V2, Uniswap V3, concentrated liquidity, ticks, virtual reserves, slippage protection, multi-hop swap routing, lending protocols, Compound, cTokens, Aave, aTokens, variable debt, Collateral Factor, LTV, Health Factor, liquidation threshold, liquidation bonus, Chainlink oracle, flash loan arbitrage",
+    canonical: `${BASE_URL}/learning/blockchain/dex-lending`,
+  },
   "/learning/blockchain/erc-token-standards": {
     title: "ERC Token Standards Architecture & Development | PrepSpaces",
     description: "Deep dive into ERC-20, ERC-721, and ERC-1155 token architecture. Learn allowance front-running mitigations, safeTransferFrom receiver callbacks, batch transfers, and vesting mathematics.",

@@ -3346,14 +3346,14 @@ contract LiquidityPool is ReentrancyGuard {
           </Link>
 
           <Link
-            to="/learning/blockchain/security-vulnerabilities"
+            to="/learning/blockchain/dex-lending"
             className="p-4 rounded-xl border border-[#e7e3da] bg-white hover:border-amber-500 hover:bg-amber-50/20 transition group flex flex-col items-end text-right"
           >
             <span className="text-[11px] uppercase font-bold text-neutral-400 group-hover:text-amber-700">
               Next Module →
             </span>
             <span className="text-sm font-bold text-neutral-900 mt-1">
-              Module 17: Smart Contract Security & Auditing
+              Module 17: Decentralized Exchanges & Lending Protocols
             </span>
           </Link>
         </div>
