@@ -168,6 +168,7 @@ const BlockchainEVM = React.lazy(() => import("./Componets/BlockchainEVM"));
 const BlockchainSolidity = React.lazy(() => import("./Componets/BlockchainSolidity"));
 const BlockchainAdvancedSolidity = React.lazy(() => import("./Componets/BlockchainAdvancedSolidity"));
 const BlockchainArchitecture = React.lazy(() => import("./Componets/BlockchainArchitecture"));
+const BlockchainTesting = React.lazy(() => import("./Componets/BlockchainTesting"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1420,6 +1421,16 @@ function App() {
             <Route path="/learning/blockchain/enterprise-hyperledger" element={<BlockchainArchitecture />} />
             <Route path="/learn/blockchain/architecture" element={<BlockchainArchitecture />} />
             <Route path="/learn/blockchain/contract-architecture" element={<BlockchainArchitecture />} />
+
+            {/* Blockchain Module 10: Smart Contract Testing with Foundry & Hardhat */}
+            <Route path="/learning/blockchain/testing" element={<BlockchainTesting />} />
+            <Route path="/learning/blockchain/smart-contract-testing" element={<BlockchainTesting />} />
+            <Route path="/learning/blockchain/foundry-hardhat" element={<BlockchainTesting />} />
+            <Route path="/learning/blockchain/module-10" element={<BlockchainTesting />} />
+            <Route path="/learning/blockchain/scalability-l2" element={<BlockchainTesting />} />
+            <Route path="/learn/blockchain/testing" element={<BlockchainTesting />} />
+            <Route path="/learn/blockchain/smart-contract-testing" element={<BlockchainTesting />} />
+            <Route path="/learn/blockchain/foundry-hardhat" element={<BlockchainTesting />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

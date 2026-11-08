@@ -826,6 +826,12 @@
   </url>
   <url>
     <loc>https://prepspaces.com/learning/blockchain/architecture</loc>
+  </url>
+  <url>
+    <loc>https://prepspaces.com/learning/blockchain/testing</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>

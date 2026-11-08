@@ -171,6 +171,18 @@ const routeMeta = {
     keywords: "Smart contract architecture, DApp lifecycle, Factory pattern, Escrow contract, Pull payment pattern, Checks-Effects-Interactions, State machine, The Graph indexer, Contract verification, OpenZeppelin",
     canonical: `${BASE_URL}/learning/blockchain/architecture`,
   },
+  "/learning/blockchain/testing": {
+    title: "Module 10: Smart Contract Testing with Foundry & Hardhat | PrepSpaces",
+    description: "Master enterprise smart contract testing and quality assurance: Foundry (Forge, Cast, Anvil, Chisel), Hardhat, stateless property-based fuzzing, stateful invariant testing, mainnet fork testing, time manipulation cheatcodes, gas benchmarking, custom error revert testing, and automated GitHub Actions CI/CD pipelines.",
+    keywords: "Smart contract testing, Foundry, Forge, Hardhat, Fuzz testing, Invariant testing, Mainnet fork testing, Anvil, Cast, Chisel, Solidity unit tests, gas benchmarking, forge snapshot, smart contract CI/CD, Web3 QA",
+    canonical: `${BASE_URL}/learning/blockchain/testing`,
+  },
+  "/learning/blockchain/smart-contract-testing": {
+    title: "Smart Contract Quality Assurance & Testing Frameworks | PrepSpaces",
+    description: "Comprehensive guide to testing Solidity smart contracts using Foundry Forge and Hardhat. Learn unit testing, fuzzing, invariants, mocks, fixtures, and execution debugging.",
+    keywords: "Solidity testing, Foundry Forge, Hardhat, property-based testing, smart contract security, invariant handlers",
+    canonical: `${BASE_URL}/learning/blockchain/testing`,
+  },
   "/learning/blockchain/contract-architecture": {
     title: "Module 9: Smart Contract Development & Architecture | PrepSpaces",
     description: "Master end-to-end decentralized application engineering: requirements analysis, threat modeling, on-chain vs off-chain boundaries, factory pattern, registry pattern, pull payments, escrow state machines, multi-contract systems, OpenZeppelin integration, UUPS proxies, and The Graph event indexing.",

@@ -204,7 +204,7 @@ export const BLOCKCHAIN_MODULES = [
   { id: "solidity", name: "7. Solidity Smart Contract Development", route: "/learning/blockchain/solidity" },
   { id: "advanced-solidity", name: "8. Advanced Solidity & Design", route: "/learning/blockchain/advanced-solidity" },
   { id: "contract-architecture", name: "9. DApp Architecture & Escrow", route: "/learning/blockchain/architecture" },
-  { id: "scalability-l2", name: "10. Layer 2 Rollups & Scalability", route: "/learning/blockchain/scalability-l2" },
+  { id: "testing", name: "10. Smart Contract Testing (Foundry & Hardhat)", route: "/learning/blockchain/testing" },
   { id: "defi-protocols", name: "11. DeFi Protocols & AMMs", route: "/learning/blockchain/defi-protocols" },
   { id: "security-auditing", name: "12. Smart Contract Auditing", route: "/learning/blockchain/security-auditing" },
   { id: "capstone", name: "13. Final Capstone Project", route: "/learning/blockchain/capstone" },
