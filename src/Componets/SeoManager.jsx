@@ -220,6 +220,13 @@ const routeMeta = {
     keywords: "Decentralized Exchanges, DEX architecture, AMM, Uniswap V2, Uniswap V3, concentrated liquidity, ticks, virtual reserves, slippage protection, multi-hop swap routing, lending protocols, Compound, cTokens, Aave, aTokens, variable debt, Collateral Factor, LTV, Health Factor, liquidation threshold, liquidation bonus, Chainlink oracle, flash loan arbitrage",
     canonical: `${BASE_URL}/learning/blockchain/dex-lending`,
   },
+
+  "/learning/blockchain/security-vulnerabilities": {
+    title: "Module 18: Blockchain Security & Smart Contract Auditing | PrepSpaces",
+    description: "Master Solidity smart contract security and auditing: threat modeling, reentrancy attacks, Checks-Effects-Interactions (CEI), flash loan oracle manipulation, delegatecall storage collisions, Slither static analysis, Foundry fuzzing, formal verification, and professional audit reports.",
+    keywords: "blockchain security, smart contract auditing, Solidity security, reentrancy, checks-effects-interactions, CEI, flash loan attack, oracle manipulation, delegatecall, storage collision, EIP-1967, Slither static analysis, Foundry fuzz testing, property-based testing, formal verification, Hoare logic, responsible disclosure, audit report, SWC registry",
+    canonical: `${BASE_URL}/learning/blockchain/security-vulnerabilities`,
+  },
   "/learning/blockchain/erc-token-standards": {
     title: "ERC Token Standards Architecture & Development | PrepSpaces",
     description: "Deep dive into ERC-20, ERC-721, and ERC-1155 token architecture. Learn allowance front-running mitigations, safeTransferFrom receiver callbacks, batch transfers, and vesting mathematics.",

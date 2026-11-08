@@ -176,6 +176,7 @@ const BlockchainDAppDevelopment = React.lazy(() => import("./Componets/Blockchai
 const BlockchainStorageIPFS = React.lazy(() => import("./Componets/BlockchainStorageIPFS"));
 const BlockchainDeFiProtocols = React.lazy(() => import("./Componets/BlockchainDeFiProtocols"));
 const BlockchainDEXLending = React.lazy(() => import("./Componets/BlockchainDEXLending"));
+const BlockchainSecurityAuditing = React.lazy(() => import("./Componets/BlockchainSecurityAuditing"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1504,6 +1505,15 @@ function App() {
             <Route path="/learn/blockchain/dex-lending" element={<BlockchainDEXLending />} />
             <Route path="/learn/blockchain/dexes-and-lending" element={<BlockchainDEXLending />} />
             <Route path="/learn/blockchain/module-17" element={<BlockchainDEXLending />} />
+
+            {/* Blockchain Module 18: Blockchain Security & Smart Contract Auditing */}
+            <Route path="/learning/blockchain/security-vulnerabilities" element={<BlockchainSecurityAuditing />} />
+            <Route path="/learning/blockchain/security-auditing" element={<BlockchainSecurityAuditing />} />
+            <Route path="/learning/blockchain/smart-contract-security" element={<BlockchainSecurityAuditing />} />
+            <Route path="/learning/blockchain/module-18" element={<BlockchainSecurityAuditing />} />
+            <Route path="/learn/blockchain/security-vulnerabilities" element={<BlockchainSecurityAuditing />} />
+            <Route path="/learn/blockchain/security-auditing" element={<BlockchainSecurityAuditing />} />
+            <Route path="/learn/blockchain/module-18" element={<BlockchainSecurityAuditing />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
