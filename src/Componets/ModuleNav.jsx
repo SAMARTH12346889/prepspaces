@@ -206,8 +206,9 @@ export const BLOCKCHAIN_MODULES = [
   { id: "contract-architecture", name: "9. DApp Architecture & Escrow", route: "/learning/blockchain/architecture" },
   { id: "testing", name: "10. Smart Contract Testing (Foundry & Hardhat)", route: "/learning/blockchain/testing" },
   { id: "wallets-keys", name: "11. Wallets, Keys & Transaction Signing", route: "/learning/blockchain/wallets-keys" },
-  { id: "security-auditing", name: "12. Smart Contract Auditing", route: "/learning/blockchain/security-auditing" },
-  { id: "capstone", name: "13. Final Capstone Project", route: "/learning/blockchain/capstone" },
+  { id: "tokens", name: "12. ERC Token Standards (ERC-20, 721, 1155)", route: "/learning/blockchain/tokens" },
+  { id: "security-auditing", name: "13. Smart Contract Security & Common Vulnerabilities", route: "/learning/blockchain/security-vulnerabilities" },
+  { id: "capstone", name: "14. Final Capstone Project", route: "/learning/blockchain/capstone" },
 ];
 
 export default function ModuleNav({

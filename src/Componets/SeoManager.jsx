@@ -183,6 +183,18 @@ const routeMeta = {
     keywords: "Blockchain wallets, private keys, secp256k1, BIP-39 mnemonic, BIP-32 HD wallet, BIP-44 derivation path, EIP-1193, MetaMask, WalletConnect, ECDSA signing, transaction nonces, hardware wallets, Web3 authentication",
     canonical: `${BASE_URL}/learning/blockchain/wallets-keys`,
   },
+  "/learning/blockchain/tokens": {
+    title: "Module 12: ERC Token Standards (ERC-20, ERC-721, ERC-1155) | PrepSpaces",
+    description: "Master Ethereum token engineering: ERC-20 fungible tokens, ERC-721 NFTs, ERC-1155 multi-tokens, allowances, minting, burning, tokenURI, IPFS metadata, OpenZeppelin contracts, tokenomics, and vesting schedules.",
+    keywords: "ERC-20, ERC-721, ERC-1155, token standards, Ethereum tokens, NFTs, OpenZeppelin, token minting, token burning, allowance, transferFrom, tokenomics, token vesting, ERC-2981, ERC-2612",
+    canonical: `${BASE_URL}/learning/blockchain/tokens`,
+  },
+  "/learning/blockchain/erc-token-standards": {
+    title: "ERC Token Standards Architecture & Development | PrepSpaces",
+    description: "Deep dive into ERC-20, ERC-721, and ERC-1155 token architecture. Learn allowance front-running mitigations, safeTransferFrom receiver callbacks, batch transfers, and vesting mathematics.",
+    keywords: "ERC-20 architecture, ERC-721 metadata, ERC-1155 batch transfer, safeTransferFrom, tokenomics, vesting schedules, OpenZeppelin contracts",
+    canonical: `${BASE_URL}/learning/blockchain/tokens`,
+  },
   "/learning/blockchain/transaction-signing": {
     title: "Ethereum Transaction Signing & ECDSA Cryptography | PrepSpaces",
     description: "Deep dive into Ethereum transaction signing: EIP-1559 envelopes, ECDSA (r, s, v/yParity), personal_sign, Sign-In with Ethereum (SIWE), and nonce management.",

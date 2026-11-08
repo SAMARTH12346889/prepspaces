@@ -170,6 +170,7 @@ const BlockchainAdvancedSolidity = React.lazy(() => import("./Componets/Blockcha
 const BlockchainArchitecture = React.lazy(() => import("./Componets/BlockchainArchitecture"));
 const BlockchainTesting = React.lazy(() => import("./Componets/BlockchainTesting"));
 const BlockchainWallets = React.lazy(() => import("./Componets/BlockchainWallets"));
+const BlockchainTokens = React.lazy(() => import("./Componets/BlockchainTokens"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1442,6 +1443,17 @@ function App() {
             <Route path="/learn/blockchain/wallets-keys" element={<BlockchainWallets />} />
             <Route path="/learn/blockchain/wallets" element={<BlockchainWallets />} />
             <Route path="/learn/blockchain/transaction-signing" element={<BlockchainWallets />} />
+
+            {/* Blockchain Module 12: ERC Token Standards */}
+            <Route path="/learning/blockchain/tokens" element={<BlockchainTokens />} />
+            <Route path="/learning/blockchain/erc-token-standards" element={<BlockchainTokens />} />
+            <Route path="/learning/blockchain/token-standards" element={<BlockchainTokens />} />
+            <Route path="/learning/blockchain/erc20-erc721" element={<BlockchainTokens />} />
+            <Route path="/learning/blockchain/module-12" element={<BlockchainTokens />} />
+            <Route path="/learn/blockchain/tokens" element={<BlockchainTokens />} />
+            <Route path="/learn/blockchain/erc-token-standards" element={<BlockchainTokens />} />
+            <Route path="/learn/blockchain/token-standards" element={<BlockchainTokens />} />
+            <Route path="/learn/blockchain/module-12" element={<BlockchainTokens />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />
