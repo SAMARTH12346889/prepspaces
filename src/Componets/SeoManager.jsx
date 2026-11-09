@@ -153,6 +153,13 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+  "/learning/data-engineering/kafka-event-driven": {
+    canonical: `${BASE_URL}/learning/data-engineering/kafka-event-driven`,
+    title: "Module 16: Event-Driven Architecture and Apache Kafka | Data Engineering Master Course",
+    description: "Master real-time event streaming and event-driven architecture with Apache Kafka: brokers, clusters, KRaft mode, topics, partitions, producer acknowledgements (acks=0, 1, all), consumer groups, offset commits, per-partition ordering, replication & ISRs, Schema Registry & Avro compatibility, Kafka Connect CDC (Debezium), Dead-Letter Queues (DLQ), message replay, Kafka transactions, and the Transactional Outbox pattern.",
+    keywords: "Apache Kafka, event-driven architecture, EDA, Kafka broker, KRaft, Kafka cluster, Kafka topic, partitions, offset management, consumer groups, rebalancing, message ordering, partition keys, Kafka replication, in-sync replicas, ISR, min.insync.replicas, retention policies, log compaction, producer acknowledgements, acks=all, delivery semantics, at-least-once, exactly-once, Schema Registry, Apache Avro, JSON serialization, Kafka Connect, Debezium, Change Data Capture, CDC, Dead-Letter Queue, DLQ, message replay, Kafka security, SASL, TLS, ACLs, consumer lag, Transactional Outbox pattern, Saga pattern, data engineering course",
+    badge: "Module 16 · Data Engineering"
+  },
   "/learning/data-engineering/distributed-systems": {
     canonical: `${BASE_URL}/learning/data-engineering/distributed-systems`,
     title: "Module 15: Distributed Systems for Data Engineers | Data Engineering Master Course",

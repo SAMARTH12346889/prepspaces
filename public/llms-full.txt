@@ -1122,6 +1122,46 @@
   - 24. Final Revision — What You Should Understand (Complete 23-topic mastery synthesis table)
   - 25. Recommended Learning Resources (Official documentation for dbt, Great Expectations, Deequ, OpenMetadata, DataHub, Airflow, and PostgreSQL)
 
+## Module 16: Event-Driven Architecture and Apache Kafka
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/kafka-event-driven
+- **Topics Covered:**
+  - 1. Introduction to Event-Driven Architecture (EDA principles, events vs commands, loose coupling, real-world e-commerce use cases, traditional vs event-driven)
+  - 2. Event-Based Communication (Producer-consumer models, event anatomy, notification vs event-carried state transfer, choreography vs orchestration, microservices boundaries)
+  - 3. Messaging Systems (Why messaging is needed, decoupling, buffer capabilities, Kafka vs RabbitMQ vs AWS SQS vs Google Cloud Pub/Sub)
+  - 4. Message Brokers and Queues (Brokers, queues, point-to-point vs publish-subscribe, work queues vs Kafka durable commit logs, selection criteria)
+  - 5. Introduction to Apache Kafka (History at LinkedIn, persistent append-only logs, high throughput, real-time data pipelines position)
+  - 6. Kafka Brokers and Clusters (Broker responsibilities, cluster topology, bootstrap servers, brokers vs KRaft controllers, KRaft quorum vs ZooKeeper deprecation in Kafka 4.x)
+  - 7. Topics and Partitions (Topic definitions, partitions as ordered append-only logs, parallelism math, offsets, sizing guidelines, partition expansion hazards)
+  - 8. Producers and Consumers (Record anatomy: key, value, headers, partition, timestamp, Python producer confluent-kafka, delivery callbacks, Python consumer, manual commits)
+  - 9. Consumer Groups (Parallel consumption, partition assignment rules: Max Active <= Partitions, multiple consumer groups, rebalance protocol, eager vs cooperative rebalance)
+  - 10. Offset Management (Consumer position vs committed offset, auto-commit hazards, manual synchronous/asynchronous commits, auto.offset.reset earliest/latest/none, CLI offset inspection & resets)
+  - 11. Message Ordering and Partition Keys (Per-partition FIFO guarantees, key-based Murmur2 hashing, banking sequential transactions, hot partition skew mitigation)
+  - 12. Replication and Fault Tolerance in Kafka (Replication factor N, leader vs follower replicas, In-Sync Replicas ISR, min.insync.replicas, leader election failover)
+  - 13. Kafka Retention Policies (Time-based retention.ms, size-based retention.bytes, delete cleanup vs Log Compaction, tombstone null-value deletion records)
+  - 14. Producer Acknowledgements (acks=0, acks=1, acks=all, interaction with min.insync.replicas, latency vs durability trade-offs, production tuning)
+  - 15. Delivery Semantics (At-most-once, at-least-once, exactly-once processing, idempotent producer PID and sequence numbers, Kafka transactions vs external databases)
+  - 16. Schema Registry (Why schema governance matters, architecture, subjects -key/-value, compatibility modes: BACKWARD, FORWARD, FULL, NONE, transitive compatibility)
+  - 17. Avro and JSON Serialization (JSON trade-offs, Apache Avro binary serialization, nullable union schemas with defaults, Schema Registry wire format 5-byte framing)
+  - 18. Kafka Connect (Source vs Sink connectors, workers, tasks, converters, Single Message Transforms SMT, standalone vs distributed mode, REST API configuration)
+  - 19. Kafka Connect CDC — Change Data Capture (Query vs Trigger vs Transaction-log CDC, Debezium PostgreSQL/MySQL WAL capture, operation codes c/u/d/r, snapshot coordination)
+  - 20. Dead-Letter Queues (Poison pill message isolation, retriable vs non-retriable exceptions, retry topic backoff delays, DLQ contextual metadata, alerting metrics)
+  - 21. Message Replay (Reprocessing workflows, replay via new consumer group vs offset reset, time-based replay, idempotent consumer processing prerequisites)
+  - 22. Kafka Security (Authentication: SASL/PLAIN/SCRAM/TLS/OAuth, encryption in transit TLS, authorization ACLs, principal permissions, audit logging)
+  - 23. Real-Time Event Ingestion Architecture (Batch vs Real-time, end-to-end pipeline architecture, e-commerce payment flow, fraud detection, metrics: consumer lag, throughput)
+  - 24. Practical Kafka Laboratory (Docker apache/kafka:4.4.0 KRaft setup, CLI topic management, Python producer/consumer scripts, consumer lag inspection, offset resets, compacted topics)
+  - 25. Kafka Message Processing Internals (Append-only logs, log segment rolling, zero-copy kernel transfer via sendfile, sparse index files .index and .timeindex, producer batching batch.size and linger.ms, compression zstd/lz4/snappy)
+  - 26. Kafka Transactions and Exactly-Once Processing (Transactional producers, transactional.id, 2-phase commit transaction coordinator, read_committed isolation level, atomicity across outputs and consumed offsets)
+  - 27. Kafka Monitoring and Observability (Broker, producer, consumer metrics, consumer lag formula Lag = LogEndOffset - CommittedOffset, Prometheus, Grafana, JMX metrics)
+  - 28. Designing a Production Event-Driven Data Platform (E-commerce architecture case study, 10M daily events, end-to-end component walkthrough)
+  - 29. Important Kafka Design Decisions (13 core architectural decision matrix: topics, partitions, keys, replication, retention, serialization, CDC, DLQ, security)
+  - 30. Important Architectural Patterns Around Kafka (Event Sourcing vs EDA, dual-write problem, Transactional Outbox pattern, Saga pattern orchestrator vs choreography)
+  - 31. End-to-End Capstone Project (Real-Time E-commerce Data Streaming Platform: tech stack, topics, functional requirements, evaluation rubric)
+  - 32. Common Mistakes in Kafka and Event-Driven Systems (20 critical production pitfalls: treating Kafka as queue, assuming global ordering, ignoring consumer lag, neglecting security)
+  - 33. Important Interview Questions and Answers (40 comprehensive technical interview questions and scenario-based system design answers)
+  - 34. Recommended Learning Resources (Official Kafka 4.4 documentation, Kafka Connect, Confluent Schema Registry, Debezium, GitHub repositories)
+  - 35. Final Revision — Module 16 (30-topic revision matrix covering all core event streaming concepts)
+  - 36. How Module 16 Connects to Your Data Engineering Roadmap (Progression to Advanced Stream Processing with Apache Flink and Spark Streaming)
+
 ## Module 15: Distributed Systems for Data Engineers
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/distributed-systems
 - **Topics Covered:**

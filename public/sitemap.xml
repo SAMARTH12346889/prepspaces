@@ -856,6 +856,9 @@
   </url>
   <url>
     <loc>https://prepspaces.com/learning/data-engineering/distributed-systems</loc>
+  </url>
+  <url>
+    <loc>https://prepspaces.com/learning/data-engineering/kafka-event-driven</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>

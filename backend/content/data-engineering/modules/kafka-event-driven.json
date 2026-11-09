@@ -1,0 +1,189 @@
+{
+  "id": "kafka-event-driven",
+  "title": "Event-Driven Architecture and Apache Kafka",
+  "courseId": "data-engineering",
+  "index": 16,
+  "description": "Master real-time event streaming and event-driven architecture with Apache Kafka: brokers, clusters, KRaft mode, topics, partitions, producer acknowledgements (acks=0, 1, all), consumer groups, offset commits, per-partition ordering, replication & ISRs, Schema Registry & Avro compatibility, Kafka Connect CDC (Debezium), Dead-Letter Queues (DLQ), message replay, Kafka transactions, and the Transactional Outbox pattern.",
+  "quiz": [
+    {
+      "id": 1,
+      "q": "What is the fundamental architectural difference between an event and a command in event-driven systems?",
+      "options": [
+        "An event records an immutable fact that has already occurred (e.g., OrderCreated), whereas a command requests an action to be performed (e.g., CreateOrder)",
+        "Events can only contain JSON, while commands can only contain binary Avro payloads",
+        "Commands are stored in Kafka topics, whereas events can only be sent over HTTP REST APIs",
+        "Events require synchronous acknowledgements from all consumers before returning to the sender"
+      ],
+      "correct": 0,
+      "expl": "Events represent immutable facts about occurrences in the past (e.g., OrderCreated, PaymentCompleted). Commands request an intended future operation (e.g., CreateOrder, ChargePayment) and may be rejected by the receiver."
+    },
+    {
+      "id": 2,
+      "q": "In Apache Kafka, what is the precise relationship between a Topic and a Partition?",
+      "options": [
+        "A topic is a logical event category divided into one or more ordered, immutable, append-only commit logs called partitions",
+        "A partition is a logical category that contains multiple physical topics on each broker",
+        "Topics provide ordering across all consumers, while partitions are temporary memory caches",
+        "Partitions only exist when replication factor is set to 1"
+      ],
+      "correct": 0,
+      "expl": "A Kafka topic is a logical stream of events. Under the hood, each topic is divided into one or more partitions—ordered, append-only logs that allow horizontal scaling, storage distribution, and parallel consumption across cluster brokers."
+    },
+    {
+      "id": 3,
+      "q": "Starting in Apache Kafka 4.0, what major architectural change was finalized regarding cluster metadata management?",
+      "options": [
+        "ZooKeeper mode was completely removed in favor of KRaft (Kafka Raft Metadata mode) using a built-in controller quorum",
+        "Kafka brokers now require etcd for cluster metadata coordination",
+        "All topic partitions are required to reside on a single controller broker",
+        "Replication factors can no longer exceed 2 without external Consul coordination"
+      ],
+      "correct": 0,
+      "expl": "Kafka 4.x operates exclusively in KRaft mode, entirely deprecating and removing external Apache ZooKeeper dependencies. Metadata consensus and cluster coordination are managed directly via internal KRaft controller quorums."
+    },
+    {
+      "id": 4,
+      "q": "How does Kafka guarantee message ordering across distributed consumers?",
+      "options": [
+        "Kafka guarantees strict message ordering only within a single partition, not globally across the entire topic",
+        "Kafka provides a global clock that guarantees total FIFO ordering across all partitions in a topic",
+        "Message ordering is maintained by the consumer group coordinator re-sorting timestamps in memory",
+        "Kafka only guarantees ordering if all producers send records without partition keys"
+      ],
+      "correct": 0,
+      "expl": "Kafka guarantees strict FIFO ordering only within an individual partition. To preserve ordering for specific entities (e.g., all actions for a specific customer or order), producers must supply a consistent partition key so records hash to the same partition."
+    },
+    {
+      "id": 5,
+      "q": "Suppose a Kafka topic has 6 partitions and a consumer group has 8 active consumer instances subscribed to it. What happens to the extra 2 consumers?",
+      "options": [
+        "The 2 extra consumer instances remain idle with zero assigned partitions as standby workers",
+        "The extra consumers share partitions concurrently with active consumers, interleaving record reads",
+        "The Kafka broker rejects the extra consumers and throws a TooManyConsumersException",
+        "The topic automatically expands to 8 partitions to match consumer scale"
+      ],
+      "correct": 0,
+      "expl": "Within a single consumer group, each partition can be assigned to at most one active consumer at any given time. If consumers (8) exceed partitions (6), the extra 2 consumers remain idle until an active consumer crashes or leaves."
+    },
+    {
+      "id": 6,
+      "q": "When writing a production Kafka consumer processing critical financial transactions, how should offset commits be managed?",
+      "options": [
+        "Disable auto-commit (enable.auto.commit=False) and commit offsets synchronously or asynchronously only after the record is durably processed and persisted",
+        "Enable auto-commit every 100ms to minimize consumer memory pressure",
+        "Commit offsets immediately upon receiving the record from poll(), before starting any transformation or database write",
+        "Avoid committing offsets altogether and rely strictly on Kafka log retention deletion"
+      ],
+      "correct": 0,
+      "expl": "Auto-commit can commit offsets before business logic or database writes complete, risking unrecoverable data loss during crashes. Disabling auto-commit and committing only after successful durable processing achieves at-least-once delivery."
+    },
+    {
+      "id": 7,
+      "q": "To prevent data loss when a Kafka broker partition leader experiences a sudden hardware crash, what producer and topic configuration is required?",
+      "options": [
+        "Producer set to acks=all (or -1) combined with broker min.insync.replicas >= 2 and replication factor >= 3",
+        "Producer set to acks=1 with min.insync.replicas=1",
+        "Producer set to acks=0 to maximize throughput and bypass disk sync overhead",
+        "Producer set to retries=0 and linger.ms=0"
+      ],
+      "correct": 0,
+      "expl": "With acks=all, the leader only acknowledges a write once all in-sync replicas (at least min.insync.replicas) have durably recorded it to their logs. If the leader crashes, another synchronized replica in the ISR can become the new leader without losing acknowledged writes."
+    },
+    {
+      "id": 8,
+      "q": "What guarantee does Kafka's Idempotent Producer (enable.idempotence=true) provide to an end-to-end data pipeline?",
+      "options": [
+        "It prevents duplicate records in the Kafka partition log caused by producer network retry resends, but does not make downstream database mutations exactly once",
+        "It guarantees end-to-end exactly-once writes across all external PostgreSQL databases, Snowflake warehouses, and third-party REST APIs",
+        "It ensures that consumers can never receive the same message twice under any crash condition",
+        "It automatically resolves Schema Registry Avro type incompatibilities during message transmission"
+      ],
+      "correct": 0,
+      "expl": "The idempotent producer assigns a Producer ID (PID) and sequence numbers to every batch. If a network timeout occurs and the producer retries, the broker discards duplicate writes to the log. Downstream consumer sinks still require idempotent operations (e.g. UPSERT) to avoid duplicates upon consumer recovery."
+    },
+    {
+      "id": 9,
+      "q": "In Confluent Schema Registry with BACKWARD compatibility mode, which schema evolution action is valid without breaking consumers?",
+      "options": [
+        "Adding a new optional field with a default value null to the record schema",
+        "Deleting a required field that existing consumers actively parse",
+        "Changing an integer field type to a string field without a conversion union",
+        "Renaming an existing field without preserving the previous name as an alias"
+      ],
+      "correct": 0,
+      "expl": "BACKWARD compatibility requires that consumers using the new schema can read data written with older schemas. Adding a new field with a default value allows new consumers to fill the default when reading legacy records without error."
+    },
+    {
+      "id": 10,
+      "q": "What is the primary role of Kafka Connect in modern data engineering architectures?",
+      "options": [
+        "To provide a scalable, fault-tolerant framework for streaming data between Kafka and external databases, key-value stores, and cloud storage systems without custom code",
+        "To compile SQL queries into MapReduce jobs across Hadoop clusters",
+        "To monitor network packet drops between Kafka brokers and DNS servers",
+        "To enforce HTTP basic authentication on producer client socket connections"
+      ],
+      "correct": 0,
+      "expl": "Kafka Connect is a standardized, distributed integration runtime. Reusable Source Connectors pull data from external systems (databases, message queues) into Kafka, while Sink Connectors stream Kafka topics into storage destinations (S3, Snowflake, Elasticsearch)."
+    },
+    {
+      "id": 11,
+      "q": "Why is Log-based Change Data Capture (CDC) with Debezium superior to timestamp-based Query CDC (e.g., SELECT * WHERE updated_at > :t)?",
+      "options": [
+        "Log-based CDC reads the database write-ahead log (WAL), capturing hard deletes, multiple rapid updates, and transactions without polling overhead or table locks",
+        "Timestamp queries require running Kafka brokers inside the PostgreSQL database kernel",
+        "Log-based CDC eliminates the need for primary keys on relational tables",
+        "Timestamp polling is faster because it does not require disk storage access"
+      ],
+      "correct": 0,
+      "expl": "Query CDC misses hard DELETEs (since deleted rows cannot be queried), misses intermediate updates if multiple occur between polling cycles, and imposes repetitive query load. Log-based CDC reads database transaction logs directly, capturing all inserts, updates, deletes, and transaction boundaries."
+    },
+    {
+      "id": 12,
+      "q": "What is the purpose of a Dead-Letter Queue (DLQ) in an event-driven consumer application?",
+      "options": [
+        "To isolate non-retriable poison messages (e.g., malformed payloads) so the consumer can advance offsets without stalling partition processing",
+        "To permanently store all successfully acknowledged events for audit compliance",
+        "To act as an intermediate cache that accelerates consumer poll() latency",
+        "To automatically restart broker pods when heap memory consumption exceeds 90%"
+      ],
+      "correct": 0,
+      "expl": "A 'poison pill' is a malformed or invalid record that causes the consumer deserializer or business logic to throw an unrecoverable exception. Without a DLQ, the consumer crashes or retries indefinitely, halting partition progress. A DLQ routes bad events to a separate topic with diagnostic metadata."
+    },
+    {
+      "id": 13,
+      "q": "How can a data engineering team replay 30 days of historical Kafka events to rebuild a downstream analytical data warehouse mart?",
+      "options": [
+        "Spin up a new consumer group with a unique group.id and auto.offset.reset=earliest, or reset the existing group's offsets to the 30-day timestamp",
+        "Delete the topic and restore it from cold tape backup onto broker disk",
+        "Execute a TRUNCATE command on Kafka topic partitions using kafka-topics.sh",
+        "Producers must re-query the source database and republish all 30 days of events"
+      ],
+      "correct": 0,
+      "expl": "Because Kafka retains immutable records according to topic retention policy (e.g. retention.ms=30 days), consumers can replay history simply by reading with a new group.id starting at offset 0/earliest, or by issuing an offset reset command to a specific offset or datetime."
+    },
+    {
+      "id": 14,
+      "q": "What critical distributed systems problem does the Transactional Outbox Pattern solve when publishing events from a microservice to Kafka?",
+      "options": [
+        "The dual-write problem: ensuring that database updates and event publishing succeed or fail together atomically",
+        "The split-brain problem in ZooKeeper cluster controller elections",
+        "Network latency variations caused by TCP slow start",
+        "Automatic schema conversion between Avro and CSV formats"
+      ],
+      "correct": 0,
+      "expl": "If a service updates a database and then publishes to Kafka across the network, one operation can succeed while the other fails (dual-write problem). The Transactional Outbox pattern writes the event into an outbox table within the same local database transaction; a CDC process (Debezium) then reliably tails the table and publishes to Kafka."
+    },
+    {
+      "id": 15,
+      "q": "What is the formula for calculating Consumer Lag, and why is an increasing consumer lag a critical alert indicator?",
+      "options": [
+        "Lag = LogEndOffset - CommittedOffset; increasing lag indicates consumers are processing slower than the ingestion rate or have stalled completely",
+        "Lag = IngestionRate / ReplicationFactor; increasing lag indicates broker disk fragmentation",
+        "Lag = acks + min.insync.replicas; increasing lag indicates network partition between controller nodes",
+        "Lag = Number of Partitions - Number of Consumers; increasing lag means too many consumers are idle"
+      ],
+      "correct": 0,
+      "expl": "Consumer lag is defined as the difference between the latest offset written to the partition log (LogEndOffset) and the consumer group's last acknowledged position (CommittedOffset). Growing lag indicates that downstream processing is falling behind, increasing end-to-end data latency."
+    }
+  ]
+}

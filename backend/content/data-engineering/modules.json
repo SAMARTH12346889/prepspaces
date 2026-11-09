@@ -163,5 +163,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "kafka-event-driven",
+    "courseId": "data-engineering",
+    "index": 16,
+    "name": "16. Event-Driven Architecture and Apache Kafka",
+    "route": "/learning/data-engineering/kafka-event-driven",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
