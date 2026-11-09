@@ -141,5 +141,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "data-quality-lineage",
+    "courseId": "data-engineering",
+    "index": 14,
+    "name": "14. Data Quality, Testing, Metadata and Lineage",
+    "route": "/learning/data-engineering/data-quality-lineage",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

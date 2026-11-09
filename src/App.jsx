@@ -196,6 +196,7 @@ const DataEngineeringEtlBatch = React.lazy(() => import("./Componets/DataEnginee
 const DataEngineeringSpark = React.lazy(() => import("./Componets/DataEngineeringSpark"));
 const DataEngineeringAirflow = React.lazy(() => import("./Componets/DataEngineeringAirflow"));
 const DataEngineeringDbt = React.lazy(() => import("./Componets/DataEngineeringDbt"));
+const DataEngineeringQuality = React.lazy(() => import("./Componets/DataEngineeringQuality"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1650,6 +1651,12 @@ function App() {
             <Route path="/learning/data-engineering/analytics-engineering" element={<DataEngineeringDbt />} />
             <Route path="/learning/data-engineering/module-13" element={<DataEngineeringDbt />} />
             <Route path="/learn/data-engineering/analytics-engineering-dbt" element={<DataEngineeringDbt />} />
+            <Route path="/learning/data-engineering/data-quality-lineage" element={<DataEngineeringQuality />} />
+            <Route path="/learning/data-engineering/data-quality" element={<DataEngineeringQuality />} />
+            <Route path="/learning/data-engineering/quality" element={<DataEngineeringQuality />} />
+            <Route path="/learning/data-engineering/metadata-lineage" element={<DataEngineeringQuality />} />
+            <Route path="/learning/data-engineering/module-14" element={<DataEngineeringQuality />} />
+            <Route path="/learn/data-engineering/data-quality-lineage" element={<DataEngineeringQuality />} />
             <Route path="/learning/data-engineering/airflow" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/orchestration" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/dagster" element={<DataEngineeringAirflow />} />

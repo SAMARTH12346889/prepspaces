@@ -153,6 +153,13 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+  "/learning/data-engineering/data-quality-lineage": {
+    canonical: `${BASE_URL}/learning/data-engineering/data-quality-lineage`,
+    title: "Module 14: Data Quality, Testing, Metadata and Lineage | Data Engineering Master Course",
+    description: "Master enterprise data quality engineering: dimensions of quality, data profiling, rule-based validation, schema registries, referential integrity, automated testing (dbt, Great Expectations), anomaly detection, metadata architecture (DataHub, OpenMetadata), data contracts, and column-level impact lineage.",
+    keywords: "data quality, data quality engineering, data profiling, data validation, schema validation, schema registry, referential integrity, orphan records, data freshness, data reconciliation, anomaly detection, Z-score, IQR, Great Expectations, Soda, Deequ, dbt tests, unit testing data pipelines, data contracts, metadata management, active metadata, data catalog, DataHub, OpenMetadata, data lineage, column-level lineage, impact analysis, data stewardship, data engineering course",
+    badge: "Module 14 · Data Engineering"
+  },
   "/learning/data-engineering/analytics-engineering-dbt": {
     canonical: `${BASE_URL}/learning/data-engineering/analytics-engineering-dbt`,
     title: "Module 13: Analytics Engineering and dbt | Data Engineering Master Course",

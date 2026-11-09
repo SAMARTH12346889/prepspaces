@@ -1,0 +1,189 @@
+{
+  "id": "data-quality-lineage",
+  "title": "Data Quality, Testing, Metadata and Lineage",
+  "courseId": "data-engineering",
+  "index": 14,
+  "description": "Master data profiling, rule-based validation, schema registries, referential integrity, automated testing (dbt, Great Expectations), anomaly detection, metadata architecture (DataHub, OpenMetadata), data contracts, and column-level impact lineage.",
+  "quiz": [
+    {
+      "id": 1,
+      "q": "What is the primary difference between Data Engineering and Data Quality Engineering?",
+      "options": [
+        "Data engineering moves and transforms data, while data quality engineering verifies whether data is correct, dependable, and trustworthy",
+        "Data engineering uses Python, while data quality engineering only uses Excel",
+        "Data quality engineering replaces database administrators",
+        "Data quality engineering only runs after data has reached the executive dashboard"
+      ],
+      "correct": 0,
+      "expl": "Data engineering builds the pipelines to move and transform data; data quality engineering continuously verifies correctness, completeness, and dependability across the pipeline."
+    },
+    {
+      "id": 2,
+      "q": "Why is an age of 35 valid but potentially inaccurate in a customer profile?",
+      "options": [
+        "Validity checks format/domain bounds (positive integer), whereas accuracy checks whether it reflects the actual real-world truth (the person might actually be 42)",
+        "35 is an odd number, which databases reject",
+        "Accuracy is only measured for financial amounts, never ages",
+        "Validity only applies to JSON schemas"
+      ],
+      "correct": 0,
+      "expl": "A value of 35 is valid because it conforms to the column type and logical range (0-120), but inaccurate if the person's real age is 42."
+    },
+    {
+      "id": 3,
+      "q": "In SQL, how does NULL differ from an empty string ('') or zero (0)?",
+      "options": [
+        "NULL represents unknown or missing information, whereas zero is a valid numeric value and '' is a string containing zero characters",
+        "SQL automatically converts NULL to zero in SUM() functions",
+        "NULL and empty strings are identical in all relational databases",
+        "Zero represents missing data in foreign keys"
+      ],
+      "correct": 0,
+      "expl": "NULL means unknown or unavailable. Zero is a distinct numeric value, and an empty string is a present string with length 0."
+    },
+    {
+      "id": 4,
+      "q": "What is an 'orphan record' in referential integrity validation?",
+      "options": [
+        "A child record (e.g. order) referencing a foreign key value that does not exist in the parent table (e.g. customers)",
+        "A database table with no primary key",
+        "A row that has been duplicated multiple times",
+        "A query that runs without a WHERE clause"
+      ],
+      "correct": 0,
+      "expl": "An orphan record occurs when a foreign key in a child table points to a non-existent primary key in the parent table."
+    },
+    {
+      "id": 5,
+      "q": "How does the ingestion delay formula determine pipeline freshness lag?",
+      "options": [
+        "Freshness Delay = Ingestion Timestamp - Event Timestamp",
+        "Freshness Delay = Total Records / Execution Time",
+        "Freshness Delay = Primary Key - Foreign Key",
+        "Freshness Delay = Upper Fence - Lower Fence"
+      ],
+      "correct": 0,
+      "expl": "Freshness delay measures the elapsed time between when an event physically occurred at the source and when it was written to the data platform."
+    },
+    {
+      "id": 6,
+      "q": "Why is count reconciliation alone insufficient for verifying financial pipelines?",
+      "options": [
+        "Record counts can match perfectly (e.g. 10,000 orders) while individual amounts differ, refunds are missed, or currencies are misinterpreted",
+        "Count queries always lock production tables",
+        "Financial data does not support COUNT() operations in SQL",
+        "Only row hashes can be used in data warehouses"
+      ],
+      "correct": 0,
+      "expl": "A pipeline can ingest 10,000 records on both sides, but if one side miscalculated currency or failed a discount subtraction, total revenue will diverge significantly."
+    },
+    {
+      "id": 7,
+      "q": "What is the Interquartile Range (IQR) fence formula for detecting numerical outliers?",
+      "options": [
+        "Lower = Q1 - 1.5 * IQR, Upper = Q3 + 1.5 * IQR, where IQR = Q3 - Q1",
+        "Upper = Mean + 3 * Standard Deviation",
+        "Fence = Total Records / 100",
+        "Fence = Max Value - Min Value"
+      ],
+      "correct": 0,
+      "expl": "The standard Tukey IQR outlier fences place cutoffs at Q1 - 1.5(IQR) and Q3 + 1.5(IQR), making them robust against extreme skewed values."
+    },
+    {
+      "id": 8,
+      "q": "What is the purpose of a Quarantine / Dead-Letter Queue (DLQ) in data validation?",
+      "options": [
+        "To isolate corrupt or invalid records into a separate table with error metadata for debugging and audit, preventing them from contaminating downstream tables",
+        "To permanently delete invalid records without logging them",
+        "To encrypt sensitive customer credit cards",
+        "To speed up database indexing"
+      ],
+      "correct": 0,
+      "expl": "Quarantine tables store rejected records along with the failure reason and timestamp, allowing engineers to audit, debug, or replay them after fixes."
+    },
+    {
+      "id": 9,
+      "q": "How does ROW_NUMBER() perform deterministic deduplication in SQL?",
+      "options": [
+        "By partitioning by the business key and ordering by updated_at DESC (with a unique tie-breaker), filtering for row_num = 1",
+        "By randomly dropping half of the duplicate rows",
+        "By converting NULL values into empty strings",
+        "By replacing the primary key with an MD5 hash"
+      ],
+      "correct": 0,
+      "expl": "ROW_NUMBER() OVER (PARTITION BY business_key ORDER BY updated_at DESC, ingestion_id DESC) ranks records and enables filtering where row_num = 1."
+    },
+    {
+      "id": 10,
+      "q": "What is a Data Contract in modern data architecture?",
+      "options": [
+        "A formal agreement between producers and consumers defining expected schema, semantics, quality SLAs, delivery frequency, and ownership",
+        "A legal contract signed between AWS and Google Cloud",
+        "A SQL constraint that prevents table creation",
+        "A payment invoice sent to external data vendors"
+      ],
+      "correct": 0,
+      "expl": "Data contracts create explicit agreements between upstream data producers and downstream consumers covering schema, SLAs, and change management."
+    },
+    {
+      "id": 11,
+      "q": "What is the difference between Technical Metadata and Business Metadata?",
+      "options": [
+        "Technical metadata describes structure (data types, table names, partitions); business metadata defines meaning and governance (KPI formulas, domain ownership)",
+        "Technical metadata is for managers; business metadata is for software engineers",
+        "Technical metadata is stored in Git; business metadata is never documented",
+        "Technical metadata only applies to NoSQL databases"
+      ],
+      "correct": 0,
+      "expl": "Technical metadata covers table schema, columns, partitions, and storage formats; business metadata explains business definitions, metrics, and stewardship."
+    },
+    {
+      "id": 12,
+      "q": "What is Column-Level Lineage and why is it essential?",
+      "options": [
+        "It tracks the exact source columns and transformation logic that derive an individual downstream metric (e.g. net_revenue = gross - discount - refund)",
+        "It only lists the names of tables in an Airflow DAG",
+        "It restricts who can execute SELECT queries",
+        "It formats numbers into two decimal places"
+      ],
+      "correct": 0,
+      "expl": "Column-level lineage provides fine-grained traceability showing how specific fields or calculated KPIs are constructed across multiple transformation stages."
+    },
+    {
+      "id": 13,
+      "q": "In data governance, how does a Data Owner differ from a Data Steward?",
+      "options": [
+        "A Data Owner has business accountability and decision authority for a domain; a Data Steward manages day-to-day definitions, quality rules, and metadata",
+        "A Data Owner is a software library; a Data Steward is an Airflow operator",
+        "Data Owners write SQL scripts; Data Stewards only build dashboards",
+        "There is no difference between the two roles"
+      ],
+      "correct": 0,
+      "expl": "The Data Owner carries ultimate organizational accountability for the data asset, while the Data Steward handles operational quality, documentation, and compliance."
+    },
+    {
+      "id": 14,
+      "q": "What is Active Metadata compared to Passive Metadata?",
+      "options": [
+        "Passive metadata merely displays catalog information; active metadata triggers automated actions (e.g. alert consumers, rerun quality tests, pause pipelines)",
+        "Passive metadata is stored in memory; active metadata is stored in CSV files",
+        "Passive metadata runs on Spark; active metadata runs on Postgres",
+        "Active metadata refers to encrypted metadata"
+      ],
+      "correct": 0,
+      "expl": "Active metadata actively listens to system events, automatically driving alerts, test triggers, optimization recommendations, and incident mitigation."
+    },
+    {
+      "id": 15,
+      "q": "Why is idempotency essential for pipeline failure recovery and data quality?",
+      "options": [
+        "Because retrying a failed pipeline execution must produce the exact same outcome without inserting unintended duplicate records or double-counting metrics",
+        "Because it makes SQL queries execute twice as fast",
+        "Because it eliminates the need for schema validation",
+        "Because it allows deleting foreign keys without breaking constraints"
+      ],
+      "correct": 0,
+      "expl": "Idempotency ensures that running an operation multiple times (e.g. during automatic retries or manual backfills) produces the same consistent state as running it once."
+    }
+  ]
+}

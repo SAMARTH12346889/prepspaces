@@ -1093,6 +1093,35 @@
   - 25. Recommended Learning Resources (dbt Developer Hub, dbt Core repo, PostgreSQL docs, GitHub Actions, dbt-utils, Jinja)
   - 26. Final Module Summary (Course synthesis, learning outcomes, and progression to Kafka real-time streaming)
 
+## Module 14: Data Quality, Testing, Metadata and Lineage
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/data-quality-lineage
+- **Topics Covered:**
+  - 1. Introduction to Data Quality Engineering (Data lifecycle, e-commerce revenue discrepancies, data engineering vs data quality engineering, quality lifecycle, customer-orders pipeline, 5 engineering principles)
+  - 2. Dimensions of Data Quality (9 Dimensions: accuracy, completeness, consistency, uniqueness, validity, timeliness, freshness, integrity, reliability, comparison table, multi-dimension weighted quality scoring)
+  - 3. Data Profiling (Structure profiling, content profiling, relationship profiling, statistical profiling, Python/pandas profiling methods, profiling report metrics, profiling vs testing)
+  - 4. Data Validation Techniques (Rule-based validation, domain validation, format validation, cross-field validation, business-rule validation, validation outcomes: accept, quarantine DLQ, reject)
+  - 5. Schema Validation (Defining expected schemas, JSON Schema draft validation, schema evolution: backward-compatible, forward-compatible, breaking changes, Kafka Schema Registry)
+  - 6. Null and Duplicate Detection (Understanding SQL NULL vs empty string vs zero, detecting missing values, handling missing values COALESCE, detecting duplicate records by business key, deduplication using ROW_NUMBER() window functions)
+  - 7. Referential Integrity Validation (Primary and foreign key constraints, detecting orphan records with LEFT JOIN / NOT EXISTS, fact and dimension table relationships, handling late-arriving parents and children)
+  - 8. Data Freshness Checks (Event timestamp vs ingestion timestamp, freshness delay formula, freshness requirements and SLAs/SLOs, SQL freshness queries, dbt source freshness checks)
+  - 9. Data Reconciliation (Count reconciliation, financial revenue reconciliation, record-level reconciliation, checksum and hash auditing, end-to-end reconciliation workflow, distributed systems timing windows)
+  - 10. Anomaly Detection (Point, contextual, collective anomalies, statistical Z-score outlier detection, interquartile range IQR fences, time-series volume deviation %, ML methods: Isolation Forest, LOF, One-Class SVM, Autoencoders, anomaly detection vs validation)
+  - 11. Automated Data Quality Testing (Not-null, uniqueness, accepted values, relationships, range tests, dbt data tests, custom dbt assertions, testing tools comparison: Great Expectations, Soda, Amazon Deequ, Pandera, Pytest)
+  - 12. Unit and Integration Testing (Unit testing transformation functions, pytest test suites, Decimal precision math, integration testing connected pipeline components, test databases vs mocks)
+  - 13. Pipeline Testing (Ingestion testing, transformation testing, dependency testing, failure and retry testing, idempotency with ON CONFLICT / MERGE, orchestration testing, testing pyramid for data engineering)
+  - 14. Data Contracts (Data contract anatomy: schema, semantics, quality, delivery, governance, Payment event YAML contract, producer vs consumer responsibilities, breaking vs non-breaking change policies, data contracts vs schema validation)
+  - 15. Metadata Management (Importance of metadata, technical metadata, business metadata, operational metadata, metadata management lifecycle, metadata repository hierarchy, passive vs active metadata)
+  - 16. Data Catalog Architecture (Why catalogs matter, 7 core components: ingestion, storage, discovery, business glossary, lineage, governance, quality, architectural layers, platforms: DataHub, OpenMetadata, Apache Atlas, AWS Glue, Microsoft Purview, GCP Dataplex, catalog vs repository)
+  - 17. Data Lineage and Impact Analysis (Source-to-target lineage, table-level lineage, column-level lineage Net Revenue formula, runtime execution lineage, impact analysis blast radius, upstream vs downstream dependencies, dbt lineage DAGs)
+  - 18. Data Ownership and Stewardship (Data owners, data stewards, data custodians, data engineers, comparison matrix, organizing ownership around data domains and data mesh)
+  - 19. Quality Monitoring and Reporting (Continuous monitoring, 8 core metrics: null rate, duplicate rate, validity rate, freshness lag, volume change, reconciliation diff, test failure rate, pipeline success rate, real-time quality dashboard, alerting and PagerDuty/Slack routing, monitoring levels, severity classification critical/high/medium/low, incident lifecycle)
+  - 20. Putting Everything Together: Real-World Data Quality Engineering Workflow (End-to-end e-commerce platform architecture, PostgreSQL source tables, quality validation SQL queries, audit results table, valid vs rejected records separation, financial reconciliation)
+  - 21. Practical Laboratory (Lab 1: E-commerce Quality System, Lab 2: dbt Quality Testing, Lab 3: Lineage & Impact Analysis)
+  - 22. Common Mistakes in Data Quality Engineering (10 Critical production pitfalls: assuming success means good data, treating null and zero identically, deleting duplicates blindly, ignoring downstream dependencies, etc.)
+  - 23. Important Interview Questions and Answers (15 Deep technical interview questions with complete explanations)
+  - 24. Final Revision — What You Should Understand (Complete 23-topic mastery synthesis table)
+  - 25. Recommended Learning Resources (Official documentation for dbt, Great Expectations, Deequ, OpenMetadata, DataHub, Airflow, and PostgreSQL)
+
 ## Module 10: ETL, ELT and Batch Data Processing
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/etl-batch
 - **Topics Covered:**
