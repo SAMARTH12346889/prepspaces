@@ -65,6 +65,7 @@ function getTrackNameFromPath(subPath) {
   if (subPath.startsWith("/learning/cybersecurity")) return "Cybersecurity";
   if (subPath.startsWith("/courses/generative-ai") || subPath.startsWith("/learning/ai/generative-ai")) return "Generative AI";
   if (subPath.startsWith("/courses/artificial-intelligence")) return "Artificial Intelligence";
+  if (subPath.startsWith("/learning/data-engineering") || subPath.startsWith("/courses/data-engineering")) return "Data Engineering";
   if (subPath.startsWith("/learning/blockchain") || subPath.startsWith("/courses/blockchain")) return "Blockchain Technology";
   if (subPath.startsWith("/learning/ai")) return "Artificial Intelligence";
   return "Engineering Curriculum";
@@ -141,6 +142,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   });
 
   const isBlockchain = route.includes("blockchain");
+  const isDataEngineering = route.includes("data-engineering");
   const courseJsonLdObj = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -177,6 +179,19 @@ for (const [route, meta] of Object.entries(routeMeta)) {
       "Decentralized oracle infrastructure with Chainlink price feeds",
       "Enterprise blockchain with Hyperledger Fabric and Go chaincode",
       "High-performance Solana development with Rust and Anchor"
+    ];
+  }
+
+  if (isDataEngineering) {
+    courseJsonLdObj.courseCode = "DE-ENG-101";
+    courseJsonLdObj.teaches = [
+      "Data engineering lifecycle and architecture principles",
+      "OLTP vs OLAP transactional and analytical system design",
+      "Batch processing vs continuous event stream processing (Kafka, Spark)",
+      "ETL vs ELT pipeline design and transformation patterns",
+      "Data warehouses, data lakes, and modern lakehouses (Delta Lake, Apache Iceberg)",
+      "Data quality dimensions: accuracy, completeness, consistency, validity, uniqueness, timeliness",
+      "Hands-on data pipeline implementation in Python and Pandas"
     ];
   }
 
@@ -265,10 +280,62 @@ for (const [route, meta] of Object.entries(routeMeta)) {
   const isInterview = route === "/interview";
   const isAiCourse = route === "/courses/artificial-intelligence" || route === "/learning/ai";
   const isGenAiCourse = route === "/courses/generative-ai" || route === "/learning/ai/generative-ai";
+  const isDataEngineeringCourse = route === "/courses/data-engineering" || route === "/learning/data-engineering";
   const isBlockchainCourse = route === "/courses/blockchain" || route === "/learning/blockchain";
   let semanticContent = "";
 
-  if (isBlockchainCourse) {
+  if (isDataEngineeringCourse) {
+    semanticContent = `<div id="root">
+        <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
+          <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
+            <a href="/" style="color: #ea580c; text-decoration: none; font-weight: 600;">Home</a> &rarr; 
+            <a href="/learning" style="color: #ea580c; text-decoration: none; font-weight: 600;">Curriculum</a> &rarr; 
+            <span style="color: #1c1917; font-weight: 600;">Data Engineering Master Course</span>
+          </nav>
+          <header style="margin-bottom: 2rem;">
+            <span style="display: inline-block; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #c2410c; background-color: #ffedd5; border: 1px solid #fed7aa; border-radius: 9999px; margin-bottom: 1rem;">Foundation Level &bull; Production Systems</span>
+            <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: #18181b;">Data Engineering Master Course | Pipelines, Lakehouses &amp; SQL</h1>
+            <p style="font-size: 1.125rem; line-height: 1.6; color: #44403c; max-width: 56rem;">${meta.description}</p>
+          </header>
+          <main>
+            <article style="background: white; border: 1px solid #e7e3da; border-radius: 1.5rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+              <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: #18181b;">Course Overview &amp; Engineering Foundations</h2>
+              <div style="background-color: #fbf9f4; border-left: 4px solid #f97316; padding: 1rem 1.25rem; margin-bottom: 1.5rem; border-radius: 0.5rem;">
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #292524; margin: 0;"><strong>Direct Course Definition:</strong> Comprehensive, industry-aligned engineering course covering the full data engineering lifecycle, data pipeline architecture, OLTP vs OLAP workloads, batch vs continuous stream processing, ETL vs ELT pipelines, enterprise data warehouses, data lakes, modern lakehouses (Delta Lake, Apache Iceberg, Apache Hudi), data quality dimensions, and local Python pipeline development.</p>
+              </div>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Curriculum Modules</h3>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><strong><a href="/learning/data-engineering/intro" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 1: Introduction to Data Engineering and Data Systems</a></strong> &mdash; Foundations of data infrastructure, lifecycle, OLTP vs OLAP, batch vs stream, ETL vs ELT, warehouses, lakes, lakehouses, data quality dimensions, and practical Python pipeline.</li>
+              </ul>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Core Engineering Competencies</h3>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><strong>Pipeline Architecture:</strong> Ingestion, cleaning, transformation, storage, serving, orchestration, monitoring, and governance.</li>
+                <li><strong>Workload Segregation:</strong> OLTP operational databases vs OLAP analytical warehouses and dimensional modeling.</li>
+                <li><strong>Processing Paradigms:</strong> Scheduled batch processing vs event-driven continuous stream processing with Kafka and Flink.</li>
+                <li><strong>Lakehouse Infrastructure:</strong> Open columnar formats (Parquet), table formats (Iceberg, Delta Lake), and cloud warehouses (Snowflake, BigQuery).</li>
+                <li><strong>Data Reliability:</strong> Idempotent operations, automated quality checks, dead-letter queues, backfills, and SLAs/SLOs.</li>
+              </ul>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Related Systems Engineering Masterclasses</h3>
+              <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><a href="/learning/system-design" style="color: #ea580c; text-decoration: none; font-weight: 600;">System Design Masterclass (24 Modules)</a> &mdash; Distributed consensus, database replication, caching, and message queues.</li>
+                <li><a href="/learning/cloud" style="color: #ea580c; text-decoration: none; font-weight: 600;">Cloud Computing Architecture (13 Modules)</a> &mdash; AWS S3, Google Cloud Storage, Redshift, and cloud networking.</li>
+                <li><a href="/learning/devops/linux" style="color: #ea580c; text-decoration: none; font-weight: 600;">DevOps &amp; SRE Track (12 Modules)</a> &mdash; Production infrastructure, Docker, Kubernetes, and CI/CD automation.</li>
+                <li><a href="/courses/artificial-intelligence" style="color: #ea580c; text-decoration: none; font-weight: 600;">AI Engineering Masterclass (24 Modules)</a> &mdash; Data pipelines for AI, NumPy vectorization, and model serving.</li>
+              </ul>
+            </article>
+
+            <nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="/learning/data-engineering/intro" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: white; background-color: #f97316; border-radius: 0.75rem; text-decoration: none;">Start Learning Module 1 &rarr;</a>
+              <a href="/learning" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">Curriculum Hub &rarr;</a>
+              <a href="/" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 700; color: #44403c; background-color: white; border: 1px solid #e7e3da; border-radius: 0.75rem; text-decoration: none;">PrepSpaces Home</a>
+            </nav>
+          </main>
+        </div>
+      </div>`;
+  } else if (isBlockchainCourse) {
     semanticContent = `<div id="root">
         <div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem; color: #1c1917; background-color: #f6f4ee;">
           <nav aria-label="Breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: #78716c;">
@@ -437,6 +504,13 @@ for (const [route, meta] of Object.entries(routeMeta)) {
           </header>
           <main>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+              <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/data-engineering" style="color: #ea580c; text-decoration: none;">Data Engineering Master Course</a></h2>
+                <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">Data pipelines, OLTP vs OLAP, batch & stream processing, ETL/ELT, data warehouses, data lakes, modern lakehouses (Iceberg/Delta Lake), and data quality.</p>
+                <a href="/courses/data-engineering" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore Curriculum &rarr;</a>
+              </div>
+              </div>
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
                 <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/blockchain" style="color: #ea580c; text-decoration: none;">Blockchain Development & Web3 Engineering</a></h2>
                 <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">24 Modules: Cryptography, Bitcoin, Ethereum EVM, Solidity, smart contract security, DeFi protocols, Layer 2 rollups, Chainlink oracles, Hyperledger Fabric, and Solana Rust.</p>

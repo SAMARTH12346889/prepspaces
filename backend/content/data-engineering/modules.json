@@ -1,0 +1,13 @@
+[
+  {
+    "id": "intro",
+    "courseId": "data-engineering",
+    "index": 1,
+    "name": "1. Intro to Data Engineering & Data Systems",
+    "route": "/learning/data-engineering",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  }
+]

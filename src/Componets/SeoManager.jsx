@@ -75,6 +75,24 @@ const routeMeta = {
     keywords: "Generative AI course, GenAI course, Generative AI online learning, Large Language Models course, LLM course, Prompt engineering course, RAG course, Learn Generative AI",
     canonical: `${BASE_URL}/courses/generative-ai`,
   },
+  "/courses/data-engineering": {
+    title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
+    description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
+    keywords: "Data Engineering Course, Learn Data Engineering, Data Pipeline, ETL, ELT, OLTP vs OLAP, Stream Processing, Apache Spark, Apache Kafka, Data Lakehouse, Apache Iceberg, Delta Lake, Snowflake, PrepSpaces",
+    canonical: `${BASE_URL}/courses/data-engineering`,
+  },
+  "/learning/data-engineering": {
+    title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
+    description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
+    keywords: "Data Engineering Course, Learn Data Engineering, Data Pipeline, ETL, ELT, OLTP vs OLAP, Stream Processing, Apache Spark, Apache Kafka, Data Lakehouse, Apache Iceberg, Delta Lake, Snowflake, PrepSpaces",
+    canonical: `${BASE_URL}/courses/data-engineering`,
+  },
+  "/learning/data-engineering/intro": {
+    title: "Module 1: Introduction to Data Engineering & Data Systems | PrepSpaces",
+    description: "Master data engineering fundamentals: lifecycle, data sources and consumers, structured vs unstructured data, OLTP vs OLAP, batch vs stream, ETL vs ELT, warehouses, lakes, lakehouses, data quality dimensions, and build a local Python data pipeline.",
+    keywords: "Introduction to Data Engineering, Data Pipeline Architecture, OLTP vs OLAP, Batch vs Stream Processing, ETL vs ELT, Data Lakehouse, Parquet, Data Quality, Python Data Pipeline",
+    canonical: `${BASE_URL}/learning/data-engineering/intro`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",
@@ -1164,6 +1182,18 @@ function updateCourseSchema(pathname, meta) {
       "courseWorkload": "PT2H",
     },
   };
+
+  if (pathname.includes("data-engineering")) {
+    courseData.teaches = [
+      "Data engineering lifecycle and architecture principles",
+      "OLTP vs OLAP transactional and analytical system design",
+      "Batch processing vs continuous event stream processing (Kafka, Spark)",
+      "ETL vs ELT pipeline design and transformation patterns",
+      "Data warehouses, data lakes, and modern lakehouses (Delta Lake, Apache Iceberg)",
+      "Data quality dimensions: accuracy, completeness, consistency, validity, uniqueness, timeliness",
+      "Hands-on data pipeline implementation in Python and Pandas"
+    ];
+  }
 
   if (pathname.includes("blockchain")) {
     courseData.teaches = [

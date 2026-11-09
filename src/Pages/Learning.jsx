@@ -17,6 +17,7 @@ import {
   Shield,
   Brain,
   Blocks,
+  Database,
   User,
   LogOut,
 } from "lucide-react";
@@ -204,6 +205,26 @@ const learningTracks = [
       "Bitcoin, Ethereum, Hyperledger & Solana",
       "Consensus Mechanisms & P2P Networks",
       "Python Blockchain from Scratch",
+    ],
+  },
+  {
+    id: "data-engineering",
+    title: "Data Engineering Master Course",
+    tagline: "Pipelines, Distributed Systems, Lakehouses & Modern Data Systems",
+    description:
+      "Master data engineering principles, pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT workflows, data warehouses, data lakes, modern lakehouses (Apache Iceberg, Delta Lake), data quality, and end-to-end data systems.",
+    icon: Database,
+    route: "/learning/data-engineering",
+    tag: "Data Systems & Infrastructure",
+    modulesCount: "Comprehensive Modules",
+    color: "from-stone-900 via-orange-950 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "Data Pipeline Architecture & Lifecycle",
+      "OLTP vs OLAP Systems & Modeling",
+      "Batch vs Stream Processing (Kafka & Spark)",
+      "ETL vs ELT & Lakehouse Architecture",
+      "Data Quality, Reliability & SLAs",
     ],
   },
 ];

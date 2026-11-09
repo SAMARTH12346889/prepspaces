@@ -194,6 +194,11 @@ export const CYBERSECURITY_MODULES = [
   { id: "final-capstone", name: "24. Final Capstone: Security Assessment & Defense", route: "/learning/cybersecurity/final-capstone" },
 ];
 
+export const DATA_ENGINEERING_MODULES = [
+  { id: "intro", name: "1. Intro to Data Engineering & Data Systems", route: "/learning/data-engineering" },
+  { id: "sql-databases", name: "2. SQL & Database Engineering", route: "/learning/data-engineering/sql-databases" },
+];
+
 export const BLOCKCHAIN_MODULES = [
   { id: "intro", name: "1. Intro to Blockchain Technology", route: "/learning/blockchain" },
   { id: "cryptography", name: "2. Cryptography Fundamentals", route: "/learning/blockchain/cryptography" },
@@ -248,9 +253,11 @@ export default function ModuleNav({
       if (rawTrack === "system-design") return "system-design";
       if (rawTrack === "devops") return "devops";
       if (rawTrack === "blockchain") return "blockchain";
+      if (rawTrack === "data-engineering") return "data-engineering";
       return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
+    if (path.includes("/learning/data-engineering") || path.includes("/learn/data-engineering") || path.includes("/courses/data-engineering")) return "data-engineering";
     if (path.includes("/learning/ai") || path.includes("/learn/ai")) return "ai";
     if (path.includes("/learning/os") || path.includes("/learn/os")) return "os";
     if (path.includes("/learning/networks") || path.includes("/learn/networks")) return "networks";
@@ -272,6 +279,7 @@ export default function ModuleNav({
     ai: "ai-engineering",
     "ai-engineering": "ai-engineering",
     blockchain: "blockchain",
+    "data-engineering": "data-engineering",
   };
   const resolvedCourseId = courseIdMap[track] || track;
 
@@ -292,6 +300,8 @@ export default function ModuleNav({
         return AI_MODULES;
       case "blockchain":
         return BLOCKCHAIN_MODULES;
+      case "data-engineering":
+        return DATA_ENGINEERING_MODULES;
       default:
         return CLOUD_MODULES;
     }

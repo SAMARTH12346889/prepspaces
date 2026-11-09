@@ -1,0 +1,130 @@
+{
+  "id": "intro",
+  "courseId": "data-engineering",
+  "index": 1,
+  "name": "1. Intro to Data Engineering & Data Systems",
+  "route": "/learning/data-engineering",
+  "componentName": "DataEngineeringIntro",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary responsibility of a Data Engineer?",
+      "options": [
+        "Creating business presentations",
+        "Building reliable data infrastructure and pipelines",
+        "Designing website interfaces",
+        "Training only machine learning models"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Data Engineer designs, develops, deploys, and maintains systems that collect, process, store, transform, and deliver data reliably."
+    },
+    {
+      "id": 2,
+      "question": "Which system is mainly designed for transactional workloads?",
+      "options": [
+        "OLAP",
+        "Data lake",
+        "OLTP",
+        "Data warehouse"
+      ],
+      "correctIndex": 2,
+      "explanation": "OLTP (Online Transaction Processing) systems are optimized for fast, atomic, day-to-day business transactions with high concurrency."
+    },
+    {
+      "id": 3,
+      "question": "Which processing approach is most appropriate for a nightly sales report?",
+      "options": [
+        "Batch processing",
+        "Continuous stream processing",
+        "Image processing",
+        "Manual processing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Batch processing collects records over an interval and processes them in groups at scheduled intervals (such as nightly), making it ideal for daily reports."
+    },
+    {
+      "id": 4,
+      "question": "What is the correct order of ETL?",
+      "options": [
+        "Extract → Load → Transform",
+        "Load → Extract → Transform",
+        "Transform → Extract → Load",
+        "Extract → Transform → Load"
+      ],
+      "correctIndex": 3,
+      "explanation": "ETL stands for Extract (source extraction), Transform (data cleaning/formatting in an intermediate engine), and Load (writing into the destination)."
+    },
+    {
+      "id": 5,
+      "question": "Which format is commonly used for columnar analytical storage?",
+      "options": [
+        "MP3",
+        "Parquet",
+        "JPEG",
+        "MP4"
+      ],
+      "correctIndex": 1,
+      "explanation": "Apache Parquet is an open-source, columnar storage file format optimized for analytical queries (OLAP) with efficient compression and column projection."
+    },
+    {
+      "id": 6,
+      "question": "Which characteristic distinguishes a data lakehouse?",
+      "options": [
+        "It only stores images",
+        "It cannot support transactions",
+        "It combines flexible lake storage with managed analytical table capabilities",
+        "It only supports OLTP"
+      ],
+      "correctIndex": 2,
+      "explanation": "A lakehouse combines low-cost flexible object storage with transactional guarantees (ACID), schema enforcement, time travel, and high-performance analytical queries."
+    },
+    {
+      "id": 7,
+      "question": "What is data lineage?",
+      "options": [
+        "Tracking data origin and transformations",
+        "Compressing a file",
+        "Deleting old databases",
+        "Creating user passwords"
+      ],
+      "correctIndex": 0,
+      "explanation": "Data lineage documents and traces where data originated, what transformations occurred along the pipeline, and which downstream consumers depend on it."
+    },
+    {
+      "id": 8,
+      "question": "What does idempotency help prevent?",
+      "options": [
+        "Database backups",
+        "Unintended duplicate effects when an operation is repeated",
+        "All network failures",
+        "Schema creation"
+      ],
+      "correctIndex": 1,
+      "explanation": "An idempotent pipeline operation produces the same final result regardless of how many times it executes, preventing double counting or duplicate records upon retries."
+    },
+    {
+      "id": 9,
+      "question": "Which tool is commonly used for distributed data processing?",
+      "options": [
+        "Photoshop",
+        "Apache Spark",
+        "PowerPoint",
+        "Figma"
+      ],
+      "correctIndex": 1,
+      "explanation": "Apache Spark is a unified distributed processing engine for large-scale data processing across computing clusters."
+    },
+    {
+      "id": 10,
+      "question": "Which of the following is a data quality dimension?",
+      "options": [
+        "Screen resolution",
+        "Font size",
+        "Uniqueness",
+        "CPU brand"
+      ],
+      "correctIndex": 2,
+      "explanation": "The core data quality dimensions include Accuracy, Completeness, Consistency, Validity, Uniqueness (avoiding unwanted duplicates), and Timeliness."
+    }
+  ]
+}

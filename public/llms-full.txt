@@ -880,3 +880,17 @@
 - **Topic Summary:** Complete production-grade decentralized application development: requirements analysis, multi-contract architecture, off-chain indexing with PostgreSQL/The Graph, IPFS storage pinning, automated invariant testing with Foundry, comprehensive security audit report, CI/CD pipeline, and oral viva defense.
 - **Key Concepts:** 3-tier Web3 architecture, end-to-end integration, production deployment, gas optimization benchmarks, security mitigation matrices, and viva defense evaluation.
 - **Hands-On Lab:** Complete Capstone blueprint generator, viva defense practice evaluator, and audit checklist workbench.
+
+---
+
+# Track: Data Engineering Master Course
+> Comprehensive data infrastructure curriculum covering pipeline architecture, OLTP vs OLAP, batch vs stream processing, ETL vs ELT, data warehouses, data lakes, modern lakehouses (Delta Lake, Apache Iceberg), data quality, and end-to-end data systems.
+> Track Overview: https://prepspaces.com/learning/data-engineering
+
+## Module 1: Introduction to Data Engineering and Data Systems
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering
+- **Alternative URL:** https://prepspaces.com/courses/data-engineering
+- **Level:** Foundation Level | Theory + Practical | 8-10 hours
+- **Topic Summary:** Centralized vs distributed data infrastructure, data engineering lifecycle, data sources and consumers, structured vs semi-structured vs unstructured data, OLTP vs OLAP workloads, batch vs stream processing, ETL vs ELT, data warehouses vs data lakes vs lakehouses, data pipeline architecture, data integration and transformation, data quality dimensions, real-world industry applications, and local Python pipeline development.
+- **Key Concepts:** Idempotency, schema evolution, time travel, columnar storage (Parquet), change data capture (CDC), automated quality checks, data contracts, and SLAs/SLOs.
+- **Hands-On Lab:** End-to-end local data pipeline with Pandas, duplicate filtering, data cleaning, revenue calculation, and CSV export.
