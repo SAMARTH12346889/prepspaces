@@ -75,5 +75,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "lakehouse",
+    "courseId": "data-engineering",
+    "index": 8,
+    "name": "8. Data Lakes and Lakehouse Architecture",
+    "route": "/learning/data-engineering/lakehouse",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

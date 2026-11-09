@@ -135,6 +135,12 @@ const routeMeta = {
     keywords: "Data Warehousing, Enterprise Data Warehouse, OLAP Architecture, Multidimensional Modeling, Star Schema, Snowflake Schema, Columnar Storage, Massively Parallel Processing MPP, Partitioning and Clustering, Materialized Views, Snowflake Architecture, Google BigQuery, Amazon Redshift, ClickHouse MergeTree, Analytical Query Optimization, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/data-warehousing`,
   },
+  "/learning/data-engineering/lakehouse": {
+    title: "Module 8: Data Lakes and Lakehouse Architecture | PrepSpaces",
+    description: "Master data lakes and lakehouse architecture: cloud object storage (Amazon S3, ADLS, GCS), HDFS distributed storage, Raw/Processed/Curated data zones, Medallion Architecture (Bronze, Silver, Gold), columnar formats (Parquet, Avro, ORC), open table formats (Apache Iceberg, Delta Lake, Apache Hudi), ACID transactions, snapshot isolation, MVCC, time travel, schema evolution, partition evolution, metadata catalogs (AWS Glue, Unity Catalog), small file compaction, and data governance.",
+    keywords: "Data Lakes, Lakehouse Architecture, Apache Iceberg, Delta Lake, Apache Hudi, Medallion Architecture, Bronze Silver Gold, Amazon S3 Data Lake, HDFS Distributed Storage, Columnar Storage Parquet, Open Table Formats, ACID Data Lakes, Snapshot Isolation MVCC, Time Travel Delta Lake, Schema Evolution, Partition Evolution, AWS Glue Data Catalog, Unity Catalog, Small File Compaction, Data Lake Governance, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/lakehouse`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

@@ -970,3 +970,30 @@
   - 23. ClickHouse Architecture (MergeTree storage engine, parts, primary sparse index marks, background merges, distributed tables)
   - 24. Four-Platform Comparison Matrix (Snowflake vs BigQuery vs Redshift vs ClickHouse)
   - 25. Practical Capstone: Build an Enterprise E-Commerce Data Warehouse Platform
+
+### Module 8: Data Lakes and Lakehouse Architecture
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/lakehouse
+- **Topics Covered:**
+  - 1. Understanding Data Lakes (Centralized storage, handling multiple formats, schema-on-read vs schema-on-write)
+  - 2. Data Lake Multi-Tier Architecture (7 layers: Sources, Ingestion, Storage, Processing, Metadata, Security, Consumption)
+  - 3. Data Lake vs Data Warehouse (Workload philosophies, structured vs unstructured, ML training data)
+  - 4. Object Storage Fundamentals (Amazon S3, ADLS, GCS, buckets, object keys, versioning, storage tiers)
+  - 5. Distributed File Storage (HDFS architecture, NameNode, DataNodes, blocks, replication vs cloud object stores)
+  - 6. Raw, Processed, and Curated Data Zones (Data progression, lineage tracking, auditing, error quarantine)
+  - 7. Medallion Architecture (Bronze raw preservation, Silver cleaning/validation/dedup, Gold business aggregations)
+  - 8. Data Lake Storage Formats (CSV, JSON, Apache Parquet columnar internals, Apache Avro binary records, Apache ORC)
+  - 9. Apache Iceberg Architecture (Catalogs, table metadata, snapshots, manifest lists, manifest files, schema & partition evolution)
+  - 10. Delta Lake Architecture (_delta_log transaction log, JSON commit actions, checkpoints, ACID transactions, optimistic concurrency)
+  - 11. Apache Hudi Architecture (Timeline instants, file groups, base Parquet files, log files, Copy-on-Write vs Merge-on-Read, compaction)
+  - 12. Open Table Formats Triad (Comparative analysis of Delta Lake, Apache Iceberg, and Apache Hudi)
+  - 13. ACID Transactions in Data Lakes (Atomicity, Consistency, Isolation, Durability over object storage)
+  - 14. Snapshot Isolation & MVCC (Multi-Version Concurrency Control, non-blocking readers, consistent analytical views)
+  - 15. Time Travel and Rollback (Historical version querying, AS OF timestamps, DESCRIBE HISTORY, RESTORE TABLE, VACUUM retention)
+  - 16. Schema Evolution (Adding, dropping, renaming columns, type widening, field IDs, schema enforcement vs evolution)
+  - 17. Partition Evolution and Partitioning Strategy (Partition pruning, avoiding over-partitioning, versioned partition specs)
+  - 18. Metadata Catalogs (AWS Glue Data Catalog, Hive Metastore, Unity Catalog, crawlers, table discovery)
+  - 19. Small File Problems and Compaction (Streaming file explosion, metadata overhead, OPTIMIZE file rewriting)
+  - 20. Lakehouse Architecture (Unified storage foundation, combining lake scale with warehouse ACID and SQL performance)
+  - 21. Data Lake Governance (RBAC, encryption at rest/in transit, PII identification and masking, data lineage, data quality rules)
+  - 22. Complete Practical Project: Build an E-commerce Lakehouse (Bronze, Silver, Gold pipelines with PySpark and Delta Lake)
+  - 23. Key Industry Architecture Concepts & Production Anti-Patterns

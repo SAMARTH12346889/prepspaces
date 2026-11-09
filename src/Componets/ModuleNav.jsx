@@ -202,6 +202,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "internals", name: "5. Database Internals & Performance", route: "/learning/data-engineering/internals" },
   { id: "data-formats", name: "6. Data Formats, Serialization & Integration", route: "/learning/data-engineering/data-formats" },
   { id: "data-warehousing", name: "7. Data Warehousing & Analytical Systems", route: "/learning/data-engineering/data-warehousing" },
+  { id: "lakehouse", name: "8. Data Lakes & Lakehouse Architecture", route: "/learning/data-engineering/lakehouse" },
 ];
 
 export const BLOCKCHAIN_MODULES = [
