@@ -1031,7 +1031,38 @@
   - 28. Recommended Learning Resources (Official Spark docs, Hadoop docs, Parquet spec, Delta Lake, Apache Iceberg, PySpark API)
   - 29. Final Module Summary (Synthesis of cluster computing, memory management, and production distributed pipelines)
 
-### Module 10: ETL, ELT and Batch Data Processing
+#
+## Module 12: Workflow Orchestration with Apache Airflow
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/airflow-orchestration
+- **Topics Covered:**
+  - 1. Introduction to Workflow Orchestration (Workflow coordination, multi-task pipelines, Apache Airflow definition vs distributed execution engines)
+  - 2. Why Data Orchestration Is Required (Dependency failures, manual execution bottlenecks, error cascades, orchestration vs scheduling vs execution)
+  - 3. Workflow and Task Dependencies (Upstream and downstream tasks, linear and parallel flows, >> and << bitshift operators)
+  - 4. Directed Acyclic Graphs (DAGs) (DAG properties, TaskFlow API @task, DAG vs DAG Run vs Task Instance)
+  - 5. Apache Airflow Architecture (DAG Bundles, DAG Processor, Scheduler, Executor, Worker, API Server, Metadata Database, Triggerer)
+  - 6. Airflow Scheduler and Executor (Scheduling loop, LocalExecutor, CeleryExecutor, KubernetesExecutor, execution concurrency and pools)
+  - 7. Airflow Operators (PythonOperator, BashOperator, SQLExecuteQueryOperator, EmptyOperator, SparkSubmitOperator, EmailOperator, TaskFlow API)
+  - 8. Sensors and Hooks (FileSensor, HttpSensor, poke vs reschedule vs deferrable triggerer mode, PostgresHook, connection abstraction)
+  - 9. Task Dependencies and Branching (BranchPythonOperator, @task.branch, Trigger Rules: all_success, none_failed_min_one_success)
+  - 10. Scheduling and Cron Expressions (5-field cron syntax, schedule presets, logical dates and data interval start/end timelines)
+  - 11. Task Retries and Failure Handling (Task retries, exponential backoff, execution timeouts, failure callbacks, idempotency and SQL MERGE)
+  - 12. Backfilling and Catchup (catchup configuration, backfill CLI, historical data reprocessing)
+  - 13. Dynamic Task Mapping (.expand() and .partial() pattern, dynamic runtime task generation, map-reduce)
+  - 14. Variables and Connections (Airflow Variables, Connection store, XCom inter-task communication best practices)
+  - 15. Secrets Management (Hardcoding risks, Airflow Secrets Backends: HashiCorp Vault, AWS Secrets Manager, GCP Secret Manager, Azure Key Vault)
+  - 16. Monitoring Workflow Execution (Airflow UI views, task states, duration monitoring, alerting integrations, Prometheus and Grafana metrics)
+  - 17. Data-Aware Scheduling (Airflow 3 Asset-Aware Scheduling, Producer vs Consumer DAGs, Asset conditions & and |, event-driven triggers)
+  - 18. Pipeline Automation (Multi-workflow automation, cross-DAG dependencies, Apache Spark integration)
+  - 19. Production Airflow Deployment (Dev vs Prod, Docker containerization, Kubernetes Helm deployment, production checklist)
+  - 20. Introduction to Dagster as an Alternative (Software-Defined Assets @asset, Dagster vs Airflow comparison, asset lineage)
+  - 21. Practical Project — Build an Automated E-Commerce Data Pipeline Using Apache Airflow and Spark (End-to-end multi-tier pipeline)
+  - 22. Practical Labs and Assignments (Labs 1-6: First DAG, Branching, Sensors, Cron/Backfills, Dynamic Mapping, Production Docker)
+  - 23. Advanced Assignments (10 Enterprise projects & Final Lakehouse Platform project)
+  - 24. Interview Preparation — Apache Airflow (Core architectural questions and 5 Real-world production scenarios)
+  - 25. Recommended Learning Resources (Official documentation, TaskFlow tutorial, providers reference, Dagster docs)
+  - 26. Final Module Summary (Course synthesis, learning outcomes, and progression to Apache Kafka streaming)
+
+## Module 10: ETL, ELT and Batch Data Processing
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/etl-batch
 - **Topics Covered:**
   - 1. Introduction to ETL Architecture (Extract, Transform, Load, business rationale, e-commerce flow, 3 ETL stages, staging areas, advantages & limitations)

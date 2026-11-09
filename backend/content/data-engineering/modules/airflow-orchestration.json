@@ -1,0 +1,189 @@
+{
+  "id": "airflow-orchestration",
+  "title": "Workflow Orchestration with Apache Airflow",
+  "courseId": "data-engineering",
+  "index": 12,
+  "description": "Master workflow orchestration, DAG architecture, TaskFlow API, scheduling mechanics, Celery & Kubernetes executors, dynamic task mapping, secrets management, data-aware scheduling, and production deployment with Apache Airflow and Dagster.",
+  "quiz": [
+    {
+      "id": 1,
+      "q": "What is the primary role of Apache Airflow in a modern data engineering architecture?",
+      "options": [
+        "It is a distributed SQL query engine for petabyte-scale storage",
+        "It orchestrates, schedules, and monitors workflows and task dependencies across heterogeneous systems",
+        "It replaces PostgreSQL as an ACID-compliant OLTP database",
+        "It acts as a real-time message broker like Apache Kafka"
+      ],
+      "correct": 1,
+      "expl": "Airflow is an orchestration engine that coordinates when and how tasks run across external systems (Spark, databases, S3), but it does not execute heavy distributed data processing internally."
+    },
+    {
+      "id": 2,
+      "q": "Why must workflows in Apache Airflow be Directed Acyclic Graphs (DAGs)?",
+      "options": [
+        "To ensure that tasks execute only once per year",
+        "Because cycles would create infinite execution loops where tasks wait on each other indefinitely",
+        "To allow bi-directional streaming between Spark and Kafka",
+        "Because Python functions cannot return values if loops exist"
+      ],
+      "correct": 1,
+      "expl": "DAGs are directed (dependencies flow in one clear direction) and acyclic (no loops or cycles). Cycles would cause circular dependencies where tasks deadlock waiting on each other."
+    },
+    {
+      "id": 3,
+      "q": "In Apache Airflow, what is the critical distinction between a DAG, a DAG Run, and a Task Instance?",
+      "options": [
+        "DAG is the code definition, DAG Run is a specific execution of that DAG, and Task Instance is an execution of a specific task within that DAG Run",
+        "DAG is the database table, DAG Run is a row in PostgreSQL, and Task Instance is a column",
+        "DAG is for PythonOperator, DAG Run is for BashOperator, and Task Instance is for SparkSubmitOperator",
+        "There is no difference; they are interchangeable terms"
+      ],
+      "correct": 0,
+      "expl": "The DAG is the static blueprint in Python; a DAG Run represents an instantiation of the DAG for a specific logical date; a Task Instance represents an individual task within that specific run."
+    },
+    {
+      "id": 4,
+      "q": "What role does the DAG Processor play in modern Airflow architecture?",
+      "options": [
+        "It connects directly to Amazon S3 to store Parquet files",
+        "It parses DAG files into serialized representations in isolation from the Scheduler to prevent slow or malicious user code from freezing scheduling loops",
+        "It compiles Python code into C++ binaries for worker nodes",
+        "It routes HTTP requests from end users to the Webserver"
+      ],
+      "correct": 1,
+      "expl": "Modern Airflow decouples the DAG Processor from the main Scheduler loop. The DAG Processor periodically parses Python files into serialized DAGs in the metadata database, keeping the Scheduler fast and resilient."
+    },
+    {
+      "id": 5,
+      "q": "How do CeleryExecutor and KubernetesExecutor differ in task execution and isolation?",
+      "options": [
+        "CeleryExecutor runs tasks locally inside the scheduler; KubernetesExecutor runs them on Hadoop YARN",
+        "CeleryExecutor uses a static pool of pre-warmed worker nodes managed via a message broker (Redis/RabbitMQ); KubernetesExecutor launches a dynamic dedicated Pod for each individual task instance",
+        "KubernetesExecutor cannot run Python scripts",
+        "CeleryExecutor is only supported in Apache Airflow 1.x"
+      ],
+      "correct": 1,
+      "expl": "CeleryExecutor distributes tasks across a fixed/autoscaled set of long-running worker processes via a broker. KubernetesExecutor spins up an isolated, ephemeral Kubernetes pod per task instance, offering maximum environment isolation and clean resource cleanup."
+    },
+    {
+      "id": 6,
+      "q": "What is the advantage of using the TaskFlow API (@task) over traditional PythonOperator?",
+      "options": [
+        "It eliminates the need for Python packages",
+        "It allows natural Python function authoring, automatic XCom return value passing, and implicit dependency tracking between task calls",
+        "It automatically converts Python code to Apache Spark jobs",
+        "It disables task retries to make DAGs faster"
+      ],
+      "correct": 1,
+      "expl": "TaskFlow API decorators (@task) allow writing clean Python functions where inputs and outputs are automatically wired via XComs and dependencies without manual boilerplate."
+    },
+    {
+      "id": 7,
+      "q": "What is the key performance benefit of Airflow Deferrable Operators (and Triggerers) over traditional Sensor polling?",
+      "options": [
+        "They increase worker CPU usage to finish tasks faster",
+        "They yield the worker slot and suspend task execution until an async event occurs, freeing worker slots for other tasks and reducing resource consumption",
+        "They bypass the metadata database completely",
+        "They disable SSL encryption for higher network throughput"
+      ],
+      "correct": 1,
+      "expl": "Traditional sensors block an entire worker slot while polling (poke). Deferrable operators hand off waiting tasks to an asynchronous event loop running in the Airflow Triggerer, freeing worker processes to execute actual work."
+    },
+    {
+      "id": 8,
+      "q": "When implementing branching in an Airflow DAG, which trigger rule should downstream barrier tasks typically use?",
+      "options": [
+        "all_success",
+        "all_failed",
+        "none_failed_min_one_success or one_success",
+        "dummy_rule"
+      ],
+      "correct": 2,
+      "expl": "In branching, skipped branches have a state of skipped. The default all_success rule would fail because the skipped task did not succeed. Using none_failed_min_one_success ensures the downstream task runs if the chosen branch succeeded and no upstream failed."
+    },
+    {
+      "id": 9,
+      "q": "In Airflow scheduling, why does a DAG with @daily (or 0 0 * * *) starting on 2026-01-01 run at 2026-01-02 00:00:00?",
+      "options": [
+        "Because Airflow has a built-in 24-hour bug",
+        "Because Airflow follows the data interval model: the run covers data from 2026-01-01 00:00 to 2026-01-02 00:00, which can only be fully collected after the period closes",
+        "Because timezones are always converted to UTC minus one day",
+        "Because the DAG Processor takes 24 hours to parse files"
+      ],
+      "correct": 1,
+      "expl": "Airflow evaluates scheduled runs at the close of their data interval (data_interval_end). For the period Jan 1 00:00 to Jan 2 00:00, all records for Jan 1 have only finished arriving at Jan 2 00:00."
+    },
+    {
+      "id": 10,
+      "q": "What does setting catchup=False on a DAG do when it is first activated with a start_date six months in the past?",
+      "options": [
+        "It deletes the DAG file permanently",
+        "It executes all 180 missed daily DAG runs simultaneously",
+        "It skips the historical backlog and only creates a DAG Run for the most recently completed data interval",
+        "It causes the Scheduler to throw a runtime exception"
+      ],
+      "correct": 2,
+      "expl": "When catchup=False, the scheduler ignores historical intervals between start_date and the current date, scheduling only the latest interval. catchup=True (default in older versions) would trigger runs for every missed interval."
+    },
+    {
+      "id": 11,
+      "q": "How does Dynamic Task Mapping (.expand()) differ from creating tasks in a standard Python for loop?",
+      "options": [
+        "There is no difference; .expand() is just an alias for a Python loop",
+        "Dynamic Task Mapping creates task instances dynamically at runtime based on the actual output of an upstream task, whereas a Python loop creates static tasks at DAG parse time",
+        "Dynamic Task Mapping only works with BashOperator",
+        "Dynamic Task Mapping limits task count to 10"
+      ],
+      "correct": 1,
+      "expl": "Static loops generate tasks when the scheduler parses the DAG file. .expand() resolves the collection dynamically at runtime during task execution, scaling to thousands of items without bloating DAG parsing."
+    },
+    {
+      "id": 12,
+      "q": "Why should large datasets (e.g. DataFrames or gigabyte files) NOT be passed through Airflow XCom?",
+      "options": [
+        "Because XCom is stored in the Airflow Metadata Database (PostgreSQL/MySQL), causing database bloat, memory exhaustion, and severe scheduler degradation",
+        "Because XCom only accepts integer values",
+        "Because XCom data is automatically deleted after 10 seconds",
+        "Because XCom is unencrypted plaintext on the local hard drive"
+      ],
+      "correct": 0,
+      "expl": "XCom values are serialized into the metadata database table xcom. Storing large datasets there can exhaust database storage and bring down the cluster. Pass storage paths (S3/GCS URI) via XCom instead."
+    },
+    {
+      "id": 13,
+      "q": "Why should production Airflow deployments use an external Secrets Backend (like HashiCorp Vault or AWS Secrets Manager) instead of storing credentials in the UI or environment files?",
+      "options": [
+        "Because Airflow cannot read passwords longer than 8 characters",
+        "To provide centralized encryption, automated secret rotation, fine-grained access audits, and prevent committing credentials into Git repositories or database dumps",
+        "Because PostgreSQL does not support string columns",
+        "To disable network firewalls"
+      ],
+      "correct": 1,
+      "expl": "External secret backends ensure production credentials are encrypted at rest, rotated automatically without restarting services, audited, and never committed to version control or baked into Docker images."
+    },
+    {
+      "id": 14,
+      "q": "What is Data-Aware Scheduling (Assets in Airflow 3.x), and how does it improve pipeline architecture?",
+      "options": [
+        "It replaces the DAG Scheduler with an Apache Spark cluster",
+        "It decouples producer and consumer workflows by allowing DAGs to be triggered automatically when specific datasets/assets are updated, rather than relying on brittle rigid cron timers",
+        "It forces all data to be stored in CSV format",
+        "It encrypts datasets using SHA-256"
+      ],
+      "correct": 1,
+      "expl": "Asset-aware scheduling allows DAGs to trigger based on data updates (schedule=[orders_asset]) rather than arbitrary clock times. This prevents race conditions where consumer DAGs start before producer DAGs finish writing data."
+    },
+    {
+      "id": 15,
+      "q": "In Dagster, what is a \"Software-Defined Asset\" (@asset), and how does its mental model differ from an Airflow task?",
+      "options": [
+        "Dagster assets can only run on Windows machines",
+        "A Dagster asset focuses on the data object itself (what data should exist and its lineage/dependencies), whereas a traditional Airflow task focuses on the step of work to execute (imperative action)",
+        "A Dagster asset is a physical SSD drive attached to the cluster",
+        "Dagster assets cannot be scheduled or backfilled"
+      ],
+      "correct": 1,
+      "expl": "Dagster's core abstraction is data-centric: you define the asset (e.g. cleaned_orders), its upstream dependencies, and how to materialize it. Airflow traditionally focuses on the workflow graph of execution tasks, though Airflow 3 has adopted data-aware assets."
+    }
+  ]
+}

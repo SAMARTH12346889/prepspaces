@@ -119,5 +119,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "airflow-orchestration",
+    "courseId": "data-engineering",
+    "index": 12,
+    "name": "12. Workflow Orchestration with Apache Airflow",
+    "route": "/learning/data-engineering/airflow-orchestration",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

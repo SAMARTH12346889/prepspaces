@@ -153,6 +153,13 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+  "/learning/data-engineering/airflow-orchestration": {
+    canonical: `${BASE_URL}/learning/data-engineering/airflow-orchestration`,
+    title: "Module 12: Workflow Orchestration with Apache Airflow & Dagster | Data Engineering Master Course",
+    description: "Master enterprise workflow orchestration, Directed Acyclic Graphs (DAGs), TaskFlow API, Celery and Kubernetes executors, dynamic task mapping, secrets backends, and data-aware scheduling with Apache Airflow and Dagster.",
+    keywords: "Apache Airflow, Dagster, workflow orchestration, Airflow 3, DAG, TaskFlow API, CeleryExecutor, KubernetesExecutor, Airflow Sensors, Dynamic Task Mapping, data pipeline automation, data engineering course",
+    badge: "Module 12 · Data Engineering"
+  },
   "/learning/data-engineering/spark-processing": {
     title: "Module 11: Distributed Data Processing with Apache Spark | PrepSpaces",
     description: "Master distributed computing fundamentals and large-scale big data processing with Apache Spark & PySpark: cluster architecture (Driver, Cluster Manager, Executors, Tasks), RDD lineage and fault tolerance, DataFrames, Datasets, Spark SQL and Catalyst Optimizer, narrow vs wide transformations, lazy evaluation, partitioning (repartition vs coalesce), shuffle mechanics, broadcast joins, memory management (execution vs storage), data skew mitigation (salting, AQE), Spark Web UI tuning, Parquet columnar internals, Delta Lake Medallion Architecture (Bronze, Silver, Gold), and distributed data pipelines.",
