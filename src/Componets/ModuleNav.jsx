@@ -196,7 +196,7 @@ export const CYBERSECURITY_MODULES = [
 
 export const DATA_ENGINEERING_MODULES = [
   { id: "intro", name: "1. Intro to Data Engineering & Data Systems", route: "/learning/data-engineering" },
-  { id: "sql-databases", name: "2. SQL & Database Engineering", route: "/learning/data-engineering/sql-databases" },
+  { id: "python", name: "2. Python Programming for Data Engineering", route: "/learning/data-engineering/python" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

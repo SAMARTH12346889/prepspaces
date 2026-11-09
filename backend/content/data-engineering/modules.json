@@ -9,5 +9,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "python",
+    "courseId": "data-engineering",
+    "index": 2,
+    "name": "2. Python Programming for Data Engineering",
+    "route": "/learning/data-engineering/python",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

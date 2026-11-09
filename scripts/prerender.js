@@ -307,6 +307,7 @@ for (const [route, meta] of Object.entries(routeMeta)) {
               <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Curriculum Modules</h3>
               <ul style="line-height: 1.8; color: #44403c; padding-left: 1.5rem; margin-bottom: 1.5rem;">
                 <li><strong><a href="/learning/data-engineering/intro" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 1: Introduction to Data Engineering and Data Systems</a></strong> &mdash; Foundations of data infrastructure, lifecycle, OLTP vs OLAP, batch vs stream, ETL vs ELT, warehouses, lakes, lakehouses, data quality dimensions, and practical Python pipeline.</li>
+                <li><strong><a href="/learning/data-engineering/python" style="color: #ea580c; text-decoration: none; font-weight: 600;">Module 2: Python Programming for Data Engineering</a></strong> &mdash; Python fundamentals, OOP, generators, iterators, CSV/JSON/XML parsing, chunk processing, regex, logging, API extraction, SQLite/SQLAlchemy, Pandas, Polars, and Pytest.</li>
               </ul>
 
               <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #18181b;">Core Engineering Competencies</h3>

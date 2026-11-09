@@ -93,6 +93,12 @@ const routeMeta = {
     keywords: "Introduction to Data Engineering, Data Pipeline Architecture, OLTP vs OLAP, Batch vs Stream Processing, ETL vs ELT, Data Lakehouse, Parquet, Data Quality, Python Data Pipeline",
     canonical: `${BASE_URL}/learning/data-engineering/intro`,
   },
+  "/learning/data-engineering/python": {
+    title: "Module 2: Python Programming for Data Engineering | PrepSpaces",
+    description: "Master Python for data engineering: variables, OOP, generators, iterators, CSV/JSON/XML parsing, chunk processing, regex, logging, API extraction, SQLite/SQLAlchemy, Pandas, Polars, and Pytest.",
+    keywords: "Python for Data Engineering, Data Pipeline Python, Python Generators, Pandas vs Polars, SQLAlchemy, Pytest, Python ETL, API Ingestion, Chunk Processing, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/python`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

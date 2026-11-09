@@ -1,0 +1,190 @@
+{
+  "id": "python",
+  "courseId": "data-engineering",
+  "index": 2,
+  "name": "2. Python Programming for Data Engineering",
+  "route": "/learning/data-engineering/python",
+  "componentName": "DataEngineeringPython",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which Python data structure stores unique elements?",
+      "options": [
+        "List",
+        "Tuple",
+        "Set",
+        "String"
+      ],
+      "correctIndex": 2,
+      "explanation": "A set stores unique elements, automatically eliminating duplicate entries, and supports mathematical set operations such as union, intersection, and difference."
+    },
+    {
+      "id": 2,
+      "question": "What does yield do inside a Python function?",
+      "options": [
+        "Ends the program",
+        "Produces a value and suspends generator execution",
+        "Creates a database connection",
+        "Deletes an object"
+      ],
+      "correctIndex": 1,
+      "explanation": "The yield statement produces a value and suspends the function execution state, turning it into a generator that computes values lazily without consuming memory for all items at once."
+    },
+    {
+      "id": 3,
+      "question": "Which method is called when a new class instance is initialized?",
+      "options": [
+        "__start__()",
+        "__main__()",
+        "__init__()",
+        "__create__()"
+      ],
+      "correctIndex": 2,
+      "explanation": "__init__() is Python's constructor method, invoked automatically when a new object instance is created from a class."
+    },
+    {
+      "id": 4,
+      "question": "What is the primary purpose of exception handling?",
+      "options": [
+        "Increase file size",
+        "Handle runtime errors and exceptional conditions",
+        "Automatically clean every dataset",
+        "Create variables"
+      ],
+      "correctIndex": 1,
+      "explanation": "Exception handling with try-except-finally blocks allows applications to gracefully intercept runtime errors, log diagnostic context, retry transient failures, and clean up resources without crashing."
+    },
+    {
+      "id": 5,
+      "question": "Which built-in module is used to read and write JSON?",
+      "options": [
+        "csv",
+        "json",
+        "re",
+        "math"
+      ],
+      "correctIndex": 1,
+      "explanation": "Python's standard library provides the json module with json.load(), json.loads(), json.dump(), and json.dumps() for reading and writing JSON data."
+    },
+    {
+      "id": 6,
+      "question": "Which technique is suitable for processing a very large CSV without loading everything into memory?",
+      "options": [
+        "Using readlines() for the entire file",
+        "Converting the entire file to a list",
+        "Reading the file in chunks",
+        "Printing every record"
+      ],
+      "correctIndex": 2,
+      "explanation": "Reading large files in chunks (or iterating line by line using generators or Pandas chunksize) processes fixed-size batches incrementally, preventing out-of-memory errors."
+    },
+    {
+      "id": 7,
+      "question": "Which library is commonly used for HTTP requests in Python?",
+      "options": [
+        "Requests",
+        "Pytest",
+        "SQLite",
+        "Regex"
+      ],
+      "correctIndex": 0,
+      "explanation": "Requests is the standard HTTP library in Python for communicating with REST APIs, handling authentication, sessions, timeouts, and JSON serialization."
+    },
+    {
+      "id": 8,
+      "question": "What does a virtual environment provide?",
+      "options": [
+        "A new physical computer",
+        "Isolation of project dependencies",
+        "Automatic cloud deployment",
+        "A database backup"
+      ],
+      "correctIndex": 1,
+      "explanation": "A virtual environment isolates project-specific Python packages and versions from other projects and the global system installation, preventing dependency conflicts."
+    },
+    {
+      "id": 9,
+      "question": "What is the correct tool for automated Python unit testing in this module?",
+      "options": [
+        "Airflow",
+        "Kafka",
+        "Pytest",
+        "Parquet"
+      ],
+      "correctIndex": 2,
+      "explanation": "Pytest is a widely used Python testing framework that provides assert evaluation, fixtures, test discovery, and parameterized test runners."
+    },
+    {
+      "id": 10,
+      "question": "What does df.groupby() commonly do in Pandas?",
+      "options": [
+        "Deletes a DataFrame",
+        "Groups rows to support aggregation",
+        "Creates a virtual environment",
+        "Connects to an API"
+      ],
+      "correctIndex": 1,
+      "explanation": "df.groupby() splits the data into buckets based on specified key columns so you can compute aggregations like sum, mean, or count across groups."
+    },
+    {
+      "id": 11,
+      "question": "Which feature of Polars allows a query to be planned before execution?",
+      "options": [
+        "Lazy execution",
+        "Inheritance",
+        "Exception chaining",
+        "File locking"
+      ],
+      "correctIndex": 0,
+      "explanation": "Polars lazy execution (using scan_csv() and LazyFrame) builds an abstract query plan and optimizes predicate and projection pushdowns before executing with .collect()."
+    },
+    {
+      "id": 12,
+      "question": "Why should SQL queries use parameters for external values?",
+      "options": [
+        "To change Python syntax",
+        "To reduce SQL injection risk and separate values from query code",
+        "To disable transactions",
+        "To increase CSV file size"
+      ],
+      "correctIndex": 1,
+      "explanation": "Parameterized queries separate SQL statements from input values, preventing malicious SQL injection attacks and ensuring type safety."
+    },
+    {
+      "id": 13,
+      "question": "Which Python feature is used to record application events at different severity levels?",
+      "options": [
+        "print only",
+        "logging",
+        "range",
+        "enumerate"
+      ],
+      "correctIndex": 1,
+      "explanation": "Python's logging module provides structured event tracking with standardized levels (DEBUG, INFO, WARNING, ERROR, CRITICAL) and configurable handlers."
+    },
+    {
+      "id": 14,
+      "question": "What does idempotency mean in data pipeline design?",
+      "options": [
+        "Every job must run exactly once",
+        "Repeated execution should not create unintended additional effects",
+        "All records must be deleted",
+        "Every dataset must be a list"
+      ],
+      "correctIndex": 1,
+      "explanation": "An idempotent operation can be executed multiple times with the same input without changing the result beyond the initial application (e.g., upserts or unique constraints prevent duplicates on retries)."
+    },
+    {
+      "id": 15,
+      "question": "Which module provides Python's built-in CSV reader and writer?",
+      "options": [
+        "xml",
+        "csv",
+        "typing",
+        "datetime"
+      ],
+      "correctIndex": 1,
+      "explanation": "Python's standard library includes the csv module with csv.reader, csv.writer, csv.DictReader, and csv.DictWriter."
+    }
+  ]
+}
