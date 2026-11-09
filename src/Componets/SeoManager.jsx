@@ -117,6 +117,12 @@ const routeMeta = {
     keywords: "Data Modeling, Database Design, ER Diagrams, Normalization 1NF 2NF 3NF, BCNF, Star Schema, Snowflake Schema, Slowly Changing Dimensions, SCD Type 2, Fact Table Grain, Event Sourcing, Data Warehouse Modeling, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/data-modeling`,
   },
+  "/learning/data-engineering/internals": {
+    title: "Module 5: Database Internals and Performance Engineering | PrepSpaces",
+    description: "Master database internals: 8KB pages, buffer pool LRU cache, B+ Trees vs LSM Trees vs Hash indexing, Bloom filters, cost-based query optimization, nested loop/hash/sort-merge joins, ACID transactions, MVCC tuple versioning, WAL crash recovery, table partitioning, and PostgreSQL performance tuning.",
+    keywords: "Database Internals, Performance Engineering, Storage Engines, 8KB Pages, Buffer Pool, B+ Tree, LSM Tree, Bloom Filter, Cost-Based Optimizer, Hash Join, Nested Loop Join, Sort-Merge Join, MVCC, xmin xmax, Write-Ahead Logging WAL, ARIES Recovery, Table Partitioning, PostgreSQL Tuning, shared_buffers, work_mem, PgBouncer, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/internals`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

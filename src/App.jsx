@@ -187,6 +187,7 @@ const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineerin
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
 const DataEngineeringModeling = React.lazy(() => import("./Componets/DataEngineeringModeling"));
+const DataEngineeringInternals = React.lazy(() => import("./Componets/DataEngineeringInternals"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1607,6 +1608,10 @@ function App() {
             <Route path="/learning/data-engineering/modeling" element={<DataEngineeringModeling />} />
             <Route path="/learning/data-engineering/module-4" element={<DataEngineeringModeling />} />
             <Route path="/learn/data-engineering/data-modeling" element={<DataEngineeringModeling />} />
+            <Route path="/learning/data-engineering/internals" element={<DataEngineeringInternals />} />
+            <Route path="/learning/data-engineering/database-internals" element={<DataEngineeringInternals />} />
+            <Route path="/learning/data-engineering/module-5" element={<DataEngineeringInternals />} />
+            <Route path="/learn/data-engineering/internals" element={<DataEngineeringInternals />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

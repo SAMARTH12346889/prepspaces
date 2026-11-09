@@ -42,5 +42,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "internals",
+    "courseId": "data-engineering",
+    "index": 5,
+    "name": "5. Database Internals and Performance Engineering",
+    "route": "/learning/data-engineering/internals",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

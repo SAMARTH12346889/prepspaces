@@ -1,0 +1,70 @@
+{
+  "id": "internals",
+  "courseId": "data-engineering",
+  "index": 5,
+  "title": "Database Internals and Performance Engineering",
+  "name": "5. Database Internals and Performance Engineering",
+  "description": "Master relational and log-structured storage engines, 8KB database pages, buffer pool caching and LRU eviction, B+ Trees vs LSM Trees vs Hash indexing, Bloom filters, query parsing, cost-based execution plans, join algorithms (nested loop, hash, sort-merge), transaction ACID guarantees, MVCC tuple versioning, Write-Ahead Logging (WAL), crash recovery (ARIES), table partitioning, and high-availability replication.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary unit of storage and I/O between persistent disk and memory in PostgreSQL by default?",
+      "options": [
+        "A 64-byte CPU cache line",
+        "An 8 KB database page (heap block)",
+        "A 1 MB extent",
+        "A 128 MB table partition"
+      ],
+      "correct": 1,
+      "explanation": "PostgreSQL defaults to 8 KB pages. All table and index I/O is performed in page increments."
+    },
+    {
+      "id": 2,
+      "question": "Why are B+ Trees preferred over regular B-Trees for relational database indexes?",
+      "options": [
+        "B+ Trees store full table records in all internal nodes",
+        "B+ Trees have linked leaf nodes, enabling extremely fast range scans and ordered scans",
+        "B+ Trees use O(1) hashing instead of balanced search trees",
+        "B+ Trees never require disk I/O"
+      ],
+      "correct": 1,
+      "explanation": "In B+ Trees, all actual data pointers are concentrated at the leaf level, and leaves are linked sequentially with sibling pointers for efficient range traversals."
+    },
+    {
+      "id": 3,
+      "question": "In an LSM Tree architecture, what is the role of a Bloom Filter?",
+      "options": [
+        "To compress SSTables before writing to disk",
+        "To quickly test if a key definitely does NOT exist in an SSTable, preventing unnecessary disk I/O",
+        "To sort keys inside the active memtable",
+        "To coordinate distributed consensus between replicas"
+      ],
+      "correct": 1,
+      "explanation": "Bloom filters have zero false negatives: if it says an element is absent, the storage engine can safely skip reading that SSTable file from disk."
+    },
+    {
+      "id": 4,
+      "question": "When an application executes a query, what is the core responsibility of the Cost-Based Optimizer (CBO)?",
+      "options": [
+        "To write changes to the Write-Ahead Log",
+        "To evaluate possible execution plans (scans, joins, orders) and pick the one with the lowest estimated disk/CPU cost",
+        "To bill the user's credit card for compute time",
+        "To encrypt database tables with AES-256"
+      ],
+      "correct": 1,
+      "explanation": "The CBO calculates estimated disk page fetches and CPU tuple costs based on statistics from pg_statistic to select the optimal physical plan."
+    },
+    {
+      "id": 5,
+      "question": "Which JOIN algorithm builds an in-memory hash table on the smaller inner relation and then streams the larger outer relation?",
+      "options": [
+        "Nested Loop Join",
+        "Hash Join",
+        "Sort-Merge Join",
+        "Broadcast Cartesian Join"
+      ],
+      "correct": 1,
+      "explanation": "Hash Join performs a Build Phase (hash table on inner relation in work_mem) followed by a Probe Phase (scanning the outer relation)."
+    }
+  ]
+}
