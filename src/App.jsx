@@ -189,6 +189,7 @@ const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringS
 const DataEngineeringModeling = React.lazy(() => import("./Componets/DataEngineeringModeling"));
 const DataEngineeringInternals = React.lazy(() => import("./Componets/DataEngineeringInternals"));
 const DataEngineeringFormats = React.lazy(() => import("./Componets/DataEngineeringFormats"));
+const DataEngineeringWarehousing = React.lazy(() => import("./Componets/DataEngineeringWarehousing"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1617,6 +1618,10 @@ function App() {
             <Route path="/learning/data-engineering/formats" element={<DataEngineeringFormats />} />
             <Route path="/learning/data-engineering/module-6" element={<DataEngineeringFormats />} />
             <Route path="/learn/data-engineering/data-formats" element={<DataEngineeringFormats />} />
+            <Route path="/learning/data-engineering/data-warehousing" element={<DataEngineeringWarehousing />} />
+            <Route path="/learning/data-engineering/warehousing" element={<DataEngineeringWarehousing />} />
+            <Route path="/learning/data-engineering/module-7" element={<DataEngineeringWarehousing />} />
+            <Route path="/learn/data-engineering/data-warehousing" element={<DataEngineeringWarehousing />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

@@ -1,0 +1,190 @@
+{
+  "id": "data-warehousing",
+  "courseId": "data-engineering",
+  "index": 7,
+  "title": "Data Warehousing and Analytical Systems",
+  "name": "7. Data Warehousing & Analytical Systems",
+  "description": "Master enterprise data warehousing, OLAP architectures, multidimensional dimensional modeling, star and snowflake schemas, columnar storage engines, Massively Parallel Processing (MPP), data partitioning, clustering, materialized views, query optimization, and modern cloud warehouse internals (Snowflake, Google BigQuery, Amazon Redshift, and ClickHouse).",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Which of the following defines Bill Inmon's four core characteristics of a Data Warehouse?",
+      "options": [
+        "Relational, Normalized, Distributed, In-memory",
+        "Subject-oriented, Integrated, Time-variant, Non-volatile",
+        "Columnar, Stream-based, Unstructured, Transient",
+        "Event-driven, Microservice-oriented, High-throughput, Document-based"
+      ],
+      "correct": 1,
+      "explanation": "Bill Inmon defined a Data Warehouse as a subject-oriented, integrated, time-variant, and non-volatile collection of data in support of management's decision-making process."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary difference in workload characteristics between OLTP and OLAP systems?",
+      "options": [
+        "OLTP processes high-volume complex historical aggregations, while OLAP processes single-row updates",
+        "OLTP processes high-concurrency, short write/read transactions targeting specific records, while OLAP executes complex read-heavy aggregations over millions of rows",
+        "OLTP only runs on NoSQL databases, while OLAP only runs on CSV files",
+        "OLTP systems never use indexing, while OLAP systems rely exclusively on primary key lookups"
+      ],
+      "correct": 1,
+      "explanation": "OLTP is optimized for fast, transactional, single-record operations (insert/update/delete) with ACID guarantees, whereas OLAP is optimized for scanning large historical datasets to aggregate metrics across dimensions."
+    },
+    {
+      "id": 3,
+      "question": "In multidimensional modeling, what does defining the 'grain' of a fact table mean?",
+      "options": [
+        "The number of hard disk drives used in the MPP cluster",
+        "The exact level of detail represented by a single row in the fact table",
+        "The compression ratio of the Parquet files",
+        "The number of foreign keys connected to dimension tables"
+      ],
+      "correct": 1,
+      "explanation": "The grain establishes exactly what a single fact table row represents (e.g. one line item on an invoice, one daily account balance snapshot, or one website click event). Determining the grain is the most critical first step in dimensional modeling."
+    },
+    {
+      "id": 4,
+      "question": "What distinguishes a Star Schema from a Snowflake Schema?",
+      "options": [
+        "In a Star Schema, dimensions are denormalized and connect directly to the fact table; in a Snowflake Schema, dimensions are normalized into hierarchies requiring multi-table joins",
+        "Star Schema only supports numbers, while Snowflake Schema only supports strings",
+        "Star Schema requires Snowflake Cloud Data Warehouse, while Snowflake Schema runs on any database",
+        "Star Schema has multiple fact tables, while Snowflake Schema has zero fact tables"
+      ],
+      "correct": 0,
+      "explanation": "In a Star Schema, each dimension is fully denormalized in a single table, resulting in simpler queries and fewer joins. In a Snowflake Schema, dimension hierarchies are normalized into sub-tables (e.g., product -> subcategory -> category), reducing redundancy but adding join overhead."
+    },
+    {
+      "id": 5,
+      "question": "Which type of fact table records events that have a well-defined beginning and end with unpredictable milestones (e.g., an order fulfillment lifecycle)?",
+      "options": [
+        "Transaction Fact Table",
+        "Periodic Snapshot Fact Table",
+        "Accumulating Snapshot Fact Table",
+        "Factless Fact Table"
+      ],
+      "correct": 2,
+      "explanation": "Accumulating snapshot fact tables model evolving multi-step business processes with date foreign keys representing each milestone (order placed, payment authorized, package shipped, delivered) and are updated as milestones occur."
+    },
+    {
+      "id": 6,
+      "question": "Why does Columnar Storage dramatically outperform Row-Oriented Storage for analytical queries (e.g., SELECT AVG(revenue) FROM sales)?",
+      "options": [
+        "Columnar storage disables all compression algorithms",
+        "Columnar storage enables projection pushdown (reading only the revenue column from disk) and SIMD vectorized CPU execution, avoiding reading irrelevant columns",
+        "Row storage cannot store decimal numbers",
+        "Columnar storage eliminates the need for SQL queries"
+      ],
+      "correct": 1,
+      "explanation": "Columnar storage arranges data of the same type contiguously on disk. Analytical queries only load the specific columns requested in the query (projection pushdown), achieving high compression ratios and vectorized SIMD processing."
+    },
+    {
+      "id": 7,
+      "question": "In a Massively Parallel Processing (MPP) analytical database, what is a 'data shuffle'?",
+      "options": [
+        "Deleting random records during nightly maintenance",
+        "The network transfer of intermediate query data between compute worker nodes to re-partition rows for a JOIN or GROUP BY operation",
+        "Encrypting table columns with rotating keys",
+        "Switching active database leaders upon hardware failure"
+      ],
+      "correct": 1,
+      "explanation": "When workers process a join or aggregation on keys distributed across different nodes, the engine must redistribute (shuffle) intermediate rows over the internal network to colocate matching keys on the same worker."
+    },
+    {
+      "id": 8,
+      "question": "In Amazon Redshift, which distribution style is optimal for small, frequently joined dimension tables (e.g., dim_store with 50 rows)?",
+      "options": [
+        "DISTSTYLE KEY",
+        "DISTSTYLE EVEN",
+        "DISTSTYLE ALL",
+        "DISTSTYLE AUTO"
+      ],
+      "correct": 2,
+      "explanation": "DISTSTYLE ALL replicates the entire table to the first slice of every compute node. This ensures joins between the large fact table and the dimension table are performed locally with zero network shuffle."
+    },
+    {
+      "id": 9,
+      "question": "How does Partition Pruning improve query performance in modern data warehouses like BigQuery or Snowflake?",
+      "options": [
+        "It deletes old records from the table to reduce storage usage",
+        "The query optimizer reads partition metadata to skip reading storage files/blocks whose partition key does not match the WHERE clause",
+        "It truncates all index files before running the query",
+        "It forces the query to run on a single CPU core"
+      ],
+      "correct": 1,
+      "explanation": "Partition pruning uses partition boundaries (e.g. order_date BETWEEN '2026-01-01' AND '2026-01-31') to exclude non-matching storage blocks entirely from disk I/O, dramatically reducing scan bytes and query latency."
+    },
+    {
+      "id": 10,
+      "question": "What is Snowflake's foundational architectural model?",
+      "options": [
+        "Shared-Disk Monolith",
+        "Shared-Nothing with tightly coupled disks",
+        "Multi-cluster Shared Data architecture with decoupled cloud storage, independent virtual compute warehouses, and cloud services",
+        "Client-Server In-Memory Cache"
+      ],
+      "correct": 2,
+      "explanation": "Snowflake separates storage (centralized cloud object store), compute (independent virtual warehouses that can be spun up, paused, and scaled without contention), and cloud services (metadata, security, optimization)."
+    },
+    {
+      "id": 11,
+      "question": "How does Snowflake's Zero-Copy Cloning create an instant clone of a multi-terabyte table without duplicating storage cost?",
+      "options": [
+        "It writes a compressed ZIP file to an S3 bucket",
+        "It duplicates only the metadata pointers referencing existing immutable micro-partitions, writing new micro-partitions only when modifications occur (Copy-on-Write)",
+        "It moves the table to RAM temporarily",
+        "It generates dummy synthetic records"
+      ],
+      "correct": 1,
+      "explanation": "Snowflake micro-partitions are immutable. Zero-copy cloning creates a new set of metadata pointers referencing the existing micro-partitions without copying underlying storage bytes until changes are written."
+    },
+    {
+      "id": 12,
+      "question": "In Google BigQuery, how is compute capacity allocated and managed?",
+      "options": [
+        "Users must provision and maintain physical EC2 virtual machines",
+        "Compute is serverless and measured in 'slots' (virtual CPUs executing SQL fragments), billed either on-demand per bytes scanned or via capacity reservations",
+        "BigQuery only executes queries on client web browsers",
+        "Queries are executed sequentially on a single central server"
+      ],
+      "correct": 1,
+      "explanation": "BigQuery is completely serverless. It allocates pools of 'slots' (processing units that parse and execute SQL fragments in parallel across Google's Borg infrastructure)."
+    },
+    {
+      "id": 13,
+      "question": "What is the primary architectural mechanism of ClickHouse's MergeTree storage engine?",
+      "options": [
+        "B-Tree indexes updated synchronously in place",
+        "Data is written into immutable sorted parts, and background merge threads continuously merge small parts into larger sorted parts while updating primary sparse index marks",
+        "All data is held in Redis RAM and lost on restart",
+        "Data is stored in uncompressed CSV files"
+      ],
+      "correct": 1,
+      "explanation": "ClickHouse MergeTree writes data into immutable sorted parts. In the background, ClickHouse merges parts together (LSM-style), maintaining sparse primary index marks (every 8,192 rows) for lightning-fast vectorized scans."
+    },
+    {
+      "id": 14,
+      "question": "What is the primary advantage of Materialized Views over standard logical SQL Views in data warehousing?",
+      "options": [
+        "Materialized views consume zero disk storage",
+        "Materialized views persist the precomputed result set physically on disk, allowing analytical queries to return instantly without recalculating expensive aggregations",
+        "Materialized views allow updating third-party REST APIs",
+        "Materialized views prevent users from running SELECT queries"
+      ],
+      "correct": 1,
+      "explanation": "A regular view is just a saved SQL query executed at runtime. A materialized view pre-aggregates and writes query results to physical storage, drastically reducing query latency and warehouse compute spend."
+    },
+    {
+      "id": 15,
+      "question": "Which strategy is most effective for controlling compute costs in cloud data warehouses like Snowflake?",
+      "options": [
+        "Setting AUTO_SUSPEND = 60 seconds on virtual warehouses so compute halts immediately when idle, and sizing warehouses to match query complexity rather than leaving large clusters permanently active",
+        "Running all analytical queries on transactional production databases",
+        "Disabling all clustering keys and indexes",
+        "Executing full table scans on every dashboard refresh"
+      ],
+      "correct": 0,
+      "explanation": "Configuring auto-suspend (e.g. 1-2 minutes) and auto-resume, selecting appropriate warehouse sizes per workload, and using clustered partitioning to prune data scans are the standard best practices for cloud warehouse cost optimization."
+    }
+  ]
+}

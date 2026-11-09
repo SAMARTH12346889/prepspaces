@@ -129,6 +129,12 @@ const routeMeta = {
     keywords: "Data Formats, Data Serialization, Apache Avro, Apache Parquet, Apache ORC, Apache Arrow, Row vs Columnar Storage, Protocol Buffers, MessagePack, Data Compression Snappy ZSTD GZIP, Schema Evolution, Confluent Schema Registry, REST API Ingestion, Cursor Pagination, Exponential Backoff, Webhooks HMAC Idempotency, Data Contracts, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/data-formats`,
   },
+  "/learning/data-engineering/data-warehousing": {
+    title: "Module 7: Data Warehousing and Analytical Systems | PrepSpaces",
+    description: "Master enterprise data warehousing, OLAP architectures, multidimensional modeling, star and snowflake schemas, columnar storage engines, Massively Parallel Processing (MPP), data partitioning, clustering, materialized views, query optimization, and modern cloud warehouse internals (Snowflake, Google BigQuery, Amazon Redshift, and ClickHouse).",
+    keywords: "Data Warehousing, Enterprise Data Warehouse, OLAP Architecture, Multidimensional Modeling, Star Schema, Snowflake Schema, Columnar Storage, Massively Parallel Processing MPP, Partitioning and Clustering, Materialized Views, Snowflake Architecture, Google BigQuery, Amazon Redshift, ClickHouse MergeTree, Analytical Query Optimization, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/data-warehousing`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

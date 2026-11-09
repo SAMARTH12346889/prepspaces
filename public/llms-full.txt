@@ -940,3 +940,33 @@
 - **Topic Summary:** Relational database design and analytical dimensional modeling: conceptual, logical, and physical models, Crow's Foot ER diagrams, cardinality, primary keys, foreign keys, composite and surrogate keys, database normalization, insertion/update/deletion anomalies, 1NF, 2NF, 3NF, Boyce-Codd Normal Form (BCNF), controlled denormalization trade-offs, referential integrity and cascading rules, relational schema architecture, dimensional modeling foundations, fact tables vs dimension tables, establishing fact table grain, Star Schema and Snowflake Schema architectures, Slowly Changing Dimensions (SCD Type 0, 1, 2, 3, 4, 6), historical data modeling, snapshot tables, effective dating, bitemporal valid time vs transaction time, event-based data modeling, event sourcing, Kafka streaming integration, schema evolution, backward and forward compatibility, and production e-commerce warehouse lab.
 - **Key Concepts:** Fact table grain, surrogate key generation, partial vs transitive dependencies, superkeys in BCNF, Star vs Snowflake trade-offs, SCD Type 2 dimension versioning, event time vs processing time, and schema registry compatibility.
 - **Hands-On Lab:** Interactive ERD & schema inspector, normalization anomaly fixer (1NF-3NF), star vs snowflake join comparator, SCD Type 2 dimension simulator, event-driven streaming emitter, and comprehensive assessment.
+
+
+### Module 7: Data Warehousing and Analytical Systems
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/data-warehousing
+- **Topics Covered:**
+  - 1. Introduction to Data Warehousing (Inmon 4 characteristics: subject-oriented, integrated, time-variant, non-volatile)
+  - 2. Evolution of Data Warehouses (EDW -> Big Data Hadoop -> Cloud DW -> Lakehouse)
+  - 3. Operational vs Analytical Databases (OLTP vs OLAP architecture and workload patterns)
+  - 4. Data Warehouse Multi-Tier Architecture (7 functional tiers from sources to consumption)
+  - 5. Enterprise Data Warehouse (EDW) governance, integration, and master data management
+  - 6. Centralized and Distributed Analytical Warehouses
+  - 7. OLAP Architecture & Multidimensional Analysis (Roll-up, Drill-down, Slice, Dice, Pivot, ROLAP vs MOLAP vs HOLAP)
+  - 8. Multidimensional Data Modeling (Additive, semi-additive, non-additive facts & dimension attributes)
+  - 9. Fact and Dimension Table Design (Transaction, periodic snapshot, accumulating snapshot, factless fact tables)
+  - 10. Star and Snowflake Schemas (Denormalization vs normalized dimension hierarchies)
+  - 11. Enterprise Data Marts (Dependent, independent, and hybrid data marts)
+  - 12. Enterprise BI and Semantic Layer Architectures (Power BI, Tableau, Looker, Metabase, RBAC)
+  - 13. Columnar Storage Mechanics (Projection pushdown, dictionary/RLE encoding, vectorized SIMD execution)
+  - 14. Massively Parallel Processing (MPP) Architecture (Leader/coordinator, compute workers, hash/even/all data distribution, network shuffle, skew mitigation)
+  - 15. Data Warehouse Partitioning Strategies (Range, list, hash, date-trunc partitioning, and partition pruning)
+  - 16. Clustering and Sorting (Micro-partition pruning, Snowflake cluster keys, BigQuery clustered tables, Redshift sort keys, ClickHouse MergeTree order keys)
+  - 17. Materialized Views (Precomputed query persistence, incremental refresh, aggregate and join views)
+  - 18. Query Optimization for Analytical Workloads (Execution plans, projection pushdown, predicate pushdown, join optimization)
+  - 19. Warehouse Performance and Cost Optimization (Compute auto-suspend, sizing, workload management, storage compression)
+  - 20. Snowflake Architecture (Storage-compute decoupling, virtual warehouses, micro-partitions, Time Travel, zero-copy cloning)
+  - 21. Google BigQuery Architecture (Serverless slot model, Capacitor columnar format, Colossus storage, BigLake)
+  - 22. Amazon Redshift Architecture (Leader node, compute nodes, RA3 managed storage, slices, KEY/EVEN/ALL distribution styles)
+  - 23. ClickHouse Architecture (MergeTree storage engine, parts, primary sparse index marks, background merges, distributed tables)
+  - 24. Four-Platform Comparison Matrix (Snowflake vs BigQuery vs Redshift vs ClickHouse)
+  - 25. Practical Capstone: Build an Enterprise E-Commerce Data Warehouse Platform

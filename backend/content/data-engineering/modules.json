@@ -64,5 +64,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "data-warehousing",
+    "courseId": "data-engineering",
+    "index": 7,
+    "name": "7. Data Warehousing & Analytical Systems",
+    "route": "/learning/data-engineering/data-warehousing",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
