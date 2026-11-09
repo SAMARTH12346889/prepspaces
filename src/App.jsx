@@ -1682,6 +1682,12 @@ function App() {
             <Route path="/learning/data-engineering/cloud-platforms" element={<DataEngineeringCloud />} />
             <Route path="/learning/data-engineering/module-18" element={<DataEngineeringCloud />} />
             <Route path="/learn/data-engineering/cloud-data-engineering" element={<DataEngineeringCloud />} />
+            <Route path="/learning/data-engineering/dataops-cicd" element={<DataEngineeringDataOps />} />
+            <Route path="/learning/data-engineering/dataops" element={<DataEngineeringDataOps />} />
+            <Route path="/learning/data-engineering/docker" element={<DataEngineeringDataOps />} />
+            <Route path="/learning/data-engineering/terraform" element={<DataEngineeringDataOps />} />
+            <Route path="/learning/data-engineering/module-19" element={<DataEngineeringDataOps />} />
+            <Route path="/learn/data-engineering/dataops-cicd" element={<DataEngineeringDataOps />} />
             <Route path="/learning/data-engineering/airflow" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/orchestration" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/dagster" element={<DataEngineeringAirflow />} />

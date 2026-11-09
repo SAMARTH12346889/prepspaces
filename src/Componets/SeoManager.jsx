@@ -153,7 +153,14 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
-    "/learning/data-engineering/cloud-data-engineering": {
+      "/learning/data-engineering/dataops-cicd": {
+    canonical: `${BASE_URL}/learning/data-engineering/dataops-cicd`,
+    title: "Module 19: DataOps, Docker, CI/CD and Infrastructure as Code | Data Engineering Master Course",
+    description: "Master production DataOps and software engineering for data platforms: Git collaboration, feature branching, merge conflicts, pull requests, Docker packaging, multi-stage image optimization, Docker Compose local development, CI/CD pipelines with GitHub Actions, automated testing (unit, integration, regression, data quality), Terraform declarative infrastructure as code, S3 remote state and DynamoDB locking, drift detection, secrets management, zero-downtime database migrations (Expand-and-Contract), deployment strategies (Blue-Green, Canary, Shadow, Rolling), rollback and data recovery, and Kubernetes batch processing.",
+    keywords: "DataOps, Docker, CI/CD, Infrastructure as Code, Terraform, GitHub Actions, Kubernetes, Git branching, pull requests, Dockerfile, Docker Compose, containerization, pytest, data quality testing, Great Expectations, remote state, state locking, infrastructure drift, secrets management, database migrations, expand and contract, blue-green deployment, canary deployment, shadow deployment, rollback, data recovery, Kubernetes Job, CronJob, data engineering course",
+    badge: "Module 19 · Data Engineering"
+  },
+  "/learning/data-engineering/cloud-data-engineering": {
     canonical: `${BASE_URL}/learning/data-engineering/cloud-data-engineering`,
     title: "Module 18: Cloud Data Engineering and Cloud Platforms | Data Engineering Master Course",
     description: "Master cloud data engineering platforms with an AWS primary focus and direct Azure and GCP mappings: regions, AZs, VPC networking, IAM least-privilege security, KMS encryption, Amazon S3 multi-tier data lake architecture (Landing, Raw, Trusted, Curated), AWS Glue Data Catalog and serverless PySpark ETL, Amazon Athena serverless SQL analytics, Amazon Redshift MPP columnar warehousing, Amazon EMR distributed computing, Amazon Kinesis real-time event streaming, serverless data architectures, cloud cost optimization, and end-to-end multi-cloud data engineering.",

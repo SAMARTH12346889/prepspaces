@@ -1122,6 +1122,46 @@
   - 24. Final Revision — What You Should Understand (Complete 23-topic mastery synthesis table)
   - 25. Recommended Learning Resources (Official documentation for dbt, Great Expectations, Deequ, OpenMetadata, DataHub, Airflow, and PostgreSQL)
 
+## Module 19: DataOps, Docker, CI/CD and Infrastructure as Code
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/dataops-cicd
+- **Topics Covered:**
+  - 1. Understanding the complete module (Modern DataOps workflow: Version Control, Development, Containerization, Automated Testing, CI, IaC, Deployment, Operations)
+  - 2. Introduction to DataOps (What is DataOps, DataOps vs DevOps, core principles: automation, collaboration, continuous testing, observability, reproducibility, governance, lifecycle)
+  - 3. Software Engineering Practices for Data Systems (Modular code design, separation of responsibilities, idempotency, logging and error handling, testing and documentation)
+  - 4. Git and Version Control (Version control fundamentals, Git mechanics, repositories, Git workflow: working directory, staging area, repository commits, GitHub collaboration)
+  - 5. Git Branching and Collaboration (Feature branching, GitHub Flow vs Git Flow, merge conflicts, pull requests, code reviews, .gitignore rules)
+  - 6. Docker Fundamentals (Containerization benefits, containers vs images, containers vs virtual machines, Docker architecture, essential commands)
+  - 7. Dockerfiles (Instructions: FROM, WORKDIR, COPY, RUN, ENV, USER, CMD, ENTRYPOINT, building images, layer caching, best practices)
+  - 8. Docker Compose (Multi-container stacks, PostgreSQL + Python pipeline + Redis, volumes for persistence, Compose commands, Docker vs Compose)
+  - 9. Containerizing Data Pipelines (Packaging dependencies, promotion across environments, containerizing Apache Spark workloads)
+  - 10. Development, Staging, and Production Environments (Environment isolation, sample vs masked vs live data, configuration separation)
+  - 11. Continuous Integration and Continuous Deployment (CI vs Continuous Delivery vs Continuous Deployment, automated test gating)
+  - 12. GitHub Actions (Workflows, jobs, steps, runners, automated CI test runner, Docker image build, environments, OIDC cloud federation)
+  - 13. Automated Pipeline Testing (Unit testing, integration testing, data quality checks, regression testing, contract testing, testing pyramid)
+  - 14. Infrastructure as Code (IaC) (Declarative vs imperative infrastructure, Terraform vs CloudFormation vs CDK vs Pulumi vs Ansible)
+  - 15. Terraform Fundamentals (HCL syntax, providers, resources, variables, init/plan/apply/destroy, local vs remote state, DynamoDB locking, modules)
+  - 16. Infrastructure Provisioning (Provisioning lifecycle, automated CI/CD provisioning, infrastructure drift detection)
+  - 17. Configuration Management (Separation of configuration from code, config.yaml, environment variables, configuration tools)
+  - 18. Secrets and Environment Management (Protecting sensitive credentials, AWS Secrets Manager, Kubernetes Secrets, GitHub Actions Secrets)
+  - 19. Database and Pipeline Migrations (Schema migrations, migration versioning, pipeline migrations, expand-and-contract zero-downtime strategy)
+  - 20. Deployment Strategies (Recreate, rolling, blue-green, canary, shadow execution comparison)
+  - 21. Rollback and Recovery (Application rollback vs data recovery, reconciling corrupted partitions, reprocessing strategies)
+  - 22. Introduction to Kubernetes for Data Workloads (Control plane, worker nodes, Pods, Deployments, Jobs, CronJobs, ConfigMaps, Secrets, resource requests and limits)
+  - 23. Complete Practical Project — Build a Production-Ready DataOps Platform (12-step capstone: Git repo, transformation, tests, Docker, Compose, CI, Terraform, Staging, Production, Rollback, Monitoring)
+  - 24. Advanced Topics for Production DataOps (Data observability, data lineage, workflow orchestration, container registries, dependency management, infrastructure security, disaster recovery)
+  - 25. Module 19 — Important Interview Questions (48 structured interview questions across DataOps, Git, Docker, CI/CD, Terraform, Kubernetes)
+  - 26. Practical Assignments (20 hands-on assignments)
+  - 27. Final Capstone Challenge (Automated Data Engineering Deployment Platform)
+  - 28. Recommended Learning Resources (Git, Docker, GitHub Actions, Terraform, Kubernetes, pytest, Ansible)
+  - 29. Final Module Summary (Revision matrix and modern production DataOps architectural flow)
+- **Interactive Workbenches:**
+  - 1. Docker Multi-Stage Containerizer & Layer Cache Inspector (Multi-stage Dockerfile visualizer with layer cache tracking, slim vs full footprint comparison, non-root user security)
+  - 2. GitHub Actions CI/CD Pipeline Simulator & Matrix Runner (Live PR workflow runner executing checkout, Python 3.12, Ruff linter, Pytest unit tests, Great Expectations data quality, and OIDC ECR push)
+  - 3. Terraform Declarative IaC Provisioner & State Machine (Interactive Terraform init/plan/apply lifecycle, S3 remote state with DynamoDB locking, and manual console drift detection)
+  - 4. Production Deployment Strategy Laboratory (Interactive simulator comparing Recreate, Rolling, Blue-Green instant DNS cutover, Canary traffic weighting, and Shadow validation)
+  - 5. Kubernetes Batch Orchestration & Resource Limits Simulator (Deploy containerized ETL Jobs and CronJobs, configure CPU/RAM requests & limits, and simulate OOMKilled Exit Code 137 recovery)
+  - 6. Expand-and-Contract Migration Laboratory & 15-Question Quiz (Step-by-step 4-phase zero-downtime schema migration simulator, plus 15-question comprehensive mastery assessment)
+
 ## Module 18: Cloud Data Engineering and Cloud Platforms
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/cloud-data-engineering
 - **Topics Covered:**

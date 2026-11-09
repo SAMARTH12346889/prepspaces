@@ -1,0 +1,189 @@
+{
+  "id": "dataops-cicd",
+  "title": "DataOps, Docker, CI/CD and Infrastructure as Code",
+  "courseId": "data-engineering",
+  "index": 19,
+  "description": "Master production DataOps and software engineering practices for enterprise data pipelines. Learn Git collaboration, Docker containerization, GitHub Actions CI/CD automation, automated testing (unit, integration, data quality), Terraform infrastructure provisioning, zero-downtime deployment strategies, rollback and disaster recovery, and Kubernetes batch orchestration.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary difference in operational focus between DevOps and DataOps?",
+      "options": [
+        "DevOps manages application delivery; DataOps manages reliable, high-quality data pipeline delivery and data correctness",
+        "DevOps is for AWS cloud only; DataOps is only for local Docker environments",
+        "DataOps eliminates the need for version control and automated testing",
+        "DevOps requires Kubernetes; DataOps only uses bash scripts"
+      ],
+      "answer": 0,
+      "explanation": "While DevOps focuses on application software release cycles and service availability, DataOps focuses on data delivery, ensuring both pipeline execution correctness and the semantic accuracy, completeness, and freshness of analytical datasets."
+    },
+    {
+      "id": 2,
+      "question": "Why is copying 'requirements.txt' before application source code in a Dockerfile a critical optimization?",
+      "options": [
+        "It prevents Python from creating bytecode (.pyc) files",
+        "Docker reuses the cached dependency layer when application code changes, avoiding slow 'pip install' re-executions",
+        "Linux permissions do not allow files to be copied after source code",
+        "It automatically upgrades Python to the latest patch release"
+      ],
+      "answer": 1,
+      "explanation": "Docker builds images in ordered layers. Because dependencies change less frequently than application code, copying requirements.txt first allows Docker to reuse the cached heavy pip install layer, slashing build times from minutes to seconds."
+    },
+    {
+      "id": 3,
+      "question": "What is the primary security vulnerability of embedding static AWS Access Keys in a Dockerfile or GitHub repository secret?",
+      "options": [
+        "Static credentials never expire and risk permanent account compromise if leaked in image layers or commit histories",
+        "Static credentials slow down PySpark execution speed by 50%",
+        "AWS charges an extra hourly rate for static access keys",
+        "Docker cannot parse environment variables containing numbers"
+      ],
+      "answer": 0,
+      "explanation": "Hardcoded or permanent credentials can be exposed through public commits, build layer metadata, or leaked tokens. Modern DataOps uses short-lived temporary credentials via OpenID Connect (OIDC) federation."
+    },
+    {
+      "id": 4,
+      "question": "What does idempotency mean in the context of production data engineering pipelines?",
+      "options": [
+        "The pipeline runs in parallel across 100 worker nodes",
+        "Executing the same pipeline multiple times with the same input produces the exact same final state without duplicate data",
+        "The pipeline automatically converts CSV files into JSON format",
+        "The pipeline is written in both Python and Scala"
+      ],
+      "answer": 1,
+      "explanation": "An idempotent pipeline can be safely rerun or retried after failure without causing duplicate records or corrupted aggregates, using techniques like partition replacement, upserts (MERGE), or deterministic deduplication."
+    },
+    {
+      "id": 5,
+      "question": "In Terraform, what is the critical purpose of 'Terraform State' (terraform.tfstate)?",
+      "options": [
+        "It compiles HCL syntax into C++ machine code",
+        "It maps declared configuration resources to real-world cloud infrastructure objects and tracks metadata and relationships",
+        "It stores temporary Git pull request branches",
+        "It replaces the AWS Management Console login password"
+      ],
+      "answer": 1,
+      "explanation": "Terraform state acts as the single source of truth mapping your declared configuration files to actual cloud resources, allowing Terraform to calculate resource additions, modifications, or destructions during planning."
+    },
+    {
+      "id": 6,
+      "question": "Why should production Terraform state be stored in an S3 remote backend with DynamoDB locking instead of local Git commits?",
+      "options": [
+        "Local state files are always encrypted with AES-256",
+        "Remote state enables team collaboration, protects sensitive state attributes, and prevents concurrent conflicting writes via state locks",
+        "DynamoDB is required to convert HCL into SQL queries",
+        "Git repositories reject files larger than 10 Kilobytes"
+      ],
+      "answer": 1,
+      "explanation": "Committing state to Git risks exposing sensitive plaintext credentials and leads to state divergence among team members. A remote S3 backend with DynamoDB state locking guarantees coordinated, conflict-free team infrastructure management."
+    },
+    {
+      "id": 7,
+      "question": "In a Blue-Green deployment for an analytical data service, how is a release cutover executed?",
+      "options": [
+        "All servers in Blue are immediately formatted before Green starts",
+        "Traffic or query dispatch is instantly switched from the current stable environment (Blue) to the fully tested new environment (Green)",
+        "Blue and Green run on separate physical continents",
+        "Green only accepts traffic between midnight and 2 AM"
+      ],
+      "answer": 1,
+      "explanation": "In Blue-Green deployments, the new release is deployed and validated in an identical standby environment (Green). Once verified, traffic router or DNS directs 100% of traffic to Green, with Blue standing by for instant rollback if issues emerge."
+    },
+    {
+      "id": 8,
+      "question": "How does the 'Expand-and-Contract' pattern enable zero-downtime database schema migrations for data pipelines?",
+      "options": [
+        "It deletes all legacy columns before creating new ones",
+        "It adds the new column first (Expand), supports dual-writing, verifies downstream consumers, and only drops the old column after cutover (Contract)",
+        "It compresses tables into ZIP archives during migration",
+        "It requires an offline database maintenance window of 6 hours"
+      ],
+      "answer": 1,
+      "explanation": "Expand-and-Contract prevents broken downstream dependencies by never renaming or deleting columns in a single breaking step. Old and new columns coexist during migration until all consumers have transitioned."
+    },
+    {
+      "id": 9,
+      "question": "What is the difference between a Kubernetes 'Job' and a Kubernetes 'Deployment' for data workloads?",
+      "options": [
+        "A Job runs a container to completion (batch workload); a Deployment maintains a continuously running set of replicas (services/APIs)",
+        "A Job only runs in development; a Deployment only runs in production",
+        "Deployments cannot run containerized Python scripts",
+        "A Job automatically creates a PostgreSQL database instance"
+      ],
+      "answer": 0,
+      "explanation": "Kubernetes Deployments ensure stateless pods run continuously and restart if terminated. Kubernetes Jobs run batch tasks (like an ETL script) until a specified number of successful completions, then terminate cleanly."
+    },
+    {
+      "id": 10,
+      "question": "In Kubernetes, what happens to a data processing Pod when its container memory consumption exceeds its configured 'resources.limits.memory'?",
+      "options": [
+        "Kubernetes automatically increases physical RAM on the worker node",
+        "The container is terminated by the Linux OOM-killer with status 'OOMKilled' (Exit Code 137)",
+        "The container continues running at half CPU speed",
+        "The data is automatically swapped to an S3 bucket"
+      ],
+      "answer": 1,
+      "explanation": "When a container attempts to allocate more memory than its declared limit ceiling, the Linux kernel terminates the offending process with SIGKILL (Exit Code 137), reporting OOMKilled to the Kubernetes kubelet."
+    },
+    {
+      "id": 11,
+      "question": "Why is data rollback significantly more complex than application software rollback in data engineering?",
+      "options": [
+        "Container registries do not support historical version tags",
+        "Reverting application code to an older commit does not repair or undo corrupt, duplicated, or invalid records already written to the warehouse",
+        "Python does not support database update operations",
+        "Git commits are permanently erased after 30 days"
+      ],
+      "answer": 1,
+      "explanation": "While application rollback is as simple as redeploying a previous Docker image, data rollback requires identifying corrupted partitions, reconciling downstream aggregates, and reprocessing historical source data."
+    },
+    {
+      "id": 12,
+      "question": "What is the primary role of a 'Canary' deployment strategy in production pipeline engineering?",
+      "options": [
+        "To route 100% of traffic to the new version simultaneously",
+        "To expose a small fraction of real production traffic (e.g. 5-10%) to the new release to verify error rates and data quality before full rollout",
+        "To run tests only on developer laptops",
+        "To replace unit testing in GitHub Actions"
+      ],
+      "answer": 1,
+      "explanation": "Canary deployments limit blast radius. By routing a small percentage of workloads to the new version, teams observe telemetry, error budgets, and data validation rules before committing the entire production fleet."
+    },
+    {
+      "id": 13,
+      "question": "In Docker Compose, what is the purpose of declaring a named 'volume' for a PostgreSQL service?",
+      "options": [
+        "It speeds up network communication between containers",
+        "It persists database files on the host filesystem so data is retained even when containers are stopped or removed",
+        "It encrypts all network packets using TLS 1.3",
+        "It prevents Docker from creating image layers"
+      ],
+      "answer": 1,
+      "explanation": "Containers have ephemeral filesystems. Declaring a named volume maps the database storage directory (/var/lib/postgresql/data) to persistent host storage, ensuring data survives container recycles."
+    },
+    {
+      "id": 14,
+      "question": "Why does successful execution status (Exit Code 0) of a data pipeline NOT prove data correctness?",
+      "options": [
+        "Python always returns exit code 0 even when syntax errors occur",
+        "A transformation script can complete without runtime errors while producing mathematically incorrect numbers, schema drift, or dropped records",
+        "Docker containers do not support exit code inspection",
+        "Databases do not log SQL execution errors"
+      ],
+      "answer": 1,
+      "explanation": "A program can execute smoothly while computing `revenue = price + quantity` instead of `price * quantity`. True DataOps requires data quality testing (assertions on value bounds, null rates, and uniqueness) beyond process exit codes."
+    },
+    {
+      "id": 15,
+      "question": "How does OpenID Connect (OIDC) improve security in GitHub Actions CI/CD workflows deploying to AWS?",
+      "options": [
+        "It eliminates long-lived AWS IAM Access Keys from GitHub secrets by exchanging short-lived JWT tokens for temporary STS credentials",
+        "It bypasses AWS IAM permission checks entirely",
+        "It encrypts all Python scripts before compilation",
+        "It makes GitHub repositories private by default"
+      ],
+      "answer": 0,
+      "explanation": "OIDC allows GitHub Actions to authenticate directly with AWS IAM via cryptographic token exchange. AWS STS issues short-lived temporary security credentials scoped strictly to the repository and branch, eliminating static secrets."
+    }
+  ]
+}
