@@ -825,6 +825,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://prepspaces.com/learning/data-engineering/etl-batch</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://prepspaces.com/courses/blockchain</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>

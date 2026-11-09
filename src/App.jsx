@@ -192,6 +192,7 @@ const DataEngineeringFormats = React.lazy(() => import("./Componets/DataEngineer
 const DataEngineeringWarehousing = React.lazy(() => import("./Componets/DataEngineeringWarehousing"));
 const DataEngineeringLakehouse = React.lazy(() => import("./Componets/DataEngineeringLakehouse"));
 const DataEngineeringIngestion = React.lazy(() => import("./Componets/DataEngineeringIngestion"));
+const DataEngineeringEtlBatch = React.lazy(() => import("./Componets/DataEngineeringEtlBatch"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1633,6 +1634,12 @@ function App() {
             <Route path="/learning/data-engineering/cdc" element={<DataEngineeringIngestion />} />
             <Route path="/learning/data-engineering/module-9" element={<DataEngineeringIngestion />} />
             <Route path="/learn/data-engineering/ingestion-cdc" element={<DataEngineeringIngestion />} />
+            <Route path="/learning/data-engineering/etl-batch" element={<DataEngineeringEtlBatch />} />
+            <Route path="/learning/data-engineering/etl" element={<DataEngineeringEtlBatch />} />
+            <Route path="/learning/data-engineering/elt" element={<DataEngineeringEtlBatch />} />
+            <Route path="/learning/data-engineering/batch" element={<DataEngineeringEtlBatch />} />
+            <Route path="/learning/data-engineering/module-10" element={<DataEngineeringEtlBatch />} />
+            <Route path="/learn/data-engineering/etl-batch" element={<DataEngineeringEtlBatch />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

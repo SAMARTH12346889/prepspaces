@@ -97,5 +97,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "etl-batch",
+    "courseId": "data-engineering",
+    "index": 10,
+    "name": "10. ETL, ELT and Batch Data Processing",
+    "route": "/learning/data-engineering/etl-batch",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

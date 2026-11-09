@@ -147,6 +147,12 @@ const routeMeta = {
     keywords: "Data Ingestion, Change Data Capture, CDC, Log-Based CDC, Debezium, MySQL Binlog, PostgreSQL WAL Logical Decoding, Apache Kafka Ingestion, Incremental Ingestion, Watermarks, Offsets, Checkpointing, Idempotent Upserts, Deduplication, REST API Ingestion Cursor Pagination, HTTP 429 Exponential Backoff, Dead-Letter Queue DLQ, Backpressure Management, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/ingestion-cdc`,
   },
+  "/learning/data-engineering/etl-batch": {
+    title: "Module 10: ETL, ELT and Batch Data Processing | PrepSpaces",
+    description: "Master end-to-end data pipeline architectures: ETL vs ELT trade-offs, SQL/API/CDC extraction techniques, transformation paradigms (cleansing, standardization, filtering, aggregation, joins, enrichment), loading strategies (full refresh, append, upsert/MERGE, partition overwrite), incremental batch processing with watermarks, partition pruning, handling late-arriving data and backfills, data deduplication with row_number(), idempotent pipeline design, failure recovery, data reconciliation with hash-based checksums, workflow orchestration with Apache Airflow DAGs, and distributed batch processing with Apache Spark.",
+    keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

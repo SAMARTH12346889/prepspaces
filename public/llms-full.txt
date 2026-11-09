@@ -998,6 +998,36 @@
   - 22. Complete Practical Project: Build an E-commerce Lakehouse (Bronze, Silver, Gold pipelines with PySpark and Delta Lake)
   - 23. Key Industry Architecture Concepts & Production Anti-Patterns
 
+### Module 10: ETL, ELT and Batch Data Processing
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/etl-batch
+- **Topics Covered:**
+  - 1. Introduction to ETL Architecture (Extract, Transform, Load, business rationale, e-commerce flow, 3 ETL stages, staging areas, advantages & limitations)
+  - 2. Introduction to ELT Architecture (Extract, Load, Transform, cloud platform scaling, raw data preservation, Medallion storage layers, advantages & limitations)
+  - 3. ETL vs ELT Design Decisions (Transformation location, compute placement, raw retention, security/PII tokenization, strict schemas vs scalable cloud SQL, hybrid architectures)
+  - 4. Data Extraction Techniques (SQL queries, column pruning, REST APIs, cursor pagination, rate limits, CSV/Parquet file reading, CDC log streaming, selection matrix)
+  - 5. Data Transformation Strategies (Structural changes, data type casting, string standardization, business rules CASE expressions, aggregations, enrichment, deduplication, temporal conversions, dbt models)
+  - 6. Data Loading Strategies (Full refresh TRUNCATE/SWAP, append-only logs, Upsert MERGE INTO, partition overwrite, delete & insert, decision matrix)
+  - 7. Data Cleansing and Standardization (Handling missing NULLs/defaults/imputation, duplicate removal with ROW_NUMBER(), TRY_CAST type validation, text trimming, date format normalization, validation rules)
+  - 8. Filtering and Aggregation (Row filtering with WHERE vs group filtering with HAVING, time-based rollups, daily/monthly summaries, volume reduction vs audit trade-offs)
+  - 9. Joins and Data Enrichment (INNER, LEFT, RIGHT, FULL OUTER, CROSS, SELF joins, multi-table joins, duplicate keys, grain mismatches, missing foreign keys, data skew, Spark broadcast joins & AQE)
+  - 10. Incremental Batch Processing (Watermarks, timestamp overlap, dbt incremental materializations with unique_key, AWS Glue job bookmarks)
+  - 11. Partition-Based Processing (Date/month/region logical subsets, partition pruning, Spark partitionBy, independent parallel batch processing)
+  - 12. Handling Late-Arriving Data (Event time vs processing time, lookback windows, historical partition reprocessing, late dimension arrivals, unknown keys)
+  - 13. Data Deduplication (Exact DISTINCT, business-key deduplication with ROW_NUMBER() window functions, event-level IDs, PySpark window deduplication)
+  - 14. Idempotent Pipeline Design (Stable keys, MERGE upsert, batch control tables, deterministic logic, state-setting operations)
+  - 15. Retry and Recovery Mechanisms (Transient vs permanent failures, fixed delay, exponential backoff with jitter, Python retry loops, partial failure resumption, durable staging)
+  - 16. Backfilling Historical Data (Tax bug fixing, historical date ranges, Airflow catchup vs backfill, concurrency controls, idempotent output overwrite)
+  - 17. Data Reconciliation (Source vs destination comparisons, record counts, financial SUM totals, duplicate checks, cryptographic MD5/SHA row hashing, reconciliation reports)
+  - 18. Pipeline Dependency Management (Task dependencies, Directed Acyclic Graphs (DAG), Apache Airflow PythonOperator, Dagster, Prefect, Step Functions)
+  - 19. Large-Scale Batch Processing Architecture (Distributed cluster, Driver, Executors, Cluster Managers, Partitions, Narrow vs Wide transformations, Shuffle cost, Data Skew, AQE)
+  - 20. Building End-to-End ETL Pipelines (Multi-source extraction, raw landing, data validation, transformation, Gold publication, monitoring)
+  - 21. Practical Major Project: Enterprise E-commerce ETL and Batch Processing System (PostgreSQL schema, sample data, Python parquet extraction, Bronze storage, PySpark Silver cleaning, multi-table enrichment, Gold analytics, incremental watermarking, idempotency, Airflow DAG orchestration, reconciliation)
+  - 22. Important ETL Tools Used in Industry (Apache Spark, Apache Airflow, dbt, Databricks, AWS Glue, Snowflake, Google BigQuery)
+  - 23. Common Industry Mistakes (Full table scans, append duplicates, missing grain understanding, uncontrolled partition overwrites, excessive shuffles, small files)
+  - 24. Module Assessment (15 Mastery Questions with in-depth explanations)
+  - 25. Recommended Official Learning Resources (Spark, dbt, Airflow, Delta Lake, AWS Glue, Snowflake, BigQuery)
+  - 26. Final Understanding & Synthesis (The complete batch data engineering paradigm)
+
 ### Module 9: Data Ingestion and Change Data Capture (CDC)
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/ingestion-cdc
 - **Topics Covered:**

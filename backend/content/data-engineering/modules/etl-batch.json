@@ -1,0 +1,190 @@
+{
+  "id": "etl-batch",
+  "courseId": "data-engineering",
+  "index": 10,
+  "title": "ETL, ELT and Batch Data Processing",
+  "name": "10. ETL, ELT and Batch Data Processing",
+  "description": "Master end-to-end data pipeline architectures: ETL vs. ELT trade-offs, SQL/API/CDC extraction techniques, transformation paradigms (cleansing, standardization, filtering, aggregation, joins, enrichment), loading strategies (full refresh, append, upsert/MERGE, partition overwrite), incremental batch processing with watermarks, partition pruning, handling late-arriving data and backfills, data deduplication with row_number(), idempotent pipeline design, failure recovery, data reconciliation with hash-based checksums, workflow orchestration with Apache Airflow DAGs, and distributed batch processing with Apache Spark.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What does ETL stand for?",
+      "options": [
+        "Extract, Transform, Load",
+        "Evaluate, Transfer, Link",
+        "Extract, Test, Launch",
+        "Execute, Transform, Log"
+      ],
+      "correct": 0,
+      "explanation": "ETL stands for Extract, Transform, Load — a data integration process that extracts data from source systems, transforms it into a required structure, and loads it into a destination system."
+    },
+    {
+      "id": 2,
+      "question": "What is the main difference between ETL and ELT?",
+      "options": [
+        "ETL uses only SQL",
+        "ELT does not extract data",
+        "The order and location of transformation",
+        "ELT cannot use cloud storage"
+      ],
+      "correct": 2,
+      "explanation": "The core difference is the location and order of transformation: ETL transforms data outside the target storage before loading, whereas ELT loads raw data directly into the analytical platform and transforms it using the destination's scalable compute resources."
+    },
+    {
+      "id": 3,
+      "question": "Which loading method updates an existing record or inserts it when missing?",
+      "options": [
+        "Full refresh",
+        "Append",
+        "Upsert / MERGE",
+        "File discovery"
+      ],
+      "correct": 2,
+      "explanation": "Upsert (commonly implemented via SQL MERGE INTO) updates the destination record when a match on primary business keys is found, and inserts a new row when no match exists."
+    },
+    {
+      "id": 4,
+      "question": "What is data cleansing?",
+      "options": [
+        "Increasing file sizes",
+        "Identifying and handling invalid, incomplete or duplicated data",
+        "Creating Kafka topics",
+        "Adding more database servers"
+      ],
+      "correct": 1,
+      "explanation": "Data cleansing is the process of identifying, filtering, correcting, or quarantining inaccurate, incomplete, inconsistent, duplicated, and invalid records before analytical consumption."
+    },
+    {
+      "id": 5,
+      "question": "What does HAVING do in SQL?",
+      "options": [
+        "Filters individual rows before grouping",
+        "Filters groups after aggregation",
+        "Creates database indexes",
+        "Deletes duplicate files"
+      ],
+      "correct": 1,
+      "explanation": "In SQL, WHERE filters individual rows before grouping, whereas HAVING filters the summarized groups after the aggregation has taken place."
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of a LEFT JOIN?",
+      "options": [
+        "Return only matching rows",
+        "Return all rows from the left table and matching right-side rows",
+        "Delete unmatched rows from both tables",
+        "Create every possible combination"
+      ],
+      "correct": 1,
+      "explanation": "A LEFT JOIN preserves every row from the left table regardless of whether a matching key exists in the right table; unmatched right-side columns are filled with NULLs."
+    },
+    {
+      "id": 7,
+      "question": "What is incremental batch processing?",
+      "options": [
+        "Processing the entire database every time",
+        "Processing new or changed data in scheduled batches",
+        "Processing only images",
+        "Deleting historical records"
+      ],
+      "correct": 1,
+      "explanation": "Incremental batch processing processes only new or modified data during each scheduled batch execution (using watermarks or CDC offsets) instead of reprocessing the complete dataset."
+    },
+    {
+      "id": 8,
+      "question": "What is partition-based processing?",
+      "options": [
+        "Dividing a dataset into logical subsets for processing",
+        "Combining different databases into one table",
+        "Removing every index",
+        "Disabling distributed processing"
+      ],
+      "correct": 0,
+      "explanation": "Partition-based processing divides a large dataset into smaller logical directories or segments (such as by date, region, or department) so queries and pipelines can process subsets in parallel and prune unneeded data."
+    },
+    {
+      "id": 9,
+      "question": "What is late-arriving data?",
+      "options": [
+        "Data that is deleted before loading",
+        "Data received after its relevant event or processing period",
+        "Data with too many columns",
+        "Data that cannot be encrypted"
+      ],
+      "correct": 1,
+      "explanation": "Late-arriving data refers to records that reach the ingestion and processing pipeline long after the time interval or batch in which the original business event occurred."
+    },
+    {
+      "id": 10,
+      "question": "What makes a pipeline idempotent?",
+      "options": [
+        "Every retry adds new rows",
+        "Repeated processing produces the same intended final state",
+        "The pipeline never retries",
+        "The pipeline processes only one record"
+      ],
+      "correct": 1,
+      "explanation": "An idempotent pipeline guarantees that executing the same input batch multiple times (e.g. after transient crashes or network timeouts) produces the exact same destination state without duplicating records or corrupting aggregates."
+    },
+    {
+      "id": 11,
+      "question": "What is backfilling?",
+      "options": [
+        "Processing historical data again",
+        "Deleting current partitions",
+        "Changing a source database password",
+        "Stopping an Airflow scheduler"
+      ],
+      "correct": 0,
+      "explanation": "Backfilling is the process of executing a pipeline over historical time intervals to recalculate or reconstruct past datasets, typically after fixing transformation bugs or adding new dimensions."
+    },
+    {
+      "id": 12,
+      "question": "What is data reconciliation?",
+      "options": [
+        "Comparing source and destination data for correctness",
+        "Creating new API endpoints",
+        "Compressing Parquet files",
+        "Changing the database schema"
+      ],
+      "correct": 0,
+      "explanation": "Data reconciliation compares source and destination datasets (evaluating record counts, financial sums, null percentages, and cryptographic row hashes) to verify transfer completeness and transformation accuracy."
+    },
+    {
+      "id": 13,
+      "question": "Why use an Airflow DAG?",
+      "options": [
+        "For data compression",
+        "For defining task dependencies and workflow execution",
+        "For storing binary database logs",
+        "For replacing SQL"
+      ],
+      "correct": 1,
+      "explanation": "An Apache Airflow Directed Acyclic Graph (DAG) defines explicit dependency relationships between pipeline tasks, scheduling cadences, retry behaviors, and historical data intervals without cycles."
+    },
+    {
+      "id": 14,
+      "question": "What is a Spark shuffle?",
+      "options": [
+        "A backup of the driver",
+        "Redistribution of data between partitions during certain operations",
+        "A method of deleting records",
+        "An API retry mechanism"
+      ],
+      "correct": 1,
+      "explanation": "A Spark shuffle is the physical redistribution of data across cluster executors over the network during wide transformations such as groupBy, join, distinct, or repartition."
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of a staging area?",
+      "options": [
+        "To store production passwords",
+        "To temporarily hold extracted data before transformation or loading",
+        "To replace the source database",
+        "To execute only machine learning models"
+      ],
+      "correct": 1,
+      "explanation": "A staging area is an intermediate storage location used to temporarily land raw extracted data before or during transformations, enabling failure isolation, auditing, and repeatable processing."
+    }
+  ]
+}
