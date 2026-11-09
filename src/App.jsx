@@ -200,6 +200,9 @@ const DataEngineeringQuality = React.lazy(() => import("./Componets/DataEngineer
 const DataEngineeringDistributed = React.lazy(() => import("./Componets/DataEngineeringDistributed"));
 const DataEngineeringKafka = React.lazy(() => import("./Componets/DataEngineeringKafka"));
 const DataEngineeringStreamProcessing = React.lazy(() => import("./Componets/DataEngineeringStreamProcessing"));
+const DataEngineeringCloud = React.lazy(() => import("./Componets/DataEngineeringCloud"));
+const DataEngineeringDataOps = React.lazy(() => import("./Componets/DataEngineeringDataOps"));
+const DataEngineeringSecurity = React.lazy(() => import("./Componets/DataEngineeringSecurity"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1688,6 +1691,13 @@ function App() {
             <Route path="/learning/data-engineering/terraform" element={<DataEngineeringDataOps />} />
             <Route path="/learning/data-engineering/module-19" element={<DataEngineeringDataOps />} />
             <Route path="/learn/data-engineering/dataops-cicd" element={<DataEngineeringDataOps />} />
+            <Route path="/learning/data-engineering/data-security-governance" element={<DataEngineeringSecurity />} />
+            <Route path="/learning/data-engineering/security" element={<DataEngineeringSecurity />} />
+            <Route path="/learning/data-engineering/governance" element={<DataEngineeringSecurity />} />
+            <Route path="/learning/data-engineering/privacy" element={<DataEngineeringSecurity />} />
+            <Route path="/learning/data-engineering/data-privacy" element={<DataEngineeringSecurity />} />
+            <Route path="/learning/data-engineering/module-20" element={<DataEngineeringSecurity />} />
+            <Route path="/learn/data-engineering/data-security-governance" element={<DataEngineeringSecurity />} />
             <Route path="/learning/data-engineering/airflow" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/orchestration" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/dagster" element={<DataEngineeringAirflow />} />

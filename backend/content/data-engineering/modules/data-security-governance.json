@@ -1,0 +1,189 @@
+{
+  "id": "data-security-governance",
+  "title": "Data Security, Governance and Privacy",
+  "courseId": "data-engineering",
+  "index": 20,
+  "description": "Master enterprise data security, governance, and privacy engineering. Learn data classification, PII protection, RBAC vs ABAC access controls, least privilege IAM policies, AES-256 envelope encryption with AWS KMS, secrets management, static & dynamic masking, tokenization & differential privacy, immutable audit logging with CloudTrail, automated data retention and right-to-erasure workflows, compliance regulations (DPDP Act 2023, GDPR, CCPA/CPRA, HIPAA, PCI DSS), NIST CSF 2.0 & ISO 27001/27701 frameworks, and RACI governance accountability.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary operational difference between a standard cryptographic hash (e.g., SHA-256) and a Hash-based Message Authentication Code (HMAC-SHA256)?",
+      "options": [
+        "HMAC incorporates a secret cryptographic key, making it resistant to rainbow table attacks and suitable for secure, keyed pseudonymization, whereas a bare hash produces identical digests for any observer",
+        "SHA-256 is reversible back to plaintext, whereas HMAC cannot be reversed under any circumstance",
+        "SHA-256 can only hash numeric data, while HMAC is required for strings and JSON documents",
+        "HMAC operates exclusively on quantum computers"
+      ],
+      "answer": 0,
+      "explanation": "A bare cryptographic hash (like SHA-256) is deterministic and public; an attacker with a dictionary or rainbow table can easily compute hashes of known values (e.g., phone numbers or common customer IDs) to re-identify records. HMAC introduces a secret key (K) into the hashing algorithm (HMAC(K, m)), ensuring that only entities in possession of the secret key can generate or verify the pseudonymized tokens."
+    },
+    {
+      "id": 2,
+      "question": "According to NIST SP 800-207 Zero Trust Architecture, what is the core assumption regarding network perimeter security?",
+      "options": [
+        "Internal corporate networks are implicitly trusted once an employee connects via corporate VPN",
+        "Perimeters are completely sufficient if firewalls inspect incoming TCP port 443 packets",
+        "No implicit trust is granted to assets or user accounts based solely on their physical or network location; every transaction must be explicitly authenticated and authorized",
+        "All data systems must be completely disconnected from the public internet without cloud access"
+      ],
+      "answer": 2,
+      "explanation": "Zero Trust operates on the principle of 'never trust, always verify'. Traditional perimeter defenses assume that internal network traffic is benign. Zero Trust mandates that every access request—even originating within the same VPC or private subnet—must verify identity, evaluate context and permissions, and enforce encryption."
+    },
+    {
+      "id": 3,
+      "question": "Why are combinations of non-sensitive attributes such as Postal Code, Gender, and Date of Birth classified as 'Quasi-Identifiers'?",
+      "options": [
+        "They cause memory buffer overflows in distributed SQL query engines",
+        "While individually non-identifying, their combination can uniquely re-identify a high percentage of individuals when linked with external public voter or demographic records",
+        "They are legally exempt from all global privacy regulations including GDPR and DPDP",
+        "They can only be stored in NoSQL document databases"
+      ],
+      "answer": 1,
+      "explanation": "Quasi-identifiers (indirect identifiers) are attributes that do not identify a person on their own, but when combined (such as 5-digit ZIP + Gender + Date of Birth), they can uniquely identify up to 87% of the US population when correlated against external auxiliary registries, creating severe re-identification risks."
+    },
+    {
+      "id": 4,
+      "question": "In cloud access management, what distinguishes Attribute-Based Access Control (ABAC) from Role-Based Access Control (RBAC)?",
+      "options": [
+        "RBAC assigns permissions statically to user roles; ABAC dynamically evaluates subject attributes, resource classification, action requested, and environmental context (e.g., network, time, device)",
+        "RBAC is only used on Windows servers, while ABAC is used on Linux",
+        "ABAC completely disables IAM policies in favor of database triggers",
+        "RBAC requires multi-factor authentication, whereas ABAC does not"
+      ],
+      "answer": 0,
+      "explanation": "RBAC groups permissions under designated roles (e.g., 'Data Analyst'). While simple to configure, RBAC suffers from 'role explosion' in complex enterprises. ABAC resolves this by evaluating policies based on attributes of the user (department, clearance), resource (confidentiality tier, department owner), and environment (corporate VPN, business hours, MFA status)."
+    },
+    {
+      "id": 5,
+      "question": "Which of the following IAM policy statements strictly enforces the Principle of Least Privilege for an automated Glue ETL extraction job?",
+      "options": [
+        "{ \"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\" }",
+        "{ \"Effect\": \"Allow\", \"Action\": [\"s3:GetObject\"], \"Resource\": [\"arn:aws:s3:::ecommerce-raw/orders/*\"] }",
+        "{ \"Effect\": \"Allow\", \"Action\": [\"s3:*\"], \"Resource\": [\"arn:aws:s3:::*\"] }",
+        "{ \"Effect\": \"Allow\", \"Action\": [\"iam:CreateUser\", \"s3:DeleteBucket\"], \"Resource\": [\"*\"] }"
+      ],
+      "answer": 1,
+      "explanation": "Least privilege mandates granting only the minimum permissions necessary to perform the specific assigned task on the exact target resources. An extraction job reading raw orders only needs 's3:GetObject' scoped strictly to the 'ecommerce-raw/orders/*' prefix."
+    },
+    {
+      "id": 6,
+      "question": "How does Envelope Encryption in AWS KMS optimize performance and security when encrypting terabyte-scale data lake Parquet files?",
+      "options": [
+        "All petabytes of data lake storage are sent over the network into KMS HSMs for encryption",
+        "KMS generates a plaintext Data Encryption Key (DEK) and an encrypted DEK; the client encrypts data locally using the plaintext DEK, immediately wipes the plaintext DEK from memory, and stores the encrypted DEK alongside the ciphertext",
+        "Envelope encryption replaces symmetric AES-256 with unencrypted plaintext compression",
+        "It stores the master KMS CMK key in a public S3 bucket for low-latency client retrieval"
+      ],
+      "answer": 1,
+      "explanation": "Because sending massive analytical files to KMS HSMs over the network would cause severe throughput bottlenecks and latency, KMS envelope encryption generates a local Data Encryption Key (DEK). The data is encrypted locally with fast AES-256-GCM. The plaintext DEK is immediately destroyed from RAM, and only the ciphertext DEK (wrapped by the KMS master key) is stored alongside the file metadata."
+    },
+    {
+      "id": 7,
+      "question": "What is the primary difference between Static Data Masking (SDM) and Dynamic Data Masking (DDM)?",
+      "options": [
+        "Static masking permanently alters the physical underlying storage (e.g. for dev/staging environments); dynamic masking transforms data on the fly during SQL query execution based on user permissions without altering storage",
+        "Dynamic masking permanently deletes the original database tables",
+        "Static masking is only applicable to numerical salary columns, while dynamic masking is for text",
+        "Static masking requires an internet connection, while dynamic masking runs in BIOS"
+      ],
+      "answer": 0,
+      "explanation": "Static Data Masking (SDM) produces a permanent, scrubbed duplicate of the production database for non-production environments like development, testing, or analytics training. Dynamic Data Masking (DDM) intercepts runtime SQL queries in the data warehouse/engine, obfuscating sensitive fields (e.g., masking phone numbers as 'XXXXXX3210') according to the querying user's authorization tier."
+    },
+    {
+      "id": 8,
+      "question": "Under modern privacy regulations like GDPR and India's DPDP Act 2023, why is pseudonymized data still treated as 'personal data' while truly anonymized data is not?",
+      "options": [
+        "Pseudonymized data can be re-linked to an individual using separate auxiliary information (e.g. token vault or salt key); truly anonymized data has irreversibly eliminated all linkability",
+        "Pseudonymized data is encrypted with RSA-4096, which regulators do not trust",
+        "Anonymized data is stored only in RAM, making it exempt from legal enforcement",
+        "Regulators consider pseudonymization to be a cyberattack technique"
+      ],
+      "answer": 0,
+      "explanation": "Pseudonymization replaces identifiers with artificial pseudonyms/tokens, but the link between the individual and data can be restored if someone accesses the mapping vault or key. Therefore, pseudonymized data remains legally classified as personal data. True anonymization irreversibly eliminates identifiability and linkability, placing it outside personal data protection scope."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary technological capability of a Secure Data Clean Room in modern analytics and ad-tech partnerships?",
+      "options": [
+        "It provides a physical hermetically sealed server room with biometric locks",
+        "It allows two or more organizations to securely join and compute collaborative analytics over their private datasets without either party exposing raw PII or row-level records to the other",
+        "It automatically formats unformatted CSV files into valid JSON schemas",
+        "It deletes all logs after every 60 seconds to prevent auditing"
+      ],
+      "answer": 1,
+      "explanation": "A Secure Data Clean Room uses homomorphic encryption, secure multiparty computation (SMPC), and differential privacy boundaries to let multiple enterprises (e.g., a retailer and a streaming platform) intersect customer segments for aggregate queries without exposing their proprietary underlying PII to each other."
+    },
+    {
+      "id": 10,
+      "question": "In cloud auditing architecture, what distinguishes AWS CloudTrail 'Management Events' from 'Data Events'?",
+      "options": [
+        "Management events track control-plane operations (e.g. CreateBucket, AttachPolicy); Data events track resource-level operations on data (e.g. s3:GetObject, s3:PutObject) and generate high log volume",
+        "Management events are billable, but data events are always free of charge",
+        "Data events can only be captured using bash shell scripts",
+        "Management events record database rows, while data events record AWS account passwords"
+      ],
+      "answer": 0,
+      "explanation": "Management events capture administrative control-plane actions such as creating an S3 bucket, creating IAM roles, or configuring VPC routes. Data events capture high-frequency object-level operations inside resources, such as S3 GetObject/PutObject or DynamoDB GetItem, which must be explicitly enabled due to high throughput."
+    },
+    {
+      "id": 11,
+      "question": "When executing a 'Right to Erasure' (Data Subject Request) across an enterprise cloud data platform, why must data engineers account for 'Legal Hold' exceptions?",
+      "options": [
+        "Data engineers can choose to ignore deletion requests if the data lake is larger than 10 Terabytes",
+        "Statutory compliance obligations (e.g., tax records, financial anti-money laundering, active litigation) override individual deletion requests and mandate retaining specific transaction records until legal holds expire",
+        "Legal holds allow developers to copy personal data to their personal laptops",
+        "All data subject requests must be rejected if the customer has an active subscription"
+      ],
+      "answer": 1,
+      "explanation": "Privacy rights like the Right to Erasure are not absolute. When data is subject to mandatory regulatory retention (e.g., 7-year tax audit requirements, banking fraud investigation records, or active litigation holds), legal compliance takes precedence over deletion requests, requiring systems to isolate the data and prevent operational use while preserving it for legal discovery."
+    },
+    {
+      "id": 12,
+      "question": "Under India's Digital Personal Data Protection Act, 2023 (DPDP Act), what is the term used for the individual whose personal data is being processed?",
+      "options": [
+        "Data Principal",
+        "Data Fiduciary",
+        "Data Custodian",
+        "Data Consumer"
+      ],
+      "answer": 0,
+      "explanation": "Under the DPDP Act 2023, the individual to whom the personal data relates is termed the 'Data Principal' (equivalent to 'Data Subject' under GDPR). The entity determining the purpose and means of processing is the 'Data Fiduciary' (equivalent to GDPR's 'Data Controller')."
+    },
+    {
+      "id": 13,
+      "question": "Which core pillar was introduced as the foundational 6th function in the NIST Cybersecurity Framework (CSF) 2.0 update?",
+      "options": [
+        "GOVERN",
+        "EXPLOIT",
+        "PENETRATE",
+        "MONETIZE"
+      ],
+      "answer": 0,
+      "explanation": "NIST CSF 2.0 expanded the classic 5 functions (IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER) by placing 'GOVERN' at the center. GOVERN establishes organizational context, risk management strategy, roles, policies, and continuous oversight across the entire enterprise security lifecycle."
+    },
+    {
+      "id": 14,
+      "question": "In the Data Governance RACI model, who holds the ultimate 'Accountable' (A) designation for approving dataset definitions, classification levels, and access rights?",
+      "options": [
+        "The Data Owner (business domain leader)",
+        "The junior ETL pipeline developer",
+        "The third-party cloud hosting vendor",
+        "The external customer who purchased a product"
+      ],
+      "answer": 0,
+      "explanation": "The Data Owner (typically a senior business or domain executive) is ultimately Accountable (A) for the data assets in their domain, deciding its classification, acceptable use, and access authorization. The Data Steward is Responsible (R) for metadata and quality rules, while the Data Engineer implements the technical pipelines and access controls."
+    },
+    {
+      "id": 15,
+      "question": "What is the STRIDE threat category that describes an attacker deleting database transaction logs to prevent forensics and deny that a security incident occurred?",
+      "options": [
+        "Repudiation",
+        "Spoofing",
+        "Tampering",
+        "Elevation of Privilege"
+      ],
+      "answer": 0,
+      "explanation": "Repudiation occurs when an actor performs an unauthorized action and the system lacks sufficient non-repudiation proof (e.g., cryptographic signatures, append-only immutable audit logs) to prove who performed it. Deleting or modifying audit trails is a classic Repudiation attack, mitigated by immutable CloudTrail logs locked with S3 Object Lock and KMS."
+    }
+  ]
+}

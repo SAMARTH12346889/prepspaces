@@ -214,6 +214,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "stream-processing", name: "17. Stream Processing & Real-Time Analytics", route: "/learning/data-engineering/stream-processing" },
   { id: "cloud-data-engineering", name: "18. Cloud Data Engineering & Cloud Platforms", route: "/learning/data-engineering/cloud-data-engineering" },
   { id: "dataops-cicd", name: "19. DataOps, Docker, CI/CD & IaC", route: "/learning/data-engineering/dataops-cicd" },
+  { id: "data-security-governance", name: "20. Data Security, Governance & Privacy", route: "/learning/data-engineering/data-security-governance" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

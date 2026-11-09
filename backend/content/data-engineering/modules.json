@@ -207,5 +207,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "data-security-governance",
+    "courseId": "data-engineering",
+    "index": 20,
+    "name": "20. Data Security, Governance and Privacy",
+    "route": "/learning/data-engineering/data-security-governance",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

@@ -153,7 +153,14 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
-      "/learning/data-engineering/dataops-cicd": {
+      "/learning/data-engineering/data-security-governance": {
+    canonical: `${BASE_URL}/learning/data-engineering/data-security-governance`,
+    title: "Module 20: Data Security, Governance and Privacy | Data Engineering Master Course",
+    description: "Master enterprise data security, governance, and privacy engineering: data classification tiers (Public, Internal, Confidential, Restricted), PII and quasi-identifier discovery, Zero Trust architecture (NIST SP 800-207), RBAC vs ABAC policy engines, least-privilege IAM policies, envelope encryption with AWS KMS, secrets management, static and dynamic data masking, deterministic HMAC-SHA256 tokenization, k-anonymity, differential privacy, secure data sharing and data clean rooms, immutable CloudTrail access auditing, automated data retention and right-to-erasure workflows, regulatory compliance (DPDP Act 2023, GDPR, CCPA/CPRA, HIPAA, PCI DSS), NIST CSF 2.0 and ISO 27001/27701 frameworks, and RACI governance accountability.",
+    keywords: "data security, data governance, data privacy, DPDP Act 2023, GDPR, CCPA, CPRA, HIPAA, PCI DSS, NIST CSF 2.0, ISO 27001, ISO 27701, PII, personally identifiable information, quasi-identifiers, data classification, RBAC, ABAC, attribute-based access control, role-based access control, least privilege, IAM, AWS KMS, envelope encryption, DEK, KEK, AWS Secrets Manager, data masking, dynamic data masking, pseudonymization, HMAC-SHA256, k-anonymity, differential privacy, secure data clean rooms, AWS CloudTrail, audit logging, data retention, right to erasure, data subject requests, RACI matrix, STRIDE threat modeling, data engineering course",
+    badge: "Module 20 · Data Engineering"
+  },
+  "/learning/data-engineering/dataops-cicd": {
     canonical: `${BASE_URL}/learning/data-engineering/dataops-cicd`,
     title: "Module 19: DataOps, Docker, CI/CD and Infrastructure as Code | Data Engineering Master Course",
     description: "Master production DataOps and software engineering for data platforms: Git collaboration, feature branching, merge conflicts, pull requests, Docker packaging, multi-stage image optimization, Docker Compose local development, CI/CD pipelines with GitHub Actions, automated testing (unit, integration, regression, data quality), Terraform declarative infrastructure as code, S3 remote state and DynamoDB locking, drift detection, secrets management, zero-downtime database migrations (Expand-and-Contract), deployment strategies (Blue-Green, Canary, Shadow, Rolling), rollback and data recovery, and Kubernetes batch processing.",
