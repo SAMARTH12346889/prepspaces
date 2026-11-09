@@ -200,6 +200,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "sql", name: "3. Advanced SQL & Relational Databases", route: "/learning/data-engineering/sql" },
   { id: "data-modeling", name: "4. Data Modeling & Database Design", route: "/learning/data-engineering/data-modeling" },
   { id: "internals", name: "5. Database Internals & Performance", route: "/learning/data-engineering/internals" },
+  { id: "data-formats", name: "6. Data Formats, Serialization & Integration", route: "/learning/data-engineering/data-formats" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

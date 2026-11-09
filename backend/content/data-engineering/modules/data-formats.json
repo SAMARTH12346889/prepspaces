@@ -1,0 +1,70 @@
+{
+  "id": "data-formats",
+  "courseId": "data-engineering",
+  "index": 6,
+  "title": "Data Formats, Serialization and Data Integration",
+  "name": "6. Data Formats, Serialization and Data Integration",
+  "description": "Master row vs columnar storage architectures, CSV, JSON, XML, Apache Avro, Apache Parquet, Apache ORC, in-memory Apache Arrow, Protocol Buffers, MessagePack, data compression (Snappy, GZIP, Zstandard, LZ4), schema definition and evolution, Confluent Schema Registry, REST API ingestion with cursor pagination, exponential backoff with jitter, HMAC webhook verification, and robust data contracts.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary difference between data serialization and deserialization?",
+      "options": [
+        "Serialization encrypts data; deserialization decrypts data",
+        "Serialization converts memory data structures into transferable bytes/text; deserialization reconstructs memory objects from bytes/text",
+        "Serialization compresses data with GZIP; deserialization extracts it",
+        "Serialization is only used in SQL databases"
+      ],
+      "correct": 1,
+      "explanation": "Serialization translates an in-memory data object into a stream of bytes or text for storage/network transmission; deserialization reverses the process."
+    },
+    {
+      "id": 2,
+      "question": "Why is Parquet or ORC preferred over CSV for analytical queries scanning millions of rows?",
+      "options": [
+        "CSV files cannot be opened in Python",
+        "Parquet stores data column by column, allowing query engines to read only the required columns and skip row groups via statistics",
+        "CSV files are always encrypted",
+        "Parquet does not support numbers"
+      ],
+      "correct": 1,
+      "explanation": "Columnar formats like Parquet allow selective column reading (projection pushdown) and row-group skipping (predicate pushdown), drastically reducing I/O."
+    },
+    {
+      "id": 3,
+      "question": "What is the key advantage of JSON Lines (JSONL / NDJSON) over standard JSON arrays for streaming data pipelines?",
+      "options": [
+        "JSON Lines does not require quotes around strings",
+        "Each line is an independent JSON object, allowing incremental streaming and appending without loading the whole file into RAM",
+        "JSON Lines is a binary protocol",
+        "JSON Lines replaces SQL entirely"
+      ],
+      "correct": 1,
+      "explanation": "Standard JSON arrays require parsing the entire closing bracket, whereas JSON Lines allows line-by-line streaming, appending, and crash recovery."
+    },
+    {
+      "id": 4,
+      "question": "In Apache Avro binary serialization, why is the resulting message payload significantly smaller than JSON?",
+      "options": [
+        "Avro replaces text with random numbers",
+        "Avro binary encoding omits field names from every record, relying instead on an external schema for decoding",
+        "Avro only supports integers up to 255",
+        "Avro deletes null values permanently"
+      ],
+      "correct": 1,
+      "explanation": "Unlike JSON which repeats keys in every record ('customer_id': 101, 'name': 'Rahul'), Avro serializes only values into compact binary according to the schema."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary role of Apache Arrow in modern data engineering architectures?",
+      "options": [
+        "A persistent disk file format to replace Parquet",
+        "A standardized in-memory columnar memory format enabling zero-copy data sharing between Python, Spark, and DuckDB",
+        "A message queue to replace Apache Kafka",
+        "An API gateway for microservices"
+      ],
+      "correct": 1,
+      "explanation": "Arrow standardizes in-memory columnar layout so systems (like Pandas, Polars, DuckDB, Spark) can exchange datasets without serialization overhead."
+    }
+  ]
+}

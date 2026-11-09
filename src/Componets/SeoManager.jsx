@@ -123,6 +123,12 @@ const routeMeta = {
     keywords: "Database Internals, Performance Engineering, Storage Engines, 8KB Pages, Buffer Pool, B+ Tree, LSM Tree, Bloom Filter, Cost-Based Optimizer, Hash Join, Nested Loop Join, Sort-Merge Join, MVCC, xmin xmax, Write-Ahead Logging WAL, ARIES Recovery, Table Partitioning, PostgreSQL Tuning, shared_buffers, work_mem, PgBouncer, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/internals`,
   },
+  "/learning/data-engineering/data-formats": {
+    title: "Module 6: Data Formats, Serialization and Data Integration | PrepSpaces",
+    description: "Master data formats and serialization in data engineering: row vs columnar storage, CSV, JSON, XML, Apache Avro, Apache Parquet, Apache ORC, Apache Arrow in-memory, Protocol Buffers, compression algorithms (Snappy, GZIP, ZSTD, LZ4), schema evolution, Confluent Schema Registry, REST API ingestion with cursor pagination, rate limits, webhooks, and data contracts.",
+    keywords: "Data Formats, Data Serialization, Apache Avro, Apache Parquet, Apache ORC, Apache Arrow, Row vs Columnar Storage, Protocol Buffers, MessagePack, Data Compression Snappy ZSTD GZIP, Schema Evolution, Confluent Schema Registry, REST API Ingestion, Cursor Pagination, Exponential Backoff, Webhooks HMAC Idempotency, Data Contracts, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/data-formats`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

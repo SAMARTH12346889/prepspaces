@@ -53,5 +53,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "data-formats",
+    "courseId": "data-engineering",
+    "index": 6,
+    "name": "6. Data Formats, Serialization and Data Integration",
+    "route": "/learning/data-engineering/data-formats",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
