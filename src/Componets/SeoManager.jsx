@@ -153,6 +153,13 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+  "/learning/data-engineering/distributed-systems": {
+    canonical: `${BASE_URL}/learning/data-engineering/distributed-systems`,
+    title: "Module 15: Distributed Systems for Data Engineers | Data Engineering Master Course",
+    description: "Master distributed computing architectures for data engineering: RPC, serialization (Avro, Protobuf, Parquet), partitioning, synchronous/asynchronous replication, leader-follower failover, CAP theorem, quorum (R+W>N), Raft consensus, idempotency, backpressure, message delivery guarantees, and distributed system reliability.",
+    keywords: "distributed systems, data engineering, distributed computing, RPC, gRPC, Protobuf, Avro, Parquet, data partitioning, hash partitioning, range partitioning, data replication, leader-follower, split-brain, consistency models, eventual consistency, strong consistency, CAP theorem, PACELC, quorum, majority quorum, Raft consensus, Paxos, distributed locks, fencing tokens, exponential backoff, jitter, circuit breaker, backpressure, Kafka consumer lag, message delivery guarantees, at-least-once, exactly-once, idempotency, data engineering course",
+    badge: "Module 15 · Data Engineering"
+  },
   "/learning/data-engineering/data-quality-lineage": {
     canonical: `${BASE_URL}/learning/data-engineering/data-quality-lineage`,
     title: "Module 14: Data Quality, Testing, Metadata and Lineage | Data Engineering Master Course",

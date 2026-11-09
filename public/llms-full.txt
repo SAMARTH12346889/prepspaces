@@ -1122,6 +1122,38 @@
   - 24. Final Revision — What You Should Understand (Complete 23-topic mastery synthesis table)
   - 25. Recommended Learning Resources (Official documentation for dbt, Great Expectations, Deequ, OpenMetadata, DataHub, Airflow, and PostgreSQL)
 
+## Module 15: Distributed Systems for Data Engineers
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/distributed-systems
+- **Topics Covered:**
+  - 1. Introduction to Distributed Systems (Single-machine limitations vs distributed cluster, workload division, partial failure, concurrency, scalability, 10-item overhead trade-offs)
+  - 2. Distributed Computing Architecture (Client-server, multi-tier presentation/application/data layers, master-worker coordinator model, peer-to-peer, microservices boundaries, vertical vs horizontal scaling)
+  - 3. Distributed Processes and Communication (IPC mechanisms, synchronous request-response vs asynchronous messaging, network failure modes, latency vs throughput, performance metrics)
+  - 4. Client-Server Architecture and Remote Procedure Calls (RPC internal mechanics, client/server stubs, serialization, gRPC over HTTP/2, Protocol Buffers, JSON-RPC, XML-RPC, RPC vs REST, failure modes)
+  - 5. Network Communication and Serialization (Serialization workflows, JSON, XML, Apache Avro schemas, Protobuf IDL, Apache Parquet columnar storage, TCP connection-oriented reliability vs UDP datagrams, serialization payload size math)
+  - 6. Distributed Storage Systems (HDFS NameNode and DataNode block architecture, block sizing, S3 object storage buckets and keys, distributed databases Cassandra/Spanner/CockroachDB, storage vs computing separation)
+  - 7. Data Partitioning (Partition pruning, horizontal vs vertical partitioning, range partitioning, hash partitioning (Hash(Key) % N), list partitioning, round-robin, sharding vs partitioning, data skew and hot partition mitigation)
+  - 8. Data Replication (Replication factor N, synchronous replication acknowledgements vs asynchronous replication lag, failover risks, replication in Kafka/Cassandra/Postgres, replication vs point-in-time backups)
+  - 9. Leader and Follower Architecture (Primary-replica write coordination, leader reads vs follower reads, failover mechanisms, split-brain problem and fencing, multi-leader regional replication conflicts)
+  - 10. Consistency Models (Strong consistency, linearizability vs serializability, eventual consistency convergence, read-your-writes, monotonic reads, monotonic writes, consistency levels comparison)
+  - 11. Strong Consistency and Eventual Consistency in Practice (E-commerce race conditions, inventory reservation vs product view counts, business operation consistency mapping)
+  - 12. CAP Theorem (Consistency linearizability, Availability, Partition Tolerance trade-offs, CP vs AP behaviors during network split, PACELC theorem, common CAP misconceptions)
+  - 13. Quorum-Based Systems (Read/write quorum formula R+W>N, strict overlap proof, majority voting Q=floor(N/2)+1, fault tolerance thresholds, Cassandra tunable consistency)
+  - 14. Fault Tolerance (Hardware, software, network, data, and human failures, redundancy, checkpointing in distributed compute engines, fault tolerance vs high availability)
+  - 15. Failure Detection (Heartbeats, adaptive timeouts, false positive detections, liveness, readiness, and dependency health checks, failure detection vs recovery)
+  - 16. Consensus Fundamentals (Agreement, validity, termination, safety vs liveness, Raft consensus algorithm: leader election, candidate states, replicated log replication, Paxos comparison)
+  - 17. Distributed Coordination (Distributed locks, lease expiration, fencing tokens for stale worker protection, coordination services ZooKeeper, etcd, Consul)
+  - 18. Retry Mechanisms and Idempotency (Fixed-delay, exponential backoff formula Delay=Base*2^attempt, jitter randomness against thundering herds, mathematical idempotency f(f(x))=f(x), idempotency keys, SQL ON CONFLICT upserts, idempotency vs exactly-once)
+  - 19. Backpressure (Producer-consumer throughput imbalance, queue accumulation, flow control, rate limiting, buffering, Kafka consumer lag metrics, Spark Streaming micro-batch rate limits, backpressure vs buffering)
+  - 20. Message Delivery Guarantees (At-most-once, at-least-once with retry duplication, exactly-once transactional scope, Kafka idempotent producer, transactional commits, consumer offset management commit strategies)
+  - 21. Distributed System Reliability (Reliability vs availability, uptime formula, the 5 nines 99.999% downtime tables, single points of failure, load balancing, bulkheads fault isolation, circuit breaker states CLOSED/OPEN/HALF-OPEN, disaster recovery RPO and RTO, SLIs, SLOs, and SLAs)
+  - 22. Putting Everything Together: Real-World Distributed Data Engineering Architecture (Complete real-time e-commerce architecture mapping all 21 distributed systems principles across Kafka, Python workers, distributed storage, and analytics)
+  - 23. Practical Laboratory (Lab 1: Python Multiprocessing Worker Pool, Lab 2: Dockerized Apache Kafka Messaging, Lab 3: Leader-Follower Replication Simulation, Lab 4: Enterprise Event Processing Platform Mini-Project)
+  - 24. Common Mistakes in Distributed Systems (15 Production fallacies: assuming distributed is faster, ignoring idempotency, treating retries as harmless, CAP misinterpretations, omitting fencing tokens, etc.)
+  - 25. Important Interview Questions and Answers (30 Comprehensive technical interview Q&As with full system design explanations)
+  - 26. Recommended Learning Resources (Official documentation for Kafka, Spark, Hadoop, gRPC, Cassandra, Raft, PostgreSQL, etcd, Kubernetes)
+  - 27. Final Revision — Module 15 (Complete 21-topic revision summary table)
+  - 28. How Module 15 Connects to Other Data Engineering Modules (Direct bridge to Kafka streaming, Spark distributed computing, and Lakehouse architectures)
+
 ## Module 10: ETL, ELT and Batch Data Processing
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/etl-batch
 - **Topics Covered:**

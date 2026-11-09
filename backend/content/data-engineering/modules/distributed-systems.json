@@ -1,0 +1,189 @@
+{
+  "id": "distributed-systems",
+  "title": "Distributed Systems for Data Engineers",
+  "courseId": "data-engineering",
+  "index": 15,
+  "description": "Master distributed systems foundations: RPC, serialization, partitioning, replication, leader-follower architectures, CAP theorem, quorum systems, fault tolerance, Raft consensus, idempotency, backpressure, message delivery guarantees, and distributed reliability.",
+  "quiz": [
+    {
+      "id": 1,
+      "q": "What is the defining challenge of distributed computing compared to single-machine systems?",
+      "options": [
+        "Partial failure: individual nodes or network partitions can fail while other machines continue running",
+        "Distributed systems cannot run Python or SQL",
+        "Distributed systems only work with hard drives, not SSDs",
+        "Distributed systems require manual restart every 24 hours"
+      ],
+      "correct": 0,
+      "expl": "In a single-machine system, a crash halts everything; in a distributed system, components fail independently, leading to partial failure, network unreliability, and concurrency challenges."
+    },
+    {
+      "id": 2,
+      "q": "Why is vertical scaling (scale up) limited compared to horizontal scaling (scale out) in modern data platforms?",
+      "options": [
+        "Vertical scaling hits physical hardware limits (CPU cores, RAM slots) and introduces a single point of failure with machine downtime",
+        "Vertical scaling requires learning gRPC and Protobuf",
+        "Vertical scaling is illegal under cloud compliance rules",
+        "Horizontal scaling only works for offline batch systems"
+      ],
+      "correct": 0,
+      "expl": "Vertical scaling upgrades a single machine but encounters hardware limits and single-point-of-failure risks. Horizontal scaling adds machines to achieve virtually limitless capacity."
+    },
+    {
+      "id": 3,
+      "q": "What is the primary difference between synchronous and asynchronous inter-process communication?",
+      "options": [
+        "In synchronous calls, the caller blocks waiting for an immediate response; in asynchronous messaging, the sender publishes and continues, decoupling dependencies",
+        "Synchronous calls use UDP, while asynchronous calls only use HTTP/1.0",
+        "Synchronous communication is always faster than asynchronous",
+        "Asynchronous communication eliminates network latency completely"
+      ],
+      "correct": 0,
+      "expl": "Synchronous communication requires the caller to wait for the remote service, creating tight coupling; asynchronous communication buffers events, decoupling producer and consumer."
+    },
+    {
+      "id": 4,
+      "q": "How does gRPC achieve higher performance than traditional REST APIs with JSON payloads?",
+      "options": [
+        "By using compact binary Protocol Buffers serialization over HTTP/2 with multiplexing and streaming",
+        "By eliminating all network protocols and using direct memory sharing",
+        "By compressing text into ZIP files before every HTTP request",
+        "By disabling all authentication and encryption headers"
+      ],
+      "correct": 0,
+      "expl": "gRPC uses binary Protocol Buffers (smaller payload size) and HTTP/2 (multiplexed connections, binary framing, header compression), significantly lowering serialization and network overhead."
+    },
+    {
+      "id": 5,
+      "q": "Why is Apache Parquet considered an analytical storage format rather than a message serialization format like Avro or Protobuf?",
+      "options": [
+        "Parquet is column-oriented, allowing queries to scan only requested columns for OLAP; Avro/Protobuf are row-oriented formats optimized for streaming RPC events",
+        "Parquet cannot store numbers or strings",
+        "Avro cannot be read by Apache Spark",
+        "Protobuf only runs on single-node computers"
+      ],
+      "correct": 0,
+      "expl": "Parquet stores data by column with dictionary encoding and statistics, making it ideal for analytical aggregations, whereas Avro and Protobuf excel at streaming individual row-level messages."
+    },
+    {
+      "id": 6,
+      "q": "What is 'data skew' in a partitioned distributed cluster, and why is it dangerous?",
+      "options": [
+        "When an uneven distribution of keys causes one worker to process far more data than others, becoming a cluster bottleneck",
+        "When data is converted from CSV to Parquet incorrectly",
+        "When a database loses its primary key constraints",
+        "When network cables are physically twisted"
+      ],
+      "correct": 0,
+      "expl": "Data skew occurs when popular keys (e.g., millions of records for one merchant) funnel into a single partition, making that node a straggler while other nodes sit idle."
+    },
+    {
+      "id": 7,
+      "q": "In distributed replication, what is the trade-off of asynchronous replication compared to synchronous replication?",
+      "options": [
+        "Asynchronous replication provides lower write latency and higher availability, but replicas may temporarily lag and risk data loss if the primary crashes",
+        "Asynchronous replication completely prevents stale reads",
+        "Synchronous replication uses half the network bandwidth of asynchronous",
+        "Asynchronous replication does not allow reads from followers"
+      ],
+      "correct": 0,
+      "expl": "Asynchronous replication acknowledges writes immediately without waiting for replicas (fast, available), but replication lag can cause stale reads and data loss during failovers."
+    },
+    {
+      "id": 8,
+      "q": "What is the 'split-brain' problem in leader-follower architectures?",
+      "options": [
+        "When a network partition causes two nodes to both believe they are the legitimate leader, accepting conflicting writes simultaneously",
+        "When an operating system runs two CPU threads at once",
+        "When a hard drive runs out of disk space",
+        "When an analyst writes contradictory SQL queries"
+      ],
+      "correct": 0,
+      "expl": "Split-brain happens when isolated sub-clusters elect separate leaders, each accepting writes independently, corrupting state and causing severe divergence."
+    },
+    {
+      "id": 9,
+      "q": "What does the CAP theorem state regarding network partitions in distributed systems?",
+      "options": [
+        "During a network partition, a distributed system must choose between linearizable Consistency (CP) and Availability (AP) for affected operations",
+        "Every database permanently chooses two letters from C, A, and P and drops the third forever",
+        "Partition tolerance can be eliminated by using fiber optic cables",
+        "Cloud databases never experience network partitions"
+      ],
+      "correct": 0,
+      "expl": "Because network partitions are an inevitable physical reality (P is mandatory), a system facing a partition must choose between rejecting requests to ensure consistency (CP) or serving stale responses to remain available (AP)."
+    },
+    {
+      "id": 10,
+      "q": "What is the mathematical condition for strong consistency in a quorum-based system with N replicas?",
+      "options": [
+        "R + W > N (Read quorum + Write quorum > Total replicas)",
+        "R + W = N / 2",
+        "W = 1 and R = 1 regardless of N",
+        "R * W = N"
+      ],
+      "correct": 0,
+      "expl": "When R + W > N, the read set and write set are guaranteed to overlap on at least one replica, ensuring that the reader observes the latest committed update with version resolution."
+    },
+    {
+      "id": 11,
+      "q": "How does the Raft consensus algorithm guarantee safe leader election and prevent split-brain?",
+      "options": [
+        "A candidate must receive votes from a strict majority (floor(N/2) + 1) of all voting nodes in the cluster to become leader",
+        "The fastest node to respond to ping becomes leader permanently",
+        "By randomly assigning leadership every 60 seconds",
+        "By relying on a single external NTP clock"
+      ],
+      "correct": 0,
+      "expl": "Because any two majorities must overlap by at least one node, it is mathematically impossible for two conflicting candidates to both win a majority vote in the same term."
+    },
+    {
+      "id": 12,
+      "q": "Why are leases alone insufficient to prevent stale lock writes without fencing tokens?",
+      "options": [
+        "A process may experience a long garbage collection pause, lose its lease, and then resume writing after another process has acquired the resource",
+        "Leases expire after 100 milliseconds and cannot be renewed",
+        "Fencing tokens encrypt data on the client side",
+        "Databases automatically reject lease-based connections"
+      ],
+      "correct": 0,
+      "expl": "If a worker pauses (e.g. GC pause) past lease expiration, another worker takes over; a monotonically increasing fencing token ensures the storage layer rejects the resumed worker's stale write."
+    },
+    {
+      "id": 13,
+      "q": "What is the purpose of adding 'jitter' to an exponential backoff retry policy?",
+      "options": [
+        "To randomize retry delays across clients and prevent the 'thundering herd' problem from overwhelming recovering services",
+        "To make retries run faster by skipping failed attempts",
+        "To convert HTTP GET requests into POST requests",
+        "To encrypt retry tokens with RSA keys"
+      ],
+      "correct": 0,
+      "expl": "Without jitter, thousands of clients retry at the exact same exponential intervals (1s, 2s, 4s), creating destructive synchronized traffic spikes against recovering servers."
+    },
+    {
+      "id": 14,
+      "q": "How does backpressure protect distributed stream processing pipelines from crashing?",
+      "options": [
+        "It allows slower downstream consumers to throttle upstream producers or control incoming batch demand, preventing unbounded queue memory exhaustion",
+        "It automatically doubles the network bandwidth of the cluster",
+        "It deletes all messages older than 1 minute",
+        "It converts streaming data into static CSV files"
+      ],
+      "correct": 0,
+      "expl": "Backpressure signals producers to slow down or switches to demand-pull processing when consumers cannot keep up, keeping buffer queues within bounded memory limits."
+    },
+    {
+      "id": 15,
+      "q": "Why is idempotency essential when combining At-Least-Once delivery with automatic retries?",
+      "options": [
+        "Because network retries can deliver the same message multiple times; idempotent operations ensure repeated execution produces the exact same business state without duplicates",
+        "Because databases reject duplicate queries automatically",
+        "Because it eliminates the need for database transactions",
+        "Because it speeds up Kafka topic partitioning by 50%"
+      ],
+      "correct": 0,
+      "expl": "At-least-once delivery guarantees no message loss by retrying on failures, which inevitably creates duplicates; idempotency (e.g., upserts or unique idempotency keys) makes those replays safe."
+    }
+  ]
+}

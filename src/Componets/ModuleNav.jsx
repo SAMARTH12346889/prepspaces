@@ -209,6 +209,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "airflow-orchestration", name: "12. Workflow Orchestration (Apache Airflow)", route: "/learning/data-engineering/airflow-orchestration" },
   { id: "analytics-engineering-dbt", name: "13. Analytics Engineering & dbt", route: "/learning/data-engineering/analytics-engineering-dbt" },
   { id: "data-quality-lineage", name: "14. Data Quality, Testing, Metadata & Lineage", route: "/learning/data-engineering/data-quality-lineage" },
+  { id: "distributed-systems", name: "15. Distributed Systems for Data Engineers", route: "/learning/data-engineering/distributed-systems" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

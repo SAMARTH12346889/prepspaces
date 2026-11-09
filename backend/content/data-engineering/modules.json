@@ -152,5 +152,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "distributed-systems",
+    "courseId": "data-engineering",
+    "index": 15,
+    "name": "15. Distributed Systems for Data Engineers",
+    "route": "/learning/data-engineering/distributed-systems",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
