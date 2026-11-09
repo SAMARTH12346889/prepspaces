@@ -240,5 +240,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "system-design-capstone",
+    "courseId": "data-engineering",
+    "index": 23,
+    "name": "23. Data Engineering System Design and Final Capstone",
+    "route": "/learning/data-engineering/system-design-capstone",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

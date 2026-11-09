@@ -205,6 +205,7 @@ const DataEngineeringDataOps = React.lazy(() => import("./Componets/DataEngineer
 const DataEngineeringSecurity = React.lazy(() => import("./Componets/DataEngineeringSecurity"));
 const DataEngineeringReliability = React.lazy(() => import("./Componets/DataEngineeringReliability"));
 const DataEngineeringDataProducts = React.lazy(() => import("./Componets/DataEngineeringDataProducts"));
+const DataEngineeringSystemDesign = React.lazy(() => import("./Componets/DataEngineeringSystemDesign"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1712,6 +1713,12 @@ function App() {
             <Route path="/learning/data-engineering/data-mesh" element={<DataEngineeringDataProducts />} />
             <Route path="/learning/data-engineering/module-22" element={<DataEngineeringDataProducts />} />
             <Route path="/learn/data-engineering/data-products-ai-serving" element={<DataEngineeringDataProducts />} />
+            <Route path="/learning/data-engineering/system-design-capstone" element={<DataEngineeringSystemDesign />} />
+            <Route path="/learning/data-engineering/system-design" element={<DataEngineeringSystemDesign />} />
+            <Route path="/learning/data-engineering/capstone" element={<DataEngineeringSystemDesign />} />
+            <Route path="/learning/data-engineering/final-capstone" element={<DataEngineeringSystemDesign />} />
+            <Route path="/learning/data-engineering/module-23" element={<DataEngineeringSystemDesign />} />
+            <Route path="/learn/data-engineering/system-design-capstone" element={<DataEngineeringSystemDesign />} />
             <Route path="/learning/data-engineering/airflow" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/orchestration" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/dagster" element={<DataEngineeringAirflow />} />

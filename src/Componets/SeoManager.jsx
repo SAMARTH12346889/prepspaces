@@ -153,6 +153,13 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+  "/learning/data-engineering/system-design-capstone": {
+    canonical: `${BASE_URL}/learning/data-engineering/system-design-capstone`,
+    title: "Module 23: Data Engineering System Design and Final Capstone | Data Engineering Master Course",
+    description: "Master end-to-end data platform system design, quantitative capacity estimation, batch vs streaming trade-offs, Change Data Capture (CDC), Medallion lakehouse modeling (Apache Iceberg, Parquet), Airflow orchestration, dbt analytical marts, and the ShopSphere production e-commerce capstone.",
+    keywords: "data engineering system design, data architecture, final capstone project, ShopSphere, quantitative capacity estimation, peak surge throughput, storage capacity estimation, batch vs streaming, Lambda architecture, Kappa architecture, Change Data Capture, CDC, Debezium, Apache Kafka, Apache Spark, Apache Flink, Apache Iceberg, Delta Lake, data lakehouse, Medallion architecture, Bronze Silver Gold, dbt Core, dimensional modeling, star schema, analytical data marts, Apache Airflow, DAG orchestration, data quality testing, Great Expectations, Metabase, fault tolerance, disaster recovery, RPO, RTO, IAM, Zero Trust, data governance, FinOps, cost optimization, Architecture Decision Records, ADR, data engineering interview, data engineering course, PrepSpaces",
+    badge: "Module 23 · Final Capstone"
+  },
   "/learning/data-engineering/data-products-ai-serving": {
     canonical: `${BASE_URL}/learning/data-engineering/data-products-ai-serving`,
     title: "Module 22: Data Products, Serving Architectures and AI Data Engineering | Data Engineering Master Course",

@@ -1,0 +1,189 @@
+{
+  "id": "system-design-capstone",
+  "title": "Module 23: Data Engineering System Design and Final Capstone",
+  "courseId": "data-engineering",
+  "index": 23,
+  "description": "Master end-to-end data platform system design, quantitative capacity estimation, batch vs streaming architectures, CDC ingestion, Medallion lakehouse modeling, and the ShopSphere production e-commerce capstone.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Why is 'technology-first thinking' (e.g., choosing Kafka and Spark before analyzing requirements) considered an anti-pattern in Data Engineering System Design?",
+      "options": [
+        "Because optimal data platforms must be driven by business problems, data semantics, latency SLAs, access patterns, and cost constraints rather than tool hype",
+        "Because Apache Kafka and Apache Spark are deprecated technologies that should never be used together",
+        "Because cloud providers prohibit the use of open-source software in enterprise production contracts",
+        "Because hardware servers can only run either batch or streaming software, but never both simultaneously"
+      ],
+      "answer": 0,
+      "explanation": "Starting with tools leads to over-engineered architectures, bloated cloud bills, and systems that fail to deliver core business value. Professional data architects begin with business requirements, data sources, SLA expectations, query access patterns, and budget limits."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following represents a Non-Functional Requirement (NFR) in an e-commerce data platform design?",
+      "options": [
+        "The analytical dashboard must reflect newly placed orders within 5 minutes with 99.9% service availability",
+        "The system must extract customer records from the PostgreSQL production database",
+        "The analytics mart must calculate the average order value grouped by product category",
+        "The application must send a welcome email when a user registers a new account"
+      ],
+      "answer": 0,
+      "explanation": "Functional requirements describe what operations the system must perform (extracting orders, computing revenue). Non-functional requirements describe operational qualities and performance bounds: latency SLAs (5 mins), availability (99.9%), throughput, reliability, and security."
+    },
+    {
+      "id": 3,
+      "question": "What is the primary operational trade-off between the Lambda Architecture and the Kappa Architecture?",
+      "options": [
+        "Lambda requires maintaining two separate codebases for batch and speed layers, whereas Kappa uses a single stream processing engine for both real-time and historical replay",
+        "Lambda only supports relational databases, while Kappa only supports unstructured file storage",
+        "Lambda eliminates the need for storage backends, whereas Kappa requires magnetic tape drives",
+        "Kappa cannot run on cloud infrastructure and must always be hosted on bare-metal mainframes"
+      ],
+      "answer": 0,
+      "explanation": "Lambda architecture combines a batch layer (e.g. Spark batch) and speed layer (e.g. Flink/Storm), creating duplicated business logic and synchronization complexity. Kappa architecture simplifies this by routing both real-time streams and historical reprocessing through the same streaming engine."
+    },
+    {
+      "id": 4,
+      "question": "If an e-commerce platform generates 2 million orders per day with an average record size of 1 KB, and experiences a 20x peak flash-sale multiplier, what is the required peak throughput capacity?",
+      "options": [
+        "Approximately 463 orders per second",
+        "Approximately 23 orders per second",
+        "Approximately 5,000 orders per second",
+        "Approximately 100 orders per second"
+      ],
+      "answer": 0,
+      "explanation": "Average orders per second = 2,000,000 / 86,400 ≈ 23.15 orders/sec. Multiplying by the 20x peak flash-sale surge factor yields 23.15 × 20 ≈ 463 orders per second."
+    },
+    {
+      "id": 5,
+      "question": "Why does converting 2 GB/day of raw JSON order data into Apache Parquet typically reduce storage volume by 75% or more?",
+      "options": [
+        "Parquet organizes data column-by-column, allowing homogenous data types to be compressed using dictionary, run-length, and Snappy/ZSTD encoding algorithms",
+        "Parquet deletes half of the rows during every write operation",
+        "Parquet removes all column headers and replaces text characters with whitespace",
+        "JSON files contain secret encrypted operating system payloads that Parquet strips out"
+      ],
+      "answer": 0,
+      "explanation": "Columnar storage clusters identical data types together (e.g., timestamps next to timestamps, integers next to integers). This high data locality allows efficient column-level compression techniques (Snappy, ZSTD, Bit-packing, Dictionary encoding) that drastically reduce storage footprints and I/O costs."
+    },
+    {
+      "id": 6,
+      "question": "In a modern Lakehouse ingestion pipeline, why is Change Data Capture (CDC) preferred over scheduled timestamp-based SQL polling (`SELECT * WHERE updated_at > last_sync`)?",
+      "options": [
+        "CDC reads the database transaction log directly (WAL), capturing hard DELETEs and intermediate row states with zero query impact on the production database",
+        "Timestamp polling is illegal under international data governance treaties",
+        "CDC completely eliminates the need for Apache Kafka or streaming message brokers",
+        "Timestamp queries lock the entire operating system kernel for 30 minutes"
+      ],
+      "answer": 0,
+      "explanation": "Timestamp polling misses deleted rows, skips intermediate updates that occur between polling cycles, and puts heavy read query loads on primary transactional tables. CDC (e.g. Debezium) streams raw log changes from the WAL asynchronously without table locking."
+    },
+    {
+      "id": 7,
+      "question": "When designing the processing layer of a data platform, in which scenario is DuckDB or Pandas preferred over Apache Spark?",
+      "options": [
+        "When processing single-node datasets that fit comfortably in local memory (under 50 GB) without distributed cluster overhead",
+        "When transforming 100 terabytes of clickstream logs across a 500-node worker cluster",
+        "When performing sub-millisecond real-time complex event processing across millions of sensors",
+        "When building multi-region active-active distributed Cassandra ring topologies"
+      ],
+      "answer": 0,
+      "explanation": "Using Spark for small datasets (e.g., hundreds of megabytes or a few gigabytes) introduces unnecessary cluster startup overhead, JVM memory bloat, and network shuffle latency. Single-node in-process tools like DuckDB and Polars/Pandas execute orders of magnitude faster with zero cluster management cost."
+    },
+    {
+      "id": 8,
+      "question": "What core technical capability does a Lakehouse table format (like Apache Iceberg or Delta Lake) provide that raw S3 object storage lacks?",
+      "options": [
+        "ACID transactions, schema evolution, partition evolution, snapshot isolation, and time-travel query capabilities over open data files",
+        "The ability to run Python scripts directly inside SSD flash memory controllers",
+        "Automatic conversion of relational SQL tables into uncompressed Microsoft Word documents",
+        "Free unlimited public cloud compute credits from the Apache Software Foundation"
+      ],
+      "answer": 0,
+      "explanation": "Raw object stores (S3, GCS) only offer eventual consistency and lack transactional guarantees. Table formats maintain a transactional metadata tree (manifest lists and manifest files) that enables ACID atomic commits, snapshot isolation, and safe concurrent writes."
+    },
+    {
+      "id": 9,
+      "question": "What is the consequence of 'over-partitioning' a data lakehouse (e.g. partitioning by `year/month/day/hour/customer_id`)?",
+      "options": [
+        "It causes the 'small-file problem', generating millions of tiny files that overwhelm metastore metadata operations and degrade query performance",
+        "It causes the cloud provider to immediately delete the object storage bucket",
+        "It converts all numeric columns into boolean flags",
+        "It permanently locks the CPU clock frequency to 100 MHz"
+      ],
+      "answer": 0,
+      "explanation": "Creating too many partitions results in millions of tiny files (few KB each). Query engines spend more time listing files and reading metadata than reading actual data, creating severe query latency spikes and garbage collection pressure in metastores."
+    },
+    {
+      "id": 10,
+      "question": "If a business specifies an RPO of 15 minutes and an RTO of 2 hours, what does this mathematically require of the data disaster recovery architecture?",
+      "options": [
+        "Data loss must not exceed the last 15 minutes of transactions, and the system must be fully restored and operational within 2 hours of a failure",
+        "Backups must only be performed once every 15 days, and restoration must take exactly 2 weeks",
+        "The data pipeline must run 15 times faster than standard batch queries and use 2 CPU cores",
+        "All data older than 15 minutes must be permanently purged to keep recovery time under 2 hours"
+      ],
+      "answer": 0,
+      "explanation": "Recovery Point Objective (RPO) dictates the maximum acceptable data loss in time (15 mins of transactions). Recovery Time Objective (RTO) dictates the maximum allowable downtime before full operational restoration (2 hours)."
+    },
+    {
+      "id": 11,
+      "question": "In the Medallion Architecture, what is the explicit purpose of the Silver Layer?",
+      "options": [
+        "To clean, deduplicate, validate, enrich, and standardize raw Bronze data into a trusted, query-ready enterprise baseline",
+        "To store raw unaltered JSON payloads exactly as received from third-party APIs",
+        "To store final aggregated executive dashboard charts with pre-rendered PNG graphics",
+        "To store cold archival records scheduled for permanent deletion within 24 hours"
+      ],
+      "answer": 0,
+      "explanation": "Bronze holds raw, append-only source records. Silver cleans, deduplicates, validates schemas, enforces nullability, and standardizes data formats. Gold consumes Silver tables to produce department-specific dimensional models and analytical marts."
+    },
+    {
+      "id": 12,
+      "question": "Why should Apache Airflow DAG tasks be designed to be completely 'idempotent'?",
+      "options": [
+        "So that rerunning a failed task or performing a historical backfill produces the exact same state without creating duplicate records or corrupting aggregates",
+        "So that DAGs can execute without needing an underlying metadata database",
+        "So that Python code runs without requiring semicolons at the end of statements",
+        "So that tasks automatically bypass all data quality tests during peak hours"
+      ],
+      "answer": 0,
+      "explanation": "Pipelines inevitably fail and must be retried or backfilled. Idempotent tasks (using `INSERT OVERWRITE`, upserts, or staging tables with deduplication) ensure that executing a task multiple times with the same input yields the exact same clean dataset without duplicate rows."
+    },
+    {
+      "id": 13,
+      "question": "In a dbt project, what is the role of the `ref()` function (e.g. `FROM {{ ref('stg_orders') }}`)?",
+      "options": [
+        "It resolves table dependencies, builds the automated Directed Acyclic Graph (DAG) for model execution order, and manages environment schema namespaces",
+        "It encrypts the SQL code using AES-256 before compiling to machine code",
+        "It connects the database directly to external public REST endpoints",
+        "It automatically translates PostgreSQL dialect into Microsoft Excel formulas"
+      ],
+      "answer": 0,
+      "explanation": "The `ref()` macro is dbt's core mechanism for model dependency resolution. It allows dbt to infer the exact DAG execution order, interpolate correct environment database/schema names, and generate comprehensive end-to-end data lineage."
+    },
+    {
+      "id": 14,
+      "question": "What is the primary role of an Architecture Decision Record (ADR) in a production data engineering team?",
+      "options": [
+        "To document the context, alternatives considered, technical reasoning, and consequences of significant architectural decisions for future maintainability",
+        "To bill external cloud vendors for pipeline compute downtime",
+        "To enforce employee non-disclosure agreements during daily standup meetings",
+        "To register copyright trademarks for internal SQL function names"
+      ],
+      "answer": 0,
+      "explanation": "An ADR captures why a specific technology or design was chosen (e.g. choosing Apache Iceberg over Delta Lake, or Flink over Spark Streaming), what trade-offs were accepted, and what consequences follow, ensuring institutional memory across team changes."
+    },
+    {
+      "id": 15,
+      "question": "In the ShopSphere Capstone platform, how is data served to business users for real-time analytics without degrading operational database performance?",
+      "options": [
+        "By streaming CDC changes through Kafka and Spark into an Iceberg lakehouse and analytical data marts queried through Metabase dashboards",
+        "By allowing all business analysts to run unrestricted `SELECT *` queries directly on the production PostgreSQL OLTP instance",
+        "By exporting the production database to a single shared CSV file on a desktop computer once a week",
+        "By disabling all database indexes so analytical queries can scan raw disk sectors directly"
+      ],
+      "answer": 0,
+      "explanation": "The capstone decouples transactional operations from analytical consumption. CDC captures PostgreSQL mutations without table locks, Kafka buffers events, Spark and Iceberg process Medallion layers, and dbt models populate curated star-schema marts queried via BI dashboards."
+    }
+  ]
+}
