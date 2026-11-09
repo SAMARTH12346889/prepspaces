@@ -1,0 +1,189 @@
+{
+  "id": "stream-processing",
+  "title": "Stream Processing and Real-Time Analytics",
+  "courseId": "data-engineering",
+  "index": 17,
+  "description": "Master distributed stream processing and real-time analytics: batch vs stream processing, bounded vs unbounded datasets, event time vs processing time, windowing (tumbling, sliding, session), watermarks and out-of-order event handling, allowed lateness, stateful stream processing with State TTL, stream-stream and stream-static joins, distributed checkpointing and savepoints, exactly-once processing, Apache Flink architecture (JobManager, TaskManager, task slots, RocksDB), Spark Structured Streaming (micro-batch, Real-time mode, output modes), and real-time analytics dashboard design.",
+  "quiz": [
+    {
+      "id": 1,
+      "q": "What is the primary architectural difference between stream processing and traditional batch processing?",
+      "options": [
+        "Stream processing continuously computes over unbounded records as they arrive with millisecond-to-second latency, while batch processing executes at scheduled intervals over finite collected datasets",
+        "Stream processing can only execute simple arithmetic, while batch processing is required for SQL queries",
+        "Stream processing stores all data permanently in memory and never writes to disk",
+        "Stream processing requires a dedicated GPU cluster, while batch processing only runs on single CPU machines"
+      ],
+      "correct": 0,
+      "expl": "Stream processing treats data as an ongoing, unbounded flow of events, evaluating business logic, window aggregations, and joins incrementally with low latency. Batch processing waits for data to accumulate into finite bounded datasets before scheduled execution."
+    },
+    {
+      "id": 2,
+      "q": "Why cannot an unbounded dataset be queried with a traditional 'SELECT SUM(amount) FROM orders' without windowing or stateful stream abstractions?",
+      "options": [
+        "Because an unbounded dataset continuously grows without a predefined end, so the total amount would continuously evolve forever without terminating",
+        "Because SQL syntax is fundamentally incompatible with Kafka topics",
+        "Because unbounded datasets automatically delete records older than 60 seconds",
+        "Because distributed databases cannot compute SUM aggregations across more than 1,000 rows"
+      ],
+      "correct": 0,
+      "expl": "In an unbounded stream, events continue arriving indefinitely. A standard batch query expects a finite dataset that finishes; stream processing requires defining time windows (e.g. 5-minute tumbling windows) or continuously maintaining stateful running aggregates."
+    },
+    {
+      "id": 3,
+      "q": "A delivery driver completes an order on a mobile device at 10:00:00 AM, but loses cellular network connectivity. The device reconnects and transmits the event at 10:15:00 AM, which is processed by the streaming engine at 10:15:05 AM. What is the Event Time of this record?",
+      "options": [
+        "10:00:00 AM (the actual timestamp when the physical delivery occurred at the source)",
+        "10:15:00 AM (the ingestion time when the event entered the server gateway)",
+        "10:15:05 AM (the processing time when the stream operator processed the record)",
+        "10:07:30 AM (the mathematical average of source and server arrival timestamps)"
+      ],
+      "correct": 0,
+      "expl": "Event time represents the actual timestamp when the real-world event occurred at the source device. Processing time is the machine clock when the engine executes the event, and ingestion time is when it enters the platform broker."
+    },
+    {
+      "id": 4,
+      "q": "How does a Tumbling Window group incoming streaming events?",
+      "options": [
+        "It segments the stream into fixed-size, non-overlapping, contiguous time intervals where each event belongs to exactly one window",
+        "It creates overlapping windows that advance forward by a slide interval smaller than the window length",
+        "It groups events dynamically based on user activity separated by configurable inactivity gaps",
+        "It flushes all records whenever consumer lag exceeds 1,000 messages"
+      ],
+      "correct": 0,
+      "expl": "Tumbling windows divide a stream into fixed-duration, non-overlapping intervals (e.g., 10:00-10:05, 10:05-10:10). Assuming event-time alignment, every record belongs to exactly one tumbling window."
+    },
+    {
+      "id": 5,
+      "q": "If a streaming query configures a Sliding Window with a duration of 10 minutes and a slide (hop) interval of 2 minutes, how many windows will an individual event typically belong to?",
+      "options": [
+        "5 overlapping windows (10 minutes duration / 2 minutes slide)",
+        "1 window only, because sliding windows never overlap",
+        "10 windows, one for every minute of duration",
+        "Zero windows, unless the event arrives with zero network latency"
+      ],
+      "correct": 0,
+      "expl": "In a sliding (hopping) window, the window duration exceeds the slide step (e.g. 10m / 2m = 5). An event falls into every overlapping window that covers its timestamp, increasing state requirements proportionally."
+    },
+    {
+      "id": 6,
+      "q": "What is the defining characteristic of a Session Window?",
+      "options": [
+        "It groups events by activity periods separated by an inactivity gap, resulting in windows of dynamic, variable lengths that can merge",
+        "It has a fixed 24-hour duration that resets at midnight UTC",
+        "It guarantees that every user session processes exactly 100 events before closing",
+        "It ignores event timestamps and only counts records per consumer thread"
+      ],
+      "correct": 0,
+      "expl": "Session windows do not have fixed start and end durations; they are driven by periods of activity. Consecutive events within an inactivity gap belong to the same session. When a new event arrives that spans two previously separate gaps, the sessions merge."
+    },
+    {
+      "id": 7,
+      "q": "In event-time stream processing, what is the core purpose of a Watermark?",
+      "options": [
+        "It acts as a temporal progress metric indicating that the engine estimates all events with timestamps up to T have arrived, allowing window finalization and state cleanup",
+        "It encrypts payload data using digital watermarking algorithms to prevent fraud",
+        "It forces Kafka brokers to flush memory buffers to physical NVMe disk every 10ms",
+        "It limits the maximum number of task slots a Flink JobManager can allocate"
+      ],
+      "correct": 0,
+      "expl": "A watermark carrying timestamp T declares that the stream processor estimates event-time progress has reached T. When a watermark passes a window's end time, the engine can trigger the window computation and clean up state."
+    },
+    {
+      "id": 8,
+      "q": "What is the precise distinction between an out-of-order event and a late-arriving event in stream processing?",
+      "options": [
+        "An out-of-order event arrives in a sequence different from its event time; a late event arrives after the engine's watermark has already passed its timestamp",
+        "An out-of-order event is always dropped, while late events are always retained in memory forever",
+        "Late events only occur in batch processing, whereas out-of-order events only occur in Kafka brokers",
+        "There is no difference; the terms are completely interchangeable"
+      ],
+      "correct": 0,
+      "expl": "An out-of-order event simply arrives out of chronological sequence, but if it arrives before the watermark passes its timestamp, it is still processed on-time. A late event arrives after the watermark has already advanced past its timestamp."
+    },
+    {
+      "id": 9,
+      "q": "Why is State Time-To-Live (TTL) essential in stateful stream processing applications (e.g., customer transaction accumulators)?",
+      "options": [
+        "To evict inactive keys from state backends (like RocksDB) after a configured duration, preventing unbounded memory and disk storage growth",
+        "To ensure that all Kafka topics delete partitions every 24 hours",
+        "To force the Java Virtual Machine to restart every 10 minutes",
+        "To synchronize physical server hardware clocks across AWS availability zones"
+      ],
+      "correct": 0,
+      "expl": "In an unbounded stream with millions of unique keys (e.g. customer IDs), maintaining state indefinitely causes memory and disk exhaustion. State TTL automatically cleans up state for keys that have had no activity for a defined duration."
+    },
+    {
+      "id": 10,
+      "q": "Why does a stream-stream join (e.g. matching an orders stream with a payments stream) fundamentally require state and a time window constraint?",
+      "options": [
+        "Because orders and payments arrive asynchronously at different times; the engine must buffer records in state while waiting for the match within a bounded time interval",
+        "Because streaming joins cannot evaluate equality conditions on integer keys",
+        "Because Kafka topics cannot be read by more than one stream processing thread simultaneously",
+        "Because foreign key constraints are only supported in MySQL and PostgreSQL"
+      ],
+      "correct": 0,
+      "expl": "An order may arrive before its payment, or vice versa. Since both streams are unbounded, the engine must buffer incoming events in state. A time window constraint (e.g. within 30 minutes) is mandatory so unmatched records can eventually be expired from state."
+    },
+    {
+      "id": 11,
+      "q": "How does Apache Flink achieve fault-tolerant state recovery without restarting a streaming application from the beginning of the log?",
+      "options": [
+        "It injects checkpoint barriers into the dataflow that take coordinated distributed snapshots of operator state and source offsets to durable storage",
+        "It writes every single event to an external Redis cache before passing it to the next operator",
+        "It requires all streaming operators to run as stateless Python functions",
+        "It takes a complete snapshot of the entire operating system virtual machine every 1 second"
+      ],
+      "correct": 0,
+      "expl": "Flink uses checkpoint barriers that flow alongside stream records through operators. When barriers reach an operator, it writes its current state to durable storage (S3, HDFS) along with source offsets, establishing a consistent recovery point."
+    },
+    {
+      "id": 12,
+      "q": "Why does an internal exactly-once guarantee in a stream processing engine (like Flink or Spark) NOT automatically guarantee end-to-end exactly-once business effects in an external destination?",
+      "options": [
+        "Because if the output sink (e.g. external database or REST API) is not transactional or idempotent, retries during failure recovery will duplicate external writes",
+        "Because Kafka brokers automatically corrupt duplicate offset commits",
+        "Because Python code cannot execute distributed transactions across network sockets",
+        "Because exactly-once processing is only theoretically possible on single-core laptops"
+      ],
+      "correct": 0,
+      "expl": "End-to-end exactly-once requires three coordinated pieces: a replayable source (Kafka), a deterministic engine with checkpointed state (Flink/Spark), and a transactional (two-phase commit) or idempotent (UPSERT / ON CONFLICT) sink."
+    },
+    {
+      "id": 13,
+      "q": "In Apache Flink architecture, what is the specific role of Task Slots inside a TaskManager?",
+      "options": [
+        "They are units of resource scheduling inside a TaskManager, each executing a subset of parallel operator subtasks and isolating memory/threads",
+        "They are physical PCIe slots used for inserting GPU accelerators into worker nodes",
+        "They are HTTP endpoints used exclusively for receiving REST API queries from dashboards",
+        "They are ZooKeeper locks used to elect the active JobManager coordinator"
+      ],
+      "correct": 0,
+      "expl": "A TaskManager allocates its resources into one or more Task Slots. Each slot can execute a slice of the parallel execution graph (operators and chains), enabling predictable resource sharing and parallelism within the worker process."
+    },
+    {
+      "id": 14,
+      "q": "How does Spark Structured Streaming differ from legacy Spark Streaming (DStreams)?",
+      "options": [
+        "Structured Streaming operates on DataFrames/Datasets as incrementally updated tables with native event-time watermarking, whereas DStreams used low-level RDDs",
+        "Structured Streaming only supports batch files, whereas DStreams supported real-time streaming",
+        "Legacy DStreams is recommended by Apache Spark for all new production pipelines in 2026",
+        "Structured Streaming does not support fault tolerance or checkpointing"
+      ],
+      "correct": 0,
+      "expl": "Legacy Spark Streaming was built on Discretized Streams (DStreams) of RDDs. Structured Streaming is Spark's modern engine, treating streaming as an evolving table over DataFrames and Datasets with robust watermarking, stream-stream joins, and multiple output modes."
+    },
+    {
+      "id": 15,
+      "q": "In Spark Structured Streaming, which output mode should be used when writing continuously updated grouped aggregate metrics (e.g. running revenue per customer) to an external sink?",
+      "options": [
+        "Update mode, which outputs only the rows that changed since the last micro-batch trigger",
+        "Append mode, which outputs all rows regardless of whether they changed",
+        "Complete mode, which deletes the destination table before inserting raw events",
+        "Ignore mode, which bypasses the sink whenever new records arrive"
+      ],
+      "correct": 0,
+      "expl": "In Spark Structured Streaming, Update mode outputs only the rows that were updated or added in the latest trigger. Append mode is only valid for queries where results are finalized (like watermarked windows), while Complete mode outputs the entire table each time."
+    }
+  ]
+}

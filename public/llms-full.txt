@@ -1122,6 +1122,42 @@
   - 24. Final Revision — What You Should Understand (Complete 23-topic mastery synthesis table)
   - 25. Recommended Learning Resources (Official documentation for dbt, Great Expectations, Deequ, OpenMetadata, DataHub, Airflow, and PostgreSQL)
 
+## Module 17: Stream Processing and Real-Time Analytics
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/stream-processing
+- **Topics Covered:**
+  - 1. Introduction to Stream Processing (Continuous processing over unbounded events, operations: filter, transform, enrich, aggregate, join, pattern detection, message consumption vs stream processing)
+  - 2. Batch Processing vs Stream Processing (Scheduled batches vs continuous stream, latency budgets, Lambda architecture: batch/speed/serving layers, Kappa architecture: streaming-first replay)
+  - 3. Bounded and Unbounded Datasets (Finite collected datasets vs infinite streams, continuous computation as evolving queries, stateful aggregation requirements)
+  - 4. Real-Time Processing Architecture (Sources, Kafka ingestion, streaming engine, operational/analytical storage, serving layer, end-to-end pipeline latency budgets)
+  - 5. Event Time vs Processing Time (Event time at source, processing time at worker, ingestion time at broker, mobile offline buffering scenario, time synchronization and NTP)
+  - 6. Windowing Concepts (Logical grouping of unbounded streams, tumbling, sliding, session window abstractions)
+  - 7. Tumbling Windows (Fixed-size, non-overlapping time intervals, Flink SQL TUMBLE syntax, use cases)
+  - 8. Sliding Windows (Fixed duration with smaller slide intervals, overlapping events, state memory multipliers, Flink SQL HOP syntax)
+  - 9. Session Windows (Activity bursts, dynamic durations, inactivity gap thresholds, Flink DataStream EventTimeSessionWindows, session merging)
+  - 10. Watermarks (Temporal progress tracking: Watermark = max(EventTime) - AllowedDelay, window finalization, state cleanup, distributed watermark minimums)
+  - 11. Out-of-Order Events (Network delays, parallel partitions, retries, revenue correction workflows)
+  - 12. Late-Arriving Events (Watermark boundary crossing, allowed lateness window retention, side outputs, reconciliation)
+  - 13. Stateful Stream Processing (Stateless vs stateful, customer transaction counters, keyed state, operator state, window state, RocksDB state backend, State TTL eviction)
+  - 14. Stream Joins and Aggregations (Grouped and windowed aggregations, stream-stream joins with time bounds, stream-static joins, temporal joins, Flink SQL and PySpark syntax)
+  - 15. Checkpointing and Recovery (Periodic state snapshots, recovery workflows, Flink checkpoint barriers aligned/unaligned, checkpoints vs savepoints, Spark checkpointLocation)
+  - 16. Exactly-Once Processing Concepts (At-most-once, at-least-once, exactly-once boundaries, Flink two-phase commit sinks, Spark foreachBatch batchId deduplication, idempotent PostgreSQL upserts)
+  - 17. Apache Flink Architecture (JobManager: ResourceManager, Dispatcher, JobMaster; TaskManagers, Task Slots resource scheduling, operator chaining, parallelism, RocksDB state backend, deployment modes)
+  - 18. Spark Structured Streaming (Incrementally updated tables, micro-batch execution, Continuous Processing, Real-time mode in Spark 4.1+, Kafka source integration, JSON parsing, Append/Update/Complete output modes)
+  - 19. Apache Flink vs Spark Structured Streaming (Architectural comparison, continuous vs micro-batch, event-time capabilities, selection criteria)
+  - 20. Streaming Data Pipelines (Streaming ETL vs traditional ETL, quality validation: schema, nulls, range, duplicate detection, freshness monitoring, backpressure)
+  - 21. Real-Time Analytics Dashboards (Window aggregation for visualization efficiency, metrics: revenue, transactions, operational lag; frontend updates: polling, SSE, WebSockets)
+  - 22. Building an End-to-End Real-Time Streaming Application (Simulated order generator, Kafka topic, Spark Structured Streaming processor, PostgreSQL analytical tables with foreachBatch upserts, REST API, React dashboard)
+  - 23. Practical Laboratory 1 (Tumbling, sliding, and session windows implementation on clickstream dataset)
+  - 24. Practical Laboratory 2 (Event time and watermarks with allowed lateness and side outputs)
+  - 25. Practical Laboratory 3 (Stateful transaction monitoring with fraud detection alert rules)
+  - 26. Practical Laboratory 4 (Apache Flink SQL streaming application with Kafka source and window aggregations)
+  - 27. Practical Laboratory 5 (End-to-end streaming capstone platform with performance scaling benchmarks)
+  - 28. Common Mistakes in Stream Processing (15 critical production pitfalls: event vs processing time confusion, aggressive watermarks, unbounded state growth, neglecting checkpointing, sink guarantees)
+  - 29. Important Interview Questions and Answers (35 comprehensive technical interview questions and scenario-based system design answers)
+  - 30. Recommended Learning Resources (Official Apache Flink docs, Spark Structured Streaming docs, Kafka Streams, Streaming Systems book)
+  - 31. Final Revision — Module 17 (26-topic revision matrix covering all core stream processing principles)
+  - 32. How Module 17 Connects to Your Data Engineering Roadmap (Progression to Advanced Data Engineering, real-time lakehouses, and production analytics)
+
 ## Module 16: Event-Driven Architecture and Apache Kafka
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/kafka-event-driven
 - **Topics Covered:**

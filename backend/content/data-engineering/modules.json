@@ -174,5 +174,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "stream-processing",
+    "courseId": "data-engineering",
+    "index": 17,
+    "name": "17. Stream Processing and Real-Time Analytics",
+    "route": "/learning/data-engineering/stream-processing",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

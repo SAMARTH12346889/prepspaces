@@ -211,6 +211,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "data-quality-lineage", name: "14. Data Quality, Testing, Metadata & Lineage", route: "/learning/data-engineering/data-quality-lineage" },
   { id: "distributed-systems", name: "15. Distributed Systems for Data Engineers", route: "/learning/data-engineering/distributed-systems" },
   { id: "kafka-event-driven", name: "16. Event-Driven Architecture & Apache Kafka", route: "/learning/data-engineering/kafka-event-driven" },
+  { id: "stream-processing", name: "17. Stream Processing & Real-Time Analytics", route: "/learning/data-engineering/stream-processing" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

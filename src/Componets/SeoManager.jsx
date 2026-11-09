@@ -153,6 +153,13 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+  "/learning/data-engineering/stream-processing": {
+    canonical: `${BASE_URL}/learning/data-engineering/stream-processing`,
+    title: "Module 17: Stream Processing and Real-Time Analytics | Data Engineering Master Course",
+    description: "Master distributed stream processing and real-time analytics: batch vs stream processing, bounded vs unbounded datasets, event time vs processing time, windowing (tumbling, sliding, session), watermarks and out-of-order event handling, allowed lateness, stateful stream processing with State TTL, stream-stream and stream-static joins, distributed checkpointing and savepoints, exactly-once processing, Apache Flink architecture (JobManager, TaskManager, task slots, RocksDB), Spark Structured Streaming (micro-batch, Real-time mode, output modes), and real-time analytics dashboard design.",
+    keywords: "stream processing, real-time analytics, Apache Flink, Spark Structured Streaming, bounded datasets, unbounded datasets, event time, processing time, ingestion time, tumbling window, sliding window, session window, hopping window, watermarks, out-of-order events, late-arriving events, allowed lateness, stateful stream processing, keyed state, operator state, State TTL, stream-stream join, stream-static join, checkpointing, savepoints, checkpoint barriers, exactly-once processing, JobManager, TaskManager, task slots, RocksDB state backend, micro-batch processing, Spark output modes, Append mode, Update mode, Complete mode, real-time dashboards, data engineering course",
+    badge: "Module 17 · Data Engineering"
+  },
   "/learning/data-engineering/kafka-event-driven": {
     canonical: `${BASE_URL}/learning/data-engineering/kafka-event-driven`,
     title: "Module 16: Event-Driven Architecture and Apache Kafka | Data Engineering Master Course",

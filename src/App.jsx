@@ -199,6 +199,7 @@ const DataEngineeringDbt = React.lazy(() => import("./Componets/DataEngineeringD
 const DataEngineeringQuality = React.lazy(() => import("./Componets/DataEngineeringQuality"));
 const DataEngineeringDistributed = React.lazy(() => import("./Componets/DataEngineeringDistributed"));
 const DataEngineeringKafka = React.lazy(() => import("./Componets/DataEngineeringKafka"));
+const DataEngineeringStreamProcessing = React.lazy(() => import("./Componets/DataEngineeringStreamProcessing"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1670,6 +1671,11 @@ function App() {
             <Route path="/learning/data-engineering/streaming" element={<DataEngineeringKafka />} />
             <Route path="/learning/data-engineering/module-16" element={<DataEngineeringKafka />} />
             <Route path="/learn/data-engineering/kafka-event-driven" element={<DataEngineeringKafka />} />
+            <Route path="/learning/data-engineering/stream-processing" element={<DataEngineeringStreamProcessing />} />
+            <Route path="/learning/data-engineering/streaming-analytics" element={<DataEngineeringStreamProcessing />} />
+            <Route path="/learning/data-engineering/flink" element={<DataEngineeringStreamProcessing />} />
+            <Route path="/learning/data-engineering/module-17" element={<DataEngineeringStreamProcessing />} />
+            <Route path="/learn/data-engineering/stream-processing" element={<DataEngineeringStreamProcessing />} />
             <Route path="/learning/data-engineering/airflow" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/orchestration" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/dagster" element={<DataEngineeringAirflow />} />
