@@ -1,0 +1,154 @@
+{
+  "id": "ingestion-cdc",
+  "courseId": "data-engineering",
+  "index": 9,
+  "title": "Data Ingestion and Change Data Capture (CDC)",
+  "name": "9. Data Ingestion & Change Data Capture (CDC)",
+  "description": "Master data ingestion pipelines and Change Data Capture (CDC): batch and incremental ingestion, full vs incremental loads, database log extraction (MySQL Binlog, PostgreSQL WAL logical decoding), REST API ingestion with cursor pagination, rate limits (HTTP 429) and exponential backoff, file and cloud storage discovery, Debezium, Apache Kafka transport, watermarks, offsets, checkpointing, deduplication, idempotent upserts, schema evolution, Dead-Letter Queues (DLQ), and scalable backpressure management.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is data ingestion?",
+      "options": [
+        "Only cleaning and validating data",
+        "The process of collecting data from different sources and transferring it into a destination system",
+        "Only training machine learning models",
+        "Creating database secondary indexes"
+      ],
+      "correct": 1,
+      "explanation": "Data ingestion is the foundational process of collecting information from operational databases, APIs, IoT devices, logs, and files, and moving it reliably into destination systems (lakes, warehouses, or processing platforms)."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary advantage of incremental data ingestion over full-table loads?",
+      "options": [
+        "It always reads the entire table from scratch",
+        "It transfers only new or changed records since the last successful execution, minimizing network I/O and source database load",
+        "It removes the need for data validation",
+        "It cannot capture updates to existing rows"
+      ],
+      "correct": 1,
+      "explanation": "Incremental ingestion targets only records modified or added since a previous watermark, dramatically reducing query execution time, network bandwidth, and strain on production databases."
+    },
+    {
+      "id": 3,
+      "question": "Which Change Data Capture (CDC) approach reads native database transaction logs to identify row modifications?",
+      "options": [
+        "Directory file scanning",
+        "Full-table extraction polling",
+        "Log-based CDC (e.g. MySQL Binlog, PostgreSQL WAL)",
+        "Static CSV import"
+      ],
+      "correct": 2,
+      "explanation": "Log-based CDC reads database transaction logs (such as MySQL Binlog or PostgreSQL WAL via logical decoding) to capture inserts, updates, and deletes with minimal overhead on the operational database."
+    },
+    {
+      "id": 4,
+      "question": "Which open-source technology is widely used to capture MySQL Binlog and PostgreSQL WAL events and stream them to Kafka?",
+      "options": [
+        "Debezium",
+        "Power BI",
+        "Tableau",
+        "NumPy"
+      ],
+      "correct": 0,
+      "explanation": "Debezium is a distributed open-source Change Data Capture platform built on top of Kafka Connect that reads transaction logs from MySQL, PostgreSQL, SQL Server, and Oracle to emit row-level change streams."
+    },
+    {
+      "id": 5,
+      "question": "What is a Kafka offset?",
+      "options": [
+        "A relational database column type",
+        "A sequential numerical position identifying an individual record within a specific topic partition",
+        "An API authentication bearer token",
+        "A data compression codec"
+      ],
+      "correct": 1,
+      "explanation": "In Apache Kafka, an offset is an integer identifying a message's position within a specific partition, allowing consumers to track progress and resume from exact positions after interruptions."
+    },
+    {
+      "id": 6,
+      "question": "When should an incremental ingestion pipeline advance its saved extraction watermark?",
+      "options": [
+        "Before starting the extraction query",
+        "Before destination writes occur",
+        "After the extracted records have been successfully written and committed to the destination",
+        "Whenever an HTTP request starts"
+      ],
+      "correct": 2,
+      "explanation": "Critical rule: Advance the saved watermark only after the corresponding destination write has successfully committed. Updating watermarks before writing risks permanent data loss if the pipeline crashes mid-flight."
+    },
+    {
+      "id": 7,
+      "question": "What is the primary role of checkpointing in streaming and batch ingestion frameworks?",
+      "options": [
+        "Deleting old historical records from object storage",
+        "Periodically saving processing progress, offsets, and state so the pipeline can recover without data loss after a crash",
+        "Modifying database table schemas dynamically",
+        "Generating API credentials"
+      ],
+      "correct": 1,
+      "explanation": "Checkpointing persists the internal state and stream offsets (e.g. in Spark Structured Streaming or Flink) to durable storage, allowing pipelines to resume seamlessly from the exact point of interruption."
+    },
+    {
+      "id": 8,
+      "question": "What is idempotent ingestion in data engineering?",
+      "options": [
+        "A pipeline where every retry creates a new duplicate record",
+        "A property where repeating the same ingestion operation produces the exact same intended final state as performing it once",
+        "A pipeline where records must always be deleted",
+        "A pipeline where every message is GZIP compressed"
+      ],
+      "correct": 1,
+      "explanation": "Idempotent operations (such as MERGE / upsert based on primary keys) guarantee that retrying a failed batch or replaying duplicate events leaves the destination dataset in the correct final state without duplicate records."
+    },
+    {
+      "id": 9,
+      "question": "What is a Dead-Letter Queue (DLQ) used for in data ingestion?",
+      "options": [
+        "Storing all successfully processed records",
+        "Isolating malformed or permanently unprocessable records into a separate location without halting the entire pipeline",
+        "Saving production database master passwords",
+        "Increasing third-party REST API rate limits"
+      ],
+      "correct": 1,
+      "explanation": "A DLQ isolates malformed records (e.g. invalid JSON, corrupted datatypes) so healthy traffic continues processing, while preserving the bad payloads and error metadata for developer investigation and replay."
+    },
+    {
+      "id": 10,
+      "question": "What does backpressure indicate in a streaming ingestion system?",
+      "options": [
+        "The source application has stopped generating data",
+        "Incoming data arrives faster than downstream consumers or destinations can process and persist it",
+        "A database schema has been deleted",
+        "The source table has no primary key defined"
+      ],
+      "correct": 1,
+      "explanation": "Backpressure occurs when consumer throughput cannot keep up with producer event volume, causing queues to fill and consumer lag to increase, requiring scaling, buffering, or rate throttling."
+    },
+    {
+      "id": 11,
+      "question": "Which PostgreSQL mechanism extracts logical row-level changes from the Write-Ahead Log (WAL)?",
+      "options": [
+        "Logical decoding via replication slots",
+        "Automated CSV exports",
+        "Standard SQL views",
+        "AFTER INSERT triggers only"
+      ],
+      "correct": 0,
+      "explanation": "PostgreSQL provides logical decoding, which reads WAL entries and translates them into a stream of logical row modifications (via output plugins and persistent replication slots) for CDC tools like Debezium."
+    },
+    {
+      "id": 12,
+      "question": "What is the purpose of an initial snapshot in Change Data Capture (CDC)?",
+      "options": [
+        "To delete historical records before migration",
+        "To capture the existing baseline state of database tables before continuing with ongoing real-time change log streaming",
+        "To replace the Apache Kafka broker cluster",
+        "To disable write-ahead logging permanently"
+      ],
+      "correct": 1,
+      "explanation": "Because database transaction logs only retain changes for a short retention window, a CDC connector must first perform a consistent full-table snapshot to establish the baseline before reading subsequent changes."
+    }
+  ]
+}

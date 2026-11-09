@@ -997,3 +997,29 @@
   - 21. Data Lake Governance (RBAC, encryption at rest/in transit, PII identification and masking, data lineage, data quality rules)
   - 22. Complete Practical Project: Build an E-commerce Lakehouse (Bronze, Silver, Gold pipelines with PySpark and Delta Lake)
   - 23. Key Industry Architecture Concepts & Production Anti-Patterns
+
+### Module 9: Data Ingestion and Change Data Capture (CDC)
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/ingestion-cdc
+- **Topics Covered:**
+  - 1. Introduction to Data Ingestion (Source diversity, reliability, performance, fault tolerance, e-commerce flow)
+  - 2. Data Ingestion Architectures (6 tiers: Sources, Extraction, Transport, Processing, Destination, Orchestration; push vs pull)
+  - 3. Batch Data Ingestion (Scheduled intervals, bulk processing, Python/Pandas extraction, tradeoffs)
+  - 4. Incremental Data Ingestion (Watermarking, timestamps, increasing IDs, modified timestamps, boundary overlap handling)
+  - 5. Full Load vs Incremental Load (Initial snapshotting, ongoing change sync, comparison matrix)
+  - 6. Database Ingestion Strategies (Full table, range-based, parallel, partition extraction, connection pooling)
+  - 7. API-Based Ingestion (REST HTTP methods, Bearer/OAuth authentication, cursor vs offset pagination, rate limits, exponential backoff)
+  - 8. File-Based Ingestion (Directory scanning, manifest files, object-finalization notifications, validation, quarantine)
+  - 9. Cloud Storage Ingestion (S3, ADLS, GCS, EventBridge/SQS object event notifications, cross-cloud transfers)
+  - 10. Change Data Capture (CDC) Foundations (INSERT, UPDATE, DELETE events, timestamp polling vs triggers vs log-based CDC)
+  - 11. Log-Based CDC Architecture (Database transaction logs, MySQL row-based Binlog, PostgreSQL WAL logical decoding & replication slots)
+  - 12. Source-to-Target Data Movement (Mapping definitions, type conversions, record count validation, financial reconciliation)
+  - 13. Data Extraction Strategies Decision Matrix
+  - 14. Watermarks and Offsets (Persistent watermark tables, compound cursors, Kafka partition offsets, consumer groups)
+  - 15. Checkpointing (Saving stream progress and state, Spark Structured Streaming checkpoint directory, Kafka offset commits)
+  - 16. Duplicate Event Handling (Root causes: network retries, crash replays; primary key deduplication, window functions)
+  - 17. Idempotent Ingestion (MERGE / upsert statements, event sequence numbers, exactly-once vs idempotency)
+  - 18. Schema Changes During Ingestion (Confluent Schema Registry, backward/forward/full compatibility, semantic drift)
+  - 19. Error Handling and Dead-Letter Queues (Retryable vs permanent errors, DLQ payload structures, exponential backoff with jitter)
+  - 20. Designing Scalable Ingestion Systems (Horizontal scaling, Kafka partitioning, backpressure management, micro-batching, monitoring)
+  - 21. Practical Project: Build a Real-Time CDC Ingestion Pipeline (MySQL -> Binlog -> Debezium -> Kafka -> Delta Lakehouse)
+  - 22. Common Ingestion Mistakes & Production Anti-Patterns

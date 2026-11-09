@@ -203,6 +203,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "data-formats", name: "6. Data Formats, Serialization & Integration", route: "/learning/data-engineering/data-formats" },
   { id: "data-warehousing", name: "7. Data Warehousing & Analytical Systems", route: "/learning/data-engineering/data-warehousing" },
   { id: "lakehouse", name: "8. Data Lakes & Lakehouse Architecture", route: "/learning/data-engineering/lakehouse" },
+  { id: "ingestion-cdc", name: "9. Data Ingestion & Change Data Capture (CDC)", route: "/learning/data-engineering/ingestion-cdc" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

@@ -141,6 +141,12 @@ const routeMeta = {
     keywords: "Data Lakes, Lakehouse Architecture, Apache Iceberg, Delta Lake, Apache Hudi, Medallion Architecture, Bronze Silver Gold, Amazon S3 Data Lake, HDFS Distributed Storage, Columnar Storage Parquet, Open Table Formats, ACID Data Lakes, Snapshot Isolation MVCC, Time Travel Delta Lake, Schema Evolution, Partition Evolution, AWS Glue Data Catalog, Unity Catalog, Small File Compaction, Data Lake Governance, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/lakehouse`,
   },
+  "/learning/data-engineering/ingestion-cdc": {
+    title: "Module 9: Data Ingestion and Change Data Capture (CDC) | PrepSpaces",
+    description: "Master data ingestion pipelines and Change Data Capture (CDC): batch and incremental ingestion, full vs incremental loads, database log extraction (MySQL Binlog, PostgreSQL WAL logical decoding), REST API ingestion with cursor pagination, rate limits (HTTP 429) and exponential backoff, file and cloud storage discovery, Debezium, Apache Kafka transport, watermarks, offsets, checkpointing, deduplication, idempotent upserts, schema evolution, Dead-Letter Queues (DLQ), and scalable backpressure management.",
+    keywords: "Data Ingestion, Change Data Capture, CDC, Log-Based CDC, Debezium, MySQL Binlog, PostgreSQL WAL Logical Decoding, Apache Kafka Ingestion, Incremental Ingestion, Watermarks, Offsets, Checkpointing, Idempotent Upserts, Deduplication, REST API Ingestion Cursor Pagination, HTTP 429 Exponential Backoff, Dead-Letter Queue DLQ, Backpressure Management, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/ingestion-cdc`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

@@ -86,5 +86,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "ingestion-cdc",
+    "courseId": "data-engineering",
+    "index": 9,
+    "name": "9. Data Ingestion and Change Data Capture (CDC)",
+    "route": "/learning/data-engineering/ingestion-cdc",
+    "questionCount": 12,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
