@@ -1,0 +1,189 @@
+{
+  "id": "data-reliability-observability",
+  "title": "Data Reliability, Observability and Performance Optimization",
+  "courseId": "data-engineering",
+  "index": 21,
+  "description": "Master Data Reliability Engineering (DRE), full-stack data observability, and cloud performance optimization. Learn the 5 pillars of observability (Freshness, Volume, Distribution, Schema, Lineage), SLI/SLO/SLA definitions, error budgets, structured logging, distributed tracing, automated data quality alerting, circuit breakers & exponential backoff retries, disaster recovery (RPO vs RTO), query optimization (partition pruning, avoiding SELECT *, join tuning), distributed compute right-sizing, data skew elimination, FinOps cloud cost optimization, and production readiness reviews.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary operational distinction between Software Reliability and Data Reliability Engineering (DRE)?",
+      "options": [
+        "Software reliability focuses on service uptime and successful API execution (Exit Code 0); Data reliability focuses on whether the data delivered is accurate, complete, fresh, and trustworthy",
+        "Software reliability only applies to mobile apps; Data reliability applies to desktop operating systems",
+        "Data reliability completely eliminates the need for software testing or CI/CD pipelines",
+        "Software reliability is measured in gigabytes, while data reliability is measured in milliseconds"
+      ],
+      "answer": 0,
+      "explanation": "A data pipeline can execute flawlessly from a software perspective (exit code 0, 100% service uptime), but if it silently dropped 40% of records, duplicated invoices, or loaded stale data from six hours ago, the data platform has failed. Data Reliability Engineering evaluates the correctness and integrity of data assets themselves."
+    },
+    {
+      "id": 2,
+      "question": "In a linear series data pipeline consisting of 4 independent components (Source DB -> Kafka -> Spark -> Snowflake), each with 99.9% individual availability, what is the approximate end-to-end system availability without decoupling queues or retries?",
+      "options": [
+        "99.9%",
+        "99.6%",
+        "96.0%",
+        "100.0%"
+      ],
+      "answer": 1,
+      "explanation": "For a series system where all independent components must be functional simultaneously, total reliability is the product: R_system = 0.999^4 = 0.9960 (99.60%). This mathematical compounding demonstrates why uncoupled distributed architectures require retries, persistent buffering, and fault tolerance."
+    },
+    {
+      "id": 3,
+      "question": "What are the Five Core Pillars of modern Data Observability?",
+      "options": [
+        "CPU, Memory, Disk, Network, and Swap",
+        "Freshness, Volume, Distribution, Schema, and Lineage",
+        "Extract, Transform, Load, Validate, and Publish",
+        "Confidentiality, Integrity, Availability, Non-Repudiation, and Authorization"
+      ],
+      "answer": 1,
+      "explanation": "The Five Pillars of Data Observability are: Freshness (how up-to-date is the data), Volume (row counts and completeness), Distribution (statistical spread and anomaly detection), Schema (structure and drift tracking), and Lineage (end-to-end dependency mapping from upstream sources to downstream dashboards)."
+    },
+    {
+      "id": 4,
+      "question": "Why is a pipeline reporting 'SUCCESS' status insufficient to guarantee Data Freshness?",
+      "options": [
+        "Cloud providers invert exit codes on weekends",
+        "The pipeline may execute successfully on schedule but extract no new data if the upstream source database CDC replication lag or sync connector stalled hours earlier",
+        "Freshness can only be monitored by manual visual inspection of CSV rows",
+        "Database indexes automatically disable freshness calculations"
+      ],
+      "answer": 1,
+      "explanation": "Pipeline execution status only verifies that the compute job ran without an unhandled exception. If an upstream extraction source was frozen, network replication lagged, or an ingestion filter matched zero rows, the job finishes with 'Success' while destination tables remain dangerously stale."
+    },
+    {
+      "id": 5,
+      "question": "When monitoring daily transaction volume, why is a statistical Z-Score threshold (Z = (x - μ) / σ) effective for anomaly detection?",
+      "options": [
+        "It standardizes volume deviations relative to historical mean and variance, automatically flagging statistically improbable drops or spikes while allowing baseline variability",
+        "It forces daily record volume to always equal exactly 1,000,000 rows",
+        "It converts SQL queries into machine learning neural networks",
+        "Z-scores prevent databases from using table partitioning"
+      ],
+      "answer": 0,
+      "explanation": "Hardcoded thresholds (e.g. 'fail if rows < 50,000') cause false alarms when business volume fluctuates. The Z-score measures how many standard deviations today's volume (x) diverges from historical mean (μ). A value of |Z| > 3 flags extreme outliers (p < 0.003) representing systemic ingestion drops or duplicate explosions."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following schema changes represents a breaking change that is most likely to cause silent failures or crashes in downstream analytics queries?",
+      "options": [
+        "Adding a new nullable column 'phone_number VARCHAR(20)' to the end of the table",
+        "Adding a new optional metadata tag to JSON logs",
+        "Altering a column data type from 'INTEGER' to 'VARCHAR' or dropping the 'email' column",
+        "Creating a secondary B-tree index on the customer table"
+      ],
+      "answer": 2,
+      "explanation": "Dropping columns or altering data types (e.g., from numeric integer to string) breaks binary data contracts, causing SQL JOIN failures, schema serialization exceptions in Spark/Avro, and broken dashboard visualizations."
+    },
+    {
+      "id": 7,
+      "question": "What is the correct relationship between Service Level Indicators (SLIs), Service Level Objectives (SLOs), and Service Level Agreements (SLAs)?",
+      "options": [
+        "SLIs are measurements; SLOs are internal engineering targets; SLAs are formal customer commitments with business consequences",
+        "SLAs are technical metrics; SLOs are legal contracts; SLIs are internal goals",
+        "SLIs, SLOs, and SLAs are interchangeable terms for database query timeouts",
+        "SLOs are only used by marketing teams, while SLAs are only used by data engineers"
+      ],
+      "answer": 0,
+      "explanation": "An SLI is a quantifiable metric of service health (e.g. '98% of hourly deliveries completed within 15 mins'). An SLO is the internal target the team sets to achieve (e.g. '99.5% freshness compliance'). An SLA is the external legal or business commitment made to stakeholders with explicit consequences if violated."
+    },
+    {
+      "id": 8,
+      "question": "For a data platform committing to a 99.9% monthly availability SLO, what is the total allowed Error Budget over a 30-day period (43,200 total minutes)?",
+      "options": [
+        "43.2 minutes",
+        "4.32 minutes",
+        "432 minutes",
+        "0 minutes (zero unreliability is allowed)"
+      ],
+      "answer": 0,
+      "explanation": "The allowed error budget is (100% - 99.9%) = 0.1%. For a 30-day period of 43,200 minutes (30 * 24 * 60), the permitted unavailability or missed delivery window is 43,200 * 0.001 = 43.2 minutes."
+    },
+    {
+      "id": 9,
+      "question": "In distributed pipeline resilience, what is the primary benefit of a Circuit Breaker pattern over simple continuous retries?",
+      "options": [
+        "Continuous retries hammer a degraded or failing external service with thousands of requests; a circuit breaker trips to 'Open' to fail fast, prevent cascading outages, and give the upstream system time to recover",
+        "Circuit breakers permanently delete all corrupted data rows",
+        "Circuit breakers convert REST APIs into GraphQL endpoints",
+        "Retries are only used for hardware failures, while circuit breakers are for software bugs"
+      ],
+      "answer": 0,
+      "explanation": "Blind retries under high load create 'retry storms' that exacerbate outages on struggling dependencies. A circuit breaker tracks error rates and trips to 'Open', immediately rejecting calls without network latency, and periodically enters 'Half-Open' to probe for recovery before resuming traffic."
+    },
+    {
+      "id": 10,
+      "question": "Why is pipeline idempotency (e.g., using SQL MERGE or upsert logic) essential when recovering from partial batch processing failures?",
+      "options": [
+        "It prevents duplicate records and corrupted aggregates when re-executing failed batches or retrying tasks",
+        "It speeds up Python code by compiling it to machine assembly",
+        "It ensures that pipelines only run on Mondays",
+        "It allows database passwords to be stored in plaintext"
+      ],
+      "answer": 0,
+      "explanation": "If a pipeline crashes after committing 50% of a batch, restarting it without idempotency will cause duplicate records for the first 50%. An idempotent pipeline using MERGE, upserts, or atomic partition swaps produces the exact same final state regardless of how many times it is retried."
+    },
+    {
+      "id": 11,
+      "question": "What is the key difference between Recovery Point Objective (RPO) and Recovery Time Objective (RTO)?",
+      "options": [
+        "RPO measures acceptable data loss in time (how much historical data can be lost); RTO measures acceptable downtime (how quickly systems must be restored)",
+        "RPO measures network speed; RTO measures database storage capacity",
+        "RTO is for hardware recovery; RPO is for software compilation",
+        "RPO and RTO are identical metrics measured in gigabytes"
+      ],
+      "answer": 0,
+      "explanation": "RPO dictates data freshness and backup frequency (e.g., RPO = 15 mins means at most 15 minutes of transactional data may be lost). RTO dictates restoration speed and infrastructure failover (e.g., RTO = 2 hours means the operational data service must be restored within 2 hours of a disaster)."
+    },
+    {
+      "id": 12,
+      "question": "In distributed engines like Apache Spark, what is 'Data Skew' and why does it cause severe pipeline performance bottlenecks?",
+      "options": [
+        "Data skew occurs when one or a few partitions contain vastly more records than others, causing single worker nodes to become bottleneck stragglers while other workers sit idle",
+        "Data skew means all column values are converted to uppercase text",
+        "Data skew occurs when cloud storage buckets are stored in different countries",
+        "Data skew happens only when databases run out of hard drive space"
+      ],
+      "answer": 0,
+      "explanation": "Distributed processing relies on uniform parallel task execution. When a join key or partition key is non-uniform (e.g., 90% of orders belonging to one default customer ID), the executor processing that partition is overwhelmed, leading to spill-to-disk, out-of-memory errors, and 10x longer job runtimes."
+    },
+    {
+      "id": 13,
+      "question": "Why is the query 'SELECT * FROM sales WHERE YEAR(order_date) = 2026' considered an anti-pattern in high-performance cloud data warehouses?",
+      "options": [
+        "Wrapping 'order_date' in the YEAR() function is non-sargable, preventing the query engine from using partition pruning or min/max metadata, forcing an expensive full table scan of all columns",
+        "The YEAR() function is deprecated in modern SQL standards",
+        "The query will automatically delete all sales records from 2026",
+        "Cloud warehouses do not support queries with WHERE clauses"
+      ],
+      "answer": 0,
+      "explanation": "Applying functions to partition columns prevents the optimizer from evaluating column-range statistics at plan time. Rewriting the predicate as 'order_date >= \\'2026-01-01\\' AND order_date < \\'2027-01-01\\'' enables partition pruning, eliminating 90%+ of scanned data and dramatically reducing cost and latency."
+    },
+    {
+      "id": 14,
+      "question": "In FinOps for data engineering, why is 'Cost per Million Records Processed' a superior metric compared to raw monthly cloud spend?",
+      "options": [
+        "Raw spend increases naturally with business data growth; Cost per Million records normalizes expenditure against processed volume, proving true architectural and unit efficiency",
+        "Cost per Million records is legally required by tax authorities",
+        "Cloud providers only bill customers per million records, never for EC2 hours",
+        "Raw spend cannot be calculated in US Dollars"
+      ],
+      "answer": 0,
+      "explanation": "If a platform's cloud bill doubles from $10k to $20k while processed transaction volume grew 5x from 10M to 50M records, the cost per million records actually plummeted by 60% ($1,000/M to $400/M), proving that optimizations and architectural scaling are successfully paying off."
+    },
+    {
+      "id": 15,
+      "question": "What is the primary objective of conducting a Production Readiness Review (PRR) before launching a new data pipeline?",
+      "options": [
+        "To verify that operational health, data quality tests, SLIs/SLOs, recovery procedures, and cost controls are validated before real business users depend on the data",
+        "To manually inspect all 100 million production records in Microsoft Excel",
+        "To permanently lock all source code to prevent future git commits",
+        "To eliminate all monitoring and logging to reduce server load"
+      ],
+      "answer": 0,
+      "explanation": "A pipeline that executes in a development sandbox often fails under production data scale, concurrency, network timeouts, or schema drift. A PRR is a systematic operational assessment ensuring that testing, idempotency, alerting, recovery playbooks, and cost bounds are certified before production deployment."
+    }
+  ]
+}

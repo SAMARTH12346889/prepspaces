@@ -218,5 +218,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "data-reliability-observability",
+    "courseId": "data-engineering",
+    "index": 21,
+    "name": "21. Data Reliability, Observability & Performance",
+    "route": "/learning/data-engineering/data-reliability-observability",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

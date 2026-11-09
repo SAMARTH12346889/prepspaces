@@ -153,7 +153,14 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
-      "/learning/data-engineering/data-security-governance": {
+      "/learning/data-engineering/data-reliability-observability": {
+    canonical: `${BASE_URL}/learning/data-engineering/data-reliability-observability`,
+    title: "Module 21: Data Reliability, Observability and Performance Optimization | Data Engineering Master Course",
+    description: "Master Data Reliability Engineering (DRE), full-stack data observability, and cloud performance optimization. Covers the 5 pillars of data observability (Freshness, Volume, Distribution, Schema, Lineage), SLI/SLO/SLA definitions, error budget exhaustion, structured logging, distributed tracing, automated data quality alerting, circuit breakers, exponential backoff with jitter, disaster recovery (RPO vs RTO), query optimization (partition pruning, avoiding SELECT *, join tuning), compute right-sizing, data skew elimination, FinOps cloud cost optimization (cost per million records), and production readiness reviews.",
+    keywords: "data reliability engineering, DRE, data observability, data monitoring, pipeline observability, 5 pillars of observability, data freshness, volume anomaly detection, schema drift, data lineage, SLI, SLO, SLA, error budget, circuit breaker, exponential backoff, pipeline recovery, checkpointing, backfill, dead-letter queue, disaster recovery, RPO, RTO, compute optimization, storage lifecycle, query optimization, partition pruning, EXPLAIN ANALYZE, data skew, horizontal scaling, backpressure, FinOps, cost per million records, production readiness review, data engineering course",
+    badge: "Module 21 · Data Engineering"
+  },
+  "/learning/data-engineering/data-security-governance": {
     canonical: `${BASE_URL}/learning/data-engineering/data-security-governance`,
     title: "Module 20: Data Security, Governance and Privacy | Data Engineering Master Course",
     description: "Master enterprise data security, governance, and privacy engineering: data classification tiers (Public, Internal, Confidential, Restricted), PII and quasi-identifier discovery, Zero Trust architecture (NIST SP 800-207), RBAC vs ABAC policy engines, least-privilege IAM policies, envelope encryption with AWS KMS, secrets management, static and dynamic data masking, deterministic HMAC-SHA256 tokenization, k-anonymity, differential privacy, secure data sharing and data clean rooms, immutable CloudTrail access auditing, automated data retention and right-to-erasure workflows, regulatory compliance (DPDP Act 2023, GDPR, CCPA/CPRA, HIPAA, PCI DSS), NIST CSF 2.0 and ISO 27001/27701 frameworks, and RACI governance accountability.",

@@ -1123,6 +1123,10 @@
   - 25. Recommended Learning Resources (Official documentation for dbt, Great Expectations, Deequ, OpenMetadata, DataHub, Airflow, and PostgreSQL)
 
 ## Module 19: DataOps, Docker, CI/CD and Infrastructure as Code
+### Module 21: Data Reliability, Observability and Performance Optimization
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/data-reliability-observability
+- **Summary:** Master Data Reliability Engineering (DRE), observability, and cloud performance optimization. Covers the 5 pillars of observability (Freshness, Volume, Distribution, Schema, Lineage), SLI/SLO/SLA definitions, error budgets, structured logging, distributed tracing, automated data quality alerting, circuit breakers, exponential backoff retries, disaster recovery (RPO vs RTO), query optimization (partition pruning, avoiding SELECT *, join tuning), compute right-sizing, data skew elimination, FinOps cloud cost optimization (cost per million records), and production readiness reviews.
+
 ### Module 20: Data Security, Governance and Privacy
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/data-security-governance
 - **Summary:** Master comprehensive enterprise data security, privacy engineering, and governance architecture. Covers data classification tiers, direct and indirect PII identification, Zero Trust principles, RBAC and ABAC policy evaluation, least-privilege IAM policies, envelope encryption with AWS KMS, secrets management, static and dynamic masking, HMAC pseudonymization, k-anonymity, differential privacy, secure data sharing and clean rooms, immutable access auditing with CloudTrail, automated retention and right-to-erasure workflows, global regulatory compliance (DPDP Act 2023, GDPR, CCPA/CPRA, HIPAA, PCI DSS), NIST CSF 2.0 and ISO 27001/27701 standards, and RACI accountability models.
