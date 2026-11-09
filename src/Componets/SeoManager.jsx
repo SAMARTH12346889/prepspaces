@@ -153,6 +153,13 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+  "/learning/data-engineering/analytics-engineering-dbt": {
+    canonical: `${BASE_URL}/learning/data-engineering/analytics-engineering-dbt`,
+    title: "Module 13: Analytics Engineering and dbt | Data Engineering Master Course",
+    description: "Master modern Analytics Engineering and dbt (Data Build Tool): modular SQL transformations, view/table/incremental materializations, SCD Type 2 snapshots, generic & singular tests, Jinja macros, and Slim CI/CD.",
+    keywords: "dbt, dbt Core, dbt v2, Analytics Engineering, data modeling, SQL transformations, incremental models, dbt snapshots, SCD Type 2, dbt test, Jinja macros, Slim CI, data engineering course",
+    badge: "Module 13 · Data Engineering"
+  },
   "/learning/data-engineering/airflow-orchestration": {
     canonical: `${BASE_URL}/learning/data-engineering/airflow-orchestration`,
     title: "Module 12: Workflow Orchestration with Apache Airflow & Dagster | Data Engineering Master Course",

@@ -1,0 +1,189 @@
+{
+  "id": "analytics-engineering-dbt",
+  "title": "Analytics Engineering and dbt",
+  "courseId": "data-engineering",
+  "index": 13,
+  "description": "Master Analytics Engineering, modular SQL modeling, dbt Core and v2, materializations (view, table, incremental, ephemeral), SCD Type 2 snapshots, seeds, generic & singular data tests, Jinja macros, Slim CI/CD, and production pipeline orchestration.",
+  "quiz": [
+    {
+      "id": 1,
+      "q": "What is the primary objective of Analytics Engineering and dbt in the modern data stack?",
+      "options": [
+        "To replace transactional operational databases like PostgreSQL",
+        "To transform, model, test, and document raw warehouse data into clean, business-ready analytical datasets using modular SQL and software engineering best practices",
+        "To ingest binary log events directly from Apache Kafka",
+        "To build machine learning neural networks in Python"
+      ],
+      "correct": 1,
+      "expl": "Analytics Engineering bridges data engineering and data analytics by using dbt to transform already-loaded data in the warehouse into reliable, tested, and documented business datasets."
+    },
+    {
+      "id": 2,
+      "q": "How does dbt execute transformations against a data warehouse?",
+      "options": [
+        "It pulls all data to the local machine, transforms it in Python memory, and re-uploads it",
+        "It compiles Jinja-templated SQL files into platform-specific SQL queries and sends them to the connected warehouse (Snowflake, BigQuery, PostgreSQL) to execute in-place",
+        "It translates SQL models into C++ shared libraries",
+        "It uses MapReduce on a private Hadoop cluster"
+      ],
+      "correct": 1,
+      "expl": "dbt does not store data or process compute itself; it compiles SQL/Jinja and pushes execution directly down to the target data platform via adapters."
+    },
+    {
+      "id": 3,
+      "q": "What is the difference between source() and ref() in a dbt model?",
+      "options": [
+        "source() references raw tables loaded outside dbt, while ref() references other models within the dbt project and automatically builds the dependency graph",
+        "source() is for views, while ref() is for physical tables",
+        "source() runs only in production, while ref() runs in development",
+        "They are identical aliases"
+      ],
+      "correct": 0,
+      "expl": "source() declares external raw ingestion tables and enables freshness testing; ref() links dbt models together, enabling automatic DAG lineage and parallel execution."
+    },
+    {
+      "id": 4,
+      "q": "What happens when a dbt model is configured with materialized='view'?",
+      "options": [
+        "dbt creates a physical table in storage with all rows copied",
+        "dbt creates or replaces a SQL view definition in the warehouse, requiring zero extra storage but executing the underlying query on demand",
+        "dbt exports the query results as a CSV seed file",
+        "dbt stores the table in an in-memory Redis cache"
+      ],
+      "correct": 1,
+      "expl": "Views store only the SQL query definition in the database metadata; rows are evaluated dynamically when queried, minimizing storage at the cost of compute on read."
+    },
+    {
+      "id": 5,
+      "q": "Why is an incremental model (materialized='incremental') useful for large transaction datasets?",
+      "options": [
+        "It compresses data using gzip",
+        "It processes only new or modified rows since the last execution rather than rebuilding hundreds of millions of historical rows every run",
+        "It disables data testing to run faster",
+        "It converts SQL queries into Apache Spark jobs"
+      ],
+      "correct": 1,
+      "expl": "Incremental models use is_incremental() filters (e.g. updated_at > max(updated_at)) and unique keys to insert/update only changed records, saving massive warehouse compute."
+    },
+    {
+      "id": 6,
+      "q": "What is the purpose of the unique_key configuration in an incremental model?",
+      "options": [
+        "It creates a unique index on the column in PostgreSQL",
+        "It tells dbt which column(s) to use for matching and updating existing records (e.g. in a MERGE statement) to prevent duplicate rows on re-execution",
+        "It encrypts the column using SHA-256",
+        "It deletes all NULL values from the table"
+      ],
+      "correct": 1,
+      "expl": "unique_key tells update-based strategies (like MERGE or delete+insert) how to match incoming records against existing warehouse rows to ensure idempotency."
+    },
+    {
+      "id": 7,
+      "q": "What are the four built-in generic data tests provided by dbt Core?",
+      "options": [
+        "sum, avg, min, max",
+        "unique, not_null, accepted_values, relationships",
+        "is_positive, is_negative, is_zero, is_null",
+        "select, insert, update, delete"
+      ],
+      "correct": 1,
+      "expl": "dbt Core comes with four foundational generic assertions: unique (no duplicates), not_null (no nulls), accepted_values (enumerated domain list), and relationships (referential integrity)."
+    },
+    {
+      "id": 8,
+      "q": "When does a dbt data test pass?",
+      "options": [
+        "When the test query returns more than 100 rows",
+        "When the test query returns exactly 0 rows (zero failing records)",
+        "When the database administrator approves it",
+        "When the execution time is under 1 second"
+      ],
+      "correct": 1,
+      "expl": "dbt tests are written as assertions that seek failing records; returning 0 rows indicates zero rule violations, so the test passes."
+    },
+    {
+      "id": 9,
+      "q": "What is the difference between a generic test and a singular test in dbt?",
+      "options": [
+        "Generic tests are defined once and parameterized in YAML across multiple models/columns; singular tests are standalone SQL queries asserting a specific business rule",
+        "Generic tests are for tables; singular tests are for views",
+        "Generic tests can only test strings; singular tests can test numbers",
+        "There is no difference"
+      ],
+      "correct": 0,
+      "expl": "Generic tests are reusable templates applied in schema YAML; singular tests are single SQL scripts located in the tests/ directory representing custom domain logic."
+    },
+    {
+      "id": 10,
+      "q": "In dbt Snapshots, what type of dimensional tracking is implemented?",
+      "options": [
+        "SCD Type 0 (Fixed values)",
+        "SCD Type 1 (Overwriting existing values)",
+        "SCD Type 2 (Tracking historical versions with validity windows dbt_valid_from and dbt_valid_to)",
+        "SCD Type 3 (Previous value column)"
+      ],
+      "correct": 2,
+      "expl": "dbt snapshots capture changes in source records over time, inserting new versioned rows with dbt_valid_from and dbt_valid_to timestamps (classic SCD Type 2)."
+    },
+    {
+      "id": 11,
+      "q": "What is the difference between dbt seed and an ordinary data ingestion pipeline?",
+      "options": [
+        "Seeds are small, version-controlled CSV files (like country code lookups) committed to the Git repo, not meant for large or frequently changing transactional data",
+        "Seeds can load petabyte-scale Parquet files directly from S3",
+        "Seeds bypass database authentication",
+        "Seeds are compiled into Python classes"
+      ],
+      "correct": 0,
+      "expl": "dbt seed loads small, static reference mappings (country codes, tax bands) stored directly in the repository; high-volume ingestion belongs in external ETL/ELT pipelines."
+    },
+    {
+      "id": 12,
+      "q": "What is an Ephemeral materialization (materialized='ephemeral')?",
+      "options": [
+        "A table that is deleted automatically after 24 hours",
+        "A model that creates no physical relation in the database, but is injected as a Common Table Expression (CTE) into downstream models that reference it",
+        "A real-time Kafka streaming table",
+        "An unencrypted database view"
+      ],
+      "correct": 1,
+      "expl": "Ephemeral models do not create tables or views in the warehouse; dbt interpolates their SQL into referencing models as CTEs, keeping the warehouse namespace clean."
+    },
+    {
+      "id": 13,
+      "q": "What is the purpose of Slim CI in a production dbt deployment?",
+      "options": [
+        "To run dbt on micro-controllers",
+        "To build and test only the models modified in a Pull Request and their downstream dependents (state:modified+), using --defer to reference production relations for unmodified upstreams",
+        "To compress SQL code into minified files",
+        "To skip running tests entirely"
+      ],
+      "correct": 1,
+      "expl": "Slim CI dramatically reduces CI runtime and cloud warehouse cost by building only modified models and their downstream dependents, resolving unmodified parent models against production artifacts."
+    },
+    {
+      "id": 14,
+      "q": "What command in dbt executes models, seeds, snapshots, and tests in their proper DAG dependency order?",
+      "options": [
+        "dbt run",
+        "dbt compile",
+        "dbt build",
+        "dbt test"
+      ],
+      "correct": 2,
+      "expl": "dbt build is the unified command that executes seeds, models, snapshots, and tests in dependency order across the directed acyclic graph."
+    },
+    {
+      "id": 15,
+      "q": "Why should a dbt model use a lookback window when filtering incremental updates?",
+      "options": [
+        "To speed up query parsing",
+        "To capture late-arriving records whose update timestamps fall slightly behind the last recorded max timestamp",
+        "To prevent PostgreSQL from locking tables",
+        "To reduce database disk space"
+      ],
+      "correct": 1,
+      "expl": "A lookback window (e.g. updated_at >= max(updated_at) - INTERVAL '3 days') ensures records delayed by upstream network queues or out-of-order batches are not permanently skipped."
+    }
+  ]
+}

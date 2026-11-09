@@ -207,6 +207,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "etl-batch", name: "10. ETL, ELT & Batch Data Processing", route: "/learning/data-engineering/etl-batch" },
   { id: "spark-processing", name: "11. Distributed Data Processing (Apache Spark)", route: "/learning/data-engineering/spark-processing" },
   { id: "airflow-orchestration", name: "12. Workflow Orchestration (Apache Airflow)", route: "/learning/data-engineering/airflow-orchestration" },
+  { id: "analytics-engineering-dbt", name: "13. Analytics Engineering & dbt", route: "/learning/data-engineering/analytics-engineering-dbt" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

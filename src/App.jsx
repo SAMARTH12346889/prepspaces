@@ -195,6 +195,7 @@ const DataEngineeringIngestion = React.lazy(() => import("./Componets/DataEngine
 const DataEngineeringEtlBatch = React.lazy(() => import("./Componets/DataEngineeringEtlBatch"));
 const DataEngineeringSpark = React.lazy(() => import("./Componets/DataEngineeringSpark"));
 const DataEngineeringAirflow = React.lazy(() => import("./Componets/DataEngineeringAirflow"));
+const DataEngineeringDbt = React.lazy(() => import("./Componets/DataEngineeringDbt"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1644,6 +1645,11 @@ function App() {
             <Route path="/learn/data-engineering/etl-batch" element={<DataEngineeringEtlBatch />} />
             <Route path="/learning/data-engineering/spark-processing" element={<DataEngineeringSpark />} />
             <Route path="/learning/data-engineering/airflow-orchestration" element={<DataEngineeringAirflow />} />
+            <Route path="/learning/data-engineering/analytics-engineering-dbt" element={<DataEngineeringDbt />} />
+            <Route path="/learning/data-engineering/dbt" element={<DataEngineeringDbt />} />
+            <Route path="/learning/data-engineering/analytics-engineering" element={<DataEngineeringDbt />} />
+            <Route path="/learning/data-engineering/module-13" element={<DataEngineeringDbt />} />
+            <Route path="/learn/data-engineering/analytics-engineering-dbt" element={<DataEngineeringDbt />} />
             <Route path="/learning/data-engineering/airflow" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/orchestration" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/dagster" element={<DataEngineeringAirflow />} />

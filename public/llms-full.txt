@@ -1062,6 +1062,37 @@
   - 25. Recommended Learning Resources (Official documentation, TaskFlow tutorial, providers reference, Dagster docs)
   - 26. Final Module Summary (Course synthesis, learning outcomes, and progression to Apache Kafka streaming)
 
+
+## Module 13: Analytics Engineering and dbt
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/analytics-engineering-dbt
+- **Topics Covered:**
+  - 1. Introduction to Analytics Engineering (Data transformation layer, data engineer vs analytics engineer vs data analyst, modern analytics workflow)
+  - 2. What is dbt? (Data Build Tool, dbt Core vs v2, compilation engine, ref() and source() dependency graph, dbt vs Spark vs Airflow)
+  - 3. dbt Architecture and Workflow (Project, engine, database adapters, warehouse execution, compilation, manifest and catalog artifacts)
+  - 4. dbt Core Installation and Configuration (Python venv, dbt-postgres adapter, profiles.yml credentials, dbt_project.yml structure, dbt debug)
+  - 5. Building dbt Projects (Recommended folder hierarchy, 3-layer architecture: staging, intermediate, marts, model naming conventions stg_, int_, dim_, fct_)
+  - 6. Models and Model Dependencies (SELECT queries, materializations, ref() resolution, model selection syntax stg_+, +fct_sales)
+  - 7. Sources and References (Declaring raw sources, source() function, source freshness checks, warn_after / error_after SLAs)
+  - 8. Jinja Templating (Variables, for loops, conditionals, dynamic pivot tables, project variables var(), environment variables env_var())
+  - 9. Model Materializations (View, Table, Incremental, Ephemeral, Materialized View comparison, storage vs compute trade-offs)
+  - 10. Incremental Models (is_incremental() macro, unique_key, merge vs delete+insert vs append strategies, late-arriving data lookback windows, full refresh)
+  - 11. Seeds and Snapshots (Version-controlled CSV seeds, Slowly Changing Dimensions SCD Type 2, timestamp strategy, check strategy, dbt_valid_from/to)
+  - 12. Data Transformations Using SQL (Casting, trimming, CTEs, inner/left joins, DATE_TRUNC aggregations, window functions, star schema fact and dimension models)
+  - 13. Generic and Singular Data Tests (unique, not_null, accepted_values, relationships, singular SQL assertions, custom generic tests, test severity warn/error, unit tests)
+  - 14. Custom Tests and Advanced Data Quality (Business rule validations, multi-layer testing, source testing vs model testing, handling failed tests)
+  - 15. dbt Documentation (schema.yml descriptions, column documentation, dbt docs generate/serve, dbt Catalog metadata explorer)
+  - 16. Data Lineage and Dependency Graphs (Upstream vs downstream lineage, DAG graph visualization, impact analysis before production releases)
+  - 17. Macros and Reusable SQL (Custom Jinja macros, safe_divide, cents_to_rupees, dbt-utils package installation and surrogate keys)
+  - 18. Deployment and CI Integration (Git branching, GitHub Actions CI workflow, Slim CI state:modified+ with --defer and --state artifacts)
+  - 19. Integrating dbt with Apache Airflow (BashOperator, container execution, pipeline coordination between Spark, dbt, and BI)
+  - 20. Production dbt Project Development (Model contracts, schema evolution, SLAs, data observability, governance, production best practices)
+  - 21. Practical Project — Build a Complete E-Commerce Analytics Platform Using dbt (End-to-end retail warehouse with staging, int, marts, tests, and documentation)
+  - 22. Practical Labs and Assignments (Labs 1-7: Setup, Models, Macros, Materializations, Testing & Snapshots, Documentation, CI/CD)
+  - 23. Advanced Assignments (10 Enterprise projects & Production Retail Analytics Warehouse)
+  - 24. Interview Preparation — Analytics Engineering and dbt (Core architectural questions and 6 Real-world scenarios)
+  - 25. Recommended Learning Resources (dbt Developer Hub, dbt Core repo, PostgreSQL docs, GitHub Actions, dbt-utils, Jinja)
+  - 26. Final Module Summary (Course synthesis, learning outcomes, and progression to Kafka real-time streaming)
+
 ## Module 10: ETL, ELT and Batch Data Processing
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/etl-batch
 - **Topics Covered:**

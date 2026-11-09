@@ -130,5 +130,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "analytics-engineering-dbt",
+    "courseId": "data-engineering",
+    "index": 13,
+    "name": "13. Analytics Engineering and dbt",
+    "route": "/learning/data-engineering/analytics-engineering-dbt",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
