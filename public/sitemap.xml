@@ -860,7 +860,13 @@
   <url>
     <loc>https://prepspaces.com/learning/data-engineering/kafka-event-driven</loc>
   </url>
-      <url>
+  <url>
+    <loc>https://prepspaces.com/learning/data-engineering/data-products-ai-serving</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://prepspaces.com/learning/data-engineering/data-reliability-observability</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>

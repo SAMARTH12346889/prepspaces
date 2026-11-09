@@ -1,0 +1,189 @@
+{
+  "id": "data-products-ai-serving",
+  "title": "Module 22: Data Products, Serving Architectures and AI Data Engineering",
+  "courseId": "data-engineering",
+  "index": 22,
+  "description": "Master data products, Data Mesh decentralized domain ownership, analytical data marts, semantic layers, REST Data APIs, Redis caching, Reverse ETL, ML feature stores, point-in-time correct joins, and RAG vector ingestion pipelines.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary difference between a raw database table and a Data Product?",
+      "options": [
+        "A data product is a managed, curated data asset designed with explicit ownership, documented contracts, guaranteed SLAs, quality rules, and consumer usability in mind",
+        "A raw database table is stored on NVMe drives, while a data product is only stored in memory",
+        "A data product can only be queried through Microsoft Excel, whereas a raw database table requires SQL",
+        "There is no difference; the terms are completely interchangeable in modern cloud data warehouses"
+      ],
+      "answer": 0,
+      "explanation": "A raw table is simply stored data that often lacks documentation, ownership, or SLA guarantees. A data product is treated as an end-user product with a designated owner, data contracts, automated quality checks, defined freshness SLAs, discoverability in catalogs, and seamless consumer interfaces."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following correctly enumerates the four fundamental principles of Data Mesh formulated by Zhamak Dehghani?",
+      "options": [
+        "Domain-Oriented Ownership, Data as a Product, Self-Service Data Platform, and Federated Computational Governance",
+        "Centralized Monolith, Batch Extraction, SQL-Only Modeling, and Manual Quality Auditing",
+        "Hadoop Storage, MapReduce Compute, Hive Metastore, and Kerberos Authentication",
+        "Microservices, Docker Containers, Kubernetes Pods, and Service Mesh Sidecars"
+      ],
+      "answer": 0,
+      "explanation": "Data Mesh decentralizes analytical data management across four pillars: 1) Domain-oriented decentralized data ownership, 2) Data as a product, 3) Self-serve data infrastructure as a platform, and 4) Federated computational governance."
+    },
+    {
+      "id": 3,
+      "question": "What is the primary operational purpose of a Data Contract in an enterprise data architecture?",
+      "options": [
+        "To establish an explicit, versioned agreement between data producers and consumers defining schema types, semantics, quality rules, and freshness SLAs",
+        "To legally copyright datasets so external cloud providers cannot train public models on them",
+        "To encrypt all relational database tables using proprietary hardware security modules",
+        "To bill internal department teams hourly for running ad-hoc SQL queries"
+      ],
+      "answer": 0,
+      "explanation": "Data contracts prevent upstream schema changes or semantic drift from silently breaking downstream analytics and machine learning pipelines by enforcing schema constraints, nullability, uniqueness tests, and service level agreements at ingestion."
+    },
+    {
+      "id": 4,
+      "question": "How does an Analytical Data Mart differ from an Enterprise Data Warehouse (EDW)?",
+      "options": [
+        "A data mart is a subject-oriented, curated subset of data tailored for a specific department (e.g. Sales, Finance) to simplify querying and improve performance",
+        "A data mart is completely uncompressed text, whereas an EDW always uses columnar compression",
+        "A data mart can only hold real-time sensor streams, whereas an EDW only holds financial records",
+        "A data mart must be hosted on-premise, while an EDW must run in public cloud object storage"
+      ],
+      "answer": 0,
+      "explanation": "While an enterprise data warehouse contains cross-functional data across the entire organization, a data mart focuses on a single department or business line (like Sales or Marketing), often structured as a star or snowflake schema with curated dimensions and facts."
+    },
+    {
+      "id": 5,
+      "question": "Why do modern data platforms implement a Semantic Layer (such as dbt Semantic Layer or Cube)?",
+      "options": [
+        "To centralize business metric definitions, dimensions, and join logic so all downstream BI tools and AI applications report consistent, verified numbers",
+        "To translate English text directly into binary assembly code for faster GPU execution",
+        "To replace all relational databases with NoSQL document stores",
+        "To automatically generate HTML user interfaces without writing CSS or React code"
+      ],
+      "answer": 0,
+      "explanation": "Without a semantic layer, different departments frequently define the same metric (e.g., 'Gross Revenue' or 'Active Customer') using conflicting SQL formulas across disparate BI tools. A semantic layer creates a single source of truth for business logic."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following scenarios is an example of an OLAP workload rather than an OLTP workload?",
+      "options": [
+        "Aggregating 500 million transaction records to calculate regional quarterly revenue and year-over-year growth",
+        "Inserting a single row into an e-commerce order table when a customer clicks 'Purchase'",
+        "Updating the available inventory count for a specific SKU from 42 to 41 during checkout",
+        "Looking up a customer's hashed password and session token during user login"
+      ],
+      "answer": 0,
+      "explanation": "OLTP systems handle high-frequency, low-latency point lookups, inserts, and updates for individual transactions. OLAP systems scan millions or billions of rows to perform complex aggregations, groupings, and historical trend analysis."
+    },
+    {
+      "id": 7,
+      "question": "When serving warehouse data to high-concurrency client applications via a REST Data API, why is direct warehouse querying avoided?",
+      "options": [
+        "Analytical warehouses are optimized for large batch scans and incur high query costs and concurrency limits, whereas APIs require sub-50ms latency under thousands of requests/sec",
+        "REST APIs cannot parse SQL query results under any circumstances",
+        "Analytical warehouses do not support TCP/IP network connections",
+        "Direct warehouse queries automatically corrupt database transaction logs during concurrent reads"
+      ],
+      "answer": 0,
+      "explanation": "Data warehouses (e.g. Snowflake, BigQuery, Redshift) are built for heavy OLAP throughput, not thousands of concurrent sub-50ms API hits. Serving layers typically use in-memory caches (Redis) or low-latency operational databases (Postgres, DynamoDB) in front of the warehouse."
+    },
+    {
+      "id": 8,
+      "question": "In the Cache-Aside pattern with Redis, what happens during a cache miss?",
+      "options": [
+        "The application queries the underlying database, sets the retrieved data into the cache with an expiration (TTL), and returns the data to the client",
+        "The application returns an HTTP 500 server error and prompts the user to refresh the page",
+        "The database immediately drops all indexes and triggers a full cluster failover",
+        "The Redis instance automatically deletes all keys across all tenant databases"
+      ],
+      "answer": 0,
+      "explanation": "In cache-aside, the application first checks the cache. On a hit, it returns cached data immediately. On a miss, it fetches data from the database, writes the result to the cache for future requests (often with a TTL), and returns it to the consumer."
+    },
+    {
+      "id": 9,
+      "question": "What is Reverse ETL, and why is it increasingly critical in modern data platforms?",
+      "options": [
+        "It synchronizes curated, transformed analytical data and model scores from the warehouse back into operational business tools (e.g. Salesforce, HubSpot, Zendesk)",
+        "It decompiles compiled Spark binaries back into original Python source code",
+        "It restores raw source databases from deleted S3 glacier cold backup archives",
+        "It permanently reverses table schemas from third normal form back into flat CSV files"
+      ],
+      "answer": 0,
+      "explanation": "Traditional ETL moves operational data into the analytical warehouse. Reverse ETL activates that data by pushing analytical insights (such as customer churn scores, lifetime value, or product recommendation tags) directly into operational SaaS tools where sales and support teams work."
+    },
+    {
+      "id": 10,
+      "question": "For which of the following analytical workloads is a Graph Database (like Neo4j) significantly superior to a standard relational database?",
+      "options": [
+        "Multi-hop relationship traversals (e.g., detecting fraud rings across 6 degrees of shared bank accounts, phone numbers, and IP addresses)",
+        "Generating monthly payroll summary reports sorted alphabetically by employee ID",
+        "Storing cold raw log archives in compressed Parquet files for compliance audits",
+        "High-throughput sequential append-only time-series logging from weather sensors"
+      ],
+      "answer": 0,
+      "explanation": "Relational databases require expensive recursive multi-table JOIN operations that degrade exponentially as graph depth increases. Graph databases store relationships as direct index-free adjacency pointers, enabling rapid multi-hop path traversals."
+    },
+    {
+      "id": 11,
+      "question": "According to the CAP Theorem, what fundamental trade-off must a distributed database make during an active network partition (P)?",
+      "options": [
+        "The system must choose between Consistency (returning an error rather than stale data) and Availability (returning available responses that may be slightly stale)",
+        "The system must choose between ACID compliance and SQL query syntax",
+        "The system must choose between using CPU cores and using RAM modules",
+        "The system must permanently shut down all storage nodes until the network is replaced"
+      ],
+      "answer": 0,
+      "explanation": "When network communication between nodes breaks (partition), a distributed system cannot guarantee both CAP Consistency (all nodes see the exact same data simultaneously) and CAP Availability (every request receives a non-error response)."
+    },
+    {
+      "id": 12,
+      "question": "What is the primary role of an Online Feature Store (such as Redis or DynamoDB in Feast) in machine learning infrastructure?",
+      "options": [
+        "To provide ultra-low latency (single-digit millisecond) key-value feature retrieval for real-time model inference services",
+        "To store petabytes of historical features across multiple years for training deep neural networks",
+        "To automatically generate clean training labels without human supervision",
+        "To compile PyTorch models into mobile iOS binaries"
+      ],
+      "answer": 0,
+      "explanation": "Machine learning systems use offline stores (BigQuery, Snowflake, Parquet) for historical feature generation during batch model training, but require an online store (Redis, DynamoDB) to fetch current feature vectors in under 10ms during live inference."
+    },
+    {
+      "id": 13,
+      "question": "What is Training-Serving Skew in machine learning data engineering, and how is it prevented?",
+      "options": [
+        "A discrepancy between features calculated for offline training vs online inference; prevented by sharing feature definitions and transformation logic in a unified feature store",
+        "A physical hardware temperature difference between training GPUs and inference CPUs",
+        "A mismatch in the font size used between the Jupyter Notebook and the production dashboard",
+        "An error caused when a training pipeline finishes earlier than the nightly Airflow DAG"
+      ],
+      "answer": 0,
+      "explanation": "Training-serving skew occurs when offline training features are computed differently from real-time inference features (e.g., using different imputations, transformations, or time windows). A feature store ensures identical transformation logic is reused in both environments."
+    },
+    {
+      "id": 14,
+      "question": "Why is 'Point-in-Time Correctness' (AS-OF joins) mandatory when building historical training datasets for machine learning models?",
+      "options": [
+        "To prevent data leakage by ensuring feature values reflect only information that was actually known at the exact timestamp of the prediction event",
+        "To ensure all datetime columns are converted into Greenwich Mean Time (GMT)",
+        "To speed up SQL queries by only querying records created on the first day of each month",
+        "To prevent duplicate primary keys in MongoDB collections"
+      ],
+      "answer": 0,
+      "explanation": "If a churn prediction model predicts whether a user will cancel on Nov 1st, including a support ticket filed on Nov 3rd or a cancellation event on Nov 5th causes severe data leakage. The model appears to have 99% accuracy in tests but completely fails in production."
+    },
+    {
+      "id": 15,
+      "question": "In a Retrieval-Augmented Generation (RAG) ingestion pipeline, why is incremental index refreshing preferred over full re-indexing for large enterprise document sets?",
+      "options": [
+        "Incremental refreshing only parses, chunks, and embeds newly created or modified documents, dramatically reducing API embedding costs and pipeline processing time",
+        "Full re-indexing is cryptographically prohibited by vector database specifications",
+        "Incremental indexing eliminates the need for vector embeddings and uses BM25 keyword matching instead",
+        "Vector databases can only accept documents once in their lifetime without being deleted and recreated"
+      ],
+      "answer": 0,
+      "explanation": "Re-embedding millions of documents every day is prohibitively expensive and slow. Incremental refresh tracks document hashes and version metadata, regenerating embeddings and updating vector indexes only for modified or newly published files while purging obsolete chunks."
+    }
+  ]
+}

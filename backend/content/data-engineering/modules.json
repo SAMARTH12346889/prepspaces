@@ -229,5 +229,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "data-products-ai-serving",
+    "courseId": "data-engineering",
+    "index": 22,
+    "name": "22. Data Products, Serving Architectures and AI Data Engineering",
+    "route": "/learning/data-engineering/data-products-ai-serving",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

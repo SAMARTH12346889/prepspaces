@@ -204,6 +204,7 @@ const DataEngineeringCloud = React.lazy(() => import("./Componets/DataEngineerin
 const DataEngineeringDataOps = React.lazy(() => import("./Componets/DataEngineeringDataOps"));
 const DataEngineeringSecurity = React.lazy(() => import("./Componets/DataEngineeringSecurity"));
 const DataEngineeringReliability = React.lazy(() => import("./Componets/DataEngineeringReliability"));
+const DataEngineeringDataProducts = React.lazy(() => import("./Componets/DataEngineeringDataProducts"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1705,6 +1706,12 @@ function App() {
             <Route path="/learning/data-engineering/performance-optimization" element={<DataEngineeringReliability />} />
             <Route path="/learning/data-engineering/module-21" element={<DataEngineeringReliability />} />
             <Route path="/learn/data-engineering/data-reliability-observability" element={<DataEngineeringReliability />} />
+            <Route path="/learning/data-engineering/data-products-ai-serving" element={<DataEngineeringDataProducts />} />
+            <Route path="/learning/data-engineering/data-products" element={<DataEngineeringDataProducts />} />
+            <Route path="/learning/data-engineering/ai-data-engineering" element={<DataEngineeringDataProducts />} />
+            <Route path="/learning/data-engineering/data-mesh" element={<DataEngineeringDataProducts />} />
+            <Route path="/learning/data-engineering/module-22" element={<DataEngineeringDataProducts />} />
+            <Route path="/learn/data-engineering/data-products-ai-serving" element={<DataEngineeringDataProducts />} />
             <Route path="/learning/data-engineering/airflow" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/orchestration" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/dagster" element={<DataEngineeringAirflow />} />

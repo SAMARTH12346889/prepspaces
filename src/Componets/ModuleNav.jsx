@@ -216,6 +216,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "dataops-cicd", name: "19. DataOps, Docker, CI/CD & IaC", route: "/learning/data-engineering/dataops-cicd" },
   { id: "data-security-governance", name: "20. Data Security, Governance & Privacy", route: "/learning/data-engineering/data-security-governance" },
   { id: "data-reliability-observability", name: "21. Data Reliability, Observability & Performance", route: "/learning/data-engineering/data-reliability-observability" },
+  { id: "data-products-ai-serving", name: "22. Data Products, Serving Architectures and AI Data Engineering", route: "/learning/data-engineering/data-products-ai-serving" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

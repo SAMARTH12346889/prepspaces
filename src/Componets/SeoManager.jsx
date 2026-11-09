@@ -153,7 +153,14 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
-      "/learning/data-engineering/data-reliability-observability": {
+  "/learning/data-engineering/data-products-ai-serving": {
+    canonical: `${BASE_URL}/learning/data-engineering/data-products-ai-serving`,
+    title: "Module 22: Data Products, Serving Architectures and AI Data Engineering | Data Engineering Master Course",
+    description: "Master enterprise data products, Data Mesh decentralized domain ownership, analytical data marts, semantic layers, REST Data APIs, Redis caching, Reverse ETL, ML feature stores, training-serving skew prevention, point-in-time correct AS-OF joins, embeddings, vector databases (Qdrant, Pinecone), RAG knowledge ingestion, and AI data quality governance.",
+    keywords: "data products, data as a product, data mesh, domain-oriented ownership, Zhamak Dehghani, self-service data platform, federated computational governance, data contracts, analytical data marts, star schema, semantic layer, dbt semantic layer, Cube, Looker, OLAP, OLTP, data API, FastAPI, Redis, cache-aside, cache invalidation, reverse ETL, Census, Hightouch, data activation, graph database, Neo4j, Cypher, NoSQL, MongoDB, Cassandra, DynamoDB, CAP theorem, machine learning data engineering, feature engineering, feature store, Feast, Tecton, offline feature store, online feature store, training-serving skew, point-in-time correctness, AS-OF join, data leakage, embeddings, vector database, cosine similarity, RAG, retrieval-augmented generation, knowledge index, incremental indexing, AI data quality, AI data governance, RBAC, data engineering course",
+    badge: "Module 22 · Data Engineering"
+  },
+  "/learning/data-engineering/data-reliability-observability": {
     canonical: `${BASE_URL}/learning/data-engineering/data-reliability-observability`,
     title: "Module 21: Data Reliability, Observability and Performance Optimization | Data Engineering Master Course",
     description: "Master Data Reliability Engineering (DRE), full-stack data observability, and cloud performance optimization. Covers the 5 pillars of data observability (Freshness, Volume, Distribution, Schema, Lineage), SLI/SLO/SLA definitions, error budget exhaustion, structured logging, distributed tracing, automated data quality alerting, circuit breakers, exponential backoff with jitter, disaster recovery (RPO vs RTO), query optimization (partition pruning, avoiding SELECT *, join tuning), compute right-sizing, data skew elimination, FinOps cloud cost optimization (cost per million records), and production readiness reviews.",
