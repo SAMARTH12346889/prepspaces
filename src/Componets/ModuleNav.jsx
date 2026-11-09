@@ -212,6 +212,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "distributed-systems", name: "15. Distributed Systems for Data Engineers", route: "/learning/data-engineering/distributed-systems" },
   { id: "kafka-event-driven", name: "16. Event-Driven Architecture & Apache Kafka", route: "/learning/data-engineering/kafka-event-driven" },
   { id: "stream-processing", name: "17. Stream Processing & Real-Time Analytics", route: "/learning/data-engineering/stream-processing" },
+  { id: "cloud-data-engineering", name: "18. Cloud Data Engineering & Cloud Platforms", route: "/learning/data-engineering/cloud-data-engineering" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

@@ -1122,6 +1122,41 @@
   - 24. Final Revision — What You Should Understand (Complete 23-topic mastery synthesis table)
   - 25. Recommended Learning Resources (Official documentation for dbt, Great Expectations, Deequ, OpenMetadata, DataHub, Airflow, and PostgreSQL)
 
+## Module 18: Cloud Data Engineering and Cloud Platforms
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/cloud-data-engineering
+- **Topics Covered:**
+  - 1. Introduction to Cloud Computing (On-demand self-service, rapid elasticity, horizontal vs vertical scaling, measured services)
+  - 2. Cloud Computing Service Models (IaaS vs PaaS vs SaaS, responsibility matrices: hardware, virtualization, OS, runtime, application)
+  - 3. Cloud Infrastructure Architecture (Regions, Availability Zones AZs, Compute: EC2/Lambda/ECS/EKS, Storage: S3/EBS/EFS/RDS/DynamoDB/Redshift, Networking: VPC, subnets, Internet/NAT Gateways, Security Groups vs NACLs)
+  - 4. Identity and Access Management (IAM users, groups, roles, JSON policy structure, principle of least privilege, STS temporary tokens)
+  - 5. Cloud Security Fundamentals (Shared Responsibility Model, encryption at rest KMS/SSE-S3, encryption in transit TLS, key rotation, data classification)
+  - 6. AWS Data Engineering Ecosystem (Ingestion, storage, catalog, processing, warehousing, streaming, governance map)
+  - 7. Amazon S3 — Simple Storage Service (Buckets, object keys, object vs file storage, storage classes Standard/Intelligent-Tiering/Standard-IA/Glacier Deep Archive, versioning, lifecycle rules, 4-zone lake: Landing, Raw, Trusted, Curated)
+  - 8. AWS Glue — Cloud ETL and Data Integration (Glue Data Catalog, Crawlers, schema inference, serverless PySpark ETL jobs, DPUs, Glue Workflows)
+  - 9. Amazon Athena — Serverless SQL Analytics (Presto/Trino SQL on S3, external table DDL, partition pruning, columnar Parquet scan savings at $5/TB scanned)
+  - 10. Amazon Redshift — Cloud Data Warehouse (Data lake vs warehouse, MPP distributed architecture, Leader node, Compute nodes/slices, distribution keys KEY/EVEN/ALL, sort keys COMPOUND/INTERLEAVED, Redshift Serverless, Redshift Spectrum)
+  - 11. Amazon EMR — Big Data Processing (Managed Spark/Hadoop clusters, primary/core/task nodes, EMR on EC2 vs EMR Serverless vs EMR on EKS, EMR vs AWS Glue)
+  - 12. Amazon Kinesis — Real-Time Data Ingestion (Kinesis Data Streams, shards, partition keys, Amazon Data Firehose streaming delivery, payment fraud architecture)
+  - 13. Managed Database Services (Amazon RDS, Amazon Aurora, DynamoDB NoSQL, OLTP transactional vs OLAP analytical workloads)
+  - 14. Cloud ETL Architecture (End-to-end 8-stage pipeline: extraction, ingestion, raw S3, transformation, data validation, curated S3, analytics, reporting; ETL vs ELT)
+  - 15. Serverless Data Processing (AWS Lambda event triggers, Glue, Athena, Redshift Serverless, cold starts, timeout boundaries)
+  - 16. Cloud Data Warehouses (Amazon Redshift vs Snowflake vs Google BigQuery vs Azure Synapse, Data Lakehouse with Apache Iceberg)
+  - 17. Cost-Aware Cloud Architectures (S3 lifecycle policies, right-sizing compute, Athena query scan optimization, data transfer costs, AWS Cost Explorer)
+  - 18. Mapping Equivalent Architectures to Azure and Google Cloud (AWS vs Azure vs GCP 13-service equivalence matrix: S3 vs ADLS vs GCS, Glue vs ADF vs Dataflow, Redshift vs Synapse vs BigQuery, Kinesis vs Event Hubs vs Pub/Sub)
+  - 19. Practical Project — Build an AWS E-Commerce Data Platform (10-step capstone: S3 lake zones, Glue crawler, Glue PySpark ETL, Athena SQL, Redshift staging, Kinesis stream, IAM security)
+  - 20. Advanced Concepts (Data Lake zones, Lakehouses with Iceberg/Delta, Multi-cloud, High Availability, RPO & RTO, Infrastructure as Code)
+  - 21. Module 18 — Important Interview Questions (48 structured interview Q&As across cloud fundamentals, security, data services, architecture)
+  - 22. Practical Assignments (12 hands-on labs + capstone)
+  - 23. Recommended Learning Resources (AWS Docs, Skill Builder, Microsoft Learn, Google Cloud Skills Boost)
+  - 24. Final Module Summary (14-topic revision matrix and modern cloud data engineering architectural flow)
+- **Interactive Workbenches:**
+  - 1. AWS S3 Multi-Tier Data Lake & Lifecycle Simulator (4 data lake zones, automated lifecycle transition rules across storage classes, live monthly cost reduction calculator)
+  - 2. Serverless Lake Analytics: Athena Partition Pruner & Query Cost (Interactive Presto query bench comparing unpartitioned CSV vs partitioned Parquet, partition tree pruning, 99%+ scan cost reduction)
+  - 3. AWS Glue Data Catalog & Serverless PySpark ETL Simulator (Crawler schema discovery, DPU worker configuration, PySpark cleaning pipeline, DPU-hour pricing calculator)
+  - 4. Amazon Redshift MPP Architecture, Distribution & Sort Key Laboratory (Leader Node + Compute Slices, DISTSTYLE KEY vs EVEN vs ALL, Compound Sort Keys, interconnect network shuffle elimination)
+  - 5. Cross-Cloud Rosetta Stone (AWS vs Azure vs GCP 13-capability equivalence matrix and interactive lakehouse, streaming, and serverless workload comparisons)
+  - 6. IAM Least-Privilege Policy Linter & 15-Question Curriculum Quiz (Interactive IAM JSON policy scanner detecting wildcard risks with instant least-privilege remediation, plus comprehensive 15-question mastery assessment)
+
 ## Module 17: Stream Processing and Real-Time Analytics
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/stream-processing
 - **Topics Covered:**

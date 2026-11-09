@@ -153,6 +153,13 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+    "/learning/data-engineering/cloud-data-engineering": {
+    canonical: `${BASE_URL}/learning/data-engineering/cloud-data-engineering`,
+    title: "Module 18: Cloud Data Engineering and Cloud Platforms | Data Engineering Master Course",
+    description: "Master cloud data engineering platforms with an AWS primary focus and direct Azure and GCP mappings: regions, AZs, VPC networking, IAM least-privilege security, KMS encryption, Amazon S3 multi-tier data lake architecture (Landing, Raw, Trusted, Curated), AWS Glue Data Catalog and serverless PySpark ETL, Amazon Athena serverless SQL analytics, Amazon Redshift MPP columnar warehousing, Amazon EMR distributed computing, Amazon Kinesis real-time event streaming, serverless data architectures, cloud cost optimization, and end-to-end multi-cloud data engineering.",
+    keywords: "cloud data engineering, AWS data engineering, Amazon S3, AWS Glue, Amazon Athena, Amazon Redshift, Amazon EMR, Amazon Kinesis, AWS IAM, cloud data warehouse, data lakehouse, Azure Data Lake, Google Cloud Storage, Azure Data Factory, Google Dataflow, BigQuery, serverless data processing, AWS Lambda, least privilege IAM, partition pruning, Redshift distribution keys, sort keys, cloud cost optimization, S3 lifecycle rules, data engineering course",
+    badge: "Module 18 · Data Engineering"
+  },
   "/learning/data-engineering/stream-processing": {
     canonical: `${BASE_URL}/learning/data-engineering/stream-processing`,
     title: "Module 17: Stream Processing and Real-Time Analytics | Data Engineering Master Course",

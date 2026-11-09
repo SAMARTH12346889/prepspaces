@@ -1,0 +1,189 @@
+{
+  "id": "cloud-data-engineering",
+  "title": "Cloud Data Engineering and Cloud Platforms",
+  "courseId": "data-engineering",
+  "index": 18,
+  "description": "Architect modern data engineering platforms across Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform. Master Amazon S3 multi-tier data lakes, AWS Glue serverless ETL, Athena SQL analytics, Redshift MPP warehousing, Kinesis real-time streaming, and least-privilege cloud security.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary difference between horizontal scaling and vertical scaling in cloud computing?",
+      "options": [
+        "Horizontal scaling adds more instances or nodes; vertical scaling increases CPU/RAM of a single instance",
+        "Horizontal scaling increases CPU of one server; vertical scaling adds distributed network zones",
+        "Vertical scaling requires serverless architecture; horizontal scaling only works on EC2",
+        "Horizontal scaling is strictly manual; vertical scaling is always automatic"
+      ],
+      "answer": 0,
+      "explanation": "Horizontal scaling (scaling out) adds more machines or nodes to a cluster (e.g. adding Spark workers). Vertical scaling (scaling up) upgrades the hardware capacity (CPU, RAM, disk) of a single server."
+    },
+    {
+      "id": 2,
+      "question": "In the AWS Shared Responsibility Model, which security task is the sole responsibility of the customer?",
+      "options": [
+        "Securing physical data center facilities and server hardware",
+        "Maintaining host hypervisor patching for virtual machines",
+        "Customer data classification, client/server encryption, and IAM access controls",
+        "Decommissioning defective physical hard drives"
+      ],
+      "answer": 2,
+      "explanation": "AWS is responsible for 'Security OF the Cloud' (physical hardware, facilities, hypervisors, global network). The customer is responsible for 'Security IN the Cloud' (data encryption, IAM policies, firewall rules, OS updates on EC2)."
+    },
+    {
+      "id": 3,
+      "question": "Why is an IAM Role preferred over hardcoded IAM User access keys for EC2 instances and AWS Glue jobs?",
+      "options": [
+        "IAM Roles are completely free of charge while IAM Users incur monthly fees",
+        "IAM Roles provide automatic, temporary short-lived credentials via STS with no stored secrets",
+        "IAM Roles bypass AWS KMS encryption checks for higher processing speed",
+        "IAM Roles only work with S3 and cannot access Redshift"
+      ],
+      "answer": 1,
+      "explanation": "IAM Roles eliminate hardcoded credentials in source code. AWS Security Token Service (STS) automatically provisions short-lived temporary security tokens that rotate transparently."
+    },
+    {
+      "id": 4,
+      "question": "An e-commerce company has historical transaction logs that are accessed only once every two years for tax compliance. Which S3 storage class offers the lowest monthly storage cost?",
+      "options": [
+        "S3 Standard",
+        "S3 Intelligent-Tiering",
+        "S3 Standard-IA",
+        "S3 Glacier Deep Archive"
+      ],
+      "answer": 3,
+      "explanation": "S3 Glacier Deep Archive offers the lowest cost storage in AWS (~$0.00099 per GB/month), designed for long-term data retention with retrieval times of 9-12 hours."
+    },
+    {
+      "id": 5,
+      "question": "How does object storage in Amazon S3 differ architecturally from a traditional hierarchical filesystem?",
+      "options": [
+        "S3 stores files in nested directory inodes on a local ext4 mount",
+        "S3 is a flat key-value store where slashes ('/') in object keys are purely string conventions for prefix filtering",
+        "S3 limits each bucket to at most 10,000 files total",
+        "S3 requires an operating system reboot to expand bucket volume size"
+      ],
+      "answer": 1,
+      "explanation": "Amazon S3 does not possess true folders or directory inodes. It is a massive distributed key-value store. The 'directories' seen in console or tools are visual prefix filters delimited by '/' characters."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary role of an AWS Glue Crawler in a data lakehouse architecture?",
+      "options": [
+        "To compile PySpark code into machine binaries",
+        "To inspect raw S3 files, infer schemas, detect partitions, and register table metadata in the Glue Data Catalog",
+        "To convert CSV files directly into PostgreSQL tables",
+        "To terminate idle EC2 worker nodes"
+      ],
+      "answer": 1,
+      "explanation": "AWS Glue Crawlers connect to source data stores (like S3 buckets), parse data formats, infer schema structures and partition hierarchies, and write table metadata to the AWS Glue Data Catalog."
+    },
+    {
+      "id": 7,
+      "question": "How does Amazon Athena calculate query costs for ad-hoc analytical queries?",
+      "options": [
+        "Fixed hourly billing per active database connection",
+        "Billed by the number of CPU cores utilized during the query",
+        "Billed at $5.00 per Terabyte (TB) of data scanned by the query execution engine",
+        "Free for all queries running under 30 seconds"
+      ],
+      "answer": 2,
+      "explanation": "Amazon Athena is serverless and bills $5.00 per TB of data scanned from S3 (with a 10MB minimum per query). Partition pruning and columnar formats (Parquet/ORC) dramatically reduce scanned bytes."
+    },
+    {
+      "id": 8,
+      "question": "Why does converting raw CSV files to Apache Parquet format reduce Amazon Athena query costs by up to 90%?",
+      "options": [
+        "Parquet is uncompressed and faster to download over HTTP",
+        "Parquet is columnar and compressed: Athena reads only the specific columns requested in the SELECT statement rather than entire rows",
+        "Athena gives a 50% promotional discount for using Apache open-source projects",
+        "Parquet removes the requirement for AWS IAM authentication"
+      ],
+      "answer": 1,
+      "explanation": "Parquet stores data column-by-column with dictionary encoding and Snappy/Gzip compression. When a query requests 2 columns out of a 50-column dataset, Athena skips the other 48 columns completely, slashing scanned bytes."
+    },
+    {
+      "id": 9,
+      "question": "In Amazon Redshift MPP architecture, what role does the Leader Node perform?",
+      "options": [
+        "It stores all row partitions in its local NVMe drive",
+        "It coordinates client SQL connections, parses SQL, develops optimized execution plans, and dispatches compiled C++ code to compute nodes",
+        "It runs AWS Glue crawlers in the background",
+        "It acts as a cold standby replica in case compute nodes fail"
+      ],
+      "answer": 1,
+      "explanation": "The Redshift Leader Node coordinates client communication, parses and compiles query plans, optimizes execution trees, and coordinates the parallel execution of code slices on compute nodes."
+    },
+    {
+      "id": 10,
+      "question": "When joining a 100-million row fact table with a 50-million row dimension table in Redshift, which distribution style eliminates network shuffle (redistribution)?",
+      "options": [
+        "DISTSTYLE EVEN on both tables",
+        "DISTSTYLE KEY on both tables using the join key column (e.g. customer_id)",
+        "DISTSTYLE ALL on the 100-million row fact table",
+        "DISTSTYLE AUTO with no indexes"
+      ],
+      "answer": 1,
+      "explanation": "When both tables use DISTSTYLE KEY on the exact matching join column, records with identical hash keys reside on the identical slice of the identical compute node, enabling 100% local joins with zero network transfer."
+    },
+    {
+      "id": 11,
+      "question": "When should an enterprise choose Amazon EMR over AWS Glue for a distributed data engineering workload?",
+      "options": [
+        "When they want a 100% serverless service with zero cluster configuration",
+        "When they require fine-grained cluster tuning, custom Spark/Flink/HBase configurations, long-running 24/7 clusters, or custom libraries",
+        "When they only need to run a 2-minute daily CSV cleanup",
+        "EMR has been deprecated in favor of AWS Athena"
+      ],
+      "answer": 1,
+      "explanation": "Amazon EMR provides full root access to EC2 nodes, custom cluster configuration, support for arbitrary big data frameworks (Spark, Flink, Trino, HBase), and spot instance fleet cost optimizations for massive, complex workloads."
+    },
+    {
+      "id": 12,
+      "question": "In Amazon Kinesis Data Streams, what is the role of a Shard?",
+      "options": [
+        "A physical tape backup drive in an AWS availability zone",
+        "A base unit of throughput providing 1 MB/sec (1,000 records/sec) write capacity and 2 MB/sec read capacity",
+        "A serverless Python function executed on each message",
+        "A compressed zip file stored in S3"
+      ],
+      "answer": 1,
+      "explanation": "A Kinesis shard provides a fixed unit of throughput: 1 MB/s input and 2 MB/s output. Streams scale capacity horizontally by adding or splitting shards."
+    },
+    {
+      "id": 13,
+      "question": "Which workload is best suited for Amazon DynamoDB rather than Amazon Redshift?",
+      "options": [
+        "Calculating aggregate revenue across 10 years of sales grouped by country",
+        "High-throughput, single-digit millisecond key-value lookups for active user session shopping carts",
+        "Multi-table analytical star schema queries with complex window functions",
+        "Generating quarterly financial compliance reports"
+      ],
+      "answer": 1,
+      "explanation": "DynamoDB is an ultra-fast NoSQL key-value and document store designed for high-concurrency transactional OLTP operations with single-digit millisecond latency. Redshift is an analytical OLAP warehouse."
+    },
+    {
+      "id": 14,
+      "question": "What is an important operational limitation of AWS Lambda in big data ETL pipelines?",
+      "options": [
+        "It cannot write files to Amazon S3",
+        "Maximum 15-minute execution timeout per invocation and limited local ephemeral storage",
+        "It only supports JavaScript and cannot run Python",
+        "It cannot be triggered by cloud events"
+      ],
+      "answer": 1,
+      "explanation": "AWS Lambda has a hard 15-minute execution limit and cold start latency, making it unsuitable for multi-hour heavy distributed transformations (which belong in AWS Glue or EMR)."
+    },
+    {
+      "id": 15,
+      "question": "Which Azure and Google Cloud services correspond directly to AWS Glue and Amazon Redshift?",
+      "options": [
+        "Azure: Virtual Machines & Cosmos DB | GCP: Cloud Run & Cloud SQL",
+        "Azure: Azure Data Factory & Azure Synapse / Fabric | GCP: Cloud Dataflow / Dataproc & BigQuery",
+        "Azure: Blob Storage & Key Vault | GCP: GCS & Cloud IAM",
+        "Azure: Power BI & Event Grid | GCP: Looker & Pub/Sub"
+      ],
+      "answer": 1,
+      "explanation": "AWS Glue corresponds to Azure Data Factory (and Fabric Data Factory) / GCP Dataflow for data integration and ETL; Amazon Redshift corresponds to Azure Synapse / Fabric Warehouse and Google BigQuery for cloud analytical data warehousing."
+    }
+  ]
+}

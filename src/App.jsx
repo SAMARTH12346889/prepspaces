@@ -1676,6 +1676,12 @@ function App() {
             <Route path="/learning/data-engineering/flink" element={<DataEngineeringStreamProcessing />} />
             <Route path="/learning/data-engineering/module-17" element={<DataEngineeringStreamProcessing />} />
             <Route path="/learn/data-engineering/stream-processing" element={<DataEngineeringStreamProcessing />} />
+            <Route path="/learning/data-engineering/cloud-data-engineering" element={<DataEngineeringCloud />} />
+            <Route path="/learning/data-engineering/cloud" element={<DataEngineeringCloud />} />
+            <Route path="/learning/data-engineering/aws" element={<DataEngineeringCloud />} />
+            <Route path="/learning/data-engineering/cloud-platforms" element={<DataEngineeringCloud />} />
+            <Route path="/learning/data-engineering/module-18" element={<DataEngineeringCloud />} />
+            <Route path="/learn/data-engineering/cloud-data-engineering" element={<DataEngineeringCloud />} />
             <Route path="/learning/data-engineering/airflow" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/orchestration" element={<DataEngineeringAirflow />} />
             <Route path="/learning/data-engineering/dagster" element={<DataEngineeringAirflow />} />
