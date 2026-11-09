@@ -108,5 +108,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "spark-processing",
+    "courseId": "data-engineering",
+    "index": 11,
+    "name": "11. Distributed Data Processing with Apache Spark",
+    "route": "/learning/data-engineering/spark-processing",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

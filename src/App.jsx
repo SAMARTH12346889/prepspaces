@@ -193,6 +193,7 @@ const DataEngineeringWarehousing = React.lazy(() => import("./Componets/DataEngi
 const DataEngineeringLakehouse = React.lazy(() => import("./Componets/DataEngineeringLakehouse"));
 const DataEngineeringIngestion = React.lazy(() => import("./Componets/DataEngineeringIngestion"));
 const DataEngineeringEtlBatch = React.lazy(() => import("./Componets/DataEngineeringEtlBatch"));
+const DataEngineeringSpark = React.lazy(() => import("./Componets/DataEngineeringSpark"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1640,6 +1641,11 @@ function App() {
             <Route path="/learning/data-engineering/batch" element={<DataEngineeringEtlBatch />} />
             <Route path="/learning/data-engineering/module-10" element={<DataEngineeringEtlBatch />} />
             <Route path="/learn/data-engineering/etl-batch" element={<DataEngineeringEtlBatch />} />
+            <Route path="/learning/data-engineering/spark-processing" element={<DataEngineeringSpark />} />
+            <Route path="/learning/data-engineering/spark" element={<DataEngineeringSpark />} />
+            <Route path="/learning/data-engineering/pyspark" element={<DataEngineeringSpark />} />
+            <Route path="/learning/data-engineering/module-11" element={<DataEngineeringSpark />} />
+            <Route path="/learn/data-engineering/spark-processing" element={<DataEngineeringSpark />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

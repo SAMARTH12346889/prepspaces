@@ -153,6 +153,12 @@ const routeMeta = {
     keywords: "ETL, ELT, Batch Data Processing, Apache Spark, Apache Airflow, DAG Orchestration, dbt Incremental Models, AWS Glue Job Bookmarks, Data Cleansing, Data Standardization, SQL Aggregations, Joins Enrichment, Incremental Processing Watermarks, Partition Pruning, Late-Arriving Data, Historical Backfill, Data Deduplication, Idempotent Pipelines, MERGE INTO Upsert, Data Reconciliation Hash Checksums, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/etl-batch`,
   },
+  "/learning/data-engineering/spark-processing": {
+    title: "Module 11: Distributed Data Processing with Apache Spark | PrepSpaces",
+    description: "Master distributed computing fundamentals and large-scale big data processing with Apache Spark & PySpark: cluster architecture (Driver, Cluster Manager, Executors, Tasks), RDD lineage and fault tolerance, DataFrames, Datasets, Spark SQL and Catalyst Optimizer, narrow vs wide transformations, lazy evaluation, partitioning (repartition vs coalesce), shuffle mechanics, broadcast joins, memory management (execution vs storage), data skew mitigation (salting, AQE), Spark Web UI tuning, Parquet columnar internals, Delta Lake Medallion Architecture (Bronze, Silver, Gold), and distributed data pipelines.",
+    keywords: "Apache Spark, PySpark, Distributed Data Processing, Spark Architecture, Driver, Executor, Cluster Manager, RDD Lineage, Spark DataFrames, Datasets, Spark SQL, Catalyst Optimizer, Predicate Pushdown, Column Pruning, Narrow vs Wide Transformations, Lazy Evaluation, Spark Partitioning, repartition vs coalesce, Shuffling and Data Exchange, Broadcast Joins, Spark Memory Management, Data Skew Salting, Adaptive Query Execution AQE, Spark Web UI Tuning, Apache Parquet Internals, Delta Lakehouse, Medallion Architecture Bronze Silver Gold, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/spark-processing`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

@@ -1,0 +1,190 @@
+{
+  "id": "spark-processing",
+  "courseId": "data-engineering",
+  "index": 11,
+  "title": "Distributed Data Processing with Apache Spark",
+  "name": "11. Distributed Data Processing with Apache Spark",
+  "description": "Master distributed computing fundamentals and large-scale big data processing with Apache Spark & PySpark: cluster architecture (Driver, Cluster Manager, Executors, Tasks), RDD lineage and fault tolerance, DataFrames, Datasets, Spark SQL and the Catalyst Optimizer, narrow vs. wide transformations, lazy evaluation, data partitioning (repartition vs coalesce), shuffle mechanics, broadcast joins, memory management (execution vs storage), data skew mitigation (salting, AQE), performance tuning with Spark Web UI, Parquet internals, Delta Lake Medallion Architecture (Bronze, Silver, Gold), and end-to-end distributed pipelines.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary difference between horizontal and vertical scaling in distributed computing?",
+      "options": [
+        "Horizontal scaling increases CPU/RAM of a single machine; vertical scaling adds more nodes",
+        "Horizontal scaling adds more machines to the cluster; vertical scaling upgrades resources (RAM, CPU, NVMe) on a single machine",
+        "Horizontal scaling only works for relational databases",
+        "Vertical scaling requires Hadoop YARN"
+      ],
+      "correct": 1,
+      "explanation": "Vertical scaling (scaling up) upgrades the hardware capacity (CPU, RAM, storage) of a single node, whereas horizontal scaling (scaling out) adds more commodity nodes to the cluster to distribute workloads in parallel."
+    },
+    {
+      "id": 2,
+      "question": "How does Apache Spark achieve dramatic performance gains over traditional Hadoop MapReduce?",
+      "options": [
+        "By eliminating network communication completely",
+        "By keeping intermediate data in memory across stages and utilizing directed acyclic graph (DAG) execution instead of writing intermediate states to disk",
+        "By replacing all Java code with C++ binaries",
+        "By only supporting single-threaded batch execution"
+      ],
+      "correct": 1,
+      "explanation": "Traditional MapReduce writes intermediate outputs to physical disks between Map and Reduce phases. Spark maintains reusable distributed datasets in RAM and executes optimized DAG plans, reducing disk and serialization bottlenecks."
+    },
+    {
+      "id": 3,
+      "question": "What is the primary responsibility of the Spark Driver process?",
+      "options": [
+        "Storing the physical HDFS blocks on disk",
+        "Running tasks and caching partitions on worker nodes",
+        "Coordinating application lifecycle, constructing logical and physical execution plans, and scheduling stages and tasks across executors",
+        "Managing cluster operating system updates"
+      ],
+      "correct": 2,
+      "explanation": "The Driver is the central coordinator of a Spark application: it interprets code, requests resources from the Cluster Manager, constructs DAG execution plans, divides jobs into stages/tasks, and coordinates executor task assignment."
+    },
+    {
+      "id": 4,
+      "question": "What is a Spark Task?",
+      "options": [
+        "An entire PySpark script executed from start to finish",
+        "The smallest unit of execution scheduled by the driver, processing a single partition of data within a stage",
+        "A cluster manager daemon running on Kubernetes",
+        "A physical CPU socket"
+      ],
+      "correct": 1,
+      "explanation": "A Task is the atomic unit of work scheduled by Spark's task scheduler. Each task runs on an executor core and processes exactly one partition of data for that stage."
+    },
+    {
+      "id": 5,
+      "question": "How does an RDD (Resilient Distributed Dataset) achieve fault tolerance without replicating all data partitions?",
+      "options": [
+        "By continuously taking full snapshots of every partition to tape storage",
+        "By tracking transformation lineage, allowing any lost partition to be deterministically recomputed from base sources",
+        "By disabling node failures at the hardware layer",
+        "By forcing all operations to execute on the driver"
+      ],
+      "correct": 1,
+      "explanation": "RDDs maintain an immutable lineage graph recording the sequence of transformations used to create them. If an executor or partition is lost, Spark re-executes the lineage graph for that specific partition."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary advantage of DataFrames over raw RDDs for data engineering?",
+      "options": [
+        "DataFrames run without a JVM",
+        "DataFrames are organized into named columns with a schema and benefit from Catalyst query optimizations and Tungsten execution code generation",
+        "DataFrames do not support SQL queries",
+        "DataFrames cannot be partitioned"
+      ],
+      "correct": 1,
+      "explanation": "Unlike untyped low-level RDDs where Spark treats data as opaque Java/Python objects, DataFrames possess structured schemas that allow the Catalyst Optimizer to prune unused columns, push down predicates, and generate optimized bytecode via Project Tungsten."
+    },
+    {
+      "id": 7,
+      "question": "What does Predicate Pushdown achieve in Spark SQL?",
+      "options": [
+        "Pushes all sorting operations to the driver",
+        "Applies filter conditions directly at the data storage layer (e.g. Parquet row groups) before loading records into memory",
+        "Converts DataFrames into unstructured text files",
+        "Increases the number of shuffle partitions"
+      ],
+      "correct": 1,
+      "explanation": "Predicate pushdown delegates filtering expressions (such as `WHERE amount > 5000`) to the underlying storage format (like Parquet or database connectors), skipping irrelevant blocks and minimizing disk I/O and network transfer."
+    },
+    {
+      "id": 8,
+      "question": "Which of the following is considered a wide transformation in Apache Spark?",
+      "options": [
+        "map()",
+        "filter()",
+        "select()",
+        "groupBy()"
+      ],
+      "correct": 3,
+      "explanation": "Wide transformations (like groupBy, distinct, join, orderBy) require data from multiple input partitions to be redistributed across the network to compute final groupings. In contrast, narrow transformations (like filter, select, map) operate independently within existing partitions."
+    },
+    {
+      "id": 9,
+      "question": "Why does Apache Spark evaluate transformations lazily?",
+      "options": [
+        "Because Python cannot execute code synchronously",
+        "To allow Spark to inspect the entire DAG of transformations and build a globally optimized physical execution plan before executing any data scans",
+        "To prevent any data from being written to disk",
+        "To ensure Spark only executes on a single CPU core"
+      ],
+      "correct": 1,
+      "explanation": "Lazy evaluation allows Spark's Catalyst engine to analyze the full chain of transformations, combining adjacent filters, eliminating unused columns, and choosing optimal join algorithms before triggering cluster compute on an action."
+    },
+    {
+      "id": 10,
+      "question": "What is the difference between repartition() and coalesce()?",
+      "options": [
+        "repartition() can only decrease partitions; coalesce() can only increase partitions",
+        "repartition() performs a full shuffle across the cluster to balance data; coalesce() avoids a full shuffle and is typically used to reduce partition counts",
+        "coalesce() requires a cluster restart",
+        "repartition() writes all data to local disk"
+      ],
+      "correct": 1,
+      "explanation": "repartition() redistributes data evenly across a specified number of partitions using a full cluster shuffle. coalesce() merges adjacent partitions without a full shuffle, making it much more efficient when reducing partition counts (e.g. before saving output files)."
+    },
+    {
+      "id": 11,
+      "question": "Why is a Spark Shuffle considered one of the most expensive cluster operations?",
+      "options": [
+        "It forces the driver to restart",
+        "It involves disk I/O serialization, network transfer across worker nodes, deserialization, and sorting of intermediate partition blocks",
+        "It disables parallel processing",
+        "It requires all worker machines to have identical GPU hardware"
+      ],
+      "correct": 1,
+      "explanation": "A shuffle requires mappers to write partition files to disk, transfers massive volumes of data across the network switches between worker nodes, and forces reducers to deserialize and sort records by key before computing aggregations."
+    },
+    {
+      "id": 12,
+      "question": "When is a Broadcast Join optimal in Spark SQL?",
+      "options": [
+        "When joining two multi-terabyte fact tables",
+        "When joining a large table with a relatively small lookup/dimension table that fits comfortably in executor memory",
+        "When both tables have severe data skew on the join key",
+        "When the network connection between workers is completely disconnected"
+      ],
+      "correct": 1,
+      "explanation": "A broadcast join copies the small dimension dataset to every executor once, allowing each executor to join its local large-table partitions without triggering an expensive full-table network shuffle."
+    },
+    {
+      "id": 13,
+      "question": "How does Salting resolve data skew during large-scale aggregations or joins?",
+      "options": [
+        "By deleting records associated with the popular key",
+        "By appending random suffixes (salts) to high-frequency keys to evenly distribute their rows across multiple worker partitions",
+        "By compressing the dataset with gzip",
+        "By moving all calculations to the driver"
+      ],
+      "correct": 1,
+      "explanation": "Salting adds an artificial random integer (e.g. 0-9) to heavily skewed keys (like 'Mumbai_3'), spreading the single massive bottleneck key across multiple independent tasks before final reconciliation."
+    },
+    {
+      "id": 14,
+      "question": "Under Spark Unified Memory Management, how do Execution Memory and Storage Memory interact?",
+      "options": [
+        "They use completely separate static hardware RAM chips with no sharing",
+        "They share a unified region; execution can evict storage blocks if memory is required for active shuffles/joins, but storage cannot evict active execution memory",
+        "Storage memory always terminates running execution tasks",
+        "Neither memory region can ever spill data to disk"
+      ],
+      "correct": 1,
+      "explanation": "Under Unified Memory Management, execution and storage share a dynamic memory pool. If execution memory needs space for joins or sorting, it can evict cached storage blocks to disk, ensuring active tasks do not fail unnecessarily."
+    },
+    {
+      "id": 15,
+      "question": "What is the key difference between raw Apache Parquet files and a Delta Lakehouse table?",
+      "options": [
+        "Parquet is row-based; Delta Lake is column-based",
+        "Parquet is an immutable columnar storage file format, whereas Delta Lake adds an ACID transaction log (_delta_log), schema enforcement, time travel, and UPDATE/MERGE/DELETE capabilities on top of Parquet files",
+        "Delta Lake cannot be read by Apache Spark",
+        "Parquet files require an external relational database server"
+      ],
+      "correct": 1,
+      "explanation": "Parquet is a raw columnar storage file format. Delta Lake is an open lakehouse storage layer that encapsulates Parquet files with an ACID transaction log, offering atomic commits, time travel, schema evolution, and merge capabilities."
+    }
+  ]
+}

@@ -205,6 +205,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "lakehouse", name: "8. Data Lakes & Lakehouse Architecture", route: "/learning/data-engineering/lakehouse" },
   { id: "ingestion-cdc", name: "9. Data Ingestion & Change Data Capture (CDC)", route: "/learning/data-engineering/ingestion-cdc" },
   { id: "etl-batch", name: "10. ETL, ELT & Batch Data Processing", route: "/learning/data-engineering/etl-batch" },
+  { id: "spark-processing", name: "11. Distributed Data Processing (Apache Spark)", route: "/learning/data-engineering/spark-processing" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

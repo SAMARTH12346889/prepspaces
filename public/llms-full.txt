@@ -998,6 +998,39 @@
   - 22. Complete Practical Project: Build an E-commerce Lakehouse (Bronze, Silver, Gold pipelines with PySpark and Delta Lake)
   - 23. Key Industry Architecture Concepts & Production Anti-Patterns
 
+### Module 11: Distributed Data Processing with Apache Spark
+- **Canonical URL:** https://prepspaces.com/learning/data-engineering/spark-processing
+- **Topics Covered:**
+  - 1. Introduction: What is distributed data processing? (Single-machine limits vs. multi-worker cluster parallelism, node partitions, fault tolerance, data locality)
+  - 2. Big Data Processing Fundamentals (5 Vs: Volume, Velocity, Variety, Veracity, Value; Batch, Streaming, Micro-batch; Horizontal vs. Vertical scaling)
+  - 3. Hadoop Ecosystem Overview (HDFS, YARN, MapReduce, Hadoop Common, Hive, HBase, Pig, Sqoop, Flume, ZooKeeper, Spark vs. Hadoop comparison)
+  - 4. MapReduce Programming Model (Map key-value pairs, Shuffle and Sort, Reduce aggregations, Combiners, MapReduce execution flow and limitations)
+  - 5. Hadoop Distributed File System (HDFS) (NameNode metadata, DataNode blocks, 128 MB block size, block replication factor 3, read/write pipelines, High Availability)
+  - 6. Apache Spark Architecture (Unified analytics engine, Driver program, Cluster Manager, Worker nodes, Executors, Tasks, Job/Stage/Task hierarchy)
+  - 7. Spark Driver and Executors (Driver orchestration, query planning, stage scheduling, executor computation, client mode vs. cluster mode)
+  - 8. Spark Clusters (Standalone, YARN, Kubernetes deployments, CPU core allocation, local[*] vs. distributed execution)
+  - 9. RDD Architecture — Resilient Distributed Datasets (Immutability, partitions, parallelize(), map/filter/union transformations, lineage graph fault recovery)
+  - 10. DataFrame and Dataset APIs (Distributed named columns, Catalyst optimization, createDataFrame, select/filter/withColumn/groupBy, strongly typed Datasets in Scala)
+  - 11. Spark SQL (Temporary SQL views, Catalyst Optimizer, logical/physical plans, predicate pushdown, column pruning, explain(True))
+  - 12. Transformations and Actions (Lazy transformations vs. eager actions show/count/collect/write; Narrow vs. Wide transformations)
+  - 13. Lazy Evaluation (Execution DAG planning, optimization passes, debugging strategies, schema validation)
+  - 14. Data Partitioning (Partition count tuning, CPU utilization, repartition() full shuffle vs. coalesce() partition reduction, storage partitionBy)
+  - 15. Shuffling and Data Exchange (Redistribution across partitions, network communication, disk I/O serialization, shuffle minimization best practices)
+  - 16. Joins and Aggregations in Spark (Inner, Left, Right, Full Outer, Left Semi, Left Anti joins; sum/avg/count aggregations; multi-column joins)
+  - 17. Broadcast Joins (Large fact table + small dimension lookup, broadcast() function, avoiding shuffles, broadcast threshold limits)
+  - 18. Caching and Persistence (cache() vs. persist(), MEMORY_ONLY, MEMORY_AND_DISK, StorageLevel, unpersist(), cache optimization guidelines)
+  - 19. Data Skew and Optimization (Straggler tasks, skewed keys, salting with rand() suffixes, broadcast joins, Adaptive Query Execution (AQE))
+  - 20. Spark Memory Management (Unified Memory Management, Execution Memory vs. Storage Memory, JVM heap, OOM errors, spilling to disk, GC overhead)
+  - 21. Spark Performance Tuning (Early filtering, column pruning, Parquet, broadcast joins, partition count tuning, Kryo serialization, Spark Web UI diagnostics)
+  - 22. Processing Parquet and Lakehouse Data (Row-based vs. column-based storage, Parquet row groups/chunks/pages, Delta Lake, Iceberg, Hudi, Medallion Architecture Bronze/Silver/Gold)
+  - 23. Building Large-Scale Distributed Pipelines (End-to-end ingestion, raw storage, distributed cleaning, data validation, Gold publication, monitoring)
+  - 24. Practical Project — Large-Scale E-Commerce Sales Analytics Platform (PySpark session, Bronze landing, schema validation, window row_number() deduplication, broadcast join, Silver write, Gold sales metrics)
+  - 25. Practical Labs and Assignments (Labs 1-5: RDDs, DataFrames, Joins, Optimization, Lakehouse pipelines)
+  - 26. Advanced Assignments (Large-scale log analysis, fraud detection, Customer 360, real-time payment analytics, skew optimization)
+  - 27. Interview Preparation — Apache Spark (Fundamental, programming, optimization, and lakehouse interview questions)
+  - 28. Recommended Learning Resources (Official Spark docs, Hadoop docs, Parquet spec, Delta Lake, Apache Iceberg, PySpark API)
+  - 29. Final Module Summary (Synthesis of cluster computing, memory management, and production distributed pipelines)
+
 ### Module 10: ETL, ELT and Batch Data Processing
 - **Canonical URL:** https://prepspaces.com/learning/data-engineering/etl-batch
 - **Topics Covered:**
