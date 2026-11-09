@@ -20,5 +20,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "sql",
+    "courseId": "data-engineering",
+    "index": 3,
+    "name": "3. Advanced SQL & Relational Database Systems",
+    "route": "/learning/data-engineering/sql",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

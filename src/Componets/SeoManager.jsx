@@ -99,6 +99,18 @@ const routeMeta = {
     keywords: "Python for Data Engineering, Data Pipeline Python, Python Generators, Pandas vs Polars, SQLAlchemy, Pytest, Python ETL, API Ingestion, Chunk Processing, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/python`,
   },
+  "/learning/data-engineering/sql": {
+    title: "Module 3: Advanced SQL and Relational Database Systems | PrepSpaces",
+    description: "Master advanced SQL and relational databases: PostgreSQL architecture, normal forms 1NF/2NF/3NF, DDL/DML, multi-table joins, CTEs, recursive CTEs, window functions, views, stored procedures, triggers, ACID transactions, MVCC, and indexing optimization.",
+    keywords: "Advanced SQL, PostgreSQL, Relational Database Systems, SQL Joins, CTE, Recursive CTE, Window Functions, ACID Properties, MVCC, B-tree Indexing, EXPLAIN ANALYZE, Query Optimization, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/sql`,
+  },
+  "/learning/data-engineering/sql-databases": {
+    title: "Module 3: Advanced SQL and Relational Database Systems | PrepSpaces",
+    description: "Master advanced SQL and relational databases: PostgreSQL architecture, normal forms 1NF/2NF/3NF, DDL/DML, multi-table joins, CTEs, recursive CTEs, window functions, views, stored procedures, triggers, ACID transactions, MVCC, and indexing optimization.",
+    keywords: "Advanced SQL, PostgreSQL, Relational Database Systems, SQL Joins, CTE, Recursive CTE, Window Functions, ACID Properties, MVCC, B-tree Indexing, EXPLAIN ANALYZE, Query Optimization, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/sql`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

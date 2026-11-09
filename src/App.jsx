@@ -185,6 +185,7 @@ const BlockchainSolanaRust = React.lazy(() => import("./Componets/BlockchainSola
 const BlockchainFinalCapstone = React.lazy(() => import("./Componets/BlockchainFinalCapstone"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
+const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
 import VoiceAssistant from "./Componets/VoiceAssistant";
 import { NovaProvider } from "./Componets/NovaContext";
 import { VoiceProvider } from "./voice/VoiceProvider";
@@ -1597,6 +1598,10 @@ function App() {
             <Route path="/learning/data-engineering/python" element={<DataEngineeringPython />} />
             <Route path="/learning/data-engineering/module-2" element={<DataEngineeringPython />} />
             <Route path="/learn/data-engineering/python" element={<DataEngineeringPython />} />
+            <Route path="/learning/data-engineering/sql" element={<DataEngineeringSql />} />
+            <Route path="/learning/data-engineering/sql-databases" element={<DataEngineeringSql />} />
+            <Route path="/learning/data-engineering/module-3" element={<DataEngineeringSql />} />
+            <Route path="/learn/data-engineering/sql" element={<DataEngineeringSql />} />
 
             {/* COURSE ALIASES FOR SEAMLESS DIRECT URL NAVIGATION */}
             <Route path="/courses/operating-systems" element={<OSIntro />} />

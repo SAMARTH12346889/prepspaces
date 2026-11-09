@@ -1,0 +1,190 @@
+{
+  "id": "sql",
+  "courseId": "data-engineering",
+  "index": 3,
+  "name": "3. Advanced SQL & Relational Database Systems",
+  "route": "/learning/data-engineering/sql",
+  "componentName": "DataEngineeringSql",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of a primary key?",
+      "options": [
+        "To sort records",
+        "To uniquely identify each row",
+        "To encrypt a table",
+        "To group records"
+      ],
+      "correctIndex": 1,
+      "explanation": "A primary key uniquely identifies each row in a database table, enforces uniqueness, and strictly disallows NULL values."
+    },
+    {
+      "id": 2,
+      "question": "Which constraint maintains a relationship between two tables?",
+      "options": [
+        "CHECK",
+        "DEFAULT",
+        "FOREIGN KEY",
+        "INDEX"
+      ],
+      "correctIndex": 2,
+      "explanation": "A FOREIGN KEY references the primary key of another table, ensuring referential integrity between parent and child relations."
+    },
+    {
+      "id": 3,
+      "question": "Which SQL command changes the structure of an existing table?",
+      "options": [
+        "UPDATE",
+        "ALTER",
+        "SELECT",
+        "INSERT"
+      ],
+      "correctIndex": 1,
+      "explanation": "ALTER (a Data Definition Language command) adds, modifies, or drops columns and constraints in an existing table structure."
+    },
+    {
+      "id": 4,
+      "question": "Which join returns all rows from the left table and matching rows from the right?",
+      "options": [
+        "INNER JOIN",
+        "CROSS JOIN",
+        "LEFT JOIN",
+        "RIGHT JOIN"
+      ],
+      "correctIndex": 2,
+      "explanation": "A LEFT JOIN preserves every record from the left-hand table, populating right-hand columns with NULL when no matching record is found."
+    },
+    {
+      "id": 5,
+      "question": "Which clause filters aggregated groups?",
+      "options": [
+        "WHERE",
+        "ORDER BY",
+        "HAVING",
+        "FROM"
+      ],
+      "correctIndex": 2,
+      "explanation": "HAVING filters aggregated groups after the GROUP BY operation, whereas WHERE filters individual rows prior to grouping."
+    },
+    {
+      "id": 6,
+      "question": "What is the main difference between UNION and UNION ALL?",
+      "options": [
+        "UNION ALL removes duplicates",
+        "UNION removes duplicate result rows",
+        "UNION works only on integers",
+        "There is no difference"
+      ],
+      "correctIndex": 1,
+      "explanation": "UNION performs an implicit deduplication sort step, whereas UNION ALL directly concatenates output streams without removing duplicates, making it substantially faster."
+    },
+    {
+      "id": 7,
+      "question": "What is a correlated subquery?",
+      "options": [
+        "A query that uses a value from its outer query",
+        "A query that never uses WHERE",
+        "A query that only inserts data",
+        "A query that creates an index"
+      ],
+      "correctIndex": 0,
+      "explanation": "A correlated subquery references columns from the outer query, causing it to be evaluated in the context of each candidate row of the outer statement."
+    },
+    {
+      "id": 8,
+      "question": "Which SQL feature is used to create a named intermediate query result?",
+      "options": [
+        "TRIGGER",
+        "INDEX",
+        "CTE",
+        "GRANT"
+      ],
+      "correctIndex": 2,
+      "explanation": "A Common Table Expression (CTE), defined via WITH, creates temporary named query scopes that enhance readability and enable recursive traversals."
+    },
+    {
+      "id": 9,
+      "question": "Which function assigns a unique sequential number to every row in a window?",
+      "options": [
+        "RANK",
+        "DENSE_RANK",
+        "ROW_NUMBER",
+        "NTILE"
+      ],
+      "correctIndex": 2,
+      "explanation": "ROW_NUMBER() always assigns contiguous, distinct integer ranks (1, 2, 3...) regardless of tied attribute values in the partition."
+    },
+    {
+      "id": 10,
+      "question": "Which ACID property ensures committed changes survive a crash within the database's durability guarantees?",
+      "options": [
+        "Atomicity",
+        "Consistency",
+        "Isolation",
+        "Durability"
+      ],
+      "correctIndex": 3,
+      "explanation": "Durability guarantees that once a transaction successfully commits, its state persists across system crashes, power failures, or restarts (typically backed by Write-Ahead Logging / WAL)."
+    },
+    {
+      "id": 11,
+      "question": "Which isolation level is PostgreSQL's default?",
+      "options": [
+        "READ UNCOMMITTED",
+        "READ COMMITTED",
+        "REPEATABLE READ",
+        "SERIALIZABLE"
+      ],
+      "correctIndex": 1,
+      "explanation": "PostgreSQL defaults to READ COMMITTED, where each SQL statement in a transaction executes with a fresh statement-level snapshot."
+    },
+    {
+      "id": 12,
+      "question": "Which index is PostgreSQL's default general-purpose index type?",
+      "options": [
+        "GIN",
+        "BRIN",
+        "B-tree",
+        "Hash"
+      ],
+      "correctIndex": 2,
+      "explanation": "B-tree is the default general-purpose index in PostgreSQL, providing balanced logarithmic access for equality, range queries (<, <=, =, >=, >), and ordered sorting."
+    },
+    {
+      "id": 13,
+      "question": "What does EXPLAIN ANALYZE do?",
+      "options": [
+        "Only checks SQL syntax",
+        "Executes the query and reports actual execution information",
+        "Creates an index",
+        "Automatically rewrites the database schema"
+      ],
+      "correctIndex": 1,
+      "explanation": "EXPLAIN ANALYZE executes the SQL statement, measuring real runtime performance, buffer usage, and row counts alongside optimizer plan estimates."
+    },
+    {
+      "id": 14,
+      "question": "What is the primary purpose of a materialized view?",
+      "options": [
+        "Store a query's results for reuse",
+        "Delete old transactions",
+        "Create a database user",
+        "Replace all database indexes"
+      ],
+      "correctIndex": 0,
+      "explanation": "A materialized view physically persists the output table of an expensive analytical query to disk, enabling fast sub-second reporting without recalculation until refreshed."
+    },
+    {
+      "id": 15,
+      "question": "Which operation helps PostgreSQL update planner statistics?",
+      "options": [
+        "GRANT",
+        "ANALYZE",
+        "DROP",
+        "TRUNCATE"
+      ],
+      "correctIndex": 1,
+      "explanation": "ANALYZE samples table rows and updates the pg_statistic catalog with histograms and correlation data, allowing the query optimizer to make accurate cost choices."
+    }
+  ]
+}
