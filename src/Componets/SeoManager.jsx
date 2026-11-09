@@ -111,6 +111,12 @@ const routeMeta = {
     keywords: "Advanced SQL, PostgreSQL, Relational Database Systems, SQL Joins, CTE, Recursive CTE, Window Functions, ACID Properties, MVCC, B-tree Indexing, EXPLAIN ANALYZE, Query Optimization, PrepSpaces",
     canonical: `${BASE_URL}/learning/data-engineering/sql`,
   },
+  "/learning/data-engineering/data-modeling": {
+    title: "Module 4: Data Modeling and Database Design | PrepSpaces",
+    description: "Master relational database design and analytical dimensional modeling: conceptual, logical, and physical models, Crow's Foot ERDs, 1NF/2NF/3NF/BCNF normalization, Star and Snowflake schemas, fact table grain, Slowly Changing Dimensions (SCD Type 1 & 2), event-driven modeling, and schema evolution.",
+    keywords: "Data Modeling, Database Design, ER Diagrams, Normalization 1NF 2NF 3NF, BCNF, Star Schema, Snowflake Schema, Slowly Changing Dimensions, SCD Type 2, Fact Table Grain, Event Sourcing, Data Warehouse Modeling, PrepSpaces",
+    canonical: `${BASE_URL}/learning/data-engineering/data-modeling`,
+  },
   "/courses/blockchain": {
     title: "Blockchain Development Course | Solidity, Web3 & Smart Contracts – PrepSpaces",
     description: "Master blockchain development with PrepSpaces. Learn Bitcoin, Ethereum, Solidity, smart contracts, DeFi, NFTs, Web3, Hyperledger Fabric, Solana, and blockchain security through hands-on projects.",

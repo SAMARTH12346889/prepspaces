@@ -1,0 +1,70 @@
+{
+  "id": "data-modeling",
+  "courseId": "data-engineering",
+  "index": 4,
+  "title": "Data Modeling and Database Design",
+  "name": "4. Data Modeling and Database Design",
+  "description": "Master relational database design and analytical dimensional modeling: conceptual, logical, and physical models, Crow's Foot ERDs, 1NF/2NF/3NF/BCNF, Star/Snowflake schemas, fact table grain, SCD Type 1 & 2, and event-driven architectures.",
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary requirement of First Normal Form (1NF)?",
+      "options": [
+        "Eliminating foreign keys",
+        "Every column must contain atomic (indivisible) values with no repeating groups",
+        "Creating a snowflake schema",
+        "Every table must have a surrogate key"
+      ],
+      "correct": 1,
+      "explanation": "1NF requires that each column contains atomic values, each cell holds a single value, and repeating groups or arrays are eliminated into separate rows."
+    },
+    {
+      "id": 2,
+      "question": "When does a table violate Second Normal Form (2NF)?",
+      "options": [
+        "When it has too many columns",
+        "When a non-key attribute depends on only part of a composite candidate key (partial dependency)",
+        "When it uses VARCHAR instead of TEXT",
+        "When foreign keys allow NULL values"
+      ],
+      "correct": 1,
+      "explanation": "2NF is violated when a composite key exists and a non-key attribute depends functionally on only a subset of that composite key rather than the entire key."
+    },
+    {
+      "id": 3,
+      "question": "What characterizes a Transitive Dependency in Third Normal Form (3NF)?",
+      "options": [
+        "A foreign key referencing another schema",
+        "A non-key attribute functionally depending on another non-key attribute (X \u2192 Y \u2192 Z)",
+        "An index slowing down write operations",
+        "A table with multiple primary keys"
+      ],
+      "correct": 1,
+      "explanation": "3NF eliminates transitive dependencies where non-key attribute A determines non-key attribute B (e.g. employee_id \u2192 department_id \u2192 department_name)."
+    },
+    {
+      "id": 4,
+      "question": "What is the primary architectural difference between a Star Schema and a Snowflake Schema?",
+      "options": [
+        "Star schemas have no fact tables",
+        "In a star schema, dimension tables are denormalized; in a snowflake schema, dimensions are normalized into hierarchies",
+        "Snowflake schemas cannot store measures",
+        "Star schemas only work in PostgreSQL"
+      ],
+      "correct": 1,
+      "explanation": "Star schemas maintain denormalized dimensions connecting directly to a central fact table. Snowflake schemas normalize dimension hierarchies (e.g. Product \u2192 Subcategory \u2192 Category)."
+    },
+    {
+      "id": 5,
+      "question": "Why is SCD Type 2 the standard pattern for dimension history in data warehouses?",
+      "options": [
+        "It overwrites old values to save disk space",
+        "It creates a new dimension row with effective date bounds and active flags, preserving exact historical context for older transactions",
+        "It deletes old records automatically",
+        "It prevents all updates completely"
+      ],
+      "correct": 1,
+      "explanation": "SCD Type 2 inserts a new row with effective_from, effective_to, and is_current flags, allowing historical sales to remain associated with the customer's state at the time of purchase."
+    }
+  ]
+}

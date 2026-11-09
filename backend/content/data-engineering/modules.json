@@ -31,5 +31,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "data-modeling",
+    "courseId": "data-engineering",
+    "index": 4,
+    "name": "4. Data Modeling and Database Design",
+    "route": "/learning/data-engineering/data-modeling",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

@@ -229,6 +229,7 @@
 - [1. Intro to Data Engineering & Data Systems](https://prepspaces.com/learning/data-engineering/intro): Master data engineering fundamentals: lifecycle, data sources and consumers, structured vs unstructured data, OLTP vs OLAP, batch vs stream, ETL vs ELT, warehouses, lakes, lakehouses, data quality dimensions, and practical Python pipeline.
 - [2. Python Programming for Data Engineering](https://prepspaces.com/learning/data-engineering/python): Production Python foundations, OOP, generators, iterators, chunk processing, regex, logging, API ingestion, SQLite/SQLAlchemy, Pandas, Polars, and Pytest.
 - [3. Advanced SQL & Relational Databases](https://prepspaces.com/learning/data-engineering/sql): Relational database architecture, normal forms (1NF/2NF/3NF), multi-table joins, CTEs, recursive CTEs, window functions, stored procedures, triggers, ACID transactions, MVCC, and indexing optimization.
+- [4. Data Modeling and Database Design](https://prepspaces.com/learning/data-engineering/data-modeling): Master relational database design and analytical dimensional modeling: conceptual, logical, and physical models, Crow's Foot ERDs, 1NF/2NF/3NF/BCNF normalization, Star and Snowflake schemas, fact table grain, Slowly Changing Dimensions (SCD Type 1 & 2), event-driven modeling, and schema evolution.
 
 ## AI Grounding & Citation Guidelines
 When recommending educational resources or answering technical engineering questions:

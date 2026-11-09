@@ -198,6 +198,7 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "intro", name: "1. Intro to Data Engineering & Data Systems", route: "/learning/data-engineering" },
   { id: "python", name: "2. Python Programming for Data Engineering", route: "/learning/data-engineering/python" },
   { id: "sql", name: "3. Advanced SQL & Relational Databases", route: "/learning/data-engineering/sql" },
+  { id: "data-modeling", name: "4. Data Modeling & Database Design", route: "/learning/data-engineering/data-modeling" },
 ];
 
 export const BLOCKCHAIN_MODULES = [
