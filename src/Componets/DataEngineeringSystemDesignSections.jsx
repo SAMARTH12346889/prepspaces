@@ -1,6 +1,6 @@
 // projectx/src/Componets/DataEngineeringSystemDesignSections.jsx
 import React, { memo } from 'react';
-import { ExternalLink, ArrowRight, Activity, Zap, ShieldAlert, CheckCircle, RefreshCw, Layers, Gauge, Database, Cpu, HardDrive, Award, Trophy, Rocket, Terminal, GitBranch, Server, Cloud } from 'lucide-react';
+import { ExternalLink, ArrowRight, Activity, Zap, ShieldAlert, CheckCircle, RefreshCw, Layers, Gauge, Database, Cpu, HardDrive, Award, Trophy, Rocket, Terminal, GitBranch, Server, Cloud, Sparkles } from 'lucide-react';
 
 export const systemDesignSectionsMeta = [
   { id: 0, title: "Module 23: Data Engineering System Design and Final Capstone Overview", category: "Course Capstone Overview" },

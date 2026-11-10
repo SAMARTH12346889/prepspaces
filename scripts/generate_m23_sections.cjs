@@ -618,7 +618,7 @@ console.log('Writing DataEngineeringSystemDesignSections.jsx with', buckets.leng
 
 let outputJsx = `// projectx/src/Componets/DataEngineeringSystemDesignSections.jsx
 import React, { memo } from 'react';
-import { ExternalLink, ArrowRight, Activity, Zap, ShieldAlert, CheckCircle, RefreshCw, Layers, Gauge, Database, Cpu, HardDrive, Award, Trophy, Rocket, Terminal, GitBranch, Server, Cloud } from 'lucide-react';
+import { ExternalLink, ArrowRight, Activity, Zap, ShieldAlert, CheckCircle, RefreshCw, Layers, Gauge, Database, Cpu, HardDrive, Award, Trophy, Rocket, Terminal, GitBranch, Server, Cloud, Sparkles } from 'lucide-react';
 
 export const systemDesignSectionsMeta = [
 ${sectionHeaders.map(sh => `  { id: ${sh.id}, title: ${JSON.stringify(sh.title)}, category: ${JSON.stringify(sh.category)} }`).join(',\n')}
