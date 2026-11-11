@@ -373,11 +373,8 @@ export default function Landingpage() {
                   <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
                     LEARNING PATHS
                   </span>
-                  <span className="rounded-full bg-orange-100 text-orange-700 px-2.5 py-0.5 text-[11px] sm:text-xs font-bold">
-                    6 Tracks Available
-                  </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#18181b]">Your Technical Journey</h3>
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#18181b]">Explore All Tracks</h3>
                 <p className="mt-1 text-xs md:text-sm text-stone-500 leading-relaxed">
                   Explore system design, DevOps, cloud computing, and programming fundamentals through structured learning modules.
                 </p>
