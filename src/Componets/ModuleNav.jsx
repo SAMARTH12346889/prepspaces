@@ -548,7 +548,7 @@ export default function ModuleNav({
   // NORMAL RENDER (ALL MODULES ARE UNRESTRICTED & ACCESSIBLE)
   // =========================================================================
   return (
-    <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2.5 sm:gap-3 px-4 sm:px-6 lg:px-8 pt-3 sm:pt-6">
+    <div className="w-full max-w-6xl mx-auto mb-4 sm:mb-8 flex flex-col gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8 pt-2 sm:pt-6">
       {/* Top Breadcrumb & User Actions */}
       <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-[#e7e3da] pb-3 sm:pb-4">
         <div className="flex items-center gap-2 shrink-0">
@@ -663,7 +663,7 @@ export default function ModuleNav({
       </div>
 
       {/* Module Tabs Bar with Locks & Completed Badges */}
-      <div className="relative flex items-center w-full min-w-0">
+      <div className="relative flex items-center w-full min-w-0 gap-1">
         <button
           onClick={() => scroll("left")}
           aria-label="Scroll modules left"
@@ -692,7 +692,7 @@ export default function ModuleNav({
                     : "text-stone-600 hover:bg-stone-100/80 hover:text-stone-900"
                 }`}
               >
-                <span className="truncate max-w-[240px] sm:max-w-none">{mod.name}</span>
+                <span className="truncate max-w-[140px] xs:max-w-[180px] sm:max-w-none">{mod.name}</span>
                 {isCompleted && (
                   <span
                     className={`inline-flex items-center gap-0.5 rounded-md px-1.5 py-0.5 text-[9px] font-bold shrink-0 ${

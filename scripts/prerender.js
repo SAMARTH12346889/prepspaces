@@ -527,11 +527,9 @@ for (const [route, meta] of Object.entries(routeMeta)) {
           <main>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
-                <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
                 <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/data-engineering" style="color: #ea580c; text-decoration: none;">Data Engineering Master Course</a></h2>
                 <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5; margin-bottom: 1rem;">Data pipelines, OLTP vs OLAP, batch & stream processing, ETL/ELT, data warehouses, data lakes, modern lakehouses (Iceberg/Delta Lake), and data quality.</p>
                 <a href="/courses/data-engineering" style="font-size: 0.875rem; font-weight: 700; color: #ea580c; text-decoration: none;">Explore Curriculum &rarr;</a>
-              </div>
               </div>
               <div style="background: white; border: 1px solid #e7e3da; border-radius: 1.25rem; padding: 1.5rem;">
                 <h2 style="font-size: 1.15rem; font-weight: 700; color: #18181b; margin-bottom: 0.5rem;"><a href="/courses/blockchain" style="color: #ea580c; text-decoration: none;">Blockchain Development & Web3 Engineering</a></h2>

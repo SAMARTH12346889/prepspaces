@@ -351,7 +351,7 @@ export default function Dashboard() {
           {activeTab === "overview" && (
             <>
               {/* ================= 4 KPI METRICS CARDS ================= */}
-              <section className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
+              <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
                 {/* 1. Courses Enrolled */}
                 <div className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/90 p-4 sm:p-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] backdrop-blur-xl">
                   <div className="flex items-center justify-between mb-2">

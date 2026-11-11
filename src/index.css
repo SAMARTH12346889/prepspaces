@@ -203,3 +203,55 @@ table {
   }
 }
 
+
+/* ========================================================================= */
+/* MOBILE RESPONSIVE COURSE MODULE & CARD OVERLAP ELIMINATION                */
+/* Tested across 320px, 360px, 375px, 390px, 414px, 430px viewports          */
+/* ========================================================================= */
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 640px) {
+  /* Prevent grid/flex children from overflowing cards on mobile */
+  .grid,
+  .flex {
+    min-width: 0;
+  }
+  
+  .grid > *,
+  .flex > * {
+    min-width: 0;
+  }
+
+  /* Text wrapping guarantee: prevent long unbreakable words from blowing out cards */
+  h1, h2, h3, h4, h5, h6, p, span, a, button {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Ensure cards always have clean separated vertical flow without overlap */
+  .group.relative,
+  article,
+  section {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Fix implicit grids: Ensure 2-column desktop grids collapse to 1-column on mobile */
+  .grid[class*="md:grid-cols-2"]:not([class*="grid-cols-1"]),
+  .grid[class*="lg:grid-cols-2"]:not([class*="grid-cols-1"]) {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  /* Mobile phones (<= 520px): Convert cramped 2-column stat grids into clean single columns */
+  @media screen and (max-width: 520px) {
+    [class*="grid-cols-2"][class*="sm:grid-cols-4"],
+    [class*="grid-cols-2"][class*="md:grid-cols-4"],
+    [class*="grid-cols-2"][class*="lg:grid-cols-4"] {
+      grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+  }
+}

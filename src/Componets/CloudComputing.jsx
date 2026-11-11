@@ -55,6 +55,10 @@ import { useSyncedTopic } from "../utils/navigation";
 export default function CloudComputing() {
   const { isAuthenticated } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
+  const { data: moduleData, loading, error, reload } = useModuleContent("cloud", "cloud");
+  const cloudTopics = moduleData?.topics || [];
+  const [selectedTopic, setSelectedTopic] = useSyncedTopic(25);
   const [lockedTopicModal, setLockedTopicModal] = useState(null);
   const [completedTopicIds, setCompletedTopicIds] = useState(() => {
     try {
@@ -98,11 +102,6 @@ export default function CloudComputing() {
     };
   }, [selectedTopic, cloudTopics]);
 
-  
-  const { data: moduleData, loading, error, reload } = useModuleContent("cloud", "cloud");
-  const navigate = useNavigate();
-
-  const [selectedTopic, setSelectedTopic] = useSyncedTopic(25);
   const [showAiTutor, setShowAiTutor] = useState(false);
   const [showDetails, setShowDetails] = useState(true);
   const [activeTab, setActiveTab] = useState("theory"); // 'theory' | 'interactive' | 'qa'
@@ -122,8 +121,6 @@ export default function CloudComputing() {
     setCopiedCodeId(id);
     setTimeout(() => setCopiedCodeId(null), 2000);
   };
-
-  const cloudTopics = moduleData?.topics || [];
 
   const currentTopic = cloudTopics[selectedTopic] || cloudTopics[0] || {};
   const CurrentIcon = getLucideIcon(currentTopic?.icon, Globe);

@@ -378,7 +378,7 @@ export default function Learning() {
         </div>
 
         {/* LEARNING TRACKS GRID - Spacious, Balanced 2-Column Layout */}
-        <div className="grid gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">
+        <div className="grid grid-cols-1 gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">
           {courses.map((card) => {
             const Icon = getLucideIcon(card.icon, Brain);
 

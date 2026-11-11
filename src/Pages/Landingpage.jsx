@@ -365,7 +365,7 @@ export default function Landingpage() {
           </section>
 
           {/* ================= 2-COLUMN GRID (WHITE GLASS SURFACES) ================= */}
-          <div className="grid gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">
+          <div className="grid grid-cols-1 gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">
             {/* 1. LEARNING PATHS CARD */}
             <section className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/80 p-4 sm:p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full">
               <div>
