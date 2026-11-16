@@ -1390,7 +1390,7 @@ export default function JavaHeaps() {
                 </div>
 
                 {/* Section List */}
-                <div className="max-h-[60vh] overflow-y-auto space-y-1 text-xs [scrollbar-width:thin]">
+                <div className="max-h-[60vh] overflow-y-auto space-y-1 text-xs dark-scrollbar">
                   {filteredSections.map(s => {
                     const isActive = activeSectionId === s.id;
                     const isDone = completedSections[s.id];
@@ -1402,15 +1402,16 @@ export default function JavaHeaps() {
                           const el = document.getElementById(s.anchor);
                           if (el) el.scrollIntoView({ behavior: "smooth" });
                         }}
-                        className={`w-full text-left p-2 rounded-lg flex items-center justify-between transition-colors cursor-pointer ${
+                        title={s.title}
+                        className={`w-full text-left p-2 rounded-lg flex items-start justify-between transition-colors cursor-pointer ${
                           isActive
                             ? "bg-orange-500 text-white font-semibold shadow-xs"
                             : "text-stone-700 hover:bg-stone-100"
                         }`}
                       >
-                        <span className="truncate pr-2">{s.title}</span>
+                        <span className="break-words whitespace-normal leading-snug flex-1 pr-2">{s.title}</span>
                         {isDone && (
-                          <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-white" : "text-emerald-500"}`} />
+                          <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isActive ? "text-white" : "text-emerald-500"}`} />
                         )}
                       </button>
                     );

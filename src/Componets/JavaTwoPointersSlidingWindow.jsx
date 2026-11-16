@@ -1590,7 +1590,7 @@ export default function JavaTwoPointersSlidingWindow() {
                   />
                 </div>
 
-                <div className="space-y-1 max-h-[calc(100vh-280px)] overflow-y-auto pr-1">
+                <div className="space-y-1 max-h-[calc(100vh-280px)] overflow-y-auto pr-1 dark-scrollbar">
                   {filteredSections.map((sec) => {
                     const isDone = !!completedSections[sec.id];
                     const isActive = activeSectionId === sec.id;
@@ -1598,6 +1598,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       <button
                         key={sec.id}
                         onClick={() => setActiveSectionId(sec.id)}
+                        title={sec.title}
                         className={`w-full text-left p-2.5 rounded-xl text-xs transition-all flex items-start gap-2.5 ${
                           isActive
                             ? "bg-emerald-600 text-white font-medium shadow-md shadow-emerald-600/20"
@@ -1611,7 +1612,7 @@ export default function JavaTwoPointersSlidingWindow() {
                             e.stopPropagation();
                             toggleSectionComplete(sec.id);
                           }}
-                          className="mt-0.5"
+                          className="mt-0.5 shrink-0"
                         >
                           {isDone ? (
                             <CheckSquare className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-emerald-400"}`} />
@@ -1619,9 +1620,9 @@ export default function JavaTwoPointersSlidingWindow() {
                             <Square className="w-3.5 h-3.5 text-slate-600 hover:text-slate-400" />
                           )}
                         </span>
-                        <div className="flex-1 truncate">
-                          <div className="truncate">{sec.title}</div>
-                          <div className={`text-[10px] mt-0.5 truncate ${isActive ? "text-emerald-200" : "text-slate-500"}`}>
+                        <div className="flex-1 min-w-0">
+                          <div className="break-words whitespace-normal leading-snug font-medium">{sec.title}</div>
+                          <div className={`text-[10px] mt-0.5 line-clamp-1 ${isActive ? "text-emerald-200" : "text-slate-500"}`}>
                             {sec.category}
                           </div>
                         </div>

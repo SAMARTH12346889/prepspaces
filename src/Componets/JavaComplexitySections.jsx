@@ -5050,7 +5050,7 @@ System.out.println(count);`}</code>
           />
         </div>
 
-        <nav className="overflow-y-auto space-y-1 pr-1 text-xs [scrollbar-width:thin] flex-1">
+        <nav className="overflow-y-auto space-y-1 pr-1 text-xs dark-scrollbar flex-1">
           {filteredSections.map((sec) => {
             const isActive = sec.id === activeSectionId;
             return (
@@ -5060,19 +5060,20 @@ System.out.println(count);`}</code>
                   setActiveSectionId(sec.id);
                   window.scrollTo({ top: 380, behavior: "smooth" });
                 }}
+                title={sec.title}
                 className={`w-full text-left px-3 py-2.5 rounded-xl transition flex items-start justify-between gap-2 ${
                   isActive
                     ? "bg-orange-600 text-white font-bold shadow-xs"
                     : "text-stone-700 hover:bg-stone-100 hover:text-stone-900"
                 }`}
               >
-                <div className="flex-1 truncate">
-                  <div className={`text-[10px] uppercase font-mono tracking-wider truncate mb-0.5 ${
+                <div className="flex-1 min-w-0">
+                  <div className={`text-[10px] uppercase font-mono tracking-wider line-clamp-1 mb-0.5 ${
                     isActive ? "text-orange-200" : "text-stone-600 font-semibold"
                   }`}>
                     {sec.category}
                   </div>
-                  <div className="truncate text-xs">{sec.title}</div>
+                  <div className="text-xs break-words whitespace-normal leading-snug">{sec.title}</div>
                 </div>
                 <ChevronRight className={`w-3.5 h-3.5 mt-1 shrink-0 ${isActive ? "text-white" : "text-stone-600"}`} />
               </button>

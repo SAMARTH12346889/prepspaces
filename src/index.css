@@ -54,6 +54,89 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* ========================================================================= */
+/* UNIVERSAL DARK-THEME SCROLLBAR SYSTEM                                     */
+/* Subtle dark track, muted grey thumb, orange (#FF9900) hover/active state  */
+/* ========================================================================= */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #475569 #090d16;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 9999px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9900;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #ea580c;
+}
+
+::-webkit-scrollbar-corner {
+  background: #090d16;
+}
+
+/* Explicit scrollbar utility classes for all sidebar and inner scrollers */
+.custom-scrollbar,
+.dark-scrollbar,
+.sidebar-scroll,
+.scrollbar-thin {
+  scrollbar-width: thin !important;
+  scrollbar-color: #475569 #090d16 !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar,
+.dark-scrollbar::-webkit-scrollbar,
+.sidebar-scroll::-webkit-scrollbar,
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track,
+.dark-scrollbar::-webkit-scrollbar-track,
+.sidebar-scroll::-webkit-scrollbar-track,
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #090d16 !important;
+  border-radius: 9999px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb,
+.dark-scrollbar::-webkit-scrollbar-thumb,
+.sidebar-scroll::-webkit-scrollbar-thumb,
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #475569 !important;
+  border-radius: 9999px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover,
+.dark-scrollbar::-webkit-scrollbar-thumb:hover,
+.sidebar-scroll::-webkit-scrollbar-thumb:hover,
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #ff9900 !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active,
+.dark-scrollbar::-webkit-scrollbar-thumb:active,
+.sidebar-scroll::-webkit-scrollbar-thumb:active,
+.scrollbar-thin::-webkit-scrollbar-thumb:active {
+  background: #ea580c !important;
+}
+
 /* Prevent iOS Safari auto-zoom on input focus when font-size < 16px */
 @media screen and (max-width: 768px) {
   input,

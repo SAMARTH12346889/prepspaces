@@ -1384,19 +1384,20 @@ export default function JavaTrees() {
                   />
                 </div>
 
-                <div className="max-h-[70vh] overflow-y-auto space-y-1 [scrollbar-width:thin]">
+                <div className="max-h-[70vh] overflow-y-auto space-y-1 dark-scrollbar">
                   {filteredSections.map((sec, idx) => (
                     <button
                       key={sec.id}
                       onClick={() => scrollToSection(parseInt(sec.number, 10))}
-                      className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-center justify-between ${
+                      title={sec.title}
+                      className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-start justify-between ${
                         activeSection === parseInt(sec.number, 10)
                           ? "bg-orange-50 text-orange-800 font-bold border border-orange-200"
                           : "text-stone-600 hover:bg-stone-50"
                       }`}
                     >
-                      <span className="truncate">{sec.title}</span>
-                      <ChevronRight className="w-3.5 h-3.5 shrink-0 opacity-40" />
+                      <span className="break-words whitespace-normal leading-snug flex-1 pr-2">{sec.title}</span>
+                      <ChevronRight className="w-3.5 h-3.5 shrink-0 opacity-40 mt-0.5" />
                     </button>
                   ))}
                 </div>

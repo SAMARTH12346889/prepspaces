@@ -727,7 +727,7 @@ export default function JavaGreedyAlgorithms() {
         {activeTab === "curriculum" && (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             {/* Sidebar Navigation */}
-            <aside className="lg:col-span-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 sticky top-20 max-h-[82vh] overflow-y-auto space-y-3">
+            <aside className="lg:col-span-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 sticky top-20 max-h-[82vh] overflow-y-auto space-y-3 dark-scrollbar">
               <div className="flex items-center justify-between pb-2 border-b border-slate-800">
                 <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
                   23 Sections
@@ -739,14 +739,15 @@ export default function JavaGreedyAlgorithms() {
                   <button
                     key={sec.id}
                     onClick={() => setActiveSectionId(sec.id)}
-                    className={`w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition ${
+                    title={sec.title}
+                    className={`w-full text-left px-3 py-2 rounded-xl text-xs flex items-start justify-between transition ${
                       activeSectionId === sec.id
                         ? "bg-amber-500/20 text-amber-200 font-semibold border border-amber-500/40"
                         : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
                     }`}
                   >
-                    <span className="truncate pr-2">{sec.title}</span>
-                    <span className="text-[10px] font-mono text-slate-400 shrink-0">#{sec.id}</span>
+                    <span className="break-words whitespace-normal leading-snug pr-2 flex-1">{sec.title}</span>
+                    <span className="text-[10px] font-mono text-slate-400 shrink-0 mt-0.5">#{sec.id}</span>
                   </button>
                 ))}
               </div>

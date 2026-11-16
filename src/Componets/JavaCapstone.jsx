@@ -631,7 +631,7 @@ export default function JavaCapstone() {
               </div>
 
               {/* Section list */}
-              <div className="max-h-[60vh] overflow-y-auto space-y-1 pr-1 scrollbar-thin scrollbar-thumb-slate-800">
+              <div className="max-h-[60vh] overflow-y-auto space-y-1 pr-1 custom-scrollbar dark-scrollbar">
                 {filteredSections.map((sec) => {
                   const isActive = activeSectionId === sec.id;
                   return (
@@ -644,13 +644,14 @@ export default function JavaCapstone() {
                           if (elem) elem.scrollIntoView({ behavior: "smooth" });
                         }
                       }}
+                      title={sec.title}
                       className={`w-full text-left px-3 py-2 rounded-xl transition-all flex flex-col gap-0.5 text-xs ${
                         isActive
                           ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/40"
                           : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent"
                       }`}
                     >
-                      <div className="font-semibold truncate">{sec.title}</div>
+                      <div className="font-semibold break-words whitespace-normal leading-snug">{sec.title}</div>
                       <div className="text-[10px] text-slate-500 line-clamp-1">{sec.summary}</div>
                     </button>
                   );

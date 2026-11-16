@@ -763,7 +763,7 @@ export default function JavaCollectionsJVM() {
         {activeTab === "curriculum" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar Navigation */}
-            <div className="lg:col-span-4 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sticky top-16 max-h-[82vh] flex flex-col">
+            <div className="lg:col-span-4 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sticky top-16 max-h-[82vh] flex flex-col dark-scrollbar">
               <div className="relative mb-3">
                 <Search className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
                 <input
@@ -775,13 +775,14 @@ export default function JavaCollectionsJVM() {
                 />
               </div>
 
-              <div className="overflow-y-auto space-y-1.5 flex-1 pr-1 scrollbar-thin scrollbar-thumb-slate-800">
+              <div className="overflow-y-auto space-y-1.5 flex-1 pr-1 custom-scrollbar dark-scrollbar">
                 {filteredSections.map(sec => {
                   const isSelected = selectedSection === sec.id;
                   return (
                     <button
                       key={sec.id}
                       onClick={() => setSelectedSection(sec.id)}
+                      title={sec.title}
                       className={`w-full text-left p-3 rounded-xl transition flex flex-col gap-1 border ${
                         isSelected
                           ? "bg-indigo-600/15 border-indigo-500/40 text-white"
@@ -794,7 +795,7 @@ export default function JavaCollectionsJVM() {
                         </span>
                         {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400" />}
                       </div>
-                      <div className="text-xs font-medium text-slate-200 line-clamp-1">{sec.title}</div>
+                      <div className="text-xs font-medium text-slate-200 break-words whitespace-normal leading-snug">{sec.title}</div>
                       <div className="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">{sec.summary}</div>
                     </button>
                   );

@@ -681,7 +681,7 @@ export default function JavaGraphTheory() {
         {activeTab === "curriculum" && (
           <div className="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto w-full px-4 lg:px-8 py-6 gap-6">
             {/* Sidebar Section List */}
-            <aside className="w-full lg:w-72 shrink-0 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col h-fit lg:sticky lg:top-20 max-h-[85vh]">
+            <aside className="w-full lg:w-80 shrink-0 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col h-fit lg:sticky lg:top-20 max-h-[85vh]">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
                   <Layers className="w-3.5 h-3.5 text-indigo-400" />
@@ -703,19 +703,20 @@ export default function JavaGraphTheory() {
               </div>
 
               {/* Section Buttons */}
-              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar">
+              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar dark-scrollbar">
                 {filteredSections.map((sec) => (
                   <button
                     key={sec.id}
                     onClick={() => setActiveSectionId(sec.id)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between ${
+                    title={sec.title}
+                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-start justify-between ${
                       activeSectionId === sec.id
                         ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/40 font-semibold"
                         : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
                     }`}
                   >
-                    <span className="truncate pr-2">{sec.title}</span>
-                    <span className="text-[10px] font-mono text-slate-400 shrink-0">#{sec.id}</span>
+                    <span className="break-words whitespace-normal leading-snug pr-2 flex-1">{sec.title}</span>
+                    <span className="text-[10px] font-mono text-slate-400 shrink-0 mt-0.5">#{sec.id}</span>
                   </button>
                 ))}
               </div>
@@ -818,7 +819,7 @@ export default function JavaGraphTheory() {
                     }`}
                   >
                     <Icon className="w-4 h-4 text-indigo-300" />
-                    <span className="text-xs font-bold truncate">{wb.title}</span>
+                    <span className="text-xs font-bold" title={wb.title}>{wb.title}</span>
                   </button>
                 );
               })}

@@ -1488,7 +1488,7 @@ export default function JavaDynamicProgramming() {
         {activeMode === "reader" && (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             {/* Sidebar Table of Contents */}
-            <div className="lg:col-span-1 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-4 max-h-[85vh] flex flex-col gap-3">
+            <div className="lg:col-span-1 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-4 max-h-[85vh] flex flex-col gap-3 dark-scrollbar">
               <div className="flex items-center gap-2 px-1">
                 <Search className="w-4 h-4 text-slate-400" />
                 <input
@@ -1500,19 +1500,20 @@ export default function JavaDynamicProgramming() {
                 />
               </div>
 
-              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar">
+              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar dark-scrollbar">
                 {filteredSections.map((sec) => (
                   <button
                     key={sec.id}
                     onClick={() => setActiveSectionId(sec.id)}
+                    title={sec.title}
                     className={`w-full text-left p-2.5 rounded-xl text-xs transition flex items-start gap-2 ${
                       activeSectionId === sec.id
                         ? "bg-indigo-600/20 border border-indigo-500/50 text-indigo-300 font-semibold"
                         : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
                     }`}
                   >
-                    <span className="font-mono text-[10px] text-slate-400 mt-0.5">{sec.id}.</span>
-                    <span className="truncate">{sec.title}</span>
+                    <span className="font-mono text-[10px] text-slate-400 mt-0.5 shrink-0">{sec.id}.</span>
+                    <span className="break-words whitespace-normal leading-snug flex-1">{sec.title}</span>
                   </button>
                 ))}
               </div>

@@ -617,7 +617,7 @@ export default function JavaControlFlow() {
 
             {/* Sticky Table of Contents (1 col) */}
             <div className="hidden lg:block lg:col-span-1">
-              <div className="sticky top-24 bg-white rounded-2xl border border-[#e7e3da] p-5 shadow-xs space-y-4 max-h-[85vh] overflow-y-auto [scrollbar-width:thin]">
+              <div className="sticky top-24 bg-white rounded-2xl border border-[#e7e3da] p-5 shadow-xs space-y-4 max-h-[85vh] overflow-y-auto dark-scrollbar">
                 <div className="flex items-center gap-2 pb-3 border-b border-stone-100 font-bold text-stone-900 text-sm">
                   <ListOrdered className="w-4 h-4 text-orange-600" />
                   <span>Module Index (30 Parts)</span>
@@ -659,7 +659,8 @@ export default function JavaControlFlow() {
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className="block px-2.5 py-1.5 rounded-lg text-stone-600 hover:text-orange-700 hover:bg-orange-50/60 transition-colors truncate"
+                      title={item.label}
+                      className="block px-2.5 py-1.5 rounded-lg text-stone-600 hover:text-orange-700 hover:bg-orange-50/60 transition-colors break-words whitespace-normal leading-snug"
                     >
                       {item.label}
                     </a>
