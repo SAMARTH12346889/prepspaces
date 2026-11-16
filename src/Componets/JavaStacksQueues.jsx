@@ -605,14 +605,14 @@ export default function JavaStacksQueues() {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
+    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500/20 selection:text-orange-900 flex flex-col justify-between">
       {/* Top Header */}
-      <header className="sticky top-0 z-50 bg-[#faf8f5]/90 backdrop-blur-md border-b border-slate-800 px-4 sm:px-8 py-3 transition-all duration-200">
+      <header className="sticky top-0 z-50 bg-[#faf8f5]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 transition-all duration-200">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <button
               onClick={() => goBack()}
-              className="p-2 -ml-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/50 transition-colors flex items-center gap-1.5 text-xs font-semibold"
+              className="p-2 -ml-2 rounded-xl text-stone-500 hover:text-stone-900 hover:bg-stone-200/50 transition-colors flex items-center gap-1.5 text-xs font-semibold"
               title="Return to Track"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -620,11 +620,11 @@ export default function JavaStacksQueues() {
             </button>
             <div className="h-4 w-px bg-stone-300 hidden sm:block" />
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 rounded-md bg-orange-500/15 border border-orange-500/30 text-orange-300 text-[11px] font-bold tracking-wider uppercase font-mono">
+              <span className="px-2.5 py-1 rounded-md bg-orange-100 border border-orange-200 text-orange-800 text-[11px] font-bold tracking-wider uppercase font-mono">
                 Module 10
               </span>
-              <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-1.5">
-                <Layers className="w-4 h-4 text-orange-400 hidden xs:inline" />
+              <h1 className="text-sm sm:text-base font-bold text-stone-900 tracking-tight flex items-center gap-1.5">
+                <Layers className="w-4 h-4 text-orange-600 hidden xs:inline" />
                 Stacks, Queues & Deques
               </h1>
             </div>
@@ -632,27 +632,27 @@ export default function JavaStacksQueues() {
 
           {/* View Mode Toggle */}
           <div className="flex items-center gap-2">
-            <div className="bg-slate-900/90 p-1 rounded-xl flex items-center border border-slate-700/60 shadow-2xs">
+            <div className="bg-stone-200/70 p-1 rounded-xl flex items-center border border-stone-300/60 shadow-2xs">
               <button
                 onClick={() => setViewMode("interactive")}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   viewMode === "interactive"
-                    ? "bg-slate-900/80 text-white shadow-xs"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-white text-stone-900 shadow-xs"
+                    : "text-stone-600 hover:text-stone-900"
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+                <Sparkles className="w-3.5 h-3.5 text-orange-600" />
                 <span>Interactive Studio</span>
               </button>
               <button
                 onClick={() => setViewMode("reader")}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   viewMode === "reader"
-                    ? "bg-slate-900/80 text-white shadow-xs"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-white text-stone-900 shadow-xs"
+                    : "text-stone-600 hover:text-stone-900"
                 }`}
               >
-                <BookOpen className="w-3.5 h-3.5 text-slate-400" />
+                <BookOpen className="w-3.5 h-3.5 text-stone-600" />
                 <span>Textbook Reader</span>
               </button>
             </div>
@@ -673,19 +673,19 @@ export default function JavaStacksQueues() {
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">
               Module 10: Stacks, Queues & Deques
             </h2>
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+            <p className="text-stone-300 text-xs sm:text-sm leading-relaxed mb-4">
               Master the foundational linear Abstract Data Types: LIFO Stacks, FIFO Queues, Double-Ended Queues (Deques),
               circular array queues, Java's ArrayDeque, and powerful monotonic algorithms (Next Greater Element, Stock Span,
               Largest Rectangle in Histogram, and Sliding Window Maximum).
             </p>
-            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-400">
-              <span className="flex items-center gap-1 bg-slate-900/80/10 px-2.5 py-1 rounded-md">
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-stone-300">
+              <span className="flex items-center gap-1 bg-white/10 px-2.5 py-1 rounded-md">
                 <Box className="w-3.5 h-3.5 text-orange-400" /> Stack (LIFO) & Queue (FIFO)
               </span>
-              <span className="flex items-center gap-1 bg-slate-900/80/10 px-2.5 py-1 rounded-md">
+              <span className="flex items-center gap-1 bg-white/10 px-2.5 py-1 rounded-md">
                 <TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> Monotonic Stacks & Deques
               </span>
-              <span className="flex items-center gap-1 bg-slate-900/80/10 px-2.5 py-1 rounded-md">
+              <span className="flex items-center gap-1 bg-white/10 px-2.5 py-1 rounded-md">
                 <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" /> 15 MCQs & 16 Labs/Assignments
               </span>
             </div>
@@ -706,21 +706,21 @@ export default function JavaStacksQueues() {
         {/* ======================================================== */}
         {viewMode === "reader" ? (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-900/80 rounded-xl border border-slate-800 shadow-2xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-white rounded-xl border border-[#e7e3da] shadow-2xs">
               <div className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-orange-400" />
-                <span className="text-xs font-bold text-white uppercase tracking-wider font-mono">
+                <BookOpen className="w-4 h-4 text-orange-600" />
+                <span className="text-xs font-bold text-stone-900 uppercase tracking-wider font-mono">
                   Full Curriculum Reader ({JavaStacksQueuesSections.length} Sections)
                 </span>
               </div>
               <div className="relative w-full sm:w-72">
-                <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Filter sections..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-[#faf8f5] border border-slate-800 rounded-lg focus:outline-none focus:border-orange-500 transition-colors"
+                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-[#faf8f5] border border-stone-200 rounded-lg focus:outline-none focus:border-orange-500 transition-colors"
                 />
               </div>
             </div>
@@ -730,23 +730,23 @@ export default function JavaStacksQueues() {
                 <article
                   key={sec.id}
                   id={sec.anchor}
-                  className="p-6 sm:p-8 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs scroll-mt-20 transition-all hover:border-orange-500/30"
+                  className="p-6 sm:p-8 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs scroll-mt-20 transition-all hover:border-orange-200"
                 >
-                  <div className="mb-4 flex items-center justify-between border-b border-slate-800/60 pb-3">
-                    <span className="text-xs font-mono uppercase tracking-wider text-orange-400 font-bold">
+                  <div className="mb-4 flex items-center justify-between border-b border-stone-100 pb-3">
+                    <span className="text-xs font-mono uppercase tracking-wider text-orange-600 font-bold">
                       {sec.category}
                     </span>
                     <a
                       href={`#${sec.anchor}`}
-                      className="text-slate-500 hover:text-slate-300 text-xs font-mono"
+                      className="text-stone-400 hover:text-stone-700 text-xs font-mono"
                     >
                       #{sec.anchor}
                     </a>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mb-6 tracking-tight">
                     {sec.title}
                   </h3>
-                  <div className="prose prose-stone max-w-none text-slate-300 leading-relaxed text-sm sm:text-base">
+                  <div className="prose prose-stone max-w-none text-stone-700 leading-relaxed text-sm sm:text-base">
                     {sec.content}
                   </div>
                 </article>
@@ -781,7 +781,7 @@ export default function JavaStacksQueues() {
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-orange-600 text-white shadow-xs"
-                        : "bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:bg-slate-950"
+                        : "bg-white text-stone-600 hover:text-stone-900 border border-[#e7e3da] hover:bg-stone-50"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
@@ -794,26 +794,26 @@ export default function JavaStacksQueues() {
             {/* TAB 1: STACK STUDIO (LIFO) */}
             {activeTab === "stackStudio" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Interactive ADT Studio
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Stack (LIFO — Last In, First Out)
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         Push items onto top and pop from top. Demonstrates stack underflow and overflow conditions.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">Capacity:</span>
+                      <span className="text-xs font-mono text-stone-500">Capacity:</span>
                       <select
                         value={stackCapacity}
                         onChange={(e) => setStackCapacity(parseInt(e.target.value, 10))}
-                        className="px-2.5 py-1 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
+                        className="px-2.5 py-1 text-xs bg-stone-100 border border-stone-300 rounded font-mono"
                       >
                         <option value={4}>4 items</option>
                         <option value={5}>5 items</option>
@@ -821,7 +821,7 @@ export default function JavaStacksQueues() {
                       </select>
                       <button
                         onClick={handleClearStack}
-                        className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
+                        className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
                         title="Clear Stack"
                       >
                         <RotateCcw className="w-4 h-4" />
@@ -845,16 +845,16 @@ export default function JavaStacksQueues() {
                                 isTop
                                   ? "bg-orange-500 text-white border-orange-600 ring-4 ring-orange-500/20 shadow-md"
                                   : exists
-                                  ? "bg-slate-900/80 text-slate-200 border-slate-700 shadow-2xs"
-                                  : "bg-slate-950/70 text-slate-500 border-dashed border-slate-700"
+                                  ? "bg-white text-stone-800 border-stone-300 shadow-2xs"
+                                  : "bg-stone-100/70 text-stone-400 border-dashed border-stone-300"
                               }`}
                             >
                               {exists ? (
                                 <div className="flex items-center justify-between px-3">
-                                  <span className="text-[10px] text-slate-500">idx {idx}</span>
+                                  <span className="text-[10px] text-stone-400">idx {idx}</span>
                                   <span className="text-sm">{val}</span>
                                   {isTop ? (
-                                    <span className="text-[10px] bg-slate-900/80 text-orange-300 px-1.5 py-0.5 rounded uppercase font-bold">
+                                    <span className="text-[10px] bg-white text-orange-700 px-1.5 py-0.5 rounded uppercase font-bold">
                                       TOP
                                     </span>
                                   ) : (
@@ -862,24 +862,24 @@ export default function JavaStacksQueues() {
                                   )}
                                 </div>
                               ) : (
-                                <span className="text-[11px] text-slate-500">[ empty slot {idx} ]</span>
+                                <span className="text-[11px] text-stone-400">[ empty slot {idx} ]</span>
                               )}
                             </div>
                           );
                         })}
                       </div>
-                      <span className="text-xs font-mono text-slate-400 font-bold mt-2">Stack Base (Index 0)</span>
+                      <span className="text-xs font-mono text-stone-500 font-bold mt-2">Stack Base (Index 0)</span>
                     </div>
 
                     {/* Operational Controls */}
-                    <div className="w-full md:w-80 space-y-3 p-4 rounded-xl bg-[#faf8f5] border border-slate-800">
+                    <div className="w-full md:w-80 space-y-3 p-4 rounded-xl bg-[#faf8f5] border border-stone-200">
                       <div className="flex items-center gap-2">
                         <input
                           type="number"
                           value={stackInput}
                           onChange={(e) => setStackInput(e.target.value)}
                           placeholder="Value"
-                          className="w-24 px-3 py-1.5 text-xs bg-slate-900/80 border border-slate-700 rounded font-mono"
+                          className="w-24 px-3 py-1.5 text-xs bg-white border border-stone-300 rounded font-mono"
                         />
                         <button
                           onClick={handlePush}
@@ -892,34 +892,34 @@ export default function JavaStacksQueues() {
                       <div className="grid grid-cols-2 gap-2 pt-1">
                         <button
                           onClick={handlePop}
-                          className="px-3 py-1.5 text-xs font-bold bg-slate-900/80 border border-slate-700 hover:bg-red-50 hover:text-red-700 hover:border-red-300 rounded transition-colors text-slate-200"
+                          className="px-3 py-1.5 text-xs font-bold bg-white border border-stone-300 hover:bg-red-50 hover:text-red-700 hover:border-red-300 rounded transition-colors text-stone-800"
                         >
                           pop() O(1)
                         </button>
                         <button
                           onClick={handlePeek}
-                          className="px-3 py-1.5 text-xs font-bold bg-slate-900/80 border border-slate-700 hover:bg-slate-950 rounded transition-colors text-slate-200"
+                          className="px-3 py-1.5 text-xs font-bold bg-white border border-stone-300 hover:bg-stone-100 rounded transition-colors text-stone-800"
                         >
                           peek() O(1)
                         </button>
                       </div>
 
-                      <div className="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-800 space-y-1">
+                      <div className="text-[11px] font-mono text-stone-500 pt-2 border-t border-stone-200 space-y-1">
                         <div className="flex justify-between">
                           <span>Size:</span>
-                          <span className="font-bold text-slate-200">{stackItems.length} / {stackCapacity}</span>
+                          <span className="font-bold text-stone-800">{stackItems.length} / {stackCapacity}</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Top Index:</span>
-                          <span className="font-bold text-slate-200">{stackItems.length - 1}</span>
+                          <span className="font-bold text-stone-800">{stackItems.length - 1}</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Empty:</span>
-                          <span className="font-bold text-slate-200">{stackItems.length === 0 ? "true" : "false"}</span>
+                          <span className="font-bold text-stone-800">{stackItems.length === 0 ? "true" : "false"}</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Full:</span>
-                          <span className="font-bold text-slate-200">{stackItems.length === stackCapacity ? "true" : "false"}</span>
+                          <span className="font-bold text-stone-800">{stackItems.length === stackCapacity ? "true" : "false"}</span>
                         </div>
                       </div>
                     </div>
@@ -938,23 +938,23 @@ export default function JavaStacksQueues() {
             {/* TAB 2: CIRCULAR QUEUE (FIFO WITH WRAP-AROUND) */}
             {activeTab === "circularQueue" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Interactive FIFO Studio
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Circular Array Queue (Modulo Index Wrap-around)
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         Enqueue at rear `(rear + 1) % C` and dequeue from front `(front + 1) % C`. Reuses freed slots without element shifting.
                       </p>
                     </div>
 
                     <button
                       onClick={handleResetCQ}
-                      className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
+                      className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
                       title="Reset"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -962,7 +962,7 @@ export default function JavaStacksQueues() {
                   </div>
 
                   {/* Array slots with Front & Rear pointers */}
-                  <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 space-y-6">
+                  <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 space-y-6">
                     <div className="grid grid-cols-5 gap-3">
                       {cqItems.map((val, idx) => {
                         const isFront = idx === cqFront && cqSize > 0;
@@ -995,17 +995,17 @@ export default function JavaStacksQueues() {
                                   : isRear
                                   ? "border-orange-500 bg-orange-500"
                                   : hasVal
-                                  ? "border-stone-400 bg-slate-900/80"
-                                  : "border-dashed border-slate-700 bg-slate-950/50"
+                                  ? "border-stone-400 bg-white"
+                                  : "border-dashed border-stone-300 bg-stone-100/50"
                               }`}
                             >
-                              <span className="text-[10px] text-slate-500">Slot {idx}</span>
-                              <span className="text-base font-bold text-white">
+                              <span className="text-[10px] text-stone-400">Slot {idx}</span>
+                              <span className="text-base font-bold text-stone-900">
                                 {hasVal ? val : "—"}
                               </span>
                             </div>
 
-                            <span className="text-[10px] font-mono text-slate-500 mt-1">idx {idx}</span>
+                            <span className="text-[10px] font-mono text-stone-400 mt-1">idx {idx}</span>
                           </div>
                         );
                       })}
@@ -1013,14 +1013,14 @@ export default function JavaStacksQueues() {
                   </div>
 
                   {/* Operational controls */}
-                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 bg-[#faf8f5] rounded-xl border border-slate-800">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 bg-[#faf8f5] rounded-xl border border-stone-200">
                     <div className="flex items-center gap-2 w-full sm:w-auto">
                       <input
                         type="number"
                         value={cqInput}
                         onChange={(e) => setCqInput(e.target.value)}
                         placeholder="Value"
-                        className="w-24 px-3 py-1.5 text-xs bg-slate-900/80 border border-slate-700 rounded font-mono"
+                        className="w-24 px-3 py-1.5 text-xs bg-white border border-stone-300 rounded font-mono"
                       />
                       <button
                         onClick={handleEnqueue}
@@ -1030,13 +1030,13 @@ export default function JavaStacksQueues() {
                       </button>
                       <button
                         onClick={handleDequeue}
-                        className="px-4 py-1.5 text-xs font-bold bg-slate-900/80 border border-slate-700 hover:bg-slate-950 text-slate-200 rounded transition-colors"
+                        className="px-4 py-1.5 text-xs font-bold bg-white border border-stone-300 hover:bg-stone-100 text-stone-800 rounded transition-colors"
                       >
                         dequeue() O(1)
                       </button>
                     </div>
 
-                    <div className="flex items-center gap-4 text-xs font-mono text-slate-400">
+                    <div className="flex items-center gap-4 text-xs font-mono text-stone-600">
                       <span>Front: <strong>{cqFront}</strong></span>
                       <span>Rear: <strong>{cqRear}</strong></span>
                       <span>Size: <strong>{cqSize} / {cqCapacity}</strong></span>
@@ -1056,41 +1056,41 @@ export default function JavaStacksQueues() {
             {/* TAB 3: DEQUE STUDIO */}
             {activeTab === "dequeStudio" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       Double-Ended Queue
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       Deque (Insert & Remove at Both Ends)
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-stone-500">
                       Supports `addFirst`, `addLast`, `removeFirst`, `removeLast` in amortized O(1) time. Implemented via Java's `ArrayDeque`.
                     </p>
                   </div>
 
                   {/* Deque chain */}
-                  <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 flex items-center justify-center overflow-x-auto min-h-[140px]">
+                  <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 flex items-center justify-center overflow-x-auto min-h-[140px]">
                     {dequeItems.length === 0 ? (
-                      <span className="text-xs font-mono text-slate-500">[ Deque is Empty ]</span>
+                      <span className="text-xs font-mono text-stone-400">[ Deque is Empty ]</span>
                     ) : (
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded bg-orange-500/15 border border-orange-500/40 text-orange-300 text-[10px] font-bold font-mono">
+                        <span className="px-2 py-0.5 rounded bg-orange-100 border border-orange-300 text-orange-800 text-[10px] font-bold font-mono">
                           FRONT
                         </span>
-                        <span className="text-slate-500 font-bold">⇄</span>
+                        <span className="text-stone-400 font-bold">⇄</span>
 
                         {dequeItems.map((val, idx) => (
                           <React.Fragment key={idx}>
-                            <div className="px-4 py-2.5 rounded-xl border-2 border-stone-700 bg-slate-900/80 font-mono text-center shadow-xs">
-                              <div className="text-[10px] text-slate-500">idx {idx}</div>
-                              <div className="text-sm font-bold text-white">{val}</div>
+                            <div className="px-4 py-2.5 rounded-xl border-2 border-stone-700 bg-white font-mono text-center shadow-xs">
+                              <div className="text-[10px] text-stone-400">idx {idx}</div>
+                              <div className="text-sm font-bold text-stone-900">{val}</div>
                             </div>
-                            {idx < dequeItems.length - 1 && <span className="text-slate-500 font-bold">⇄</span>}
+                            {idx < dequeItems.length - 1 && <span className="text-stone-400 font-bold">⇄</span>}
                           </React.Fragment>
                         ))}
 
-                        <span className="text-slate-500 font-bold">⇄</span>
+                        <span className="text-stone-400 font-bold">⇄</span>
                         <span className="px-2 py-0.5 rounded bg-orange-500 border border-orange-500 text-orange-400 text-[10px] font-bold font-mono">
                           REAR
                         </span>
@@ -1100,8 +1100,8 @@ export default function JavaStacksQueues() {
 
                   {/* Controls */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-xl bg-[#faf8f5] border border-slate-800 space-y-2">
-                      <span className="text-xs font-bold text-white font-mono">Front Operations:</span>
+                    <div className="p-4 rounded-xl bg-[#faf8f5] border border-stone-200 space-y-2">
+                      <span className="text-xs font-bold text-stone-900 font-mono">Front Operations:</span>
                       <div className="flex items-center gap-2">
                         <button
                           onClick={handleAddFirst}
@@ -1111,15 +1111,15 @@ export default function JavaStacksQueues() {
                         </button>
                         <button
                           onClick={handleRemoveFirst}
-                          className="flex-1 py-1.5 text-xs font-bold bg-slate-900/80 border border-slate-700 hover:bg-slate-950 text-slate-200 rounded transition-colors"
+                          className="flex-1 py-1.5 text-xs font-bold bg-white border border-stone-300 hover:bg-stone-100 text-stone-800 rounded transition-colors"
                         >
                           removeFirst()
                         </button>
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-[#faf8f5] border border-slate-800 space-y-2">
-                      <span className="text-xs font-bold text-white font-mono">Rear Operations:</span>
+                    <div className="p-4 rounded-xl bg-[#faf8f5] border border-stone-200 space-y-2">
+                      <span className="text-xs font-bold text-stone-900 font-mono">Rear Operations:</span>
                       <div className="flex items-center gap-2">
                         <button
                           onClick={handleAddLast}
@@ -1129,7 +1129,7 @@ export default function JavaStacksQueues() {
                         </button>
                         <button
                           onClick={handleRemoveLast}
-                          className="flex-1 py-1.5 text-xs font-bold bg-slate-900/80 border border-slate-700 hover:bg-slate-950 text-slate-200 rounded transition-colors"
+                          className="flex-1 py-1.5 text-xs font-bold bg-white border border-stone-300 hover:bg-stone-100 text-stone-800 rounded transition-colors"
                         >
                           removeLast()
                         </button>
@@ -1138,12 +1138,12 @@ export default function JavaStacksQueues() {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-slate-400">Value to insert:</span>
+                    <span className="text-xs font-mono text-stone-500">Value to insert:</span>
                     <input
                       type="number"
                       value={dequeInput}
                       onChange={(e) => setDequeInput(e.target.value)}
-                      className="w-24 px-2 py-1 text-xs bg-slate-900/80 border border-slate-700 rounded font-mono"
+                      className="w-24 px-2 py-1 text-xs bg-white border border-stone-300 rounded font-mono"
                     />
                   </div>
 
@@ -1160,23 +1160,23 @@ export default function JavaStacksQueues() {
             {/* TAB 4: MONOTONIC STACK (NEXT GREATER ELEMENT) */}
             {activeTab === "nextGreater" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Monotonic Stack Workbench
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Next Greater Element (Monotonic Decreasing Stack)
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         Trace how a stack of unresolved indices achieves O(n) total time because every element is pushed and popped at most once.
                       </p>
                     </div>
 
                     <button
                       onClick={() => setNgeStep(0)}
-                      className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
+                      className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
                       title="Reset"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -1188,7 +1188,7 @@ export default function JavaStacksQueues() {
                     return (
                       <div className="space-y-4">
                         {/* Array elements & Next Greater Answers */}
-                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 space-y-4">
+                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 space-y-4">
                           <div className="flex items-center justify-center gap-3 overflow-x-auto py-2">
                             {ngeArray.map((val, idx) => {
                               const isCurr = stepData.currIdx === idx;
@@ -1199,26 +1199,26 @@ export default function JavaStacksQueues() {
                               return (
                                 <div key={idx} className="flex flex-col items-center">
                                   <div className="h-5 text-[10px] font-mono font-bold">
-                                    {isCurr && <span className="text-orange-400">scan</span>}
+                                    {isCurr && <span className="text-orange-600">scan</span>}
                                     {isPopped && <span className="text-emerald-600 font-bold">resolved!</span>}
                                   </div>
 
                                   <div
                                     className={`px-4 py-3 rounded-xl border-2 font-mono flex flex-col items-center justify-center min-w-[56px] transition-all ${
                                       isCurr
-                                        ? "border-orange-500 bg-orange-500/15 ring-4 ring-orange-500/20"
+                                        ? "border-orange-500 bg-orange-50 ring-4 ring-orange-500/20"
                                         : inStack
                                         ? "border-orange-500 bg-orange-500"
-                                        : "border-stone-400 bg-slate-900/80"
+                                        : "border-stone-400 bg-white"
                                     }`}
                                   >
-                                    <span className="text-[10px] text-slate-500">idx {idx}</span>
-                                    <span className="text-base font-bold text-white">{val}</span>
+                                    <span className="text-[10px] text-stone-400">idx {idx}</span>
+                                    <span className="text-base font-bold text-stone-900">{val}</span>
                                   </div>
 
                                   <div className="mt-2 text-xs font-mono">
-                                    <span className="text-[10px] text-slate-500">NGE: </span>
-                                    <span className={`font-bold ${answer !== -1 ? "text-emerald-600" : "text-slate-500"}`}>
+                                    <span className="text-[10px] text-stone-400">NGE: </span>
+                                    <span className={`font-bold ${answer !== -1 ? "text-emerald-600" : "text-stone-400"}`}>
                                       {answer}
                                     </span>
                                   </div>
@@ -1231,18 +1231,18 @@ export default function JavaStacksQueues() {
                         {/* Stack preview */}
                         <div className="p-4 rounded-xl bg-stone-900 text-white flex items-center justify-between text-xs font-mono">
                           <div className="flex items-center gap-2">
-                            <span className="text-slate-500">Monotonic Stack (indices):</span>
+                            <span className="text-stone-400">Monotonic Stack (indices):</span>
                             <span className="text-orange-400 font-bold">
                               [{stepData.stack.map((idx) => `idx ${idx} (${ngeArray[idx]})`).join(", ")}]
                             </span>
                           </div>
-                          <span className="text-slate-500">Top is rightmost</span>
+                          <span className="text-stone-400">Top is rightmost</span>
                         </div>
 
                         {/* Commentary */}
-                        <div className="p-4 rounded-xl bg-orange-500/15 border border-orange-500/30 text-xs text-slate-200 flex items-center justify-between">
+                        <div className="p-4 rounded-xl bg-orange-50 border border-orange-200 text-xs text-stone-800 flex items-center justify-between">
                           <p className="font-medium">{stepData.desc}</p>
-                          <span className="font-mono text-orange-300 font-bold shrink-0">
+                          <span className="font-mono text-orange-800 font-bold shrink-0">
                             Step {ngeStep} / {ngeHistory.length - 1}
                           </span>
                         </div>
@@ -1252,7 +1252,7 @@ export default function JavaStacksQueues() {
                           <button
                             disabled={ngeStep === 0}
                             onClick={() => setNgeStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40"
                           >
                             ← Back
                           </button>
@@ -1274,23 +1274,23 @@ export default function JavaStacksQueues() {
             {/* TAB 5: STOCK SPAN PROBLEM */}
             {activeTab === "stockSpan" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Financial Time-Series Analysis
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Stock Span Problem (Monotonic Decreasing Stack)
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         Calculates consecutive days leading up to day `i` where price was &le; price[i].
                       </p>
                     </div>
 
                     <button
                       onClick={() => setSpanStep(0)}
-                      className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
+                      className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
                       title="Reset"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -1302,7 +1302,7 @@ export default function JavaStacksQueues() {
                     return (
                       <div className="space-y-4">
                         {/* Price bars visualization */}
-                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 flex items-end justify-center gap-4 h-56">
+                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 flex items-end justify-center gap-4 h-56">
                           {stockPrices.map((price, idx) => {
                             const isCurrent = stepData.i === idx;
                             const spanVal = stepData.spans[idx];
@@ -1310,7 +1310,7 @@ export default function JavaStacksQueues() {
 
                             return (
                               <div key={idx} className="flex flex-col items-center gap-1 h-full justify-end">
-                                <span className="text-[10px] font-mono text-slate-400 font-bold">${price}</span>
+                                <span className="text-[10px] font-mono text-stone-500 font-bold">${price}</span>
                                 <div
                                   style={{ height: `${heightPct}%` }}
                                   className={`w-12 rounded-t-lg transition-all duration-300 flex flex-col items-center justify-end pb-1 ${
@@ -1318,21 +1318,21 @@ export default function JavaStacksQueues() {
                                       ? "bg-orange-500 text-white shadow-md ring-4 ring-orange-500/20"
                                       : idx <= (stepData.i ?? -1)
                                       ? "bg-emerald-600 text-white"
-                                      : "bg-slate-800 text-slate-500"
+                                      : "bg-stone-200 text-stone-400"
                                   }`}
                                 >
                                   <span className="text-[10px] font-mono font-bold">
                                     {idx <= (stepData.i ?? -1) ? `S=${spanVal}` : ""}
                                   </span>
                                 </div>
-                                <span className="text-[10px] font-mono text-slate-500">Day {idx + 1}</span>
+                                <span className="text-[10px] font-mono text-stone-400">Day {idx + 1}</span>
                               </div>
                             );
                           })}
                         </div>
 
                         {/* Commentary */}
-                        <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-slate-200 flex items-center justify-between">
+                        <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-stone-800 flex items-center justify-between">
                           <p className="font-medium">{stepData.desc}</p>
                           <span className="font-mono text-emerald-800 font-bold shrink-0">
                             Day {(stepData.i ?? -1) + 1} / {stockPrices.length}
@@ -1344,7 +1344,7 @@ export default function JavaStacksQueues() {
                           <button
                             disabled={spanStep === 0}
                             onClick={() => setSpanStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40"
                           >
                             ← Back
                           </button>
@@ -1366,23 +1366,23 @@ export default function JavaStacksQueues() {
             {/* TAB 6: LARGEST RECTANGLE IN HISTOGRAM */}
             {activeTab === "histogram" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Geometry & Monotonic Stack
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Largest Rectangle in Histogram (Max Area O(n))
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         When a shorter bar arrives, preceding taller bars are popped and their maximal rectangular areas finalized.
                       </p>
                     </div>
 
                     <button
                       onClick={() => setHistStep(0)}
-                      className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
+                      className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
                       title="Reset"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -1394,7 +1394,7 @@ export default function JavaStacksQueues() {
                     return (
                       <div className="space-y-4">
                         {/* Histogram bars */}
-                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 flex items-end justify-center gap-3 h-56">
+                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 flex items-end justify-center gap-3 h-56">
                           {histHeights.map((h, idx) => {
                             const isPopped = stepData.currentCalc?.hIdx === idx;
                             const inStack = stepData.stack.includes(idx);
@@ -1402,7 +1402,7 @@ export default function JavaStacksQueues() {
 
                             return (
                               <div key={idx} className="flex flex-col items-center gap-1 h-full justify-end">
-                                <span className="text-[10px] font-mono text-slate-400 font-bold">{h}</span>
+                                <span className="text-[10px] font-mono text-stone-500 font-bold">{h}</span>
                                 <div
                                   style={{ height: `${heightPct}%` }}
                                   className={`w-12 rounded-t-lg transition-all duration-300 flex items-center justify-center font-mono text-xs font-bold ${
@@ -1410,12 +1410,12 @@ export default function JavaStacksQueues() {
                                       ? "bg-red-500 text-white shadow-lg ring-4 ring-red-500/20"
                                       : inStack
                                       ? "bg-orange-500 text-white"
-                                      : "bg-stone-300 text-slate-300"
+                                      : "bg-stone-300 text-stone-700"
                                   }`}
                                 >
                                   {isPopped ? "POP" : ""}
                                 </div>
-                                <span className="text-[10px] font-mono text-slate-500">idx {idx}</span>
+                                <span className="text-[10px] font-mono text-stone-400">idx {idx}</span>
                               </div>
                             );
                           })}
@@ -1424,20 +1424,20 @@ export default function JavaStacksQueues() {
                         {/* Calculation details card */}
                         <div className="p-4 rounded-xl bg-stone-900 text-white flex items-center justify-between text-xs font-mono">
                           <div>
-                            <span className="text-slate-500">Max Area Recorded: </span>
+                            <span className="text-stone-400">Max Area Recorded: </span>
                             <span className="text-orange-400 font-bold text-sm">{stepData.maxArea}</span>
                           </div>
                           {stepData.currentCalc && (
-                            <div className="text-slate-400">
+                            <div className="text-stone-300">
                               Formula: h({stepData.currentCalc.h}) × w({stepData.currentCalc.w}) = <strong className="text-emerald-400">{stepData.currentCalc.area}</strong>
                             </div>
                           )}
                         </div>
 
                         {/* Commentary */}
-                        <div className="p-4 rounded-xl bg-orange-500/15 border border-orange-500/30 text-xs text-slate-200 flex items-center justify-between">
+                        <div className="p-4 rounded-xl bg-orange-50 border border-orange-200 text-xs text-stone-800 flex items-center justify-between">
                           <p className="font-medium">{stepData.desc}</p>
-                          <span className="font-mono text-orange-300 font-bold shrink-0">
+                          <span className="font-mono text-orange-800 font-bold shrink-0">
                             Step {histStep} / {histTrace.length - 1}
                           </span>
                         </div>
@@ -1447,7 +1447,7 @@ export default function JavaStacksQueues() {
                           <button
                             disabled={histStep === 0}
                             onClick={() => setHistStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40"
                           >
                             ← Back
                           </button>
@@ -1469,29 +1469,29 @@ export default function JavaStacksQueues() {
             {/* TAB 7: SLIDING WINDOW MAXIMUM */}
             {activeTab === "slidingWindow" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Monotonic Queue Workbench
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Sliding Window Maximum (Monotonic Deque O(n))
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         Deque maintains indices of useful maximum candidates in decreasing order. Front element is window maximum.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">k (Window):</span>
+                      <span className="text-xs font-mono text-stone-500">k (Window):</span>
                       <select
                         value={swK}
                         onChange={(e) => {
                           setSwK(parseInt(e.target.value, 10));
                           setSwStep(0);
                         }}
-                        className="px-2.5 py-1 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
+                        className="px-2.5 py-1 text-xs bg-stone-100 border border-stone-300 rounded font-mono"
                       >
                         <option value={2}>k = 2</option>
                         <option value={3}>k = 3</option>
@@ -1499,7 +1499,7 @@ export default function JavaStacksQueues() {
                       </select>
                       <button
                         onClick={() => setSwStep(0)}
-                        className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
+                        className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
                         title="Reset"
                       >
                         <RotateCcw className="w-4 h-4" />
@@ -1512,7 +1512,7 @@ export default function JavaStacksQueues() {
                     return (
                       <div className="space-y-4">
                         {/* Array elements with sliding window highlight */}
-                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-slate-800 space-y-4">
+                        <div className="p-6 bg-[#faf8f5] rounded-xl border border-stone-200 space-y-4">
                           <div className="flex items-center justify-center gap-2 overflow-x-auto py-2">
                             {swArray.map((val, idx) => {
                               const inWindow = stepData.i !== null && idx <= stepData.i && idx > stepData.i - swK;
@@ -1530,14 +1530,14 @@ export default function JavaStacksQueues() {
                                       isMax
                                         ? "border-emerald-500 bg-emerald-50 ring-4 ring-emerald-500/20"
                                         : inWindow
-                                        ? "border-orange-500 bg-orange-500/15/50"
+                                        ? "border-orange-500 bg-orange-50/50"
                                         : inDeque
                                         ? "border-orange-500 bg-orange-500"
-                                        : "border-slate-700 bg-slate-900/80"
+                                        : "border-stone-300 bg-white"
                                     }`}
                                   >
-                                    <span className="text-[9px] text-slate-500">idx {idx}</span>
-                                    <span className="text-sm font-bold text-white">{val}</span>
+                                    <span className="text-[9px] text-stone-400">idx {idx}</span>
+                                    <span className="text-sm font-bold text-stone-900">{val}</span>
                                   </div>
                                 </div>
                               );
@@ -1548,19 +1548,19 @@ export default function JavaStacksQueues() {
                         {/* Results array */}
                         <div className="p-4 rounded-xl bg-stone-900 text-white flex items-center justify-between text-xs font-mono">
                           <div>
-                            <span className="text-slate-500">Output Windows Maximums: </span>
+                            <span className="text-stone-400">Output Windows Maximums: </span>
                             <span className="text-orange-400 font-bold">[{stepData.result.join(", ")}]</span>
                           </div>
                           <div>
-                            <span className="text-slate-500">Deque Indices: </span>
+                            <span className="text-stone-400">Deque Indices: </span>
                             <span className="text-orange-300 font-bold">[{stepData.deque.join(", ")}]</span>
                           </div>
                         </div>
 
                         {/* Commentary */}
-                        <div className="p-4 rounded-xl bg-orange-500/15 border border-orange-500/30 text-xs text-slate-200 flex items-center justify-between">
+                        <div className="p-4 rounded-xl bg-orange-50 border border-orange-200 text-xs text-stone-800 flex items-center justify-between">
                           <p className="font-medium">{stepData.desc}</p>
-                          <span className="font-mono text-orange-300 font-bold shrink-0">
+                          <span className="font-mono text-orange-800 font-bold shrink-0">
                             Step {swStep} / {swTrace.length - 1}
                           </span>
                         </div>
@@ -1570,7 +1570,7 @@ export default function JavaStacksQueues() {
                           <button
                             disabled={swStep === 0}
                             onClick={() => setSwStep((s) => Math.max(0, s - 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 hover:bg-slate-950 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold border border-stone-300 hover:bg-stone-100 disabled:opacity-40"
                           >
                             ← Back
                           </button>
@@ -1592,34 +1592,34 @@ export default function JavaStacksQueues() {
             {/* TAB 8: BRACKET VALIDATOR */}
             {activeTab === "parentheses" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       Syntax Parsing & Matching
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       Balanced Parentheses Validator (Stack LIFO)
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-stone-500">
                       Push opening brackets (, [, &#123; and pop matching closers ), ], &#125;.
                     </p>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-slate-400">Bracket String:</span>
+                    <span className="text-xs font-mono text-stone-500">Bracket String:</span>
                     <input
                       type="text"
                       value={bracketStr}
                       onChange={(e) => setBracketStr(e.target.value)}
                       placeholder="e.g. ([{}])"
-                      className="px-3 py-1.5 text-xs bg-slate-900/80 border border-slate-700 rounded font-mono w-64"
+                      className="px-3 py-1.5 text-xs bg-white border border-stone-300 rounded font-mono w-64"
                     />
                     <div className="flex gap-2">
                       {["([{}])", "([)]", "{[()]}", "((("].map((example) => (
                         <button
                           key={example}
                           onClick={() => setBracketStr(example)}
-                          className="px-2.5 py-1 text-xs bg-slate-950 border border-slate-800 rounded font-mono hover:bg-slate-800"
+                          className="px-2.5 py-1 text-xs bg-stone-100 border border-stone-200 rounded font-mono hover:bg-stone-200"
                         >
                           {example}
                         </button>
@@ -1641,12 +1641,12 @@ export default function JavaStacksQueues() {
 
                   {/* Step-by-step trace */}
                   <div className="space-y-2">
-                    <span className="text-xs font-mono font-bold text-slate-400">Execution Trace:</span>
+                    <span className="text-xs font-mono font-bold text-stone-500">Execution Trace:</span>
                     <div className="space-y-1.5 max-h-60 overflow-y-auto pr-2">
                       {parenResult.steps.map((st, i) => (
-                        <div key={i} className="p-2.5 rounded-lg bg-[#faf8f5] border border-slate-800 text-xs font-mono flex items-center justify-between">
+                        <div key={i} className="p-2.5 rounded-lg bg-[#faf8f5] border border-stone-200 text-xs font-mono flex items-center justify-between">
                           <span>{st.action}</span>
-                          <span className="text-slate-500">Stack: [{st.stack.join(", ")}]</span>
+                          <span className="text-stone-400">Stack: [{st.stack.join(", ")}]</span>
                         </div>
                       ))}
                     </div>
@@ -1658,23 +1658,23 @@ export default function JavaStacksQueues() {
             {/* TAB 9: KNOWLEDGE QUIZ */}
             {activeTab === "quiz" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Module Evaluation
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Knowledge Assessment (15 Multiple-Choice Questions)
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         Test your conceptual and practical mastery of stacks, queues, deques, and monotonic algorithms.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
                       {quizSubmitted && (
-                        <div className="px-3 py-1 rounded-xl bg-orange-500/15 border border-orange-500/40 text-orange-300 font-mono text-xs font-bold">
+                        <div className="px-3 py-1 rounded-xl bg-orange-100 border border-orange-300 text-orange-800 font-mono text-xs font-bold">
                           Score: {quizScore} / {quizQuestions.length} ({Math.round((quizScore / quizQuestions.length) * 100)}%)
                         </div>
                       )}
@@ -1683,7 +1683,7 @@ export default function JavaStacksQueues() {
                           setSelectedAnswers({});
                           setQuizSubmitted(false);
                         }}
-                        className="p-1.5 rounded-xl border border-slate-800 hover:bg-slate-950 text-slate-400"
+                        className="p-1.5 rounded-xl border border-stone-200 hover:bg-stone-100 text-stone-600"
                         title="Reset Quiz"
                       >
                         <RotateCcw className="w-4 h-4" />
@@ -1705,22 +1705,22 @@ export default function JavaStacksQueues() {
                               ? isCorrect
                                 ? "bg-emerald-50/50 border-emerald-200"
                                 : "bg-red-50/50 border-red-200"
-                              : "bg-[#faf8f5] border-slate-800"
+                              : "bg-[#faf8f5] border-stone-200"
                           }`}
                         >
                           <div className="flex items-start gap-3">
-                            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300 shrink-0 mt-0.5">
+                            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-stone-200 text-stone-700 shrink-0 mt-0.5">
                               Q{q.id}
                             </span>
                             <div className="space-y-3 flex-1">
-                              <h4 className="text-sm font-bold text-white">{q.q}</h4>
+                              <h4 className="text-sm font-bold text-stone-900">{q.q}</h4>
 
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 {q.options.map((opt, oIdx) => {
                                   const isSelected = selected === oIdx;
                                   const isThisCorrect = q.correct === oIdx;
 
-                                  let btnClass = "border-slate-800 bg-slate-900/80 text-slate-200 hover:bg-slate-950";
+                                  let btnClass = "border-stone-200 bg-white text-stone-800 hover:bg-stone-100";
                                   if (quizSubmitted) {
                                     if (isThisCorrect) {
                                       btnClass = "border-emerald-500 bg-emerald-100 text-emerald-900 font-semibold";
@@ -1728,7 +1728,7 @@ export default function JavaStacksQueues() {
                                       btnClass = "border-red-500 bg-red-100 text-red-900";
                                     }
                                   } else if (isSelected) {
-                                    btnClass = "border-orange-500 bg-orange-500/15 text-orange-900 font-semibold ring-2 ring-orange-500/20";
+                                    btnClass = "border-orange-500 bg-orange-50 text-orange-900 font-semibold ring-2 ring-orange-500/20";
                                   }
 
                                   return (
@@ -1751,8 +1751,8 @@ export default function JavaStacksQueues() {
                               </div>
 
                               {quizSubmitted && (
-                                <div className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs text-slate-400 leading-relaxed font-sans">
-                                  <strong className="text-white">Explanation: </strong>
+                                <div className="p-2.5 rounded-lg bg-white border border-stone-200 text-xs text-stone-600 leading-relaxed font-sans">
+                                  <strong className="text-stone-900">Explanation: </strong>
                                   {q.exp}
                                 </div>
                               )}
@@ -1772,14 +1772,14 @@ export default function JavaStacksQueues() {
                       Submit Answers ({Object.keys(selectedAnswers).length} / {quizQuestions.length} Answered)
                     </button>
                   ) : (
-                    <div className="flex items-center justify-between p-4 bg-orange-500/15 rounded-xl border border-orange-500/30 text-xs font-mono">
+                    <div className="flex items-center justify-between p-4 bg-orange-50 rounded-xl border border-orange-200 text-xs font-mono">
                       <span>Quiz completed! Review individual explanations above.</span>
                       <button
                         onClick={() => {
                           setSelectedAnswers({});
                           setQuizSubmitted(false);
                         }}
-                        className="px-3 py-1 bg-slate-900/80 border border-orange-500/40 text-orange-300 rounded font-bold hover:bg-orange-500/15"
+                        className="px-3 py-1 bg-white border border-orange-300 text-orange-800 rounded font-bold hover:bg-orange-100"
                       >
                         Retake Quiz
                       </button>
@@ -1792,22 +1792,22 @@ export default function JavaStacksQueues() {
             {/* TAB 10: LABS & ASSIGNMENTS */}
             {activeTab === "labs" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Practical Implementation Tracker
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         6 Laboratories & 10 Coding Assignments
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         Track your progress across hands-on implementations and major interview problem assignments.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400 font-bold">
+                      <span className="text-xs font-mono text-stone-600 font-bold">
                         Progress: {Object.values(completedLabs).filter(Boolean).length} / {labsAndAssignments.length}
                       </span>
                     </div>
@@ -1820,7 +1820,7 @@ export default function JavaStacksQueues() {
                         <div
                           key={item.id}
                           className={`p-4 rounded-xl border transition-all ${
-                            isDone ? "bg-emerald-50/50 border-emerald-200" : "bg-[#faf8f5] border-slate-800"
+                            isDone ? "bg-emerald-50/50 border-emerald-200" : "bg-[#faf8f5] border-stone-200"
                           }`}
                         >
                           <div className="flex items-start gap-3">
@@ -1828,12 +1828,12 @@ export default function JavaStacksQueues() {
                               onClick={() =>
                                 setCompletedLabs({ ...completedLabs, [item.id]: !isDone })
                               }
-                              className="mt-0.5 text-slate-500 hover:text-slate-300 transition-colors"
+                              className="mt-0.5 text-stone-400 hover:text-stone-700 transition-colors"
                             >
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-600" />
                               ) : (
-                                <Square className="w-4 h-4 text-slate-500" />
+                                <Square className="w-4 h-4 text-stone-400" />
                               )}
                             </button>
                             <div className="space-y-1">
@@ -1841,7 +1841,7 @@ export default function JavaStacksQueues() {
                                 <span
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     item.type === "Lab"
-                                      ? "bg-orange-500/15 text-orange-300"
+                                      ? "bg-orange-100 text-orange-800"
                                       : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
@@ -1849,13 +1849,13 @@ export default function JavaStacksQueues() {
                                 </span>
                                 <h4
                                   className={`text-xs font-bold ${
-                                    isDone ? "text-slate-400 line-through" : "text-white"
+                                    isDone ? "text-stone-500 line-through" : "text-stone-900"
                                   }`}
                                 >
                                   {item.title}
                                 </h4>
                               </div>
-                              <p className="text-xs text-slate-400 leading-relaxed">{item.goal}</p>
+                              <p className="text-xs text-stone-600 leading-relaxed">{item.goal}</p>
                             </div>
                           </div>
                         </div>

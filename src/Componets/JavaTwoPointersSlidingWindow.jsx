@@ -773,7 +773,7 @@ export default function JavaTwoPointersSlidingWindow() {
               onClick={() => setActiveTab("workbench")}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 activeTab === "workbench"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
+                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
@@ -784,7 +784,7 @@ export default function JavaTwoPointersSlidingWindow() {
               onClick={() => setActiveTab("reader")}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 activeTab === "reader"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
+                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
@@ -795,7 +795,7 @@ export default function JavaTwoPointersSlidingWindow() {
               onClick={() => setActiveTab("quiz")}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 activeTab === "quiz"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
+                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
@@ -806,7 +806,7 @@ export default function JavaTwoPointersSlidingWindow() {
               onClick={() => setActiveTab("labs")}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 activeTab === "labs"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
+                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
@@ -882,13 +882,13 @@ export default function JavaTwoPointersSlidingWindow() {
                       <div className="flex rounded-lg bg-slate-950 p-0.5 border border-slate-800 text-[11px]">
                         <button
                           onClick={() => { setTwoPtrMode("pair-sum"); handleTpReset(); }}
-                          className={`px-2 py-0.5 rounded font-medium ${twoPtrMode === "pair-sum" ? "bg-orange-500 text-white" : "text-slate-400"}`}
+                          className={`px-2 py-0.5 rounded font-medium ${twoPtrMode === "pair-sum" ? "bg-emerald-600 text-white" : "text-slate-400"}`}
                         >
                           Pair Sum
                         </button>
                         <button
                           onClick={() => { setTwoPtrMode("reverse"); handleTpReset(); }}
-                          className={`px-2 py-0.5 rounded font-medium ${twoPtrMode === "reverse" ? "bg-orange-500 text-white" : "text-slate-400"}`}
+                          className={`px-2 py-0.5 rounded font-medium ${twoPtrMode === "reverse" ? "bg-emerald-600 text-white" : "text-slate-400"}`}
                         >
                           Reversal
                         </button>
@@ -916,7 +916,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     <div className="flex gap-2 pt-2">
                       <button
                         onClick={handleTpStep}
-                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
+                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
                       >
                         Step Next (L={tpLeft}, R={tpRight})
                       </button>
@@ -1004,7 +1004,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     <div className="flex gap-2">
                       <button
                         onClick={handleCycleStep}
-                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
+                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
                       >
                         Advance Pointers (Step #{cycleStep + 1})
                       </button>
@@ -1083,13 +1083,13 @@ export default function JavaTwoPointersSlidingWindow() {
                       <div className="flex rounded-lg bg-slate-950 p-0.5 border border-slate-800 text-[11px]">
                         <button
                           onClick={() => { setSameDirMode("remove-dupes"); handleSdReset(); }}
-                          className={`px-2 py-0.5 rounded font-medium ${sameDirMode === "remove-dupes" ? "bg-orange-500 text-white" : "text-slate-400"}`}
+                          className={`px-2 py-0.5 rounded font-medium ${sameDirMode === "remove-dupes" ? "bg-emerald-600 text-white" : "text-slate-400"}`}
                         >
                           Remove Dupes
                         </button>
                         <button
                           onClick={() => { setSameDirMode("move-zeroes"); handleSdReset(); }}
-                          className={`px-2 py-0.5 rounded font-medium ${sameDirMode === "move-zeroes" ? "bg-orange-500 text-white" : "text-slate-400"}`}
+                          className={`px-2 py-0.5 rounded font-medium ${sameDirMode === "move-zeroes" ? "bg-emerald-600 text-white" : "text-slate-400"}`}
                         >
                           Move Zeroes
                         </button>
@@ -1106,7 +1106,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       <button
                         onClick={handleSdStep}
                         disabled={sdDone}
-                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 disabled:bg-slate-800 disabled:text-slate-600 text-white text-xs font-semibold"
+                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-white text-xs font-semibold"
                       >
                         {sdDone ? "Completed" : `Step Forward (i=${sdI}, j=${sdJ})`}
                       </button>
@@ -1183,7 +1183,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     <div className="flex gap-2">
                       <button
                         onClick={handleFixedStep}
-                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
+                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
                       >
                         Slide Window Right
                       </button>
@@ -1269,7 +1269,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     <div className="flex gap-2">
                       <button
                         onClick={handleUniqueStep}
-                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
+                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
                       >
                         Step Next (R={uRight})
                       </button>
@@ -1346,7 +1346,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     <div className="flex gap-2">
                       <button
                         onClick={handleMinStep}
-                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
+                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
                       >
                         Step Next (L={minL}, R={minR})
                       </button>
@@ -1439,7 +1439,7 @@ export default function JavaTwoPointersSlidingWindow() {
 
                     <button
                       onClick={handle1DQuery}
-                      className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
+                      className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
                     >
                       Calculate Range Sum [{qL}..{qR}]
                     </button>
@@ -1512,7 +1512,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     <div className="flex gap-2">
                       <button
                         onClick={handleKadaneStep}
-                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-orange-600 text-white text-xs font-semibold"
+                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
                       >
                         Step Next (Idx={kadaneIdx})
                       </button>
@@ -1601,7 +1601,7 @@ export default function JavaTwoPointersSlidingWindow() {
                         title={sec.title}
                         className={`w-full text-left p-2.5 rounded-xl text-xs transition-all flex items-start gap-2.5 ${
                           isActive
-                            ? "bg-orange-500 text-white font-medium shadow-md shadow-orange-500/20"
+                            ? "bg-emerald-600 text-white font-medium shadow-md shadow-emerald-600/20"
                             : isDone
                             ? "bg-slate-950/70 text-slate-300 hover:bg-slate-850"
                             : "bg-slate-950 text-slate-400 hover:bg-slate-850 hover:text-slate-200"
@@ -1693,7 +1693,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       <button
                         disabled={currentSec.id >= JAVA_TWO_POINTERS_SLIDING_WINDOW_SECTIONS.length - 1}
                         onClick={() => setActiveSectionId(Math.min(JAVA_TWO_POINTERS_SLIDING_WINDOW_SECTIONS.length - 1, currentSec.id + 1))}
-                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-orange-600 disabled:opacity-40 text-xs text-white font-semibold flex items-center gap-2"
+                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 text-xs text-white font-semibold flex items-center gap-2"
                       >
                         Next Section <ArrowRight className="w-4 h-4" />
                       </button>
@@ -1732,7 +1732,7 @@ export default function JavaTwoPointersSlidingWindow() {
                   <button
                     onClick={() => setShowQuizResults(true)}
                     disabled={Object.keys(userAnswers).length === 0}
-                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-orange-600 disabled:bg-slate-800 disabled:text-slate-600 text-xs font-bold text-white transition-all shadow-lg shadow-orange-500/25"
+                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-xs font-bold text-white transition-all shadow-lg shadow-emerald-600/30"
                   >
                     Submit Assessment ({Object.keys(userAnswers).length}/15 Answered)
                   </button>
@@ -1803,7 +1803,7 @@ export default function JavaTwoPointersSlidingWindow() {
                                 btnStyle = "bg-slate-950/50 border-slate-850 text-slate-500";
                               }
                             } else if (isThisOption) {
-                              btnStyle = "bg-orange-500/20 border-orange-500 text-orange-200 font-semibold";
+                              btnStyle = "bg-emerald-600/30 border-emerald-500 text-emerald-200 font-semibold";
                             }
 
                             return (
@@ -1861,7 +1861,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     onClick={() => setLabTierFilter(tier)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                       labTierFilter === tier
-                        ? "bg-orange-500 text-white font-bold"
+                        ? "bg-emerald-600 text-white font-bold"
                         : "bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800"
                     }`}
                   >

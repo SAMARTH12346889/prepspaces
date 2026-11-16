@@ -644,7 +644,7 @@ export default function JavaGreedyAlgorithms() {
   }, [gasData, wb8GasStep]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500/30 selection:text-amber-200">
       {/* Top Header Banner */}
       <header className="border-b border-slate-800 bg-slate-900/60 backdrop-blur sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
@@ -675,7 +675,7 @@ export default function JavaGreedyAlgorithms() {
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition ${
                 activeTab === "curriculum"
-                  ? "bg-orange-500 text-white font-semibold shadow-sm shadow-orange-500/25"
+                  ? "bg-amber-500 text-slate-950 font-semibold shadow-sm"
                   : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
               }`}
             >
@@ -686,7 +686,7 @@ export default function JavaGreedyAlgorithms() {
               onClick={() => setActiveTab("workbenches")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition ${
                 activeTab === "workbenches"
-                  ? "bg-orange-500 text-white font-semibold shadow-sm shadow-orange-500/25"
+                  ? "bg-amber-500 text-slate-950 font-semibold shadow-sm"
                   : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
               }`}
             >
@@ -697,7 +697,7 @@ export default function JavaGreedyAlgorithms() {
               onClick={() => setActiveTab("quiz")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition ${
                 activeTab === "quiz"
-                  ? "bg-orange-500 text-white font-semibold shadow-sm shadow-orange-500/25"
+                  ? "bg-amber-500 text-slate-950 font-semibold shadow-sm"
                   : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
               }`}
             >
@@ -708,7 +708,7 @@ export default function JavaGreedyAlgorithms() {
               onClick={() => setActiveTab("labs")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition ${
                 activeTab === "labs"
-                  ? "bg-orange-500 text-white font-semibold shadow-sm shadow-orange-500/25"
+                  ? "bg-amber-500 text-slate-950 font-semibold shadow-sm"
                   : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
               }`}
             >

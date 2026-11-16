@@ -491,47 +491,47 @@ export default function JavaRecursion() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
+    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 pb-16 selection:bg-orange-500/20 selection:text-orange-900">
       {/* Top Banner / Breadcrumb */}
-      <div className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-30">
+      <div className="border-b border-[#e7e3da] bg-white/80 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <button
               onClick={() => goBack()}
-              className="p-1.5 rounded-lg border border-slate-800 hover:bg-slate-950 text-slate-400 transition"
+              className="p-1.5 rounded-lg border border-[#e7e3da] hover:bg-stone-100 text-stone-600 transition"
               title="Return to Track Overview"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
-            <div className="flex items-center gap-1.5 text-xs text-slate-400">
-              <span className="font-semibold text-slate-200">Java Master Course</span>
+            <div className="flex items-center gap-1.5 text-xs text-stone-500">
+              <span className="font-semibold text-stone-800">Java Master Course</span>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-orange-400 font-bold">Module 6: Recursion, Backtracking & Math</span>
+              <span className="text-orange-600 font-bold">Module 6: Recursion, Backtracking & Math</span>
             </div>
           </div>
 
           {/* Mode Switcher */}
-          <div className="flex items-center bg-[#f4f1ea] p-1 rounded-xl border border-slate-800">
+          <div className="flex items-center bg-[#f4f1ea] p-1 rounded-xl border border-[#e7e3da]">
             <button
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 activeTab === "curriculum"
-                  ? "bg-slate-900/80 text-white shadow-2xs"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-white text-stone-900 shadow-2xs"
+                  : "text-stone-600 hover:text-stone-900"
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5 text-orange-400" />
+              <BookOpen className="w-3.5 h-3.5 text-orange-600" />
               <span>Curriculum (33 Sections)</span>
             </button>
             <button
               onClick={() => setActiveTab("workbench")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 activeTab === "workbench"
-                  ? "bg-slate-900/80 text-white shadow-2xs"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-white text-stone-900 shadow-2xs"
+                  : "text-stone-600 hover:text-stone-900"
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+              <Sparkles className="w-3.5 h-3.5 text-orange-600" />
               <span>Interactive Workbenches (9 Labs)</span>
             </button>
           </div>
@@ -547,7 +547,7 @@ export default function JavaRecursion() {
               <span className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 font-mono text-xs font-bold border border-orange-500/30">
                 MODULE 6 · PHASE 1 CAPSTONE
               </span>
-              <span className="px-3 py-1 rounded-full bg-stone-800 text-slate-400 text-xs font-medium border border-stone-700">
+              <span className="px-3 py-1 rounded-full bg-stone-800 text-stone-300 text-xs font-medium border border-stone-700">
                 14-16 Hours Study Time
               </span>
               <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
@@ -558,7 +558,7 @@ export default function JavaRecursion() {
             <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
               Recursion, Backtracking & Mathematical Foundations
             </h1>
-            <p className="text-sm sm:text-base text-slate-400 max-w-3xl leading-relaxed">
+            <p className="text-sm sm:text-base text-stone-300 max-w-3xl leading-relaxed">
               Master recursive problem decomposition, call stack activation frames, recursion trees, tail recursion, mathematical induction, combinatorial permutations and combinations, include-exclude subset generation, and constraint-based backtracking algorithms (N-Queens, Sudoku, Rat in a Maze, and 4-Direction Grid Pathfinding).
             </p>
 
@@ -603,7 +603,7 @@ export default function JavaRecursion() {
         ) : (
           <div className="mt-8 space-y-8">
             {/* WORKBENCH SUB-TABS */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 text-xs font-semibold [scrollbar-width:none]">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[#e7e3da] text-xs font-semibold [scrollbar-width:none]">
               {[
                 { id: "recursion-studio", label: "1. Call Stack & Frame Unwinding", icon: Layers },
                 { id: "tree-visualizer", label: "2. Recursion Tree & Memoization", icon: GitBranch },
@@ -624,7 +624,7 @@ export default function JavaRecursion() {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-orange-600 text-white font-bold shadow-xs"
-                        : "bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:bg-slate-950"
+                        : "bg-white text-stone-600 hover:text-stone-900 border border-stone-200 hover:bg-stone-50"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
@@ -637,21 +637,21 @@ export default function JavaRecursion() {
             {/* 1. CALL STACK & FRAME UNWINDING STUDIO */}
             {activeWorkbenchTab === "recursion-studio" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                        <Layers className="w-5 h-5 text-orange-400" />
+                      <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                        <Layers className="w-5 h-5 text-orange-600" />
                         JVM Call Stack: Recursive Descent & Unwinding Phase Inspector
                       </h3>
-                      <p className="text-xs text-slate-400 mt-1">
+                      <p className="text-xs text-stone-500 mt-1">
                         Step through activation frames to witness how recursive method calls are pushed onto the JVM thread stack and subsequently unwound to combine return values.
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
                       <button
                         onClick={handleResetStack}
-                        className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-semibold text-slate-300 hover:bg-slate-950 flex items-center gap-1.5"
+                        className="px-3 py-1.5 rounded-lg border border-stone-300 text-xs font-semibold text-stone-700 hover:bg-stone-50 flex items-center gap-1.5"
                       >
                         <RefreshCw className="w-3.5 h-3.5" />
                         <span>Reset</span>
@@ -662,8 +662,8 @@ export default function JavaRecursion() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* Controls */}
                     <div className="lg:col-span-4 space-y-4">
-                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-slate-800 space-y-3">
-                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-stone-200 space-y-3">
+                        <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block">
                           Algorithm & Input:
                         </label>
                         <div className="grid grid-cols-2 gap-2">
@@ -675,7 +675,7 @@ export default function JavaRecursion() {
                             className={`py-2 px-3 rounded-lg text-xs font-bold border transition ${
                               stackOperation === "factorial"
                                 ? "bg-orange-600 text-white border-orange-600"
-                                : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
+                                : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
                             }`}
                           >
                             Factorial(n)
@@ -688,7 +688,7 @@ export default function JavaRecursion() {
                             className={`py-2 px-3 rounded-lg text-xs font-bold border transition ${
                               stackOperation === "sum"
                                 ? "bg-orange-600 text-white border-orange-600"
-                                : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
+                                : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
                             }`}
                           >
                             NaturalSum(n)
@@ -696,9 +696,9 @@ export default function JavaRecursion() {
                         </div>
 
                         <div>
-                          <label className="text-xs text-slate-400 font-semibold flex justify-between mb-1">
+                          <label className="text-xs text-stone-600 font-semibold flex justify-between mb-1">
                             <span>Input (n):</span>
-                            <span className="font-mono text-orange-400 font-bold">{stackInputN}</span>
+                            <span className="font-mono text-orange-600 font-bold">{stackInputN}</span>
                           </label>
                           <input
                             type="range"
@@ -717,7 +717,7 @@ export default function JavaRecursion() {
                           <button
                             disabled={currentStackStep === 0}
                             onClick={handlePrevStep}
-                            className="flex-1 py-2 px-3 rounded-xl border border-slate-800 text-xs font-semibold text-slate-300 hover:bg-slate-950 disabled:opacity-40"
+                            className="flex-1 py-2 px-3 rounded-xl border border-stone-200 text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-40"
                           >
                             &larr; Back
                           </button>
@@ -743,16 +743,16 @@ export default function JavaRecursion() {
 
                     {/* Stack Frames Display */}
                     <div className="lg:col-span-8 space-y-4">
-                      <div className="flex items-center justify-between text-xs font-bold text-slate-300 uppercase tracking-wider">
+                      <div className="flex items-center justify-between text-xs font-bold text-stone-700 uppercase tracking-wider">
                         <span>Call Stack Frames (Top = Active Invocation)</span>
-                        <span className="font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">
+                        <span className="font-mono px-2 py-0.5 rounded bg-stone-100 text-stone-600">
                           Phase: {currentStepData.phase} · Step {currentStackStep + 1} of {stackAnimationSteps.length}
                         </span>
                       </div>
 
                       <div className="p-4 rounded-xl bg-stone-900 text-white font-mono text-xs space-y-2 min-h-[220px] flex flex-col justify-end border border-stone-800">
                         {currentStepData.frames.length === 0 ? (
-                          <div className="m-auto text-center text-slate-500">
+                          <div className="m-auto text-center text-stone-400">
                             Stack is empty. Execution returned to main().
                           </div>
                         ) : (
@@ -764,23 +764,23 @@ export default function JavaRecursion() {
                                   ? "bg-orange-950/80 border-orange-500 text-orange-200"
                                   : frame.state === "popping"
                                   ? "bg-emerald-950/80 border-emerald-500 text-emerald-200"
-                                  : "bg-stone-800/80 border-stone-700 text-slate-400"
+                                  : "bg-stone-800/80 border-stone-700 text-stone-300"
                               }`}
                             >
                               <div className="flex items-center gap-2">
                                 <span className="font-bold text-white">{frame.call}</span>
-                                <span className="text-[10px] px-1.5 py-0.2 rounded bg-stone-700 text-slate-400">
+                                <span className="text-[10px] px-1.5 py-0.2 rounded bg-stone-700 text-stone-300">
                                   frame #{currentStepData.frames.length - idx}
                                 </span>
                               </div>
-                              <span className="text-xs text-slate-500">{frame.pending}</span>
+                              <span className="text-xs text-stone-400">{frame.pending}</span>
                             </div>
                           ))
                         )}
                       </div>
 
-                      <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200 font-mono">
-                        <span className="text-orange-400 font-bold">&gt; Step Trace: </span>
+                      <div className="p-3.5 rounded-xl bg-stone-100 border border-stone-200 text-xs text-stone-800 font-mono">
+                        <span className="text-orange-600 font-bold">&gt; Step Trace: </span>
                         {currentStepData.desc}
                       </div>
                     </div>
@@ -792,21 +792,21 @@ export default function JavaRecursion() {
             {/* 2. RECURSION TREE & MEMOIZATION */}
             {activeWorkbenchTab === "tree-visualizer" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="border-b border-slate-800/60 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <GitBranch className="w-5 h-5 text-orange-400" />
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="border-b border-stone-100 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                      <GitBranch className="w-5 h-5 text-orange-600" />
                       Recursion Tree Visualization: Naive O(2ⁿ) vs Memoized O(n) Fibonacci
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Inspect the exponential branching factor of binary recursion and observe how memoization prunes redundant subproblem recomputation.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <div className="lg:col-span-4 space-y-4">
-                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-slate-800 space-y-3">
-                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-stone-200 space-y-3">
+                        <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block">
                           Fibonacci Parameter (n):
                         </label>
                         <div className="flex items-center gap-2">
@@ -817,7 +817,7 @@ export default function JavaRecursion() {
                               className={`flex-1 py-1.5 rounded-lg text-xs font-bold border transition ${
                                 fibN === val
                                   ? "bg-orange-600 text-white border-orange-600"
-                                  : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
+                                  : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
                               }`}
                             >
                               F({val})
@@ -826,7 +826,7 @@ export default function JavaRecursion() {
                         </div>
 
                         <div>
-                          <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mt-3 mb-1">
+                          <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block mt-3 mb-1">
                             Algorithm Mode:
                           </label>
                           <div className="grid grid-cols-2 gap-2">
@@ -835,7 +835,7 @@ export default function JavaRecursion() {
                               className={`py-2 px-2 rounded-lg text-xs font-bold border transition ${
                                 treeMode === "naive"
                                   ? "bg-rose-50 text-rose-900 border-rose-300"
-                                  : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
+                                  : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
                               }`}
                             >
                               Naive O(2ⁿ)
@@ -845,7 +845,7 @@ export default function JavaRecursion() {
                               className={`py-2 px-2 rounded-lg text-xs font-bold border transition ${
                                 treeMode === "memoized"
                                   ? "bg-emerald-50 text-emerald-900 border-emerald-300"
-                                  : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
+                                  : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
                               }`}
                             >
                               Memoized O(n)
@@ -856,25 +856,25 @@ export default function JavaRecursion() {
 
                       {/* Stat summary card */}
                       <div className="p-4 rounded-xl bg-stone-900 text-white font-mono text-xs space-y-2">
-                        <div className="text-slate-500 uppercase text-[10px] font-bold">Execution Metrics:</div>
+                        <div className="text-stone-400 uppercase text-[10px] font-bold">Execution Metrics:</div>
                         <div>Target Result: <span className="text-orange-400 font-bold">F({fibStats.n}) = {fibStats.val}</span></div>
                         <div>Naive Call Count: <span className="text-rose-400 font-bold">{fibStats.naiveCalls} calls</span></div>
                         <div>Memoized Call Count: <span className="text-emerald-400 font-bold">{fibStats.memoCalls} calls</span></div>
-                        <div className="pt-2 border-t border-stone-800 text-[11px] text-slate-500 font-sans">
+                        <div className="pt-2 border-t border-stone-800 text-[11px] text-stone-400 font-sans">
                           Memoization eliminates <strong>{fibStats.redundancy} redundant recursive calls</strong>.
                         </div>
                       </div>
                     </div>
 
                     <div className="lg:col-span-8 space-y-4">
-                      <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-slate-800 space-y-3">
-                        <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-stone-200 space-y-3">
+                        <div className="text-xs font-bold text-stone-800 uppercase tracking-wider">
                           Recursion Tree Structure for F({fibN}):
                         </div>
 
                         {treeMode === "naive" ? (
                           <div className="p-4 rounded-xl bg-stone-950 text-stone-200 font-mono text-xs overflow-x-auto leading-relaxed border border-stone-800">
-                            <div className="text-slate-400 mb-2">// Full binary recursive tree without memoization</div>
+                            <div className="text-stone-500 mb-2">// Full binary recursive tree without memoization</div>
                             {fibN === 4 && (
                               <pre>{`                  F(4)
                  /    \\
@@ -923,20 +923,20 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
             {/* 3. MATHEMATICAL INDUCTION PROOFS */}
             {activeWorkbenchTab === "induction-lab" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="border-b border-slate-800/60 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <Calculator className="w-5 h-5 text-orange-400" />
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="border-b border-stone-100 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                      <Calculator className="w-5 h-5 text-orange-600" />
                       Mathematical Induction Proof Studio
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Understand the 4-step formal structure of mathematical induction and its exact equivalence to base cases and recursive hypotheses in program correctness proofs.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <div className="lg:col-span-4 space-y-3">
-                      <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+                      <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block">
                         Select Proposition P(n):
                       </label>
                       <div className="space-y-2">
@@ -950,40 +950,40 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                             onClick={() => setInductionProofType(p.id)}
                             className={`w-full text-left p-3 rounded-xl border transition ${
                               inductionProofType === p.id
-                                ? "bg-orange-500/15 border-orange-500/40 text-orange-950 font-bold shadow-2xs"
-                                : "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-950"
+                                ? "bg-orange-50 border-orange-300 text-orange-950 font-bold shadow-2xs"
+                                : "bg-white border-stone-200 text-stone-700 hover:bg-stone-50"
                             }`}
                           >
                             <div className="text-xs font-bold">{p.title}</div>
-                            <div className="text-[11px] text-slate-400 font-mono mt-0.5">{p.formula}</div>
+                            <div className="text-[11px] text-stone-500 font-mono mt-0.5">{p.formula}</div>
                           </button>
                         ))}
                       </div>
                     </div>
 
                     <div className="lg:col-span-8 space-y-4">
-                      <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-slate-800 space-y-4">
-                        <div className="text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">
+                      <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-stone-200 space-y-4">
+                        <div className="text-xs font-bold text-stone-800 uppercase tracking-wider font-mono">
                           Formal Proof by Mathematical Induction:
                         </div>
 
                         {inductionProofType === "sumNatural" && (
                           <div className="space-y-3 text-xs leading-relaxed">
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 1 — Base Case (n = 1):</span>
-                              <p className="text-slate-300">
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 1 — Base Case (n = 1):</span>
+                              <p className="text-stone-700">
                                 LHS = 1. RHS = 1(1 + 1)/2 = 1. Since LHS = RHS, base case P(1) holds true.
                               </p>
                             </div>
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 2 — Inductive Hypothesis:</span>
-                              <p className="text-slate-300">
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 2 — Inductive Hypothesis:</span>
+                              <p className="text-stone-700">
                                 Assume the statement is true for an arbitrary positive integer k: 1 + 2 + ... + k = k(k + 1)/2.
                               </p>
                             </div>
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 3 — Inductive Step (Prove for k + 1):</span>
-                              <p className="text-slate-300 font-mono">
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 3 — Inductive Step (Prove for k + 1):</span>
+                              <p className="text-stone-700 font-mono">
                                 [1 + 2 + ... + k] + (k + 1) = k(k + 1)/2 + (k + 1)<br />
                                 = (k + 1) [k/2 + 1] = (k + 1)(k + 2)/2.<br />
                                 This matches the required form for (k + 1)!
@@ -997,17 +997,17 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
 
                         {inductionProofType === "sumOdd" && (
                           <div className="space-y-3 text-xs leading-relaxed">
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 1 — Base Case (n = 1):</span>
-                              <p className="text-slate-300">LHS = 2(1) - 1 = 1. RHS = 1² = 1. P(1) holds true.</p>
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 1 — Base Case (n = 1):</span>
+                              <p className="text-stone-700">LHS = 2(1) - 1 = 1. RHS = 1² = 1. P(1) holds true.</p>
                             </div>
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 2 — Inductive Hypothesis:</span>
-                              <p className="text-slate-300">Assume 1 + 3 + ... + (2k - 1) = k² for an arbitrary integer k.</p>
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 2 — Inductive Hypothesis:</span>
+                              <p className="text-stone-700">Assume 1 + 3 + ... + (2k - 1) = k² for an arbitrary integer k.</p>
                             </div>
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 3 — Inductive Step:</span>
-                              <p className="text-slate-300 font-mono">
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 3 — Inductive Step:</span>
+                              <p className="text-stone-700 font-mono">
                                 [1 + 3 + ... + (2k - 1)] + (2(k + 1) - 1) = k² + 2k + 1 = (k + 1)².
                               </p>
                             </div>
@@ -1019,17 +1019,17 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
 
                         {inductionProofType === "powerSet" && (
                           <div className="space-y-3 text-xs leading-relaxed">
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 1 — Base Case (n = 0):</span>
-                              <p className="text-slate-300">For empty set ∅, the only subset is ∅. |P(∅)| = 1 = 2⁰. P(0) holds.</p>
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 1 — Base Case (n = 0):</span>
+                              <p className="text-stone-700">For empty set ∅, the only subset is ∅. |P(∅)| = 1 = 2⁰. P(0) holds.</p>
                             </div>
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 2 — Inductive Hypothesis:</span>
-                              <p className="text-slate-300">Assume any set of size k has exactly 2ᵏ subsets.</p>
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 2 — Inductive Hypothesis:</span>
+                              <p className="text-stone-700">Assume any set of size k has exactly 2ᵏ subsets.</p>
                             </div>
-                            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                              <span className="font-bold text-orange-400 uppercase font-mono">Step 3 — Inductive Step:</span>
-                              <p className="text-slate-300">
+                            <div className="p-3.5 rounded-xl bg-white border border-stone-200 space-y-1">
+                              <span className="font-bold text-orange-600 uppercase font-mono">Step 3 — Inductive Step:</span>
+                              <p className="text-stone-700">
                                 When adding element (k + 1), every existing subset can either exclude it or include it. Thus total subsets = 2 × 2ᵏ = 2^(k + 1).
                               </p>
                             </div>
@@ -1048,21 +1048,21 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
             {/* 4. COMBINATORICS & SUBSETS */}
             {activeWorkbenchTab === "combinatorics-lab" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="border-b border-slate-800/60 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <Binary className="w-5 h-5 text-orange-400" />
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="border-b border-stone-100 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                      <Binary className="w-5 h-5 text-orange-600" />
                       Permutations, Combinations & Include-Exclude Subset Generator
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Generate permutations (order matters), combinations (order ignored), and the complete power set (2ⁿ subsets) via include-exclude recursion and binary bitmasks.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <div className="lg:col-span-4 space-y-4">
-                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-slate-800 space-y-3">
-                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-stone-200 space-y-3">
+                        <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block">
                           Generator Mode:
                         </label>
                         <div className="grid grid-cols-3 gap-2">
@@ -1073,7 +1073,7 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                               className={`py-2 px-1 text-center rounded-lg text-xs font-bold border capitalize transition ${
                                 combAction === act
                                   ? "bg-orange-600 text-white border-orange-600"
-                                  : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
+                                  : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
                               }`}
                             >
                               {act}
@@ -1083,9 +1083,9 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
 
                         {combAction === "combinations" && (
                           <div>
-                            <label className="text-xs text-slate-400 font-semibold flex justify-between mb-1">
+                            <label className="text-xs text-stone-600 font-semibold flex justify-between mb-1">
                               <span>Choose Size (r):</span>
-                              <span className="font-mono text-orange-400 font-bold">{combR}</span>
+                              <span className="font-mono text-orange-600 font-bold">{combR}</span>
                             </label>
                             <input
                               type="range"
@@ -1101,7 +1101,7 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
 
                       {/* Formulas Card */}
                       <div className="p-4 rounded-xl bg-stone-900 text-white font-mono text-xs space-y-2">
-                        <div className="text-slate-500 uppercase text-[10px] font-bold">Combinatorial Formulas:</div>
+                        <div className="text-stone-400 uppercase text-[10px] font-bold">Combinatorial Formulas:</div>
                         <div>P(n, r) = n! / (n - r)! = <span className="text-orange-400">{combCalculations.pCount}</span></div>
                         <div>C(n, r) = n! / (r!(n - r)!) = <span className="text-amber-400">{combCalculations.cCount}</span></div>
                         <div>Subsets = 2ⁿ = <span className="text-emerald-400">{combCalculations.subCount}</span></div>
@@ -1109,15 +1109,15 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                     </div>
 
                     <div className="lg:col-span-8 space-y-4">
-                      <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-slate-800 space-y-3">
-                        <div className="flex items-center justify-between text-xs font-bold text-slate-200 uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#fcfbf9] border border-stone-200 space-y-3">
+                        <div className="flex items-center justify-between text-xs font-bold text-stone-800 uppercase tracking-wider">
                           <span>Generated Outputs ({combCalculations.results.length} total)</span>
-                          <span className="font-mono text-slate-400">Elements: [{combInput.join(", ")}]</span>
+                          <span className="font-mono text-stone-500">Elements: [{combInput.join(", ")}]</span>
                         </div>
 
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-64 overflow-y-auto pr-1">
                           {combCalculations.results.map((res, i) => (
-                            <div key={i} className="p-2.5 rounded-lg border bg-slate-900/80 text-xs font-mono text-slate-200 text-center shadow-2xs">
+                            <div key={i} className="p-2.5 rounded-lg border bg-white text-xs font-mono text-stone-800 text-center shadow-2xs">
                               {res}
                             </div>
                           ))}
@@ -1132,21 +1132,21 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
             {/* 5. N-QUEENS CHESSBOARD SOLVER */}
             {activeWorkbenchTab === "nqueens-studio" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="border-b border-slate-800/60 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <Crown className="w-5 h-5 text-orange-400" />
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="border-b border-stone-100 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                      <Crown className="w-5 h-5 text-orange-600" />
                       N-Queens Constraint Satisfaction Chessboard Solver
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Place N queens on an N × N chessboard such that no two queens share the same row, column, or diagonal.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                     <div className="lg:col-span-4 space-y-4">
-                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-slate-800 space-y-3">
-                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+                      <div className="bg-[#fcfbf9] p-4 rounded-xl border border-stone-200 space-y-3">
+                        <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block">
                           Board Size (N × N):
                         </label>
                         <div className="grid grid-cols-4 gap-2">
@@ -1157,7 +1157,7 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                               className={`py-2 text-center rounded-lg text-xs font-bold border transition ${
                                 boardN === n
                                   ? "bg-orange-600 text-white border-orange-600"
-                                  : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
+                                  : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
                               }`}
                             >
                               {n}×{n}
@@ -1166,11 +1166,11 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                         </div>
 
                         <div className="pt-2">
-                          <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1">
+                          <label className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-1">
                             Available Solutions:
                           </label>
-                          <div className="text-xs text-slate-400">
-                            Total Valid Solutions: <strong className="text-orange-400">{nQueensSolutionList.length}</strong>
+                          <div className="text-xs text-stone-600">
+                            Total Valid Solutions: <strong className="text-orange-600">{nQueensSolutionList.length}</strong>
                           </div>
                           {nQueensSolutionList.length > 0 && (
                             <div className="flex flex-wrap gap-1.5 mt-2">
@@ -1181,7 +1181,7 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                                   className={`px-2 py-1 rounded text-[11px] font-mono font-bold border ${
                                     selectedSolIdx === idx
                                       ? "bg-orange-600 text-white border-orange-600"
-                                      : "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950"
+                                      : "bg-white text-stone-700 border-stone-200 hover:bg-stone-100"
                                   }`}
                                 >
                                   #{idx + 1}
@@ -1194,9 +1194,9 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
 
                       {/* Conflict Math Card */}
                       <div className="p-4 rounded-xl bg-stone-900 text-white font-mono text-xs space-y-2">
-                        <div className="text-slate-500 uppercase text-[10px] font-bold">Diagonal Conflict Check:</div>
+                        <div className="text-stone-400 uppercase text-[10px] font-bold">Diagonal Conflict Check:</div>
                         <div className="text-emerald-400">Math.abs(r1 - r2) == Math.abs(c1 - c2)</div>
-                        <p className="text-[11px] text-slate-500 font-sans leading-relaxed">
+                        <p className="text-[11px] text-stone-400 font-sans leading-relaxed">
                           If row difference equals column difference, two queens share a diagonal! Pruning immediately rejects the move.
                         </p>
                       </div>
@@ -1224,8 +1224,8 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                                   hasQueen
                                     ? "bg-orange-500 text-white"
                                     : isDark
-                                    ? "bg-stone-700 text-slate-400"
-                                    : "bg-slate-800 text-slate-300"
+                                    ? "bg-stone-700 text-stone-300"
+                                    : "bg-stone-200 text-stone-700"
                                 }`}
                               >
                                 {hasQueen && <Crown className="w-5 h-5 drop-shadow-md animate-bounce" />}
@@ -1234,7 +1234,7 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                           })
                         )}
                       </div>
-                      <div className="mt-3 text-xs text-slate-400 font-mono">
+                      <div className="mt-3 text-xs text-stone-500 font-mono">
                         Placement Array: [{queenColumns.join(", ")}]
                       </div>
                     </div>
@@ -1246,14 +1246,14 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
             {/* 6. SUDOKU BACKTRACKING SOLVER */}
             {activeWorkbenchTab === "sudoku-studio" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                        <Grid3X3 className="w-5 h-5 text-orange-400" />
+                      <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                        <Grid3X3 className="w-5 h-5 text-orange-600" />
                         9 × 9 Sudoku Constraint Satisfaction Backtracking Solver
                       </h3>
-                      <p className="text-xs text-slate-400 mt-1">
+                      <p className="text-xs text-stone-500 mt-1">
                         Witness multi-constraint pruning across rows, columns, and 3 × 3 subgrids as backtracking fills blank cells.
                       </p>
                     </div>
@@ -1267,7 +1267,7 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                       </button>
                       <button
                         onClick={handleResetSudoku}
-                        className="px-3 py-2 rounded-xl border border-slate-800 text-xs font-semibold text-slate-300 hover:bg-slate-950"
+                        className="px-3 py-2 rounded-xl border border-stone-200 text-xs font-semibold text-stone-700 hover:bg-stone-50"
                       >
                         Reset Board
                       </button>
@@ -1279,18 +1279,18 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                       {sudokuGrid.map((row, r) =>
                         row.map((val, c) => {
                           const isInitial = initialSudokuGrid[r][c] !== 0;
-                          const borderR = (r + 1) % 3 === 0 && r !== 8 ? "border-b-2 border-b-stone-900" : "border-b border-slate-700";
-                          const borderC = (c + 1) % 3 === 0 && c !== 8 ? "border-r-2 border-r-stone-900" : "border-r border-slate-700";
+                          const borderR = (r + 1) % 3 === 0 && r !== 8 ? "border-b-2 border-b-stone-900" : "border-b border-stone-300";
+                          const borderC = (c + 1) % 3 === 0 && c !== 8 ? "border-r-2 border-r-stone-900" : "border-r border-stone-300";
 
                           return (
                             <div
                               key={`${r}-${c}`}
                               className={`flex items-center justify-center font-mono font-bold text-xs sm:text-base ${borderR} ${borderC} ${
                                 isInitial
-                                  ? "bg-slate-950 text-stone-950 font-black"
+                                  ? "bg-stone-100 text-stone-950 font-black"
                                   : val !== 0
-                                  ? "bg-orange-500/15 text-orange-400"
-                                  : "bg-slate-900/80 text-slate-400"
+                                  ? "bg-orange-50 text-orange-600"
+                                  : "bg-white text-stone-300"
                               }`}
                             >
                               {val !== 0 ? val : ""}
@@ -1313,14 +1313,14 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
             {/* 7. RAT IN A MAZE */}
             {activeWorkbenchTab === "maze-studio" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                        <Footprints className="w-5 h-5 text-orange-400" />
+                      <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                        <Footprints className="w-5 h-5 text-orange-600" />
                         Rat in a Maze: 2D Grid Pathfinding & Backtrack Explorer
                       </h3>
-                      <p className="text-xs text-slate-400 mt-1">
+                      <p className="text-xs text-stone-500 mt-1">
                         Click on cells to toggle obstacles (wall vs open path). Run the recursive solver to observe DFS exploration and backtracking.
                       </p>
                     </div>
@@ -1346,14 +1346,14 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                             <button
                               key={`${r}-${c}`}
                               onClick={() => toggleMazeCell(r, c)}
-                              className={`flex items-center justify-center font-mono font-bold text-xs border border-slate-700 transition-all ${
+                              className={`flex items-center justify-center font-mono font-bold text-xs border border-stone-300 transition-all ${
                                 cell === 0
-                                  ? "bg-stone-900 text-slate-400"
+                                  ? "bg-stone-900 text-stone-500"
                                   : inPath
                                   ? "bg-orange-500 text-white"
                                   : isStart || isEnd
                                   ? "bg-emerald-100 text-emerald-900"
-                                  : "bg-slate-900/80 text-slate-300 hover:bg-slate-950"
+                                  : "bg-white text-stone-700 hover:bg-stone-100"
                               }`}
                             >
                               {isStart ? "S" : isEnd ? "E" : cell === 0 ? "■" : inPath ? "●" : ""}
@@ -1363,7 +1363,7 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                       )}
                     </div>
 
-                    <div className="text-xs text-slate-400">
+                    <div className="text-xs text-stone-600">
                       {mazeStatus === "found" && (
                         <span className="text-emerald-700 font-bold flex items-center gap-1.5">
                           <CheckCircle2 className="w-4 h-4" /> Path found from (0,0) to ({mazeGrid.length - 1},{mazeGrid.length - 1}) in {mazePath.length} steps!
@@ -1386,22 +1386,22 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
             {/* 8. 20-QUESTION ASSESSMENT EXAM */}
             {activeWorkbenchTab === "quiz" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4 mb-6">
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-4 mb-6">
                     <div>
-                      <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                        <HelpCircle className="w-5 h-5 text-orange-400" />
+                      <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                        <HelpCircle className="w-5 h-5 text-orange-600" />
                         Module 6 Assessment: 20 Multiple-Choice Questions
                       </h3>
-                      <p className="text-xs text-slate-400 mt-0.5">
+                      <p className="text-xs text-stone-500 mt-0.5">
                         Test your comprehension of recursive descent, call stacks, induction, permutations, combinations, subsets, pruning, and backtracking algorithms.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <div className="text-xs font-semibold text-slate-400 bg-slate-950 px-3 py-1.5 rounded-lg border">
+                      <div className="text-xs font-semibold text-stone-600 bg-stone-100 px-3 py-1.5 rounded-lg border">
                         Progress:{" "}
-                        <strong className="text-orange-400">
+                        <strong className="text-orange-600">
                           {Object.keys(quizAnswers).length} / {quizQuestions.length}
                         </strong>
                       </div>
@@ -1417,12 +1417,12 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                   {showResults && (
                     <div className="mb-6 p-4 rounded-xl bg-stone-900 text-white flex items-center justify-between">
                       <div>
-                        <div className="text-xs text-slate-500 font-mono">YOUR TOTAL EXAM SCORE:</div>
+                        <div className="text-xs text-stone-400 font-mono">YOUR TOTAL EXAM SCORE:</div>
                         <div className="text-2xl font-black text-orange-400 font-mono">
                           {quizScore} / {quizQuestions.length} ({Math.round((quizScore / quizQuestions.length) * 100)}%)
                         </div>
                       </div>
-                      <div className="text-xs text-slate-400 max-w-sm text-right">
+                      <div className="text-xs text-stone-300 max-w-sm text-right">
                         {quizScore >= 16
                           ? "🎉 Exceptional mastery of recursion and backtracking! You have completed Phase 1 and are ready to advance to Data Structures and Algorithms."
                           : "Review the question explanations below and revisit the corresponding curriculum chapters."}
@@ -1445,18 +1445,18 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                                 ? "bg-emerald-50/50 border-emerald-300"
                                 : isAnswered
                                 ? "bg-rose-50/50 border-rose-300"
-                                : "bg-slate-950 border-slate-800"
-                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
+                                : "bg-stone-50 border-stone-200"
+                              : "bg-white border-stone-200 hover:border-stone-300"
                           }`}
                         >
-                          <div className="font-semibold text-xs text-white mb-2.5">
+                          <div className="font-semibold text-xs text-stone-900 mb-2.5">
                             {q.question}
                           </div>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {q.options.map((opt, optIdx) => {
                               const isSelected = selectedOpt === optIdx;
-                              let optBtnClass = "bg-slate-950 hover:bg-slate-950 border-slate-800 text-slate-300";
+                              let optBtnClass = "bg-stone-50 hover:bg-stone-100 border-stone-200 text-stone-700";
 
                               if (showResults) {
                                 if (optIdx === q.correct) {
@@ -1484,8 +1484,8 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                           </div>
 
                           {showResults && (
-                            <div className="mt-3 p-3 rounded-lg bg-slate-950 text-[11px] text-slate-300 leading-relaxed">
-                              <span className="font-bold text-white">Explanation: </span>
+                            <div className="mt-3 p-3 rounded-lg bg-stone-100 text-[11px] text-stone-700 leading-relaxed">
+                              <span className="font-bold text-stone-900">Explanation: </span>
                               {q.explanation}
                             </div>
                           )}
@@ -1500,13 +1500,13 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
             {/* 9. LABS, PROJECTS & CHALLENGES */}
             {activeWorkbenchTab === "labs" && (
               <div className="space-y-6">
-                <div className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 shadow-sm">
-                  <div className="border-b border-slate-800/60 pb-4 mb-6">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <Award className="w-5 h-5 text-orange-400" />
+                <div className="bg-white rounded-2xl border border-[#e7e3da] p-6 shadow-sm">
+                  <div className="border-b border-stone-100 pb-4 mb-6">
+                    <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+                      <Award className="w-5 h-5 text-orange-600" />
                       Labs, Independent Assignments & Mini-Project Tracker
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Track your hands-on coding implementations in your local IDE as you build recursive functions, permutation engines, and constraint-based backtracking applications.
                     </p>
                   </div>
@@ -1521,18 +1521,18 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                           className={`p-4 rounded-xl border cursor-pointer transition-all ${
                             isDone
                               ? "bg-emerald-50/50 border-emerald-300"
-                              : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
+                              : "bg-white border-stone-200 hover:border-stone-300"
                           }`}
                         >
                           <div className="flex items-start gap-3">
                             <button
                               type="button"
-                              className="mt-0.5 text-slate-500 hover:text-slate-400 focus:outline-none"
+                              className="mt-0.5 text-stone-400 hover:text-stone-600 focus:outline-none"
                             >
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-600" />
                               ) : (
-                                <Square className="w-4 h-4 text-slate-500" />
+                                <Square className="w-4 h-4 text-stone-400" />
                               )}
                             </button>
                             <div className="space-y-1">
@@ -1540,7 +1540,7 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                                 <span
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     lab.type === "Lab"
-                                      ? "bg-orange-500/15 text-orange-300"
+                                      ? "bg-orange-100 text-orange-800"
                                       : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
@@ -1548,13 +1548,13 @@ Total distinct subproblems solved: exactly ${fibN + 1}.`}</pre>
                                 </span>
                                 <h4
                                   className={`text-xs font-bold ${
-                                    isDone ? "text-slate-400 line-through" : "text-white"
+                                    isDone ? "text-stone-500 line-through" : "text-stone-900"
                                   }`}
                                 >
                                   {lab.title}
                                 </h4>
                               </div>
-                              <p className="text-xs text-slate-400 leading-relaxed">{lab.goal}</p>
+                              <p className="text-xs text-stone-600 leading-relaxed">{lab.goal}</p>
                             </div>
                           </div>
                         </div>

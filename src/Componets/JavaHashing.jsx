@@ -651,7 +651,7 @@ export default function JavaHashing() {
   }, [searchFilter]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white pb-16">
+    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500 selection:text-white">
       {/* Top sticky module navigation bar */}
       <ModuleNav
         track="java"
@@ -676,7 +676,7 @@ export default function JavaHashing() {
               <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
                 Hashing & Hash-Based Data Structures
               </h1>
-              <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+              <p className="text-stone-300 text-sm sm:text-base leading-relaxed">
                 Master hash tables, hash functions, collision resolution (Separate Chaining, Linear Probing, Quadratic Probing, Double Hashing), load factors, rehashing, Java HashMap internals (bit spreading, power-of-two mask, Red-Black treeification), LinkedHashMap LRU Cache, TreeMap, custom equals() & hashCode() contracts, and high-frequency interview patterns.
               </p>
             </div>
@@ -689,7 +689,7 @@ export default function JavaHashing() {
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                     viewMode === "interactive"
                       ? "bg-orange-500 text-white shadow-md shadow-orange-500/30"
-                      : "text-slate-500 hover:text-white"
+                      : "text-stone-400 hover:text-white"
                   }`}
                 >
                   <Cpu className="w-4 h-4" />
@@ -700,7 +700,7 @@ export default function JavaHashing() {
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                     viewMode === "reader"
                       ? "bg-orange-500 text-white shadow-md shadow-orange-500/30"
-                      : "text-slate-500 hover:text-white"
+                      : "text-stone-400 hover:text-white"
                   }`}
                 >
                   <BookOpen className="w-4 h-4" />
@@ -708,7 +708,7 @@ export default function JavaHashing() {
                 </button>
               </div>
 
-              <div className="text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
+              <div className="text-[11px] font-mono text-stone-400 flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Java 17+ SE & DSA Spec</span>
               </div>
@@ -722,7 +722,7 @@ export default function JavaHashing() {
         {viewMode === "interactive" && (
           <div className="space-y-6">
             {/* Workbench Subnav Tabs */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-slate-800 [scrollbar-width:none]">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-[#e7e3da] [scrollbar-width:none]">
               {[
                 { id: "hashTableStudio", label: "Hash Table Studio", icon: Grid },
                 { id: "hashmapInternals", label: "HashMap Internals & Tree", icon: Binary },
@@ -743,7 +743,7 @@ export default function JavaHashing() {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                       isActive
                         ? "bg-orange-600 text-white shadow-sm"
-                        : "bg-slate-900/80 hover:bg-slate-950 text-slate-400 border border-slate-800"
+                        : "bg-white hover:bg-stone-100 text-stone-600 border border-[#e7e3da]"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -756,22 +756,22 @@ export default function JavaHashing() {
             {/* TAB 1: HASH TABLE STUDIO */}
             {activeTab === "hashTableStudio" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Collision Resolution Workbench
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Interactive Hash Table (Separate Chaining vs Open Addressing)
                       </h3>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-stone-500">
                         Compare linked-node bucket chains with Linear Probing, Quadratic Probing, and Double Hashing.
                       </p>
                     </div>
 
                     {/* Strategy Selector */}
-                    <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl">
+                    <div className="flex items-center gap-1 bg-stone-100 p-1 rounded-xl">
                       {[
                         { id: "chaining", label: "Chaining" },
                         { id: "linear", label: "Linear Probing" },
@@ -782,7 +782,7 @@ export default function JavaHashing() {
                           key={s.id}
                           onClick={() => setHtStrategy(s.id)}
                           className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                            htStrategy === s.id ? "bg-slate-900/80 text-white shadow-2xs" : "text-slate-400 hover:text-white"
+                            htStrategy === s.id ? "bg-white text-stone-900 shadow-2xs" : "text-stone-500 hover:text-stone-900"
                           }`}
                         >
                           {s.label}
@@ -794,22 +794,22 @@ export default function JavaHashing() {
                   {/* Controls */}
                   <div className="flex flex-wrap items-center gap-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">Key:</span>
+                      <span className="text-xs font-mono text-stone-500">Key:</span>
                       <input
                         type="number"
                         value={htInputKey}
                         onChange={(e) => setHtInputKey(e.target.value)}
-                        className="w-20 px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg font-mono focus:outline-none focus:border-orange-500"
+                        className="w-20 px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded-lg font-mono focus:outline-none focus:border-orange-500"
                         placeholder="Key"
                       />
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">Value:</span>
+                      <span className="text-xs font-mono text-stone-500">Value:</span>
                       <input
                         type="text"
                         value={htInputValue}
                         onChange={(e) => setHtInputValue(e.target.value)}
-                        className="w-28 px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg font-mono focus:outline-none focus:border-orange-500"
+                        className="w-28 px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded-lg font-mono focus:outline-none focus:border-orange-500"
                         placeholder="Value"
                       />
                     </div>
@@ -829,7 +829,7 @@ export default function JavaHashing() {
                         value={htSearchKey}
                         onChange={(e) => setHtSearchKey(e.target.value)}
                         placeholder="Search key..."
-                        className="w-28 px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg font-mono focus:outline-none focus:border-orange-500"
+                        className="w-28 px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded-lg font-mono focus:outline-none focus:border-orange-500"
                       />
                       <button
                         onClick={handleChainingSearch}
@@ -841,8 +841,8 @@ export default function JavaHashing() {
 
                     {/* Metrics Badge */}
                     <div className="ml-auto flex items-center gap-3 text-xs font-mono">
-                      <span className="text-slate-400">
-                        Load Factor: <strong className="text-white">{htStrategy === "chaining" ? chainingLoadFactor : oaLoadFactor}</strong>
+                      <span className="text-stone-500">
+                        Load Factor: <strong className="text-stone-900">{htStrategy === "chaining" ? chainingLoadFactor : oaLoadFactor}</strong>
                       </span>
                       <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${
                         (htStrategy === "chaining" ? chainingLoadFactor : oaLoadFactor) > 0.75
@@ -866,33 +866,33 @@ export default function JavaHashing() {
                   {/* VISUALIZATION CONTAINER */}
                   {htStrategy === "chaining" ? (
                     <div className="space-y-2">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+                      <h4 className="text-xs font-bold text-stone-600 uppercase tracking-wider font-mono">
                         Bucket Array with Linked Nodes (Capacity: {htCapacity})
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
                         {htBuckets.map((bucket, idx) => (
-                          <div key={idx} className="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
-                            <div className="flex items-center justify-between text-[11px] font-mono border-b border-slate-800 pb-1">
-                              <span className="font-bold text-slate-300">Bucket [{idx}]</span>
-                              <span className="text-slate-500">{bucket.length} items</span>
+                          <div key={idx} className="p-3 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
+                            <div className="flex items-center justify-between text-[11px] font-mono border-b border-stone-200 pb-1">
+                              <span className="font-bold text-stone-700">Bucket [{idx}]</span>
+                              <span className="text-stone-400">{bucket.length} items</span>
                             </div>
                             {bucket.length === 0 ? (
-                              <div className="text-[11px] text-slate-500 italic py-2 text-center">null</div>
+                              <div className="text-[11px] text-stone-400 italic py-2 text-center">null</div>
                             ) : (
                               <div className="space-y-1.5">
                                 {bucket.map((node, nIdx) => (
                                   <div
                                     key={nIdx}
-                                    className="p-2 bg-slate-900/80 rounded-lg border border-orange-500/30 shadow-2xs flex items-center justify-between text-xs"
+                                    className="p-2 bg-white rounded-lg border border-orange-200 shadow-2xs flex items-center justify-between text-xs"
                                   >
                                     <div>
-                                      <strong className="text-orange-300 font-mono">{node.key}</strong>
-                                      <span className="text-slate-500 mx-1">:</span>
-                                      <span className="text-slate-300">{node.value}</span>
+                                      <strong className="text-orange-700 font-mono">{node.key}</strong>
+                                      <span className="text-stone-400 mx-1">:</span>
+                                      <span className="text-stone-700">{node.value}</span>
                                     </div>
                                     <button
                                       onClick={() => handleChainingDelete(node.key)}
-                                      className="text-slate-500 hover:text-red-600 text-[10px] font-mono ml-2"
+                                      className="text-stone-400 hover:text-red-600 text-[10px] font-mono ml-2"
                                       title="Delete key"
                                     >
                                       ✕
@@ -907,7 +907,7 @@ export default function JavaHashing() {
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+                      <h4 className="text-xs font-bold text-stone-600 uppercase tracking-wider font-mono">
                         Flat Array Slots with {htStrategy === "linear" ? "Linear Probing (h + i) % m" : htStrategy === "quadratic" ? "Quadratic Probing (h + i²) % m" : "Double Hashing (h1 + i·h2) % m"} (Capacity: {oaTable.length})
                       </h4>
                       <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-11 gap-2">
@@ -916,18 +916,18 @@ export default function JavaHashing() {
                             key={idx}
                             className={`p-2.5 rounded-xl border text-center transition-all ${
                               slot.status === "occupied"
-                                ? "bg-orange-500/15 border-orange-500/40 shadow-2xs"
-                                : "bg-slate-950 border-slate-800"
+                                ? "bg-orange-50 border-orange-300 shadow-2xs"
+                                : "bg-stone-50 border-stone-200"
                             }`}
                           >
-                            <div className="text-[10px] font-mono text-slate-500">[{idx}]</div>
+                            <div className="text-[10px] font-mono text-stone-400">[{idx}]</div>
                             {slot.status === "occupied" ? (
                               <div className="mt-1">
-                                <div className="text-xs font-bold font-mono text-orange-300">{slot.key}</div>
-                                <div className="text-[10px] text-slate-400 truncate">{slot.value}</div>
+                                <div className="text-xs font-bold font-mono text-orange-800">{slot.key}</div>
+                                <div className="text-[10px] text-stone-600 truncate">{slot.value}</div>
                               </div>
                             ) : (
-                              <div className="text-[10px] text-slate-500 italic mt-1">- empty -</div>
+                              <div className="text-[10px] text-stone-400 italic mt-1">- empty -</div>
                             )}
                           </div>
                         ))}
@@ -955,15 +955,15 @@ export default function JavaHashing() {
             {/* TAB 2: JAVA HASHMAP BIT SPREADING & TREEIFICATION */}
             {activeTab === "hashmapInternals" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       JVM Architecture & Bitwise Operations
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       Java HashMap Internals: Bit Spreading & Treeification Engine
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-stone-500">
                       Observe how `key.hashCode()` is transformed via `h ^ (h &gt;&gt;&gt; 16)` and masked with `(n - 1)` to compute the bucket index in constant time.
                     </p>
                   </div>
@@ -972,7 +972,7 @@ export default function JavaHashing() {
                   <div className="p-5 bg-stone-900 text-stone-200 rounded-2xl font-mono text-xs space-y-4">
                     <div className="flex flex-wrap items-center gap-4">
                       <div className="flex items-center gap-2">
-                        <span className="text-slate-500">Key:</span>
+                        <span className="text-stone-400">Key:</span>
                         <input
                           type="text"
                           value={hmKeyInput}
@@ -981,7 +981,7 @@ export default function JavaHashing() {
                         />
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-slate-500">Value:</span>
+                        <span className="text-stone-400">Value:</span>
                         <input
                           type="text"
                           value={hmValInput}
@@ -990,7 +990,7 @@ export default function JavaHashing() {
                         />
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-slate-500">Capacity (Power of 2):</span>
+                        <span className="text-stone-400">Capacity (Power of 2):</span>
                         <select
                           value={hmSimCapacity}
                           onChange={(e) => setHmSimCapacity(parseInt(e.target.value, 10))}
@@ -1012,40 +1012,40 @@ export default function JavaHashing() {
                     {/* Step-by-Step Bitwise Breakdown */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-stone-800">
                       <div className="p-3 bg-stone-800/80 rounded-xl border border-stone-700/60 space-y-1">
-                        <div className="text-[11px] text-slate-500 font-sans">Step 1: key.hashCode()</div>
+                        <div className="text-[11px] text-stone-400 font-sans">Step 1: key.hashCode()</div>
                         <div className="text-orange-300 font-bold">{currentKeyAnalysis.hash}</div>
-                        <div className="text-[10px] text-slate-400">Hex: 0x{currentKeyAnalysis.hashHex}</div>
-                        <div className="text-[9px] text-slate-500 break-all">{currentKeyAnalysis.hashBin}</div>
+                        <div className="text-[10px] text-stone-500">Hex: 0x{currentKeyAnalysis.hashHex}</div>
+                        <div className="text-[9px] text-stone-400 break-all">{currentKeyAnalysis.hashBin}</div>
                       </div>
 
                       <div className="p-3 bg-stone-800/80 rounded-xl border border-stone-700/60 space-y-1">
-                        <div className="text-[11px] text-slate-500 font-sans">Step 2: h ^ (h &gt;&gt;&gt; 16) [Spread]</div>
+                        <div className="text-[11px] text-stone-400 font-sans">Step 2: h ^ (h &gt;&gt;&gt; 16) [Spread]</div>
                         <div className="text-amber-300 font-bold">{currentKeyAnalysis.spread}</div>
-                        <div className="text-[10px] text-slate-400">Hex: 0x{currentKeyAnalysis.spreadHex}</div>
-                        <div className="text-[9px] text-slate-500 break-all">{currentKeyAnalysis.spreadBin}</div>
+                        <div className="text-[10px] text-stone-500">Hex: 0x{currentKeyAnalysis.spreadHex}</div>
+                        <div className="text-[9px] text-stone-400 break-all">{currentKeyAnalysis.spreadBin}</div>
                       </div>
 
                       <div className="p-3 bg-stone-800/80 rounded-xl border border-orange-500/40 bg-orange-950/20 space-y-1">
                         <div className="text-[11px] text-orange-400 font-sans">Step 3: (capacity - 1) & spread</div>
                         <div className="text-xl font-extrabold text-orange-400">Index: [{currentKeyAnalysis.index}]</div>
-                        <div className="text-[10px] text-slate-500">Mask: {currentKeyAnalysis.mask} (0b{currentKeyAnalysis.maskBin})</div>
+                        <div className="text-[10px] text-stone-400">Mask: {currentKeyAnalysis.mask} (0b{currentKeyAnalysis.maskBin})</div>
                       </div>
                     </div>
                   </div>
 
                   {/* TREEIFICATION THRESHOLD SIMULATOR */}
-                  <div className="p-5 bg-[#faf8f5] rounded-2xl border border-slate-800 space-y-4">
+                  <div className="p-5 bg-[#faf8f5] rounded-2xl border border-[#e7e3da] space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
-                        <h4 className="text-sm font-bold text-white">
+                        <h4 className="text-sm font-bold text-stone-900">
                           Bucket Collision & Treeification Simulator (Bucket [3])
                         </h4>
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-stone-500">
                           Simulate multiple colliding keys in a single bucket. When node count reaches 8 and table capacity &gt;= 64, the chain treeifies into a Red-Black Tree.
                         </p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-slate-400">Collisions:</span>
+                        <span className="text-xs font-mono text-stone-500">Collisions:</span>
                         <input
                           type="range"
                           min="1"
@@ -1054,14 +1054,14 @@ export default function JavaHashing() {
                           onChange={(e) => setCollisionCount(parseInt(e.target.value, 10))}
                           className="w-28 accent-orange-600"
                         />
-                        <span className="text-xs font-bold font-mono text-orange-300 w-6">{collisionCount}</span>
+                        <span className="text-xs font-bold font-mono text-orange-700 w-6">{collisionCount}</span>
                       </div>
                     </div>
 
-                    <div className="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+                    <div className="p-4 bg-white rounded-xl border border-stone-200">
                       <div className="flex items-center justify-between mb-3 text-xs font-mono">
-                        <span>Mode: <strong className={isTreeified ? "text-red-700 font-bold" : "text-slate-300 font-bold"}>{isTreeified ? "Red-Black Tree (TreeNode)" : "Singly Linked List (Node)"}</strong></span>
-                        <span className="text-slate-400">Search Time: <strong className="text-white">{isTreeified ? "O(log n)" : "O(n)"}</strong></span>
+                        <span>Mode: <strong className={isTreeified ? "text-red-700 font-bold" : "text-stone-700 font-bold"}>{isTreeified ? "Red-Black Tree (TreeNode)" : "Singly Linked List (Node)"}</strong></span>
+                        <span className="text-stone-500">Search Time: <strong className="text-stone-900">{isTreeified ? "O(log n)" : "O(n)"}</strong></span>
                       </div>
 
                       {isTreeified ? (
@@ -1069,7 +1069,7 @@ export default function JavaHashing() {
                           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs font-bold">
                             <span>🌲 Treeified into Red-Black Tree (TREEIFY_THRESHOLD = 8 reached)</span>
                           </div>
-                          <div className="text-xs text-slate-400 font-mono">
+                          <div className="text-xs text-stone-600 font-mono">
                             Root Node &lt;K,V&gt; with Left / Right / Parent references and Red/Black coloring
                           </div>
                           <div className="flex justify-center items-center gap-2 pt-2">
@@ -1084,14 +1084,14 @@ export default function JavaHashing() {
                         <div className="flex items-center gap-2 overflow-x-auto py-2">
                           {Array.from({ length: collisionCount }).map((_, i) => (
                             <React.Fragment key={i}>
-                              <div className="px-3 py-1.5 bg-slate-950 rounded-lg border border-slate-700 font-mono text-xs whitespace-nowrap">
+                              <div className="px-3 py-1.5 bg-stone-100 rounded-lg border border-stone-300 font-mono text-xs whitespace-nowrap">
                                 Node {i + 1}
                               </div>
-                              {i < collisionCount - 1 && <span className="text-slate-500 font-bold">→</span>}
+                              {i < collisionCount - 1 && <span className="text-stone-400 font-bold">→</span>}
                             </React.Fragment>
                           ))}
                           {collisionCount < 8 && (
-                            <span className="text-slate-500 text-xs italic font-mono pl-2">
+                            <span className="text-stone-400 text-xs italic font-mono pl-2">
                               ({8 - collisionCount} more to treeify)
                             </span>
                           )}
@@ -1106,15 +1106,15 @@ export default function JavaHashing() {
             {/* TAB 3: LINKEDHASHMAP & LRU CACHE */}
             {activeTab === "lruCacheStudio" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       Access-Order Tracking & Eviction
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       LinkedHashMap LRU Cache Visualizer
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-stone-500">
                       Constructed with `new LinkedHashMap(16, 0.75f, true)`. Accessing an element moves it to MRU (Tail). Overfilling capacity evicts LRU (Head).
                     </p>
                   </div>
@@ -1122,21 +1122,21 @@ export default function JavaHashing() {
                   {/* LRU Controls */}
                   <div className="flex flex-wrap items-center gap-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">Put Key:</span>
+                      <span className="text-xs font-mono text-stone-500">Put Key:</span>
                       <input
                         type="text"
                         value={lruInputKey}
                         onChange={(e) => setLruInputKey(e.target.value)}
-                        className="w-16 px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
+                        className="w-16 px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono"
                       />
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">Value:</span>
+                      <span className="text-xs font-mono text-stone-500">Value:</span>
                       <input
                         type="text"
                         value={lruInputValue}
                         onChange={(e) => setLruInputValue(e.target.value)}
-                        className="w-24 px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
+                        className="w-24 px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono"
                       />
                     </div>
                     <button
@@ -1149,12 +1149,12 @@ export default function JavaHashing() {
                     <div className="h-4 w-px bg-stone-300 mx-2"></div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">Get Key:</span>
+                      <span className="text-xs font-mono text-stone-500">Get Key:</span>
                       <input
                         type="text"
                         value={lruGetInput}
                         onChange={(e) => setLruGetInput(e.target.value)}
-                        className="w-16 px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
+                        className="w-16 px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono"
                       />
                     </div>
                     <button
@@ -1164,31 +1164,31 @@ export default function JavaHashing() {
                       cache.get(key)
                     </button>
 
-                    <div className="ml-auto text-xs font-mono text-slate-400">
-                      Capacity: <strong className="text-white">{lruCapacity}</strong>
+                    <div className="ml-auto text-xs font-mono text-stone-500">
+                      Capacity: <strong className="text-stone-900">{lruCapacity}</strong>
                     </div>
                   </div>
 
                   {/* Cache Representation */}
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+                    <div className="flex items-center justify-between text-xs font-mono text-stone-500">
                       <span className="text-red-600 font-bold">← LRU (Head / Eviction Candidate)</span>
                       <span className="text-emerald-600 font-bold">MRU (Tail / Most Recently Used) →</span>
                     </div>
 
-                    <div className="flex items-center gap-2 overflow-x-auto p-4 bg-slate-950 rounded-2xl border border-slate-800">
+                    <div className="flex items-center gap-2 overflow-x-auto p-4 bg-stone-50 rounded-2xl border border-stone-200">
                       {lruCache.length === 0 ? (
-                        <div className="text-slate-500 text-xs italic py-4 mx-auto">Cache is empty.</div>
+                        <div className="text-stone-400 text-xs italic py-4 mx-auto">Cache is empty.</div>
                       ) : (
                         lruCache.map((item, idx) => (
                           <React.Fragment key={item.key}>
-                            <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-700 shadow-2xs text-center min-w-[100px] shrink-0">
-                              <div className="text-[10px] font-mono text-slate-500">Position {idx}</div>
-                              <div className="text-sm font-bold font-mono text-orange-300">"{item.key}"</div>
-                              <div className="text-xs text-slate-400 truncate">{item.value}</div>
+                            <div className="p-3 bg-white rounded-xl border border-stone-300 shadow-2xs text-center min-w-[100px] shrink-0">
+                              <div className="text-[10px] font-mono text-stone-400">Position {idx}</div>
+                              <div className="text-sm font-bold font-mono text-orange-700">"{item.key}"</div>
+                              <div className="text-xs text-stone-600 truncate">{item.value}</div>
                             </div>
                             {idx < lruCache.length - 1 && (
-                              <div className="text-slate-500 font-bold text-xs shrink-0">⇄</div>
+                              <div className="text-stone-400 font-bold text-xs shrink-0">⇄</div>
                             )}
                           </React.Fragment>
                         ))
@@ -1197,10 +1197,10 @@ export default function JavaHashing() {
                   </div>
 
                   {/* Log Console */}
-                  <div className="p-4 bg-stone-900 text-slate-400 rounded-xl font-mono text-xs space-y-1">
+                  <div className="p-4 bg-stone-900 text-stone-300 rounded-xl font-mono text-xs space-y-1">
                     <span className="text-orange-400 font-bold">Cache Activity Log:</span>
                     {lruLog.map((entry, idx) => (
-                      <div key={idx} className="text-slate-500 text-[11px]">
+                      <div key={idx} className="text-stone-400 text-[11px]">
                         &gt; {entry}
                       </div>
                     ))}
@@ -1212,15 +1212,15 @@ export default function JavaHashing() {
             {/* TAB 4: TWO SUM COMPLEMENT SOLVER */}
             {activeTab === "twoSumStudio" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       Complement Lookup Invariant
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       Two Sum HashMap Optimizer: complement = target - current
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-stone-500">
                       Instead of checking all pairs in O(n²), query whether `target - current` was previously stored in the HashMap in O(1) average time.
                     </p>
                   </div>
@@ -1228,26 +1228,26 @@ export default function JavaHashing() {
                   {/* Input settings */}
                   <div className="flex flex-wrap items-center gap-4">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">Array:</span>
+                      <span className="text-xs font-mono text-stone-500">Array:</span>
                       <input
                         type="text"
                         value={twoSumArrStr}
                         onChange={(e) => setTwoSumArrStr(e.target.value)}
-                        className="px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono w-48"
+                        className="px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono w-48"
                       />
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">Target:</span>
+                      <span className="text-xs font-mono text-stone-500">Target:</span>
                       <input
                         type="number"
                         value={twoSumTarget}
                         onChange={(e) => setTwoSumTarget(parseInt(e.target.value, 10))}
-                        className="px-2.5 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono w-20"
+                        className="px-2.5 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono w-20"
                       />
                     </div>
                     <button
                       onClick={() => setTwoSumStep(0)}
-                      className="px-3 py-1.5 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded text-xs font-semibold"
+                      className="px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded text-xs font-semibold"
                     >
                       Reset
                     </button>
@@ -1262,7 +1262,7 @@ export default function JavaHashing() {
 
                   {/* Array Representation */}
                   <div className="space-y-2">
-                    <span className="text-xs font-mono text-slate-400 font-bold">Input Array:</span>
+                    <span className="text-xs font-mono text-stone-500 font-bold">Input Array:</span>
                     <div className="flex items-center gap-2 overflow-x-auto">
                       {twoSumArray.map((val, idx) => {
                         const isCurrent = currentTwoSumStep && currentTwoSumStep.index === idx;
@@ -1274,12 +1274,12 @@ export default function JavaHashing() {
                               isSolution
                                 ? "bg-emerald-50 border-emerald-500 shadow-sm"
                                 : isCurrent
-                                ? "bg-orange-500/15 border-orange-500 ring-2 ring-orange-400"
-                                : "bg-slate-900/80 border-slate-800"
+                                ? "bg-orange-50 border-orange-500 ring-2 ring-orange-400"
+                                : "bg-white border-stone-200"
                             }`}
                           >
-                            <div className="text-[10px] font-mono text-slate-500">index {idx}</div>
-                            <div className="text-sm font-bold font-mono text-white">{val}</div>
+                            <div className="text-[10px] font-mono text-stone-400">index {idx}</div>
+                            <div className="text-sm font-bold font-mono text-stone-900">{val}</div>
                           </div>
                         );
                       })}
@@ -1288,13 +1288,13 @@ export default function JavaHashing() {
 
                   {/* Step status */}
                   {currentTwoSumStep && (
-                    <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2 font-mono text-xs">
+                    <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2 font-mono text-xs">
                       <div className="flex items-center justify-between">
-                        <span>Iteration index: <strong className="text-orange-300">{currentTwoSumStep.index}</strong></span>
-                        <span>Current element: <strong className="text-white">{currentTwoSumStep.current}</strong></span>
-                        <span>Required Complement: <strong className="text-orange-400">{currentTwoSumStep.complement}</strong></span>
+                        <span>Iteration index: <strong className="text-orange-700">{currentTwoSumStep.index}</strong></span>
+                        <span>Current element: <strong className="text-stone-900">{currentTwoSumStep.current}</strong></span>
+                        <span>Required Complement: <strong className="text-blue-700">{currentTwoSumStep.complement}</strong></span>
                       </div>
-                      <div className="text-slate-400">
+                      <div className="text-stone-600">
                         {currentTwoSumStep.found ? (
                           <span className="text-emerald-700 font-bold">
                             SUCCESS: Complement {currentTwoSumStep.complement} found at map index {currentTwoSumStep.prevIndex}! Matching indices: [{currentTwoSumStep.prevIndex}, {currentTwoSumStep.index}]
@@ -1314,26 +1314,26 @@ export default function JavaHashing() {
             {/* TAB 5: LONGEST CONSECUTIVE SEQUENCE */}
             {activeTab === "longestConsecutive" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       LeetCode 128 · HashSet Sequence Expansion
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       Longest Consecutive Sequence in O(n) Time
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-stone-500">
                       Only numbers where `num - 1` is absent from the HashSet initiate sequence traversal, guaranteeing linear overall time.
                     </p>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-slate-400">Array:</span>
+                    <span className="text-xs font-mono text-stone-500">Array:</span>
                     <input
                       type="text"
                       value={lcsInputStr}
                       onChange={(e) => setLcsInputStr(e.target.value)}
-                      className="px-3 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono w-72"
+                      className="px-3 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono w-72"
                       placeholder="e.g. 100, 4, 200, 1, 3, 2"
                     />
                     <div className="flex gap-2">
@@ -1341,7 +1341,7 @@ export default function JavaHashing() {
                         <button
                           key={ex}
                           onClick={() => setLcsInputStr(ex)}
-                          className="px-2 py-1 bg-slate-950 hover:bg-slate-800 text-[11px] rounded text-slate-400 font-mono"
+                          className="px-2 py-1 bg-stone-100 hover:bg-stone-200 text-[11px] rounded text-stone-600 font-mono"
                         >
                           {ex}
                         </button>
@@ -1351,10 +1351,10 @@ export default function JavaHashing() {
 
                   {/* HashSet display */}
                   <div className="space-y-2">
-                    <span className="text-xs font-mono text-slate-400 font-bold">HashSet Unique Elements:</span>
+                    <span className="text-xs font-mono text-stone-500 font-bold">HashSet Unique Elements:</span>
                     <div className="flex flex-wrap gap-2">
                       {lcsAnalysis.set.map((n, idx) => (
-                        <span key={idx} className="px-2.5 py-1 bg-slate-950 rounded-lg border border-slate-800 font-mono text-xs text-slate-200">
+                        <span key={idx} className="px-2.5 py-1 bg-stone-100 rounded-lg border border-stone-200 font-mono text-xs text-stone-800">
                           {n}
                         </span>
                       ))}
@@ -1363,7 +1363,7 @@ export default function JavaHashing() {
 
                   {/* Discovered Sequences */}
                   <div className="space-y-3 pt-2">
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+                    <h4 className="text-xs font-bold text-stone-600 uppercase tracking-wider font-mono">
                       Discovered Consecutive Streaks (Starts where num - 1 is absent)
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -1373,16 +1373,16 @@ export default function JavaHashing() {
                           <div
                             key={idx}
                             className={`p-3 rounded-xl border ${
-                              isMax ? "bg-orange-500/15 border-orange-500/40 ring-1 ring-orange-300 shadow-2xs" : "bg-slate-950 border-slate-800"
+                              isMax ? "bg-orange-50 border-orange-300 ring-1 ring-orange-300 shadow-2xs" : "bg-stone-50 border-stone-200"
                             }`}
                           >
                             <div className="flex items-center justify-between text-xs font-mono mb-1">
-                              <span className="font-bold text-slate-300">Start: {seq.start}</span>
-                              <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${isMax ? "bg-orange-600 text-white" : "bg-slate-800 text-slate-400"}`}>
+                              <span className="font-bold text-stone-700">Start: {seq.start}</span>
+                              <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${isMax ? "bg-orange-600 text-white" : "bg-stone-200 text-stone-600"}`}>
                                 Length: {seq.length}
                               </span>
                             </div>
-                            <div className="text-xs font-mono text-slate-400">
+                            <div className="text-xs font-mono text-stone-600">
                               {seq.sequence.join(" → ")}
                             </div>
                           </div>
@@ -1406,36 +1406,36 @@ export default function JavaHashing() {
             {/* TAB 6: FREQUENCY MAPS & ANAGRAM ANALYZER */}
             {activeTab === "frequencyAnagram" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       String & Character Frequency
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       Frequency Map & Anagram Validator
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-stone-500">
                       Compare character frequencies across two strings or compute character distributions using `getOrDefault(ch, 0) + 1`.
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-4">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">String 1:</span>
+                      <span className="text-xs font-mono text-stone-500">String 1:</span>
                       <input
                         type="text"
                         value={anagramStr1}
                         onChange={(e) => setAnagramStr1(e.target.value)}
-                        className="px-3 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
+                        className="px-3 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono"
                       />
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-slate-400">String 2:</span>
+                      <span className="text-xs font-mono text-stone-500">String 2:</span>
                       <input
                         type="text"
                         value={anagramStr2}
                         onChange={(e) => setAnagramStr2(e.target.value)}
-                        className="px-3 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded font-mono"
+                        className="px-3 py-1.5 text-xs bg-stone-50 border border-stone-300 rounded font-mono"
                       />
                     </div>
                     <span className={`px-3 py-1 rounded-full text-xs font-bold ${
@@ -1447,8 +1447,8 @@ export default function JavaHashing() {
 
                   {/* Character frequency table comparison */}
                   <div className="overflow-x-auto">
-                    <table className="w-full text-xs font-mono border border-slate-800 rounded-xl overflow-hidden">
-                      <thead className="bg-slate-950 text-slate-300">
+                    <table className="w-full text-xs font-mono border border-stone-200 rounded-xl overflow-hidden">
+                      <thead className="bg-stone-100 text-stone-700">
                         <tr>
                           <th className="p-2.5 text-left">Character</th>
                           <th className="p-2.5 text-center">String 1 Count</th>
@@ -1456,14 +1456,14 @@ export default function JavaHashing() {
                           <th className="p-2.5 text-center">Match?</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800">
+                      <tbody className="divide-y divide-stone-200">
                         {anagramAnalysis.allKeys.map(ch => {
                           const c1 = anagramAnalysis.freq1[ch] || 0;
                           const c2 = anagramAnalysis.freq2[ch] || 0;
                           const match = c1 === c2;
                           return (
-                            <tr key={ch} className={match ? "bg-slate-900/80" : "bg-red-50/50"}>
-                              <td className="p-2.5 font-bold text-orange-300">'{ch}'</td>
+                            <tr key={ch} className={match ? "bg-white" : "bg-red-50/50"}>
+                              <td className="p-2.5 font-bold text-orange-700">'{ch}'</td>
                               <td className="p-2.5 text-center">{c1}</td>
                               <td className="p-2.5 text-center">{c2}</td>
                               <td className="p-2.5 text-center">
@@ -1482,15 +1482,15 @@ export default function JavaHashing() {
             {/* TAB 7: EQUALS() & HASHCODE() CONTRACT SANDBOX */}
             {activeTab === "equalsContract" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       Object Equality & Contract Guarantees
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       Custom equals() & hashCode() Contract Simulator
                     </h3>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-stone-500">
                       Test the catastrophic consequences of violating the contract between logical equality and hash codes in collections.
                     </p>
                   </div>
@@ -1508,7 +1508,7 @@ export default function JavaHashing() {
                         className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                           contractMode === btn.id
                             ? "bg-orange-600 text-white shadow-2xs"
-                            : "bg-slate-950 hover:bg-slate-800 text-slate-300"
+                            : "bg-stone-100 hover:bg-stone-200 text-stone-700"
                         }`}
                       >
                         {btn.label}
@@ -1521,23 +1521,23 @@ export default function JavaHashing() {
                   } space-y-3`}>
                     <div className="flex items-center gap-2">
                       {contractSimulation.isBug ? <AlertTriangle className="w-5 h-5 text-amber-700" /> : <CheckCircle className="w-5 h-5 text-emerald-700" />}
-                      <h4 className="text-sm font-bold text-white">{contractSimulation.title}</h4>
+                      <h4 className="text-sm font-bold text-stone-900">{contractSimulation.title}</h4>
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">{contractSimulation.desc}</p>
+                    <p className="text-xs text-stone-700 leading-relaxed">{contractSimulation.desc}</p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs">
-                      <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 space-y-1">
-                        <span className="text-slate-500">s1 Hash:</span>
-                        <div className="font-bold text-white">{contractSimulation.s1Hash}</div>
+                      <div className="p-3 bg-white rounded-xl border border-stone-200 space-y-1">
+                        <span className="text-stone-400">s1 Hash:</span>
+                        <div className="font-bold text-stone-900">{contractSimulation.s1Hash}</div>
                       </div>
-                      <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 space-y-1">
-                        <span className="text-slate-500">s2 Hash:</span>
-                        <div className="font-bold text-white">{contractSimulation.s2Hash}</div>
+                      <div className="p-3 bg-white rounded-xl border border-stone-200 space-y-1">
+                        <span className="text-stone-400">s2 Hash:</span>
+                        <div className="font-bold text-stone-900">{contractSimulation.s2Hash}</div>
                       </div>
                     </div>
 
-                    <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 font-mono text-xs">
-                      <span className="text-slate-400">HashSet / HashMap Outcome: </span>
+                    <div className="p-3 bg-white rounded-xl border border-stone-200 font-mono text-xs">
+                      <span className="text-stone-500">HashSet / HashMap Outcome: </span>
                       <strong className={contractSimulation.isBug ? "text-red-700" : "text-emerald-700"}>
                         {contractSimulation.setResult}
                       </strong>
@@ -1550,18 +1550,18 @@ export default function JavaHashing() {
             {/* TAB 8: 15-MCQ QUIZ */}
             {activeTab === "quiz" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="flex items-center justify-between border-b border-slate-800/60 pb-4">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="flex items-center justify-between border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                         Formal Assessment
                       </span>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                         Module 11 Knowledge Check (15 MCQs)
                       </h3>
                     </div>
                     {quizSubmitted && (
-                      <div className="px-4 py-1.5 bg-orange-500/15 border border-orange-500/30 rounded-xl text-xs font-mono font-bold text-orange-300">
+                      <div className="px-4 py-1.5 bg-orange-50 border border-orange-200 rounded-xl text-xs font-mono font-bold text-orange-800">
                         Score: {quizScore} / {quizData.length} ({Math.round((quizScore / quizData.length) * 100)}%)
                       </div>
                     )}
@@ -1571,18 +1571,18 @@ export default function JavaHashing() {
                     {quizData.map((q, qIdx) => {
                       const selected = quizAnswers[q.id];
                       return (
-                        <div key={q.id} className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+                        <div key={q.id} className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-3">
                           <div className="flex items-start gap-2.5">
-                            <span className="px-2 py-0.5 bg-slate-800 text-slate-300 rounded font-mono text-xs font-bold">
+                            <span className="px-2 py-0.5 bg-stone-200 text-stone-700 rounded font-mono text-xs font-bold">
                               Q{qIdx + 1}
                             </span>
-                            <span className="text-sm font-semibold text-white">{q.question}</span>
+                            <span className="text-sm font-semibold text-stone-900">{q.question}</span>
                           </div>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-8">
                             {q.options.map((opt, optIdx) => {
                               const isPicked = selected === optIdx;
-                              let btnClass = "bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-950";
+                              let btnClass = "bg-white text-stone-700 border-stone-200 hover:bg-stone-100";
                               if (quizSubmitted) {
                                 if (optIdx === q.correct) btnClass = "bg-emerald-100 text-emerald-800 border-emerald-300 font-bold";
                                 else if (isPicked) btnClass = "bg-red-100 text-red-800 border-red-300";
@@ -1603,8 +1603,8 @@ export default function JavaHashing() {
                           </div>
 
                           {quizSubmitted && (
-                            <div className="pl-8 pt-1 text-xs text-slate-400">
-                              <strong className="text-white">Explanation: </strong>
+                            <div className="pl-8 pt-1 text-xs text-stone-600">
+                              <strong className="text-stone-900">Explanation: </strong>
                               {q.explanation}
                             </div>
                           )}
@@ -1613,13 +1613,13 @@ export default function JavaHashing() {
                     })}
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-800/60">
+                  <div className="flex items-center justify-between pt-4 border-t border-stone-100">
                     <button
                       onClick={() => {
                         setQuizAnswers({});
                         setQuizSubmitted(false);
                       }}
-                      className="px-4 py-2 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold"
+                      className="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-xs font-semibold"
                     >
                       Reset Quiz
                     </button>
@@ -1637,19 +1637,19 @@ export default function JavaHashing() {
             {/* TAB 9: 30 LABS & LEETCODE TRACK */}
             {activeTab === "labs" && (
               <div className="space-y-6">
-                <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 shadow-2xs space-y-6">
-                  <div className="border-b border-slate-800/60 pb-4">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                <div className="p-6 bg-white rounded-2xl border border-[#e7e3da] shadow-2xs space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       Hands-on Practice
                     </span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-stone-900 tracking-tight">
                       30 Practical Coding Assignments & 12 LeetCode Tracks
                     </h3>
                   </div>
 
                   {/* Curated LeetCode Track */}
                   <div className="space-y-3">
-                    <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">
+                    <h4 className="text-xs font-bold text-stone-700 uppercase tracking-wider font-mono">
                       Curated LeetCode Practice Track (12 Problems)
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -1672,11 +1672,11 @@ export default function JavaHashing() {
                           href={p.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 bg-slate-950 hover:bg-orange-500/15/50 rounded-xl border border-slate-800 hover:border-orange-500/40 transition-all flex items-center justify-between"
+                          className="p-3 bg-stone-50 hover:bg-orange-50/50 rounded-xl border border-stone-200 hover:border-orange-300 transition-all flex items-center justify-between"
                         >
                           <div>
-                            <div className="text-xs font-bold text-white">{p.num}. {p.name}</div>
-                            <div className="text-[10px] text-slate-400 font-mono">{p.concept}</div>
+                            <div className="text-xs font-bold text-stone-900">{p.num}. {p.name}</div>
+                            <div className="text-[10px] text-stone-500 font-mono">{p.concept}</div>
                           </div>
                           <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                             p.diff === "Easy" ? "bg-emerald-100 text-emerald-800" : p.diff === "Medium" ? "bg-amber-100 text-amber-800" : "bg-red-100 text-red-800"
@@ -1689,15 +1689,15 @@ export default function JavaHashing() {
                   </div>
 
                   {/* 30 Assignments Checklist */}
-                  <div className="space-y-4 pt-4 border-t border-slate-800/60">
-                    <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">
+                  <div className="space-y-4 pt-4 border-t border-stone-100">
+                    <h4 className="text-xs font-bold text-stone-700 uppercase tracking-wider font-mono">
                       Module Assignments Checklist (30 Problems)
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       {/* Beginner */}
-                      <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
-                        <span className="text-xs font-bold text-slate-200 font-mono">Assignment 1 — Beginner (1-10)</span>
-                        <div className="space-y-1.5 text-xs text-slate-300">
+                      <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
+                        <span className="text-xs font-bold text-stone-800 font-mono">Assignment 1 — Beginner (1-10)</span>
+                        <div className="space-y-1.5 text-xs text-stone-700">
                           {[
                             "1. Frequency map for integer array",
                             "2. Character frequency counter",
@@ -1715,18 +1715,18 @@ export default function JavaHashing() {
                                 type="checkbox"
                                 checked={!!completedLabs[`b_${i}`]}
                                 onChange={(e) => setCompletedLabs(c => ({ ...c, [`b_${i}`]: e.target.checked }))}
-                                className="rounded text-orange-400 focus:ring-orange-500"
+                                className="rounded text-orange-600 focus:ring-orange-500"
                               />
-                              <span className={completedLabs[`b_${i}`] ? "line-through text-slate-500" : ""}>{t}</span>
+                              <span className={completedLabs[`b_${i}`] ? "line-through text-stone-400" : ""}>{t}</span>
                             </label>
                           ))}
                         </div>
                       </div>
 
                       {/* Intermediate */}
-                      <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
-                        <span className="text-xs font-bold text-slate-200 font-mono">Assignment 2 — Intermediate (11-20)</span>
-                        <div className="space-y-1.5 text-xs text-slate-300">
+                      <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
+                        <span className="text-xs font-bold text-stone-800 font-mono">Assignment 2 — Intermediate (11-20)</span>
+                        <div className="space-y-1.5 text-xs text-stone-700">
                           {[
                             "11. Two Sum complement map",
                             "12. Group Anagrams sorter",
@@ -1744,18 +1744,18 @@ export default function JavaHashing() {
                                 type="checkbox"
                                 checked={!!completedLabs[`i_${i}`]}
                                 onChange={(e) => setCompletedLabs(c => ({ ...c, [`i_${i}`]: e.target.checked }))}
-                                className="rounded text-orange-400 focus:ring-orange-500"
+                                className="rounded text-orange-600 focus:ring-orange-500"
                               />
-                              <span className={completedLabs[`i_${i}`] ? "line-through text-slate-500" : ""}>{t}</span>
+                              <span className={completedLabs[`i_${i}`] ? "line-through text-stone-400" : ""}>{t}</span>
                             </label>
                           ))}
                         </div>
                       </div>
 
                       {/* Advanced */}
-                      <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
-                        <span className="text-xs font-bold text-slate-200 font-mono">Assignment 3 — Advanced (21-30)</span>
-                        <div className="space-y-1.5 text-xs text-slate-300">
+                      <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
+                        <span className="text-xs font-bold text-stone-800 font-mono">Assignment 3 — Advanced (21-30)</span>
+                        <div className="space-y-1.5 text-xs text-stone-700">
                           {[
                             "21. Longest Consecutive Sequence",
                             "22. Minimum Window Substring",
@@ -1773,9 +1773,9 @@ export default function JavaHashing() {
                                 type="checkbox"
                                 checked={!!completedLabs[`a_${i}`]}
                                 onChange={(e) => setCompletedLabs(c => ({ ...c, [`a_${i}`]: e.target.checked }))}
-                                className="rounded text-orange-400 focus:ring-orange-500"
+                                className="rounded text-orange-600 focus:ring-orange-500"
                               />
-                              <span className={completedLabs[`a_${i}`] ? "line-through text-slate-500" : ""}>{t}</span>
+                              <span className={completedLabs[`a_${i}`] ? "line-through text-stone-400" : ""}>{t}</span>
                             </label>
                           ))}
                         </div>
@@ -1795,20 +1795,20 @@ export default function JavaHashing() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar TOC */}
             <div className="lg:col-span-1 space-y-4">
-              <div className="sticky top-20 bg-slate-900/80 p-4 rounded-2xl border border-slate-800 shadow-2xs space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-800/60 pb-2">
-                  <span className="text-xs font-bold font-mono uppercase text-slate-400">Curriculum TOC</span>
-                  <span className="text-[11px] font-mono text-orange-400">{JavaHashingSections.length} Chapters</span>
+              <div className="sticky top-20 bg-white p-4 rounded-2xl border border-[#e7e3da] shadow-2xs space-y-3">
+                <div className="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span className="text-xs font-bold font-mono uppercase text-stone-500">Curriculum TOC</span>
+                  <span className="text-[11px] font-mono text-orange-600">{JavaHashingSections.length} Chapters</span>
                 </div>
 
                 <div className="relative">
-                  <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-slate-500" />
+                  <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-stone-400" />
                   <input
                     type="text"
                     value={searchFilter}
                     onChange={(e) => setSearchFilter(e.target.value)}
                     placeholder="Filter sections..."
-                    className="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-950 border border-slate-800 rounded-lg focus:outline-none focus:border-orange-500"
+                    className="w-full pl-8 pr-3 py-1.5 text-xs bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:border-orange-500"
                   />
                 </div>
 
@@ -1820,8 +1820,8 @@ export default function JavaHashing() {
                       title={sec.title}
                       className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-start justify-between ${
                         activeSection === parseInt(sec.number, 10)
-                          ? "bg-orange-500/15 text-orange-300 font-bold border border-orange-500/30"
-                          : "text-slate-400 hover:bg-slate-950"
+                          ? "bg-orange-50 text-orange-800 font-bold border border-orange-200"
+                          : "text-stone-600 hover:bg-stone-50"
                       }`}
                     >
                       <span className="break-words whitespace-normal leading-snug flex-1 pr-2">{sec.title}</span>
@@ -1838,16 +1838,16 @@ export default function JavaHashing() {
                 <div
                   key={sec.id}
                   id={`section-${idx}`}
-                  className="p-6 sm:p-8 bg-slate-900/80 rounded-3xl border border-slate-800 shadow-2xs space-y-4 scroll-mt-20"
+                  className="p-6 sm:p-8 bg-white rounded-3xl border border-[#e7e3da] shadow-2xs space-y-4 scroll-mt-20"
                 >
-                  <div className="border-b border-slate-800/60 pb-3 flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-400">
+                  <div className="border-b border-stone-100 pb-3 flex items-center justify-between">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-600">
                       {sec.category}
                     </span>
-                    <span className="text-xs font-mono text-slate-500">Chapter {sec.number} / 28</span>
+                    <span className="text-xs font-mono text-stone-400">Chapter {sec.number} / 28</span>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight">
                     {sec.title}
                   </h2>
 
