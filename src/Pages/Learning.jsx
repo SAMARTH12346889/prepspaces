@@ -260,6 +260,7 @@ const learningTracks = [
       "Greedy Algorithms, Exchange Arguments, Interval Merging, Fractional Knapsack, Job Sequencing, Huffman Coding & Gas Station",
       "Graph Theory, BFS/DFS, Cycle Detection, Bipartite Graphs, Kahn's Topological Sort, Kosaraju & Tarjan SCC, Bridges & Articulation Points",
       "Shortest Paths (BFS, Dijkstra, Bellman-Ford, Floyd-Warshall, DAGs), MST (Prim & Kruskal), Disjoint Set Union (DSU), 0-1 BFS & Multi-Source BFS",
+      "Dynamic Programming, Memoization vs Tabulation, 1D DP, 0/1 & Unbounded Knapsack, Subset Sum, Coin Change, LCS, LIS, Edit Distance & MCM",
     ],
   },
 ];

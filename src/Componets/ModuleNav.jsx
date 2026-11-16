@@ -239,6 +239,7 @@ export const JAVA_MODULES = [
   { id: "greedy-algorithms", name: "16. Greedy Algorithms & Interval Problems", route: "/learning/java/greedy-algorithms" },
   { id: "graph-theory", name: "17. Graph Theory & Graph Algorithms", route: "/learning/java/graph-theory" },
   { id: "shortest-paths-mst", name: "18. Shortest Paths & Minimum Spanning Trees", route: "/learning/java/shortest-paths-mst" },
+  { id: "dynamic-programming", name: "19. Dynamic Programming Fundamentals", route: "/learning/java/dynamic-programming" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

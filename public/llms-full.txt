@@ -1915,3 +1915,37 @@ Topics Covered:
   - 21. 35 Practice Problems Across 4 Levels: Fundamentals, Advanced Shortest Paths, MST & DSU, FAANG Grid & Constraint Challenges
   - 22. 15 Assessment MCQs with Explanations and Instant Scoring
   - 23. 8 Interactive Workbenches: Dijkstra Visualizer, Bellman-Ford Cycle Detector, Floyd-Warshall Matrix, DAG Topo Relaxer, Prim's Tree Studio, Kruskal & DSU Forest, Multi-Source BFS, 0-1 BFS Deque
+
+### Module 19: Dynamic Programming Fundamentals
+URL: https://prepspaces.com/learning/java/dynamic-programming
+Topics Covered:
+  - 1. Dynamic Programming Philosophy: Avoiding Redundant Recomputations by Caching Subproblem Results and Building Solutions Bottom-Up
+  - 2. Overlapping Subproblems: Call Tree Analysis, Repeated Subproblem Recomputations, Fibonacci vs Merge Sort Branching
+  - 3. Optimal Substructure: Global Optimal Solutions Composed of Optimal Subproblem Solutions, Counterexamples and Proof of Invariance
+  - 4. Top-Down Memoization: Caching Recursive Calls with Arrays or HashMaps, On-Demand State Evaluation, Stack Depth Overhead and StackOverflow Limits
+  - 5. Bottom-Up Tabulation: Iterative Table Construction from Base Cases to Target State, Eliminating Call Stack Overhead
+  - 6. 6-Step Mechanical Conversion Recipe: Naive Recursion -> State Parameter Identification -> Memoization Cache -> Table Allocation -> Loop Restructuring -> Space Reduction
+  - 7. DP State Formulation: Defining Mathematical Subproblem Identity, 1D (Index), 2D (Capacities / Dual Pointers), 3D State Dimensions
+  - 8. State Transitions & Recurrences: Mathematical Transitions, Include vs Exclude Logic, Min/Max Selections, and Combinatorial Ways Summation
+  - 9. Base Cases & Boundary Anchors: Correct Initialization Values, Sentinel Flags (-1 vs 0), Unreachable States (INF / Overflow Protection)
+  - 10. Space Optimization Techniques: Sliding Variable Buffers O(1), 2-Row Rolling Buffers, In-Place 1D Backward Updates
+  - 11. Fibonacci Sequence: Quad-Strategy Benchmark Comparing Recursion O(2ⁿ), Memoization O(N), Tabulation O(N), Space Optimization O(1)
+  - 12. Climbing Stairs: Distinct Step Permutations, Equivalence to Fibonacci, Generalization to K Steps
+  - 13. Minimum Cost Climbing Stairs: Cumulative Cost Minimization, Base States dp[0] and dp[1], Space Optimization via Scalar Rolling Variables
+  - 14. House Robber I & II: Non-Adjacent Loot Maximization, Rob vs Skip Recurrence, Circular Neighborhood Decomposition into Linear Ranges [0 ... n-2] and [1 ... n-1]
+  - 15. 0/1 Knapsack Problem: Bounded Single-Choice Decisions, 2D Matrix Fill, Backtracking Chosen Item Subsets, Backward 1D Array Traversal Invariant
+  - 16. Unbounded Knapsack: Infinite Supply Items, Forward Capacity Sweeps, Mathematical Contrast with 0/1 Knapsack
+  - 17. Subset Sum Problem: Boolean DP Matrices, Exact Target Reachability, Backward 1D Boolean Bitwise Array Updates
+  - 18. Partition Equal Subset Sum: Reduction to Subset Sum with Target = TotalSum / 2, Parity Checks for Odd Sum Impossibility
+  - 19. Coin Change I & II: Fewest Coins Minimization vs Total Unique Combinations Counting, Enforcing Outer Coin Loops to Eliminate Permutations
+  - 20. Longest Common Subsequence (LCS): 2D Character Comparison Grid, Diagonal vs Axial Transitions, String Reconstruction via Backtracking
+  - 21. Longest Increasing Subsequence (LIS): Standard O(N²) Quadratic DP vs O(N log N) Patience Sorting and Binary Search (Arrays.binarySearch)
+  - 22. Edit Distance (Levenshtein): Insert, Delete, and Replace Minimum Operations on 2D Character Grids, Sequence Alignment in Genomics and NLP
+  - 23. Interval DP (Matrix Chain Multiplication): Iterating by Substring/Chain Length L, Split Points k, Optimal Parenthesization in O(N³)
+  - 24. 6 Master DP Pattern Taxonomies: 1D Linear, 2D Grid/Strings, Knapsack/Subsets, Subsequences, Interval DP, Tree/Bitmask DP
+  - 25. Greedy vs DP Decision Framework: Local Greedy Choice vs Global Subproblem Exploration, Counterexamples where Greedy Fails
+  - 26. 10 Common DP Implementation Bugs: Uninitialized Arrays, 0 vs -1 Sentinel Collisions, Forward Sweeps in 0/1 Knapsack, Stack Overflow, Integer Overflow on INF
+  - 27. Complete Time & Space Complexity Reference Matrix: Memoization vs Tabulation vs Space-Optimized Metrics
+  - 28. 35 Practice Problems Across 4 Levels: Fundamentals, Knapsack & Subsets, String & Subsequences, Advanced 2D & Interval DP
+  - 29. 15 Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
+  - 30. 8 Interactive Workbenches: Fibonacci Quad Visualizer, Climbing Stairs Cost, House Robber Studio, 0/1 Knapsack Table, Unbounded Knapsack, Subset Sum Matrix, Coin Change Lab, String DP Studio (LCS & Edit Distance)

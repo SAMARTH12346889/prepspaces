@@ -1872,7 +1872,7 @@ export default function JavaShortestPathsMST() {
           courseId="java-programming"
           currentModuleId="shortest-paths-mst"
           prevRoute="/learning/java/graph-theory"
-          nextRoute={null}
+          nextRoute="/learning/java/dynamic-programming"
         />
       </footer>
     </div>

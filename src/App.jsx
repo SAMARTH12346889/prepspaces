@@ -201,6 +201,7 @@ const JavaTwoPointersSlidingWindow = React.lazy(() => import("./Componets/JavaTw
 const JavaGreedyAlgorithms = React.lazy(() => import("./Componets/JavaGreedyAlgorithms"));
 const JavaGraphTheory = React.lazy(() => import("./Componets/JavaGraphTheory"));
 const JavaShortestPathsMST = React.lazy(() => import("./Componets/JavaShortestPathsMST"));
+const JavaDynamicProgramming = React.lazy(() => import("./Componets/JavaDynamicProgramming"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1736,6 +1737,13 @@ function App() {
             <Route path="/learning/java/module-18" element={<JavaShortestPathsMST />} />
             <Route path="/courses/java/shortest-paths-mst" element={<JavaShortestPathsMST />} />
             <Route path="/learn/java/shortest-paths-mst" element={<JavaShortestPathsMST />} />
+
+            <Route path="/learning/java/dynamic-programming" element={<JavaDynamicProgramming />} />
+            <Route path="/learning/java/dp" element={<JavaDynamicProgramming />} />
+            <Route path="/learning/java/dp-fundamentals" element={<JavaDynamicProgramming />} />
+            <Route path="/learning/java/module-19" element={<JavaDynamicProgramming />} />
+            <Route path="/courses/java/dynamic-programming" element={<JavaDynamicProgramming />} />
+            <Route path="/learn/java/dynamic-programming" element={<JavaDynamicProgramming />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

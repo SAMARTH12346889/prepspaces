@@ -195,6 +195,12 @@ const routeMeta = {
     keywords: "Shortest Paths Java, Minimum Spanning Tree MST, Dijkstra Algorithm Java, Bellman Ford Algorithm, Negative Cycle Detection, Floyd Warshall Algorithm, DAG Shortest Paths Topological, Prim Algorithm Java, Kruskal Algorithm Java, Disjoint Set Union DSU, Union Find Java, Path Compression, Union by Size, 0 1 BFS Deque, Multi Source BFS, Rotting Oranges LeetCode 994, Network Delay Time, Cheapest Flights Within K Stops, Graph Algorithms Java, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/shortest-paths-mst`,
   },
+  "/learning/java/dynamic-programming": {
+    title: "Module 19: Dynamic Programming Fundamentals | PrepSpaces",
+    description: "Master Dynamic Programming in Java: Overlapping subproblems, optimal substructure, top-down memoization, bottom-up tabulation, state transitions, space optimization, 1D linear DP (Fibonacci, Climbing Stairs, Min Cost Stairs, House Robber I & II), Knapsack DP (0/1 Knapsack, Unbounded Knapsack, Subset Sum, Partition Equal Subset), Coin Change I & II, String & Subsequence DP (LCS, LIS, Edit Distance), and Interval DP (Matrix Chain Multiplication).",
+    keywords: "Dynamic Programming Java, DP Fundamentals, Memoization vs Tabulation, Overlapping Subproblems, Optimal Substructure, 1D DP, Climbing Stairs LeetCode 70, Min Cost Climbing Stairs, House Robber LeetCode 198, House Robber II 213, 0/1 Knapsack Java, Unbounded Knapsack, Subset Sum Problem, Partition Equal Subset Sum 416, Coin Change LeetCode 322, Coin Change II 518, Longest Common Subsequence LCS 1143, Longest Increasing Subsequence LIS 300, Edit Distance LeetCode 72, Matrix Chain Multiplication MCM, Dynamic Programming Patterns, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/dynamic-programming`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

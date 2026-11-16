@@ -188,7 +188,7 @@
     "route": "/learning/java",
     "tag": "Software Engineering & Systems",
     "modulesCount": "Comprehensive Modules",
-    "totalModules": 18,
+    "totalModules": 19,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
@@ -210,7 +210,8 @@
       "Two Pointers, Sliding Window, 1D/2D Prefix Sums, Difference Arrays & Kadane's Algorithm",
       "Greedy Algorithms, Exchange Arguments, Interval Merging, Fractional Knapsack, Job Sequencing, Huffman Coding & Gas Station",
       "Graph Theory, BFS/DFS, Cycle Detection, Bipartite Graphs, Kahn's Topological Sort, Kosaraju & Tarjan SCC, Bridges & Articulation Points",
-      "Shortest Paths (BFS, Dijkstra, Bellman-Ford, Floyd-Warshall, DAGs), MST (Prim & Kruskal), Disjoint Set Union (DSU), 0-1 BFS & Multi-Source BFS"
+      "Shortest Paths (BFS, Dijkstra, Bellman-Ford, Floyd-Warshall, DAGs), MST (Prim & Kruskal), Disjoint Set Union (DSU), 0-1 BFS & Multi-Source BFS",
+      "Dynamic Programming, Memoization vs Tabulation, 1D DP, 0/1 & Unbounded Knapsack, Subset Sum, Coin Change, LCS, LIS, Edit Distance & MCM"
     ]
   }
 ]

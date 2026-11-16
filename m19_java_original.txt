@@ -1,0 +1,4265 @@
+<USER_REQUEST>
+# **Module 19 — Dynamic Programming Fundamentals**
+
+Dynamic Programming (DP) is one of the most important and challenging topics in Data Structures and Algorithms. It is widely used in technical interviews, competitive programming, optimization problems, financial modeling, resource allocation, artificial intelligence, and software engineering.
+
+In previous modules, you learned:
+
+- Arrays, strings, and linked lists.
+- Stacks, queues, and hash-based data structures.
+- Trees and searching techniques.
+- Greedy algorithms and graph algorithms.
+- Recursion and different problem-solving techniques.
+
+Now you will learn how to solve problems in which the same smaller calculations are required repeatedly.
+
+Dynamic Programming helps us avoid performing those calculations again and again by storing their results and reusing them.
+
+**The central idea of DP is to break a complex problem into smaller subproblems, solve each necessary subproblem once, store its result, and use those results to construct the final answer.**
+
+This module will cover both theoretical foundations and practical Java implementations. We will start with Fibonacci and gradually progress toward knapsack, subsequence problems, edit distance, and matrix chain multiplication.
+
+# **1. Dynamic Programming Introduction**
+
+## **1.1 What Is Dynamic Programming?**
+
+Dynamic Programming is an algorithmic technique used to solve problems by dividing them into smaller, related subproblems.
+
+Instead of calculating the same subproblem repeatedly, DP stores its result so that it can be reused whenever required.
+
+Consider calculating the Fibonacci sequence.
+
+The mathematical definition is:
+
+\\[ F(n)=F(n-1)+F(n-2) \\]
+
+With base cases:
+
+\\[ F(0)=0 \\]
+
+\\[ F(1)=1 \\]
+
+The sequence is:
+
+```
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+```
+
+Suppose you want to calculate:
+
+\\[ F(6) \\]
+
+Using recursion:
+
+\\[ F(6)=F(5)+F(4) \\]
+
+But calculating F(5) requires F(4), and calculating F(4) requires F(3).
+
+The same values get calculated repeatedly.
+
+This is where Dynamic Programming becomes useful.
+
+Instead of repeatedly calculating F(4), we calculate it once and store its result.
+
+## **1.2 Understanding the Difference**
+
+**Without Dynamic Programming**
+
+Repeated recursive calculations
+
+The same subproblems appear in multiple branches of the recursion tree.
+
+**With Dynamic Programming**
+
+Calculate and store each result
+
+F(0)
+
+## **0**
+
+F(1)
+
+## **1**
+
+F(2)
+
+## **1**
+
+F(3)
+
+## **2**
+
+F(4)
+
+## **3**
+
+F(5)
+
+## **5**
+
+F(6)
+
+## **8**
+
+Each Fibonacci value is calculated once and reused.
+
+The difference is that ordinary recursive Fibonacci repeats many calculations, whereas DP remembers previously calculated values.
+
+## **1.3 Why Is Dynamic Programming Important?**
+
+Consider a software application that calculates:
+
+- The minimum cost of completing a project.
+- The best way to allocate resources.
+- The shortest transformation between two strings.
+- The maximum profit under a given budget.
+- The best sequence of operations to perform.
+
+Many of these problems contain smaller calculations that are repeated.
+
+DP helps optimize such solutions.
+
+### **Common Applications**
+
+| Area                        | Application                           |
+| --------------------------- | ------------------------------------- |
+| Finance                     | Portfolio and investment optimization |
+| Software engineering        | String comparison and edit distance   |
+| Artificial intelligence     | Planning and optimization             |
+| Bioinformatics              | DNA sequence alignment                |
+| Operating systems           | Resource allocation                   |
+| Computer science            | Knapsack and scheduling problems      |
+| Natural language processing | Sequence processing                   |
+| Robotics                    | Path and decision optimization        |
+
+# **2. Overlapping Subproblems**
+
+Overlapping subproblems are one of the two main properties that make Dynamic Programming applicable.
+
+## **2.1 What Are Overlapping Subproblems?**
+
+A problem has overlapping subproblems when solving it recursively requires calculating the same smaller problems multiple times.
+
+Let's consider:
+
+\\[ F(5)=F(4)+F(3) \\]
+
+Expanding the expression:
+
+\\[ F(4)=F(3)+F(2) \\]
+
+\\[ F(3)=F(2)+F(1) \\]
+
+Notice that F(3) and F(2) appear more than once.
+
+When the input becomes larger, repeated calculations grow significantly.
+
+### **Recursive Fibonacci Tree**
+
+```
+                F(5)
+              /      \
+           F(4)       F(3)
+          /   \       /  \
+       F(3)  F(2)   F(2) F(1)
+       / \
+     F(2) F(1)
+```
+
+Observe:
+
+- F(3) is calculated repeatedly.
+- F(2) is calculated repeatedly.
+- F(1) is also reached through multiple branches.
+
+Instead of recalculating these values, DP stores them.
+
+## **2.2 How DP Solves Overlapping Subproblems**
+
+Suppose we calculate F(5).
+
+We can store the values:
+
+| n | Fibonacci value |
+| - | --------------- |
+| 0 | 0               |
+| 1 | 1               |
+| 2 | 1               |
+| 3 | 2               |
+| 4 | 3               |
+| 5 | 5               |
+
+Now whenever we need F(3), we retrieve 2 rather than calculating it again.
+
+This technique is commonly called *memoization* when implemented with recursion.
+
+We will study memoization in detail shortly.
+
+## **2.3 Overlapping Subproblems vs Independent Subproblems**
+
+Not every recursive problem benefits from Dynamic Programming.
+
+For example, in a divide-and-conquer algorithm such as Merge Sort, the two halves are independent subproblems.
+
+Sorting the left half does not require solving the exact same right-half subproblem again.
+
+DP is especially useful when smaller subproblems overlap.
+
+**Key point:** The presence of recursion alone does not mean that a problem requires DP.
+
+# **3. Optimal Substructure**
+
+Optimal substructure is the second major property commonly associated with Dynamic Programming.
+
+## **3.1 What Is Optimal Substructure?**
+
+A problem has optimal substructure if an optimal solution to the complete problem can be constructed using optimal solutions to its smaller subproblems.
+
+Consider the 0/1 Knapsack problem.
+
+Suppose:
+
+- You have several items.
+- Every item has a weight and value.
+- Your bag has a limited capacity.
+- You can either take an item completely or leave it.
+
+For each item, we consider two possibilities:
+
+1. Include the item.
+2. Exclude the item.
+
+If we include an item, the remaining problem has less capacity and fewer available items.
+
+If the solution for that smaller remaining problem is not optimal, then our complete solution cannot be optimal either.
+
+That is the idea of optimal substructure.
+
+## **3.2 Example: Shortest Path**
+
+Suppose the shortest path from A to D is:
+
+```
+A → B → C → D
+```
+
+The subpath:
+
+```
+A → B → C
+```
+
+must also be a shortest path from A to C under the same path-cost assumptions.
+
+Otherwise, we could replace it with a shorter path and improve the complete route.
+
+This illustrates optimal substructure.
+
+## **3.3 Do Both Properties Matter?**
+
+For the standard Dynamic Programming approach, we usually look for:
+
+Property 1
+
+**Overlapping subproblems**
+
+The same smaller problem appears repeatedly, so storing its result avoids duplicate calculations.
+
+Property 2
+
+**Optimal substructure**
+
+The optimal answer can be constructed from optimal answers to smaller problems.
+
+Remember that optimal substructure also appears in greedy algorithms. It does not mean that every such problem must be solved using DP.
+
+# **4. Memoization**
+
+Memoization is a Dynamic Programming technique that uses a top-down approach.
+
+It starts with the original problem and recursively solves smaller subproblems.
+
+Whenever a subproblem is solved, its answer is stored.
+
+When that same subproblem is needed again, the stored answer is returned.
+
+## **4.1 How Memoization Works**
+
+Let's use Fibonacci again.
+
+Mathematical recurrence:
+
+\\[ F(n)=F(n-1)+F(n-2) \\]
+
+Base cases:
+
+\\[ F(0)=0,\quad F(1)=1 \\]
+
+We create an array to store calculated values.
+
+Initially, entries are set to an uncomputed marker.
+
+When we calculate F(4), we store the answer.
+
+The next time F(4) is requested, we directly return the stored answer.
+
+## **4.2 Java Implementation**
+
+```
+import java.util.*;
+
+public class FibonacciMemoization {
+
+    static long[] dp;
+
+    public static long fib(int n) {
+
+        // Base cases
+        if (n <= 1) {
+            return n;
+        }
+
+        // Already calculated?
+        if (dp[n] != -1) {
+            return dp[n];
+        }
+
+        // Calculate and store
+        dp[n] = fib(n - 1) + fib(n - 2);
+
+        return dp[n];
+    }
+
+    public static void main(String[] args) {
+
+        int n = 10;
+
+        dp = new long[n + 1];
+
+        Arrays.fill(dp, -1);
+
+        System.out.println(fib(n));
+    }
+}
+```
+
+Output:
+
+```
+55
+```
+
+## **4.3 Step-by-Step Execution**
+
+Suppose we call:
+
+```
+fib(5);
+```
+
+The recursion starts by requesting:
+
+```
+fib(5)
+ ├── fib(4)
+ │    ├── fib(3)
+ │    │    ├── fib(2)
+ │    │    └── fib(1)
+ │    └── fib(2)
+ └── fib(3)
+```
+
+When F(3) is calculated for the second time, we return its stored result.
+
+We avoid rebuilding that entire branch.
+
+## **4.4 Memoization Advantages**
+
+- Easy to convert from recursive solutions.
+- Calculates only subproblems that are actually requested.
+- Avoids repeated recursive calculations.
+- Often simpler to formulate for complex recurrences.
+
+## **4.5 Memoization Disadvantages**
+
+- Uses recursion stack space.
+- Deep recursion can cause `StackOverflowError`.
+- Recursive function calls introduce overhead.
+- Managing multidimensional states can require more careful implementation.
+
+## **4.6 Complexity**
+
+| Metric                | Complexity |
+| --------------------- | ---------- |
+| Time                  | O(N)       |
+| DP array              | O(N)       |
+| Recursion stack       | O(N)       |
+| Total auxiliary space | O(N)       |
+
+Without memoization, recursive Fibonacci takes exponential time.
+
+# **5. Tabulation**
+
+Tabulation is another Dynamic Programming technique.
+
+It uses a bottom-up approach.
+
+Instead of starting with the original problem and recursively breaking it down, we start with the smallest subproblems and build toward the final answer.
+
+## **5.1 How Tabulation Works**
+
+For Fibonacci:
+
+\\[ F(n)=F(n-1)+F(n-2) \\]
+
+We know:
+
+\\[ F(0)=0 \\]
+
+\\[ F(1)=1 \\]
+
+We can calculate the next values using a DP array.
+
+| Index | Calculation | Result |
+| ----- | ----------- | ------ |
+| 0     | Base case   | 0      |
+| 1     | Base case   | 1      |
+| 2     | 0 + 1       | 1      |
+| 3     | 1 + 1       | 2      |
+| 4     | 1 + 2       | 3      |
+| 5     | 2 + 3       | 5      |
+| 6     | 3 + 5       | 8      |
+
+Each answer is constructed using previously calculated entries.
+
+## **5.2 Java Implementation**
+
+```
+public class FibonacciTabulation {
+
+    public static long fib(int n) {
+
+        if (n <= 1) {
+            return n;
+        }
+
+        long[] dp = new long[n + 1];
+
+        dp[0] = 0;
+        dp[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+
+        return dp[n];
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(fib(10));
+    }
+}
+```
+
+Output:
+
+```
+55
+```
+
+## **5.3 Memoization vs Tabulation**
+
+| Feature         | Memoization              | Tabulation                                      |
+| --------------- | ------------------------ | ----------------------------------------------- |
+| Approach        | Top-down                 | Bottom-up                                       |
+| Technique       | Recursion                | Iteration                                       |
+| Starting point  | Original problem         | Base cases                                      |
+| Storage         | Cache                    | DP table                                        |
+| Recursion stack | Usually required         | Not required                                    |
+| Subproblems     | Computes demanded states | Usually computes all states in the chosen table |
+| Implementation  | Recursive                | Iterative                                       |
+
+**Important:** Both techniques are Dynamic Programming. One is not automatically better than the other. The choice depends on the state structure and problem constraints.
+
+# **6. Recursion to DP Conversion**
+
+One of the most important skills in DSA is knowing how to convert a recursive solution into an efficient DP solution.
+
+Let's understand the process step by step.
+
+## **6.1 Step 1 — Write the Recursive Solution**
+
+Suppose you want to calculate Fibonacci.
+
+```
+static int fib(int n) {
+
+    if (n <= 1) {
+        return n;
+    }
+
+    return fib(n - 1) + fib(n - 2);
+}
+```
+
+The function repeatedly solves the same smaller inputs.
+
+## **6.2 Step 2 — Identify Repeated Subproblems**
+
+Look at the function calls:
+
+```
+fib(5)
+fib(4)
+fib(3)
+fib(2)
+fib(3)
+fib(2)
+fib(1)
+```
+
+Some input values occur more than once.
+
+The value of n uniquely determines the subproblem.
+
+This means one-dimensional DP storage is sufficient.
+
+## **6.3 Step 3 — Create the DP Storage**
+
+```
+int[] dp = new int[n + 1];
+```
+
+Use an uncomputed marker:
+
+```
+Arrays.fill(dp, -1);
+```
+
+## **6.4 Step 4 — Add a Cache Check**
+
+Before performing recursive calculations:
+
+```
+if (dp[n] != -1) {
+    return dp[n];
+}
+```
+
+## **6.5 Step 5 — Store the Answer**
+
+```
+dp[n] = fib(n - 1, dp) + fib(n - 2, dp);
+```
+
+## **6.6 Step 6 — Convert to Tabulation**
+
+Once you understand the dependency structure, you can remove recursion.
+
+Initialize base cases and calculate states in dependency order.
+
+This is the complete process:
+
+**Recursion to Dynamic Programming**
+
+**1. Recursive solution**
+
+Define the recurrence and base cases
+
+**2. Identify repeated states**
+
+Find overlapping subproblems
+
+**3. Apply memoization**
+
+Store results of recursive states
+
+**4. Build tabulation**
+
+Calculate states iteratively in the right order
+
+**5. Optimize space**
+
+Keep only the states needed for future calculations
+
+This is a general problem-solving workflow, not a requirement that every DP problem must use all five implementations.
+
+# **7. DP State Definition**
+
+State definition is arguably the most important skill in Dynamic Programming.
+
+Many difficult DP problems become easier once you identify what information must be stored to describe a subproblem.
+
+## **7.1 What Is a DP State?**
+
+A DP state represents a specific subproblem.
+
+It tells us what information is needed to calculate a smaller part of the original problem.
+
+For Fibonacci:
+
+\\[ dp[i]=F(i) \\]
+
+The state is simply the Fibonacci number at index i.
+
+For 0/1 Knapsack:
+
+\\[ dp[i][w] \\]
+
+can represent the maximum value obtainable using the first i items with capacity w.
+
+For Longest Common Subsequence:
+
+\\[ dp[i][j] \\]
+
+represents the LCS length of the first i characters of one string and the first j characters of another.
+
+The state can contain one variable, two variables, or even more depending on the problem.
+
+## **7.2 One-Dimensional DP**
+
+Example:
+
+Fibonacci.
+
+\\[ dp[i]=dp[i-1]+dp[i-2] \\]
+
+Only the index i determines the state.
+
+Array:
+
+```
+int[] dp = new int[n + 1];
+```
+
+## **7.3 Two-Dimensional DP**
+
+Example:
+
+Longest Common Subsequence.
+
+\\[ dp[i][j] \\]
+
+Two dimensions are required because we are considering prefixes of two separate strings.
+
+Storage:
+
+```
+int[][] dp = new int[m + 1][n + 1];
+```
+
+## **7.4 Three-Dimensional DP**
+
+Some problems require three variables to describe a state.
+
+For example, imagine a knapsack variation with:
+
+- Number of items considered.
+- Remaining capacity.
+- Remaining number of selections.
+
+The state may become:
+
+\\[ dp[i][w][k] \\]
+
+A three-dimensional table can store these results.
+
+Higher-dimensional DP is possible, but the memory requirement can grow rapidly.
+
+## **7.5 How to Identify the State**
+
+Ask these questions:
+
+1. What decisions are being made?
+2. Which variables change after every decision?
+3. What information is required to calculate the next decision?
+4. Which input prefix, position, capacity, or remaining resource describes the subproblem?
+5. Can two states be considered identical when these variables are identical?
+
+A good state should contain enough information to solve the remaining problem without remembering the entire history of earlier decisions.
+
+# **8. State Transitions**
+
+Once the state is identified, we need a rule for calculating it.
+
+This rule is called a state transition or recurrence relation.
+
+## **8.1 What Is a State Transition?**
+
+A state transition describes how the current DP state depends on smaller states.
+
+Consider Fibonacci:
+
+\\[ dp[i]=dp[i-1]+dp[i-2] \\]
+
+The current state depends on two previously computed states.
+
+For Climbing Stairs:
+
+\\[ dp[i]=dp[i-1]+dp[i-2] \\]
+
+For 0/1 Knapsack:
+
+\\[ dp[i][w] = \max( dp[i-1][w], value_i+dp[i-1][w-weight_i] ) \\]
+
+provided the item fits.
+
+For LCS, the transition depends on whether the last characters of the considered prefixes match.
+
+## **8.2 Four Essential Parts of a DP Solution**
+
+Every DP solution should clearly identify:
+
+| Part              | Question                                |
+| ----------------- | --------------------------------------- |
+| State             | What does dp[i] or dp[i][j] represent?  |
+| Transition        | How do we calculate the current state?  |
+| Base cases        | What are the simplest known answers?    |
+| Computation order | In what order must states be evaluated? |
+
+Then identify the answer location, such as `dp[n]`, `dp[m][n]`, or an optimized state variable.
+
+# **9. Base Cases**
+
+Base cases define the smallest subproblems whose answers are already known.
+
+Without correct base cases, a DP solution may produce incorrect answers or access invalid indexes.
+
+## **9.1 Fibonacci**
+
+\\[ dp[0]=0 \\]
+
+\\[ dp[1]=1 \\]
+
+## **9.2 Climbing Stairs**
+
+If we define `dp[i]` as the number of ways to reach step i:
+
+\\[ dp[0]=1 \\]
+
+\\[ dp[1]=1 \\]
+
+Why is `dp[0] = 1`?
+
+There is exactly one way to reach the ground before taking any steps: do nothing.
+
+This convention makes the recurrence work cleanly.
+
+## **9.3 0/1 Knapsack**
+
+If no items are available, the maximum possible value is zero.
+
+If capacity is zero, no positive-weight item can be included.
+
+\\[ dp[0][w]=0 \\]
+
+\\[ dp[i][0]=0 \\]
+
+## **9.4 LCS**
+
+If one string is empty, the common subsequence length is zero.
+
+\\[ dp[0][j]=0 \\]
+
+\\[ dp[i][0]=0 \\]
+
+**Important:** Base cases depend on the meaning of the state. Always define the state before defining the initial values.
+
+# **10. DP Optimization**
+
+After implementing a correct DP solution, we can often improve its memory requirements.
+
+This is called DP space optimization.
+
+## **10.1 Basic Space Optimization**
+
+Suppose:
+
+\\[ dp[i]=dp[i-1]+dp[i-2] \\]
+
+The current Fibonacci state does not need the entire previous DP array.
+
+It only needs the previous two values.
+
+Therefore, we can use three variables instead of an array.
+
+```
+long prev2 = 0;
+long prev1 = 1;
+
+for (int i = 2; i <= n; i++) {
+
+    long current = prev1 + prev2;
+
+    prev2 = prev1;
+    prev1 = current;
+}
+```
+
+The space complexity changes from:
+
+\\[ O(N) \\]
+
+to:
+
+\\[ O(1) \\]
+
+## **10.2 Two-Array Optimization**
+
+For some two-dimensional DP problems, each row depends only on the previous row.
+
+Instead of maintaining the complete table, we use:
+
+```
+int[] previous = new int[n + 1];
+int[] current = new int[n + 1];
+```
+
+After computing a row:
+
+```
+previous = current;
+```
+
+Care is required when reusing arrays: the new row must be initialized or overwritten correctly.
+
+## **10.3 In-Place One-Dimensional DP**
+
+Knapsack and subset sum can often be optimized to a single array.
+
+But loop direction matters.
+
+For 0/1 Knapsack, iterate capacity downward.
+
+For Unbounded Knapsack, iterate capacity upward.
+
+This difference is essential and will be explained in the respective sections.
+
+## **10.4 When Can We Optimize Space?**
+
+Ask:
+
+- Does the current state depend only on the immediately previous state?
+- Does it depend on the previous two states?
+- Does it depend only on the previous DP row?
+- Is the entire table required later for reconstruction?
+
+Remember: space optimization may make it harder to reconstruct the actual sequence or selected items. Sometimes we should retain a parent or decision table even if it uses more space.
+
+# **11. Fibonacci Sequence**
+
+Fibonacci is the simplest problem for understanding Dynamic Programming.
+
+## **11.1 Problem Statement**
+
+Given an integer N, calculate the Nth Fibonacci number.
+
+The sequence is:
+
+```
+F(0) = 0
+F(1) = 1
+F(2) = 1
+F(3) = 2
+F(4) = 3
+F(5) = 5
+F(6) = 8
+F(7) = 13
+F(8) = 21
+F(9) = 34
+```
+
+Mathematically:
+
+\\[ F(n)=F(n-1)+F(n-2) \\]
+
+## **11.2 Approach 1 — Recursion**
+
+```
+public class FibonacciRecursion {
+
+    static long fib(int n) {
+
+        if (n <= 1) {
+            return n;
+        }
+
+        return fib(n - 1) + fib(n - 2);
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(fib(10));
+    }
+}
+```
+
+Output:
+
+```
+55
+```
+
+Complexity:
+
+- Time: O(2^N), as an upper-bound description.
+- Space: O(N) recursion depth.
+
+The actual number of calls grows exponentially, approximately proportional to the Fibonacci sequence itself.
+
+## **11.3 Approach 2 — Memoization**
+
+```
+import java.util.*;
+
+public class FibonacciMemo {
+
+    static long[] dp;
+
+    static long fib(int n) {
+
+        if (n <= 1) {
+            return n;
+        }
+
+        if (dp[n] != -1) {
+            return dp[n];
+        }
+
+        dp[n] = fib(n - 1) + fib(n - 2);
+
+        return dp[n];
+    }
+
+    public static void main(String[] args) {
+
+        int n = 10;
+
+        dp = new long[n + 1];
+
+        Arrays.fill(dp, -1);
+
+        System.out.println(fib(n));
+    }
+}
+```
+
+Complexity:
+
+- Time: O(N).
+- Space: O(N).
+
+## **11.4 Approach 3 — Tabulation**
+
+```
+public class FibonacciTabulation {
+
+    static long fib(int n) {
+
+        if (n <= 1) {
+            return n;
+        }
+
+        long[] dp = new long[n + 1];
+
+        dp[0] = 0;
+        dp[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+
+        return dp[n];
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(fib(10));
+    }
+}
+```
+
+Complexity:
+
+- Time: O(N).
+- Space: O(N).
+
+## **11.5 Approach 4 — Space Optimized**
+
+We only need the previous two Fibonacci values.
+
+```
+public class FibonacciOptimized {
+
+    static long fib(int n) {
+
+        if (n <= 1) {
+            return n;
+        }
+
+        long prev2 = 0;
+        long prev1 = 1;
+
+        for (int i = 2; i <= n; i++) {
+
+            long current = prev1 + prev2;
+
+            prev2 = prev1;
+            prev1 = current;
+        }
+
+        return prev1;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(fib(10));
+    }
+}
+```
+
+**Fibonacci performance comparison**
+
+| Approach    | Time        | Space |
+| ----------- | ----------- | ----- |
+| Recursion   | Exponential | O(N)  |
+| Memoization | O(N)        | O(N)  |
+| Tabulation  | O(N)        | O(N)  |
+| Optimized   | O(N)        | O(1)  |
+
+The optimized version is particularly useful when we only need the final Fibonacci number and not the entire sequence.
+
+**Important Java note:** `long` can represent Fibonacci numbers only through F(92). F(93) exceeds the maximum signed `long` value. For larger values, use `BigInteger`.
+
+# **12. Climbing Stairs**
+
+This is one of the most common beginner DP interview problems.
+
+## **12.1 Problem Statement**
+
+You are climbing a staircase containing N steps.
+
+At each move, you can climb either:
+
+- One step.
+- Two steps.
+
+Find the total number of distinct ways to reach the top.
+
+### **Example**
+
+Suppose:
+
+```
+N = 3
+```
+
+Possible ways:
+
+```
+1 + 1 + 1
+
+1 + 2
+
+2 + 1
+```
+
+Total:
+
+```
+3 ways
+```
+
+## **12.2 Understanding the Recurrence**
+
+To reach step N, your last move must have been:
+
+- From step N - 1 using one step.
+- From step N - 2 using two steps.
+
+Therefore:
+
+\\[ dp[n]=dp[n-1]+dp[n-2] \\]
+
+Base cases:
+
+\\[ dp[0]=1 \\]
+
+\\[ dp[1]=1 \\]
+
+The recurrence is essentially Fibonacci, with a shifted interpretation.
+
+## **12.3 Dry Run**
+
+Let N = 5.
+
+| Step | Calculation | Number of ways |
+| ---- | ----------- | -------------- |
+| 0    | Base case   | 1              |
+| 1    | Base case   | 1              |
+| 2    | 1 + 1       | 2              |
+| 3    | 2 + 1       | 3              |
+| 4    | 3 + 2       | 5              |
+| 5    | 5 + 3       | 8              |
+
+Answer:
+
+\\[ \boxed{8} \\]
+
+## **12.4 Java Implementation**
+
+```
+public class ClimbingStairs {
+
+    public static long climbStairs(int n) {
+
+        if (n <= 1) {
+            return 1;
+        }
+
+        long prev2 = 1;
+        long prev1 = 1;
+
+        for (int i = 2; i <= n; i++) {
+
+            long current = prev1 + prev2;
+
+            prev2 = prev1;
+            prev1 = current;
+        }
+
+        return prev1;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(climbStairs(5));
+    }
+}
+```
+
+Output:
+
+```
+8
+```
+
+Complexity:
+
+- Time: O(N).
+- Auxiliary space: O(1).
+
+## **12.5 Important Variation**
+
+What happens if you can climb 1, 2, or 3 steps at a time?
+
+The recurrence becomes:
+
+\\[ dp[n]=dp[n-1]+dp[n-2]+dp[n-3] \\]
+
+The base cases must be defined carefully according to the allowed jumps.
+
+This demonstrates an important DP skill: when the possible decisions change, the state transition changes too.
+
+# **13. Minimum Cost Climbing Stairs**
+
+This problem introduces optimization using DP.
+
+Unlike ordinary climbing stairs, we now care about minimizing the total cost.
+
+## **13.1 Problem Statement**
+
+You are given an array:
+
+```
+cost = [10, 15, 20]
+```
+
+Each element represents the cost of stepping onto that stair.
+
+You can climb either one or two steps.
+
+You may start at index 0 or index 1.
+
+Find the minimum cost required to reach the top, which is just beyond the last index.
+
+## **13.2 Understanding the Choices**
+
+At every stair, you can:
+
+- Arrive from the previous stair.
+- Arrive from the stair before that.
+
+To minimize cost, choose the cheaper total path.
+
+Let:
+
+\\[ dp[i] \\]
+
+represent the minimum cost required to reach stair i.
+
+Then:
+
+\\[ dp[i]=cost[i]+\min(dp[i-1],dp[i-2]) \\]
+
+We define:
+
+\\[ dp[0]=cost[0] \\]
+
+\\[ dp[1]=cost[1] \\]
+
+The final answer is:
+
+\\[ \min(dp[n-1],dp[n-2]) \\]
+
+Why?
+
+Because the destination is beyond the final stair, and we can reach it from either of the final two positions.
+
+## **13.3 Dry Run**
+
+Input:
+
+```
+cost = [10, 15, 20]
+```
+
+Initial:
+
+```
+dp[0] = 10
+dp[1] = 15
+```
+
+Calculate:
+
+\\[ dp[2]=20+\min(10,15)=30 \\]
+
+Final answer:
+
+\\[ \min(15,30)=15 \\]
+
+We can start at index 1, pay 15, then jump to the top.
+
+## **13.4 Java Implementation**
+
+```
+public class MinCostClimbingStairs {
+
+    public static int minCost(int[] cost) {
+
+        int n = cost.length;
+
+        if (n <= 1) {
+            return 0;
+        }
+
+        int prev2 = cost[0];
+        int prev1 = cost[1];
+
+        for (int i = 2; i < n; i++) {
+
+            int current = cost[i]
+                + Math.min(prev1, prev2);
+
+            prev2 = prev1;
+            prev1 = current;
+        }
+
+        return Math.min(prev1, prev2);
+    }
+
+    public static void main(String[] args) {
+
+        int[] cost = {10, 15, 20};
+
+        System.out.println(minCost(cost));
+    }
+}
+```
+
+Output:
+
+```
+15
+```
+
+Complexity:
+
+- Time: O(N).
+- Space: O(1).
+
+## **13.5 Key Learning**
+
+Notice the difference:
+
+Climbing Stairs:
+
+\\[ dp[i]=dp[i-1]+dp[i-2] \\]
+
+Minimum Cost Climbing Stairs:
+
+\\[ dp[i]=cost[i]+\min(dp[i-1],dp[i-2]) \\]
+
+The first problem counts possible ways.
+
+The second problem minimizes total cost.
+
+Always identify the objective before creating your recurrence.
+
+# **14. House Robber**
+
+House Robber is a classic DP optimization problem.
+
+It teaches you how to make decisions that depend on whether you select or skip the current element.
+
+## **14.1 Problem Statement**
+
+A robber wants to rob houses arranged in a row.
+
+Each house contains a certain amount of money.
+
+However, adjacent houses have security systems connected to each other.
+
+Robbing two neighboring houses triggers an alarm.
+
+Your task is to maximize the total money without robbing adjacent houses.
+
+### **Example**
+
+```
+nums = [2, 7, 9, 3, 1]
+```
+
+Possible choices:
+
+- Rob house 0: 2.
+- Rob house 2: 9.
+- Rob house 4: 1.
+
+Total:
+
+\\[ 2+9+1=12 \\]
+
+Another combination:
+
+\\[ 7+3=10 \\]
+
+The optimal answer is:
+
+\\[ \boxed{12} \\]
+
+## **14.2 Greedy Does Not Work Reliably**
+
+Consider:
+
+```
+[2, 7, 9, 3, 1]
+```
+
+Selecting the largest individual value first does not always guarantee the maximum total.
+
+The problem requires evaluating combinations of decisions.
+
+This is where DP is useful.
+
+## **14.3 State Definition**
+
+Let:
+
+\\[ dp[i] \\]
+
+represent the maximum money that can be collected from the first i houses.
+
+At every house, we have two choices.
+
+**Choice 1: Rob the current house.**
+
+We cannot rob the previous house.
+
+\\[ nums[i]+dp[i-2] \\]
+
+**Choice 2: Skip the current house.**
+
+We retain the best answer from the previous house.
+
+\\[ dp[i-1] \\]
+
+Therefore:
+
+\\[ dp[i]=\max(dp[i-1],nums[i]+dp[i-2]) \\]
+
+## **14.4 Java Implementation**
+
+```
+public class HouseRobber {
+
+    public static int rob(int[] nums) {
+
+        int n = nums.length;
+
+        if (n == 0) {
+            return 0;
+        }
+
+        if (n == 1) {
+            return nums[0];
+        }
+
+        int prev2 = 0;
+        int prev1 = 0;
+
+        for (int money : nums) {
+
+            int current = Math.max(
+                prev1,
+                money + prev2
+            );
+
+            prev2 = prev1;
+            prev1 = current;
+        }
+
+        return prev1;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {2, 7, 9, 3, 1};
+
+        System.out.println(rob(nums));
+    }
+}
+```
+
+Output:
+
+```
+12
+```
+
+## **14.5 Dry Run**
+
+| House value | Previous best | Best two positions back | Current best |
+| ----------- | ------------- | ----------------------- | ------------ |
+| 2           | 0             | 0                       | 2            |
+| 7           | 2             | 0                       | 7            |
+| 9           | 7             | 2                       | 11           |
+| 3           | 11            | 7                       | 11           |
+| 1           | 11            | 11                      | 12           |
+
+Answer:
+
+```
+12
+```
+
+## **14.6 Complexity**
+
+- Time: O(N).
+- Space: O(1).
+
+## **14.7 House Robber II — Circular Variation**
+
+An important interview variation is when the first and last houses are also considered adjacent.
+
+In that case, we cannot rob both the first and last houses.
+
+We can solve it by considering two cases:
+
+1. Ignore the last house and solve the remaining linear problem.
+2. Ignore the first house and solve the remaining linear problem.
+
+The answer is the maximum of both.
+
+```
+public class HouseRobberCircular {
+
+    static int robLinear(
+        int[] nums,
+        int start,
+        int end
+    ) {
+
+        int prev2 = 0;
+        int prev1 = 0;
+
+        for (int i = start; i <= end; i++) {
+
+            int current = Math.max(
+                prev1,
+                nums[i] + prev2
+            );
+
+            prev2 = prev1;
+            prev1 = current;
+        }
+
+        return prev1;
+    }
+
+    public static int rob(int[] nums) {
+
+        int n = nums.length;
+
+        if (n == 0) return 0;
+        if (n == 1) return nums[0];
+
+        return Math.max(
+            robLinear(nums, 0, n - 2),
+            robLinear(nums, 1, n - 1)
+        );
+    }
+}
+```
+
+This is another example of breaking an optimization problem into smaller cases.
+
+# **15. 0/1 Knapsack**
+
+0/1 Knapsack is one of the most important foundational DP problems.
+
+It is also a major example of a problem where greedy selection by value-to-weight ratio does not generally work.
+
+## **15.1 Problem Statement**
+
+You are given:
+
+- N items.
+- A weight for each item.
+- A value for each item.
+- A knapsack with maximum capacity W.
+
+You must maximize the total value without exceeding the capacity.
+
+The important rule:
+
+**Each item can either be selected completely once or not selected at all.**
+
+You cannot take a fraction of an item.
+
+### **Example**
+
+Capacity:
+
+```
+W = 5
+```
+
+Items:
+
+| Item | Weight | Value |
+| ---- | ------ | ----- |
+| A    | 2      | 12    |
+| B    | 1      | 10    |
+| C    | 3      | 20    |
+| D    | 2      | 15    |
+
+Possible selections:
+
+| Selected items | Total weight | Total value |
+| -------------- | ------------ | ----------- |
+| A + B          | 3            | 22          |
+| A + C          | 5            | 32          |
+| B + C          | 4            | 30          |
+| B + D          | 3            | 25          |
+| A + D + B      | 5            | 37          |
+
+Optimal answer:
+
+\\[ \boxed{37} \\]
+
+## **15.2 State Definition**
+
+Let:
+
+\\[ dp[i][w] \\]
+
+represent the maximum value obtainable using the first i items with a maximum capacity of w.
+
+For every item, we have two choices.
+
+### **Choice 1: Do Not Take the Item**
+
+The value remains:
+
+\\[ dp[i-1][w] \\]
+
+### **Choice 2: Take the Item**
+
+Only possible when:
+
+\\[ weight_i \leq w \\]
+
+New value:
+
+\\[ value_i+dp[i-1][w-weight_i] \\]
+
+We use the previous row because we are not allowed to take the same item more than once.
+
+Therefore:
+
+\\[ dp[i][w]= \max \begin{cases} dp[i-1][w]\\\ value_i+dp[i-1][w-weight_i] \end{cases} \\]
+
+when the item fits.
+
+If it does not fit:
+
+\\[ dp[i][w]=dp[i-1][w] \\]
+
+## **15.3 Base Cases**
+
+If no items are available:
+
+\\[ dp[0][w]=0 \\]
+
+If the capacity is zero:
+
+\\[ dp[i][0]=0 \\]
+
+## **15.4 Java Implementation — 2D DP**
+
+```
+public class Knapsack01 {
+
+    public static int knapsack(
+        int[] weights,
+        int[] values,
+        int capacity
+    ) {
+
+        int n = weights.length;
+
+        int[][] dp = new int[n + 1][capacity + 1];
+
+        for (int i = 1; i <= n; i++) {
+
+            int weight = weights[i - 1];
+
+            int value = values[i - 1];
+
+            for (int w = 0; w <= capacity; w++) {
+
+                // Do not take item
+                dp[i][w] = dp[i - 1][w];
+
+                // Take item if it fits
+                if (weight <= w) {
+
+                    dp[i][w] = Math.max(
+                        dp[i][w],
+                        value + dp[i - 1][w - weight]
+                    );
+                }
+            }
+        }
+
+        return dp[n][capacity];
+    }
+
+    public static void main(String[] args) {
+
+        int[] weights = {2, 1, 3, 2};
+
+        int[] values = {12, 10, 20, 15};
+
+        int capacity = 5;
+
+        System.out.println(
+            knapsack(weights, values, capacity)
+        );
+    }
+}
+```
+
+Output:
+
+```
+37
+```
+
+## **15.5 Understanding the DP Table**
+
+Each row represents the number of items considered.
+
+Each column represents a capacity.
+
+For our example, the completed DP table is:
+
+**0/1 Knapsack DP table**
+
+| **Items / W** | **0** | **1** | **2** | **3** | **4** | **5**  |
+| ------------- | ----- | ----- | ----- | ----- | ----- | ------ |
+| **0**         | 0     | 0     | 0     | 0     | 0     | 0      |
+| **1**         | 0     | 0     | 12    | 12    | 12    | 12     |
+| **2**         | 0     | 10    | 12    | 22    | 22    | 22     |
+| **3**         | 0     | 10    | 12    | 22    | 30    | 32     |
+| **4**         | 0     | 10    | 15    | 25    | 30    | **37** |
+
+Rows represent items considered; columns represent knapsack capacities.
+
+# **Optimal value = 37**
+
+## **15.6 Space Optimization — One-Dimensional DP**
+
+The previous state only needs the previous row.
+
+Therefore, instead of a two-dimensional array, we can use:
+
+```
+int[] dp = new int[capacity + 1];
+```
+
+The important detail:
+
+**For 0/1 Knapsack, iterate capacity from right to left.**
+
+```
+public class Knapsack01Optimized {
+
+    public static int knapsack(
+        int[] weights,
+        int[] values,
+        int capacity
+    ) {
+
+        int[] dp = new int[capacity + 1];
+
+        for (int i = 0; i < weights.length; i++) {
+
+            for (
+                int w = capacity;
+                w >= weights[i];
+                w--
+            ) {
+
+                dp[w] = Math.max(
+                    dp[w],
+                    values[i] + dp[w - weights[i]]
+                );
+            }
+        }
+
+        return dp[capacity];
+    }
+}
+```
+
+Why iterate backward?
+
+Because each item can only be used once.
+
+A reverse iteration ensures that the current item does not reuse a state that was already updated using that same item.
+
+## **15.7 Complexity**
+
+| Implementation | Time  | Space |
+| -------------- | ----- | ----- |
+| 2D DP          | O(NW) | O(NW) |
+| 1D optimized   | O(NW) | O(W)  |
+
+Here, N is the number of items and W is the capacity.
+
+The complexity is pseudo-polynomial because it depends on the numerical capacity W, not simply the number of bits required to represent W.
+
+# **16. Unbounded Knapsack**
+
+Unbounded Knapsack is closely related to 0/1 Knapsack.
+
+The main difference is:
+
+**You can use each item an unlimited number of times.**
+
+## **16.1 Problem Statement**
+
+You are given:
+
+- Item weights.
+- Item values.
+- A knapsack capacity W.
+
+You can select any item repeatedly.
+
+Your goal is to maximize the total value without exceeding the capacity.
+
+### **Example**
+
+```
+Capacity = 8
+```
+
+Items:
+
+| Item | Weight | Value |
+| ---- | ------ | ----- |
+| A    | 2      | 10    |
+| B    | 3      | 15    |
+| C    | 5      | 25    |
+
+Possible selections:
+
+- A four times: weight 8, value 40.
+- B twice plus A once: weight 8, value 40.
+- C once plus A once: weight 7, value 35.
+
+Optimal value:
+
+\\[ \boxed{40} \\]
+
+## **16.2 State Definition**
+
+Let:
+
+\\[ dp[w] \\]
+
+represent the maximum value achievable with capacity at most w.
+
+For every item:
+
+\\[ dp[w]=\max(dp[w],value_i+dp[w-weight_i]) \\]
+
+The key difference is that the transition uses the same `dp` array.
+
+This allows the current item to be used again.
+
+## **16.3 Java Implementation**
+
+```
+public class UnboundedKnapsack {
+
+    public static int knapsack(
+        int[] weights,
+        int[] values,
+        int capacity
+    ) {
+
+        int[] dp = new int[capacity + 1];
+
+        for (int i = 0; i < weights.length; i++) {
+
+            for (
+                int w = weights[i];
+                w <= capacity;
+                w++
+            ) {
+
+                dp[w] = Math.max(
+                    dp[w],
+                    values[i] + dp[w - weights[i]]
+                );
+            }
+        }
+
+        return dp[capacity];
+    }
+
+    public static void main(String[] args) {
+
+        int[] weights = {2, 3, 5};
+
+        int[] values = {10, 15, 25};
+
+        System.out.println(
+            knapsack(weights, values, 8)
+        );
+    }
+}
+```
+
+Output:
+
+```
+40
+```
+
+## **16.4 Why Iterate Forward?**
+
+For unbounded knapsack, we want to allow the current item to be used multiple times.
+
+Forward iteration allows us to use a state that may already have been updated using the current item.
+
+For example:
+
+```
+Weight = 2
+Value = 10
+```
+
+When capacity reaches 4:
+
+```
+dp[4] = 10 + dp[2]
+```
+
+If `dp[2]` already contains 10 from the same item, then:
+
+```
+dp[4] = 20
+```
+
+The item has been used twice.
+
+## **16.5 0/1 vs Unbounded Knapsack**
+
+This is a very important interview distinction.
+
+| Feature           | 0/1 Knapsack      | Unbounded Knapsack     |
+| ----------------- | ----------------- | ---------------------- |
+| Item usage        | At most once      | Unlimited              |
+| State transition  | Previous item row | Current/reusable state |
+| 1D loop direction | Backward          | Forward                |
+| Time              | O(NW)             | O(NW)                  |
+| Space             | O(W) optimized    | O(W) optimized         |
+
+**Memory trick:**
+
+- 0/1 Knapsack → Right to left.
+- Unbounded Knapsack → Left to right.
+
+The loop direction controls whether an item can be reused in the same iteration.
+
+# **17. Subset Sum Problem**
+
+Subset Sum is another foundational DP problem.
+
+It is closely related to 0/1 Knapsack.
+
+## **17.1 Problem Statement**
+
+You are given an array of positive integers and a target value.
+
+Determine whether there is a subset whose elements add up to the target.
+
+Each element can be selected at most once.
+
+### **Example**
+
+```
+nums = [3, 4, 5, 2]
+
+target = 9
+```
+
+One valid subset is:
+
+```
+4 + 5 = 9
+```
+
+Answer:
+
+```
+true
+```
+
+## **17.2 State Definition**
+
+Let:
+
+\\[ dp[i][sum] \\]
+
+represent whether we can create the sum using the first i elements.
+
+At every element, we have two choices.
+
+1. Do not include the element.
+2. Include the element, if it does not exceed the target.
+
+The transition:
+
+\\[ dp[i][sum]=dp[i-1][sum] \\]
+
+or, when the value fits:
+
+\\[ dp[i][sum] = dp[i-1][sum] \lor dp[i-1][sum-num_i] \\]
+
+## **17.3 Base Cases**
+
+A sum of zero can always be created by choosing an empty subset.
+
+\\[ dp[i][0]=true \\]
+
+With zero elements, a positive target cannot be created:
+
+\\[ dp[0][sum]=false,\quad sum>0 \\]
+
+## **17.4 Java Implementation**
+
+```
+public class SubsetSum {
+
+    public static boolean canMakeSum(
+        int[] nums,
+        int target
+    ) {
+
+        boolean[][] dp =
+            new boolean[nums.length + 1][target + 1];
+
+        // Sum zero is always possible
+        for (int i = 0; i <= nums.length; i++) {
+
+            dp[i][0] = true;
+        }
+
+        for (int i = 1; i <= nums.length; i++) {
+
+            int num = nums[i - 1];
+
+            for (int sum = 1; sum <= target; sum++) {
+
+                // Exclude current element
+                dp[i][sum] = dp[i - 1][sum];
+
+                // Include current element if possible
+                if (num <= sum) {
+
+                    dp[i][sum] =
+                        dp[i][sum]
+                        || dp[i - 1][sum - num];
+                }
+            }
+        }
+
+        return dp[nums.length][target];
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {3, 4, 5, 2};
+
+        System.out.println(
+            canMakeSum(nums, 9)
+        );
+    }
+}
+```
+
+Output:
+
+```
+true
+```
+
+## **17.5 Space Optimization**
+
+We can reduce the two-dimensional table to one dimension.
+
+```
+public class SubsetSumOptimized {
+
+    public static boolean canMakeSum(
+        int[] nums,
+        int target
+    ) {
+
+        boolean[] dp = new boolean[target + 1];
+
+        dp[0] = true;
+
+        for (int num : nums) {
+
+            for (int sum = target; sum >= num; sum--) {
+
+                dp[sum] =
+                    dp[sum] || dp[sum - num];
+            }
+        }
+
+        return dp[target];
+    }
+}
+```
+
+Notice the backward iteration.
+
+We are selecting each array element at most once, so we must use previous states rather than repeatedly using the same element.
+
+## **17.6 Complexity**
+
+- Time: O(N × Target).
+- Space: O(Target) optimized.
+
+This is pseudo-polynomial time because the target may be exponentially large relative to its binary input length.
+
+**Assumption:** These implementations use nonnegative integers. Negative numbers require a different state representation or another algorithm.
+
+# **18. Partition Equal Subset Sum**
+
+This problem builds directly on Subset Sum.
+
+## **18.1 Problem Statement**
+
+You are given an array of positive integers.
+
+Determine whether it can be divided into two subsets such that both subsets have the same total sum.
+
+### **Example**
+
+```
+nums = [1, 5, 11, 5]
+```
+
+Possible partition:
+
+```
+Subset 1 = [1, 5, 5]
+
+Subset 2 = [11]
+```
+
+Their sums:
+
+```
+11 = 11
+```
+
+Answer:
+
+```
+true
+```
+
+## **18.2 The Key Observation**
+
+First calculate the total sum.
+
+\\[ total=\sum nums[i] \\]
+
+For two equal subsets, each subset must have:
+
+\\[ target=\frac{total}{2} \\]
+
+If the total sum is odd, an equal partition is impossible.
+
+If the total sum is even, the problem becomes:
+
+Can we find a subset whose sum is equal to `total / 2`?
+
+This is exactly the Subset Sum problem.
+
+## **18.3 Java Implementation**
+
+```
+public class PartitionEqualSubsetSum {
+
+    public static boolean canPartition(
+        int[] nums
+    ) {
+
+        int total = 0;
+
+        for (int num : nums) {
+
+            total += num;
+        }
+
+        if (total % 2 != 0) {
+            return false;
+        }
+
+        int target = total / 2;
+
+        boolean[] dp = new boolean[target + 1];
+
+        dp[0] = true;
+
+        for (int num : nums) {
+
+            for (
+                int sum = target;
+                sum >= num;
+                sum--
+            ) {
+
+                dp[sum] =
+                    dp[sum] || dp[sum - num];
+            }
+        }
+
+        return dp[target];
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {1, 5, 11, 5};
+
+        System.out.println(
+            canPartition(nums)
+        );
+    }
+}
+```
+
+Output:
+
+```
+true
+```
+
+## **18.4 Dry Run**
+
+Input:
+
+```
+[1, 5, 11, 5]
+```
+
+Total:
+
+\\[ 1+5+11+5=22 \\]
+
+Target:
+
+\\[ 22/2=11 \\]
+
+We check whether a subset can produce 11.
+
+One possibility:
+
+\\[ 1+5+5=11 \\]
+
+Therefore:
+
+```
+true
+```
+
+## **18.5 Complexity**
+
+- Time: O(N × Total / 2).
+- Space: O(Total / 2).
+
+This algorithm assumes nonnegative input values and uses their sum as a capacity bound.
+
+# **19. Coin Change**
+
+Coin Change is an important DP problem because it introduces two different optimization objectives:
+
+1. Find the minimum number of coins required to make an amount.
+2. Find the number of distinct combinations of coins that make an amount.
+
+These are different problems and require different state transitions.
+
+## **19.1 Coin Change I — Minimum Number of Coins**
+
+### **Problem Statement**
+
+You are given:
+
+- An array of coin denominations.
+- A target amount.
+
+You can use each denomination unlimited times.
+
+Find the minimum number of coins required to make the target amount.
+
+If the amount cannot be formed, return -1.
+
+Example:
+
+```
+coins = [1, 2, 5]
+
+amount = 11
+```
+
+Possible solutions:
+
+```
+5 + 5 + 1 = 11
+
+5 + 2 + 2 + 2 = 11
+
+2 + 2 + 2 + 2 + 2 + 1 = 11
+```
+
+The minimum number of coins is:
+
+```
+3
+```
+
+### **State Definition**
+
+Let:
+
+\\[ dp[x] \\]
+
+represent the minimum number of coins required to make amount x.
+
+For every denomination c, we can use it if:
+
+\\[ c \leq x \\]
+
+The transition is:
+
+\\[ dp[x]=\min(dp[x],1+dp[x-c]) \\]
+
+We start with:
+
+\\[ dp[0]=0 \\]
+
+An amount that cannot yet be formed is initialized with a large sentinel value.
+
+### **Java Implementation**
+
+```
+import java.util.*;
+
+public class CoinChangeMinimum {
+
+    public static int coinChange(
+        int[] coins,
+        int amount
+    ) {
+
+        int INF = amount + 1;
+
+        int[] dp = new int[amount + 1];
+
+        Arrays.fill(dp, INF);
+
+        // Zero coins are needed for amount zero
+        dp[0] = 0;
+
+        for (int x = 1; x <= amount; x++) {
+
+            for (int coin : coins) {
+
+                if (coin <= x && dp[x - coin] != INF) {
+
+                    dp[x] = Math.min(
+                        dp[x],
+                        1 + dp[x - coin]
+                    );
+                }
+            }
+        }
+
+        return dp[amount] == INF
+            ? -1
+            : dp[amount];
+    }
+
+    public static void main(String[] args) {
+
+        int[] coins = {1, 2, 5};
+
+        System.out.println(
+            coinChange(coins, 11)
+        );
+    }
+}
+```
+
+Output:
+
+```
+3
+```
+
+### **Complexity**
+
+Let N be the number of denominations and A be the target amount.
+
+- Time: O(N × A).
+- Space: O(A).
+
+The algorithm uses unbounded coin usage because each amount can build on previously calculated amounts that may already contain the same denomination.
+
+### **Why Not Greedy?**
+
+Consider:
+
+```
+coins = [1, 3, 4]
+
+amount = 6
+```
+
+Greedy chooses the largest denomination first:
+
+```
+4 + 1 + 1
+```
+
+That uses three coins.
+
+But the optimal answer is:
+
+```
+3 + 3
+```
+
+That uses only two coins.
+
+This demonstrates why minimum coin change cannot always be solved with greedy selection.
+
+## **19.2 Coin Change II — Number of Combinations**
+
+Now the objective changes.
+
+Instead of finding the minimum number of coins, we want to calculate how many distinct combinations can form the given amount.
+
+Example:
+
+```
+coins = [1, 2, 5]
+
+amount = 5
+```
+
+Valid combinations:
+
+```
+1 + 1 + 1 + 1 + 1
+
+1 + 1 + 1 + 2
+
+1 + 2 + 2
+
+5
+```
+
+Total:
+
+```
+4 combinations
+```
+
+The order of coins does not matter.
+
+For example:
+
+```
+1 + 2 + 2
+```
+
+and:
+
+```
+2 + 1 + 2
+```
+
+represent the same combination.
+
+### **State Definition**
+
+Let:
+
+\\[ dp[x] \\]
+
+represent the number of combinations that create amount x using the denominations processed so far.
+
+Initialize:
+
+\\[ dp[0]=1 \\]
+
+There is one way to create zero: select no coins.
+
+For every coin:
+
+\\[ dp[x]=dp[x]+dp[x-coin] \\]
+
+### **Java Implementation**
+
+```
+public class CoinChangeCombinations {
+
+    public static int change(
+        int amount,
+        int[] coins
+    ) {
+
+        int[] dp = new int[amount + 1];
+
+        dp[0] = 1;
+
+        for (int coin : coins) {
+
+            for (
+                int x = coin;
+                x <= amount;
+                x++
+            ) {
+
+                dp[x] += dp[x - coin];
+            }
+        }
+
+        return dp[amount];
+    }
+
+    public static void main(String[] args) {
+
+        int[] coins = {1, 2, 5};
+
+        System.out.println(
+            change(5, coins)
+        );
+    }
+}
+```
+
+Output:
+
+```
+4
+```
+
+### **Why Does Coin Change II Iterate Forward?**
+
+Because each coin denomination can be used unlimited times.
+
+The forward loop allows a newly updated state to be reused with the same denomination.
+
+But notice something important: the outer loop processes denominations one by one.
+
+This prevents us from counting different orders of the same combination as separate answers.
+
+If we reverse the loops, we generally count ordered sequences instead of unordered combinations.
+
+### **Minimum Coins vs Number of Combinations**
+
+| Feature                | Coin Change I            | Coin Change II            |
+| ---------------------- | ------------------------ | ------------------------- |
+| Objective              | Minimize coins           | Count combinations        |
+| DP operation           | Minimum                  | Addition                  |
+| Base case              | dp[0] = 0                | dp[0] = 1                 |
+| Loop structure         | Amount and denominations | Coins outer, amount inner |
+| Repeated denominations | Unlimited                | Unlimited                 |
+| Result                 | Minimum coin count       | Number of combinations    |
+
+**Important:** These examples use positive coin denominations. The number of combinations may exceed the `int` range in Java for large inputs, so use `long` or `BigInteger` when required by the constraints.
+
+# **20. Longest Common Subsequence (LCS)**
+
+Longest Common Subsequence is one of the most important string-based Dynamic Programming problems.
+
+It is frequently asked in technical interviews and forms the foundation of several advanced problems.
+
+## **20.1 What Is a Subsequence?**
+
+A subsequence is a sequence that can be obtained by deleting zero or more characters without changing the relative order of the remaining characters.
+
+For example:
+
+```
+String = ABCDE
+```
+
+Some valid subsequences:
+
+```
+ACE
+
+BCD
+
+ABDE
+
+ABCDE
+```
+
+But:
+
+```
+EAC
+```
+
+is not a valid subsequence because the relative order has changed.
+
+## **20.2 Problem Statement**
+
+You are given two strings.
+
+Find the length of their longest common subsequence.
+
+Example:
+
+```
+text1 = ABCDGH
+
+text2 = AEDFHR
+```
+
+A common subsequence is:
+
+```
+ADH
+```
+
+Its length is:
+
+```
+3
+```
+
+Another example:
+
+```
+text1 = ABCDE
+
+text2 = ACE
+```
+
+The LCS is:
+
+```
+ACE
+```
+
+Length:
+
+```
+3
+```
+
+## **20.3 State Definition**
+
+Let:
+
+\\[ dp[i][j] \\]
+
+represent the length of the longest common subsequence between:
+
+- The first i characters of string A.
+- The first j characters of string B.
+
+We use a two-dimensional DP table because the answer depends on two string positions.
+
+## **20.4 State Transition**
+
+There are two cases.
+
+### **Case 1: Characters Match**
+
+If:
+
+\\[ A[i-1]=B[j-1] \\]
+
+then the common subsequence can be extended by one character.
+
+\\[ dp[i][j]=1+dp[i-1][j-1] \\]
+
+### **Case 2: Characters Do Not Match**
+
+We have two possibilities:
+
+- Ignore the current character from A.
+- Ignore the current character from B.
+
+Take the better result:
+
+\\[ dp[i][j]=\max(dp[i-1][j],dp[i][j-1]) \\]
+
+## **20.5 Base Cases**
+
+If either string is empty:
+
+\\[ dp[0][j]=0 \\]
+
+\\[ dp[i][0]=0 \\]
+
+There cannot be a non-empty common subsequence when one string is empty.
+
+## **20.6 Java Implementation**
+
+```
+public class LongestCommonSubsequence {
+
+    public static int lcs(
+        String a,
+        String b
+    ) {
+
+        int m = a.length();
+        int n = b.length();
+
+        int[][] dp = new int[m + 1][n + 1];
+
+        for (int i = 1; i <= m; i++) {
+
+            for (int j = 1; j <= n; j++) {
+
+                if (a.charAt(i - 1) == b.charAt(j - 1)) {
+
+                    dp[i][j] =
+                        1 + dp[i - 1][j - 1];
+
+                } else {
+
+                    dp[i][j] = Math.max(
+                        dp[i - 1][j],
+                        dp[i][j - 1]
+                    );
+                }
+            }
+        }
+
+        return dp[m][n];
+    }
+
+    public static void main(String[] args) {
+
+        String a = "ABCDE";
+
+        String b = "ACE";
+
+        System.out.println(lcs(a, b));
+    }
+}
+```
+
+Output:
+
+```
+3
+```
+
+## **20.7 Understanding the DP Table**
+
+Input:
+
+```
+A = ABCDE
+B = ACE
+```
+
+The resulting table is:
+
+**LCS table**
+
+| **&#x20;** | **∅** | **A** | **C** | **E** |
+| ---------- | ----- | ----- | ----- | ----- |
+| **∅**      | 0     | 0     | 0     | 0     |
+| **A**      | 0     | 1     | 1     | 1     |
+| **B**      | 0     | 1     | 1     | 1     |
+| **C**      | 0     | 1     | 2     | 2     |
+| **D**      | 0     | 1     | 2     | 2     |
+| **E**      | 0     | 1     | 2     | **3** |
+
+# **LCS length = 3**
+
+The final answer is stored at:
+
+```
+dp[m][n]
+```
+
+## **20.8 Recovering the Actual LCS String**
+
+Sometimes an interviewer asks for the subsequence itself, not just its length.
+
+We can reconstruct it by walking backward through the DP table.
+
+- If the characters match, include that character and move diagonally.
+- If they do not match, move to the neighboring cell with the larger DP value.
+- Continue until one index becomes zero.
+
+```
+import java.util.*;
+
+public class LCSString {
+
+    public static String getLCS(
+        String a,
+        String b
+    ) {
+
+        int m = a.length();
+        int n = b.length();
+
+        int[][] dp = new int[m + 1][n + 1];
+
+        for (int i = 1; i <= m; i++) {
+
+            for (int j = 1; j <= n; j++) {
+
+                if (a.charAt(i - 1) == b.charAt(j - 1)) {
+
+                    dp[i][j] =
+                        1 + dp[i - 1][j - 1];
+
+                } else {
+
+                    dp[i][j] = Math.max(
+                        dp[i - 1][j],
+                        dp[i][j - 1]
+                    );
+                }
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        int i = m;
+        int j = n;
+
+        while (i > 0 && j > 0) {
+
+            if (a.charAt(i - 1) == b.charAt(j - 1)) {
+
+                result.append(a.charAt(i - 1));
+
+                i--;
+                j--;
+
+            } else if (dp[i - 1][j] >= dp[i][j - 1]) {
+
+                i--;
+
+            } else {
+
+                j--;
+            }
+        }
+
+        return result.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(
+            getLCS("ABCDE", "ACE")
+        );
+    }
+}
+```
+
+Output:
+
+```
+ACE
+```
+
+## **20.9 Complexity**
+
+Let M and N be the lengths of the strings.
+
+- Time: O(M × N).
+- Space: O(M × N).
+
+With space optimization, LCS length can be calculated using O(min(M,N)) space by retaining only two DP rows. Reconstructing the actual subsequence usually requires additional storage or a more advanced approach.
+
+# **21. Longest Increasing Subsequence (LIS)**
+
+Longest Increasing Subsequence is an important sequence-based DP problem.
+
+It differs from LCS because it works with the order of values in a single array.
+
+## **21.1 What Is an Increasing Subsequence?**
+
+A subsequence is increasing when every next selected element is strictly greater than the previous selected element.
+
+Example:
+
+```
+nums = [10, 9, 2, 5, 3, 7, 101, 18]
+```
+
+One longest increasing subsequence is:
+
+```
+2 → 3 → 7 → 18
+```
+
+Its length is:
+
+```
+4
+```
+
+Notice that the elements do not need to be adjacent.
+
+## **21.2 Problem Statement**
+
+Given an integer array, find the length of its longest strictly increasing subsequence.
+
+## **21.3 Approach 1 — O(N²) Dynamic Programming**
+
+### **State Definition**
+
+Let:
+
+\\[ dp[i] \\]
+
+represent the length of the longest increasing subsequence that ends exactly at index i.
+
+Every element can form a subsequence of length 1 by itself.
+
+Therefore:
+
+\\[ dp[i]=1 \\]
+
+Initially.
+
+### **State Transition**
+
+For every previous index j:
+
+If:
+
+\\[ nums[j]\<nums[i] \\]
+
+we can extend an increasing subsequence ending at j.
+
+Therefore:
+
+\\[ dp[i]=\max(dp[i],dp[j]+1) \\]
+
+Finally:
+
+\\[ Answer=\max(dp[i]) \\]
+
+### **Java Implementation**
+
+```
+import java.util.*;
+
+public class LongestIncreasingSubsequence {
+
+    public static int lis(int[] nums) {
+
+        int n = nums.length;
+
+        if (n == 0) {
+            return 0;
+        }
+
+        int[] dp = new int[n];
+
+        Arrays.fill(dp, 1);
+
+        int answer = 1;
+
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < i; j++) {
+
+                if (nums[j] < nums[i]) {
+
+                    dp[i] = Math.max(
+                        dp[i],
+                        dp[j] + 1
+                    );
+                }
+            }
+
+            answer = Math.max(
+                answer,
+                dp[i]
+            );
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {
+            10, 9, 2, 5, 3, 7, 101, 18
+        };
+
+        System.out.println(lis(nums));
+    }
+}
+```
+
+Output:
+
+```
+4
+```
+
+### **Complexity**
+
+- Time: O(N²).
+- Space: O(N).
+
+## **21.4 Understanding the DP Array**
+
+Input:
+
+```
+[10, 9, 2, 5, 3, 7, 101, 18]
+```
+
+The LIS-ending-at-each-index lengths are:
+
+```
+[1, 1, 1, 2, 2, 3, 4, 4]
+```
+
+The maximum is:
+
+```
+4
+```
+
+## **21.5 Approach 2 — O(N log N)**
+
+For larger inputs, we can solve LIS using a technique based on binary search.
+
+We maintain an array called `tails`.
+
+At each position, we track the smallest possible ending value for increasing subsequences of different lengths.
+
+For example, if:
+
+```
+nums = [10, 9, 2, 5, 3, 7, 101, 18]
+```
+
+The final `tails` array is:
+
+```
+[2, 3, 7, 18]
+```
+
+Its length is the LIS length.
+
+Important: `tails` is not necessarily the actual longest increasing subsequence. Its entries represent the smallest achievable tail values for different subsequence lengths.
+
+### **Java Implementation**
+
+```
+import java.util.*;
+
+public class LISOLogN {
+
+    public static int lis(int[] nums) {
+
+        int[] tails = new int[nums.length];
+
+        int size = 0;
+
+        for (int num : nums) {
+
+            int left = 0;
+            int right = size;
+
+            // Find first position with value >= num
+            while (left < right) {
+
+                int mid = left + (right - left) / 2;
+
+                if (tails[mid] < num) {
+
+                    left = mid + 1;
+
+                } else {
+
+                    right = mid;
+                }
+            }
+
+            tails[left] = num;
+
+            if (left == size) {
+                size++;
+            }
+        }
+
+        return size;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {
+            10, 9, 2, 5, 3, 7, 101, 18
+        };
+
+        System.out.println(lis(nums));
+    }
+}
+```
+
+Output:
+
+```
+4
+```
+
+### **Complexity**
+
+| Approach      | Time       | Space |
+| ------------- | ---------- | ----- |
+| DP            | O(N²)      | O(N)  |
+| Binary search | O(N log N) | O(N)  |
+
+### **Important Interview Detail**
+
+For strictly increasing LIS, we replace the first value greater than or equal to the current number.
+
+For a non-decreasing subsequence, the binary-search condition changes to find the first value strictly greater than the current number.
+
+This difference is important when duplicate values are present.
+
+# **22. Edit Distance**
+
+Edit Distance is a classic DP problem used in string comparison.
+
+It measures the minimum number of editing operations needed to transform one string into another.
+
+It is also known as Levenshtein Distance when the permitted operations are insertion, deletion, and substitution, each with unit cost.
+
+## **22.1 Problem Statement**
+
+You are given two strings.
+
+You can perform three operations:
+
+1. Insert a character.
+2. Delete a character.
+3. Replace a character.
+
+Find the minimum number of operations required to transform the first string into the second.
+
+### **Example**
+
+```
+word1 = "horse"
+
+word2 = "ros"
+```
+
+One possible transformation:
+
+```
+horse
+rorse    Replace h with r
+rose     Delete r
+ros      Delete e
+```
+
+Total:
+
+```
+3 operations
+```
+
+## **22.2 State Definition**
+
+Let:
+
+\\[ dp[i][j] \\]
+
+represent the minimum edit distance between:
+
+- The first i characters of word1.
+- The first j characters of word2.
+
+## **22.3 Base Cases**
+
+If the first string is empty, we must insert all characters from the second string.
+
+\\[ dp[0][j]=j \\]
+
+If the second string is empty, we must delete all characters from the first string.
+
+\\[ dp[i][0]=i \\]
+
+## **22.4 State Transition**
+
+If the current characters match:
+
+\\[ word1[i-1]=word2[j-1] \\]
+
+No additional operation is required:
+
+\\[ dp[i][j]=dp[i-1][j-1] \\]
+
+If the characters do not match, we consider three operations.
+
+**Insertion:**
+
+\\[ dp[i][j-1]+1 \\]
+
+We insert the required character into the first string.
+
+**Deletion:**
+
+\\[ dp[i-1][j]+1 \\]
+
+We delete the current character from the first string.
+
+**Replacement:**
+
+\\[ dp[i-1][j-1]+1 \\]
+
+We replace one character with another.
+
+Therefore:
+
+\\[ dp[i][j] = 1+\min \begin{cases} dp[i-1][j]\\\ dp[i][j-1]\\\ dp[i-1][j-1] \end{cases} \\]
+
+when the characters are different.
+
+## **22.5 Java Implementation**
+
+```
+public class EditDistance {
+
+    public static int minDistance(
+        String word1,
+        String word2
+    ) {
+
+        int m = word1.length();
+        int n = word2.length();
+
+        int[][] dp = new int[m + 1][n + 1];
+
+        // Base cases
+        for (int i = 0; i <= m; i++) {
+
+            dp[i][0] = i;
+        }
+
+        for (int j = 0; j <= n; j++) {
+
+            dp[0][j] = j;
+        }
+
+        for (int i = 1; i <= m; i++) {
+
+            for (int j = 1; j <= n; j++) {
+
+                if (
+                    word1.charAt(i - 1)
+                    == word2.charAt(j - 1)
+                ) {
+
+                    dp[i][j] = dp[i - 1][j - 1];
+
+                } else {
+
+                    int insert = dp[i][j - 1];
+
+                    int delete = dp[i - 1][j];
+
+                    int replace = dp[i - 1][j - 1];
+
+                    dp[i][j] = 1 + Math.min(
+                        insert,
+                        Math.min(delete, replace)
+                    );
+                }
+            }
+        }
+
+        return dp[m][n];
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(
+            minDistance("horse", "ros")
+        );
+    }
+}
+```
+
+Output:
+
+```
+3
+```
+
+## **22.6 Understanding the Operations**
+
+| Operation | Effect             | DP dependency |
+| --------- | ------------------ | ------------- |
+| Insert    | Add a character    | Left cell     |
+| Delete    | Remove a character | Upper cell    |
+| Replace   | Change a character | Diagonal cell |
+| Match     | No new operation   | Diagonal cell |
+
+The final answer is stored at:
+
+```
+dp[word1.length()][word2.length()]
+```
+
+## **22.7 Complexity**
+
+Let M and N represent the two string lengths.
+
+- Time: O(M × N).
+- Space: O(M × N).
+
+Space can be reduced to O(min(M,N)) using two rows because each state depends only on the current row and previous row.
+
+However, reconstructing the exact sequence of editing operations requires retaining additional information or recomputing decisions.
+
+## **22.8 Real-World Applications**
+
+Edit distance is useful in:
+
+- Spell checkers.
+- Typographical error correction.
+- Search suggestions.
+- Text similarity.
+- DNA sequence comparison.
+- Fuzzy string matching.
+- Natural language processing.
+
+For example, when a search engine suggests a correction for a misspelled word, edit-distance-based techniques can help identify similar words.
+
+# **23. Matrix Chain Multiplication**
+
+Matrix Chain Multiplication is a classic advanced Dynamic Programming problem.
+
+It introduces interval DP, where we calculate the best answer for every possible range of matrices.
+
+The challenge is not multiplying matrices themselves.
+
+The challenge is deciding the optimal order of multiplication.
+
+## **23.1 Understanding Matrix Multiplication**
+
+Suppose we have two matrices:
+
+Matrix A:
+
+\\[ m \times n \\]
+
+Matrix B:
+
+\\[ n \times p \\]
+
+Their multiplication produces:
+
+\\[ m \times p \\]
+
+The number of scalar multiplications required is:
+
+\\[ m \times n \times p \\]
+
+For example:
+
+A is 10 × 30.
+
+B is 30 × 5.
+
+The multiplication cost is:
+
+\\[ 10 \times 30 \times 5=1500 \\]
+
+The resulting matrix has dimensions 10 × 5.
+
+## **23.2 Problem Statement**
+
+Suppose we have multiple matrices:
+
+```
+A1, A2, A3, ..., An
+```
+
+We must multiply them in their original order.
+
+Matrix multiplication is associative:
+
+\\[ (A_1A_2)A_3=A_1(A_2A_3) \\]
+
+However, different parenthesizations can require very different numbers of scalar multiplications.
+
+Our goal is to find the minimum cost.
+
+## **23.3 Example**
+
+Consider three matrices:
+
+| Matrix | Dimensions |
+| ------ | ---------- |
+| A1     | 10 × 30    |
+| A2     | 30 × 5     |
+| A3     | 5 × 60     |
+
+There are two possible parenthesizations.
+
+### **Option 1: (A1 × A2) × A3**
+
+First:
+
+\\[ 10 \times 30 \times 5=1500 \\]
+
+The result is a 10 × 5 matrix.
+
+Then:
+
+\\[ 10 \times 5 \times 60=3000 \\]
+
+Total:
+
+\\[ 1500+3000=\boxed{4500} \\]
+
+### **Option 2: A1 × (A2 × A3)**
+
+First:
+
+\\[ 30 \times 5 \times 60=9000 \\]
+
+The result is a 30 × 60 matrix.
+
+Then:
+
+\\[ 10 \times 30 \times 60=18000 \\]
+
+Total:
+
+\\[ 9000+18000=\boxed{27000} \\]
+
+**Compare multiplication orders**
+
+**Option 1 — (A1 × A2) × A3**
+
+# **4,500**
+
+Scalar multiplications
+
+Optimal
+
+**Option 2 — A1 × (A2 × A3)**
+
+# **27,000**
+
+Scalar multiplications
+
+Six times the cost of the optimal order.
+
+## **23.4 State Definition**
+
+Suppose we have N matrices and a dimension array:
+
+```
+p = [10, 30, 5, 60]
+```
+
+The matrices are:
+
+```
+A1 = 10 × 30
+
+A2 = 30 × 5
+
+A3 = 5 × 60
+```
+
+Let:
+
+\\[ dp[i][j] \\]
+
+represent the minimum number of scalar multiplications required to multiply matrices from Ai through Aj.
+
+For a single matrix:
+
+\\[ dp[i][i]=0 \\]
+
+Why?
+
+Multiplying one matrix requires no matrix-to-matrix multiplication.
+
+## **23.5 State Transition**
+
+Suppose we split the matrix chain between k and k + 1.
+
+The chain becomes:
+
+```
+(Ai ... Ak) × (A(k+1) ... Aj)
+```
+
+The total cost consists of three parts:
+
+1. Cost of multiplying the left chain.
+2. Cost of multiplying the right chain.
+3. Cost of multiplying the two resulting matrices.
+
+The total cost is:
+
+\\[ dp[i][k]+dp[k+1][j]+p[i-1]\times p[k]\times p[j] \\]
+
+We try every possible split point.
+
+Therefore:
+
+\\[ dp[i][j] = \min\_{i\leq k\<j} \left( dp[i][k]+dp[k+1][j] +p[i-1]p[k]p[j] \right) \\]
+
+This is the central recurrence of Matrix Chain Multiplication.
+
+## **23.6 Why Is It Called Interval DP?**
+
+Because the state represents a continuous range:
+
+\\[ [i,j] \\]
+
+We solve smaller ranges first and combine them to solve larger ranges.
+
+For example:
+
+- Single-matrix intervals.
+- Two-matrix intervals.
+- Three-matrix intervals.
+- Complete matrix chain.
+
+This is a common pattern in advanced DP problems.
+
+## **23.7 Java Implementation**
+
+```
+public class MatrixChainMultiplication {
+
+    public static int matrixChain(int[] p) {
+
+        int n = p.length - 1;
+
+        // dp[i][j] = minimum cost for Ai through Aj
+        int[][] dp = new int[n + 1][n + 1];
+
+        // len = number of matrices in the interval
+        for (int len = 2; len <= n; len++) {
+
+            for (
+                int i = 1;
+                i <= n - len + 1;
+                i++
+            ) {
+
+                int j = i + len - 1;
+
+                dp[i][j] = Integer.MAX_VALUE;
+
+                // Try every possible split
+                for (int k = i; k < j; k++) {
+
+                    int cost =
+                        dp[i][k]
+                        + dp[k + 1][j]
+                        + p[i - 1] * p[k] * p[j];
+
+                    dp[i][j] = Math.min(
+                        dp[i][j],
+                        cost
+                    );
+                }
+            }
+        }
+
+        return dp[1][n];
+    }
+
+    public static void main(String[] args) {
+
+        int[] dimensions = {
+            10, 30, 5, 60
+        };
+
+        System.out.println(
+            matrixChain(dimensions)
+        );
+    }
+}
+```
+
+Output:
+
+```
+4500
+```
+
+This code uses `int` for a small example. For larger dimensions, intermediate multiplication costs can overflow. Use `long` for the DP table and multiplication expressions when constraints require it.
+
+## **23.8 Dry Run**
+
+Input:
+
+```
+p = [10, 30, 5, 60]
+```
+
+There are three matrices.
+
+First, all diagonal states are zero:
+
+```
+dp[1][1] = 0
+dp[2][2] = 0
+dp[3][3] = 0
+```
+
+Calculate two-matrix intervals:
+
+\\[ dp[1][2]=10\times30\times5=1500 \\]
+
+\\[ dp[2][3]=30\times5\times60=9000 \\]
+
+Now calculate the three-matrix interval.
+
+There are two possible split positions.
+
+Split at 1:
+
+\\[ 0+9000+10\times30\times60 \\]
+
+\\[ =27000 \\]
+
+Split at 2:
+
+\\[ 1500+0+10\times5\times60 \\]
+
+\\[ =4500 \\]
+
+Choose the minimum:
+
+\\[ dp[1][3]=4500 \\]
+
+## **23.9 Complexity**
+
+For N matrices:
+
+- Time: O(N³).
+- Space: O(N²).
+
+Three nested loops are used:
+
+1. Interval length.
+2. Starting position.
+3. Split position.
+
+Matrix Chain Multiplication is an important example of interval DP and is frequently used to introduce more advanced DP techniques.
+
+# **24. Major Dynamic Programming Patterns**
+
+Now that you have studied the individual problems, you should understand the larger patterns behind them.
+
+This is important because coding interviews rarely give you a problem and explicitly tell you which DP algorithm to use.
+
+You must recognize the pattern yourself.
+
+## **24.1 One-Dimensional DP**
+
+Used when the answer depends on previous positions or smaller numerical states.
+
+Examples:
+
+- Fibonacci.
+- Climbing Stairs.
+- House Robber.
+- Minimum Cost Climbing Stairs.
+
+Typical state:
+
+\\[ dp[i] \\]
+
+## **24.2 Two-Dimensional DP**
+
+Used when the answer depends on two changing variables.
+
+Examples:
+
+- 0/1 Knapsack.
+- Longest Common Subsequence.
+- Edit Distance.
+- Grid paths.
+
+Typical state:
+
+\\[ dp[i][j] \\]
+
+## **24.3 Knapsack DP**
+
+Used when you need to select items under a capacity or resource restriction.
+
+Examples:
+
+- 0/1 Knapsack.
+- Unbounded Knapsack.
+- Subset Sum.
+- Partition Equal Subset Sum.
+- Coin Change.
+
+The common decision structure is:
+
+- Take an item.
+- Do not take an item.
+
+## **24.4 Subsequences DP**
+
+Used when you need to find the best sequence while maintaining the original relative order.
+
+Examples:
+
+- Longest Common Subsequence.
+- Longest Increasing Subsequence.
+- Longest Palindromic Subsequence.
+- Minimum Insertions to Make a String Palindrome.
+
+## **24.5 String DP**
+
+Used when comparing or transforming strings.
+
+Examples:
+
+- LCS.
+- Edit Distance.
+- Distinct Subsequences.
+- Wildcard Matching.
+- Regular Expression Matching.
+
+## **24.6 Interval DP**
+
+Used when the state represents a range of elements and we need to try different splitting positions.
+
+Examples:
+
+- Matrix Chain Multiplication.
+- Burst Balloons.
+- Palindrome Partitioning.
+- Optimal Binary Search Tree.
+
+Typical state:
+
+\\[ dp[i][j] \\]
+
+where i and j represent the boundaries of an interval.
+
+## **24.7 DP Pattern Recognition Table**
+
+| Clue in problem                          | Possible DP pattern |
+| ---------------------------------------- | ------------------- |
+| Minimum or maximum cost                  | Optimization DP     |
+| Repeated choices at every index          | 1D DP               |
+| Limited capacity or budget               | Knapsack DP         |
+| Select or skip an element                | 0/1 DP              |
+| Unlimited use of items                   | Unbounded DP        |
+| Two strings being compared               | String / 2D DP      |
+| Longest valid sequence                   | Subsequences DP     |
+| Split an interval at different positions | Interval DP         |
+| Count distinct ways                      | Counting DP         |
+| Multiple changing variables              | Multidimensional DP |
+
+# **25. Greedy vs Dynamic Programming**
+
+This comparison is especially important because you studied Greedy Algorithms in Module 16.
+
+Both techniques can solve optimization problems, but they make decisions differently.
+
+## **25.1 Greedy Approach**
+
+Greedy chooses the best immediate option.
+
+Once a choice is made, the algorithm generally does not reconsider it.
+
+Example: Fractional Knapsack.
+
+We select items according to their value-to-weight ratio.
+
+## **25.2 Dynamic Programming Approach**
+
+DP evaluates smaller subproblems and combines their results.
+
+It may consider several alternative decisions before identifying the best overall solution.
+
+Example: 0/1 Knapsack.
+
+We consider taking or skipping each item.
+
+## **25.3 Detailed Comparison**
+
+| Feature            | Greedy                          | Dynamic Programming                             |
+| ------------------ | ------------------------------- | ----------------------------------------------- |
+| Decision strategy  | Local optimum                   | Combines subproblem solutions                   |
+| Previous decisions | Usually final                   | Evaluated through states                        |
+| Subproblem storage | Usually not needed              | Usually required                                |
+| Recursion          | Not necessary                   | Often used in memoization                       |
+| Tabulation         | Not typical                     | Common                                          |
+| Space requirements | Often low                       | Often higher                                    |
+| Correctness        | Greedy choice must be justified | Recurrence must correctly represent the optimum |
+
+## **25.4 Example: Fractional vs 0/1 Knapsack**
+
+For fractional knapsack, we can divide an item.
+
+Selecting the highest value-to-weight ratio first is optimal.
+
+For 0/1 knapsack, we must select complete items.
+
+A high-ratio item might prevent a better combination of other items.
+
+Therefore:
+
+- Fractional Knapsack → Greedy.
+- 0/1 Knapsack → DP for the general problem.
+
+## **25.5 Example: Coin Change**
+
+Consider:
+
+```
+coins = [1, 3, 4]
+
+amount = 6
+```
+
+Greedy:
+
+```
+4 + 1 + 1
+```
+
+Three coins.
+
+Optimal DP solution:
+
+```
+3 + 3
+```
+
+Two coins.
+
+This illustrates why greedy decisions are not always globally optimal.
+
+**Interview lesson:** Before using greedy, prove that the locally best decision is safe. Before using DP, identify the states, recurrence, and overlapping subproblems.
+
+# **26. Important DP Implementation Mistakes**
+
+Dynamic Programming can become difficult when the state definition or transition is incorrect.
+
+These are some of the most common mistakes.
+
+## **Mistake 1: Incorrect State Definition**
+
+If `dp[i]` does not clearly describe the subproblem, writing its transition becomes difficult.
+
+Always explain what each DP entry represents in one precise sentence.
+
+## **Mistake 2: Incorrect Base Cases**
+
+A wrong base case can make every later state incorrect.
+
+For example, in climbing stairs, using:
+
+```
+dp[0] = 0;
+```
+
+with the usual ways-to-reach-step-i definition can produce incorrect results.
+
+The correct initialization is:
+
+```
+dp[0] = 1;
+```
+
+## **Mistake 3: Wrong Loop Direction**
+
+This is particularly important for knapsack problems.
+
+| Problem                  | Loop direction        |
+| ------------------------ | --------------------- |
+| 0/1 Knapsack             | Backward              |
+| Subset Sum               | Backward              |
+| Unbounded Knapsack       | Forward               |
+| Coin Change combinations | Forward for each coin |
+
+Incorrect direction can accidentally allow an item to be selected multiple times.
+
+## **Mistake 4: Forgetting Impossible States**
+
+In minimum-cost or minimum-count problems, initialize impossible states with a suitable large value.
+
+For example:
+
+```
+Arrays.fill(dp, INF);
+```
+
+Be careful when adding to INF because integer overflow can occur.
+
+## **Mistake 5: Confusing Subsequence and Substring**
+
+A subsequence allows gaps.
+
+A substring must contain consecutive characters.
+
+For example, in:
+
+```
+ABCDE
+```
+
+`ACE` is a subsequence but not a substring.
+
+LCS operates on subsequences, not necessarily contiguous substrings.
+
+## **Mistake 6: Not Understanding the DP Table**
+
+Do not memorize a two-dimensional recurrence without understanding:
+
+- What rows represent.
+- What columns represent.
+- Why the previous row is used.
+- Why the upper, left, or diagonal cell is relevant.
+
+## **Mistake 7: Using the Entire Table When It Is Not Necessary**
+
+If a recurrence depends only on the previous two values, you may not need an entire array.
+
+Look for space optimization after obtaining a correct implementation.
+
+## **Mistake 8: Overflow**
+
+Some DP problems involve very large answers.
+
+For example:
+
+```
+int[] dp;
+```
+
+may not be sufficient for Fibonacci, path-counting, or combination-counting problems.
+
+Consider:
+
+```
+long[] dp;
+```
+
+or:
+
+```
+BigInteger[] dp;
+```
+
+when constraints require larger values.
+
+## **Mistake 9: Ignoring Empty Inputs**
+
+Always think about:
+
+- Empty arrays.
+- Empty strings.
+- Zero capacity.
+- Zero target.
+- One element.
+- Impossible target.
+
+## **Mistake 10: Optimizing Before Understanding**
+
+Do not immediately try to write the shortest O(1)-space solution.
+
+First write a clear recursive or two-dimensional DP solution.
+
+Verify the recurrence.
+
+Then optimize it.
+
+# **27. Complete Dynamic Programming Complexity Summary**
+
+This table is particularly useful during interview revision.
+
+| Problem                      | Main technique   | Time          | Space          |
+| ---------------------------- | ---------------- | ------------- | -------------- |
+| Fibonacci                    | 1D DP            | O(N)          | O(1) optimized |
+| Climbing Stairs              | 1D DP            | O(N)          | O(1)           |
+| Minimum Cost Climbing Stairs | 1D DP            | O(N)          | O(1)           |
+| House Robber                 | 1D DP            | O(N)          | O(1)           |
+| 0/1 Knapsack                 | Knapsack DP      | O(NW)         | O(W) optimized |
+| Unbounded Knapsack           | Unbounded DP     | O(NW)         | O(W)           |
+| Subset Sum                   | Boolean DP       | O(N × Target) | O(Target)      |
+| Partition Equal Subset Sum   | Boolean Knapsack | O(N × Total)  | O(Total)       |
+| Coin Change — Minimum        | Unbounded DP     | O(N × Amount) | O(Amount)      |
+| Coin Change — Combinations   | Counting DP      | O(N × Amount) | O(Amount)      |
+| LCS                          | 2D String DP     | O(M × N)      | O(M × N)       |
+| LIS                          | Binary Search DP | O(N log N)    | O(N)           |
+| Edit Distance                | 2D String DP     | O(M × N)      | O(M × N)       |
+| Matrix Chain Multiplication  | Interval DP      | O(N³)         | O(N²)          |
+
+Where:
+
+- N = Number of items or array length.
+- W = Knapsack capacity.
+- M and N = String lengths, where applicable.
+- Total = Sum of the input numbers.
+- Amount = Target amount in Coin Change.
+
+The space complexities shown use optimized storage where indicated.
+
+# **28. Interview and Practice Problems**
+
+Do not stop after understanding the examples.
+
+You need to practice applying the same patterns to unfamiliar inputs.
+
+Here is a structured problem list.
+
+## **Level 1 — DP Fundamentals**
+
+1. Fibonacci Number.
+2. Climbing Stairs.
+3. Min Cost Climbing Stairs.
+4. Frog Jump.
+5. House Robber.
+6. House Robber II.
+7. Maximum Sum of Non-Adjacent Elements.
+8. N-th Tribonacci Number.
+9. Delete and Earn.
+10. Decode Ways.
+
+## **Level 2 — Knapsack and Subset DP**
+
+1. 0/1 Knapsack.
+2. Unbounded Knapsack.
+3. Subset Sum.
+4. Partition Equal Subset Sum.
+5. Minimum Subset Sum Difference.
+6. Count Subsets with a Given Sum.
+7. Target Sum.
+8. Coin Change.
+9. Coin Change II.
+10. Rod Cutting.
+
+## **Level 3 — String and Subsequence DP**
+
+1. Longest Common Subsequence.
+2. Longest Common Substring.
+3. Longest Increasing Subsequence.
+4. Print Longest Increasing Subsequence.
+5. Edit Distance.
+6. Delete Operation for Two Strings.
+7. Shortest Common Supersequence.
+8. Distinct Subsequences.
+9. Longest Palindromic Subsequence.
+10. Minimum Insertions to Make a String Palindrome.
+
+## **Level 4 — Advanced DP**
+
+1. Matrix Chain Multiplication.
+2. Burst Balloons.
+3. Palindrome Partitioning II.
+4. Boolean Parenthesization.
+5. Minimum Cost to Cut a Stick.
+6. Egg Dropping Problem.
+7. Regular Expression Matching.
+8. Wildcard Matching.
+9. Maximum Profit in Job Scheduling.
+10. Super Egg Drop.
+
+These advanced problems introduce additional techniques such as interval DP, partition DP, state optimization, and binary search combined with DP.
+
+# **29. How to Solve Any New DP Problem**
+
+This is the most important section for your interview preparation.
+
+When you encounter a DP problem, do not immediately start writing code.
+
+Follow this process.
+
+**A systematic DP problem-solving framework**
+
+1. **Understand the problem**
+
+   Identify the input, output, constraints, and whether you need to count, maximize, minimize, or determine possibility.
+2. **Find the decisions**
+
+   Ask what choices can be made at each step. For example, take or skip an element.
+3. **Write the recursive solution**
+
+   Express how the original problem can be reduced to smaller problems.
+4. **Identify overlapping subproblems**
+
+   Check whether the same state can be reached multiple times.
+5. **Define the DP state**
+
+   Clearly explain what `dp[i]`, `dp[i][j]`, or a higher-dimensional state represents.
+6. **Write the recurrence**
+
+   Express the current state using previously solved states.
+7. **Establish base cases**
+
+   Determine the smallest subproblems and their answers.
+8. **Choose memoization or tabulation**
+
+   Select top-down or bottom-up computation.
+9. **Verify the solution**
+
+   Dry-run small examples, boundary cases, and impossible cases.
+10. **Optimize complexity**
+
+    Reduce time or memory only after the original solution is correct.
+
+## **Example of Applying This Framework**
+
+Problem:
+
+Given an array, find the maximum sum of non-adjacent elements.
+
+Input:
+
+```
+[2, 7, 9, 3, 1]
+```
+
+Step 1 — Objective:
+
+Maximize sum.
+
+Step 2 — Decisions:
+
+Take current element or skip it.
+
+Step 3 — State:
+
+\\[ dp[i]=\text{maximum sum using the first i elements} \\]
+
+Step 4 — Transition:
+
+\\[ dp[i]=\max(dp[i-1],nums[i-1]+dp[i-2]) \\]
+
+Step 5 — Base cases:
+
+\\[ dp[0]=0 \\]
+
+\\[ dp[1]=\max(0,nums[0]) \\]
+
+Step 6 — Answer:
+
+The maximum sum is:
+
+```
+12
+```
+
+This framework can be applied to many different DP problems.
+
+# **30. Module 19 — Final Understanding Checklist**
+
+Use this tracker to measure your understanding of the entire module.
+
+**Dynamic Programming mastery tracker**
+
+0 / 26 completed
+
+## **0%**
+
+Understand Dynamic Programming fundamentals
+
+Understand overlapping subproblems
+
+Understand optimal substructure
+
+Implement memoization
+
+Implement tabulation
+
+Convert recursion into DP
+
+Understand one-dimensional and multidimensional states
+
+Define state transitions correctly
+
+Identify base cases
+
+Understand space optimization
+
+Solve Fibonacci using four approaches
+
+Solve Climbing Stairs
+
+Solve Minimum Cost Climbing Stairs
+
+Solve House Robber
+
+Implement 0/1 Knapsack
+
+Implement Unbounded Knapsack
+
+Solve Subset Sum
+
+Solve Partition Equal Subset Sum
+
+Solve Coin Change minimum coins
+
+Solve Coin Change combinations
+
+Understand Longest Common Subsequence
+
+Understand Longest Increasing Subsequence
+
+Implement Edit Distance
+
+Implement Matrix Chain Multiplication
+
+Understand Greedy vs Dynamic Programming
+
+Analyze DP time and space complexity
+
+Reset progress
+
+# **31. The 12 Most Important Lessons from Module 19**
+
+1. Dynamic Programming avoids repeated calculations by storing results.
+2. Overlapping subproblems explain why memoization is useful.
+3. Optimal substructure allows us to build larger solutions from smaller optimal solutions.
+4. Memoization is top-down DP.
+5. Tabulation is bottom-up DP.
+6. State definition is the foundation of every DP solution.
+7. State transitions describe how smaller answers produce larger answers.
+8. Base cases determine the starting point of the recurrence.
+9. Space optimization removes unnecessary stored states.
+10. 0/1 and Unbounded Knapsack differ in whether an item can be reused.
+11. LCS, LIS, and Edit Distance are important sequence and string DP patterns.
+12. Matrix Chain Multiplication introduces interval DP.
+
+## **Your Expected Skill After This Module**
+
+**Module 19 learning outcome**
+
+After completing this module, you should be able to:
+
+- Recognize when Dynamic Programming is appropriate.
+- Convert recursive problems into memoized and tabulated solutions.
+- Define states and derive recurrence relations independently.
+- Implement 1D and 2D DP in Java.
+- Solve knapsack, subset, coin change, and sequence problems.
+- Optimize DP memory usage.
+- Explain time and space complexity.
+- Identify the correct DP pattern in unfamiliar interview problems.
+
+**My recommendation:** Spend extra practice time on 0/1 Knapsack, Subset Sum, Coin Change, LCS, LIS, and Edit Distance. These problems teach patterns that appear repeatedly in more advanced DP questions. Do not just memorize their code; practice deriving the state and recurrence from the problem statement.
+
+# **Next Module — Module 20: Advanced Dynamic Programming**
+
+The natural progression after this module is advanced DP, where we combine the foundations you have learned with more complex state transitions and optimization techniques.
+
+Suggested topics:
+
+- DP on Grids.
+- Unique Paths and Minimum Path Sum.
+- Triangle Minimum Path Sum.
+- DP on Subsequences.
+- Target Sum and Advanced Knapsack.
+- Longest Palindromic Subsequence.
+- Shortest Common Supersequence.
+- DP on Strings.
+- Partition DP.
+- Interval DP.
+- DP on Trees.
+- DP on Graphs.
+- Bitmask DP.
+- State Compression.
+- Space Optimization.
+- Digit DP.
+- DP with Binary Search.
+- DP with Bit Manipulation.
+
+**The biggest goal of Module 19 is not to memorize 15 different DP solutions. It is to develop the ability to derive a DP solution from scratch.** Once you master states, transitions, and base cases, advanced Dynamic Programming becomes much easier to learn.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-16T17:34:15+05:30.
+</ADDITIONAL_METADATA>
