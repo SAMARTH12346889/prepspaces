@@ -192,6 +192,7 @@ const JavaRecursion = React.lazy(() => import("./Componets/JavaRecursion"));
 const JavaComplexity = React.lazy(() => import("./Componets/JavaComplexity"));
 const JavaSearchingSorting = React.lazy(() => import("./Componets/JavaSearchingSorting"));
 const JavaLinkedLists = React.lazy(() => import("./Componets/JavaLinkedLists"));
+const JavaStacksQueues = React.lazy(() => import("./Componets/JavaStacksQueues"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1664,6 +1665,12 @@ function App() {
             <Route path="/learning/java/module-9" element={<JavaLinkedLists />} />
             <Route path="/courses/java/linked-lists" element={<JavaLinkedLists />} />
             <Route path="/learn/java/linked-lists" element={<JavaLinkedLists />} />
+            <Route path="/learning/java/stacks-queues" element={<JavaStacksQueues />} />
+            <Route path="/learning/java/stacks" element={<JavaStacksQueues />} />
+            <Route path="/learning/java/queues" element={<JavaStacksQueues />} />
+            <Route path="/learning/java/module-10" element={<JavaStacksQueues />} />
+            <Route path="/courses/java/stacks-queues" element={<JavaStacksQueues />} />
+            <Route path="/learn/java/stacks-queues" element={<JavaStacksQueues />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

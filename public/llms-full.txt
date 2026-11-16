@@ -1630,3 +1630,27 @@ Topics Covered:
   - 23. Complete Linked-List Complexity Matrix: Operations Comparison Across Singly, Doubly, and Circular Topologies
   - 24. 12 Critical Linked-List Bugs & Traps: Reference Loss, Stale Tail, Cycle Infinite Loops & Invariant Violations
   - 25. 5 Hands-on Laboratories, 7 Coding Assignments, 15 MCQs, 25 Short-Answer Questions & Mini-Project Capstone
+
+### Module 10: Stacks, Queues & Deques
+URL: https://prepspaces.com/learning/java/stacks-queues
+Topics Covered:
+  - 1. Stack ADT & LIFO Invariants: Push, Pop, Peek, IsEmpty, Size & Stack Overflow / Underflow Semantics
+  - 2. Array-Based Stack Implementation: Fixed & Resizable Dynamic Arrays, Amortized O(1) Push & Capacity Management
+  - 3. Linked-List-Based Stack Implementation: Head-As-Top Node Dynamics, Pointer Allocation & O(1) Absolute Invariants
+  - 4. Queue ADT & FIFO Invariants: Enqueue, Dequeue, Peek, Front/Rear Pointers & Linear Array Inefficiency (O(n) Shift)
+  - 5. Circular Queue Architecture: Modulo Arithmetic Indexing (rear = (rear + 1) % capacity), Buffer Reuse & Full/Empty Distinction
+  - 6. Linked-List-Based Queue Implementation: Head Dequeue, Tail Enqueue, Reference Splicing & Dynamic Memory
+  - 7. Deque ADT (Double-Ended Queue): Insert/Remove at Head and Tail, Four Core Operation Pairs & Bidirectional Mechanics
+  - 8. Java java.util.ArrayDeque Internals: Bitmask Power-of-Two Ring Buffer, Head/Tail Headroom, Zero Heap Node Overhead vs LinkedList
+  - 9. Balanced Parentheses Validation: Single & Multi-Bracket Matcher, Stack Invariants, Open/Close Matching & Early Rejection
+  - 10. Monotonic Stack Fundamentals: Strictly / Non-Strictly Increasing & Decreasing Order Invariants & Pruning Mechanisms
+  - 11. Next Greater Element (NGE): Monotonic Decreasing Stack Pattern, Right-to-Left Traversal & O(n) Linear Time Guarantee
+  - 12. Previous Smaller Element (PSE): Left-to-Right Traversal, Monotonic Increasing Stack & Boundary Sentinel Modeling
+  - 13. Stock Span Problem: Consecutive Day Traversal, Monotonic Stack Span Computation & Day Index Differences
+  - 14. Largest Rectangle in Histogram: Width Expansion via Left/Right Smaller Boundaries, Height Maximization & Linear O(n) Stack Solution
+  - 15. Sliding Window Maximum: Monotonic Decreasing Deque, Front Expiry Window Eviction, Tail Pruning & Amortized O(n) Processing
+  - 16. Real-World Applications: JVM Call Stack Frames, Expression Evaluators (Infix/Postfix), Browser Navigation History, Print Spoolers & BFS
+  - 17. Complexity Analysis Matrix: Stack, Queue, Circular Queue, and Deque Operations Time & Space Comparison
+  - 18. 14 Common Pitfalls & Antipatterns: java.util.Stack Legacy Lock Overhead, Array Shift Dequeue, Circular Queue Modulo Off-by-One, Empty Stack Pop
+  - 19. 16 Practical Laboratories & Assignments: Circular Queue, Min Stack, Queue with Stacks, Sliding Window, Postfix Evaluator
+  - 20. 20 Assessment MCQs with Detailed Explanations & Reference Solutions

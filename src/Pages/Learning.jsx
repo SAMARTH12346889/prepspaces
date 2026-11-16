@@ -251,6 +251,7 @@ const learningTracks = [
       "Algorithm Analysis, Big-O, Master Theorem & Amortized Doubling",
       "Searching & Sorting, Binary Bounds, Rotated Search & TimSort",
       "Linked Lists, Dynamic References, Floyd's Cycle & Pointer Splicing",
+      "Stacks, Queues, Deques, Monotonic Stacks & Sliding Window Maximum",
     ],
   },
 ];

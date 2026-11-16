@@ -907,7 +907,7 @@ export default function JavaLinkedLists() {
           courseId="java-programming"
           currentModuleId="linked-lists"
           prevRoute="/learning/java/searching-sorting"
-          nextRoute={null}
+          nextRoute="/learning/java/stacks-queues"
         />
 
         {/* ======================================================== */}

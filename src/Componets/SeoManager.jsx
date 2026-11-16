@@ -141,6 +141,12 @@ const routeMeta = {
     keywords: "Java Linked Lists, Singly Linked List, Doubly Linked List, Circular Linked List, Floyds Cycle Detection Java, Fast and Slow Pointers, Reverse Linked List Java, Linked List vs Array, LinkedList Java Internals, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/linked-lists`,
   },
+  "/learning/java/stacks-queues": {
+    title: "Module 10: Stacks, Queues & Deques | PrepSpaces",
+    description: "Master Stacks, Queues, and Deques in Java: LIFO and FIFO invariants, dynamic array vs linked implementations, circular queues, ArrayDeque internals, monotonic stacks for Next Greater Element and Stock Span, Largest Rectangle in Histogram, and sliding window maximum with monotonic deques.",
+    keywords: "Java Stack, Java Queue, Java Deque, ArrayDeque, Circular Queue Java, Monotonic Stack Java, Next Greater Element Java, Stock Span Problem, Largest Rectangle in Histogram, Sliding Window Maximum Monotonic Deque, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/stacks-queues`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
