@@ -21,7 +21,6 @@ import {
   Shield,
   Blocks,
   Database,
-  Coffee,
   Play,
   CheckCircle2,
   Clock,
@@ -140,15 +139,6 @@ export default function Landingpage() {
       icon: Database,
       color: "from-stone-900 via-orange-950 to-orange-600",
       tag: "Data Systems",
-    },
-    {
-      id: "java-programming",
-      title: "Java Programming Master Course",
-      subtitle: "Syntax, JVM Internals, OOP & Algorithmic Problem Solving",
-      route: "/learning/java",
-      icon: Coffee,
-      color: "from-stone-900 via-orange-950 to-orange-600",
-      tag: "Software Engineering",
     },
   ];
 

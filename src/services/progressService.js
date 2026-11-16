@@ -114,18 +114,6 @@ const DEFAULT_CATALOG = [
     badgeColor: "bg-orange-500/10 text-orange-600 border-orange-500/20",
     totalModules: 23,
   },
-  {
-    id: "java-programming",
-    title: "Java Programming Master Course",
-    tagline: "Syntax, OOP, JVM Architecture, Concurrency & Enterprise Systems",
-    description: "Master modern Java engineering from computational thinking, language syntax, primitive types, memory architecture (JVM/JRE/JDK), and control flow to object-oriented design, collections, and algorithms.",
-    icon: "Coffee",
-    route: "/learning/java",
-    tag: "Software Engineering",
-    color: "from-stone-900 via-orange-950 to-orange-600",
-    badgeColor: "bg-orange-500/10 text-orange-600 border-orange-500/20",
-    totalModules: 24,
-  },
 ];
 
 /**

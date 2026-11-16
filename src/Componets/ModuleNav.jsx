@@ -220,33 +220,6 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "system-design-capstone", name: "23. Data Engineering System Design and Final Capstone", route: "/learning/data-engineering/system-design-capstone" },
 ];
 
-export const JAVA_MODULES = [
-  { id: "intro", name: "1. Intro to Programming with Java", route: "/learning/java" },
-  { id: "control-flow", name: "2. Control Flow, Methods & Problem-Solving", route: "/learning/java/control-flow" },
-  { id: "arrays-strings", name: "3. Arrays, Strings & Basic Data Handling", route: "/learning/java/arrays-strings" },
-  { id: "oop", name: "4. Object-Oriented Programming (OOP) with Java", route: "/learning/java/oop" },
-  { id: "advanced", name: "5. Advanced Java Programming", route: "/learning/java/advanced" },
-  { id: "recursion-backtracking", name: "6. Recursion, Backtracking & Mathematical Foundations", route: "/learning/java/recursion-backtracking" },
-  { id: "complexity-analysis", name: "7. Algorithm Analysis & Big-O Complexity", route: "/learning/java/complexity-analysis" },
-  { id: "searching-sorting", name: "8. Searching & Sorting Algorithms", route: "/learning/java/searching-sorting" },
-  { id: "linked-lists", name: "9. Linked Lists", route: "/learning/java/linked-lists" },
-  { id: "stacks-queues", name: "10. Stacks, Queues & Deques", route: "/learning/java/stacks-queues" },
-  { id: "hashing", name: "11. Hashing & Hash-Based Data Structures", route: "/learning/java/hashing" },
-  { id: "trees", name: "12. Trees & Binary Search Trees", route: "/learning/java/trees" },
-  { id: "heaps", name: "13. Heaps, Priority Queues & Advanced Trees", route: "/learning/java/heaps" },
-  { id: "specialized-ds", name: "14. Tries, Disjoint Sets & Specialized Structures", route: "/learning/java/specialized-ds" },
-  { id: "two-pointers-sliding-window", name: "15. Two Pointers, Sliding Window & Prefix Sums", route: "/learning/java/two-pointers-sliding-window" },
-  { id: "greedy-algorithms", name: "16. Greedy Algorithms & Interval Problems", route: "/learning/java/greedy-algorithms" },
-  { id: "graph-theory", name: "17. Graph Theory & Graph Algorithms", route: "/learning/java/graph-theory" },
-  { id: "shortest-paths-mst", name: "18. Shortest Paths & Minimum Spanning Trees", route: "/learning/java/shortest-paths-mst" },
-  { id: "dynamic-programming", name: "19. Dynamic Programming Fundamentals", route: "/learning/java/dynamic-programming" },
-  { id: "advanced-dp", name: "20. Advanced Dynamic Programming & Algorithm Design", route: "/learning/java/advanced-dp" },
-  { id: "problem-solving-patterns", name: "21. Advanced Problem-Solving Patterns", route: "/learning/java/problem-solving-patterns" },
-  { id: "collections-jvm", name: "22. Java Collections, JVM & Performance Engineering", route: "/learning/java/collections-jvm" },
-  { id: "interview-mastery", name: "23. Technical Interview & Placement Mastery", route: "/learning/java/interview-mastery" },
-  { id: "capstone-project", name: "24. Final Java & DSA Capstone Project", route: "/learning/java/capstone-project" },
-];
-
 export const BLOCKCHAIN_MODULES = [
   { id: "intro", name: "1. Intro to Blockchain Technology", route: "/learning/blockchain" },
   { id: "cryptography", name: "2. Cryptography Fundamentals", route: "/learning/blockchain/cryptography" },
@@ -303,12 +276,10 @@ export default function ModuleNav({
       if (rawTrack === "devops") return "devops";
       if (rawTrack === "blockchain") return "blockchain";
       if (rawTrack === "data-engineering") return "data-engineering";
-      if (rawTrack === "java" || rawTrack === "java-programming") return "java";
       return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
     if (path.includes("/learning/data-engineering") || path.includes("/learn/data-engineering") || path.includes("/courses/data-engineering")) return "data-engineering";
-    if (path.includes("/learning/java") || path.includes("/learn/java") || path.includes("/courses/java")) return "java";
     if (path.includes("/learning/ai") || path.includes("/learn/ai")) return "ai";
     if (path.includes("/learning/os") || path.includes("/learn/os")) return "os";
     if (path.includes("/learning/networks") || path.includes("/learn/networks")) return "networks";
@@ -331,8 +302,6 @@ export default function ModuleNav({
     "ai-engineering": "ai-engineering",
     blockchain: "blockchain",
     "data-engineering": "data-engineering",
-    java: "java-programming",
-    "java-programming": "java-programming",
   };
   const resolvedCourseId = courseIdMap[track] || track;
 
@@ -355,9 +324,6 @@ export default function ModuleNav({
         return BLOCKCHAIN_MODULES;
       case "data-engineering":
         return DATA_ENGINEERING_MODULES;
-      case "java":
-      case "java-programming":
-        return JAVA_MODULES;
       default:
         return CLOUD_MODULES;
     }
@@ -506,7 +472,7 @@ export default function ModuleNav({
   }, [currentModuleId, resolvedCourseId, modules, isAuthenticated, completedModuleIds]);
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : track === "blockchain" ? "intro" : track === "ai" || track === "ai-engineering" ? "foundations" : track === "java" || track === "java-programming" ? "intro" : "cloud")
+    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : track === "blockchain" ? "intro" : track === "ai" || track === "ai-engineering" ? "foundations" : "cloud")
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
@@ -522,8 +488,6 @@ export default function ModuleNav({
       ? "/learning/blockchain"
       : track === "ai" || track === "ai-engineering"
       ? "/learning/ai"
-      : track === "java" || track === "java-programming"
-      ? "/learning/java"
       : "/learning/cloud";
 
   const { goBack } = useSafeBack(defaultFallback);
@@ -694,8 +658,6 @@ export default function ModuleNav({
                   ? "Blockchain"
                   : track === "data-engineering"
                   ? "Data Engineering"
-                  : track === "java" || track === "java-programming"
-                  ? "Java & DSA"
                   : "Cloud"
               }
             />

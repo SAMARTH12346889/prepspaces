@@ -66,7 +66,6 @@ function getTrackNameFromPath(subPath) {
   if (subPath.startsWith("/courses/generative-ai") || subPath.startsWith("/learning/ai/generative-ai")) return "Generative AI";
   if (subPath.startsWith("/courses/artificial-intelligence")) return "Artificial Intelligence";
   if (subPath.startsWith("/learning/data-engineering") || subPath.startsWith("/courses/data-engineering")) return "Data Engineering";
-  if (subPath.startsWith("/learning/java") || subPath.startsWith("/courses/java")) return "Java Programming";
   if (subPath.startsWith("/learning/blockchain") || subPath.startsWith("/courses/blockchain")) return "Blockchain Technology";
   if (subPath.startsWith("/learning/ai")) return "Artificial Intelligence";
   return "Engineering Curriculum";
@@ -144,7 +143,6 @@ for (const [route, meta] of Object.entries(routeMeta)) {
 
   const isBlockchain = route.includes("blockchain");
   const isDataEngineering = route.includes("data-engineering");
-  const isJava = route.includes("java");
   const courseJsonLdObj = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -168,20 +166,6 @@ for (const [route, meta] of Object.entries(routeMeta)) {
       "courseWorkload": "PT2H",
     },
   };
-
-  if (isJava) {
-    courseJsonLdObj.courseCode = "JAVA-ENG-101";
-    courseJsonLdObj.teaches = [
-      "Computational thinking, problem decomposition, and algorithmic logic",
-      "Java Virtual Machine (JVM) internals, bytecode compilation, and classloading",
-      "Primitive data types, memory representations, and two's complement arithmetic",
-      "Control flow structures: conditional branching, modern switch expressions, and loops",
-      "Modular method design, parameter passing semantics (pass-by-value), and overloading",
-      "Call stack execution mechanics, activation records, and recursion fundamentals",
-      "Mathematical problem-solving algorithms: primes, GCD/LCM, palindromes, and Armstrong numbers",
-      "Nested loop 2D coordinate pattern generation and algorithm efficiency analysis"
-    ];
-  }
 
   if (isBlockchain) {
     courseJsonLdObj.courseCode = "BC-ENG-101";
