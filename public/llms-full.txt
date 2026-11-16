@@ -1978,3 +1978,29 @@ Topics Covered:
   - 23. 35 Practice Problems Across 4 Levels: Foundations, Tree & Graph DP, Advanced State DP, and Optimization
   - 24. 15 Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
   - 25. 8 Interactive Workbenches: 3D Knapsack, Grid DP Obstacles, LPS String DP, Tree DP Robber, TSP Bitmask, Digit DP Counter, Meet in Middle, Bitwise & XOR Lab
+
+### Module 21: Advanced Problem-Solving Patterns
+URL: https://prepspaces.com/learning/java/problem-solving-patterns
+Topics Covered:
+  - 1. Advanced Backtracking: Decision Trees, Pruning with Fast Boolean Lookups, N-Queens O(1) Diagonal Tracking, Sudoku Constraint Propagation
+  - 2. Branch and Bound: State-Space Exploration, Best-First Search with PriorityQueue, Upper/Lower Bounding, 0/1 Knapsack & Traveling Salesperson
+  - 3. Divide and Conquer: Problem Splitting, Subproblem Recombination, MergeSort Inversion Counting, Closest Pair of Points O(N log N)
+  - 4. Binary Search on Answer: Monotonic Feasibility Functions f(k), Range Search [low, high], Ship Packages within D Days, Painter's Partition, Split Array Largest Sum
+  - 5. Monotonic Stack Patterns: Next Greater / Smaller Element in O(N), Monotonic Increasing vs Decreasing, Largest Rectangle in Histogram, Trapping Rain Water
+  - 6. Monotonic Queue Patterns: Sliding Window Extrema in O(N) using ArrayDeque, Double-Ended Eviction, Sliding Window Maximum, Constrained DP Optimization
+  - 7. Graph Problem-Solving Patterns: Comprehensive Decision Matrix (Unweighted BFS, 0-1 BFS, Dijkstra, Bellman-Ford, DAG Topo Relax, DSU, Bipartite Coloring)
+  - 8. Dynamic Programming Problem Classification: 1D Linear, 2D Grid, String/Subsequence, Knapsack/Subset, Interval DP, Bitmask DP, Digit DP, Tree DP
+  - 9. Tree DP Patterns: Subtree Recurrences, Post-Order DFS, Maximum Independent Set (take vs skip), Tree Diameter, Centroid Decomposition
+  - 10. Greedy Proof Techniques: Greedy Stays Ahead Method, Exchange Arguments, Matroid Theory Foundations, Safe Choice Invariants
+  - 11. Mathematical Problem-Solving: Modular Arithmetic & Inverse, Euler's Totient Function φ(n), Matrix Exponentiation for Linear Recurrences O(K³ log N), Inclusion-Exclusion Principle
+  - 12. Advanced Array Techniques: Difference Array Range Updates [l, r] += x in O(1) with Prefix Sum Recovery, 2D Prefix Sums, Coordinate Compression
+  - 13. Offline Query Processing: Query Reordering, Two Pointers with Offline Sorting, Mo's Algorithm Sqrt-Decomposition (Block Size √N, O((N + Q)√N) Time)
+  - 14. Competitive Programming Fundamentals: Fast I/O (BufferedReader, StringTokenizer), Time Limit Invariants (~10⁸ ops/sec), Memory Management, Edge Cases
+  - 15. Problem Constraints Analysis: Deriving Algorithmic Complexity from N (N ≤ 20: O(2ⁿ), N ≤ 100: O(N³), N ≤ 10⁵: O(N log N), N ≤ 10⁹: O(log N) or O(1))
+  - 16. Selecting the Right Data Structure: Systematic Trade-Off Matrix (ArrayList, LinkedList, ArrayDeque, PriorityQueue, TreeSet/TreeMap, Trie, DisjointSet, SegmentTree)
+  - 17. Selecting the Right Algorithm: Core Algorithmic Paradigms vs Problem Signatures Decision Hierarchy
+  - 18. Multi-Pattern Integration: Chaining Binary Search + BFS/Dijkstra, Two Pointers + Sliding Window, Monotonic Stack + Dynamic Programming
+  - 19. Common Pitfalls & Antipatterns: Integer Overflow in Mid Computations, Off-by-One in Binary Bounds, Unpruned Recursion, Mutating Shared State
+  - 20. 35 Practice Problems Across 4 Levels: Pattern Recognition, Advanced DS & Algorithms, Advanced Optimization & DP, Contest Multi-Pattern
+  - 21. 15 Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
+  - 22. 8 Interactive Workbenches: N-Queens Backtracker, Binary Search on Answer Lab, Monotonic Stack Studio, Monotonic Queue Maximum Simulator, Graph Pattern Classifier, Tree DP Independent Set Visualizer, Difference Array Range Updater, Mo's Algorithm Sqrt-Decomposition Simulator

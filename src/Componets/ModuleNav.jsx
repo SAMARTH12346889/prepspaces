@@ -241,6 +241,7 @@ export const JAVA_MODULES = [
   { id: "shortest-paths-mst", name: "18. Shortest Paths & Minimum Spanning Trees", route: "/learning/java/shortest-paths-mst" },
   { id: "dynamic-programming", name: "19. Dynamic Programming Fundamentals", route: "/learning/java/dynamic-programming" },
   { id: "advanced-dp", name: "20. Advanced Dynamic Programming & Algorithm Design", route: "/learning/java/advanced-dp" },
+  { id: "problem-solving-patterns", name: "21. Advanced Problem-Solving Patterns", route: "/learning/java/problem-solving-patterns" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

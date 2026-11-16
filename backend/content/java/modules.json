@@ -218,5 +218,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "problem-solving-patterns",
+    "courseId": "java-programming",
+    "index": 21,
+    "name": "21. Advanced Problem-Solving Patterns",
+    "route": "/learning/java/problem-solving-patterns",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

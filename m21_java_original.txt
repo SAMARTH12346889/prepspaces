@@ -1,0 +1,2792 @@
+<USER_REQUEST>
+# **Module 21 — Advanced Problem-Solving Patterns**
+
+This module brings together the major techniques you have learned throughout Java and DSA. The focus now shifts from understanding individual data structures and algorithms to **recognizing patterns, selecting the right approach, proving correctness, and solving unfamiliar problems efficiently**.
+
+In earlier modules, you learned techniques such as recursion, backtracking, greedy algorithms, graphs, trees, hashing, stacks, queues, and dynamic programming. In this module, you will learn how to combine those techniques to solve advanced problems.
+
+By the end of this module, you should be able to look at a problem, analyze its constraints, identify its underlying pattern, select an appropriate algorithm and data structure, and justify why your solution works.
+
+# **1. Backtracking — Advanced Problems**
+
+## **1.1 What is backtracking?**
+
+Backtracking is an algorithmic technique that explores multiple possible solutions by making decisions one at a time.
+
+When a decision leads to an invalid or unpromising state, the algorithm reverses that decision and explores another possibility.
+
+It follows three important operations:
+
+1. **Choose:** Make a decision.
+2. **Explore:** Recursively investigate the result.
+3. **Unchoose:** Undo the decision and try another possibility.
+
+This is sometimes called the choose–explore–unchoose pattern.
+
+Imagine that you are solving a maze. You move forward along one path. If you reach a dead end, you return to the previous intersection and choose another path.
+
+That is backtracking.
+
+## **1.2 Backtracking versus brute force**
+
+Both brute force and backtracking explore possible solutions, but they do not necessarily explore them in the same way.
+
+Consider finding a combination of numbers whose sum equals a target.
+
+Given:
+
+```
+Numbers = [2, 3, 5]
+Target = 7
+```
+
+Possible combinations include:
+
+```
+2 + 5 = 7
+2 + 2 + 3 = 7
+```
+
+A basic brute-force approach might generate every possible combination and check the sum afterward.
+
+Backtracking builds combinations incrementally. When the current sum exceeds the target, it stops exploring that branch.
+
+This is called **pruning**.
+
+**Backtracking decision tree**
+
+Illustrative search tree for choosing numbers that sum to 7
+
+**Start: sum = 0**
+
+**Choose 2**
+
+sum = 2
+
+**Choose 3**
+
+sum = 3
+
+**Choose 5**
+
+sum = 5
+
+Each decision creates further choices. Invalid branches are discarded.
+
+## **1.3 General backtracking template**
+
+Most backtracking problems can be represented using this structure:
+
+```
+void backtrack(State state) {
+
+    if (isSolution(state)) {
+        saveSolution(state);
+        return;
+    }
+
+    for (Choice choice : getAvailableChoices(state)) {
+
+        if (!isValid(choice, state)) {
+            continue;
+        }
+
+        // Choose
+        applyChoice(state, choice);
+
+        // Explore
+        backtrack(state);
+
+        // Unchoose
+        undoChoice(state, choice);
+    }
+}
+```
+
+Understand the responsibilities:
+
+- `State` represents the current partial solution.
+- `isSolution()` checks whether a complete solution has been found.
+- `getAvailableChoices()` generates possible decisions.
+- `isValid()` rejects decisions that violate constraints.
+- `applyChoice()` updates the current state.
+- `undoChoice()` restores the previous state.
+
+The most important rule is that the state must be restored correctly after returning from recursion.
+
+## **1.4 Advanced backtracking problem: N-Queens**
+
+The N-Queens problem asks you to place N queens on an N × N chessboard so that no two queens attack each other.
+
+A queen can attack another queen in:
+
+- The same row.
+- The same column.
+- The same diagonal.
+
+For a 4 × 4 board, one valid arrangement is:
+
+```
+. Q . .
+. . . Q
+Q . . .
+. . Q .
+```
+
+The objective is to find all valid arrangements.
+
+### **Step-by-step approach**
+
+We place exactly one queen in each row.
+
+For every row:
+
+1. Try each column.
+2. Check whether that column is safe.
+3. Check both diagonals.
+4. Place the queen if the position is valid.
+5. Recursively process the next row.
+6. Remove the queen when returning.
+
+We do not need to check the same row because we place only one queen per row.
+
+### **Java implementation**
+
+```
+import java.util.*;
+
+public class NQueens {
+
+    static List<List<String>> result = new ArrayList<>();
+
+    static boolean[] columns;
+    static boolean[] diagonal1;
+    static boolean[] diagonal2;
+
+    static void solve(int row, int n, char[][] board) {
+
+        if (row == n) {
+            List<String> solution = new ArrayList<>();
+
+            for (char[] line : board) {
+                solution.add(new String(line));
+            }
+
+            result.add(solution);
+            return;
+        }
+
+        for (int col = 0; col < n; col++) {
+
+            int d1 = row - col + n - 1;
+            int d2 = row + col;
+
+            if (columns[col] ||
+                diagonal1[d1] ||
+                diagonal2[d2]) {
+                continue;
+            }
+
+            // Choose
+            board[row][col] = 'Q';
+
+            columns[col] = true;
+            diagonal1[d1] = true;
+            diagonal2[d2] = true;
+
+            // Explore
+            solve(row + 1, n, board);
+
+            // Unchoose
+            board[row][col] = '.';
+
+            columns[col] = false;
+            diagonal1[d1] = false;
+            diagonal2[d2] = false;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int n = 4;
+
+        char[][] board = new char[n][n];
+
+        for (char[] row : board) {
+            Arrays.fill(row, '.');
+        }
+
+        columns = new boolean[n];
+        diagonal1 = new boolean[2 * n - 1];
+        diagonal2 = new boolean[2 * n - 1];
+
+        solve(0, n, board);
+
+        System.out.println(result);
+    }
+}
+```
+
+### **Complexity analysis**
+
+The upper-bound search space can be described using permutations of column positions, approximately \\(O(N!)\\), with additional work for checking and recording solutions.
+
+The diagonal arrays allow each safety check to run in \\(O(1)\\) time.
+
+The actual number of explored states is usually smaller because invalid positions are pruned.
+
+## **1.5 Other advanced backtracking problems**
+
+| Problem                      | Main idea                                                         |
+| ---------------------------- | ----------------------------------------------------------------- |
+| Sudoku Solver                | Assign numbers while maintaining row, column, and box constraints |
+| Combination Sum              | Explore combinations using recursive choices                      |
+| Word Search                  | Traverse adjacent cells while tracking visited positions          |
+| Palindrome Partitioning      | Partition a string into valid palindromic pieces                  |
+| Graph Coloring               | Assign colors while avoiding conflicts between adjacent vertices  |
+| Hamiltonian Path             | Find a path visiting every vertex exactly once                    |
+| Permutations with duplicates | Sort and skip duplicate choices at the same recursion level       |
+
+### **Important optimization techniques**
+
+**Pruning:** Stop exploring when the partial solution cannot become valid.
+
+**Ordering choices:** Try promising choices first to find solutions earlier.
+
+**Memoization:** Cache results when different branches reach equivalent states.
+
+**Constraint propagation:** Use existing decisions to eliminate impossible choices before making another decision.
+
+**Bitmasking:** Store selected elements or used columns in an integer when the number of elements is small.
+
+For example, if there are at most 20 positions, a bitmask can represent their selection:
+
+```
+int mask = 0;
+
+// Mark position 2 as selected
+mask = mask | (1 << 2);
+
+// Check whether position 2 is selected
+boolean selected = (mask & (1 << 2)) != 0;
+
+// Remove position 2
+mask = mask & ~(1 << 2);
+```
+
+# **2. Branch and Bound Fundamentals**
+
+## **2.1 What is Branch and Bound?**
+
+Branch and Bound is an optimization technique used to find the best solution among many possible solutions.
+
+It explores a decision tree, but uses mathematical bounds to eliminate branches that cannot produce a better answer than the best solution already found.
+
+The name describes its two main operations:
+
+- **Branch:** Divide the problem into smaller decision possibilities.
+- **Bound:** Calculate an optimistic estimate of the best outcome a branch could produce.
+
+If a branch cannot outperform the current best solution, it can be discarded.
+
+## **2.2 Backtracking versus Branch and Bound**
+
+These techniques are related, but their goals are different.
+
+| Backtracking                              | Branch and Bound                                     |
+| ----------------------------------------- | ---------------------------------------------------- |
+| Primarily searches for valid solutions    | Primarily searches for an optimal solution           |
+| Prunes invalid or impossible states       | Prunes states that cannot beat the best known result |
+| Common in puzzles and constraint problems | Common in optimization problems                      |
+| Often uses depth-first search             | Often uses priority queues or other search orders    |
+| Example: Sudoku                           | Example: Travelling Salesperson Problem              |
+
+Backtracking can also solve optimization problems. Branch and Bound adds the concept of an optimization bound.
+
+## **2.3 Understanding the lower and upper bounds**
+
+Suppose you are trying to find the minimum-cost solution.
+
+The current best complete solution costs:
+
+```
+Best cost = 50
+```
+
+A partial branch has already accumulated:
+
+```
+Current cost = 55
+```
+
+Since additional decisions cannot reduce the cost, this branch cannot possibly improve the answer.
+
+Therefore, we discard it.
+
+For other branches, we calculate a lower bound: the lowest theoretically possible final cost.
+
+Suppose:
+
+```
+Current cost = 20
+Estimated minimum remaining cost = 35
+
+Lower bound = 20 + 35 = 55
+```
+
+Because the lower bound is already 55, the branch cannot beat the existing solution of 50.
+
+We prune it.
+
+For maximization problems, we often calculate an upper bound instead. If that upper bound cannot beat the best known result, we discard the branch.
+
+## **2.4 Example: 0/1 Knapsack**
+
+Imagine a bag with capacity 10.
+
+| Item | Weight | Value |
+| ---- | ------ | ----- |
+| A    | 2      | 40    |
+| B    | 3      | 50    |
+| C    | 5      | 60    |
+| D    | 7      | 80    |
+
+You want to maximize the total value without exceeding the capacity.
+
+In 0/1 Knapsack, each item can either be selected or not selected.
+
+A decision tree branches into:
+
+```
+Include item
+Do not include item
+```
+
+For example:
+
+```
+             Start
+           /       \
+       Include A   Exclude A
+        /    \
+   Include B  Exclude B
+```
+
+Branch and Bound calculates an optimistic maximum value for each partial selection.
+
+A common strategy is to calculate the upper bound using the fractional knapsack relaxation, where a fraction of an item is temporarily allowed. This gives an optimistic estimate for the remaining value.
+
+If the optimistic estimate is no better than the best complete solution already found, that branch is eliminated.
+
+### **Where Branch and Bound is used**
+
+- Travelling Salesperson Problem.
+- 0/1 Knapsack optimization.
+- Assignment problems.
+- Scheduling optimization.
+- Integer programming.
+- Combinatorial optimization.
+
+**Important:** Branch and Bound can significantly reduce the search space, but it does not guarantee a polynomial-time solution. Some problems still have exponential worst-case complexity.
+
+# **3. Divide and Conquer**
+
+## **3.1 What is Divide and Conquer?**
+
+Divide and Conquer is an algorithm design technique that solves a large problem by splitting it into smaller subproblems.
+
+It follows three stages:
+
+1. **Divide:** Break the original problem into smaller problems.
+2. **Conquer:** Solve the smaller problems recursively.
+3. **Combine:** Merge their results to obtain the final solution.
+
+For example, to sort an array, divide it into two halves, recursively sort each half, and merge the sorted halves.
+
+**Divide and Conquer structure**
+
+**Original problem**
+
+[8, 3, 6, 2]
+
+**Left half**
+
+[8, 3]
+
+**Right half**
+
+[6, 2]
+
+**Sort**
+
+[3, 8]
+
+**Sort**
+
+[2, 6]
+
+**Combine**
+
+[2, 3, 6, 8]
+
+## **3.2 Merge Sort example**
+
+Merge Sort is a classic Divide and Conquer algorithm.
+
+### **Step 1: Divide**
+
+```
+[8, 3, 6, 2]
+
+[8, 3]     [6, 2]
+
+[8] [3]   [6] [2]
+```
+
+Continue until each subarray contains one element.
+
+### **Step 2: Conquer**
+
+A single-element array is already sorted.
+
+### **Step 3: Combine**
+
+Merge the smaller sorted arrays:
+
+```
+[8] + [3] = [3, 8]
+
+[6] + [2] = [2, 6]
+
+[3, 8] + [2, 6] = [2, 3, 6, 8]
+```
+
+### **Java implementation**
+
+```
+import java.util.Arrays;
+
+public class MergeSort {
+
+    static void mergeSort(int[] arr, int left, int right) {
+
+        if (left >= right) {
+            return;
+        }
+
+        int mid = left + (right - left) / 2;
+
+        // Divide
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+
+        // Combine
+        merge(arr, left, mid, right);
+    }
+
+    static void merge(
+        int[] arr,
+        int left,
+        int mid,
+        int right
+    ) {
+
+        int[] temp = new int[right - left + 1];
+
+        int i = left;
+        int j = mid + 1;
+        int k = 0;
+
+        while (i <= mid && j <= right) {
+
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+            }
+        }
+
+        while (i <= mid) {
+            temp[k++] = arr[i++];
+        }
+
+        while (j <= right) {
+            temp[k++] = arr[j++];
+        }
+
+        for (int p = 0; p < temp.length; p++) {
+            arr[left + p] = temp[p];
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {8, 3, 6, 2, 9, 1};
+
+        mergeSort(arr, 0, arr.length - 1);
+
+        System.out.println(Arrays.toString(arr));
+    }
+}
+```
+
+Output:
+
+```
+[1, 2, 3, 6, 8, 9]
+```
+
+## **3.3 Recurrence relations**
+
+Divide and Conquer algorithms can often be analyzed using recurrence relations.
+
+A general form is:
+
+\\[ T(n) = aT(n/b) + f(n) \\]
+
+Where:
+
+- \\(a\\) = number of subproblems.
+- \\(n/b\\) = approximate size of each subproblem.
+- \\(f(n)\\) = work done outside recursive calls.
+
+For Merge Sort:
+
+\\[ T(n)=2T(n/2)+O(n) \\]
+
+This gives:
+
+\\[ T(n)=O(n\log n) \\]
+
+The recurrence can be analyzed using the Master Theorem.
+
+### **Common Divide and Conquer algorithms**
+
+| Algorithm              | Time complexity          |
+| ---------------------- | ------------------------ |
+| Binary Search          | \\(O(\log n)\\)          |
+| Merge Sort             | \\(O(n\log n)\\)         |
+| Quick Sort             | Average \\(O(n\log n)\\) |
+| Quick Sort             | Worst \\(O(n^2)\\)       |
+| Closest Pair of Points | \\(O(n\log n)\\)         |
+| Fast Exponentiation    | \\(O(\log n)\\)          |
+
+**Key distinction:** Divide and Conquer usually creates independent subproblems. Dynamic Programming is particularly useful when subproblems overlap and their results can be reused.
+
+# **4. Binary Search on Answer**
+
+This is one of the most important advanced problem-solving techniques.
+
+## **4.1 What is Binary Search on Answer?**
+
+Regular binary search searches for a target inside a sorted collection.
+
+Binary Search on Answer searches over a range of possible answers.
+
+Instead of asking:
+
+> Is this element present in the array?
+
+We ask:
+
+> Is this candidate answer feasible?
+
+Suppose you are trying to find the minimum capacity of a ship needed to deliver packages within a specified number of days.
+
+You do not know the capacity directly, but you know:
+
+- The smallest possible capacity is the weight of the heaviest package.
+- The largest possible capacity is the sum of all package weights.
+
+Therefore, the answer must lie inside this range.
+
+You can binary-search the capacity.
+
+## **4.2 The monotonic property**
+
+Binary Search on Answer works when feasibility is monotonic.
+
+For a minimum-answer problem:
+
+```
+Candidate answer:  5  6  7  8  9  10  11
+Feasible:          No No No Yes Yes Yes Yes
+```
+
+Once a candidate becomes feasible, all larger candidates must also be feasible.
+
+For a maximum-answer problem, the pattern often looks like:
+
+```
+Candidate answer:  1  2  3  4  5  6  7
+Feasible:          Yes Yes Yes Yes No No No
+```
+
+Once a candidate becomes infeasible, every larger candidate is also infeasible.
+
+This monotonicity allows us to eliminate half the search range after every check.
+
+## **4.3 Example: Capacity to Ship Packages Within D Days**
+
+Given:
+
+```
+weights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+days = 5
+```
+
+Find the minimum ship capacity needed to deliver every package in order within five days.
+
+### **Step 1: Define the search range**
+
+Minimum capacity:
+
+\\[ low = \max(weights)=10 \\]
+
+Maximum capacity:
+
+\\[ high = \sum(weights)=55 \\]
+
+### **Step 2: Test a candidate capacity**
+
+Suppose the capacity is 15.
+
+We load packages in order without exceeding 15.
+
+```
+Day 1: 1 + 2 + 3 + 4 + 5 = 15
+Day 2: 6 + 7 = 13
+Day 3: 8 = 8
+Day 4: 9 = 9
+Day 5: 10 = 10
+```
+
+Five days are sufficient. Therefore, capacity 15 is feasible.
+
+Now test smaller capacities to find the minimum.
+
+### **Step 3: Binary Search**
+
+```
+public class ShipCapacity {
+
+    static boolean canShip(
+        int[] weights,
+        int days,
+        int capacity
+    ) {
+
+        int requiredDays = 1;
+        int currentLoad = 0;
+
+        for (int weight : weights) {
+
+            if (currentLoad + weight > capacity) {
+                requiredDays++;
+                currentLoad = 0;
+            }
+
+            currentLoad += weight;
+        }
+
+        return requiredDays <= days;
+    }
+
+    static int minimumCapacity(
+        int[] weights,
+        int days
+    ) {
+
+        int low = 0;
+        int high = 0;
+
+        for (int weight : weights) {
+            low = Math.max(low, weight);
+            high += weight;
+        }
+
+        while (low < high) {
+
+            int mid = low + (high - low) / 2;
+
+            if (canShip(weights, days, mid)) {
+
+                // Try a smaller capacity
+                high = mid;
+
+            } else {
+
+                // Capacity is insufficient
+                low = mid + 1;
+            }
+        }
+
+        return low;
+    }
+
+    public static void main(String[] args) {
+
+        int[] weights = {
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        };
+
+        System.out.println(minimumCapacity(weights, 5));
+    }
+}
+```
+
+Output:
+
+```
+15
+```
+
+Complexity:
+
+- Feasibility check: \\(O(n)\\).
+- Binary search iterations: \\(O(\log S)\\), where \\(S\\) is the search-range size.
+- Total: \\(O(n\log S)\\).
+
+## **4.4 Common Binary Search on Answer problems**
+
+| Problem                       | What you search for                       |
+| ----------------------------- | ----------------------------------------- |
+| Koko Eating Bananas           | Minimum eating speed                      |
+| Allocate Books                | Minimum maximum pages per student         |
+| Aggressive Cows               | Maximum minimum distance                  |
+| Ship Packages                 | Minimum shipping capacity                 |
+| Minimum Days to Make Bouquets | Minimum number of days                    |
+| Split Array Largest Sum       | Minimum possible largest subarray sum     |
+| Factory Production            | Minimum time to produce a target quantity |
+
+### **How to recognize this pattern**
+
+Look for phrases such as:
+
+- Find the minimum possible maximum.
+- Find the maximum possible minimum.
+- Minimum speed needed.
+- Minimum time required.
+- Largest distance possible.
+- Smallest capacity that satisfies the condition.
+
+Then ask:
+
+1. Can I define a range of possible answers?
+2. Can I check whether a candidate is feasible?
+3. Is feasibility monotonic?
+
+If all three answers are yes, Binary Search on Answer is a strong candidate.
+
+# **5. Monotonic Stack Patterns**
+
+## **5.1 What is a Monotonic Stack?**
+
+A Monotonic Stack is a stack that maintains its elements in a particular order.
+
+It can maintain either:
+
+- Increasing order.
+- Decreasing order.
+
+When a new element arrives, we remove elements that violate the required order.
+
+This helps solve problems involving:
+
+- Next Greater Element.
+- Next Smaller Element.
+- Previous Greater Element.
+- Previous Smaller Element.
+- Stock Span.
+- Largest Rectangle in Histogram.
+- Trapping Rain Water.
+
+## **5.2 Increasing Monotonic Stack**
+
+An increasing stack maintains elements in non-decreasing order from bottom to top.
+
+Example:
+
+```
+Input: 2, 5, 3, 7
+
+Process 2:
+Stack: [2]
+
+Process 5:
+Stack: [2, 5]
+
+Process 3:
+Remove 5 because 5 > 3
+Stack: [2, 3]
+
+Process 7:
+Remove 3
+Remove 2
+Stack: [7]
+```
+
+The exact removal condition depends on whether the problem requires strict or non-strict comparisons.
+
+## **5.3 Decreasing Monotonic Stack**
+
+A decreasing stack maintains elements in non-increasing order from bottom to top.
+
+It is commonly used to find the next greater element.
+
+### **Example: Next Greater Element**
+
+Given:
+
+```
+[4, 5, 2, 10, 8]
+```
+
+Find the first greater element to the right of every element.
+
+Result:
+
+```
+[5, 10, 10, -1, -1]
+```
+
+Explanation:
+
+- Next greater element of 4 is 5.
+- Next greater element of 5 is 10.
+- Next greater element of 2 is 10.
+- 10 has no greater element on its right.
+- 8 has no greater element on its right.
+
+### **Java implementation**
+
+```
+import java.util.*;
+
+public class NextGreaterElement {
+
+    static int[] findNextGreater(int[] arr) {
+
+        int n = arr.length;
+
+        int[] answer = new int[n];
+
+        Arrays.fill(answer, -1);
+
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < n; i++) {
+
+            while (!stack.isEmpty() &&
+                   arr[i] > arr[stack.peek()]) {
+
+                int index = stack.pop();
+
+                answer[index] = arr[i];
+            }
+
+            stack.push(i);
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {4, 5, 2, 10, 8};
+
+        System.out.println(
+            Arrays.toString(findNextGreater(arr))
+        );
+    }
+}
+```
+
+Output:
+
+```
+[5, 10, 10, -1, -1]
+```
+
+We store indices rather than values because we need to know exactly which element has found its next greater element.
+
+## **5.4 Largest Rectangle in Histogram**
+
+This is a classic advanced monotonic-stack problem.
+
+Given bar heights:
+
+```
+[2, 1, 5, 6, 2, 3]
+```
+
+Find the largest rectangular area that can fit inside the histogram.
+
+For each bar, we need:
+
+- Nearest smaller bar to the left.
+- Nearest smaller bar to the right.
+
+These determine how far a rectangle of that bar's height can extend.
+
+For bar \\(i\\):
+
+\\[ width = rightSmaller_i-leftSmaller_i-1 \\]
+
+\\[ area = height_i \times width \\]
+
+Java implementation:
+
+```
+import java.util.*;
+
+public class LargestRectangle {
+
+    static int largestRectangle(int[] heights) {
+
+        int n = heights.length;
+
+        Stack<Integer> stack = new Stack<>();
+
+        int maxArea = 0;
+
+        for (int i = 0; i <= n; i++) {
+
+            int currentHeight =
+                (i == n) ? 0 : heights[i];
+
+            while (!stack.isEmpty() &&
+                   heights[stack.peek()] > currentHeight) {
+
+                int height = heights[stack.pop()];
+
+                int width;
+
+                if (stack.isEmpty()) {
+                    width = i;
+                } else {
+                    width = i - stack.peek() - 1;
+                }
+
+                maxArea = Math.max(
+                    maxArea,
+                    height * width
+                );
+            }
+
+            stack.push(i);
+        }
+
+        return maxArea;
+    }
+
+    public static void main(String[] args) {
+
+        int[] heights = {2, 1, 5, 6, 2, 3};
+
+        System.out.println(largestRectangle(heights));
+    }
+}
+```
+
+Output:
+
+```
+10
+```
+
+The algorithm runs in \\(O(n)\\), because each index is pushed onto and popped from the stack at most once.
+
+**Important:** Monotonic Stack is especially useful when the problem asks for the nearest greater or smaller element in a particular direction.
+
+# **6. Monotonic Queue Patterns**
+
+## **6.1 What is a Monotonic Queue?**
+
+A Monotonic Queue maintains its elements in sorted order while supporting efficient insertion and removal from both ends.
+
+In Java, we commonly implement it using `ArrayDeque`.
+
+It is particularly useful for finding minimum or maximum values in a sliding window.
+
+A Monotonic Stack usually finds the next or previous greater/smaller element. A Monotonic Queue is commonly used when we need an extremum over a moving range.
+
+## **6.2 Sliding Window Maximum**
+
+Given:
+
+```
+Array = [1, 3, -1, -3, 5, 3, 6, 7]
+Window size = 3
+```
+
+Find the maximum of every consecutive window of size 3.
+
+Windows:
+
+```
+[1, 3, -1]  → 3
+[3, -1, -3] → 3
+[-1, -3, 5] → 5
+[-3, 5, 3]  → 5
+[5, 3, 6]   → 6
+[3, 6, 7]   → 7
+```
+
+Output:
+
+```
+[3, 3, 5, 5, 6, 7]
+```
+
+A brute-force solution takes \\(O(nk)\\), where \\(k\\) is the window size.
+
+The Monotonic Queue approach takes \\(O(n)\\).
+
+## **6.3 Java implementation**
+
+```
+import java.util.*;
+
+public class SlidingWindowMaximum {
+
+    static int[] maxSlidingWindow(int[] arr, int k) {
+
+        int n = arr.length;
+
+        if (k <= 0 || k > n) {
+            throw new IllegalArgumentException(
+                "Invalid window size"
+            );
+        }
+
+        int[] result = new int[n - k + 1];
+
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        for (int i = 0; i < n; i++) {
+
+            // Remove indices outside the window
+            while (!deque.isEmpty() &&
+                   deque.peekFirst() <= i - k) {
+
+                deque.pollFirst();
+            }
+
+            // Remove smaller elements from the back
+            while (!deque.isEmpty() &&
+                   arr[deque.peekLast()] <= arr[i]) {
+
+                deque.pollLast();
+            }
+
+            deque.offerLast(i);
+
+            // Record maximum once the first full window forms
+            if (i >= k - 1) {
+                result[i - k + 1] =
+                    arr[deque.peekFirst()];
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 3, -1, -3, 5, 3, 6, 7};
+
+        System.out.println(
+            Arrays.toString(maxSlidingWindow(arr, 3))
+        );
+    }
+}
+```
+
+### **Why does it work?**
+
+The deque stores indices in decreasing order of their values.
+
+Therefore:
+
+- The front always points to the maximum element.
+- Smaller elements behind a newly inserted larger element can be removed because they can never become the maximum while the newer, larger element remains inside the window.
+- Old indices are removed when they leave the window.
+
+### **Common applications**
+
+- Sliding Window Maximum.
+- Sliding Window Minimum.
+- Shortest Subarray with Sum at Least K.
+- Constrained Subsequence Sum.
+- Dynamic Programming with moving-window transitions.
+
+# **7. Graph Problem-Solving Patterns**
+
+Graph algorithms are not just individual techniques such as BFS and DFS. Many graph problems follow recognizable patterns.
+
+The first step is identifying what the vertices and edges represent.
+
+For example:
+
+- Cities and roads.
+- Computers and network connections.
+- Courses and prerequisites.
+- Tasks and dependencies.
+- People and relationships.
+
+## **7.1 Pattern 1: Traversal and Connected Components**
+
+Use BFS or DFS when you need to explore connected regions.
+
+Typical problems:
+
+- Number of Islands.
+- Connected Components.
+- Flood Fill.
+- Find whether a path exists.
+- Count separate groups in a network.
+
+**DFS** explores deeply before returning.
+
+**BFS** explores level by level.
+
+For an unweighted graph, BFS also finds shortest paths measured by number of edges.
+
+## **7.2 Pattern 2: Shortest Path**
+
+Different shortest-path algorithms work under different assumptions.
+
+| Algorithm         | Suitable situation                              | Complexity                       |
+| ----------------- | ----------------------------------------------- | -------------------------------- |
+| BFS               | Unweighted edges                                | \\(O(V+E)\\)                     |
+| 0–1 BFS           | Edge weights are 0 or 1                         | \\(O(V+E)\\)                     |
+| Dijkstra          | Non-negative edge weights                       | \\(O((V+E)\log V)\\) with a heap |
+| Bellman–Ford      | Negative edges allowed; detects negative cycles | \\(O(VE)\\)                      |
+| Floyd–Warshall    | All-pairs shortest paths                        | \\(O(V^3)\\)                     |
+| DAG shortest path | Directed acyclic graph                          | \\(O(V+E)\\)                     |
+
+A common mistake is using Dijkstra when negative-weight edges are present. Its usual correctness guarantee requires non-negative edge weights.
+
+## **7.3 Pattern 3: Topological Sorting**
+
+Topological sorting is used on a Directed Acyclic Graph (DAG).
+
+Suppose:
+
+```
+Learn Java → Learn DSA → Learn Algorithms
+```
+
+You cannot study Algorithms before completing its prerequisites.
+
+Topological sorting produces an order that respects every dependency.
+
+Two important approaches:
+
+- Kahn's Algorithm using indegrees and a queue.
+- DFS using completion order.
+
+Applications:
+
+- Course scheduling.
+- Build systems.
+- Task scheduling.
+- Dependency resolution.
+
+If Kahn's Algorithm processes fewer than \\(V\\) vertices, the graph contains a directed cycle.
+
+## **7.4 Pattern 4: Disjoint Set Union (DSU)**
+
+DSU, also called Union-Find, manages groups of connected elements.
+
+It provides two primary operations:
+
+**Find:** Identify the representative of a group.
+
+**Union:** Combine two groups.
+
+With path compression and union by size or rank, operations are nearly constant amortized time.
+
+Applications:
+
+- Number of connected components.
+- Cycle detection in an undirected graph.
+- Kruskal's Minimum Spanning Tree algorithm.
+- Network connectivity.
+- Grouping related objects.
+
+## **7.5 Pattern 5: Bipartite Graphs**
+
+A graph is bipartite when its vertices can be divided into two sets such that no edge connects two vertices in the same set.
+
+A common way to check this is using BFS or DFS two-coloring.
+
+```
+Group A: 1, 3
+Group B: 2, 4
+```
+
+Applications include:
+
+- Matching problems.
+- Job assignment.
+- Team partitioning.
+- Conflict detection.
+
+A graph is bipartite exactly when it contains no odd-length cycle.
+
+## **7.6 Pattern 6: Minimum Spanning Tree**
+
+A Minimum Spanning Tree connects every vertex of a connected, weighted, undirected graph using the minimum possible total edge weight.
+
+Two major algorithms:
+
+- Kruskal's Algorithm: Sort edges and use DSU to avoid cycles.
+- Prim's Algorithm: Grow the tree from a starting vertex using a priority queue.
+
+Applications:
+
+- Network cable design.
+- Road construction.
+- Electrical infrastructure.
+- Cost-efficient connectivity.
+
+### **Graph pattern recognition table**
+
+| Problem description                       | Likely approach    |
+| ----------------------------------------- | ------------------ |
+| Explore all reachable nodes               | DFS / BFS          |
+| Shortest path without weights             | BFS                |
+| Shortest path with non-negative weights   | Dijkstra           |
+| Negative-weight edges                     | Bellman–Ford       |
+| Dependencies and ordering                 | Topological Sort   |
+| Connected components with repeated unions | DSU                |
+| Minimum total connection cost             | MST                |
+| Check two-group assignment                | Bipartite Coloring |
+| Count distinct regions in a grid          | DFS / BFS          |
+| Shortest path with weights 0 and 1        | 0–1 BFS            |
+
+# **8. DP Problem Classification**
+
+Dynamic Programming becomes easier when you classify the problem before writing code.
+
+Instead of memorizing hundreds of DP solutions, learn how to recognize recurring state structures.
+
+## **8.1 What makes a problem suitable for DP?**
+
+Two important characteristics are:
+
+**Overlapping Subproblems:** The same smaller problem is solved multiple times.
+
+**Optimal Substructure:** The solution to a larger problem can be constructed from solutions to smaller problems.
+
+DP normally stores the results of subproblems so they do not need to be recomputed.
+
+## **8.2 Major DP categories**
+
+### **A. Linear or 1D DP**
+
+The state is typically represented using one changing index.
+
+Example:
+
+```
+dp[i] = best result up to index i
+```
+
+Common problems:
+
+- Fibonacci.
+- Climbing Stairs.
+- House Robber.
+- Maximum Sum Subarray variants.
+- Minimum Cost Climbing Stairs.
+
+Example transition for Climbing Stairs:
+
+\\[ dp[i]=dp[i-1]+dp[i-2] \\]
+
+### **B. Grid DP**
+
+The state is represented by row and column.
+
+```
+dp[i][j] = best number of ways or minimum cost to reach cell (i, j)
+```
+
+Common problems:
+
+- Unique Paths.
+- Minimum Path Sum.
+- Grid obstacles.
+- Maximum path value.
+- Dungeon Game.
+
+### **C. Knapsack DP**
+
+Used when you select items subject to a capacity or target sum.
+
+Common variants:
+
+- 0/1 Knapsack.
+- Unbounded Knapsack.
+- Bounded Knapsack.
+- Subset Sum.
+- Partition Equal Subset Sum.
+- Coin Change.
+
+For 0/1 Knapsack:
+
+\\[ dp[i][w]=\max(dp[i-1][w],v_i+dp[i-1][w-w_i]) \\]
+
+The first option excludes the item; the second includes it if the capacity permits.
+
+### **D. String and Subsequence DP**
+
+Common problems:
+
+- Longest Common Subsequence.
+- Longest Increasing Subsequence.
+- Edit Distance.
+- Longest Palindromic Subsequence.
+- Distinct Subsequences.
+- Minimum Insertions to Make a String Palindrome.
+
+These often require states involving positions in one or more strings.
+
+For Longest Common Subsequence:
+
+\\[ dp[i][j]= \begin{cases} 1+dp[i-1][j-1] & \text{if characters match}\\\ \max(dp[i-1][j],dp[i][j-1]) & \text{otherwise} \end{cases} \\]
+
+### **E. Interval DP**
+
+Used when the state describes a subarray or substring.
+
+```
+dp[l][r] = optimal answer for interval [l, r]
+```
+
+Examples:
+
+- Matrix Chain Multiplication.
+- Burst Balloons.
+- Palindrome partitioning variants.
+- Optimal Binary Search Tree.
+
+### **F. Tree DP**
+
+The state depends on the current node and its children.
+
+Examples:
+
+- Maximum Independent Set on a Tree.
+- House Robber III.
+- Tree Diameter.
+- Maximum Path Sum.
+- Count or optimize selections of nodes.
+
+### **G. Bitmask DP**
+
+Used when a subset of a small collection must be represented as the state.
+
+For example, a mask can describe which cities have already been visited.
+
+\\[ dp[mask][i] \\]
+
+This might represent the minimum cost of visiting the subset represented by `mask` and finishing at city `i`.
+
+Applications:
+
+- Travelling Salesperson Problem.
+- Assignment problems.
+- Subset ordering.
+- Small-state scheduling.
+
+### **H. Digit DP**
+
+Digit DP counts numbers satisfying particular digit-based rules within a range.
+
+Examples:
+
+- Count numbers without repeated digits.
+- Count numbers with digit sum equal to a target.
+- Count numbers containing a particular digit.
+- Count numbers satisfying a modulo condition.
+
+A common state contains:
+
+```
+position
+tight
+started
+additional constraint state
+```
+
+Where:
+
+- `position` is the current digit position.
+- `tight` indicates whether the prefix still matches the upper bound.
+- `started` indicates whether a non-leading-zero digit has been chosen.
+
+## **8.3 How to classify an unfamiliar DP problem**
+
+Use this process:
+
+1. Identify what must be optimized or counted.
+2. Identify the decisions at each step.
+3. Identify what information from earlier decisions affects future decisions.
+4. Use that information to define the state.
+5. Define transitions between states.
+6. Establish base cases.
+7. Choose memoization or tabulation.
+8. Analyze time and space complexity.
+9. Consider space optimization only after the correct transition is established.
+
+**Important:** The state must contain all information necessary to determine the future. If two situations have different future possibilities, they should not be merged into the same state.
+
+# **9. Tree DP Patterns**
+
+## **9.1 What is Tree DP?**
+
+Tree DP is Dynamic Programming applied to tree structures.
+
+Many tree problems can be solved using DFS because every node's answer depends on answers calculated for its children.
+
+A typical process is:
+
+1. Start at the root.
+2. Recursively process each child.
+3. Receive the child's calculated result.
+4. Combine child results to calculate the current node's result.
+5. Return the current node's result to its parent.
+
+This is commonly known as postorder tree processing.
+
+## **9.2 Example: Maximum Independent Set on a Tree**
+
+The objective is to choose the maximum number of nodes such that no two selected nodes are directly connected.
+
+For every node, define two states:
+
+```
+take[node] = best answer when selecting this node
+skip[node] = best answer when not selecting this node
+```
+
+If we select the current node, we cannot select its children.
+
+\\[ take[u]=1+\sum\_{v\in children(u)}skip[v] \\]
+
+If we do not select the current node, each child may be selected or skipped:
+
+\\[ skip[u]=\sum\_{v\in children(u)}\max(take[v],skip[v]) \\]
+
+The final answer is:
+
+\\[ \max(take[root],skip[root]) \\]
+
+### **Example**
+
+**Example tree**
+
+Selecting node 1 prevents selecting nodes 2 and 3. Alternatively, select nodes 2 and 3, then consider their children.
+
+The best selection is nodes 2, 3, 4, and 5 only if the tree contains the shown edges and the selected nodes do not share an edge. In the pictured tree, selecting 2 prevents selecting 4 and 5, so the actual best solution must compare the two DP alternatives.
+
+## **9.3 Java implementation**
+
+```
+import java.util.*;
+
+public class TreeIndependentSet {
+
+    static List<Integer>[] tree;
+
+    static int[] dfs(int node, int parent) {
+
+        // dp[0] = best when node is not selected
+        // dp[1] = best when node is selected
+
+        int skip = 0;
+        int take = 1;
+
+        for (int child : tree[node]) {
+
+            if (child == parent) {
+                continue;
+            }
+
+            int[] childDP = dfs(child, node);
+
+            skip += Math.max(
+                childDP[0],
+                childDP[1]
+            );
+
+            take += childDP[0];
+        }
+
+        return new int[]{skip, take};
+    }
+
+    public static void main(String[] args) {
+
+        int n = 5;
+
+        tree = new ArrayList[n + 1];
+
+        for (int i = 1; i <= n; i++) {
+            tree[i] = new ArrayList<>();
+        }
+
+        int[][] edges = {
+            {1, 2},
+            {1, 3},
+            {2, 4},
+            {2, 5}
+        };
+
+        for (int[] edge : edges) {
+
+            int u = edge[0];
+            int v = edge[1];
+
+            tree[u].add(v);
+            tree[v].add(u);
+        }
+
+        int[] answer = dfs(1, 0);
+
+        System.out.println(
+            Math.max(answer[0], answer[1])
+        );
+    }
+}
+```
+
+Output:
+
+```
+3
+```
+
+The optimal selection is nodes 1, 4, and 5.
+
+### **Other Tree DP patterns**
+
+- Subtree size calculation.
+- Tree diameter.
+- Maximum path sum.
+- Rerooting DP.
+- DP with parent and child states.
+- Counting paths.
+- Distance-based tree problems.
+- Maximum independent set.
+- Minimum vertex cover on a tree.
+
+### **Tree DP complexity**
+
+For many basic tree DP problems, each node and edge is processed a constant number of times:
+
+\\[ O(V) \\]
+
+However, more advanced states, rerooting, or expensive child-to-child transitions can increase complexity.
+
+# **10. Greedy Proof Techniques**
+
+## **10.1 What is a Greedy Algorithm?**
+
+A Greedy algorithm makes the best-looking decision at the current step, hoping that a sequence of these locally optimal decisions leads to a globally optimal solution.
+
+For example, if you want to attend the maximum number of non-overlapping meetings, you can repeatedly choose the meeting that finishes earliest.
+
+However, a locally best decision does not always lead to the global best answer.
+
+That is why Greedy algorithms need mathematical justification.
+
+## **10.2 Why is proving a Greedy algorithm important?**
+
+Consider the following coin denominations:
+
+```
+Coins = [1, 3, 4]
+Target = 6
+```
+
+A greedy strategy that always chooses the largest possible coin selects:
+
+```
+4 + 1 + 1 = 6
+```
+
+That uses three coins.
+
+But the optimal solution is:
+
+```
+3 + 3 = 6
+```
+
+That uses only two coins.
+
+Therefore, the largest-denomination-first strategy is not always optimal for arbitrary coin systems.
+
+## **10.3 Greedy proof technique 1: Exchange Argument**
+
+An exchange argument proves that a solution can be transformed into an optimal solution without making it worse.
+
+Example: Activity Selection.
+
+Suppose two possible first activities are:
+
+```
+Activity A: 1–4
+Activity B: 2–3
+```
+
+Activity B finishes earlier.
+
+Suppose an optimal schedule selects A first.
+
+We can replace A with B. Since B finishes earlier, any activity that could occur after A can also occur after B.
+
+The schedule remains valid and does not contain fewer activities.
+
+Therefore, an optimal solution exists that starts with the earliest-finishing activity.
+
+This justifies the greedy selection.
+
+## **10.4 Greedy proof technique 2: Stays Ahead**
+
+A greedy algorithm stays ahead when, after every step, its partial result is at least as good as the corresponding partial result of any competing solution under a suitable measure.
+
+For example, in earliest-finish-time activity selection, after selecting the first \\(k\\) activities, the greedy schedule can be shown to finish no later than a competing valid schedule's \\(k\\)-th selected activity.
+
+This leaves at least as much room for future activities.
+
+## **10.5 Greedy proof technique 3: Cut Property**
+
+The Cut Property is important in Minimum Spanning Tree algorithms.
+
+Divide graph vertices into two groups.
+
+The minimum-weight edge crossing the cut is safe to include in some Minimum Spanning Tree, provided the edge is chosen according to the standard cut-property conditions.
+
+This principle is used by:
+
+- Kruskal's Algorithm.
+- Prim's Algorithm.
+
+## **10.6 Greedy proof technique 4: Contradiction**
+
+Assume that the greedy answer is not optimal.
+
+Then compare it with an optimal solution and show that this assumption leads to a contradiction.
+
+For many greedy proofs, the final argument establishes that an optimal solution can be transformed into one that agrees with the greedy choice.
+
+### **How to validate a Greedy solution**
+
+Ask these questions:
+
+1. What is the greedy choice?
+2. Why is this choice locally safe?
+3. Can an optimal solution be transformed to include this choice?
+4. Does the remaining problem preserve the same structure?
+5. Can I prove optimality for the entire sequence of choices?
+
+Never assume that sorting the input and selecting the first feasible element automatically creates a correct greedy algorithm.
+
+# **11. Mathematical Problem-Solving**
+
+Mathematics provides powerful tools for reducing algorithmic complexity.
+
+Instead of examining every possible value, sometimes you can use mathematical properties to calculate the answer directly.
+
+## **11.1 Greatest Common Divisor — GCD**
+
+The GCD of two numbers is the largest positive integer that divides both numbers.
+
+Example:
+
+```
+GCD(24, 36) = 12
+```
+
+The Euclidean Algorithm uses:
+
+\\[ gcd(a,b)=gcd(b,a\bmod b) \\]
+
+Continue until the second value becomes zero.
+
+### **Java implementation**
+
+```
+public class GCD {
+
+    static int gcd(int a, int b) {
+
+        while (b != 0) {
+
+            int remainder = a % b;
+
+            a = b;
+            b = remainder;
+        }
+
+        return Math.abs(a);
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(gcd(24, 36));
+    }
+}
+```
+
+Time complexity:
+
+\\[ O(\log(\min(a,b))) \\]
+
+## **11.2 Least Common Multiple — LCM**
+
+The LCM is the smallest positive integer divisible by both numbers.
+
+\\[ LCM(a,b)=\frac{|a\times b|}{GCD(a,b)} \\]
+
+In Java, calculate with `long` and divide before multiplying when appropriate to reduce overflow risk.
+
+```
+static long lcm(long a, long b) {
+
+    if (a == 0 || b == 0) {
+        return 0;
+    }
+
+    return Math.abs((a / gcdLong(a, b)) * b);
+}
+
+static long gcdLong(long a, long b) {
+
+    while (b != 0) {
+
+        long temp = a % b;
+
+        a = b;
+        b = temp;
+    }
+
+    return Math.abs(a);
+}
+```
+
+## **11.3 Prime Number Sieve**
+
+The Sieve of Eratosthenes finds every prime number up to a specified limit.
+
+Instead of checking each number independently, mark the multiples of every prime as composite.
+
+```
+import java.util.*;
+
+public class PrimeSieve {
+
+    static boolean[] sieve(int n) {
+
+        boolean[] prime = new boolean[n + 1];
+
+        Arrays.fill(prime, true);
+
+        if (n >= 0) {
+            prime[0] = false;
+        }
+
+        if (n >= 1) {
+            prime[1] = false;
+        }
+
+        for (int i = 2; i <= n / i; i++) {
+
+            if (prime[i]) {
+
+                for (int j = i * i; j <= n; j += i) {
+                    prime[j] = false;
+                }
+            }
+        }
+
+        return prime;
+    }
+}
+```
+
+Complexity:
+
+\\[ O(n\log\log n) \\]
+
+## **11.4 Modular Arithmetic**
+
+Modular arithmetic is used when numbers become extremely large.
+
+Instead of storing the exact result, we store its remainder after division by a modulus.
+
+For example:
+
+\\[ (17+9)\bmod 10=6 \\]
+
+Important properties:
+
+\\[ (a+b)\bmod m = ((a\bmod m)+(b\bmod m))\bmod m \\]
+
+\\[ (a\times b)\bmod m = ((a\bmod m)(b\bmod m))\bmod m \\]
+
+A common modulus in programming problems is:
+
+\\[ 10^9+7 \\]
+
+For multiplication, using `long` is important when intermediate products may exceed the range of `int`.
+
+## **11.5 Fast Exponentiation**
+
+Calculating \\(a^b\\) by multiplying \\(a\\) exactly \\(b\\) times takes \\(O(b)\\) multiplications.
+
+Binary Exponentiation reduces this to \\(O(\log b)\\).
+
+The key idea:
+
+\\[ a^{2k}=(a^k)^2 \\]
+
+\\[ a^{2k+1}=a(a^k)^2 \\]
+
+### **Java implementation**
+
+```
+public class FastPower {
+
+    static long power(long base, long exponent) {
+
+        long result = 1;
+
+        while (exponent > 0) {
+
+            if ((exponent & 1) == 1) {
+                result *= base;
+            }
+
+            base *= base;
+
+            exponent >>= 1;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(power(2, 10));
+    }
+}
+```
+
+Output:
+
+```
+1024
+```
+
+For very large numbers, use modular exponentiation to prevent overflow.
+
+### **Other mathematical patterns**
+
+- Prime factorization.
+- Divisor counting.
+- Combinatorics.
+- Permutations and combinations.
+- Modular inverse.
+- Fermat's Little Theorem.
+- Pigeonhole Principle.
+- Inclusion–Exclusion Principle.
+- Bitwise mathematics.
+- Mathematical induction.
+- Number representation and digit properties.
+
+# **12. Advanced Array Patterns**
+
+Advanced array problems are often solved by combining arrays with other data structures and algorithmic techniques.
+
+## **12.1 Difference Arrays**
+
+A difference array efficiently handles multiple range updates.
+
+Suppose you have:
+
+```
+Array = [0, 0, 0, 0, 0]
+```
+
+You want to add 5 to all elements from index 1 to 3.
+
+A direct update takes \\(O(n)\\) per operation.
+
+Instead, use a difference array:
+
+For a range update \\([l,r]\\) adding \\(x\\):
+
+```
+diff[l] += x;
+diff[r + 1] -= x;
+```
+
+After processing all updates, take the prefix sum of `diff` to recover the resulting array.
+
+For the above update:
+
+```
+Difference: [0, 5, 0, 0, -5, 0]
+Prefix:     [0, 5, 5, 5, 0, 0]
+```
+
+The original five array positions become:
+
+```
+[0, 5, 5, 5, 0]
+```
+
+The extra position allows the implementation to handle `r + 1` conveniently.
+
+This technique is useful when there are many range updates and the final array is needed afterward.
+
+## **12.2 Coordinate Compression**
+
+Coordinate Compression replaces large or sparse values with smaller consecutive ranks while preserving order.
+
+Example:
+
+```
+Original values:
+[1000000, 20, 500, 20]
+
+Compressed values:
+[2, 0, 1, 0]
+```
+
+Why is it useful?
+
+Suppose array elements contain very large coordinates, but you need a Fenwick Tree or Segment Tree indexed by their relative order.
+
+You do not need an array of size one million or one billion. You only need enough positions for the distinct values.
+
+It is also helpful when implementing offline queries.
+
+## **12.3 Prefix Sum and Prefix XOR**
+
+Prefix sums allow fast range-sum queries.
+
+\\[ prefix[i]=a_0+a_1+\cdots+a_i \\]
+
+Range sum from \\(l\\) to \\(r\\):
+
+\\[ sum(l,r)=prefix[r]-prefix[l-1] \\]
+
+For XOR, the same principle works because XOR is its own inverse:
+
+\\[ xor(l,r)=prefixXor[r]\oplus prefixXor[l-1] \\]
+
+These techniques transform many repeated range calculations into constant-time queries after preprocessing.
+
+## **12.4 Sweep Line Pattern**
+
+The Sweep Line technique processes events in sorted order.
+
+Imagine a collection of time intervals:
+
+```
+[1, 5]
+[2, 7]
+[4, 8]
+```
+
+To find the maximum number of overlapping intervals:
+
+1. Create a start event for each interval.
+2. Create an end event for each interval.
+3. Sort the events.
+4. Move through them while maintaining the active count.
+5. Track the maximum count.
+
+This transforms an interval problem into an ordered event-processing problem.
+
+For endpoint rules, decide carefully whether intervals are open or closed. If one interval ends at the same time another begins, the event ordering can affect the answer.
+
+## **12.5 Other advanced array patterns**
+
+| Pattern                | Common application                              |
+| ---------------------- | ----------------------------------------------- |
+| Two Pointers           | Pair or triplet problems in sorted arrays       |
+| Sliding Window         | Subarray or substring constraints               |
+| Prefix Sum             | Range sum and subarray sum                      |
+| Difference Array       | Many range updates                              |
+| Prefix XOR             | Range XOR queries                               |
+| Kadane's Algorithm     | Maximum subarray sum                            |
+| Cyclic Sort            | Arrays containing values in a known index range |
+| Coordinate Compression | Sparse large values                             |
+| Sweep Line             | Interval overlap and event problems             |
+| Binary Search          | Search in sorted or monotonic structures        |
+| Partitioning           | Quick Sort and selection algorithms             |
+
+# **13. Offline Query Processing**
+
+## **13.1 What are offline queries?**
+
+An offline query problem allows us to know all queries in advance before answering them.
+
+Rather than answering each query immediately in the order it arrives, we can reorder the queries to make processing faster.
+
+This is important because the order in which a problem presents queries may not be the most efficient order in which to process them.
+
+### **Online versus Offline Processing**
+
+| Online processing                           | Offline processing                 |
+| ------------------------------------------- | ---------------------------------- |
+| Answer queries as they arrive               | Know all queries before processing |
+| Usually preserves query order               | Can reorder queries                |
+| Does not generally depend on future queries | Can use future-query information   |
+| Useful for interactive systems              | Useful for batch query problems    |
+
+## **13.2 Example: Range Sum Queries**
+
+Suppose you have an array and several range-sum queries.
+
+```
+Array = [2, 4, 1, 7, 3]
+```
+
+Queries:
+
+```
+Q1: Sum from index 1 to 3
+Q2: Sum from index 0 to 4
+Q3: Sum from index 2 to 4
+```
+
+One solution is to calculate prefix sums first.
+
+Then every query can be answered in \\(O(1)\\).
+
+This is a form of preprocessing that becomes possible because all queries are known.
+
+## **13.3 Mo's Algorithm**
+
+Mo's Algorithm is an offline technique for answering many range queries.
+
+It is especially useful when:
+
+- Queries ask about subarray ranges.
+- A range can be expanded or contracted efficiently.
+- A direct solution is too expensive.
+- A Segment Tree or Fenwick Tree is not suitable for the required aggregate.
+
+It sorts queries into blocks based on the left endpoint and orders queries by their right endpoints.
+
+The algorithm maintains a current range \\([L,R]\\). To move from one query to another, it adds or removes elements from the range.
+
+For example, if one query asks for:
+
+```
+[2, 6]
+```
+
+and the next asks for:
+
+```
+[3, 8]
+```
+
+The algorithm only needs to:
+
+- Remove index 2.
+- Add indices 7 and 8.
+
+It does not need to recalculate the entire range.
+
+A common query ordering is:
+
+\\[ block(l)=\left\lfloor\frac{l}{\sqrt{n}}\right\rfloor \\]
+
+Sort primarily by the left block, and secondarily by the right endpoint.
+
+### **Common applications**
+
+- Count distinct elements in a range.
+- Frequency-based queries.
+- Sum of frequencies.
+- Number of values satisfying certain frequency conditions.
+- Other queries that support efficient add/remove operations.
+
+A typical complexity with standard block ordering is approximately \\(O((n+q)\sqrt n)\\) for suitable query-maintenance operations, with the precise cost depending on the number of queries and the ordering strategy.
+
+## **13.4 Other Offline Query Techniques**
+
+**Sort Queries by Value:** Sort elements and queries by a common threshold, then process incrementally.
+
+**DSU Offline Connectivity:** Process graph operations or connectivity questions in a suitable reordered sequence, especially when reverse processing is possible.
+
+**Coordinate Compression:** Compress all values appearing in queries and updates before applying a Fenwick Tree or Segment Tree.
+
+**Sweep Line:** Sort query events and array or interval events by position, then answer queries while scanning.
+
+### **When to consider offline processing**
+
+Look for statements such as:
+
+- All queries are given in advance.
+- Answer several range queries.
+- Queries can be processed in any order.
+- The input contains many queries with a common structure.
+- Repeatedly recomputing answers would be too expensive.
+
+# **14. Competitive Programming Fundamentals**
+
+Competitive Programming is a problem-solving environment in which you write programs that must satisfy correctness, runtime, and memory constraints.
+
+It combines DSA, mathematical reasoning, implementation discipline, and complexity analysis.
+
+## **14.1 Understand the input constraints first**
+
+Before designing an algorithm, examine:
+
+- Number of test cases.
+- Maximum input size.
+- Value ranges.
+- Time limit.
+- Memory limit.
+- Whether values can be negative.
+- Whether duplicate elements are allowed.
+- Whether indices start at zero or one.
+
+These details influence which algorithms are feasible.
+
+## **14.2 Time complexity awareness**
+
+The following table gives rough guidance, not absolute limits. Actual feasibility depends on time limits, language, implementation, constants, and the number of test cases.
+
+| Input size                | Commonly considered approaches                          |
+| ------------------------- | ------------------------------------------------------- |
+| \\(n \leq 10\\)           | Exhaustive search, permutations                         |
+| \\(n \leq 20\\)           | Bitmask DP, subset enumeration                          |
+| \\(n \leq 100\\)          | \\(O(n^3)\\) may be feasible                            |
+| \\(n \leq 1,000\\)        | \\(O(n^2)\\) may be feasible                            |
+| \\(n \leq 100,000\\)      | \\(O(n\log n)\\) or \\(O(n)\\)                          |
+| \\(n \leq 1,000,000\\)    | Usually seek linear or near-linear methods              |
+| Very large numeric ranges | \\(O(\log n)\\), mathematical methods, or binary search |
+
+Always calculate the expected number of operations rather than blindly following this table.
+
+## **14.3 Fast input and output in Java**
+
+Java's `Scanner` is convenient, but can be slow for very large inputs.
+
+Competitive programming often uses `BufferedReader` and `StringTokenizer`.
+
+```
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args)
+        throws IOException {
+
+        BufferedReader br = new BufferedReader(
+            new InputStreamReader(System.in)
+        );
+
+        StringTokenizer st =
+            new StringTokenizer(br.readLine());
+
+        int n = Integer.parseInt(st.nextToken());
+
+        int[] arr = new int[n];
+
+        int index = 0;
+
+        while (index < n) {
+
+            if (st == null || !st.hasMoreTokens()) {
+                st = new StringTokenizer(br.readLine());
+            }
+
+            while (st.hasMoreTokens() && index < n) {
+
+                arr[index++] =
+                    Integer.parseInt(st.nextToken());
+            }
+        }
+
+        StringBuilder output = new StringBuilder();
+
+        output.append(Arrays.toString(arr));
+
+        System.out.print(output);
+    }
+}
+```
+
+In real contests, input-reading logic must account for the exact problem format, including line boundaries and empty lines.
+
+## **14.4 Integer Overflow**
+
+Java's `int` has a maximum value of approximately 2.1 billion.
+
+When calculations may exceed that limit, use `long`.
+
+```
+int a = 1_000_000;
+int b = 1_000_000;
+
+// Potentially overflows int
+// int result = a * b;
+
+// Safe for this multiplication
+long result = (long) a * b;
+```
+
+Notice that casting must happen before multiplication.
+
+## **14.5 Essential competitive programming habits**
+
+- Read the complete problem statement.
+- Identify input and output formats.
+- Analyze constraints.
+- Consider edge cases.
+- Avoid unnecessary object creation in performance-critical code.
+- Use appropriate primitive types.
+- Handle multiple test cases correctly.
+- Check array and string boundaries.
+- Avoid assumptions about input ordering.
+- Test your algorithm with small cases.
+- Use a proof or invariant to establish correctness.
+- Calculate both time and space complexity.
+
+# **15. Problem Constraints Analysis**
+
+Constraints are not just additional information. They provide clues about the expected algorithm.
+
+Suppose a problem states:
+
+```
+1 <= n <= 100000
+```
+
+This suggests that a quadratic solution might be too slow for large inputs.
+
+But if the constraints are:
+
+```
+1 <= n <= 20
+```
+
+An exponential approach such as subset enumeration may be perfectly reasonable.
+
+## **15.1 Analyze numeric ranges**
+
+Consider:
+
+```
+1 <= a[i] <= 10^9
+```
+
+An array of size \\(10^9\\) is not practical.
+
+You may need:
+
+- HashMap.
+- Coordinate compression.
+- Sorting.
+- Binary Search.
+- A mathematical approach.
+
+Now consider:
+
+```
+-10^9 <= a[i] <= 10^9
+```
+
+You must also handle negative values.
+
+This can affect:
+
+- Two-pointer approaches.
+- Prefix sums.
+- Greedy assumptions.
+- Binary search feasibility.
+- Modulo operations.
+
+## **15.2 Constraints reveal algorithmic possibilities**
+
+| Constraint clue                         | Possible direction                                      |
+| --------------------------------------- | ------------------------------------------------------- |
+| Very small \\(n\\)                      | Backtracking, brute force, bitmask DP                   |
+| Large \\(n\\), small value range        | Frequency counting, counting arrays                     |
+| Large values, few distinct elements     | Hashing, compression                                    |
+| Sorted input                            | Binary Search, two pointers                             |
+| Many range queries                      | Prefix sums, Fenwick Tree, Segment Tree, Mo's Algorithm |
+| Many connectivity queries               | DSU                                                     |
+| Tree with up to \\(10^5\\) nodes        | DFS, BFS, tree DP; consider recursion depth             |
+| Unweighted graph                        | BFS                                                     |
+| Non-negative weighted graph             | Dijkstra                                                |
+| Optimization with monotonic feasibility | Binary Search on Answer                                 |
+
+## **15.3 Watch for integer overflow**
+
+Consider:
+
+```
+int a = 100000;
+int b = 100000;
+
+int product = a * b;
+```
+
+Even though both operands fit into `int`, their product does not.
+
+Use:
+
+```
+long product = (long) a * b;
+```
+
+Also check:
+
+- Sum of array elements.
+- Prefix sums.
+- Products of two values.
+- Distance calculations.
+- Squared distances.
+- Number of combinations.
+- Factorial and power calculations.
+
+A solution that is logically correct but overflows will still produce incorrect results.
+
+## **15.4 Consider memory constraints**
+
+For \\(n\\) elements:
+
+- `int[n]` stores approximately \\(4n\\) bytes for the primitive array data.
+- `long[n]` stores approximately \\(8n\\) bytes.
+- `boolean[][]` and object-based structures have additional object overhead.
+- Large recursive searches require stack space.
+- Adjacency lists and hash maps require more memory than simple primitive arrays.
+
+The actual JVM memory usage includes additional overhead beyond these basic estimates.
+
+# **16. Selecting the Right Data Structure**
+
+A data structure controls how information is stored, accessed, inserted, deleted, and processed.
+
+The right data structure can turn an inefficient solution into an efficient one.
+
+## **16.1 Data structure selection table**
+
+| Requirement                       | Recommended data structure    |
+| --------------------------------- | ----------------------------- |
+| Fast index-based access           | Array / ArrayList             |
+| Fast key-value lookup             | HashMap                       |
+| Store unique elements             | HashSet                       |
+| Maintain insertion order          | LinkedHashMap / LinkedHashSet |
+| Sorted unique values              | TreeSet                       |
+| Sorted key-value pairs            | TreeMap                       |
+| Last In, First Out                | Stack / Deque                 |
+| First In, First Out               | Queue                         |
+| Efficient add/remove at both ends | ArrayDeque                    |
+| Highest or lowest priority first  | PriorityQueue                 |
+| Prefix-based string search        | Trie                          |
+| Range sum with updates            | Fenwick Tree                  |
+| General range queries and updates | Segment Tree                  |
+| Connectivity groups               | DSU                           |
+| Graph relationships               | Adjacency List                |
+| Small dense graph                 | Adjacency Matrix              |
+| Need repeated minimum/maximum     | Heap / PriorityQueue          |
+
+## **16.2 Important comparisons**
+
+### **HashMap versus TreeMap**
+
+HashMap provides expected \\(O(1)\\) lookup, insertion, and deletion under normal hashing assumptions.
+
+TreeMap maintains sorted keys and provides \\(O(\log n)\\) lookup, insertion, and deletion.
+
+Choose:
+
+- HashMap when fast key-based access matters.
+- TreeMap when you need sorted keys, range navigation, or ordered iteration.
+
+### **Stack versus Queue**
+
+Stack:
+
+```
+Last In, First Out
+```
+
+Queue:
+
+```
+First In, First Out
+```
+
+Use a stack for:
+
+- Undo operations.
+- DFS.
+- Parentheses validation.
+- Monotonic-stack problems.
+
+Use a queue for:
+
+- BFS.
+- Scheduling.
+- Level-order traversal.
+- Processing tasks in arrival order.
+
+### **Heap versus Sorting**
+
+Sorting the entire collection costs \\(O(n\log n)\\).
+
+A PriorityQueue is preferable when you repeatedly need the smallest or largest item, especially if you only need a limited number of elements.
+
+For example, finding the smallest \\(k\\) elements can use a max-heap of size \\(k\\), giving \\(O(n\log k)\\) time.
+
+### **Array versus Linked List**
+
+Arrays provide efficient random access.
+
+Linked lists provide efficient local insertion and deletion when you already have the relevant node, but accessing an arbitrary position takes linear time.
+
+In Java, `ArrayList` is usually a strong default for indexed collections, while `LinkedList` is useful for particular linked-list operations and deque behavior. For stack and queue use cases, `ArrayDeque` is generally a better default.
+
+# **17. Selecting the Right Algorithm**
+
+This is the central skill of the module.
+
+A problem may have several possible solutions. Your job is to identify the approach that satisfies correctness, time complexity, and memory constraints.
+
+## **17.1 Algorithm selection guide**
+
+| Problem characteristics                               | Algorithmic direction                                  |
+| ----------------------------------------------------- | ------------------------------------------------------ |
+| Need to explore every valid combination               | Backtracking                                           |
+| Need the best solution with a strong pruning bound    | Branch and Bound                                       |
+| Problem can be divided into independent smaller parts | Divide and Conquer                                     |
+| Feasibility changes monotonically with an answer      | Binary Search on Answer                                |
+| Need next/previous greater or smaller elements        | Monotonic Stack                                        |
+| Need minimum/maximum of moving windows                | Monotonic Queue                                        |
+| Need shortest path in an unweighted graph             | BFS                                                    |
+| Need shortest path with non-negative weights          | Dijkstra                                               |
+| Need ordering of dependencies                         | Topological Sort                                       |
+| Need repeated connectivity operations                 | DSU                                                    |
+| Need repeated overlapping subproblems                 | Dynamic Programming                                    |
+| Need an optimal solution using locally safe decisions | Greedy                                                 |
+| Need multiple range queries                           | Prefix Sum, Fenwick Tree, Segment Tree, Mo's Algorithm |
+| Need mathematical counting or very large calculations | Number Theory / Combinatorics                          |
+
+## **17.2 A decision-making framework**
+
+When you receive an unfamiliar problem, follow this sequence:
+
+## **Problem-solving workflow**
+
+1. **Understand the problem**
+
+   Identify the input, expected output, constraints, and what exactly must be calculated.
+2. **Identify the problem pattern**
+
+   Is it a searching, sorting, graph, tree, array, string, optimization, or counting problem?
+3. **Start with a simple approach**
+
+   Develop a brute-force or straightforward solution to understand the problem.
+4. **Analyze complexity**
+
+   Calculate how much time and memory the initial solution requires.
+5. **Find the bottleneck**
+
+   Look for repeated computation, unnecessary traversal, expensive searching, or repeated sorting.
+6. **Choose the optimization**
+
+   Consider hashing, two pointers, sliding windows, binary search, DP, Greedy, trees, heaps, or graph algorithms.
+7. **Prove correctness**
+
+   Use an invariant, induction, exchange argument, or reasoning about state transitions.
+8. **Implement and test**
+
+   Test normal inputs, edge cases, minimum constraints, maximum constraints, and unusual values.
+9. **Recalculate complexity**
+
+   Verify that the optimized solution meets both time and memory requirements.
+
+# **18. Putting Multiple Patterns Together**
+
+Real advanced problems often require more than one technique.
+
+Here are some important combinations.
+
+## **18.1 Binary Search + Greedy**
+
+**Problem:** Aggressive Cows.
+
+You want to place cows in stalls such that the minimum distance between any two cows is as large as possible.
+
+Approach:
+
+1. Sort the stall positions.
+2. Binary-search a candidate minimum distance.
+3. Use Greedy to place cows as early as possible while maintaining that distance.
+4. If all cows can be placed, try a larger distance.
+5. Otherwise, try a smaller distance.
+
+The binary search handles the answer range. Greedy checks feasibility.
+
+## **18.2 Graph + BFS + Hashing**
+
+**Problem:** Shortest transformation from one word to another by changing one character at a time.
+
+Approach:
+
+1. Store available words in a HashSet.
+2. Use BFS to explore transformations level by level.
+3. Generate neighboring words.
+4. Remove words when they are first visited.
+5. Stop when the target is reached.
+
+BFS finds the shortest number of transformations because each change has equal cost.
+
+## **18.3 DP + Bitmasking**
+
+**Problem:** Travelling Salesperson Problem.
+
+You need to visit every city exactly once and return to the starting city, minimizing total cost.
+
+Define:
+
+\\[ dp[mask][i] \\]
+
+as the minimum travel cost for visiting the cities contained in `mask` and finishing at city `i`.
+
+The mask represents the visited cities.
+
+From the current state, try visiting each unvisited city.
+
+A standard subset-DP solution takes:
+
+\\[ O(n^2 2^n) \\]
+
+time and:
+
+\\[ O(n2^n) \\]
+
+space.
+
+This is practical only for relatively small \\(n\\).
+
+## **18.4 Monotonic Stack + Prefix Sum**
+
+Certain problems combine prefix sums with monotonic stacks to identify the largest subarray satisfying a condition.
+
+Examples include advanced maximum-subarray and range-contribution problems.
+
+You might use:
+
+- Prefix sums for quick range calculations.
+- Monotonic stacks for nearest boundaries.
+- Sorting or indexing for organizing candidates.
+
+## **18.5 Tree + DFS + DP**
+
+Tree DP uses DFS to compute results from children before processing the parent.
+
+Examples include:
+
+- Maximum independent set.
+- Tree diameter.
+- Maximum path sum.
+- Tree matching.
+- Subtree aggregation.
+
+Recognizing the relationship between the current node and its children is the key.
+
+# **19. Common Mistakes in Advanced Problem Solving**
+
+These mistakes often cause incorrect solutions even when the overall idea is reasonable.
+
+| Mistake                                  | Why it fails                                  | Better approach                                        |
+| ---------------------------------------- | --------------------------------------------- | ------------------------------------------------------ |
+| Applying Greedy without proof            | A local choice may prevent the global optimum | Prove the greedy-choice property                       |
+| Using DP without defining the state      | Transitions become unclear or incomplete      | Write the state meaning first                          |
+| Using binary search without monotonicity | A discarded half may contain the answer       | Prove feasibility is monotonic                         |
+| Incorrect backtracking restoration       | One branch affects another                    | Undo every mutable decision                            |
+| Using Dijkstra with negative edges       | Its assumptions are violated                  | Consider Bellman–Ford or another suitable algorithm    |
+| Wrong monotonic-stack comparison         | Equal values may be handled incorrectly       | Decide strict versus non-strict behavior               |
+| Storing values instead of indices        | Cannot track positions or window expiration   | Store indices when position matters                    |
+| Ignoring integer overflow                | Results become incorrect                      | Use appropriate numeric types                          |
+| Using \\(O(n^2)\\) for large \\(n\\)     | Runtime may be too high                       | Optimize with hashing, sorting, or advanced structures |
+| Ignoring recursion depth                 | Java may throw `StackOverflowError`           | Consider iterative traversal                           |
+| Using an unnecessarily complex algorithm | More chances of implementation mistakes       | Prefer the simplest feasible correct solution          |
+
+# **20. Advanced Practice Problems**
+
+The purpose of this section is to apply the patterns rather than only memorize their definitions.
+
+Start with understanding the problem, then identify the pattern before attempting implementation.
+
+## **Level 1 — Pattern Recognition**
+
+| Problem                        | Primary pattern         |
+| ------------------------------ | ----------------------- |
+| N-Queens                       | Backtracking            |
+| Subsets                        | Backtracking            |
+| Combination Sum                | Backtracking            |
+| Merge Sort                     | Divide and Conquer      |
+| Search in Rotated Sorted Array | Binary Search           |
+| Koko Eating Bananas            | Binary Search on Answer |
+| Next Greater Element           | Monotonic Stack         |
+| Daily Temperatures             | Monotonic Stack         |
+| Sliding Window Maximum         | Monotonic Queue         |
+
+## **Level 2 — Advanced Data Structures and Algorithms**
+
+| Problem                             | Primary pattern           |
+| ----------------------------------- | ------------------------- |
+| Largest Rectangle in Histogram      | Monotonic Stack           |
+| Trapping Rain Water                 | Two Pointers / Stack      |
+| Aggressive Cows                     | Binary Search + Greedy    |
+| Number of Islands                   | Graph DFS/BFS             |
+| Course Schedule                     | Topological Sort          |
+| Network Delay Time                  | Dijkstra                  |
+| Redundant Connection                | DSU                       |
+| Minimum Spanning Tree               | Kruskal / Prim            |
+| Count of Smaller Numbers After Self | Merge Sort / Fenwick Tree |
+
+## **Level 3 — Advanced Optimization and DP**
+
+| Problem                                   | Primary pattern                              |
+| ----------------------------------------- | -------------------------------------------- |
+| Word Search                               | Backtracking                                 |
+| Sudoku Solver                             | Backtracking + Constraint Propagation        |
+| Travelling Salesperson Problem            | Bitmask DP                                   |
+| Burst Balloons                            | Interval DP                                  |
+| House Robber III                          | Tree DP                                      |
+| Longest Increasing Subsequence            | DP / Binary Search                           |
+| Count Numbers with a Given Digit Property | Digit DP                                     |
+| Range Frequency Queries                   | Offline Processing                           |
+| Subarray Queries                          | Mo's Algorithm / Fenwick Tree / Segment Tree |
+
+# **21. Module 21 Knowledge Check**
+
+Test whether you can identify the right technique from a problem description.
+
+**Module 21 assessment**
+
+0/6 answered
+
+**1. You need to find the minimum capacity that allows packages to be shipped within D days. Feasibility improves as capacity increases. Which pattern fits?**
+
+Monotonic Stack
+
+Binary Search on Answer
+
+Branch and Bound
+
+Topological Sort
+
+**2. You need the next greater element to the right for every array element. Which technique is most appropriate?**
+
+Monotonic Stack
+
+BFS
+
+Tree DP
+
+Merge Sort
+
+**3. A graph has non-negative weighted edges and you need shortest paths from one source. Which algorithm is suitable?**
+
+Kruskal
+
+Dijkstra
+
+Topological Sort
+
+Union-Find only
+
+**4. A problem requires the best selection of tree nodes, with the restriction that adjacent nodes cannot both be selected. Which approach fits?**
+
+Sliding Window
+
+Tree DP
+
+Binary Search
+
+Prefix XOR
+
+**5. All range queries are available before processing, and a query can be updated efficiently when a range expands or shrinks. Which technique may help?**
+
+Mo's Algorithm
+
+Dijkstra
+
+N-Queens
+
+Quick Sort only
+
+**6. A local choice needs a mathematical justification to establish a globally optimal result. Which concept is most relevant?**
+
+Exchange Argument
+
+Hash Collision
+
+BFS Level Order
+
+Coordinate Compression
+
+Submit answers
+
+# **22. Final Learning Outcomes**
+
+After completing this module, you should be able to:
+
+1. Design advanced backtracking solutions with effective pruning.
+2. Understand Branch and Bound and its role in optimization.
+3. Apply Divide and Conquer and analyze its recurrence relations.
+4. Recognize and solve Binary Search on Answer problems.
+5. Use Monotonic Stacks and Monotonic Queues to optimize array problems.
+6. Select appropriate graph algorithms based on graph properties.
+7. Classify DP problems by their state structure.
+8. Design tree-based DP transitions.
+9. Prove Greedy algorithms using exchange arguments and other techniques.
+10. Apply mathematical properties to reduce computational work.
+11. Use advanced array techniques such as difference arrays, coordinate compression, and sweep line.
+12. Understand offline query processing and Mo's Algorithm.
+13. Analyze constraints before choosing an approach.
+14. Select suitable data structures and algorithms for unfamiliar problems.
+15. Combine multiple patterns to solve advanced competitive programming problems.
+
+## **The most important principle**
+
+Do not approach advanced DSA by asking, "Which algorithm have I memorized that matches this question?"
+
+Instead, ask:
+
+- What is the problem actually asking me to optimize, count, or determine?
+- What do the input constraints allow?
+- What information must I maintain while processing the input?
+- Can I eliminate unnecessary possibilities?
+- Are there repeated states or monotonic properties?
+- Which data structure makes the required operations efficient?
+- Can I prove that my approach is correct?
+
+**That shift—from memorizing algorithms to recognizing and combining patterns—is what makes you an advanced problem solver.**
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-16T17:41:16+05:30.
+</ADDITIONAL_METADATA>

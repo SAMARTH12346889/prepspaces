@@ -207,6 +207,12 @@ const routeMeta = {
     keywords: "Advanced Dynamic Programming Java, Multi-Dimensional DP, Grid DP with Obstacles, Longest Palindromic Subsequence LPS, Tree DP House Robber III, DAG DP Topological Longest Path, Bitmask DP Java, Traveling Salesman Problem TSP Java, Digit DP LeetCode, Interval DP Burst Balloons LeetCode 312, Matrix Chain Multiplication MCM, Divide and Conquer DP Optimization, Meet in the Middle LeetCode, Brian Kernighan Algorithm, XOR Partitioning Two Numbers, Las Vegas vs Monte Carlo, Reservoir Sampling LeetCode 382, Correctness Proofs Induction Loop Invariants, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/advanced-dp`,
   },
+  "/learning/java/problem-solving-patterns": {
+    title: "Module 21: Advanced Problem-Solving Patterns | PrepSpaces",
+    description: "Master advanced problem-solving patterns in Java: Backtracking & Pruning (N-Queens, Sudoku), Branch and Bound (0/1 Knapsack, TSP), Divide and Conquer, Binary Search on Answer (Ship Packages within D Days, Koko Eating Bananas), Monotonic Stacks (Next Greater Element, Largest Rectangle in Histogram), Monotonic Deques (Sliding Window Maximum), Graph Pattern Classification, DP Decision Frameworks, Tree DP (Maximum Independent Set), Greedy Proof Techniques (Greedy Stays Ahead, Exchange Arguments), Mathematical & Number Theoretic Patterns (Euler Totient, Modular Arithmetic, Sieve of Eratosthenes), Advanced Array Techniques (Difference Arrays, 2D Prefix Sums), Offline Queries (Mo's Algorithm, Sqrt Decomposition), and Competitive Programming Strategy.",
+    keywords: "Advanced Problem-Solving Patterns Java, Backtracking Pruning N-Queens Java, Branch and Bound Java, Binary Search on Answer LeetCode 1011, Monotonic Stack Next Greater Element, Largest Rectangle in Histogram LeetCode 84, Monotonic Deque Sliding Window Maximum LeetCode 239, Tree DP Maximum Independent Set, Difference Array Range Updates Java, Mos Algorithm Sqrt Decomposition Java, Offline Query Processing, Greedy Exchange Argument Proof, Competitive Programming Java, DSA Masterclass, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/problem-solving-patterns`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

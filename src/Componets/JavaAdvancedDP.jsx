@@ -635,10 +635,10 @@ export default function JavaAdvancedDP() {
       <ModuleNav
         currentModuleId="advanced-dp"
         currentTrack="java"
-        totalModules={20}
+        totalModules={21}
         accentColor="indigo"
         prevRoute="/learning/java/dynamic-programming"
-        nextRoute={null}
+        nextRoute="/learning/java/problem-solving-patterns"
       />
 
       {/* Hero Banner */}
