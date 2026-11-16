@@ -53,5 +53,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "recursion-backtracking",
+    "courseId": "java-programming",
+    "index": 6,
+    "name": "6. Recursion, Backtracking & Mathematical Foundations",
+    "route": "/learning/java/recursion-backtracking",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

@@ -188,7 +188,7 @@
     "route": "/learning/java",
     "tag": "Software Engineering & Systems",
     "modulesCount": "Comprehensive Modules",
-    "totalModules": 5,
+    "totalModules": 6,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
@@ -197,8 +197,8 @@
       "Arrays, Strings & 2D Matrix Algorithms",
       "OOP, Dynamic Dispatch, Interfaces & SOLID",
       "Exceptions, Generics, PECS & Collections Framework",
-      "Lambdas, Stream API Pipelines & Grouping",
-      "NIO.2 Path Operations & Serialization Security"
+      "Lambdas, Stream API Pipelines & NIO.2 Storage",
+      "Recursion, Induction, Backtracking, N-Queens & Sudoku"
     ]
   }
 ]

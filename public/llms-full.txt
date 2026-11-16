@@ -1516,3 +1516,34 @@ Topics Covered:
   - 33. Serialization Security Risks: Untrusted Deserialization, Gadget Chains & ObjectInputFilter
   - 34. Full Capstone Project: Student Record Management System with File Persistence & Streams
   - 35. 30 Assessment MCQs, 10 Labs, 5 Capstones, and 40 Technical Interview Questions
+
+### Module 6: Recursion, Backtracking & Mathematical Foundations
+URL: https://prepspaces.com/learning/java/recursion-backtracking
+Topics Covered:
+  - 1. Understanding Recursion: Subproblem Decomposition & The Base Case
+  - 2. The 4-Step Recursive Design Methodology: Problem Reduction & Progress Verification
+  - 3. Base Cases vs Recursive Cases: Multi-Condition Termination & Stack Invariants
+  - 4. The Call Stack: Stack Activation Frames, Recursive Descent & Unwinding Phase
+  - 5. StackOverflowError: Depth Limits, Infinite Cycles & JVM Stack Configuration
+  - 6. Recursion Trees: Branching Factors, Subproblem Redundancy & Exponential Growth
+  - 7. Improving Recursion with Memoization: Storing Overlapping Subproblems
+  - 8. Tail vs Non-Tail Recursion: Accumulators, Return Operations & JVM Optimization Limits
+  - 9. Recursion vs Iteration: Call-Stack Overhead, Performance Trade-offs & Conversion
+  - 10. Mathematical Induction: Base Case, Inductive Hypothesis & Inductive Step Proofs
+  - 11. Combinatorics: Factorials, Permutations P(n,r) & Unique Arrangement Generation
+  - 12. Combinations C(n,r): Unordered Selection, Multisets & Pascal Identity
+  - 13. Subsequences vs Substrings: Contiguity Restrictions & Lexicographical Ordering
+  - 14. Subset Generation: Include-Exclude Recursive Tree & Bitmask Enumeration (1 << n)
+  - 15. Introduction to Backtracking: The Choose -> Explore -> Unchoose Lifecycle
+  - 16. Constraint-Based Search: State-Space Trees, Feasibility Invariants & Pruning
+  - 17. Permutation Generation with Backtracking: Used Tracking Arrays & Duplicate Pruning
+  - 18. N-Queens Problem: 1-Queen-Per-Row Invariant, Diagonal Conflict Math & Solver
+  - 19. Sudoku Solver: 9x9 Grid Constraints, Row/Col/Box Validation & MRV Heuristic
+  - 20. Rat in a Maze: 2-Direction Down/Right Traversal & Visited Path Reconstruction
+  - 21. General 4-Direction Grid Pathfinding: Delta Offsets, Cycle Prevention & DFS vs BFS
+  - 22. Recursive Complexity Analysis: Recurrence Relations, Recurrence Trees & Master Theorem
+  - 23. Divide-and-Conquer vs Backtracking: Subproblem Independence vs State Restoration
+  - 24. Advanced Recursive Design Patterns: Include-Exclude, Two-Pointer & Memoized Cache
+  - 25. Practical Worked Problem Set: Digit Sum, Fast Exponentiation O(log n) & Binary Search
+  - 26. Complete Capstone Project: Interactive Recursive & Backtracking Problem Solver Application
+  - 27. 20 Assessment MCQs, 10 Labs, 10 Assignments, 30 Challenges & DSA Transition Roadmap

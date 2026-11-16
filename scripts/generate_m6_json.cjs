@@ -1,0 +1,195 @@
+const fs = require('fs');
+const path = require('path');
+
+const outPath1 = path.resolve(__dirname, '../backend/content/java-programming/modules/recursion-backtracking.json');
+const outPath2 = path.resolve(__dirname, '../backend/content/java/modules/recursion-backtracking.json');
+
+const questions = [
+  {
+    id: "m6-q1",
+    question: "What is recursion in computer programming?",
+    options: ["A method that never returns", "A method calling itself to solve a smaller instance of the same problem", "A loop without a terminating condition", "A variable referencing another variable"],
+    correctIndex: 1,
+    explanation: "Recursion is a programming technique where a method calls itself to solve progressively smaller subproblems until reaching a terminating base case."
+  },
+  {
+    id: "m6-q2",
+    question: "What is the primary role of a base case in a recursive method?",
+    options: ["To initialize the method parameters", "The terminating condition that provides an answer directly without making another recursive call", "To print the final computation result", "To reset the JVM heap memory"],
+    correctIndex: 1,
+    explanation: "The base case identifies when recursion must stop; without it, recursion continues indefinitely until a StackOverflowError occurs."
+  },
+  {
+    id: "m6-q3",
+    question: "Which runtime memory structure manages method invocations and activation frames?",
+    options: ["Heap Memory", "Call Stack", "BlockingQueue", "ConcurrentHashMap"],
+    correctIndex: 1,
+    explanation: "The call stack manages method invocations, allocating an activation frame for local variables and parameters on each call, and popping it on return."
+  },
+  {
+    id: "m6-q4",
+    question: "What runtime error is thrown when a thread exhausts its available call stack space due to infinite or excessively deep recursion?",
+    options: ["OutOfMemoryError: Metaspace", "StackOverflowError", "NullPointerException", "ClassCastException"],
+    correctIndex: 1,
+    explanation: "An excessively deep or non-terminating recursive descent continuously allocates stack frames until the thread stack is exhausted, throwing java.lang.StackOverflowError."
+  },
+  {
+    id: "m6-q5",
+    question: "Which recursive pattern is classified as tail recursion?",
+    options: ["A recursive call followed by an addition or multiplication", "A recursive method where the recursive call is the final operation before returning", "Recursion with two distinct base cases", "Recursion that accepts no parameters"],
+    correctIndex: 1,
+    explanation: "Tail recursion occurs when the recursive call is the absolute final statement executed in the method body, with zero pending computation remaining upon return."
+  },
+  {
+    id: "m6-q6",
+    question: "Does the standard HotSpot JVM guarantee tail-call optimization (TCO)?",
+    options: ["Yes, for all methods", "No, standard Java HotSpot does not eliminate stack frames for tail-recursive calls", "Only for static methods in Java 21", "Only when using final methods"],
+    correctIndex: 1,
+    explanation: "Java does not guarantee tail-call optimization in standard HotSpot JVM; converting to tail recursion does not prevent StackOverflowError in deep calls."
+  },
+  {
+    id: "m6-q7",
+    question: "What is mathematical induction used for in computer science?",
+    options: ["Serializing objects to disk", "Proving that a property or algorithm holds true for all integers over a domain", "Allocating 2D arrays in heap memory", "Compiling Java bytecode to native machine code"],
+    correctIndex: 1,
+    explanation: "Mathematical induction proves statements over integers using a base case and an inductive step, providing the mathematical proof foundation for recursive algorithm correctness."
+  },
+  {
+    id: "m6-q8",
+    question: "What is the very first step in a proof by mathematical induction?",
+    options: ["The inductive hypothesis", "The base case (proving the statement holds for the initial integer)", "The complexity calculation", "The tail-call conversion"],
+    correctIndex: 1,
+    explanation: "The base case proves that the proposition P(1) or P(0) holds true for the smallest valid starting value."
+  },
+  {
+    id: "m6-q9",
+    question: "In combinatorial permutations, does the relative ordering of elements matter?",
+    options: ["Yes, order matters (ABC and CBA are completely distinct permutations)", "No, order is ignored", "Only for integer arrays", "Only when elements are unique"],
+    correctIndex: 0,
+    explanation: "A permutation is an ordered arrangement; ABC, BAC, and CBA are different permutations because their element sequence differs."
+  },
+  {
+    id: "m6-q10",
+    question: "In combinatorial combinations, does the relative ordering of elements matter?",
+    options: ["Yes, order is strictly preserved", "No, order does not matter (AB and BA represent the exact same combination)", "Only when selecting subsets of size 3", "Only with repetition allowed"],
+    correctIndex: 1,
+    explanation: "A combination is an unordered selection; the groups {A, B} and {B, A} are identical combinations."
+  },
+  {
+    id: "m6-q11",
+    question: "How many total subsets (power set) does a set containing 4 distinct elements possess?",
+    options: ["4", "8", "12", "16 (2^4)"],
+    correctIndex: 3,
+    explanation: "For a set of n distinct elements, each element has 2 independent choices (include or exclude), yielding 2^n total subsets (2^4 = 16)."
+  },
+  {
+    id: "m6-q12",
+    question: "What is the defining characteristic of a subsequence compared to a substring?",
+    options: ["It must always be contiguous", "It preserves original relative ordering but elements need not be contiguous", "It reverses the original text", "It contains only unique vowels"],
+    correctIndex: 1,
+    explanation: "A subsequence preserves the relative left-to-right order of characters but allows zero or more intervening characters to be omitted (e.g. 'ACE' is a subsequence of 'ABCDE')."
+  },
+  {
+    id: "m6-q13",
+    question: "Which recursive decision pattern is foundational for generating all subsets and subsequences?",
+    options: ["The Include-Exclude pattern (branching on whether to pick or omit the current element)", "The Push-Pop stack pattern", "Binary search halving", "Direct modular hashing"],
+    correctIndex: 0,
+    explanation: "The include-exclude pattern branches twice at each element: one recursive branch includes the item, and the other excludes it."
+  },
+  {
+    id: "m6-q14",
+    question: "What is backtracking in algorithmic problem-solving?",
+    options: ["Sorting an array backwards", "An exploratory strategy that makes a choice, explores recursively, and reverts (un-chooses) upon failure or completion", "Rerunning an entire program from main()", "Replacing loops with streams"],
+    correctIndex: 1,
+    explanation: "Backtracking systematically searches a decision state space by choosing candidate options, recursively exploring them, and un-choosing (reverting state) when a dead-end is reached."
+  },
+  {
+    id: "m6-q15",
+    question: "What is pruning in a backtracking search tree?",
+    options: ["Adding redundant recursive branches", "Immediately terminating and abandoning search branches that violate constraints and cannot lead to a valid solution", "Expanding the size of an array dynamically", "Garbage-collecting dead objects"],
+    correctIndex: 1,
+    explanation: "Pruning evaluates constraints early on partial configurations, rejecting invalid branches without exploring their subtrees, drastically reducing search time."
+  },
+  {
+    id: "m6-q16",
+    question: "What is the core non-attacking constraint in the classic N-Queens problem?",
+    options: ["Every queen must be on black squares", "No two queens may share the same row, column, or diagonal", "All queens must be placed in a straight line", "Queens can only move like knights"],
+    correctIndex: 1,
+    explanation: "On an N x N chessboard, no two queens can attack each other, meaning no two queens can occupy the same row, column, or diagonal."
+  },
+  {
+    id: "m6-q17",
+    question: "In the standard N-Queens problem, how many queens are placed on an N x N board?",
+    options: ["2N", "N - 1", "N (exactly one per row)", "N^2"],
+    correctIndex: 2,
+    explanation: "Exactly N queens must be placed on an N x N board such that each row contains exactly one queen."
+  },
+  {
+    id: "m6-q18",
+    question: "Which three structural scopes must satisfy uniqueness (digits 1-9) in a standard Sudoku solver?",
+    options: ["Rows, columns, and 3x3 subgrid boxes", "Diagonals, rows, and perimeter borders", "Corners, rows, and center lines", "Only rows and columns"],
+    correctIndex: 0,
+    explanation: "A valid Sudoku board mandates that digits 1 through 9 appear without repetition in every row, every column, and each of the nine 3x3 subgrid boxes."
+  },
+  {
+    id: "m6-q19",
+    question: "Why is Breadth-First Search (BFS) preferred over Depth-First Search (DFS) for unweighted grid shortest-path problems?",
+    options: ["BFS uses less memory than DFS", "BFS explores level-by-level, guaranteeing that the first time a destination is reached, the shortest path is found", "DFS cannot handle obstacles", "BFS avoids recursion stack frames entirely"],
+    correctIndex: 1,
+    explanation: "In an unweighted graph or grid, BFS traverses outward in uniform distance ripples, guaranteeing that the first time target (R, C) is dequeued, it is along the minimum number of steps."
+  },
+  {
+    id: "m6-q20",
+    question: "What is the output-sensitive time complexity of generating and printing all subsets of an n-element array?",
+    options: ["O(n)", "O(log n)", "O(n^2)", "O(n * 2^n)"],
+    correctIndex: 3,
+    explanation: "There are 2^n subsets, and printing/copying each subset requires up to O(n) operations, yielding an output-sensitive time complexity of O(n * 2^n)."
+  }
+];
+
+const moduleData = {
+  id: "recursion-backtracking",
+  courseId: "java-programming",
+  index: 6,
+  name: "6. Recursion, Backtracking & Mathematical Foundations",
+  title: "Recursion, Backtracking & Mathematical Problem-Solving Foundations",
+  description: "Master recursive algorithms, runtime call stack frames, recursion trees, tail recursion, mathematical induction, combinatorial permutations and combinations, include-exclude subset generation, and constraint-based backtracking solvers (N-Queens, Sudoku, Rat in a Maze, and 4-Direction Grid Pathfinding).",
+  duration: "14-16 hours",
+  level: "Advanced / Core Foundations",
+  route: "/learning/java/recursion-backtracking",
+  componentName: "JavaRecursion",
+  topics: [
+    "Understanding Recursion: Subproblem Decomposition & The Base Case",
+    "The 4-Step Recursive Design Methodology: Problem Reduction & Progress Verification",
+    "Base Cases vs Recursive Cases: Multi-Condition Termination & Stack Invariants",
+    "The Call Stack: Stack Activation Frames, Recursive Descent & Unwinding Phase",
+    "StackOverflowError: Depth Limits, Infinite Cycles & JVM Stack Configuration",
+    "Recursion Trees: Branching Factors, Subproblem Redundancy & Exponential Growth",
+    "Improving Recursion with Memoization: Storing Overlapping Subproblems",
+    "Tail vs Non-Tail Recursion: Accumulators, Return Operations & JVM Optimization Limits",
+    "Recursion vs Iteration: Call-Stack Overhead, Performance Trade-offs & Conversion",
+    "Mathematical Induction: Base Case, Inductive Hypothesis & Inductive Step Proofs",
+    "Combinatorics: Factorials, Permutations P(n,r) & Unique Arrangement Generation",
+    "Combinations C(n,r): Unordered Selection, Multisets & Pascal Identity",
+    "Subsequences vs Substrings: Contiguity Restrictions & Lexicographical Ordering",
+    "Subset Generation: Include-Exclude Recursive Tree & Bitmask Enumeration (1 << n)",
+    "Introduction to Backtracking: The Choose -> Explore -> Unchoose Lifecycle",
+    "Constraint-Based Search: State-Space Trees, Feasibility Invariants & Pruning",
+    "Permutation Generation with Backtracking: Used Tracking Arrays & Duplicate Pruning",
+    "N-Queens Problem: 1-Queen-Per-Row Invariant, Diagonal Conflict Math & Solver",
+    "Sudoku Solver: 9x9 Grid Constraints, Row/Col/Box Validation & MRV Heuristic",
+    "Rat in a Maze: 2-Direction Down/Right Traversal & Visited Path Reconstruction",
+    "General 4-Direction Grid Pathfinding: Delta Offsets, Cycle Prevention & DFS vs BFS",
+    "Recursive Complexity Analysis: Recurrence Relations, Recurrence Trees & Master Theorem",
+    "Divide-and-Conquer vs Backtracking: Subproblem Independence vs State Restoration",
+    "Advanced Recursive Design Patterns: Include-Exclude, Two-Pointer & Memoized Cache",
+    "Practical Worked Problem Set: Digit Sum, Fast Exponentiation O(log n) & Binary Search",
+    "Complete Capstone Project: Interactive Recursive & Backtracking Problem Solver Application",
+    "Phase 1 Foundations Complete Milestone: Mastery Summary & Transition to Data Structures & Algorithms (DSA)"
+  ],
+  quiz: questions
+};
+
+fs.writeFileSync(outPath1, JSON.stringify(moduleData, null, 2), 'utf8');
+fs.writeFileSync(outPath2, JSON.stringify(moduleData, null, 2), 'utf8');
+console.log(`Generated ${outPath1} and ${outPath2}`);

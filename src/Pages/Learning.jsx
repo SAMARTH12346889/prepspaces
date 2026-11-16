@@ -245,8 +245,9 @@ const learningTracks = [
       "Control Flow, Methods, Scope & Recursion",
       "Arrays, Strings & 2D Matrix Mathematics",
       "Object-Oriented Programming (OOP) & Dynamic Dispatch",
-      "Exceptions, Generics, PECS & Collections Architecture",
-      "Lambdas, Stream API Pipelines & NIO.2 File Systems",
+      "Exceptions, Generics, PECS & Stream API Pipelines",
+      "Recursion, Mathematical Induction & Combinatorics",
+      "Backtracking Solvers: N-Queens, Sudoku & Mazes",
     ],
   },
 ];

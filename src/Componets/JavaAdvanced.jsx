@@ -559,7 +559,7 @@ export default function JavaAdvanced() {
           courseId="java-programming"
           currentModuleId="advanced"
           prevRoute="/learning/java/oop"
-          nextRoute={null}
+          nextRoute="/learning/java/recursion-backtracking"
         />
 
         {activeTab === "curriculum" ? (

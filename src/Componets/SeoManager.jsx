@@ -117,6 +117,12 @@ const routeMeta = {
     keywords: "Advanced Java, Java Exceptions, Java Generics, PECS Wildcards, Java Collections Framework, ArrayList vs LinkedList, HashMap Internals, Java Lambdas, Java Stream API, Stream Collectors, Java Optional, Java NIO2, Java Serialization Security, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/advanced`,
   },
+  "/learning/java/recursion-backtracking": {
+    title: "Module 6: Recursion, Backtracking & Mathematical Foundations | PrepSpaces",
+    description: "Master recursive problem decomposition, JVM call stack activation frames, recursion trees, tail recursion, mathematical induction, permutations, combinations, include-exclude subset generation, and constraint-based backtracking algorithms (N-Queens, Sudoku, Rat in a Maze).",
+    keywords: "Java Recursion, Backtracking Java, N-Queens Problem, Sudoku Backtracking, Call Stack Java, Recursion Tree, Tail Recursion, Mathematical Induction Java, Permutations Combinations Java, Power Set Java, Maze Pathfinding, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/recursion-backtracking`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

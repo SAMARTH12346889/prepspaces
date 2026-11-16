@@ -226,6 +226,7 @@ export const JAVA_MODULES = [
   { id: "arrays-strings", name: "3. Arrays, Strings & Basic Data Handling", route: "/learning/java/arrays-strings" },
   { id: "oop", name: "4. Object-Oriented Programming (OOP) with Java", route: "/learning/java/oop" },
   { id: "advanced", name: "5. Advanced Java Programming", route: "/learning/java/advanced" },
+  { id: "recursion-backtracking", name: "6. Recursion, Backtracking & Mathematical Foundations", route: "/learning/java/recursion-backtracking" },
 ];
 
 export const BLOCKCHAIN_MODULES = [
