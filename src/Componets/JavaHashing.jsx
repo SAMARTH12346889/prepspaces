@@ -656,7 +656,7 @@ export default function JavaHashing() {
       <ModuleNav
         currentModuleId="hashing"
         prevRoute="/learning/java/stacks-queues"
-        nextRoute={null}
+        nextRoute="/learning/java/trees"
       />
 
       {/* Main Container */}

@@ -1686,3 +1686,39 @@ Topics Covered:
   - 26. 30 Practical Coding Assignments: Beginner (1-10), Intermediate (11-20), Advanced (21-30) Hands-on Laboratories
   - 27. Curated LeetCode Practice Track: 12 High-Yield Problems with Difficulty Tiers and Concept Classification
   - 28. 20 Assessment MCQs with Comprehensive Explanations & Verification Solutions
+
+### Module 12: Trees & Binary Search Trees
+URL: https://prepspaces.com/learning/java/trees
+Topics Covered:
+  - 1. Introduction to Trees: Non-linear Hierarchical Structures, Real-World Hierarchy, Nodes & Edges
+  - 2. Tree Terminology: Root, Parent, Child, Siblings, Leaf (External), Internal Node, Subtree, Ancestor, Descendant
+  - 3. Tree Properties & Metrics: Edge Count (n - 1), Level, Depth from Root, Height of Node, Height of Tree
+  - 4. What is a Binary Tree?: Degree at Most 2, Left Child & Right Child Pointer Topology
+  - 5. Types of Binary Trees: Full (Strictly Binary), Complete, Perfect, Degenerate / Pathological, Balanced Binary Trees
+  - 6. Binary Tree Node Implementation in Java: TreeNode<T> Class, References, Constructors & Manual Tree Construction
+  - 7. Tree Traversals Overview: Depth-First Search (DFS) vs Breadth-First Search (BFS) Topological Ordering
+  - 8. Preorder Traversal (DFS): Root -> Left -> Right, Recursive Algorithm, Call Stack Mechanics & Expression Trees
+  - 9. Inorder Traversal (DFS): Left -> Root -> Right, BST Ascending Order Guarantee & Iterative Stack Traversal
+  - 10. Postorder Traversal (DFS): Left -> Right -> Root, Bottom-up Evaluation, Deletion Order & Space Calculation
+  - 11. Level Order Traversal (BFS): Queue-based FIFO Breadth-First Traversal, Level-by-Level List Partitioning
+  - 12. Tree Construction from Traversals: Unique Reconstruction from Inorder + Preorder and Inorder + Postorder
+  - 13. Tree Height Calculation: Recursive Height Definition, max(height(left), height(right)) + 1, Base Case Handling
+  - 14. Count Total Nodes: Recursive Node Count, 1 + count(left) + count(right), O(n) Traversal Guarantee
+  - 15. Count Leaf Nodes: Leaf Base Case Identification, Left & Right Null Validation, Recursive Summation
+  - 16. Maximum Element in Binary Tree: Global Extremum Search across Arbitrary Binary Trees via Math.max
+  - 17. Search Element in Binary Tree: Boolean Containment Check, DFS Short-Circuiting & O(n) Traversal
+  - 18. Diameter of a Binary Tree: Longest Path Between Any Two Nodes, In-flight Height Calculation O(n) vs O(n^2)
+  - 19. Lowest Common Ancestor (LCA) in Binary Tree: Split Point Identification, Postorder Bubbling & Edge Cases
+  - 20. Introduction to Binary Search Tree (BST): The BST Ordering Invariant: Left < Root < Right
+  - 21. Search in BST: Logarithmic Navigation, Comparing Key with Current Node, Recursive & Iterative Search O(h)
+  - 22. Insertion in BST: Leaf Attachment, Invariant Preservation, Dynamic Node Allocation & Balanced vs Unbalanced Trees
+  - 23. Deletion in BST: 3 Comprehensive Cases (Leaf Node, Single Child, Two Children with Inorder Successor/Predecessor)
+  - 24. Find Minimum and Maximum in BST: Leftmost Leaf Min Extraction & Rightmost Leaf Max Extraction
+  - 25. Validate Binary Search Tree: The Min/Max Range Parameter Method [low, high] vs Naive Parent Comparison Flaw
+  - 26. Kth Smallest Element in BST: Inorder DFS Invariant, Counter Decrement & Early Termination Logics
+  - 27. Lowest Common Ancestor in BST: Value-Driven Branching, Directional Decision Making in O(h) Time
+  - 28. Invert / Flip Binary Tree: Swapping Left and Right Pointers Recursively across Every Node Level
+  - 29. Path Sum in Binary Tree: Root-to-Leaf Path Target Accumulation, Subtraction Recursion & Validation
+  - 30. Serialize and Deserialize Binary Tree: Codec Design, Preorder Tokenization with Sentinel Nulls ("#") & Queue Rebuilder
+  - 31. Tree Interview Cheat Sheet: DFS vs BFS Comparison, Traversal Signatures, Invariant Cheatsheet, Master Checklist
+  - 32. 45 Practical Labs & Assignments: Level 1-4 Problem Hierarchy & 20 Assessment MCQs with Explanations

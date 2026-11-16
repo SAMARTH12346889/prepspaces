@@ -153,6 +153,12 @@ const routeMeta = {
     keywords: "Java Hashing, Java HashMap Internals, Treeification HashMap, Separate Chaining Java, Linear Probing, Quadratic Probing, Double Hashing, LinkedHashMap LRU Cache, equals and hashCode contract, Two Sum Java, Longest Consecutive Sequence Java, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/hashing`,
   },
+  "/learning/java/trees": {
+    title: "Module 12: Trees & Binary Search Trees | PrepSpaces",
+    description: "Master trees and binary search trees in Java: tree terminology, full/complete/perfect/degenerate variants, DFS preorder/inorder/postorder recursive and iterative traversals, BFS level-order traversal, height, diameter, Lowest Common Ancestor (LCA), BST search, insert, 3-case delete with inorder successor, BST validation with range bounds, and binary tree serialization and deserialization codec.",
+    keywords: "Java Trees, Binary Tree Java, Binary Search Tree Java, BST Insertion Deletion Java, Tree Traversals Preorder Inorder Postorder Java, Level Order Traversal Java, Lowest Common Ancestor LCA Java, BST Validation Range Bounds, Tree Diameter Java, Tree Serialization Deserialization, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/trees`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

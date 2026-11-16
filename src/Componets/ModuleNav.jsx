@@ -232,6 +232,7 @@ export const JAVA_MODULES = [
   { id: "linked-lists", name: "9. Linked Lists", route: "/learning/java/linked-lists" },
   { id: "stacks-queues", name: "10. Stacks, Queues & Deques", route: "/learning/java/stacks-queues" },
   { id: "hashing", name: "11. Hashing & Hash-Based Data Structures", route: "/learning/java/hashing" },
+  { id: "trees", name: "12. Trees & Binary Search Trees", route: "/learning/java/trees" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

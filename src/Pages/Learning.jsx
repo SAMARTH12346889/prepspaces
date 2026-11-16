@@ -253,6 +253,7 @@ const learningTracks = [
       "Linked Lists, Dynamic References, Floyd's Cycle & Pointer Splicing",
       "Stacks, Queues, Deques, Monotonic Stacks & Sliding Window Maximum",
       "Hash Tables, Chaining, Probing, HashMap Treeification & LRU Cache",
+      "Trees, BST Invariants, Tree Traversals, LCA & Tree Serialization",
     ],
   },
 ];
