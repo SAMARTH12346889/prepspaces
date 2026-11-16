@@ -199,6 +199,7 @@ const JavaHeaps = React.lazy(() => import("./Componets/JavaHeaps"));
 const JavaSpecializedDS = React.lazy(() => import("./Componets/JavaSpecializedDS"));
 const JavaTwoPointersSlidingWindow = React.lazy(() => import("./Componets/JavaTwoPointersSlidingWindow"));
 const JavaGreedyAlgorithms = React.lazy(() => import("./Componets/JavaGreedyAlgorithms"));
+const JavaGraphTheory = React.lazy(() => import("./Componets/JavaGraphTheory"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1718,6 +1719,13 @@ function App() {
             <Route path="/learning/java/module-16" element={<JavaGreedyAlgorithms />} />
             <Route path="/courses/java/greedy-algorithms" element={<JavaGreedyAlgorithms />} />
             <Route path="/learn/java/greedy-algorithms" element={<JavaGreedyAlgorithms />} />
+
+            <Route path="/learning/java/graph-theory" element={<JavaGraphTheory />} />
+            <Route path="/learning/java/graphs" element={<JavaGraphTheory />} />
+            <Route path="/learning/java/graph-algorithms" element={<JavaGraphTheory />} />
+            <Route path="/learning/java/module-17" element={<JavaGraphTheory />} />
+            <Route path="/courses/java/graph-theory" element={<JavaGraphTheory />} />
+            <Route path="/learn/java/graph-theory" element={<JavaGraphTheory />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

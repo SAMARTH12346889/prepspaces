@@ -1857,3 +1857,32 @@ Topics Covered:
   - 28. 32 Practice Problems Across 4 Levels: Fundamentals, Intervals & Scheduling, Greedy Optimization, and Advanced Problem Solving
   - 29. 15 Assessment MCQs with Explanations and Interactive Scoring
   - 30. 16-Point Core Concepts Checklist & Engineering Takeaways
+
+---
+
+### Module 17: Graph Theory & Graph Algorithms
+URL: https://prepspaces.com/learning/java/graph-theory
+Topics Covered:
+  - 1. Graph Fundamentals & Terminology: Vertices (V), Edges (E), Directed vs Undirected, Weighted vs Unweighted, In-Degree, Out-Degree, Handshaking Lemma (Sum of Degrees = 2E)
+  - 2. Graph Representations: Adjacency Matrix O(V²), Adjacency List O(V + E), Edge List O(E), Memory Footprint Benchmark, Neighbor Traversal Trade-Offs
+  - 3. Graph Implementation in Java: List<List<Integer>> and Edge Objects, Dynamic Neighbors, Matrix Conversion
+  - 4. Breadth-First Search (BFS): Level-Order Traversal with Queue, Visited Array, Shortest Path in Unweighted Graphs, Multi-Source BFS (Rotten Oranges, 01 Matrix)
+  - 5. Depth-First Search (DFS): Recursion, JVM Call Stack, Backtracking, Traversal Path Tracking, Tree Edge vs Back Edge vs Cross Edge
+  - 6. BFS vs DFS Comparative Analysis: Queue vs Stack, Shortest Path Guarantee, Memory Profiles, Iterative vs Recursive Mechanics
+  - 7. Connected Components: Outer Loop Traversal for Disconnected Subgraphs, Number of Islands, Number of Provinces, Flood Fill Algorithms
+  - 8. Cycle Detection in Undirected Graphs: DFS with Immediate Parent Tracking (visited[neighbor] && neighbor != parent) and BFS Queue Detection
+  - 9. Cycle Detection in Directed Graphs: Why Parent Tracking Fails on Cross Edges, 3-Color State Method (0=White/Unvisited, 1=Gray/Visiting/In RecStack, 2=Black/Visited)
+  - 10. Bipartite Graphs & Two-Coloring: Definition, Konig's Theorem, Odd-Length Cycle Conflict Proof, BFS and DFS 2-Coloring Implementation
+  - 11. Topological Sorting: Directed Acyclic Graph (DAG) Prerequisites, Dependency Resolution, Build Systems, In-Degree Invariants
+  - 12. Kahn's Algorithm for Topological Sort: In-Degree Array, Queue of 0-In-Degree Vertices, Neighbor Degree Decrementing, Directed Cycle Detection (processed < V)
+  - 13. Strongly Connected Components (SCC): Definition of Mutual Reachability in Directed Graphs, Condensation DAG
+  - 14. Kosaraju's Algorithm: Pass 1 DFS Finish Time Stack, Graph Transposition (Reversing all Edges), Pass 2 DFS on Transposed Graph in Decreasing Finish Time Order
+  - 15. Tarjan's Single-Pass SCC Algorithm: Discovery Time disc[], Lowest Reachable Time low[], DFS Active Stack, Root of SCC Extraction
+  - 16. Bridges in Graphs (Critical Connections): Discovery Time vs Low-Link Values, Bridge Condition low[v] > disc[u], Back-Edge Bypassing
+  - 17. Articulation Points (Cut Vertices): DFS Tree Root Condition (>= 2 Children), Non-Root Condition (low[v] >= disc[u]), Graph Partitioning Impact
+  - 18. Traversal Complexity Master Table: Time and Space Complexity for 12 Standard Graph Algorithms on Lists and Matrices
+  - 19. Common Graph Interview Pitfalls: Disconnected Graph Traversal, Visited State Mismanagement, Directed vs Undirected Cycle Confusion, Tarjan Back-Edge Updates
+  - 20. Problem Recognition Guide: Clues for BFS (Shortest Unweighted Steps), DFS (Exhaustive/Backtracking), Topo Sort (Prerequisites), Bipartite (Two Sets Conflict), and Bridges
+  - 21. 35 Practice Problems Across 5 Difficulty Tiers: Fundamentals, Traversal & Connectivity, Cycle & Bipartite, Topological Sorting, and Advanced SCC/Bridges
+  - 22. 15 Assessment MCQs with Explanations and Scoring
+  - 23. 8 Interactive Workbenches: Representation Playground, BFS Visualizer, DFS Studio, Components Explorer, Cycle Detector, Bipartite Simulator, Kahn Topo Sorter, Kosaraju & Tarjan Analyzer

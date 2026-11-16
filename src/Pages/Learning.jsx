@@ -258,6 +258,7 @@ const learningTracks = [
       "Tries, Disjoint Set Union (DSU), Segment Trees, Fenwick Trees & Sparse Tables",
       "Two Pointers, Sliding Window, 1D/2D Prefix Sums, Difference Arrays & Kadane's Algorithm",
       "Greedy Algorithms, Exchange Arguments, Interval Merging, Fractional Knapsack, Job Sequencing, Huffman Coding & Gas Station",
+      "Graph Theory, BFS/DFS, Cycle Detection, Bipartite Graphs, Kahn's Topological Sort, Kosaraju & Tarjan SCC, Bridges & Articulation Points",
     ],
   },
 ];

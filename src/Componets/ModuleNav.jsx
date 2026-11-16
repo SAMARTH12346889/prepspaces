@@ -237,6 +237,7 @@ export const JAVA_MODULES = [
   { id: "specialized-ds", name: "14. Tries, Disjoint Sets & Specialized Structures", route: "/learning/java/specialized-ds" },
   { id: "two-pointers-sliding-window", name: "15. Two Pointers, Sliding Window & Prefix Sums", route: "/learning/java/two-pointers-sliding-window" },
   { id: "greedy-algorithms", name: "16. Greedy Algorithms & Interval Problems", route: "/learning/java/greedy-algorithms" },
+  { id: "graph-theory", name: "17. Graph Theory & Graph Algorithms", route: "/learning/java/graph-theory" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

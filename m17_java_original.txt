@@ -1,0 +1,3715 @@
+# **Module 17 — Graph Theory & Graph Algorithms**
+
+Graph Theory is one of the most important topics in Data Structures and Algorithms. It is widely used in software engineering, networking, operating systems, databases, maps, social networks, distributed systems, scheduling, and competitive programming.
+
+In previous modules, you learned arrays, linked lists, stacks, queues, trees, hashing, searching, sorting, and greedy algorithms.
+
+Now you will learn how to represent and solve problems involving relationships between objects.
+
+For example:
+
+- Google Maps represents locations and roads as a graph.
+- Social networks represent people and friendships as a graph.
+- Computer networks represent computers and connections as a graph.
+- Course prerequisite systems represent dependencies as a directed graph.
+- Operating systems can use graphs to detect resource deadlocks.
+- Communication networks use graph algorithms to find routes between devices.
+
+**The main objective of this module is to understand how graphs work, how to traverse them efficiently, and how to solve advanced graph problems using Java.**
+
+We will cover graph representations, BFS, DFS, connected components, cycle detection, bipartite graphs, topological sorting, strongly connected components, Kosaraju's algorithm, Tarjan's algorithm, bridges, and articulation points.
+
+# **1. Graph Fundamentals**
+
+## **1.1 What Is a Graph?**
+
+A graph is a non-linear data structure consisting of:
+
+- Vertices (also called nodes).
+- Edges (connections between vertices).
+
+A graph is generally represented as:
+
+\\[ G = (V,E) \\]
+
+Where:
+
+- \\(V\\) = Set of vertices.
+- \\(E\\) = Set of edges.
+
+Consider a graph representing five cities.
+
+**Example: City connection graph**
+
+Each circle represents a vertex. Each connecting line represents an edge.
+
+In this graph:
+
+```
+Vertices:
+V = {A, B, C, D, E}
+
+Edges:
+E = {
+    (A,B),
+    (B,C),
+    (C,D),
+    (D,E),
+    (E,A),
+    (B,D),
+    (A,D)
+}
+```
+
+Therefore:
+
+\\[ |V|=5 \\]
+
+\\[ |E|=7 \\]
+
+The graph contains five vertices and seven edges.
+
+## **1.2 Real-World Applications**
+
+| Application           | Vertices          | Edges                    |
+| --------------------- | ----------------- | ------------------------ |
+| Google Maps           | Locations         | Roads                    |
+| Social network        | Users             | Friendships or follows   |
+| Computer network      | Devices           | Network connections      |
+| Web graph             | Web pages         | Hyperlinks               |
+| Course prerequisites  | Courses           | Dependency relationships |
+| Airline network       | Airports          | Flights                  |
+| Recommendation system | Products or users | Relationships            |
+
+For example, when a user follows another user on a social platform, that relationship can be represented as a directed edge.
+
+When two people are mutual friends, their relationship can be represented as an undirected edge.
+
+# **2. Directed and Undirected Graphs**
+
+There are two fundamental types of graphs based on the direction of their edges.
+
+## **2.1 Undirected Graph**
+
+An undirected graph is a graph in which edges do not have a direction.
+
+If vertex A is connected to vertex B, then B is also connected to A.
+
+The edge is represented as:
+
+\\[ (A,B) = (B,A) \\]
+
+Example:
+
+**Undirected graph**
+
+The connections work in both directions:
+
+- A can reach B.
+- B can reach A.
+- B can reach C.
+- C can reach B.
+
+Examples:
+
+- Mutual friendship.
+- Two-way roads.
+- Two computers connected through a two-way network link.
+
+Java implementation:
+
+```
+adj.get(u).add(v);
+adj.get(v).add(u);
+```
+
+Both directions are stored.
+
+## **2.2 Directed Graph**
+
+A directed graph, also called a digraph, has edges with specific directions.
+
+An edge from A to B does not necessarily mean that B can reach A directly.
+
+It is represented as:
+
+\\[ A \rightarrow B \\]
+
+Example:
+
+**Directed graph**
+
+```
+A → B → C
+```
+
+A can reach B, and B can reach C. There is no direct edge from B to A.
+
+Examples:
+
+- Instagram following relationships.
+- One-way roads.
+- Course dependencies.
+- Webpage hyperlinks.
+- Directed communication or workflow relationships.
+
+Java implementation:
+
+```
+adj.get(u).add(v);
+```
+
+We add only one direction.
+
+## **2.3 Directed vs Undirected**
+
+| Feature                    | Directed graph          | Undirected graph         |
+| -------------------------- | ----------------------- | ------------------------ |
+| Edge direction             | Yes                     | No                       |
+| Relationship               | One-way                 | Two-way                  |
+| Edge representation        | A → B                   | A — B                    |
+| Reverse connection         | Not guaranteed          | Always exists            |
+| Examples                   | Following, dependencies | Friendship, mutual roads |
+| Adjacency entries per edge | Usually 1               | Usually 2                |
+
+# **3. Weighted and Unweighted Graphs**
+
+Graphs can also be categorized based on whether their edges contain weights.
+
+## **3.1 Unweighted Graph**
+
+In an unweighted graph, edges simply represent connections.
+
+There is no numerical cost associated with travelling along an edge.
+
+Example:
+
+```
+A — B — C
+|       |
+D — — — E
+```
+
+Each connection is treated equally.
+
+Unweighted graphs are commonly used for:
+
+- Friend relationships.
+- Basic network connectivity.
+- Number of connections between users.
+- Minimum number of steps between nodes.
+
+## **3.2 Weighted Graph**
+
+In a weighted graph, every edge has a numerical value called its weight.
+
+The weight could represent:
+
+- Distance.
+- Time.
+- Cost.
+- Network latency.
+- Travel expense.
+- Connection strength.
+
+Example:
+
+**Weighted graph: Road distances**
+
+Example edge weights:
+
+- A to B: 10
+- B to C: 15
+- A to D: 20
+- D to C: 12
+
+A weighted graph can be directed or undirected.
+
+**Important:** BFS finds shortest paths in terms of the number of edges in an unweighted graph. It does not generally find minimum total weight in a weighted graph. Algorithms such as Dijkstra's algorithm and Bellman–Ford are used for weighted shortest paths and will build on these graph fundamentals.
+
+# **4. Vertices, Edges, Degree and Other Graph Terminology**
+
+Before implementing graphs, you must understand the terminology used in graph problems.
+
+## **4.1 Vertex**
+
+A vertex is an individual node in a graph.
+
+Example:
+
+```
+A, B, C, D
+```
+
+Each represents a vertex.
+
+## **4.2 Edge**
+
+An edge is a connection between two vertices.
+
+Example:
+
+```
+A — B
+```
+
+This connection is an edge.
+
+## **4.3 Adjacent Vertices**
+
+Two vertices are adjacent if there is an edge directly connecting them.
+
+If:
+
+```
+A — B — C
+```
+
+Then:
+
+- A and B are adjacent.
+- B and C are adjacent.
+- A and C are not adjacent.
+
+## **4.4 Degree of a Vertex**
+
+In an undirected graph, the degree is the number of edges connected to a vertex.
+
+Example:
+
+```
+    B
+    |
+C — A — D
+    |
+    E
+```
+
+Vertex A has four connections.
+
+\\[ degree(A)=4 \\]
+
+An isolated vertex has degree zero.
+
+A leaf vertex in a tree has degree one, except for a single-vertex tree.
+
+## **4.5 In-Degree and Out-Degree**
+
+These concepts are used in directed graphs.
+
+**In-degree:** Number of edges entering a vertex.
+
+**Out-degree:** Number of edges leaving a vertex.
+
+Example:
+
+```
+A → C
+B → C
+C → D
+C → E
+```
+
+For vertex C:
+
+\\[ indegree(C)=2 \\]
+
+\\[ outdegree(C)=2 \\]
+
+These concepts are particularly important in Kahn's topological sorting algorithm.
+
+## **4.6 Path**
+
+A path is a sequence of vertices connected by edges.
+
+Example:
+
+```
+A → B → C → D
+```
+
+This is a path from A to D.
+
+## **4.7 Cycle**
+
+A cycle is a path that starts and ends at the same vertex, with at least one edge.
+
+Example:
+
+```
+A → B → C → A
+```
+
+Cycle detection is an important graph problem that we will cover later.
+
+## **4.8 Connected Graph**
+
+An undirected graph is connected if every vertex can be reached from every other vertex.
+
+If some vertices cannot reach others, the graph is disconnected.
+
+## **4.9 Complete Graph**
+
+A complete undirected graph has an edge between every pair of distinct vertices.
+
+For N vertices, the number of edges is:
+
+\\[ E=\frac{N(N-1)}{2} \\]
+
+For example, a complete graph of four vertices has:
+
+\\[ E=\frac{4(4-1)}{2}=6 \\]
+
+## **4.10 Self-Loop and Parallel Edges**
+
+A self-loop is an edge connecting a vertex to itself.
+
+```
+A ↻
+```
+
+Parallel edges are two or more different edges connecting the same pair of vertices.
+
+These are allowed in multigraphs. Some algorithm implementations assume a simple graph without parallel edges, so we will identify where that assumption matters.
+
+# **5. Graph Representation**
+
+A computer must store graph relationships in a suitable data structure before we can run algorithms on them.
+
+There are three main graph representations:
+
+1. Adjacency Matrix.
+2. Adjacency List.
+3. Edge List.
+
+Each has advantages and disadvantages.
+
+Let's use this graph:
+
+```
+Vertices: 0, 1, 2, 3
+
+Edges:
+0 — 1
+0 — 2
+1 — 2
+2 — 3
+```
+
+## **5.1 Adjacency Matrix**
+
+An adjacency matrix is a two-dimensional array used to represent connections between vertices.
+
+If there are N vertices, we create:
+
+\\[ N \times N \\]
+
+matrix.
+
+For an unweighted graph:
+
+- `1` means an edge exists.
+- `0` means no edge exists.
+
+Example:
+
+**Adjacency matrix**
+
+| **&#x20;** | **0** | **1** | **2** | **3** |
+| ---------- | ----- | ----- | ----- | ----- |
+| **0**      | 0     | **1** | **1** | 0     |
+| **1**      | **1** | 0     | **1** | 0     |
+| **2**      | **1** | **1** | 0     | **1** |
+| **3**      | 0     | 0     | **1** | 0     |
+
+Rows and columns represent vertices. A 1 indicates a connection.
+
+For an undirected graph, the matrix is symmetric:
+
+\\[ matrix[u][v]=matrix[v][u] \\]
+
+### **Java Implementation**
+
+```
+public class AdjacencyMatrix {
+
+    public static void main(String[] args) {
+
+        int vertices = 4;
+
+        int[][] matrix = new int[vertices][vertices];
+
+        // Add undirected edges
+        addEdge(matrix, 0, 1);
+        addEdge(matrix, 0, 2);
+        addEdge(matrix, 1, 2);
+        addEdge(matrix, 2, 3);
+
+        // Display the matrix
+        for (int i = 0; i < vertices; i++) {
+
+            for (int j = 0; j < vertices; j++) {
+
+                System.out.print(matrix[i][j] + " ");
+            }
+
+            System.out.println();
+        }
+    }
+
+    static void addEdge(
+        int[][] matrix,
+        int u,
+        int v
+    ) {
+
+        matrix[u][v] = 1;
+        matrix[v][u] = 1;
+    }
+}
+```
+
+Output:
+
+```
+0 1 1 0
+1 0 1 0
+1 1 0 1
+0 0 1 0
+```
+
+For a directed graph, store only:
+
+```
+matrix[u][v] = 1;
+```
+
+Do not automatically add the reverse connection.
+
+### **Weighted Adjacency Matrix**
+
+For weighted graphs, store edge weights instead of 1.
+
+For example:
+
+```
+matrix[0][1] = 10;
+matrix[1][0] = 10;
+```
+
+Use a special value such as `INF` to represent the absence of an edge.
+
+```
+int INF = 1_000_000_000;
+
+int[][] matrix = new int[vertices][vertices];
+
+for (int i = 0; i < vertices; i++) {
+
+    Arrays.fill(matrix[i], INF);
+
+    matrix[i][i] = 0;
+}
+```
+
+### **Complexity**
+
+| Operation                      | Complexity |
+| ------------------------------ | ---------- |
+| Store graph                    | O(V²)      |
+| Check whether edge exists      | O(1)       |
+| Find all neighbors of a vertex | O(V)       |
+| Add edge                       | O(1)       |
+| Space                          | O(V²)      |
+
+### **When Should You Use It?**
+
+Use adjacency matrices when:
+
+- The graph is dense.
+- There are many edges.
+- You frequently check whether a particular edge exists.
+- The number of vertices is relatively small.
+
+A major disadvantage is that even a graph with very few edges still requires space proportional to \\(V^2\\).
+
+## **5.2 Adjacency List**
+
+An adjacency list stores the neighbors of every vertex.
+
+Instead of reserving space for every possible connection, we store only existing edges.
+
+For the same graph:
+
+```
+0 — 1
+0 — 2
+1 — 2
+2 — 3
+```
+
+The adjacency list is:
+
+```
+0 → 1, 2
+1 → 0, 2
+2 → 0, 1, 3
+3 → 2
+```
+
+### **Java Implementation**
+
+Java's `ArrayList` can be used to implement an adjacency list.
+
+```
+import java.util.*;
+
+public class AdjacencyList {
+
+    public static void main(String[] args) {
+
+        int vertices = 4;
+
+        List<List<Integer>> adj =
+            new ArrayList<>();
+
+        // Create an empty list for every vertex
+        for (int i = 0; i < vertices; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+
+        // Add undirected edges
+        addEdge(adj, 0, 1);
+        addEdge(adj, 0, 2);
+        addEdge(adj, 1, 2);
+        addEdge(adj, 2, 3);
+
+        // Display adjacency list
+        for (int i = 0; i < vertices; i++) {
+
+            System.out.println(
+                i + " → " + adj.get(i)
+            );
+        }
+    }
+
+    static void addEdge(
+        List<List<Integer>> adj,
+        int u,
+        int v
+    ) {
+
+        adj.get(u).add(v);
+        adj.get(v).add(u);
+    }
+}
+```
+
+Output:
+
+```
+0 → [1, 2]
+1 → [0, 2]
+2 → [0, 1, 3]
+3 → [2]
+```
+
+For a directed graph:
+
+```
+adj.get(u).add(v);
+```
+
+### **Complexity**
+
+| Operation                 | Complexity          |
+| ------------------------- | ------------------- |
+| Store graph               | O(V + E)            |
+| Add edge                  | O(1) amortized      |
+| Find all neighbors        | O(degree of vertex) |
+| Check whether edge exists | O(degree of vertex) |
+| Space                     | O(V + E)            |
+
+The adjacency list is generally the preferred representation for sparse graphs and most traversal algorithms.
+
+## **5.3 Edge List**
+
+An edge list stores all graph edges as pairs of vertices.
+
+For a weighted graph, each edge also stores its weight.
+
+Example:
+
+```
+0 — 1
+0 — 2
+1 — 2
+2 — 3
+```
+
+Edge list:
+
+```
+[
+  [0, 1],
+  [0, 2],
+  [1, 2],
+  [2, 3]
+]
+```
+
+### **Java Implementation**
+
+```
+import java.util.*;
+
+public class EdgeList {
+
+    public static void main(String[] args) {
+
+        List<int[]> edges = new ArrayList<>();
+
+        edges.add(new int[]{0, 1});
+        edges.add(new int[]{0, 2});
+        edges.add(new int[]{1, 2});
+        edges.add(new int[]{2, 3});
+
+        for (int[] edge : edges) {
+
+            System.out.println(
+                edge[0] + " — " + edge[1]
+            );
+        }
+    }
+}
+```
+
+For weighted graphs, use:
+
+```
+edges.add(new int[]{u, v, weight});
+```
+
+### **Complexity**
+
+| Operation                    | Complexity     |
+| ---------------------------- | -------------- |
+| Store graph                  | O(E)           |
+| Add edge                     | O(1) amortized |
+| Search for a particular edge | O(E)           |
+| Find all edges               | O(E)           |
+| Space                        | O(E)           |
+
+Edge lists are useful for algorithms that process every edge directly, such as Kruskal's Minimum Spanning Tree algorithm.
+
+## **5.4 Adjacency Matrix vs Adjacency List vs Edge List**
+
+| Feature             | Matrix       | Adjacency list | Edge list             |
+| ------------------- | ------------ | -------------- | --------------------- |
+| Space               | O(V²)        | O(V + E)       | O(E)                  |
+| Check an edge       | O(1)         | O(degree)      | O(E)                  |
+| Enumerate neighbors | O(V)         | O(degree)      | O(E)                  |
+| Add an edge         | O(1)         | O(1) amortized | O(1) amortized        |
+| Best for            | Dense graphs | Traversal      | Edge-based algorithms |
+
+**Important:** For most graph problems in this module, we will use adjacency lists.
+
+# **6. Graph Implementation in Java**
+
+Now let's build a reusable graph implementation rather than rewriting the graph structure for every problem.
+
+## **6.1 Basic Graph Class**
+
+```
+import java.util.*;
+
+class Graph {
+
+    int vertices;
+
+    List<List<Integer>> adj;
+
+    Graph(int vertices) {
+
+        this.vertices = vertices;
+
+        adj = new ArrayList<>();
+
+        for (int i = 0; i < vertices; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+    }
+
+    // Add an undirected edge
+    void addUndirectedEdge(int u, int v) {
+
+        adj.get(u).add(v);
+        adj.get(v).add(u);
+    }
+
+    // Add a directed edge
+    void addDirectedEdge(int u, int v) {
+
+        adj.get(u).add(v);
+    }
+
+    // Display graph
+    void display() {
+
+        for (int i = 0; i < vertices; i++) {
+
+            System.out.println(
+                i + " → " + adj.get(i)
+            );
+        }
+    }
+}
+
+public class GraphImplementation {
+
+    public static void main(String[] args) {
+
+        Graph graph = new Graph(5);
+
+        graph.addUndirectedEdge(0, 1);
+        graph.addUndirectedEdge(0, 2);
+        graph.addUndirectedEdge(1, 3);
+        graph.addUndirectedEdge(2, 4);
+
+        graph.display();
+    }
+}
+```
+
+Output:
+
+```
+0 → [1, 2]
+1 → [0, 3]
+2 → [0, 4]
+3 → [1]
+4 → [2]
+```
+
+## **6.2 Weighted Graph Implementation**
+
+In weighted graphs, each adjacency entry must store both:
+
+- Destination vertex.
+- Edge weight.
+
+We can create an `Edge` class.
+
+```
+import java.util.*;
+
+class WeightedEdge {
+
+    int to;
+    int weight;
+
+    WeightedEdge(int to, int weight) {
+
+        this.to = to;
+        this.weight = weight;
+    }
+}
+
+class WeightedGraph {
+
+    int vertices;
+
+    List<List<WeightedEdge>> adj;
+
+    WeightedGraph(int vertices) {
+
+        this.vertices = vertices;
+
+        adj = new ArrayList<>();
+
+        for (int i = 0; i < vertices; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+    }
+
+    void addUndirectedEdge(
+        int u,
+        int v,
+        int weight
+    ) {
+
+        adj.get(u).add(
+            new WeightedEdge(v, weight)
+        );
+
+        adj.get(v).add(
+            new WeightedEdge(u, weight)
+        );
+    }
+
+    void display() {
+
+        for (int i = 0; i < vertices; i++) {
+
+            System.out.print(i + " → ");
+
+            for (WeightedEdge edge : adj.get(i)) {
+
+                System.out.print(
+                    "(" + edge.to
+                    + ", weight=" + edge.weight
+                    + ") "
+                );
+            }
+
+            System.out.println();
+        }
+    }
+}
+```
+
+Example:
+
+```
+WeightedGraph graph = new WeightedGraph(3);
+
+graph.addUndirectedEdge(0, 1, 10);
+graph.addUndirectedEdge(1, 2, 20);
+graph.addUndirectedEdge(0, 2, 15);
+
+graph.display();
+```
+
+Output:
+
+```
+0 → (1, weight=10) (2, weight=15)
+1 → (0, weight=10) (2, weight=20)
+2 → (1, weight=20) (0, weight=15)
+```
+
+This representation will become especially useful when we study shortest paths and minimum spanning trees.
+
+# **7. Breadth-First Search (BFS)**
+
+Breadth-First Search is one of the fundamental graph traversal algorithms.
+
+BFS explores a graph level by level.
+
+It visits all immediate neighbors of a vertex before visiting vertices that are farther away.
+
+BFS uses a **Queue** data structure.
+
+## **7.1 How BFS Works**
+
+Consider this graph:
+
+```
+        0
+       / \
+      1   2
+     / \   \
+    3   4   5
+```
+
+Suppose we start from vertex 0.
+
+The traversal proceeds level by level.
+
+- Level 0: 0
+- Level 1: 1, 2
+- Level 2: 3, 4, 5
+
+BFS traversal:
+
+```
+0 → 1 → 2 → 3 → 4 → 5
+```
+
+This assumes the adjacency lists are processed in the displayed neighbor order. Changing the order of neighbors may change the traversal order without changing BFS correctness.
+
+## **7.2 BFS Algorithm**
+
+1. Create a visited array.
+2. Create an empty queue.
+3. Insert the starting vertex into the queue.
+4. Mark the starting vertex as visited.
+5. While the queue is not empty:
+   - Remove a vertex from the front.
+   - Process that vertex.
+   - Visit its unvisited neighbors.
+   - Mark each neighbor visited when it is inserted.
+   - Add each neighbor to the queue.
+
+The order of marking visited is important.
+
+We mark a vertex when adding it to the queue, not when removing it. This prevents the same vertex from being inserted repeatedly.
+
+## **7.3 BFS Java Implementation**
+
+```
+import java.util.*;
+
+public class BFS {
+
+    public static void bfs(
+        List<List<Integer>> adj,
+        int start
+    ) {
+
+        int vertices = adj.size();
+
+        boolean[] visited = new boolean[vertices];
+
+        Queue<Integer> queue = new ArrayDeque<>();
+
+        // Start BFS
+        visited[start] = true;
+        queue.offer(start);
+
+        while (!queue.isEmpty()) {
+
+            int current = queue.poll();
+
+            System.out.print(current + " ");
+
+            // Explore neighbors
+            for (int neighbor : adj.get(current)) {
+
+                if (!visited[neighbor]) {
+
+                    visited[neighbor] = true;
+
+                    queue.offer(neighbor);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int vertices = 6;
+
+        List<List<Integer>> adj = new ArrayList<>();
+
+        for (int i = 0; i < vertices; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+
+        adj.get(0).addAll(Arrays.asList(1, 2));
+
+        adj.get(1).addAll(Arrays.asList(0, 3, 4));
+
+        adj.get(2).addAll(Arrays.asList(0, 5));
+
+        adj.get(3).add(1);
+        adj.get(4).add(1);
+        adj.get(5).add(2);
+
+        bfs(adj, 0);
+    }
+}
+```
+
+Output:
+
+```
+0 1 2 3 4 5
+```
+
+## **7.4 BFS Dry Run**
+
+Let's understand how the queue changes.
+
+Initial condition:
+
+**BFS queue simulation**
+
+Step 1 of 7
+
+BFS
+
+**Queue**
+
+# **[0]**
+
+**Visited order**
+
+—
+
+Insert starting vertex 0.
+
+Previous
+
+Next stepReset
+
+The queue ensures that vertices discovered earlier are processed before vertices discovered later.
+
+## **7.5 BFS for Shortest Path in an Unweighted Graph**
+
+One of BFS's most important applications is finding the shortest path in terms of the number of edges in an unweighted graph.
+
+Why does BFS work?
+
+Because BFS explores all vertices at distance 1 before distance 2, all vertices at distance 2 before distance 3, and so on.
+
+We can maintain:
+
+- `dist[]`: Minimum number of edges from the starting vertex.
+- `parent[]`: Previous vertex on the discovered shortest path.
+
+### **Java Implementation**
+
+```
+import java.util.*;
+
+public class BFSShortestPath {
+
+    public static void shortestPath(
+        List<List<Integer>> adj,
+        int source,
+        int destination
+    ) {
+
+        int n = adj.size();
+
+        int[] dist = new int[n];
+        int[] parent = new int[n];
+
+        Arrays.fill(dist, -1);
+        Arrays.fill(parent, -1);
+
+        Queue<Integer> queue = new ArrayDeque<>();
+
+        dist[source] = 0;
+        queue.offer(source);
+
+        while (!queue.isEmpty()) {
+
+            int u = queue.poll();
+
+            if (u == destination) {
+                break;
+            }
+
+            for (int v : adj.get(u)) {
+
+                if (dist[v] == -1) {
+
+                    dist[v] = dist[u] + 1;
+                    parent[v] = u;
+
+                    queue.offer(v);
+                }
+            }
+        }
+
+        if (dist[destination] == -1) {
+
+            System.out.println("No path exists.");
+            return;
+        }
+
+        List<Integer> path = new ArrayList<>();
+
+        for (
+            int v = destination;
+            v != -1;
+            v = parent[v]
+        ) {
+            path.add(v);
+        }
+
+        Collections.reverse(path);
+
+        System.out.println("Shortest distance: "
+            + dist[destination]);
+
+        System.out.println("Path: " + path);
+    }
+}
+```
+
+The shortest distance is measured in edges, not the sum of arbitrary edge weights.
+
+## **7.6 BFS Complexity**
+
+For an adjacency list:
+
+\\[ O(V+E) \\]
+
+Why?
+
+- Every vertex is inserted into the queue at most once.
+- Every vertex is removed at most once.
+- Every adjacency-list entry is examined at most once.
+
+Space complexity:
+
+\\[ O(V) \\]
+
+The visited array and queue require at most O(V) space.
+
+For an adjacency matrix, exploring all neighbors requires scanning V possible entries per vertex:
+
+\\[ O(V^2) \\]
+
+# **8. Depth-First Search (DFS)**
+
+Depth-First Search explores a graph by going as deep as possible along one path before backtracking.
+
+DFS uses either:
+
+- Recursion, which implicitly uses the call stack.
+- An explicit Stack data structure.
+
+## **8.1 How DFS Works**
+
+Consider:
+
+```
+        0
+       / \
+      1   2
+     / \   \
+    3   4   5
+```
+
+Start from vertex 0.
+
+One possible DFS traversal is:
+
+```
+0 → 1 → 3 → 4 → 2 → 5
+```
+
+The algorithm:
+
+1. Visit the starting vertex.
+2. Mark it as visited.
+3. Explore one unvisited neighbor.
+4. Continue deeper.
+5. When no unvisited neighbor remains, backtrack.
+6. Continue exploring remaining neighbors.
+
+Unlike BFS, DFS does not guarantee shortest paths.
+
+## **8.2 Recursive DFS**
+
+This is the most common implementation.
+
+### **Java Implementation**
+
+```
+import java.util.*;
+
+public class DFS {
+
+    public static void dfs(
+        List<List<Integer>> adj,
+        int current,
+        boolean[] visited
+    ) {
+
+        visited[current] = true;
+
+        System.out.print(current + " ");
+
+        for (int neighbor : adj.get(current)) {
+
+            if (!visited[neighbor]) {
+
+                dfs(adj, neighbor, visited);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int vertices = 6;
+
+        List<List<Integer>> adj = new ArrayList<>();
+
+        for (int i = 0; i < vertices; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+
+        adj.get(0).addAll(Arrays.asList(1, 2));
+
+        adj.get(1).addAll(Arrays.asList(0, 3, 4));
+
+        adj.get(2).addAll(Arrays.asList(0, 5));
+
+        adj.get(3).add(1);
+        adj.get(4).add(1);
+        adj.get(5).add(2);
+
+        boolean[] visited = new boolean[vertices];
+
+        dfs(adj, 0, visited);
+    }
+}
+```
+
+Output:
+
+```
+0 1 3 4 2 5
+```
+
+## **8.3 Iterative DFS Using Stack**
+
+Recursive DFS can cause a stack overflow on very deep graphs.
+
+An alternative is to use an explicit stack.
+
+```
+import java.util.*;
+
+public class IterativeDFS {
+
+    public static void dfs(
+        List<List<Integer>> adj,
+        int start
+    ) {
+
+        int n = adj.size();
+
+        boolean[] visited = new boolean[n];
+
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(start);
+
+        visited[start] = true;
+
+        while (!stack.isEmpty()) {
+
+            int current = stack.pop();
+
+            System.out.print(current + " ");
+
+            for (int neighbor : adj.get(current)) {
+
+                if (!visited[neighbor]) {
+
+                    visited[neighbor] = true;
+
+                    stack.push(neighbor);
+                }
+            }
+        }
+    }
+}
+```
+
+Depending on the order in which neighbors are pushed onto the stack, iterative DFS may produce a different valid traversal order from recursive DFS.
+
+## **8.4 DFS Complexity**
+
+Adjacency list:
+
+\\[ O(V+E) \\]
+
+Space:
+
+\\[ O(V) \\]
+
+The recursive call stack may reach a depth of O(V).
+
+# **9. BFS vs DFS**
+
+Both algorithms traverse graphs, but their exploration strategies are different.
+
+| Feature                           | BFS                  | DFS                      |
+| --------------------------------- | -------------------- | ------------------------ |
+| Full name                         | Breadth-First Search | Depth-First Search       |
+| Data structure                    | Queue                | Stack or recursion       |
+| Exploration                       | Level by level       | Deep before backtracking |
+| Shortest path in unweighted graph | Yes                  | Not guaranteed           |
+| Cycle detection                   | Yes                  | Yes                      |
+| Connected components              | Yes                  | Yes                      |
+| Bipartite checking                | Yes                  | Yes                      |
+| Topological sorting               | Kahn's variant       | DFS variant              |
+| Complexity using adjacency list   | O(V + E)             | O(V + E)                 |
+
+**Remember:**
+
+- Use BFS when you need level-based traversal or minimum number of edges.
+- Use DFS when you need to explore paths deeply, detect structures, or perform recursive graph analysis.
+
+# **10. Connected Components**
+
+Connected components are an important concept in undirected graphs.
+
+## **10.1 What Is a Connected Component?**
+
+A connected component is a maximal group of vertices in which every vertex is reachable from every other vertex within that group.
+
+Consider:
+
+```
+Component 1:
+
+0 — 1 — 2
+
+Component 2:
+
+3 — 4
+
+Component 3:
+
+5 — 6
+```
+
+This graph has three connected components.
+
+**Visual representation**
+
+Notice that vertices from different components cannot reach each other.
+
+## **10.2 How to Find Connected Components**
+
+We can use either BFS or DFS.
+
+The strategy:
+
+1. Create a visited array.
+2. Start from vertex 0.
+3. Run BFS or DFS.
+4. All vertices discovered belong to the same component.
+5. Continue scanning all vertices.
+6. Whenever an unvisited vertex is found, begin another traversal.
+7. Count the components.
+
+This works because every vertex belongs to exactly one connected component.
+
+## **10.3 Java Implementation Using BFS**
+
+```
+import java.util.*;
+
+public class ConnectedComponents {
+
+    public static List<List<Integer>> findComponents(
+        List<List<Integer>> adj
+    ) {
+
+        int n = adj.size();
+
+        boolean[] visited = new boolean[n];
+
+        List<List<Integer>> components =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            if (!visited[i]) {
+
+                List<Integer> component =
+                    new ArrayList<>();
+
+                Queue<Integer> queue =
+                    new ArrayDeque<>();
+
+                queue.offer(i);
+                visited[i] = true;
+
+                while (!queue.isEmpty()) {
+
+                    int u = queue.poll();
+
+                    component.add(u);
+
+                    for (int v : adj.get(u)) {
+
+                        if (!visited[v]) {
+
+                            visited[v] = true;
+
+                            queue.offer(v);
+                        }
+                    }
+                }
+
+                components.add(component);
+            }
+        }
+
+        return components;
+    }
+}
+```
+
+Example:
+
+```
+List<List<Integer>> components =
+    findComponents(adj);
+
+System.out.println(components);
+
+System.out.println(
+    "Number of components: " + components.size()
+);
+```
+
+Possible output:
+
+```
+[[0, 1, 2], [3, 4], [5, 6]]
+Number of components: 3
+```
+
+## **10.4 Why Do We Need the Outer Loop?**
+
+A common beginner mistake is to start BFS only from vertex 0.
+
+That works only when every vertex is reachable from vertex 0.
+
+For a disconnected graph, a single traversal cannot visit every vertex.
+
+The outer loop ensures that every unvisited component is explored.
+
+## **10.5 Complexity**
+
+Time:
+
+\\[ O(V+E) \\]
+
+Space:
+
+\\[ O(V) \\]
+
+This includes the visited array, queue, and component output.
+
+**Important distinction:** In directed graphs, connected components need more precise terminology.
+
+- Weakly connected components: Treat directed edges as undirected for connectivity.
+- Strongly connected components: Every vertex can reach every other vertex following directed edges.
+
+We will study strongly connected components later.
+
+# **11. Cycle Detection in Graphs**
+
+Cycle detection is one of the most frequently asked graph interview topics.
+
+A cycle exists when we can start from a vertex, follow edges, and eventually return to a previously reached vertex according to the rules of the graph.
+
+The detection strategy depends on whether the graph is directed or undirected.
+
+## **11.1 Cycle Detection in an Undirected Graph**
+
+Consider:
+
+```
+0 — 1
+|   |
+3 — 2
+```
+
+There is a cycle:
+
+```
+0 → 1 → 2 → 3 → 0
+```
+
+### **The Parent Concept**
+
+In an undirected graph, if we move from vertex 0 to vertex 1, vertex 1 will also have vertex 0 in its adjacency list.
+
+We cannot automatically consider returning to vertex 0 a cycle.
+
+It is simply the edge we just used to arrive at vertex 1.
+
+Therefore, while using DFS, we maintain the parent vertex.
+
+The logic is:
+
+- If a neighbor is unvisited, continue DFS.
+- If a neighbor is already visited and is not the parent, we found a cycle.
+
+### **Java Implementation Using DFS**
+
+This standard version assumes a simple undirected graph without parallel edges.
+
+```
+import java.util.*;
+
+public class UndirectedCycleDetection {
+
+    public static boolean hasCycle(
+        List<List<Integer>> adj,
+        int current,
+        int parent,
+        boolean[] visited
+    ) {
+
+        visited[current] = true;
+
+        for (int neighbor : adj.get(current)) {
+
+            if (!visited[neighbor]) {
+
+                if (hasCycle(
+                    adj,
+                    neighbor,
+                    current,
+                    visited
+                )) {
+                    return true;
+                }
+
+            } else if (neighbor != parent) {
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+        int n = 4;
+
+        List<List<Integer>> adj =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        addEdge(adj, 0, 1);
+        addEdge(adj, 1, 2);
+        addEdge(adj, 2, 3);
+        addEdge(adj, 3, 0);
+
+        boolean[] visited = new boolean[n];
+
+        boolean cycleFound = false;
+
+        for (int i = 0; i < n; i++) {
+
+            if (!visited[i]) {
+
+                if (hasCycle(adj, i, -1, visited)) {
+
+                    cycleFound = true;
+                    break;
+                }
+            }
+        }
+
+        System.out.println(cycleFound);
+    }
+
+    static void addEdge(
+        List<List<Integer>> adj,
+        int u,
+        int v
+    ) {
+
+        adj.get(u).add(v);
+        adj.get(v).add(u);
+    }
+}
+```
+
+Output:
+
+```
+true
+```
+
+### **Why Does the Parent Check Work?**
+
+Suppose DFS travels:
+
+```
+0 → 1 → 2
+```
+
+At vertex 1, the neighbor 0 is already visited, but 0 is the parent of 1.
+
+Therefore, it is not a cycle.
+
+Now suppose vertex 2 has an edge to vertex 0.
+
+Vertex 0 is already visited and is not the parent of 2.
+
+That indicates a cycle.
+
+**Advanced note:** If the graph can contain parallel edges, parent vertex alone is insufficient. You should track the exact edge ID used to enter a vertex, so a second parallel edge to the parent is correctly recognized as a cycle.
+
+## **11.2 Cycle Detection in a Directed Graph**
+
+Directed cycle detection requires a different technique.
+
+Consider:
+
+```
+0 → 1 → 2
+    ↑   |
+    └───┘
+```
+
+There is a directed cycle between vertices 1 and 2.
+
+We use three states instead of a simple visited array.
+
+| State | Meaning                             |
+| ----- | ----------------------------------- |
+| 0     | Not visited                         |
+| 1     | Currently in the DFS recursion path |
+| 2     | Fully processed                     |
+
+These states are sometimes called white, gray, and black.
+
+The important rule is:
+
+**If DFS reaches a vertex that is already in the current recursion path, a directed cycle exists.**
+
+Reaching a fully processed vertex does not by itself indicate a cycle.
+
+### **Java Implementation**
+
+```
+import java.util.*;
+
+public class DirectedCycleDetection {
+
+    public static boolean dfs(
+        List<List<Integer>> adj,
+        int current,
+        int[] state
+    ) {
+
+        state[current] = 1;
+
+        for (int neighbor : adj.get(current)) {
+
+            if (state[neighbor] == 1) {
+                return true;
+            }
+
+            if (state[neighbor] == 0) {
+
+                if (dfs(adj, neighbor, state)) {
+                    return true;
+                }
+            }
+        }
+
+        state[current] = 2;
+
+        return false;
+    }
+
+    public static boolean hasCycle(
+        List<List<Integer>> adj
+    ) {
+
+        int n = adj.size();
+
+        int[] state = new int[n];
+
+        for (int i = 0; i < n; i++) {
+
+            if (state[i] == 0) {
+
+                if (dfs(adj, i, state)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+}
+```
+
+### **Complexity**
+
+Both directed and undirected cycle detection using adjacency lists take:
+
+\\[ O(V+E) \\]
+
+Space:
+
+\\[ O(V) \\]
+
+for visited states and the recursion stack.
+
+# **12. Bipartite Graphs**
+
+A bipartite graph is a graph whose vertices can be divided into two separate sets such that every edge connects a vertex from one set to a vertex in the other set.
+
+There must be no edge connecting two vertices within the same set.
+
+## **12.1 Understanding Bipartite Graphs**
+
+Suppose we have a graph representing students and courses.
+
+```
+Set A: Students
+Set B: Courses
+```
+
+An edge connects a student to a course in which that student is enrolled.
+
+There should be no direct student-to-student edge or course-to-course edge in this particular two-part relationship model.
+
+Another way to understand a bipartite graph is to color its vertices using two colors.
+
+If we can color every vertex without two adjacent vertices receiving the same color, the graph is bipartite.
+
+## **12.2 Example of a Bipartite Graph**
+
+**Two-colorable graph**
+
+Color 0
+
+Color 1
+
+## **12.3 Important Property: Odd Cycles**
+
+An undirected graph is bipartite if and only if it contains no odd-length cycle.
+
+Examples:
+
+- A triangle has three edges and forms an odd cycle. It is not bipartite.
+- A square has four edges and forms an even cycle. It is bipartite.
+
+Why?
+
+When we alternate colors around a cycle, an odd cycle eventually forces two adjacent vertices to have the same color.
+
+## **12.4 Greedy-Style BFS Coloring**
+
+We can solve this problem using BFS.
+
+Strategy:
+
+1. Create a color array initialized to -1.
+2. Choose an uncolored vertex.
+3. Assign color 0.
+4. Assign the opposite color to every uncolored neighbor.
+5. If an adjacent vertex already has the same color, the graph is not bipartite.
+6. Repeat for every disconnected component.
+
+### **Java Implementation**
+
+```
+import java.util.*;
+
+public class BipartiteGraph {
+
+    public static boolean isBipartite(
+        List<List<Integer>> adj
+    ) {
+
+        int n = adj.size();
+
+        int[] color = new int[n];
+
+        Arrays.fill(color, -1);
+
+        Queue<Integer> queue =
+            new ArrayDeque<>();
+
+        for (int start = 0; start < n; start++) {
+
+            if (color[start] != -1) {
+                continue;
+            }
+
+            color[start] = 0;
+            queue.offer(start);
+
+            while (!queue.isEmpty()) {
+
+                int u = queue.poll();
+
+                for (int v : adj.get(u)) {
+
+                    if (color[v] == -1) {
+
+                        color[v] = 1 - color[u];
+
+                        queue.offer(v);
+
+                    } else if (color[v] == color[u]) {
+
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+}
+```
+
+The expression:
+
+```
+1 - color[u]
+```
+
+switches the color:
+
+```
+0 → 1
+1 → 0
+```
+
+### **Complexity**
+
+Time:
+
+\\[ O(V+E) \\]
+
+Space:
+
+\\[ O(V) \\]
+
+# **13. Topological Sorting**
+
+Topological sorting is an important technique used in directed acyclic graphs.
+
+It arranges vertices in an order that respects all directed dependencies.
+
+## **13.1 What Is Topological Sorting?**
+
+Suppose you have several courses.
+
+Some courses require other courses to be completed first.
+
+For example:
+
+```
+Programming Fundamentals → Data Structures
+
+Data Structures → Algorithms
+
+Mathematics → Machine Learning
+```
+
+You cannot study Algorithms before learning Data Structures if that dependency is mandatory.
+
+A topological ordering provides a valid sequence that respects these relationships.
+
+## **13.2 Directed Acyclic Graph (DAG)**
+
+Topological sorting is possible only if the directed graph is acyclic.
+
+A directed acyclic graph is called a DAG.
+
+Example:
+
+```
+0 → 1 → 3
+ \      ↑
+  → 2 ──
+```
+
+One valid topological ordering is:
+
+```
+0, 1, 2, 3
+```
+
+Another valid ordering might be:
+
+```
+0, 2, 1, 3
+```
+
+There may be more than one valid ordering.
+
+But consider:
+
+```
+0 → 1 → 2 → 0
+```
+
+This graph contains a directed cycle.
+
+A valid topological ordering is impossible because every vertex in the cycle would need to come before another vertex in that same cycle.
+
+## **13.3 Applications of Topological Sorting**
+
+- Course prerequisite scheduling.
+- Software build systems.
+- Task dependency management.
+- Package installation.
+- Compilation order.
+- Workflow execution.
+- Project planning.
+- Dependency resolution.
+
+## **13.4 Two Ways to Perform Topological Sorting**
+
+1. DFS-based topological sorting.
+2. Kahn's algorithm using in-degree and a queue.
+
+We will concentrate on Kahn's algorithm because it is explicitly included in this module.
+
+# **14. Kahn's Algorithm**
+
+Kahn's algorithm is a BFS-based approach to topological sorting.
+
+It uses the in-degree of every vertex.
+
+## **14.1 What Is In-Degree?**
+
+In a directed graph, in-degree is the number of edges entering a particular vertex.
+
+Consider:
+
+```
+0 → 2
+1 → 2
+2 → 3
+```
+
+The in-degrees are:
+
+| Vertex | In-degree |
+| ------ | --------- |
+| 0      | 0         |
+| 1      | 0         |
+| 2      | 2         |
+| 3      | 1         |
+
+Vertices 0 and 1 have no prerequisites.
+
+They can be processed first.
+
+## **14.2 Kahn's Algorithm Logic**
+
+The main idea:
+
+**A vertex with in-degree zero has no incoming dependencies and can safely be placed next in the topological ordering.**
+
+Algorithm:
+
+1. Calculate the in-degree of every vertex.
+2. Insert all vertices with in-degree zero into a queue.
+3. Remove a vertex from the queue.
+4. Add it to the topological ordering.
+5. Remove its outgoing edges conceptually by decreasing its neighbors' in-degree.
+6. If a neighbor's in-degree becomes zero, insert it into the queue.
+7. Continue until the queue becomes empty.
+
+If the number of processed vertices is less than V, the graph contains a directed cycle.
+
+## **14.3 Java Implementation**
+
+```
+import java.util.*;
+
+public class KahnsAlgorithm {
+
+    public static List<Integer> topologicalSort(
+        List<List<Integer>> adj
+    ) {
+
+        int n = adj.size();
+
+        int[] indegree = new int[n];
+
+        // Calculate in-degree
+        for (int u = 0; u < n; u++) {
+
+            for (int v : adj.get(u)) {
+
+                indegree[v]++;
+            }
+        }
+
+        Queue<Integer> queue =
+            new ArrayDeque<>();
+
+        // Add vertices with zero in-degree
+        for (int i = 0; i < n; i++) {
+
+            if (indegree[i] == 0) {
+
+                queue.offer(i);
+            }
+        }
+
+        List<Integer> order =
+            new ArrayList<>();
+
+        while (!queue.isEmpty()) {
+
+            int u = queue.poll();
+
+            order.add(u);
+
+            for (int v : adj.get(u)) {
+
+                indegree[v]--;
+
+                if (indegree[v] == 0) {
+
+                    queue.offer(v);
+                }
+            }
+        }
+
+        // Detect a directed cycle
+        if (order.size() != n) {
+
+            return new ArrayList<>();
+        }
+
+        return order;
+    }
+
+    public static void main(String[] args) {
+
+        int n = 4;
+
+        List<List<Integer>> adj =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+
+        adj.get(0).add(2);
+        adj.get(1).add(2);
+        adj.get(2).add(3);
+
+        List<Integer> result =
+            topologicalSort(adj);
+
+        if (result.isEmpty()) {
+
+            System.out.println(
+                "Graph contains a cycle."
+            );
+
+        } else {
+
+            System.out.println(result);
+        }
+    }
+}
+```
+
+Possible output:
+
+```
+[0, 1, 2, 3]
+```
+
+## **14.4 Dry Run**
+
+Graph:
+
+```
+0 → 2
+1 → 2
+2 → 3
+```
+
+Initial in-degree:
+
+```
+0 = 0
+1 = 0
+2 = 2
+3 = 1
+```
+
+Initial queue:
+
+```
+[0, 1]
+```
+
+Processing:
+
+| Step | Vertex removed | Updated in-degree | Queue |
+| ---- | -------------- | ----------------- | ----- |
+| 1    | 0              | 2 becomes 1       | [1]   |
+| 2    | 1              | 2 becomes 0       | [2]   |
+| 3    | 2              | 3 becomes 0       | [3]   |
+| 4    | 3              | No outgoing edges | []    |
+
+Final ordering:
+
+```
+0 → 1 → 2 → 3
+```
+
+## **14.5 Complexity**
+
+Time:
+
+\\[ O(V+E) \\]
+
+Space:
+
+\\[ O(V) \\]
+
+The adjacency list is not copied or modified. The algorithm uses an additional in-degree array and queue.
+
+## **14.6 DFS-Based Topological Sorting**
+
+There is another common approach.
+
+We recursively visit every neighbor and append a vertex only after all its outgoing neighbors have been processed.
+
+This creates a finishing order.
+
+Reversing the finishing order gives a topological ordering, provided the graph is acyclic.
+
+Cycle detection must be included using the three DFS states discussed earlier.
+
+Kahn's algorithm has the advantage that it can also identify whether the graph contains a cycle by checking how many vertices were processed.
+
+# **15. Strongly Connected Components (SCC)**
+
+Strongly Connected Components are an advanced graph concept used mainly in directed graphs.
+
+Before understanding Kosaraju's and Tarjan's algorithms, you need to understand what makes a group of vertices strongly connected.
+
+## **15.1 What Is a Strongly Connected Component?**
+
+A strongly connected component is a maximal group of vertices in a directed graph in which every vertex can reach every other vertex by following directed edges.
+
+Consider:
+
+```
+0 → 1 → 2
+↑   ↓   |
+└───┘   ↓
+        3 → 4
+        ↑   |
+        └───┘
+```
+
+Suppose the graph contains:
+
+```
+0 → 1
+1 → 2
+2 → 0
+1 → 3
+3 → 4
+4 → 3
+```
+
+We have two strongly connected components:
+
+```
+SCC 1 = {0, 1, 2}
+
+SCC 2 = {3, 4}
+```
+
+Why?
+
+Within the first group:
+
+- 0 can reach 1 and 2.
+- 1 can reach 2 and 0.
+- 2 can reach 0 and 1.
+
+Within the second group:
+
+- 3 can reach 4.
+- 4 can reach 3.
+
+However, there is no path from vertices 3 or 4 back to vertices 0, 1, or 2.
+
+Therefore, these are separate SCCs.
+
+## **15.2 Connected vs Strongly Connected**
+
+| Feature           | Connected component          | Strongly connected component   |
+| ----------------- | ---------------------------- | ------------------------------ |
+| Graph type        | Usually undirected           | Directed                       |
+| Connectivity      | Paths exist between vertices | Directed paths exist both ways |
+| Direction matters | No                           | Yes                            |
+| Algorithms        | BFS and DFS                  | Kosaraju and Tarjan            |
+
+A strongly connected component must be maximal. In other words, we cannot add another vertex without breaking the property that every pair of vertices is mutually reachable.
+
+## **15.3 Applications of SCC**
+
+Strongly connected components are useful in:
+
+- Social network relationship analysis.
+- Dependency analysis.
+- Webpage link analysis.
+- Detecting mutually dependent modules.
+- Compiler optimization.
+- Program control-flow analysis.
+- Finding cyclic regions in directed graphs.
+- Analyzing communication networks.
+
+There are two important linear-time algorithms for finding SCCs:
+
+1. Kosaraju's Algorithm.
+2. Tarjan's Algorithm.
+
+# **16. Kosaraju's Algorithm**
+
+Kosaraju's algorithm finds all strongly connected components in a directed graph.
+
+It performs two DFS passes and uses the graph's transpose.
+
+## **16.1 What Is a Transpose Graph?**
+
+The transpose of a directed graph is created by reversing every edge.
+
+Suppose the original graph contains:
+
+```
+0 → 1
+1 → 2
+2 → 0
+1 → 3
+```
+
+Its transpose contains:
+
+```
+1 → 0
+2 → 1
+0 → 2
+3 → 1
+```
+
+Mathematically:
+
+\\[ G^T=(V,E^T) \\]
+
+Where every original edge:
+
+\\[ (u,v) \\]
+
+becomes:
+
+\\[ (v,u) \\]
+
+## **16.2 The Two-Pass Strategy**
+
+Kosaraju's algorithm works as follows.
+
+**First DFS pass:**
+
+1. Visit all vertices.
+2. When a DFS call finishes, add that vertex to a finishing-order list.
+3. Continue until every vertex has been processed.
+
+**Second DFS pass:**
+
+1. Reverse every directed edge to construct the transpose graph.
+2. Process vertices in decreasing order of their finishing times.
+3. Run DFS on the transpose graph.
+4. Every DFS traversal identifies one strongly connected component.
+
+### **Why Does the Ordering Matter?**
+
+Consider a graph containing two SCCs:
+
+```
+SCC A → SCC B
+```
+
+There is a path from SCC A to SCC B, but not from B to A.
+
+During the first DFS pass, the finishing times help establish an order in which, during the second pass on the reversed graph, DFS cannot accidentally combine distinct SCCs.
+
+The transpose reverses the direction between components.
+
+Processing vertices in decreasing finishing-time order ensures that each second-pass traversal discovers exactly one SCC.
+
+## **16.3 Step-by-Step Example**
+
+Original graph:
+
+```
+0 → 1
+1 → 2
+2 → 0
+
+1 → 3
+
+3 → 4
+4 → 3
+```
+
+First DFS produces a finishing order. The exact order depends on adjacency-list traversal order.
+
+For example:
+
+```
+Finishing order:
+[4, 3, 2, 1, 0]
+```
+
+Reverse finishing order:
+
+```
+[0, 1, 2, 3, 4]
+```
+
+Construct the transpose and perform DFS in this order.
+
+The results are:
+
+```
+Component 1: {0, 1, 2}
+
+Component 2: {3, 4}
+```
+
+## **16.4 Java Implementation**
+
+```
+import java.util.*;
+
+public class Kosaraju {
+
+    // First DFS: calculate finishing order
+    static void dfsOrder(
+        int u,
+        List<List<Integer>> adj,
+        boolean[] visited,
+        List<Integer> order
+    ) {
+
+        visited[u] = true;
+
+        for (int v : adj.get(u)) {
+
+            if (!visited[v]) {
+
+                dfsOrder(
+                    v,
+                    adj,
+                    visited,
+                    order
+                );
+            }
+        }
+
+        // Add after all descendants are processed
+        order.add(u);
+    }
+
+    // Second DFS: collect one SCC
+    static void dfsCollect(
+        int u,
+        List<List<Integer>> transpose,
+        boolean[] visited,
+        List<Integer> component
+    ) {
+
+        visited[u] = true;
+
+        component.add(u);
+
+        for (int v : transpose.get(u)) {
+
+            if (!visited[v]) {
+
+                dfsCollect(
+                    v,
+                    transpose,
+                    visited,
+                    component
+                );
+            }
+        }
+    }
+
+    public static List<List<Integer>> findSCCs(
+        List<List<Integer>> adj
+    ) {
+
+        int n = adj.size();
+
+        boolean[] visited = new boolean[n];
+
+        List<Integer> order = new ArrayList<>();
+
+        // STEP 1: First DFS pass
+        for (int i = 0; i < n; i++) {
+
+            if (!visited[i]) {
+
+                dfsOrder(
+                    i,
+                    adj,
+                    visited,
+                    order
+                );
+            }
+        }
+
+        // STEP 2: Construct transpose
+        List<List<Integer>> transpose =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            transpose.add(new ArrayList<>());
+        }
+
+        for (int u = 0; u < n; u++) {
+
+            for (int v : adj.get(u)) {
+
+                transpose.get(v).add(u);
+            }
+        }
+
+        // STEP 3: Reset visited
+        Arrays.fill(visited, false);
+
+        List<List<Integer>> components =
+            new ArrayList<>();
+
+        // STEP 4: Second DFS in reverse finishing order
+        for (int i = order.size() - 1; i >= 0; i--) {
+
+            int u = order.get(i);
+
+            if (!visited[u]) {
+
+                List<Integer> component =
+                    new ArrayList<>();
+
+                dfsCollect(
+                    u,
+                    transpose,
+                    visited,
+                    component
+                );
+
+                components.add(component);
+            }
+        }
+
+        return components;
+    }
+
+    public static void main(String[] args) {
+
+        int n = 5;
+
+        List<List<Integer>> adj =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+
+        adj.get(0).add(1);
+        adj.get(1).add(2);
+        adj.get(2).add(0);
+
+        adj.get(1).add(3);
+
+        adj.get(3).add(4);
+        adj.get(4).add(3);
+
+        System.out.println(
+            findSCCs(adj)
+        );
+    }
+}
+```
+
+Output will contain the two groups:
+
+```
+[[0, 1, 2], [3, 4]]
+```
+
+The order of vertices inside a component and the order of components can differ depending on traversal order.
+
+## **16.5 Complexity Analysis**
+
+First DFS:
+
+\\[ O(V+E) \\]
+
+Transpose construction:
+
+\\[ O(V+E) \\]
+
+Second DFS:
+
+\\[ O(V+E) \\]
+
+Total:
+
+\\[ \boxed{O(V+E)} \\]
+
+Space:
+
+\\[ O(V+E) \\]
+
+We need:
+
+- Transpose adjacency list.
+- Visited array.
+- Finishing-order list.
+- Recursion stack.
+- Result components.
+
+# **17. Tarjan's Algorithm — Strongly Connected Components**
+
+Tarjan's algorithm is another efficient way to find strongly connected components.
+
+Unlike Kosaraju's algorithm, it does not need to construct a transpose graph.
+
+It performs a single DFS traversal while maintaining additional information.
+
+The important concepts are:
+
+- Discovery time.
+- Low-link value.
+- DFS stack.
+- On-stack status.
+
+## **17.1 Discovery Time**
+
+Discovery time represents the moment a vertex is first visited by DFS.
+
+For example:
+
+```
+Vertex 0 → Discovery time 0
+Vertex 1 → Discovery time 1
+Vertex 2 → Discovery time 2
+Vertex 3 → Discovery time 3
+```
+
+We can maintain a global timer that increases each time we discover a vertex.
+
+```
+discovery[u] = timer++;
+```
+
+## **17.2 Low-Link Value**
+
+The low-link value tells us the smallest discovery time reachable from a vertex through:
+
+- DFS tree edges.
+- Back edges to vertices that are still on the current DFS stack.
+
+For a vertex u, its low-link value is:
+
+\\[ low[u] \\]
+
+This value helps us identify whether a group of vertices forms a strongly connected component.
+
+There are two important update cases.
+
+**Case 1: A neighbor is unvisited.**
+
+We recursively explore the neighbor.
+
+After returning:
+
+\\[ low[u]=\min(low[u],low[v]) \\]
+
+**Case 2: A neighbor is already on the DFS stack.**
+
+We update using its discovery time:
+
+\\[ low[u]=\min(low[u],disc[v]) \\]
+
+Notice that we use `disc[v]` in the second case, not `low[v]`.
+
+A visited vertex that has already been removed from the stack should not be used to establish this SCC relationship.
+
+## **17.3 When Is an SCC Found?**
+
+The key condition is:
+
+\\[ low[u]=disc[u] \\]
+
+When this condition is true, vertex u is the root of an SCC in the current DFS traversal.
+
+We then remove vertices from the DFS stack until u is removed.
+
+All removed vertices belong to the same SCC.
+
+## **17.4 Java Implementation**
+
+```
+import java.util.*;
+
+public class TarjanSCC {
+
+    private List<List<Integer>> adj;
+
+    private int[] discovery;
+    private int[] low;
+
+    private boolean[] onStack;
+
+    private Deque<Integer> stack;
+
+    private int timer = 0;
+
+    private List<List<Integer>> components;
+
+    public TarjanSCC(
+        List<List<Integer>> adj
+    ) {
+
+        this.adj = adj;
+
+        int n = adj.size();
+
+        discovery = new int[n];
+
+        low = new int[n];
+
+        onStack = new boolean[n];
+
+        Arrays.fill(discovery, -1);
+
+        stack = new ArrayDeque<>();
+
+        components = new ArrayList<>();
+    }
+
+    private void dfs(int u) {
+
+        discovery[u] = timer;
+
+        low[u] = timer;
+
+        timer++;
+
+        stack.push(u);
+
+        onStack[u] = true;
+
+        for (int v : adj.get(u)) {
+
+            // Case 1: Unvisited neighbor
+            if (discovery[v] == -1) {
+
+                dfs(v);
+
+                low[u] = Math.min(
+                    low[u],
+                    low[v]
+                );
+            }
+
+            // Case 2: Neighbor still in current SCC stack
+            else if (onStack[v]) {
+
+                low[u] = Math.min(
+                    low[u],
+                    discovery[v]
+                );
+            }
+        }
+
+        // Found an SCC root
+        if (low[u] == discovery[u]) {
+
+            List<Integer> component =
+                new ArrayList<>();
+
+            int v;
+
+            do {
+
+                v = stack.pop();
+
+                onStack[v] = false;
+
+                component.add(v);
+
+            } while (v != u);
+
+            components.add(component);
+        }
+    }
+
+    public List<List<Integer>> findSCCs() {
+
+        int n = adj.size();
+
+        for (int i = 0; i < n; i++) {
+
+            if (discovery[i] == -1) {
+
+                dfs(i);
+            }
+        }
+
+        return components;
+    }
+
+    public static void main(String[] args) {
+
+        int n = 5;
+
+        List<List<Integer>> adj =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+
+        adj.get(0).add(1);
+        adj.get(1).add(2);
+        adj.get(2).add(0);
+
+        adj.get(1).add(3);
+
+        adj.get(3).add(4);
+        adj.get(4).add(3);
+
+        TarjanSCC tarjan =
+            new TarjanSCC(adj);
+
+        System.out.println(
+            tarjan.findSCCs()
+        );
+    }
+}
+```
+
+Possible output:
+
+```
+[[4, 3], [2, 1, 0]]
+```
+
+The component order is reverse-related to the DFS discovery/finishing structure, and members may be listed in stack-pop order.
+
+## **17.5 Tarjan vs Kosaraju**
+
+| Feature                  | Kosaraju        | Tarjan                            |
+| ------------------------ | --------------- | --------------------------------- |
+| DFS passes               | Two             | One                               |
+| Transpose graph          | Required        | Not required                      |
+| Uses discovery time      | Finishing order | Yes                               |
+| Uses low-link            | No              | Yes                               |
+| Stack                    | Recursion stack | Explicit SCC stack plus recursion |
+| Time                     | O(V + E)        | O(V + E)                          |
+| Additional graph storage | Transpose       | Not required                      |
+
+Both algorithms find all strongly connected components efficiently.
+
+**Important learning point:** Tarjan's SCC algorithm and Tarjan's bridge/articulation-point technique are closely related through discovery times and low-link values, but their update rules and final conditions are not interchangeable.
+
+# **18. Bridges in Graphs**
+
+Now we move to another important low-link application.
+
+A bridge is an edge whose removal increases the number of connected components in an undirected graph.
+
+In simpler terms:
+
+**A bridge is a connection that, when removed, disconnects part of the graph.**
+
+## **18.1 Example**
+
+Consider:
+
+```
+0 — 1 — 2
+    |   |
+    3 — 4
+```
+
+Suppose vertices 1, 2, 3, and 4 form a cycle, and vertex 0 is attached through edge 0–1.
+
+Removing edge 0–1 separates vertex 0 from the rest of the graph.
+
+Therefore:
+
+```
+(0, 1)
+```
+
+is a bridge.
+
+But removing an edge inside the cycle does not disconnect the cycle because another route still exists.
+
+## **18.2 Why Do We Need Bridges?**
+
+Bridge detection is useful in:
+
+- Network reliability.
+- Communication infrastructure.
+- Road connectivity.
+- Electrical networks.
+- Identifying critical links.
+- Dependency and connectivity analysis.
+
+A bridge represents a vulnerable connection.
+
+## **18.3 Discovery Time and Low-Link**
+
+To find bridges efficiently, we use DFS.
+
+For each vertex, maintain:
+
+- `disc[u]`: Discovery time.
+- `low[u]`: Earliest discovery time reachable from u's DFS subtree using tree edges and at most one back edge to an ancestor.
+
+Suppose we travel through a DFS tree edge:
+
+```
+u → v
+```
+
+The crucial condition is:
+
+\\[ \boxed{low[v] > disc[u]} \\]
+
+When this condition is true, the subtree rooted at v cannot reach u or any ancestor of u without using the edge (u, v).
+
+Therefore, removing (u, v) disconnects that subtree.
+
+So:
+
+\\[ (u,v) \text{ is a bridge} \\]
+
+## **18.4 Java Implementation**
+
+The following implementation uses edge IDs.
+
+This is slightly more robust than tracking only a parent vertex because it correctly handles parallel edges.
+
+```
+import java.util.*;
+
+public class BridgeFinder {
+
+    static class Edge {
+
+        int to;
+        int id;
+
+        Edge(int to, int id) {
+
+            this.to = to;
+            this.id = id;
+        }
+    }
+
+    private List<List<Edge>> adj;
+
+    private int[] disc;
+    private int[] low;
+
+    private int timer = 0;
+
+    private List<int[]> bridges =
+        new ArrayList<>();
+
+    public BridgeFinder(int n) {
+
+        adj = new ArrayList<>();
+
+        disc = new int[n];
+
+        low = new int[n];
+
+        Arrays.fill(disc, -1);
+
+        for (int i = 0; i < n; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+    }
+
+    public void addEdge(
+        int u,
+        int v,
+        int edgeId
+    ) {
+
+        adj.get(u).add(new Edge(v, edgeId));
+
+        adj.get(v).add(new Edge(u, edgeId));
+    }
+
+    private void dfs(
+        int u,
+        int parentEdgeId
+    ) {
+
+        disc[u] = timer;
+
+        low[u] = timer;
+
+        timer++;
+
+        for (Edge edge : adj.get(u)) {
+
+            int v = edge.to;
+
+            // Skip the exact edge used to enter this vertex
+            if (edge.id == parentEdgeId) {
+                continue;
+            }
+
+            if (disc[v] == -1) {
+
+                dfs(v, edge.id);
+
+                low[u] = Math.min(
+                    low[u],
+                    low[v]
+                );
+
+                // Bridge condition
+                if (low[v] > disc[u]) {
+
+                    bridges.add(
+                        new int[]{u, v}
+                    );
+                }
+
+            } else {
+
+                low[u] = Math.min(
+                    low[u],
+                    disc[v]
+                );
+            }
+        }
+    }
+
+    public List<int[]> findBridges() {
+
+        for (int i = 0; i < disc.length; i++) {
+
+            if (disc[i] == -1) {
+
+                dfs(i, -1);
+            }
+        }
+
+        return bridges;
+    }
+
+    public static void main(String[] args) {
+
+        BridgeFinder graph =
+            new BridgeFinder(5);
+
+        graph.addEdge(0, 1, 0);
+
+        graph.addEdge(1, 2, 1);
+
+        graph.addEdge(2, 3, 2);
+
+        graph.addEdge(3, 1, 3);
+
+        graph.addEdge(3, 4, 4);
+
+        List<int[]> bridges =
+            graph.findBridges();
+
+        for (int[] edge : bridges) {
+
+            System.out.println(
+                edge[0] + " — " + edge[1]
+            );
+        }
+    }
+}
+```
+
+Output:
+
+```
+3 — 4
+1 — 0
+```
+
+These are the two bridges in this example.
+
+## **18.5 Complexity**
+
+For adjacency lists:
+
+\\[ O(V+E) \\]
+
+Every vertex and edge is processed a constant number of times.
+
+Additional space:
+
+\\[ O(V+E) \\]
+
+including the graph representation, arrays, and recursion stack.
+
+# **19. Articulation Points**
+
+An articulation point is a vertex whose removal increases the number of connected components in an undirected graph.
+
+It is also called a cut vertex.
+
+## **19.1 Understanding Articulation Points**
+
+Consider:
+
+```
+0 — 1 — 2
+    |
+    3 — 4
+```
+
+If we remove vertex 1:
+
+- Vertex 0 becomes isolated.
+- Vertex 2 becomes separated.
+- Vertices 3 and 4 form another part.
+
+Therefore, vertex 1 is an articulation point.
+
+Removing vertex 2, for example, may not increase the number of connected components if it is simply a leaf.
+
+The actual result depends on the full graph structure.
+
+## **19.2 Articulation Point Conditions**
+
+We use the same discovery-time and low-link arrays.
+
+There are two important cases.
+
+### **Case 1: Non-Root Vertex**
+
+Suppose u is a vertex in the DFS tree, and v is one of its DFS children.
+
+The condition is:
+
+\\[ \boxed{low[v] \geq disc[u]} \\]
+
+If this condition holds, the subtree rooted at v cannot reach an ancestor of u without passing through u.
+
+Therefore, removing u disconnects that subtree.
+
+So u is an articulation point.
+
+### **Case 2: DFS Root**
+
+The root is handled differently.
+
+The root is an articulation point if it has more than one DFS child.
+
+\\[ \boxed{childCount > 1} \\]
+
+Why?
+
+Because different DFS subtrees of the root do not have a path connecting them without passing through the root. If there is more than one such subtree, removing the root separates them.
+
+## **19.3 Java Implementation**
+
+```
+import java.util.*;
+
+public class ArticulationPoints {
+
+    static class Edge {
+
+        int to;
+        int id;
+
+        Edge(int to, int id) {
+
+            this.to = to;
+            this.id = id;
+        }
+    }
+
+    private List<List<Edge>> adj;
+
+    private int[] disc;
+    private int[] low;
+
+    private boolean[] isArticulation;
+
+    private int timer = 0;
+
+    public ArticulationPoints(int n) {
+
+        adj = new ArrayList<>();
+
+        disc = new int[n];
+
+        low = new int[n];
+
+        isArticulation = new boolean[n];
+
+        Arrays.fill(disc, -1);
+
+        for (int i = 0; i < n; i++) {
+
+            adj.add(new ArrayList<>());
+        }
+    }
+
+    public void addEdge(
+        int u,
+        int v,
+        int edgeId
+    ) {
+
+        adj.get(u).add(new Edge(v, edgeId));
+
+        adj.get(v).add(new Edge(u, edgeId));
+    }
+
+    private void dfs(
+        int u,
+        int parentEdgeId
+    ) {
+
+        disc[u] = timer;
+
+        low[u] = timer;
+
+        timer++;
+
+        int children = 0;
+
+        for (Edge edge : adj.get(u)) {
+
+            int v = edge.to;
+
+            if (edge.id == parentEdgeId) {
+                continue;
+            }
+
+            if (disc[v] == -1) {
+
+                children++;
+
+                dfs(v, edge.id);
+
+                low[u] = Math.min(
+                    low[u],
+                    low[v]
+                );
+
+                // Non-root articulation condition
+                if (
+                    parentEdgeId != -1
+                    && low[v] >= disc[u]
+                ) {
+
+                    isArticulation[u] = true;
+                }
+
+            } else {
+
+                low[u] = Math.min(
+                    low[u],
+                    disc[v]
+                );
+            }
+        }
+
+        // Root-specific condition
+        if (
+            parentEdgeId == -1
+            && children > 1
+        ) {
+
+            isArticulation[u] = true;
+        }
+    }
+
+    public List<Integer> findArticulationPoints() {
+
+        for (int i = 0; i < disc.length; i++) {
+
+            if (disc[i] == -1) {
+
+                dfs(i, -1);
+            }
+        }
+
+        List<Integer> result =
+            new ArrayList<>();
+
+        for (int i = 0; i < isArticulation.length; i++) {
+
+            if (isArticulation[i]) {
+
+                result.add(i);
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        ArticulationPoints graph =
+            new ArticulationPoints(5);
+
+        graph.addEdge(0, 1, 0);
+
+        graph.addEdge(1, 2, 1);
+
+        graph.addEdge(2, 3, 2);
+
+        graph.addEdge(3, 1, 3);
+
+        graph.addEdge(3, 4, 4);
+
+        System.out.println(
+            graph.findArticulationPoints()
+        );
+    }
+}
+```
+
+Output:
+
+```
+[1, 3]
+```
+
+These vertices are the articulation points.
+
+## **19.4 Bridges vs Articulation Points**
+
+| Feature               | Bridge                    | Articulation point           |
+| --------------------- | ------------------------- | ---------------------------- |
+| Represents            | Critical edge             | Critical vertex              |
+| Removal               | Remove an edge            | Remove a vertex              |
+| Effect                | Increases component count | Increases component count    |
+| Main condition        | low[v] > disc[u]          | low[v] >= disc[u]            |
+| DFS root special case | No                        | Yes, more than one DFS child |
+
+The difference between `>` and `>=` is extremely important.
+
+For a bridge:
+
+\\[ low[v] > disc[u] \\]
+
+For a non-root articulation point:
+
+\\[ low[v] \geq disc[u] \\]
+
+When `low[v] == disc[u]`, the child subtree can reach u itself, so the connecting edge is not a bridge. However, it still cannot bypass u to reach an ancestor, so u can be an articulation point.
+
+# **20. Graph Traversal Complexity**
+
+Understanding graph algorithm complexity is essential for coding interviews.
+
+The main factors are:
+
+- V = Number of vertices.
+- E = Number of edges.
+
+For an adjacency list, most fundamental graph algorithms take:
+
+\\[ O(V+E) \\]
+
+Let's understand why.
+
+## **20.1 Why O(V + E)?**
+
+When performing BFS or DFS:
+
+- Every vertex is visited at most once.
+- Every edge is examined a constant number of times.
+
+For an undirected graph, each edge normally appears twice in the adjacency lists, once for each endpoint.
+
+Therefore, the total traversal cost is proportional to:
+
+\\[ V+2E \\]
+
+Ignoring constants:
+
+\\[ O(V+E) \\]
+
+## **20.2 Complete Complexity Table**
+
+| Algorithm                  | Time complexity | Auxiliary space |
+| -------------------------- | --------------- | --------------- |
+| BFS                        | O(V + E)        | O(V)            |
+| DFS                        | O(V + E)        | O(V)            |
+| Connected components       | O(V + E)        | O(V)            |
+| Undirected cycle detection | O(V + E)        | O(V)            |
+| Directed cycle detection   | O(V + E)        | O(V)            |
+| Bipartite checking         | O(V + E)        | O(V)            |
+| Topological sorting        | O(V + E)        | O(V)            |
+| Kahn's algorithm           | O(V + E)        | O(V)            |
+| Kosaraju's algorithm       | O(V + E)        | O(V + E)        |
+| Tarjan's SCC algorithm     | O(V + E)        | O(V)            |
+| Bridge detection           | O(V + E)        | O(V)            |
+| Articulation points        | O(V + E)        | O(V)            |
+
+These auxiliary-space estimates exclude the input graph and, where applicable, the result being returned. Recursion can also require O(V) call-stack space.
+
+## **20.3 How Graph Density Affects Performance**
+
+A graph can be sparse or dense.
+
+**Sparse graph:** Contains relatively few edges compared with the maximum possible number.
+
+**Dense graph:** Contains many edges, approaching the maximum possible number.
+
+For a simple undirected graph:
+
+\\[ E\_{\max}=\frac{V(V-1)}{2} \\]
+
+For sparse graphs, adjacency lists are generally preferable.
+
+For dense graphs, adjacency matrices can be practical, especially when checking edges frequently.
+
+# **21. Important Graph Concepts — Quick Revision**
+
+Here is a consolidated revision of the major techniques covered in this module.
+
+| Concept                    | Main idea                               | Important data structure |
+| -------------------------- | --------------------------------------- | ------------------------ |
+| Graph representation       | Store vertices and edges                | Lists / Arrays           |
+| BFS                        | Explore level by level                  | Queue                    |
+| DFS                        | Explore deeply and backtrack            | Stack / Recursion        |
+| Connected components       | Find separate reachable groups          | BFS / DFS                |
+| Undirected cycle detection | Visited neighbor other than parent      | DFS                      |
+| Directed cycle detection   | Detect a back edge to active DFS vertex | Three-state DFS          |
+| Bipartite graph            | Two-coloring                            | BFS / DFS                |
+| Topological sorting        | Order dependencies                      | DFS / Queue              |
+| Kahn's algorithm           | Process zero-in-degree vertices         | Queue                    |
+| SCC                        | Find mutually reachable groups          | DFS                      |
+| Kosaraju                   | Two DFS passes and transpose            | Stack / DFS              |
+| Tarjan SCC                 | Discovery times and low-link values     | Stack / DFS              |
+| Bridges                    | Find critical edges                     | DFS + Low-link           |
+| Articulation points        | Find critical vertices                  | DFS + Low-link           |
+
+# **22. Common Graph Interview Mistakes**
+
+Graph problems are often difficult not because of complicated mathematics, but because of small implementation mistakes.
+
+### **Mistake 1: Forgetting Disconnected Components**
+
+Running BFS or DFS from only vertex 0 does not guarantee that every vertex will be visited.
+
+Use an outer loop over all vertices when the algorithm must process the complete graph.
+
+### **Mistake 2: Incorrectly Adding Undirected Edges**
+
+For an undirected graph, remember:
+
+```
+adj.get(u).add(v);
+adj.get(v).add(u);
+```
+
+For a directed graph, add only the forward edge.
+
+### **Mistake 3: Marking BFS Vertices Too Late**
+
+Mark vertices as visited when they are inserted into the queue.
+
+Otherwise, multiple neighboring vertices may insert the same vertex repeatedly.
+
+### **Mistake 4: Using BFS for Weighted Shortest Paths**
+
+BFS finds minimum-edge-count paths in unweighted graphs.
+
+For general nonnegative weighted shortest paths, Dijkstra's algorithm is usually appropriate.
+
+### **Mistake 5: Confusing Directed and Undirected Cycle Detection**
+
+Undirected graphs use parent tracking.
+
+Directed graphs need to detect a back edge into the current DFS recursion path.
+
+A simple visited array cannot distinguish these situations correctly.
+
+### **Mistake 6: Applying Topological Sorting to Cyclic Graphs**
+
+Topological ordering exists only for directed acyclic graphs.
+
+In Kahn's algorithm, verify:
+
+```
+order.size() == vertices
+```
+
+Otherwise, the graph contains a cycle.
+
+### **Mistake 7: Confusing Connected Components with SCCs**
+
+A directed graph can have different weakly connected and strongly connected components.
+
+Do not ignore edge directions when finding SCCs.
+
+### **Mistake 8: Mixing Tarjan's Low-Link Conditions**
+
+Memorize these conditions carefully:
+
+| Problem                     | Condition                |
+| --------------------------- | ------------------------ |
+| Tarjan SCC root             | `low[u] == discovery[u]` |
+| Bridge                      | `low[v] > discovery[u]`  |
+| Non-root articulation point | `low[v] >= discovery[u]` |
+| Root articulation point     | More than one DFS child  |
+
+Although these algorithms share low-link concepts, their conditions serve different purposes.
+
+### **Mistake 9: Ignoring Recursion Depth**
+
+DFS, Kosaraju, Tarjan, bridge detection, and articulation-point detection can recurse deeply.
+
+For very large graphs, Java may throw `StackOverflowError`.
+
+An iterative DFS or an iterative implementation of the required algorithm may be necessary when graph depth is large.
+
+### **Mistake 10: Assuming Every Graph Is Simple**
+
+Graphs may contain:
+
+- Self-loops.
+- Parallel edges.
+- Disconnected components.
+
+For bridge and undirected cycle detection, tracking edge IDs instead of only parent vertices is important when parallel edges are possible.
+
+# **23. How to Recognize Graph Problems in Interviews**
+
+When a problem contains certain descriptions, you should immediately consider graph algorithms.
+
+| Problem statement clue                         | Possible graph algorithm |
+| ---------------------------------------------- | ------------------------ |
+| Find the minimum number of steps between nodes | BFS                      |
+| Explore every reachable vertex                 | DFS / BFS                |
+| Find separate groups in a network              | Connected components     |
+| Detect a circular dependency                   | Directed cycle detection |
+| Detect an undirected network cycle             | DFS / DSU                |
+| Divide vertices into two groups                | Bipartite checking       |
+| Order tasks based on prerequisites             | Topological sorting      |
+| Find mutually reachable groups                 | SCC                      |
+| Find critical network connections              | Bridges                  |
+| Find critical network nodes                    | Articulation points      |
+| Find vertices with no remaining prerequisites  | Kahn's algorithm         |
+
+## **A Practical Interview Approach**
+
+Whenever you encounter a graph problem, follow this process:
+
+**Step 1 — Identify the vertices.**
+
+Ask yourself: What does each node represent?
+
+**Step 2 — Identify the edges.**
+
+What relationship connects two nodes?
+
+**Step 3 — Determine the graph type.**
+
+Is it:
+
+- Directed or undirected?
+- Weighted or unweighted?
+- Connected or disconnected?
+- Cyclic or acyclic?
+
+**Step 4 — Choose the representation.**
+
+For most of these problems, use an adjacency list.
+
+**Step 5 — Select an algorithm.**
+
+Decide whether you need BFS, DFS, topological sorting, SCC, or low-link analysis.
+
+**Step 6 — Analyze complexity.**
+
+For adjacency-list traversal, target O(V + E) whenever possible.
+
+**Step 7 — Test edge cases.**
+
+Check:
+
+- Empty graph.
+- One vertex.
+- Disconnected graph.
+- Self-loop.
+- Multiple edges.
+- Directed cycle.
+- No cycle.
+- Multiple components.
+
+# **24. Interview and Practice Problems**
+
+The best way to master graph theory is to solve problems after understanding the underlying algorithm.
+
+These problems are arranged from fundamental to advanced.
+
+## **Level 1 — Graph Fundamentals**
+
+1. Implement Graph Using Adjacency List.
+2. Implement Graph Using Adjacency Matrix.
+3. BFS Traversal.
+4. DFS Traversal.
+5. Number of Provinces.
+6. Number of Connected Components.
+7. Find if Path Exists in Graph.
+8. Flood Fill.
+9. Number of Islands.
+10. Max Area of Island.
+
+## **Level 2 — Graph Traversal and Properties**
+
+1. Detect Cycle in an Undirected Graph.
+2. Detect Cycle in a Directed Graph.
+3. Find Eventual Safe States.
+4. Is Graph Bipartite?
+5. Possible Bipartition.
+6. Shortest Path in an Unweighted Graph.
+7. Rotting Oranges.
+8. Shortest Path in a Binary Matrix.
+9. Word Ladder.
+10. Minimum Genetic Mutation.
+
+## **Level 3 — Topological Sorting**
+
+1. Topological Sort.
+2. Course Schedule.
+3. Course Schedule II.
+4. Find a Valid Course Ordering.
+5. Alien Dictionary.
+6. Eventual Safe States.
+7. Parallel Courses.
+8. Minimum Semesters to Complete All Courses.
+
+## **Level 4 — Strongly Connected Components**
+
+1. Strongly Connected Components.
+2. Kosaraju's Algorithm.
+3. Tarjan's SCC Algorithm.
+4. Number of Strongly Connected Components.
+5. 2-SAT Introduction.
+6. Critical Connections in a Network.
+
+## **Level 5 — Advanced Graph Problems**
+
+1. Critical Connections in a Network.
+2. Articulation Points.
+3. Bridges in Graphs.
+4. Minimum Number of Edges to Make a Graph Connected.
+5. Clone Graph.
+6. Reconstruct Itinerary.
+7. Evaluate Division.
+8. Minimum Height Trees.
+9. Redundant Connection.
+10. Largest Component Size by Common Factor.
+
+For the advanced exercises, you will need to combine graph theory with other concepts such as union-find, heaps, shortest paths, and dynamic programming.
+
+# **25. Module 17 — Final Understanding Checklist**
+
+Use this checklist to track your learning.
+
+**Graph Theory mastery tracker**
+
+0 / 25 completed
+
+## **0%**
+
+Understand graph fundamentals and terminology
+
+Understand directed and undirected graphs
+
+Understand weighted and unweighted graphs
+
+Understand vertices, edges, degree and paths
+
+Implement adjacency matrix
+
+Implement adjacency list
+
+Implement edge list
+
+Build reusable Java graph classes
+
+Implement BFS traversal
+
+Find shortest paths using BFS in unweighted graphs
+
+Implement recursive DFS
+
+Implement iterative DFS
+
+Find connected components
+
+Detect cycles in undirected graphs
+
+Detect cycles in directed graphs
+
+Check whether a graph is bipartite
+
+Understand DAGs and topological ordering
+
+Implement Kahn's algorithm
+
+Understand strongly connected components
+
+Implement Kosaraju's algorithm
+
+Implement Tarjan's SCC algorithm
+
+Understand discovery time and low-link values
+
+Find bridges in an undirected graph
+
+Find articulation points
+
+Analyze graph traversal complexity
+
+Reset progress
+
+## **The 10 Most Important Things to Remember**
+
+1. A graph consists of vertices and edges.
+2. Adjacency lists are generally the most useful representation for graph traversal.
+3. BFS uses a queue and explores level by level.
+4. DFS uses recursion or a stack and explores deeply.
+5. Connected components identify separate reachable groups.
+6. Directed and undirected cycle detection require different logic.
+7. Bipartite graphs can be checked through two-coloring.
+8. Kahn's algorithm uses in-degree to produce a topological ordering.
+9. Kosaraju and Tarjan find strongly connected components.
+10. Discovery time and low-link values are fundamental to Tarjan's SCC, bridge, and articulation-point algorithms.
+
+## **What You Should Be Able to Do After This Module**
+
+By the end of Module 17, you should be able to take an unfamiliar graph problem, translate it into a graph representation, select the appropriate algorithm, implement it in Java, and explain its correctness and time complexity.
+
+You should also understand the difference between ordinary DFS traversal and advanced DFS-based algorithms such as Kosaraju, Tarjan, bridge detection, and articulation-point detection.
+
+**One important recommendation:** Do not try to memorize all the advanced graph code at once. First become comfortable with adjacency lists, BFS, and DFS. Then understand cycle detection and topological sorting. Finally, study low-link values and Tarjan's algorithms. The advanced algorithms become much easier once the DFS foundation is clear.

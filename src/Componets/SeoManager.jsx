@@ -183,6 +183,12 @@ const routeMeta = {
     keywords: "Greedy Algorithms Java, Interval Problems Java, Greedy Choice Property, Optimal Substructure, Exchange Argument Proof, Activity Selection Java, Merge Intervals LeetCode 56, Minimum Platforms Two Pointers, Fractional Knapsack Java, Job Sequencing with Deadlines DSU, Huffman Coding Java, Prefix Codes Compression, Meeting Rooms II Min Heap, Jump Game LeetCode 55, Jump Game II LeetCode 45, Gas Station LeetCode 134, Task Scheduler LeetCode 621, Greedy vs Dynamic Programming, Coin Change Dilemma, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/greedy-algorithms`,
   },
+  "/learning/java/graph-theory": {
+    title: "Module 17: Graph Theory & Graph Algorithms | PrepSpaces",
+    description: "Master graph theory and graph algorithms in Java: Graph Representations (Adjacency Matrix, Adjacency List, Edge List), Breadth-First Search (BFS) level-order traversal, Depth-First Search (DFS) recursive backtracking, Connected Components & Island counting, Cycle Detection in directed and undirected graphs (3-Color / RecStack), Bipartite Graphs 2-Coloring (Konig's Theorem), Topological Sorting (Kahn's Algorithm & In-Degree Queue), Strongly Connected Components (Kosaraju's Two-Pass Transpose & Tarjan's Single-Pass Low-Link Algorithm), Bridges (Critical Connections low[v] > disc[u]), and Articulation Points (Cut Vertices).",
+    keywords: "Graph Theory Java, Graph Algorithms Java, Breadth First Search BFS, Depth First Search DFS, Adjacency Matrix vs Adjacency List, Connected Components Java, Cycle Detection Undirected Graph, Directed Cycle Detection 3 Color, Bipartite Graphs Java, Two Coloring Odd Cycles, Topological Sort Java, Kahn Algorithm In Degree, Strongly Connected Components, Kosaraju Algorithm Java, Tarjan SCC Algorithm, Bridges in Graphs, Critical Connections LeetCode 1192, Articulation Points Cut Vertices, Graph Data Structures Java, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/graph-theory`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

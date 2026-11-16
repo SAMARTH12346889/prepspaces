@@ -174,5 +174,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "graph-theory",
+    "courseId": "java-programming",
+    "index": 17,
+    "name": "17. Graph Theory & Graph Algorithms",
+    "route": "/learning/java/graph-theory",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
