@@ -2100,7 +2100,7 @@ export default function JavaGraphTheory() {
           courseId="java-programming"
           currentModuleId="graph-theory"
           prevRoute="/learning/java/greedy-algorithms"
-          nextRoute={null}
+          nextRoute="/learning/java/shortest-paths-mst"
         />
       </footer>
     </div>

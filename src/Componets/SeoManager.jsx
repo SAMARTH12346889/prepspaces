@@ -189,6 +189,12 @@ const routeMeta = {
     keywords: "Graph Theory Java, Graph Algorithms Java, Breadth First Search BFS, Depth First Search DFS, Adjacency Matrix vs Adjacency List, Connected Components Java, Cycle Detection Undirected Graph, Directed Cycle Detection 3 Color, Bipartite Graphs Java, Two Coloring Odd Cycles, Topological Sort Java, Kahn Algorithm In Degree, Strongly Connected Components, Kosaraju Algorithm Java, Tarjan SCC Algorithm, Bridges in Graphs, Critical Connections LeetCode 1192, Articulation Points Cut Vertices, Graph Data Structures Java, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/graph-theory`,
   },
+  "/learning/java/shortest-paths-mst": {
+    title: "Module 18: Shortest Paths & Minimum Spanning Trees | PrepSpaces",
+    description: "Master shortest-path and network optimization algorithms in Java: Breadth-First Search (BFS) for unweighted shortest paths, Dijkstra's algorithm with PriorityQueue, Bellman-Ford with negative-cycle detection, Floyd-Warshall all-pairs dynamic programming O(V³), DAG topological relaxation in O(V + E), Prim's and Kruskal's Minimum Spanning Tree (MST) algorithms, Disjoint Set Union (DSU / Union-Find) with path compression and union-by-size in O(α(V)), Network Connectivity optimization, Grid-based BFS, Multi-Source BFS (Rotting Oranges, 01 Matrix), and 0-1 BFS with ArrayDeque.",
+    keywords: "Shortest Paths Java, Minimum Spanning Tree MST, Dijkstra Algorithm Java, Bellman Ford Algorithm, Negative Cycle Detection, Floyd Warshall Algorithm, DAG Shortest Paths Topological, Prim Algorithm Java, Kruskal Algorithm Java, Disjoint Set Union DSU, Union Find Java, Path Compression, Union by Size, 0 1 BFS Deque, Multi Source BFS, Rotting Oranges LeetCode 994, Network Delay Time, Cheapest Flights Within K Stops, Graph Algorithms Java, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/shortest-paths-mst`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

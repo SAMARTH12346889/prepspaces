@@ -259,6 +259,7 @@ const learningTracks = [
       "Two Pointers, Sliding Window, 1D/2D Prefix Sums, Difference Arrays & Kadane's Algorithm",
       "Greedy Algorithms, Exchange Arguments, Interval Merging, Fractional Knapsack, Job Sequencing, Huffman Coding & Gas Station",
       "Graph Theory, BFS/DFS, Cycle Detection, Bipartite Graphs, Kahn's Topological Sort, Kosaraju & Tarjan SCC, Bridges & Articulation Points",
+      "Shortest Paths (BFS, Dijkstra, Bellman-Ford, Floyd-Warshall, DAGs), MST (Prim & Kruskal), Disjoint Set Union (DSU), 0-1 BFS & Multi-Source BFS",
     ],
   },
 ];

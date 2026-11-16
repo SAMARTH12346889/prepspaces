@@ -200,6 +200,7 @@ const JavaSpecializedDS = React.lazy(() => import("./Componets/JavaSpecializedDS
 const JavaTwoPointersSlidingWindow = React.lazy(() => import("./Componets/JavaTwoPointersSlidingWindow"));
 const JavaGreedyAlgorithms = React.lazy(() => import("./Componets/JavaGreedyAlgorithms"));
 const JavaGraphTheory = React.lazy(() => import("./Componets/JavaGraphTheory"));
+const JavaShortestPathsMST = React.lazy(() => import("./Componets/JavaShortestPathsMST"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1726,6 +1727,15 @@ function App() {
             <Route path="/learning/java/module-17" element={<JavaGraphTheory />} />
             <Route path="/courses/java/graph-theory" element={<JavaGraphTheory />} />
             <Route path="/learn/java/graph-theory" element={<JavaGraphTheory />} />
+
+            <Route path="/learning/java/shortest-paths-mst" element={<JavaShortestPathsMST />} />
+            <Route path="/learning/java/shortest-paths" element={<JavaShortestPathsMST />} />
+            <Route path="/learning/java/mst" element={<JavaShortestPathsMST />} />
+            <Route path="/learning/java/minimum-spanning-trees" element={<JavaShortestPathsMST />} />
+            <Route path="/learning/java/dijkstra" element={<JavaShortestPathsMST />} />
+            <Route path="/learning/java/module-18" element={<JavaShortestPathsMST />} />
+            <Route path="/courses/java/shortest-paths-mst" element={<JavaShortestPathsMST />} />
+            <Route path="/learn/java/shortest-paths-mst" element={<JavaShortestPathsMST />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

@@ -1886,3 +1886,32 @@ Topics Covered:
   - 21. 35 Practice Problems Across 5 Difficulty Tiers: Fundamentals, Traversal & Connectivity, Cycle & Bipartite, Topological Sorting, and Advanced SCC/Bridges
   - 22. 15 Assessment MCQs with Explanations and Scoring
   - 23. 8 Interactive Workbenches: Representation Playground, BFS Visualizer, DFS Studio, Components Explorer, Cycle Detector, Bipartite Simulator, Kahn Topo Sorter, Kosaraju & Tarjan Analyzer
+
+---
+
+### Module 18: Shortest Paths & Minimum Spanning Trees
+URL: https://prepspaces.com/learning/java/shortest-paths-mst
+Topics Covered:
+  - 1. Shortest Path Foundations: Definitions of Path Cost, Single-Source, Single-Pair, All-Pairs, Unweighted vs Weighted Graphs, Directed vs Undirected Edge Ingestion
+  - 2. Java Weighted Graph Representation: Edge Class with to and weight Fields, List<List<Edge>> Adjacency List, Amortized O(1) Edge Insertion
+  - 3. BFS Shortest Path: Level-Order Queue Search in Unweighted Graphs, Parent Array Tracking for Exact Path Reconstruction, Linear O(V + E) Guarantee
+  - 4. Dijkstra's Algorithm: Greedy Vertex Selection with Min-Heap PriorityQueue, Nonnegative Weight Invariant, Edge Relaxation dist[v] = dist[u] + weight, Stale Entry Pruning
+  - 5. Negative Edge Weights vs Negative Cycles: Why Greedy Substructure Fails, Cost Reduction Loops, Infinite Negative-Weight Drain
+  - 6. Bellman-Ford Algorithm: V - 1 Iteration Passes Across All Edges, Edge List Data Structure, V-th Pass for Reachable Negative Cycle Detection, O(VE) Time
+  - 7. Floyd-Warshall Algorithm: All-Pairs Shortest Paths via Dynamic Programming O(V³), Testing Every Intermediate Vertex k, In-Place 2D Matrix Relaxation, Diagonal Cycle Check dist[i][i] < 0
+  - 8. DAG Shortest Paths: Kahn's Topological Sorting Linearization + Single-Pass Outgoing Edge Relaxation in O(V + E) Supporting Negative Edge Weights
+  - 9. Minimum Spanning Trees (MST): Spanning Tree Invariant (V - 1 Edges, Cycle-Free), Minimizing Infrastructure Cost vs Shortest Path Trees, Cut and Cycle Properties
+  - 10. Prim's Algorithm: Greedy Tree-Growing from Seed Vertex 0, PriorityQueue of Boundary Candidate Edges Crossing the Cut, O(E log V) Time, Disconnected Component Validation
+  - 11. Kruskal's Algorithm: Global Edge Sorting O(E log E), Incremental Component Merging via Disjoint Set Union (DSU), Skipping Same-Component Edges to Avoid Cycles
+  - 12. Disjoint Set Union (DSU / Union-Find): Parent Array Initialization, Path Compression Flattens Lookup Chains, Union by Size / Rank, Amortized Inverse Ackermann O(alpha(V))
+  - 13. DSU-Based Graph Optimization: Dynamic Reachability Queries, Undirected Cycle Detection, Component Count Tracking
+  - 14. Network Connectivity Optimization: Connecting Disconnected Computer Networks, Minimum C - 1 Additional Connections, Redundant Cable Reallocation
+  - 15. Grid-Based Graph Problems: Implicit Grid Representation, Row and Column Direction Vectors (dr, dc), 4-Way and 8-Way BFS Pathfinding in O(R * C)
+  - 16. Multi-Source BFS: Seeding All Sources Simultaneously at Distance 0, Wavefront Expansion, Rotting Oranges (LeetCode 994), 01 Matrix (LeetCode 542)
+  - 17. 0-1 BFS with ArrayDeque: Pushing 0-Weight Transitions to Front and 1-Weight to Back, Distance Monotonicity, Linear O(V + E) Shortest Paths
+  - 18. Comprehensive Algorithm Selection Guide: Decision Trees for Unweighted, 0-1, Nonnegative, Negative, DAG, All-Pairs, and MST Problems
+  - 19. 9 Common Graph Pitfalls: Dijkstra with Negative Weights, Confusing MST with Shortest Path, Stale PQ Memory Leaks, 32-bit Integer Overflow on Infinity, Disconnected Prim Stop
+  - 20. Real-World Applications: GPS Navigation, Global Telecom Fiber Layout, Airline Fuel Routing, Emergency Drone Logistics, Robotics Grid Pathfinding
+  - 21. 35 Practice Problems Across 4 Levels: Fundamentals, Advanced Shortest Paths, MST & DSU, FAANG Grid & Constraint Challenges
+  - 22. 15 Assessment MCQs with Explanations and Instant Scoring
+  - 23. 8 Interactive Workbenches: Dijkstra Visualizer, Bellman-Ford Cycle Detector, Floyd-Warshall Matrix, DAG Topo Relaxer, Prim's Tree Studio, Kruskal & DSU Forest, Multi-Source BFS, 0-1 BFS Deque
