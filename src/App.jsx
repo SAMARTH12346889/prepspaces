@@ -206,6 +206,7 @@ const JavaAdvancedDP = React.lazy(() => import("./Componets/JavaAdvancedDP"));
 const JavaProblemSolvingPatterns = React.lazy(() => import("./Componets/JavaProblemSolvingPatterns"));
 const JavaCollectionsJVM = React.lazy(() => import("./Componets/JavaCollectionsJVM"));
 const JavaInterviewMastery = React.lazy(() => import("./Componets/JavaInterviewMastery"));
+const JavaCapstone = React.lazy(() => import("./Componets/JavaCapstone"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1776,6 +1777,13 @@ function App() {
             <Route path="/learning/java/module-23" element={<JavaInterviewMastery />} />
             <Route path="/courses/java/interview-mastery" element={<JavaInterviewMastery />} />
             <Route path="/learn/java/interview-mastery" element={<JavaInterviewMastery />} />
+
+            <Route path="/learning/java/capstone-project" element={<JavaCapstone />} />
+            <Route path="/learning/java/capstone" element={<JavaCapstone />} />
+            <Route path="/learning/java/final-project" element={<JavaCapstone />} />
+            <Route path="/learning/java/module-24" element={<JavaCapstone />} />
+            <Route path="/courses/java/capstone-project" element={<JavaCapstone />} />
+            <Route path="/learn/java/capstone-project" element={<JavaCapstone />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

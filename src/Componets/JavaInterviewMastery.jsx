@@ -647,9 +647,9 @@ for (int right = 0; right < s.length(); right++) {
       <ModuleNav
         currentModuleId="interview-mastery"
         moduleTitle="23. Technical Interview & Placement Mastery"
-        totalModules={23}
+        totalModules={24}
         prevRoute="/learning/java/collections-jvm"
-        nextRoute={null}
+        nextRoute="/learning/java/capstone-project"
       />
 
       {/* Main Container */}

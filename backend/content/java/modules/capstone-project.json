@@ -1,0 +1,251 @@
+{
+  "moduleId": "capstone-project",
+  "moduleName": "24. Final Java & DSA Capstone Project",
+  "courseId": "java",
+  "track": "java",
+  "totalQuestions": 20,
+  "passingScore": 70,
+  "description": "Evaluate your comprehensive engineering mastery: architecture design, algorithm visualization, online judge sandboxing, custom data structure implementation, benchmarking, and production deployment.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Why should an algorithm visualizer application strictly separate the Algorithm Engine from the Presentation/Visualization Layer?",
+      "options": [
+        "To allow the identical algorithm implementation to run in CLI, automated unit tests, and JMH microbenchmarks without UI dependencies",
+        "Because Java bytecode verifier prevents UI classes from calling sorting algorithms directly",
+        "Because graphic frameworks like JavaFX automatically sort arrays on the GPU",
+        "To reduce the size of the final JAR file by half"
+      ],
+      "correct": 0,
+      "explanation": "Decoupling algorithm logic from rendering enables reuse across different presentation interfaces (JavaFX, Web/React, CLI), allows deterministic JUnit testing, and prevents UI animations from distorting algorithmic complexity measurements."
+    },
+    {
+      "id": 2,
+      "question": "When implementing an interactive algorithm animation player with Play, Pause, and Step controls, why is generating a stream of compact `AlgorithmStep` events superior to snapshotting the entire array on every comparison?",
+      "options": [
+        "Storing full array clones on every single comparison causes catastrophic heap allocation churn and high GC pauses for large inputs",
+        "Java records are automatically vectorized by the HotSpot JIT compiler",
+        "Array snapshots cannot be indexed by integer indices",
+        "The Java Garbage Collector deletes arrays after 100 snapshots"
+      ],
+      "correct": 0,
+      "explanation": "A sorting algorithm may perform millions of comparisons. Storing full array clones on every comparison consumes excessive heap memory ($O(N \times \text{steps})$). Compact step records (`COMPARE, i, j`) or state deltas consume minimal memory and enable fast replay."
+    },
+    {
+      "id": 3,
+      "question": "In Project 2 (Java Coding Interview Platform), what is the most critical security rule when executing untrusted user-submitted Java code?",
+      "options": [
+        "Never execute untrusted user-submitted code inside the primary backend application process; execute it in isolated, disposable sandboxes with CPU, memory, and network limits",
+        "Simply check that the submitted code does not contain the word 'System.exit()'",
+        "Run the user submission with root/administrator privileges to prevent permission denied errors",
+        "Compile the code with Java 8 because older versions cannot access host networks"
+      ],
+      "correct": 0,
+      "explanation": "Untrusted user code can execute infinite loops, exhaust memory (fork bombs), read host files, or launch network attacks. Submissions must run in isolated, resource-constrained, non-root sandbox environments with strict execution timeouts."
+    },
+    {
+      "id": 4,
+      "question": "What is the key functional difference between the 'Run' action and the 'Submit' action on a coding assessment platform?",
+      "options": [
+        "'Run' executes the code against sample or custom test cases for quick feedback; 'Submit' evaluates against the full hidden judge test suite and records official verdict metrics",
+        "'Run' compiles Java bytecode while 'Submit' converts the code into C++",
+        "'Run' tests performance while 'Submit' only checks syntax formatting",
+        "There is no difference; both run the exact same test cases"
+      ],
+      "correct": 0,
+      "explanation": "'Run' allows candidates to debug against provided sample inputs or custom edge cases. 'Submit' triggers the official grading pipeline against the complete test suite (including hidden edge cases, boundary bounds, and large stress tests)."
+    },
+    {
+      "id": 5,
+      "question": "In custom data structure implementation (Project 3), how does a DynamicArray achieve amortized O(1) append operations when internal storage fills up?",
+      "options": [
+        "By allocating a new array of double capacity ($2 \times$) and copying existing elements, ensuring the doubling cost is spread over N prior $O(1)$ appends",
+        "By adding exactly 1 new slot every time an element is appended",
+        "By storing elements in CPU registers rather than main RAM",
+        "By converting itself into a LinkedList whenever full"
+      ],
+      "correct": 0,
+      "explanation": "Geometric capacity doubling ($2\times$) guarantees that resizing occurs only after an exponentially increasing number of insertions. The total cost to insert $N$ items is bounded by $2N$, yielding an amortized constant time $O(1)$ per append."
+    },
+    {
+      "id": 6,
+      "question": "When deleting a node with two children from a Binary Search Tree (BST), how must the replacement node be selected to preserve the BST invariant?",
+      "options": [
+        "Replace the node's value with its inorder successor (minimum of the right subtree) or inorder predecessor (maximum of left subtree), then recursively delete that replacement node",
+        "Replace the node with the root of the tree",
+        "Delete both children and re-insert their values into the root",
+        "Replace the node with null and shift all right child pointers leftward"
+      ],
+      "correct": 0,
+      "explanation": "The inorder successor is guaranteed to be greater than all nodes in the left subtree and smaller than all remaining nodes in the right subtree. Substituting it into the target node preserves the ordering invariant across the entire tree."
+    },
+    {
+      "id": 7,
+      "question": "In an AVL Tree, what triggers a Left-Right (LR) double rotation during insertion?",
+      "options": [
+        "A node's balance factor becomes +2 and the new element was inserted into the right subtree of its left child",
+        "Both left and right child pointers reference identical nodes",
+        "The root node has an odd number of total descendants",
+        "A deletion occurs on a leaf node with two parent references"
+      ],
+      "correct": 0,
+      "explanation": "When a node has balance factor +2 (left-heavy) and its left child is right-heavy (balance factor -1), a single rotation cannot restore balance. An initial Left rotation on the left child followed by a Right rotation on the node restores balance."
+    },
+    {
+      "id": 8,
+      "question": "Why should a custom data structure playground distinguish between 'logical memory visualization' and 'actual JVM physical memory'?",
+      "options": [
+        "Because JVM garbage collectors move heap objects during compaction, and HotSpot optimizations may scalar-replace or align memory without fixed RAM addresses",
+        "Because Java code runs directly on bare silicon without virtual memory",
+        "Because 64-bit operating systems do not use pointers",
+        "Because memory addresses in Java change every 10 milliseconds"
+      ],
+      "correct": 0,
+      "explanation": "Logical diagrams represent reference relationships (nodes pointing to next nodes). Physical memory in HotSpot is subject to object header alignment (16-byte boundaries), compressed OOPs, GC relocation, and escape analysis."
+    },
+    {
+      "id": 9,
+      "question": "Why is measuring code execution speed using `System.nanoTime()` alone considered unreliable for scientifically valid Java performance benchmarks?",
+      "options": [
+        "`System.nanoTime()` fails to account for JVM warm-up phases, JIT Tiered compilation tier promotions, GC pause spikes, and dead-code elimination",
+        "`System.nanoTime()` has a resolution of only 1 second on modern operating systems",
+        "The Java runtime automatically disables `System.nanoTime()` inside loops",
+        "`System.nanoTime()` can only measure single-threaded code"
+      ],
+      "correct": 0,
+      "explanation": "Microbenchmarks require JMH (Java Microbenchmark Harness) to properly warm up HotSpot JIT compilation tiers, prevent loop dead-code elimination via Blackholes, randomize iterations, and isolate GC interference."
+    },
+    {
+      "id": 10,
+      "question": "In software engineering requirement analysis, which of the following represents an unambiguous, testable 'Acceptance Criterion'?",
+      "options": [
+        "When the user selects Merge Sort and submits an array of 1,000 random integers, the visualizer sorts all elements in non-decreasing order in under 2 seconds, displaying comparison counts and allowing pause/step navigation",
+        "The algorithm visualizer should look nice and sort arrays quickly",
+        "The backend must be built using modern software practices",
+        "Users should enjoy solving coding problems on the platform"
+      ],
+      "correct": 0,
+      "explanation": "Acceptance criteria must be concrete, testable, and measurable with verifiable outcomes, inputs, time limits, and UI capabilities."
+    },
+    {
+      "id": 11,
+      "question": "When designing the database schema for a Coding Interview Platform (Project 2), what is the appropriate entity relationship between User and Submission?",
+      "options": [
+        "One-to-Many: One user can have multiple submissions, and each submission belongs to exactly one user",
+        "One-to-One: A user is only permitted a single submission across the platform",
+        "Many-to-Many: Submissions can belong to multiple users simultaneously",
+        "No relationship is required in relational database design"
+      ],
+      "correct": 0,
+      "explanation": "A registered candidate submits multiple solutions over time across different problems. Thus, `User` (1) connects to `Submission` (Many) via `user_id` foreign key."
+    },
+    {
+      "id": 12,
+      "question": "In an online judge system, what does the verdict 'Time Limit Exceeded' (TLE) indicate?",
+      "options": [
+        "The user's program failed to complete execution within the allocated CPU/wall-clock time budget (typically 1-2 seconds)",
+        "The candidate submitted their solution after the interview assessment deadline expired",
+        "The database server was too slow to save the code",
+        "The user took longer than 15 minutes to type their solution"
+      ],
+      "correct": 0,
+      "explanation": "TLE occurs when a program exceeds the per-test-case execution time threshold (e.g. 1000ms), usually indicating an asymptotic complexity that is too high (e.g. $O(N^2)$ instead of $O(N log N)$) or an infinite loop."
+    },
+    {
+      "id": 13,
+      "question": "What is the core benefit of applying the Test-Driven Development (TDD) cycle (Red -> Green -> Refactor) when implementing complex DSA data structures?",
+      "options": [
+        "Writing tests first forces precise definition of edge behavior, invariants, and API contracts before writing code, preventing regression bugs during optimization",
+        "TDD automatically generates documentation without human intervention",
+        "TDD guarantees that an algorithm runs in O(1) time",
+        "The Java compiler requires test files to precede source code files"
+      ],
+      "correct": 0,
+      "explanation": "TDD ensures that interface contracts, boundary handling, and edge cases are concretely established in automated tests prior to implementation, allowing fearless refactoring and optimization."
+    },
+    {
+      "id": 14,
+      "question": "Which of the following edge cases MUST be tested when verifying a custom Binary Search implementation?",
+      "options": [
+        "Empty array `[]`, single-element array (found and absent), first element, last element, duplicate elements, and absent target",
+        "Testing whether the user has a mechanical keyboard",
+        "Running the code on a mobile browser emulator",
+        "Passing non-ASCII characters into an integer array"
+      ],
+      "correct": 0,
+      "explanation": "Binary search algorithms frequently fail on boundary bounds: single element arrays, looking for elements smaller than the first item or greater than the last item, empty inputs, and duplicate occurrences."
+    },
+    {
+      "id": 15,
+      "question": "When packaging a desktop JavaFX application for distribution without requiring users to install an external JRE, which standard tool is used?",
+      "options": [
+        "`jpackage` (introduced in modern JDKs to bundle the application with a customized minimal Java runtime into native installers)",
+        "`javadoc`",
+        "`rmic`",
+        "`jstack`"
+      ],
+      "correct": 0,
+      "explanation": "`jpackage` creates platform-native installable packages (.exe/.msi on Windows, .dmg/.pkg on macOS, .deb/.rpm on Linux) bundling a tailored modular JRE created by `jlink`."
+    },
+    {
+      "id": 16,
+      "question": "In the recommended Capstone Assessment Rubric, what is the highest-weighted evaluation category?",
+      "options": [
+        "Data Structures and Algorithms (25%)",
+        "Interface visual styling (50%)",
+        "Number of Git branches (40%)",
+        "Number of lines of code written (70%)"
+      ],
+      "correct": 0,
+      "explanation": "As an engineering capstone for a Java + DSA master course, Data Structures & Algorithms forms the intellectual core (25%), followed by Java OOP (15%), Architecture (15%), and Testing (15%)."
+    },
+    {
+      "id": 17,
+      "question": "Why should an engineering Git repository enforce a clean `.gitignore` file from the initial commit?",
+      "options": [
+        "To prevent compiled binaries (`.class`, `target/`), IDE caches (`.idea/`, `.vscode/`), and secret credential files from polluting version history",
+        "Because Git cannot track files larger than 100 kilobytes",
+        "Because GitHub deletes repositories that contain uncompiled Java files",
+        "To ensure that only .txt files can be committed"
+      ],
+      "correct": 0,
+      "explanation": "A proper `.gitignore` prevents committing build artifacts, local editor configurations, and sensitive credentials, keeping the repository lightweight, portable, and secure."
+    },
+    {
+      "id": 18,
+      "question": "In a 10-slide capstone technical presentation, what should the engineering architecture slide demonstrate?",
+      "options": [
+        "The modular system layers, component responsibilities, data flow pipelines, and separation between presentation, logic, and infrastructure",
+        "A full printout of every Java method in font size 6",
+        "A photograph of the development laptop setup",
+        "A list of every keyboard shortcut used during coding"
+      ],
+      "correct": 0,
+      "explanation": "The architecture slide demonstrates engineering maturity by illustrating how the system decomposes into independent modules, how data flows between layers, and why responsibilities were partitioned."
+    },
+    {
+      "id": 19,
+      "question": "In Dijkstra's algorithm visualization on a weighted graph, why is an edge relaxation step highlighted visually?",
+      "options": [
+        "To show when a shorter path to an adjacent neighbor has been discovered, updating its tentative distance and predecessor pointer",
+        "To demonstrate that the graph contains a negative cycle",
+        "To delete the edge from the graph permanently",
+        "To calculate the average degree of all nodes in the component"
+      ],
+      "correct": 0,
+      "explanation": "Edge relaxation is the core invariant of Dijkstra: if `dist[u] + weight(u, v) < dist[v]`, the algorithm discovers a superior route to vertex `v`, updating the distance table and prioritizing `v` in the queue."
+    },
+    {
+      "id": 20,
+      "question": "What is the ultimate differentiator between an amateur coder and a professional Java software engineer upon completing this 24-module capstone?",
+      "options": [
+        "The ability to translate complex business problems into modular architectures, select provably optimal data structures, write testable bug-free code, and defend design trade-offs",
+        "The ability to memorize syntax rules from the Java specification",
+        "Typing Java code at over 120 words per minute",
+        "Using third-party libraries for every single algorithmic operation"
+      ],
+      "correct": 0,
+      "explanation": "Software engineering transcends raw syntax. It involves structured problem decomposition, architectural design, provable correctness, defensive testing, empirical performance measurement, and articulate technical communication."
+    }
+  ]
+}

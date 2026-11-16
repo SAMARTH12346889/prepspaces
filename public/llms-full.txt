@@ -2058,3 +2058,34 @@ Topics Covered:
   - 22. 35 Practice Problems Across 4 Levels: Core Fundamentals, Interview Patterns, Trees/Graphs/DP, and Mock Assessment Simulations
   - 23. 15 Comprehensive Assessment MCQs with Explanations and Instant Scorecards
   - 24. 8 Interactive Workbenches: 7-Step Coding Interview Workflow Simulator, Brute Force to Optimized Transformer, Systematic Dry-Run Simulator, Edge Case Stress Tester, Think-Explain-Implement Communication Trainer, Floyd's Cycle Detection Visualizer, Kadane's Subarray Max Step Visualizer, and Mock Interview Scoring & Mistake Diagnostic Matrix
+
+### Module 24: Final Java & DSA Capstone Project
+URL: https://prepspaces.com/learning/java/capstone-project
+Topics Covered:
+  - 1. Understanding the Three Capstone Projects: Comparative Evaluation of Project 1 (Interactive DSA Algorithm Visualizer), Project 2 (Java Coding Interview Platform), and Project 3 (Intelligent Data Structures Playground)
+  - 2. What is an Algorithm Visualizer: Real-Time Animated Execution, State Transition Step Events, Play/Pause/Resume/Step Controls, and Dashboard Concepts
+  - 3. Visualize Sorting Algorithms: Step-By-Step Mechanics for Bubble, Selection, Insertion, Merge, Quick, and Heap Sort with Operation Counters and Space/Time Asymptotics
+  - 4. Visualize Searching Algorithms: Linear Search Traversal vs Binary Search Interval Halving, Pointer Tracking (Left, Mid, Right), and Sortedness Invariants
+  - 5. Visualize Trees: Hierarchical Structures, Binary Search Tree (BST) Invariants, Insertion Animations, Searching Paths, In-Order Successor Deletion, and Traversals (Inorder, Preorder, Postorder, Level-Order)
+  - 6. Visualize Graphs: Vertices, Edges, Weights, Breadth-First Search (BFS) Radial Exploration, Depth-First Search (DFS) Stack Backtracking, Dijkstra's Shortest Path with PriorityQueue Edge Relaxation, and Prim's Minimum Spanning Tree
+  - 7. Dynamic Programming Visualization: Tabulation State Calculations, Overlapping Subproblems Highlighting, Fibonacci Table, Climbing Stairs, and 2D 0/1 Knapsack Decision Grids
+  - 8. Architecture for Project 1: Layered Decoupling (Presentation Layer, Visualization Engine, Algorithm Engine, Core Data Structures), Compact AlgorithmStep Records, and Maven/JavaFX Package Layouts
+  - 9. What is a Coding Interview Platform: Mini-LeetCode Architecture, Problem Management, Monaco Code Workspace, Judge Engine, Isolated Non-Root Docker Sandboxes, Resource Limits (CPU/Memory/Timeout), Verdict Evaluation (AC, WA, TLE, MLE, CE), Submission Histories, Leaderboards, and Relational Database Schemas
+  - 10. What is a Data Structures Playground: Implementing Collections from Scratch, Generic DynamicArray with 2x Geometric Doubling and System.arraycopy, Singly/Doubly LinkedLists, Separate Chaining HashMap with Bucket Resizing, AVL Self-Balancing Rotations (LL, RR, LR, RL), Logical Memory Reference Visualizations, and JMH Benchmarking
+  - 11. Project Architecture: Software Architecture Fundamentals, Layered Enterprise Systems (Presentation, Service, Domain/Algorithm, Infrastructure), and Strict Separation of Responsibilities
+  - 12. Requirement Analysis: Functional vs Non-Functional Requirements, Performance Baselines, Memory Boundaries, and Testable Given-When-Then Acceptance Criteria
+  - 13. Data Structure Selection: Architectural Decision Framework for Choosing HashMap, HashSet, TreeMap, PriorityQueue, ArrayDeque, and Concurrent BlockingQueue
+  - 14. Algorithm Design: Structured 10-Step Algorithmic Formulation Process: Inputs, Outputs, Constraints, Pseudocode, Invariants, Edge Cases, Complexity, and Correctness Proofs
+  - 15. Java Implementation Standards: Production OOP Standards, Encapsulation, Polymorphism, Interface Abstractions, Generic Collections, and Robust Defensive Exception Hierarchies
+  - 16. Unit Testing: Automated Testing with JUnit 5, Unit vs Integration vs Regression Testing, and Test-Driven Development (TDD) Red-Green-Refactor Lifecycle
+  - 17. What is Edge Case Testing: Defensive Input Validation Boundaries, Empty Collections, Single Elements, Duplicates, Negative Bounds, Integer Overflows, Disconnected Graphs, and Testing Matrices
+  - 18. What is Performance Benchmarking: NanoTime Limitations, Java Microbenchmark Harness (JMH), JVM Warm-Up Cycles, Tiered Compilation Impact, and Big-O Scalability vs Physical Cache Hardware Latency
+  - 19. Version Control: Git Repository Hygiene, Atomic Commits, Feature Branching Workflows, Conventional Commit Standards, .gitignore Configuration, and Public GitHub Deliverables
+  - 20. Project Documentation: Professional README Authoring, System Architecture Diagrams, Installation Prerequisites, Complexity Matrices, and Empirical Testing Reports
+  - 21. What is Deployment: Desktop Native Application Bundles with jpackage, Backend Docker Containerization, and Isolated Execution Worker Network Segmentation
+  - 22. How to Present Your Project: Engineering Defense Structure, 11 Technical Talking Points, and 10-Slide Architecture Presentation Deck
+  - 23. Implementation Phases: Controlled 10-Phase Roadmap: Requirements, Architecture, Data Structures, Algorithms, MVP Features, Testing, Optimization, Git/Docs, Deployment, and Defense
+  - 24. How Should the Project Be Evaluated: 100% Weighted Assessment Rubric (OOP 15%, DSA 25%, Architecture 15%, Testing 15%, Performance 10%, Docs 10%, Deployment 10%) and 5 Competency Achievement Tiers
+  - 25. 35 Capstone Engineering Milestones Across 4 Tiers: Planning & Architecture, Core Data Structures & Algorithms, Custom Structures & Engine UX, Testing, Benchmarking & Defense
+  - 26. 15 Comprehensive Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
+  - 27. 8 Interactive Workbenches: Capstone Project Selector & Blueprint Generator, Sorting & Searching Animation Studio, Tree & Graph Exploration Engine, DP Table State Visualizer, Isolated Judge Engine Simulator, Custom Data Structure Memory Studio, Benchmark & Profiling Comparison Matrix, and Capstone Evaluation Rubric & 21-Step Readiness Checklist

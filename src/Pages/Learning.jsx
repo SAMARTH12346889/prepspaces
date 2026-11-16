@@ -265,6 +265,7 @@ const learningTracks = [
       "Advanced Problem-Solving Patterns, Backtracking & Pruning, Branch & Bound, Binary Search on Answer, Monotonic Stacks & Queues, Tree DP, Greedy Proofs, Difference Arrays, Offline Queries & Mo's Algorithm",
       "Java Collections Framework Internals, ArrayList 50% Resizing, HashMap Treeification & Bit Spreading, TreeMap Red-Black Invariants, PriorityQueue Min-Heaps, Java Memory Model (JMM), Volatile Happens-Before, Generational Garbage Collection (G1/ZGC), HotSpot JIT Tiered Compilation, TLABs, JMH Microbenchmarking & JFR Diagnostics",
       "Technical Interview Methodology, 7-Step Coding Framework, Brute-Force to O(N) Optimization, Requirement Clarification, Edge-Case Analysis, Dry-Run Verification, Think-Explain-Implement Communication, Floyd's Cycle Detection, Kadane's Algorithm, Mock Interviews & Placement Scoring",
+      "Final Java & DSA Capstone Engineering, Interactive DSA Visualizer Architecture, Coding Interview Online Judge Sandbox Platform, Custom Data Structures Playground, JUnit 5 Test-Driven Development, JMH Microbenchmarks, Platform Deployment & Technical Defense",
     ],
   },
 ];

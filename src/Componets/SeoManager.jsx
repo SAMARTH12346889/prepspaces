@@ -225,6 +225,12 @@ const routeMeta = {
     keywords: "Technical Interview Preparation Java, Coding Interview Framework, Brute Force to Optimized Java, Two Sum HashMap O(N), Systematic Dry Run Trace Table, Edge Case Checklist Technical Interview, Think-Aloud Interview Protocol, Floyds Cycle Detection Fast Slow Pointers, Kadanes Algorithm Java, Linked List Reverse Java, Online Assessment OA Strategy, Mock Interview Scoring Rubric, Software Engineering Placement Prep, FAANG Coding Interview Java, DSA Interview Masterclass, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/interview-mastery`,
   },
+  "/learning/java/capstone-project": {
+    title: "Module 24: Final Java & DSA Capstone Project | PrepSpaces",
+    description: "Design, implement, test, benchmark, and deploy a complete production-grade Java engineering capstone project: Interactive DSA Algorithm Visualizer, Java Coding Interview Online Judge Sandbox Platform, or Intelligent Data Structures Playground from scratch. Master layered software architecture, compact AlgorithmStep replay events, non-root isolated judge sandboxing with CPU/memory limits, custom DynamicArray and AVL Tree implementations, JMH microbenchmarking vs nanoTime, JUnit 5 test-driven development, edge-case testing matrices, jpackage deployment, and 10-slide architectural technical presentations.",
+    keywords: "Java DSA Capstone Project, Algorithm Visualizer Java, Online Judge Architecture Java, Coding Interview Platform Project, Custom Data Structures Playground Java, DynamicArray Capacity Resizing Java, AVL Tree Rotations Java, JUnit 5 Testing DSA, JMH Microbenchmarking Java, jpackage JavaFX Deployment, Isolated Docker Judge Worker, Software Engineering Portfolio Project, Java Master Course PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/capstone-project`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

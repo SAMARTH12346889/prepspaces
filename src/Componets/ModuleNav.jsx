@@ -244,6 +244,7 @@ export const JAVA_MODULES = [
   { id: "problem-solving-patterns", name: "21. Advanced Problem-Solving Patterns", route: "/learning/java/problem-solving-patterns" },
   { id: "collections-jvm", name: "22. Java Collections, JVM & Performance Engineering", route: "/learning/java/collections-jvm" },
   { id: "interview-mastery", name: "23. Technical Interview & Placement Mastery", route: "/learning/java/interview-mastery" },
+  { id: "capstone-project", name: "24. Final Java & DSA Capstone Project", route: "/learning/java/capstone-project" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

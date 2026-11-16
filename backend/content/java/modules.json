@@ -251,5 +251,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "capstone-project",
+    "courseId": "java-programming",
+    "index": 24,
+    "name": "24. Final Java & DSA Capstone Project",
+    "route": "/learning/java/capstone-project",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]
