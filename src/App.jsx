@@ -189,6 +189,7 @@ const JavaArraysStrings = React.lazy(() => import("./Componets/JavaArraysStrings
 const JavaOOP = React.lazy(() => import("./Componets/JavaOOP"));
 const JavaAdvanced = React.lazy(() => import("./Componets/JavaAdvanced"));
 const JavaRecursion = React.lazy(() => import("./Componets/JavaRecursion"));
+const JavaComplexity = React.lazy(() => import("./Componets/JavaComplexity"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1643,6 +1644,12 @@ function App() {
             <Route path="/learning/java/module-6" element={<JavaRecursion />} />
             <Route path="/courses/java/recursion-backtracking" element={<JavaRecursion />} />
             <Route path="/learn/java/recursion-backtracking" element={<JavaRecursion />} />
+            <Route path="/learning/java/complexity-analysis" element={<JavaComplexity />} />
+            <Route path="/learning/java/algorithm-analysis" element={<JavaComplexity />} />
+            <Route path="/learning/java/big-o" element={<JavaComplexity />} />
+            <Route path="/learning/java/module-7" element={<JavaComplexity />} />
+            <Route path="/courses/java/complexity-analysis" element={<JavaComplexity />} />
+            <Route path="/learn/java/complexity-analysis" element={<JavaComplexity />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

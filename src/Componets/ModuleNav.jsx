@@ -227,6 +227,7 @@ export const JAVA_MODULES = [
   { id: "oop", name: "4. Object-Oriented Programming (OOP) with Java", route: "/learning/java/oop" },
   { id: "advanced", name: "5. Advanced Java Programming", route: "/learning/java/advanced" },
   { id: "recursion-backtracking", name: "6. Recursion, Backtracking & Mathematical Foundations", route: "/learning/java/recursion-backtracking" },
+  { id: "complexity-analysis", name: "7. Algorithm Analysis & Big-O Complexity", route: "/learning/java/complexity-analysis" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

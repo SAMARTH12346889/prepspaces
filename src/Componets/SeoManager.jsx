@@ -123,6 +123,12 @@ const routeMeta = {
     keywords: "Java Recursion, Backtracking Java, N-Queens Problem, Sudoku Backtracking, Call Stack Java, Recursion Tree, Tail Recursion, Mathematical Induction Java, Permutations Combinations Java, Power Set Java, Maze Pathfinding, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/recursion-backtracking`,
   },
+  "/learning/java/complexity-analysis": {
+    title: "Module 7: Algorithm Analysis & Big-O Complexity | PrepSpaces",
+    description: "Master algorithm analysis, asymptotic bounds (Big-O, Big-Omega, Big-Theta), loop invariant correctness proofs, best/average/worst cases, nested loop analysis, recurrence relations, Master Theorem, amortized analysis, and time-space trade-offs.",
+    keywords: "Algorithm Analysis, Big-O Notation, Asymptotic Complexity, Big Omega, Big Theta, Loop Invariants, Master Theorem, Recurrence Relations, Amortized Analysis, Dynamic Array Doubling, Time Space Trade-offs, Auxiliary Space, Java Algorithms, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/complexity-analysis`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

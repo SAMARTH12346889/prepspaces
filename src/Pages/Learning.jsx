@@ -248,6 +248,7 @@ const learningTracks = [
       "Exceptions, Generics, PECS & Stream API Pipelines",
       "Recursion, Mathematical Induction & Combinatorics",
       "Backtracking Solvers: N-Queens, Sudoku & Mazes",
+      "Algorithm Analysis, Big-O, Master Theorem & Amortized Doubling",
     ],
   },
 ];

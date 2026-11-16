@@ -1547,3 +1547,31 @@ Topics Covered:
   - 25. Practical Worked Problem Set: Digit Sum, Fast Exponentiation O(log n) & Binary Search
   - 26. Complete Capstone Project: Interactive Recursive & Backtracking Problem Solver Application
   - 27. 20 Assessment MCQs, 10 Labs, 10 Assignments, 30 Challenges & DSA Transition Roadmap
+
+### Module 7: Algorithm Analysis & Big-O Complexity
+URL: https://prepspaces.com/learning/java/complexity-analysis
+Topics Covered:
+  - 1. What Is an Algorithm: Definiteness, Finiteness, Effectiveness & Input Size n
+  - 2. Algorithm Correctness: Preconditions, Postconditions, Partial Correctness & Termination
+  - 3. Loop Invariants: Initialization, Maintenance & Termination Correctness Proofs
+  - 4. Binary Search Correctness: Interval Reduction & Invariant Preservation
+  - 5. Time Complexity vs Space Complexity: Resource Growth Functions as n Scales
+  - 6. Asymptotic Analysis: Dominant Growth Terms, Constant Elimination & Hardware Independence
+  - 7. Big-O Notation (O): Mathematical Definition, Upper Bounds & Growth Classification
+  - 8. Big-Omega (Ω) & Big-Theta (Θ): Asymptotic Lower Bounds & Tight Asymptotic Bounds
+  - 9. Best-Case, Average-Case & Worst-Case Analysis: Input Distributions & Guarantees
+  - 10. Common Complexity Classes: O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ), O(n!)
+  - 11. Nested Loop Analysis: Sequential Addition vs Full Multiplication & Dependent Arithmetic Series
+  - 12. Logarithmic Loops: Halving and Doubling Variables (i *= 2, n /= 2) & Nested Logarithms
+  - 13. Recursive Complexity: Call-Stack Depth, Activation Records & Non-Recursive Overhead
+  - 14. Recurrence Relations: Formulations, Expansion Method & Common Recurrence Catalog
+  - 15. The Master Theorem: Form aT(n/b) + f(n), Recursive vs Non-Recursive Domination & 3 Cases
+  - 16. Master Theorem Exceptions: Inapplicable Subtractive Recurrences & Irregular Costs
+  - 17. Amortized Analysis: Aggregate Method, Accounting Method & Potential Function Credit Bank
+  - 18. Dynamic Array Resizing: Geometric Doubling (Capacity 2ⁿ) & Proof of O(1) Amortized Append
+  - 19. Auxiliary Space vs Total Space: Extra Allocation vs Input Size & In-Place Algorithms
+  - 20. Time-Space Trade-Offs: Brute-Force Comparisons vs HashSet Memory & Precomputed Lookup Tables
+  - 21. Searching & Sorting Algorithms Complexity Matrix: Complete Comparison of 8 Foundational Algorithms
+  - 22. Practical 7-Step Algorithm Analysis Method: Step-by-Step Execution for Technical Interviews
+  - 23. Common Complexity Mistakes: Nested Loop Traps, Stack Omission & Expected vs Worst Guarantees
+  - 24. 4 Hands-on Labs, 4 Engineering Assignments, 10 MCQs, 15 Short-Answer Questions & Mini-Project Capstone

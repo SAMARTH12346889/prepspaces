@@ -593,7 +593,7 @@ export default function JavaRecursion() {
           courseId="java-programming"
           currentModuleId="recursion-backtracking"
           prevRoute="/learning/java/advanced"
-          nextRoute={null}
+          nextRoute="/learning/java/complexity-analysis"
         />
 
         {activeTab === "curriculum" ? (
