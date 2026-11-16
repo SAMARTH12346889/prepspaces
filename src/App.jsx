@@ -202,6 +202,7 @@ const JavaGreedyAlgorithms = React.lazy(() => import("./Componets/JavaGreedyAlgo
 const JavaGraphTheory = React.lazy(() => import("./Componets/JavaGraphTheory"));
 const JavaShortestPathsMST = React.lazy(() => import("./Componets/JavaShortestPathsMST"));
 const JavaDynamicProgramming = React.lazy(() => import("./Componets/JavaDynamicProgramming"));
+const JavaAdvancedDP = React.lazy(() => import("./Componets/JavaAdvancedDP"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1744,6 +1745,13 @@ function App() {
             <Route path="/learning/java/module-19" element={<JavaDynamicProgramming />} />
             <Route path="/courses/java/dynamic-programming" element={<JavaDynamicProgramming />} />
             <Route path="/learn/java/dynamic-programming" element={<JavaDynamicProgramming />} />
+
+            <Route path="/learning/java/advanced-dp" element={<JavaAdvancedDP />} />
+            <Route path="/learning/java/advanced-dynamic-programming" element={<JavaAdvancedDP />} />
+            <Route path="/learning/java/bitmask-dp" element={<JavaAdvancedDP />} />
+            <Route path="/learning/java/module-20" element={<JavaAdvancedDP />} />
+            <Route path="/courses/java/advanced-dp" element={<JavaAdvancedDP />} />
+            <Route path="/learn/java/advanced-dp" element={<JavaAdvancedDP />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

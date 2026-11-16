@@ -1949,3 +1949,32 @@ Topics Covered:
   - 28. 35 Practice Problems Across 4 Levels: Fundamentals, Knapsack & Subsets, String & Subsequences, Advanced 2D & Interval DP
   - 29. 15 Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
   - 30. 8 Interactive Workbenches: Fibonacci Quad Visualizer, Climbing Stairs Cost, House Robber Studio, 0/1 Knapsack Table, Unbounded Knapsack, Subset Sum Matrix, Coin Change Lab, String DP Studio (LCS & Edit Distance)
+
+### Module 20: Advanced Dynamic Programming & Algorithm Design
+URL: https://prepspaces.com/learning/java/advanced-dp
+Topics Covered:
+  - 1. Advanced DP State Modeling: Multi-Variable Constraints, 5-Step Formulation Recipe, Pseudopolynomial Complexity Analysis
+  - 2. Multi-Dimensional DP: 2D/3D State Formulations (Multi-Resource Knapsack with Weight & Volume, Stock Trading Limits)
+  - 3. Grid DP: 2D Spatial Coordinate Transitions, Handling Obstacles (dp[r][c] = 0), Minimum Path Sums
+  - 4. String DP: Levenshtein Edit Distance (Insert, Delete, Replace), Contiguous Substrings vs Subsequences
+  - 5. Longest Palindromic Subsequence (LPS): Interval Expansion, Backward Row Traversal, Equivalence to LCS(s, reverse(s))
+  - 6. Tree DP: Post-Order State Vector (take, skip), House Robber III, Tree Diameter, Independent Sets in O(N) Time
+  - 7. Graph DP on DAGs: Topological Linearization, Longest Path Relaxation in O(V + E), Condensation DAGs for Cyclic Graphs
+  - 8. Bitmask DP: Binary Integer Representation of Visited Subsets, Submask Transitions, Exponential Subset State Spaces
+  - 9. Traveling Salesman Problem (TSP): NP-Hard Tour Minimization via Bitmask DP O(N² 2ⁿ) with Return-Edge Completion
+  - 10. Digit DP: Counting Numbers in [0, N] with Digit Sum or Pattern Properties, Position, Sum, and Tight Prefix Constraints
+  - 11. Interval DP: Contiguous Sub-Range Optimization, Matrix Chain Multiplication, and Burst Balloons Inside-Out Transition
+  - 12. DP Optimization Techniques: State Reduction, Rolling Variables, Monotonic Queues, Convex Hull Trick, Knuth Optimization
+  - 13. Space Optimization in DP: Compressing 2D Tables into 1D Reverse Arrays or 2-Row Rolling Buffers in O(N) Memory
+  - 14. Divide-and-Conquer DP: Accelerating Partition Recurrences from O(KN²) to O(KN log N) via Split Monotonicity opt[i] <= opt[i+1]
+  - 15. Meet in the Middle: Splitting Exponential Search Spaces of Size N into N/2 to Reduce Complexity to O(N 2^(N/2))
+  - 16. Bit Manipulation Fundamentals: Six Bitwise Operators, Two's Complement ~x = -x - 1, and Bit Shifting Semantics
+  - 17. Bit Manipulation Techniques: Parity Check (n & 1), Power of Two (n & (n - 1) == 0), Brian Kernighan Bit Count, Isolate Rightmost Bit (n & -n)
+  - 18. XOR Techniques: Self-Inversion, Single Number Isolation, Partitioning Two Unique Numbers, 4-Step Periodic Range XOR
+  - 19. Bitmasking & Submask Enumeration: Permission Sets, Generating 2ⁿ Subsets, and sub = (sub - 1) & mask Iteration Trick
+  - 20. Mathematical Patterns: Euclidean GCD, LCM, Sieve of Eratosthenes, Modular Arithmetic, Binary Exponentiation, Fermat's Inverse
+  - 21. Randomized Algorithms: Las Vegas vs Monte Carlo, Randomized QuickSort, Reservoir Sampling Stream Selection
+  - 22. Complexity & Correctness Proofs: States x Transitions Rule, Mathematical Induction, Loop Invariants, and Greedy Exchange Arguments
+  - 23. 35 Practice Problems Across 4 Levels: Foundations, Tree & Graph DP, Advanced State DP, and Optimization
+  - 24. 15 Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
+  - 25. 8 Interactive Workbenches: 3D Knapsack, Grid DP Obstacles, LPS String DP, Tree DP Robber, TSP Bitmask, Digit DP Counter, Meet in Middle, Bitwise & XOR Lab

@@ -598,10 +598,10 @@ export default function JavaDynamicProgramming() {
       <ModuleNav
         currentModuleId="dynamic-programming"
         currentTrack="java"
-        totalModules={19}
+        totalModules={20}
         accentColor="indigo"
         prevRoute="/learning/java/shortest-paths-mst"
-        nextRoute={null}
+        nextRoute="/learning/java/advanced-dp"
       />
 
       {/* Hero Banner */}

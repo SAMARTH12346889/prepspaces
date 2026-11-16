@@ -201,6 +201,12 @@ const routeMeta = {
     keywords: "Dynamic Programming Java, DP Fundamentals, Memoization vs Tabulation, Overlapping Subproblems, Optimal Substructure, 1D DP, Climbing Stairs LeetCode 70, Min Cost Climbing Stairs, House Robber LeetCode 198, House Robber II 213, 0/1 Knapsack Java, Unbounded Knapsack, Subset Sum Problem, Partition Equal Subset Sum 416, Coin Change LeetCode 322, Coin Change II 518, Longest Common Subsequence LCS 1143, Longest Increasing Subsequence LIS 300, Edit Distance LeetCode 72, Matrix Chain Multiplication MCM, Dynamic Programming Patterns, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/dynamic-programming`,
   },
+  "/learning/java/advanced-dp": {
+    title: "Module 20: Advanced Dynamic Programming & Algorithm Design | PrepSpaces",
+    description: "Master advanced dynamic programming and algorithm design in Java: Multidimensional DP, Grid DP, String DP (LCS, Edit Distance, Longest Palindromic Subsequence), Tree DP (House Robber III, Tree Diameter), Graph DP on DAGs, Bitmask DP & Traveling Salesman Problem (TSP), Digit DP with tightness tracking, Interval DP (Matrix Chain Multiplication, Burst Balloons), Divide-and-Conquer DP optimization, Meet in the Middle, Bit Manipulation (Brian Kernighan, XOR techniques, submask enumeration), Number Theory (GCD, Sieve, Modular Inverses, Fermat), Randomized Algorithms (Las Vegas vs Monte Carlo, Reservoir Sampling), and Correctness Proofs (Induction, Loop Invariants, Exchange Arguments).",
+    keywords: "Advanced Dynamic Programming Java, Multi-Dimensional DP, Grid DP with Obstacles, Longest Palindromic Subsequence LPS, Tree DP House Robber III, DAG DP Topological Longest Path, Bitmask DP Java, Traveling Salesman Problem TSP Java, Digit DP LeetCode, Interval DP Burst Balloons LeetCode 312, Matrix Chain Multiplication MCM, Divide and Conquer DP Optimization, Meet in the Middle LeetCode, Brian Kernighan Algorithm, XOR Partitioning Two Numbers, Las Vegas vs Monte Carlo, Reservoir Sampling LeetCode 382, Correctness Proofs Induction Loop Invariants, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/advanced-dp`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
