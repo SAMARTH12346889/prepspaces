@@ -18,9 +18,6 @@ import {
   Cpu,
   Globe,
   Brain,
-  Shield,
-  Blocks,
-  Database,
   Play,
   CheckCircle2,
   Clock,
@@ -104,42 +101,6 @@ export default function Landingpage() {
       color: "from-stone-900 to-orange-600",
       tag: "Infrastructure",
     },
-    {
-      id: "cloud",
-      title: "Cloud Computing",
-      subtitle: "AWS, Azure, GCP & Multi-Cloud Architecture",
-      route: "/learning/cloud",
-      icon: Cloud,
-      color: "from-orange-600 to-amber-600",
-      tag: "Cloud Systems",
-    },
-    {
-      id: "cybersecurity",
-      title: "Cybersecurity Masterclass",
-      subtitle: "University-Informed Security Engineering & Ethical Hacking",
-      route: "/learning/cybersecurity",
-      icon: Shield,
-      color: "from-stone-900 via-orange-950 to-orange-600",
-      tag: "Security & Defense",
-    },
-    {
-      id: "blockchain",
-      title: "Blockchain Technology",
-      subtitle: "Cryptography, Consensus, Smart Contracts & EVM",
-      route: "/learning/blockchain",
-      icon: Blocks,
-      color: "from-zinc-900 via-stone-900 to-amber-700",
-      tag: "Decentralized Systems",
-    },
-    {
-      id: "data-engineering",
-      title: "Data Engineering Master Course",
-      subtitle: "Pipelines, Distributed Systems, Lakehouses & Streaming",
-      route: "/learning/data-engineering",
-      icon: Database,
-      color: "from-stone-900 via-orange-950 to-orange-600",
-      tag: "Data Systems",
-    },
   ];
 
   // Real available entry topics
@@ -177,7 +138,7 @@ export default function Landingpage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex antialiased font-sans selection:bg-[#f97316] selection:text-white">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] flex antialiased font-sans selection:bg-[#f97316] selection:text-white overflow-x-hidden">
       {/* Soft Ambient Warm Glow Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-orange-400/[0.04] rounded-full blur-[140px]" />
@@ -277,7 +238,7 @@ export default function Landingpage() {
       </aside>
 
       {/* ================= MAIN CONTENT AREA ================= */}
-      <div className="flex-1 flex flex-col min-w-0 z-10">
+      <div className="flex-1 flex flex-col min-w-0 z-10 overflow-x-hidden">
         {/* Top Header */}
         <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#e7e3da] bg-[#f6f4ee]/80 px-3.5 sm:px-6 py-2.5 sm:py-4 pt-[max(0.6rem,env(safe-area-inset-top))] backdrop-blur-xl md:px-10">
           <div className="flex items-center gap-2.5 sm:gap-4">
@@ -395,21 +356,24 @@ export default function Landingpage() {
           </section>
 
           {/* ================= 2-COLUMN GRID (WHITE GLASS SURFACES) ================= */}
-          <div className="grid grid-cols-1 gap-3.5 sm:gap-6 md:grid-cols-2 items-stretch">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2 items-stretch">
             {/* 1. LEARNING PATHS CARD */}
-            <section className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/80 p-4 sm:p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full">
+            <section className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/80 p-4 sm:p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full min-w-0">
               <div>
                 <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                   <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
                     LEARNING PATHS
                   </span>
+                  <span className="rounded-full bg-orange-50 text-[#ea580c] border border-orange-200/60 px-2.5 py-0.5 text-[11px] sm:text-xs font-bold">
+                    5 Flagship Tracks
+                  </span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-[#18181b]">Explore All Tracks</h3>
                 <p className="mt-1 text-xs md:text-sm text-stone-500 leading-relaxed">
-                  Explore system design, DevOps, cloud computing, and programming fundamentals through structured learning modules.
+                  Explore AI, system design, operating systems, networks, and DevOps through structured masterclass tracks.
                 </p>
 
-                {/* Real Available Tracks */}
+                {/* Real Available Tracks - Exactly 5 Flagship Tracks */}
                 <div className="my-3.5 sm:my-5 space-y-2 sm:space-y-3">
                   {availableTracks.map((track) => {
                     const Icon = track.icon;
@@ -417,28 +381,28 @@ export default function Landingpage() {
                       <Link
                         key={track.id}
                         to={track.route}
-                        className="group flex items-center justify-between rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs"
+                        className="group flex items-center justify-between gap-3 rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs min-w-0"
                       >
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 min-w-0 flex-1">
                           <div className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${track.color} text-white shadow-xs`}>
                             <Icon size={17} />
                           </div>
-                          <div>
-                            <h4 className="text-xs sm:text-sm font-bold text-[#18181b] group-hover:text-[#ea580c] transition">
+                          <div className="min-w-0 flex-1">
+                            <h4 className="text-xs sm:text-sm font-bold text-[#18181b] group-hover:text-[#ea580c] transition truncate">
                               {track.title}
                             </h4>
-                            <p className="text-[11px] text-stone-500 line-clamp-1">
+                            <p className="text-[11px] text-stone-500 truncate">
                               {track.subtitle}
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="hidden lg:inline-block rounded-md border border-stone-200 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-stone-600">
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span className="hidden xl:inline-block rounded-md border border-stone-200 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-stone-600 whitespace-nowrap">
                             {track.tag}
                           </span>
                           <ChevronRight
                             size={16}
-                            className="text-stone-400 group-hover:translate-x-0.5 group-hover:text-[#ea580c] transition"
+                            className="text-stone-400 group-hover:translate-x-0.5 group-hover:text-[#ea580c] transition shrink-0"
                           />
                         </div>
                       </Link>
@@ -459,7 +423,7 @@ export default function Landingpage() {
             </section>
 
             {/* 2. EXPLORE TOPICS CARD */}
-            <section className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/80 p-4 sm:p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full">
+            <section className="rounded-2xl sm:rounded-3xl border border-[#e7e3da] bg-white/80 p-4 sm:p-6 md:p-7 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full min-w-0">
               <div>
                 <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                   <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
@@ -474,34 +438,34 @@ export default function Landingpage() {
                   Choose a learning track and continue exploring technical concepts at your own pace.
                 </p>
 
-                {/* Real Available Starter Topics */}
+                {/* Real Available Starter Topics - Exactly 5 Featured Topics */}
                 <div className="my-3.5 sm:my-5 space-y-2 sm:space-y-3">
                   {featuredTopics.map((topic, idx) => (
                     <Link
                       key={idx}
                       to={topic.route}
-                      className="group flex items-center justify-between rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs"
+                      className="group flex items-center justify-between gap-3 rounded-xl sm:rounded-2xl border border-stone-200/60 bg-stone-50/70 p-2.5 sm:p-3.5 cursor-pointer transition-all hover:border-orange-300 hover:bg-white hover:shadow-xs min-w-0"
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 min-w-0 flex-1">
                         <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-[#ea580c]">
                           <Compass size={17} />
                         </div>
-                        <div>
-                          <h4 className="text-xs sm:text-sm font-bold text-[#18181b] group-hover:text-[#ea580c] transition">
+                        <div className="min-w-0 flex-1">
+                          <h4 className="text-xs sm:text-sm font-bold text-[#18181b] group-hover:text-[#ea580c] transition truncate">
                             {topic.title}
                           </h4>
-                          <p className="text-[11px] text-stone-500">
+                          <p className="text-[11px] text-stone-500 truncate">
                             {topic.track}
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="hidden lg:inline-block rounded-md border border-stone-200 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-stone-600">
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="hidden xl:inline-block rounded-md border border-stone-200 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-stone-600 whitespace-nowrap">
                           {topic.tag}
                         </span>
                         <ChevronRight
                           size={16}
-                          className="text-stone-400 group-hover:translate-x-0.5 group-hover:text-[#ea580c] transition"
+                          className="text-stone-400 group-hover:translate-x-0.5 group-hover:text-[#ea580c] transition shrink-0"
                         />
                       </div>
                     </Link>
