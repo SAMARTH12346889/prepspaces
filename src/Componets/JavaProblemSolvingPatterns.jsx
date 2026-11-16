@@ -521,8 +521,8 @@ export default function JavaProblemSolvingPatterns() {
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="problem-solving-patterns"
-        currentTrack="java"
-        totalModules={22}
+        track="java"
+        totalModules={24}
         accentColor="indigo"
         prevRoute="/learning/java/advanced-dp"
         nextRoute="/learning/java/collections-jvm"
@@ -586,7 +586,7 @@ export default function JavaProblemSolvingPatterns() {
             }`}
           >
             <BookOpen className="w-4 h-4" />
-            Curriculum Reader (23 Sections)
+            Curriculum Reader (22 Sections)
           </button>
           <button
             onClick={() => setActiveMode("labs")}
@@ -1027,7 +1027,9 @@ export default function JavaProblemSolvingPatterns() {
             <div className="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
               <div className="border-b border-slate-800 pb-4">
                 <div className="text-xs font-mono text-indigo-400 uppercase tracking-wider mb-1">
-                  Section {activeSection.id} of 22
+                  {activeSection.id === 0
+                    ? "Module Overview · 22 Core Sections"
+                    : `Section ${activeSection.id} of 22`}
                 </div>
                 <h2 className="text-xl md:text-2xl font-bold text-white">
                   {activeSection.title}

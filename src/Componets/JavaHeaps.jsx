@@ -531,6 +531,7 @@ export default function JavaHeaps() {
     <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500 selection:text-white">
       {/* Top sticky module navigation bar */}
       <ModuleNav
+        track="java"
         currentModuleId="heaps"
         prevRoute="/learning/java/trees"
         nextRoute="/learning/java/specialized-ds"

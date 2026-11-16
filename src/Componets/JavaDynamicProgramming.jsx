@@ -597,8 +597,8 @@ export default function JavaDynamicProgramming() {
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="dynamic-programming"
-        currentTrack="java"
-        totalModules={20}
+        track="java"
+        totalModules={24}
         accentColor="indigo"
         prevRoute="/learning/java/shortest-paths-mst"
         nextRoute="/learning/java/advanced-dp"
@@ -662,7 +662,7 @@ export default function JavaDynamicProgramming() {
             }`}
           >
             <BookOpen className="w-4 h-4" />
-            Curriculum Reader (32 Sections)
+            Curriculum Reader (31 Sections)
           </button>
           <button
             onClick={() => setActiveMode("labs")}
@@ -1523,7 +1523,9 @@ export default function JavaDynamicProgramming() {
             <div className="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
               <div className="border-b border-slate-800 pb-4">
                 <div className="text-xs font-mono text-indigo-400 uppercase tracking-wider mb-1">
-                  Section {activeSection.id} of 31
+                  {activeSection.id === 0
+                    ? "Module Overview · 31 Core Sections"
+                    : `Section ${activeSection.id} of 31`}
                 </div>
                 <h2 className="text-xl md:text-2xl font-bold text-white">
                   {activeSection.title}

@@ -277,6 +277,7 @@ export const BLOCKCHAIN_MODULES = [
 export default function ModuleNav({
   track: propTrack,
   trackId,
+  currentTrack,
   course,
   currentModuleId: propCurrentModuleId,
   activeModuleId,
@@ -289,7 +290,7 @@ export default function ModuleNav({
   const { isAuthenticated, user, logout } = useAuth();
   const scrollRef = useRef(null);
 
-  const rawTrack = propTrack || trackId || course;
+  const rawTrack = propTrack || trackId || currentTrack || course;
 
   // Auto-detect track if omitted, defaulted to "cloud", or passed as trackId/course
   const track = useMemo(() => {
@@ -689,6 +690,10 @@ export default function ModuleNav({
                   ? "AI Engineering"
                   : track === "blockchain"
                   ? "Blockchain"
+                  : track === "data-engineering"
+                  ? "Data Engineering"
+                  : track === "java" || track === "java-programming"
+                  ? "Java & DSA"
                   : "Cloud"
               }
             />
@@ -720,13 +725,14 @@ export default function ModuleNav({
                 key={mod.id}
                 data-active={isActive ? "true" : undefined}
                 onClick={() => navigate(mod.route)}
+                title={mod.name}
                 className={`shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold transition-all duration-200 cursor-pointer min-h-[34px] sm:min-h-[38px] inline-flex items-center gap-1.5 ${
                   isActive
                     ? "bg-[#f97316] text-white shadow-sm shadow-orange-500/25"
                     : "text-stone-600 hover:bg-stone-100/80 hover:text-stone-900"
                 }`}
               >
-                <span className="truncate max-w-[140px] xs:max-w-[180px] sm:max-w-none">{mod.name}</span>
+                <span className="whitespace-nowrap shrink-0">{mod.name}</span>
                 {isCompleted && (
                   <span
                     className={`inline-flex items-center gap-0.5 rounded-md px-1.5 py-0.5 text-[9px] font-bold shrink-0 ${

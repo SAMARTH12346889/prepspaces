@@ -730,7 +730,7 @@ export default function JavaGreedyAlgorithms() {
             <aside className="lg:col-span-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 sticky top-20 max-h-[82vh] overflow-y-auto space-y-3 dark-scrollbar">
               <div className="flex items-center justify-between pb-2 border-b border-slate-800">
                 <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                  23 Sections
+                  22 Sections
                 </span>
                 <span className="text-[11px] font-mono text-amber-400">100% Fidelity</span>
               </div>
@@ -758,7 +758,9 @@ export default function JavaGreedyAlgorithms() {
               <div className="border-b border-slate-800 pb-4 flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <span className="text-xs font-mono text-amber-400 font-semibold uppercase tracking-wider">
-                    {JAVA_GREEDY_ALGORITHMS_SECTIONS[activeSectionId]?.category || "Curriculum"}
+                    {activeSectionId === 0
+                      ? "Module Overview · 22 Core Sections"
+                      : `Section ${activeSectionId} of 22 · ${JAVA_GREEDY_ALGORITHMS_SECTIONS[activeSectionId]?.category || "Curriculum"}`}
                   </span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight mt-1">
                     {JAVA_GREEDY_ALGORITHMS_SECTIONS[activeSectionId]?.title}

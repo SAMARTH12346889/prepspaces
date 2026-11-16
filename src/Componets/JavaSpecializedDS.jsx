@@ -807,7 +807,7 @@ export default function JavaSpecializedDS() {
               }`}
             >
               <BookOpen className="w-4 h-4" />
-              Curriculum (38 Sections)
+              Curriculum (37 Sections)
             </button>
             <button
               onClick={() => setActiveTab("quiz")}
@@ -839,7 +839,7 @@ export default function JavaSpecializedDS() {
       <div className="bg-slate-900/60 border-b border-slate-800/80 px-4 py-2 text-xs">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-slate-400">
           <div className="flex items-center gap-4">
-            <span>Reading Progress: <strong className="text-emerald-400">{completedSectionCount}</strong> of 38 Sections</span>
+            <span>Reading Progress: <strong className="text-emerald-400">{completedSectionCount}</strong> of 37 Sections</span>
             <span>•</span>
             <span>Practical Labs: <strong className="text-cyan-400">{completedLabCount}</strong> of 45 Completed</span>
           </div>
@@ -1978,10 +1978,17 @@ export default function JavaSpecializedDS() {
                   <article className="bg-slate-900 border border-slate-800 rounded-2xl p-6 lg:p-8 space-y-6">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
                       <div>
-                        <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                          {currentSec.category}
-                        </span>
-                        <h2 className="text-xl md:text-2xl font-bold text-white mt-2">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                            {currentSec.id === 0
+                              ? "Module Overview · 37 Core Sections"
+                              : `Section ${currentSec.id} of 37`}
+                          </span>
+                          <span className="text-xs text-slate-400 font-mono">
+                            {currentSec.category}
+                          </span>
+                        </div>
+                        <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
                           {currentSec.title}
                         </h2>
                       </div>

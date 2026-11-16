@@ -634,8 +634,8 @@ export default function JavaAdvancedDP() {
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="advanced-dp"
-        currentTrack="java"
-        totalModules={21}
+        track="java"
+        totalModules={24}
         accentColor="indigo"
         prevRoute="/learning/java/dynamic-programming"
         nextRoute="/learning/java/problem-solving-patterns"
@@ -699,7 +699,7 @@ export default function JavaAdvancedDP() {
             }`}
           >
             <BookOpen className="w-4 h-4" />
-            Curriculum Reader (31 Sections)
+            Curriculum Reader (30 Sections)
           </button>
           <button
             onClick={() => setActiveMode("labs")}
@@ -1242,7 +1242,9 @@ export default function JavaAdvancedDP() {
             <div className="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
               <div className="border-b border-slate-800 pb-4">
                 <div className="text-xs font-mono text-indigo-400 uppercase tracking-wider mb-1">
-                  Section {activeSection.id} of 30
+                  {activeSection.id === 0
+                    ? "Module Overview · 30 Core Sections"
+                    : `Section ${activeSection.id} of 30`}
                 </div>
                 <h2 className="text-xl md:text-2xl font-bold text-white">
                   {activeSection.title}

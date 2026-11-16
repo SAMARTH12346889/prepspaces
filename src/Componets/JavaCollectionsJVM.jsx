@@ -681,8 +681,8 @@ export default function JavaCollectionsJVM() {
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="collections-jvm"
-        currentTrack="java"
-        totalModules={23}
+        track="java"
+        totalModules={24}
         accentColor="indigo"
         prevRoute="/learning/java/problem-solving-patterns"
         nextRoute="/learning/java/interview-mastery"
@@ -728,7 +728,7 @@ export default function JavaCollectionsJVM() {
             }`}
           >
             <BookOpen className="w-4 h-4" />
-            Curriculum Reader ({JAVA_COLLECTIONS_JVM_SECTIONS.length} Sections)
+            Curriculum Reader (23 Sections)
           </button>
 
           <button
@@ -808,7 +808,9 @@ export default function JavaCollectionsJVM() {
               <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
                 <div>
                   <div className="text-xs font-mono text-indigo-400 uppercase tracking-wider mb-1">
-                    Section {selectedSection} of {JAVA_COLLECTIONS_JVM_SECTIONS.length - 1}
+                    {selectedSection === 0
+                      ? "Module Overview · 23 Core Sections"
+                      : `Section ${selectedSection} of 23`}
                   </div>
                   <h2 className="text-xl md:text-2xl font-bold text-white">
                     {JAVA_COLLECTIONS_JVM_SECTIONS[selectedSection]?.title}

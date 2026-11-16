@@ -645,6 +645,7 @@ for (int right = 0; right < s.length(); right++) {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white pb-16">
       {/* Module Navigation Header */}
       <ModuleNav
+        track="java"
         currentModuleId="interview-mastery"
         moduleTitle="23. Technical Interview & Placement Mastery"
         totalModules={24}
@@ -675,7 +676,7 @@ for (int right = 0; right < s.length(); right++) {
             <div className="flex flex-wrap md:flex-col gap-3 shrink-0">
               <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
                 <Code2 className="w-4 h-4 text-emerald-400" />
-                <span>24 Curriculum Sections</span>
+                <span>23 Curriculum Sections</span>
               </div>
               <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
                 <Zap className="w-4 h-4 text-amber-400" />
@@ -699,7 +700,7 @@ for (int right = 0; right < s.length(); right++) {
               }`}
             >
               <BookOpen className="w-4 h-4" />
-              Curriculum (24 Sections)
+              Curriculum (23 Sections)
             </button>
             <button
               onClick={() => setActiveTab("workbenches")}
@@ -815,7 +816,9 @@ for (int right = 0; right < s.length(); right++) {
                   <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
                     <div>
                       <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
-                        Section {activeSectionId} of 23
+                        {activeSectionId === 0
+                          ? "Module Overview · 23 Core Sections"
+                          : `Section ${activeSectionId} of 23`}
                       </span>
                       <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
                         {JAVA_INTERVIEW_MASTERY_SECTIONS[activeSectionId]?.title}
@@ -888,7 +891,7 @@ for (int right = 0; right < s.length(); right++) {
                     >
                       <div className="mb-4">
                         <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
-                          Section {sec.id}
+                          {sec.id === 0 ? "Module Overview" : `Section ${sec.id} of 23`}
                         </span>
                         <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-1">
                           {sec.title}

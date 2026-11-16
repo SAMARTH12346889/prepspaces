@@ -496,6 +496,7 @@ export default function JavaCapstone() {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white pb-16">
       {/* Module Navigation Header */}
       <ModuleNav
+        track="java"
         currentModuleId="capstone-project"
         moduleTitle="24. Final Java & DSA Capstone Project"
         totalModules={24}
@@ -526,7 +527,7 @@ export default function JavaCapstone() {
             <div className="flex flex-wrap md:flex-col gap-3 shrink-0">
               <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
                 <Code2 className="w-4 h-4 text-emerald-400" />
-                <span>26 Curriculum Sections</span>
+                <span>25 Project Sections</span>
               </div>
               <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
                 <Zap className="w-4 h-4 text-amber-400" />
@@ -550,7 +551,7 @@ export default function JavaCapstone() {
               }`}
             >
               <BookOpen className="w-4 h-4" />
-              Curriculum (26 Sections)
+              Curriculum (25 Sections)
             </button>
             <button
               onClick={() => setActiveTab("workbenches")}
@@ -666,7 +667,9 @@ export default function JavaCapstone() {
                   <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
                     <div>
                       <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
-                        Section {activeSectionId} of 25
+                        {activeSectionId === 0
+                          ? "Capstone Overview · 25 Project Sections"
+                          : `Section ${activeSectionId} of 25`}
                       </span>
                       <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
                         {JAVA_CAPSTONE_SECTIONS[activeSectionId]?.title}
@@ -739,7 +742,7 @@ export default function JavaCapstone() {
                     >
                       <div className="mb-4">
                         <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
-                          Section {sec.id}
+                          {sec.id === 0 ? "Capstone Overview" : `Section ${sec.id} of 25`}
                         </span>
                         <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-1">
                           {sec.title}

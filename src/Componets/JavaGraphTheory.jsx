@@ -685,7 +685,7 @@ export default function JavaGraphTheory() {
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
                   <Layers className="w-3.5 h-3.5 text-indigo-400" />
-                  Sections ({JAVA_GRAPH_THEORY_SECTIONS.length})
+                  Sections (25)
                 </span>
                 <span className="text-[10px] text-slate-400 font-mono">Module 17</span>
               </div>
@@ -695,7 +695,7 @@ export default function JavaGraphTheory() {
                 <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Filter 26 sections..."
+                  placeholder="Filter 25 sections..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-400 focus:outline-none focus:border-indigo-500"
@@ -733,7 +733,9 @@ export default function JavaGraphTheory() {
                       <div>
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                            Section {currentSec.id} of {JAVA_GRAPH_THEORY_SECTIONS.length - 1}
+                            {currentSec.id === 0
+                              ? "Module Overview · 25 Core Sections"
+                              : `Section ${currentSec.id} of 25`}
                           </span>
                           <span className="text-xs text-slate-400">PrepSpaces Java Masterclass</span>
                         </div>

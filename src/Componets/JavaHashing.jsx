@@ -654,6 +654,7 @@ export default function JavaHashing() {
     <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500 selection:text-white">
       {/* Top sticky module navigation bar */}
       <ModuleNav
+        track="java"
         currentModuleId="hashing"
         prevRoute="/learning/java/stacks-queues"
         nextRoute="/learning/java/trees"

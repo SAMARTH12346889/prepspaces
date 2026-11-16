@@ -789,7 +789,7 @@ export default function JavaTwoPointersSlidingWindow() {
               }`}
             >
               <BookOpen className="w-4 h-4" />
-              Curriculum (24 Sections)
+              Curriculum (23 Sections)
             </button>
             <button
               onClick={() => setActiveTab("quiz")}
@@ -821,7 +821,7 @@ export default function JavaTwoPointersSlidingWindow() {
       <div className="bg-slate-900/60 border-b border-slate-800/80 px-4 py-2 text-xs">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-slate-400">
           <div className="flex items-center gap-4">
-            <span>Reading Progress: <strong className="text-emerald-400">{completedSecCount}</strong> of 24 Sections</span>
+            <span>Reading Progress: <strong className="text-emerald-400">{completedSecCount}</strong> of 23 Sections</span>
             <span>&bull;</span>
             <span>Practice Labs: <strong className="text-cyan-400">{completedLabCount}</strong> of 30 Completed</span>
           </div>
@@ -1642,10 +1642,17 @@ export default function JavaTwoPointersSlidingWindow() {
                   <article className="bg-slate-900 border border-slate-800 rounded-2xl p-6 lg:p-8 space-y-6">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
                       <div>
-                        <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                          {currentSec.category}
-                        </span>
-                        <h2 className="text-xl md:text-2xl font-bold text-white mt-2">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                            {currentSec.id === 0
+                              ? "Module Overview · 23 Core Sections"
+                              : `Section ${currentSec.id} of 23`}
+                          </span>
+                          <span className="text-xs text-slate-400 font-mono">
+                            {currentSec.category}
+                          </span>
+                        </div>
+                        <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
                           {currentSec.title}
                         </h2>
                       </div>
