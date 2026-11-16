@@ -147,6 +147,12 @@ const routeMeta = {
     keywords: "Java Stack, Java Queue, Java Deque, ArrayDeque, Circular Queue Java, Monotonic Stack Java, Next Greater Element Java, Stock Span Problem, Largest Rectangle in Histogram, Sliding Window Maximum Monotonic Deque, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/stacks-queues`,
   },
+  "/learning/java/hashing": {
+    title: "Module 11: Hashing & Hash-Based Data Structures | PrepSpaces",
+    description: "Master hashing and hash-based data structures in Java: hash functions, uniform distribution, separate chaining, open addressing (linear, quadratic, double hashing), load factor, rehashing, Java HashMap internals (bit spreading, power-of-two mask, Red-Black treeification), LinkedHashMap LRU Cache, TreeMap, custom equals() and hashCode() contracts, Two Sum, and Longest Consecutive Sequence.",
+    keywords: "Java Hashing, Java HashMap Internals, Treeification HashMap, Separate Chaining Java, Linear Probing, Quadratic Probing, Double Hashing, LinkedHashMap LRU Cache, equals and hashCode contract, Two Sum Java, Longest Consecutive Sequence Java, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/hashing`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

@@ -1654,3 +1654,35 @@ Topics Covered:
   - 18. 14 Common Pitfalls & Antipatterns: java.util.Stack Legacy Lock Overhead, Array Shift Dequeue, Circular Queue Modulo Off-by-One, Empty Stack Pop
   - 19. 16 Practical Laboratories & Assignments: Circular Queue, Min Stack, Queue with Stacks, Sliding Window, Postfix Evaluator
   - 20. 20 Assessment MCQs with Detailed Explanations & Reference Solutions
+
+### Module 11: Hashing & Hash-Based Data Structures
+URL: https://prepspaces.com/learning/java/hashing
+Topics Covered:
+  - 1. Introduction to Hashing: Key-to-Index Translation, Linear Search Inefficiencies, University DB & O(1) Expected Operations
+  - 2. Hash Functions & Uniform Distribution: Determinism, Fast Computation, Minimizing Collisions & String Polynomial Hashing (s0*31^(n-1) + ...)
+  - 3. Hash Tables & Basic Implementation: Key-Value Bucketing, Insertion, Searching, Deletion & Direct Array Indexing
+  - 4. Hash Collisions: Pigeonhole Principle, Finite Table Constraints, Collisions Inevitability & Resolution Approaches
+  - 5. Separate Chaining: Linked-List Bucket Topology, Node Allocation, Dynamic Chaining, Containment Check & O(1) Average Search
+  - 6. Open Addressing: Direct Array Storage, Cache Locality, Probe Sequences & Probing Formula Invariants
+  - 7. Linear Probing: Formula h_i(k) = (h(k) + i) % m, Step-by-Step Traversal, Primary Clustering & Tombstone Deletion
+  - 8. Quadratic Probing: Formula h_i(k) = (h(k) + i^2) % m, Primary Clustering Mitigation & Secondary Clustering Trade-offs
+  - 9. Double Hashing: Dual Function Probe (h1(k) + i*h2(k)) % m, Key-Dependent Step Sizes, Prime Capacity & Optimal Slot Dispersion
+  - 10. Load Factor: Formula alpha = n / m, Space-Time Trade-offs, Collision Density & Java HashMap 0.75 Empirical Selection
+  - 11. Rehashing: Table Doubling, Threshold Trigger (capacity * 0.75), Entry Redistribution, Modulo Shift & Amortized O(1) Insertion
+  - 12. Java HashMap Internals: Node<K,V> Buckets, Hash Spreading (h ^ (h >>> 16)), Power-of-Two Bitmask ((n - 1) & hash), Put/Get Traversal
+  - 13. Treeification Engine: TREEIFY_THRESHOLD = 8, MIN_TREEIFY_CAPACITY = 64, Red-Black Tree O(log n) Guarantees & UNTREEIFY_THRESHOLD = 6
+  - 14. Java HashSet: Backed by Internal HashMap, Dummy PRESENT Value, Uniqueness Guarantees & Array Deduplication
+  - 15. Java LinkedHashMap: Doubly-Linked Entry Header, Insertion-Order Traversal, Access-Order Mode & LRU Cache via removeEldestEntry()
+  - 16. Java TreeMap: Red-Black Tree Architecture, Sorted Keys, Logarithmic Search/Insert O(log n) & Range Queries (floorKey, ceilingKey)
+  - 17. Frequency Maps: Count Maintenance, getOrDefault(k, 0) + 1, Modern Map.merge(), Character Counts & Max Frequency Extraction
+  - 18. Custom hashCode() and equals() Contract: Logical Equality vs Object Reference, Hash Invariant, Bucket Lookup Failure & Records
+  - 19. Anagram Problems: Character Sorting O(n log n), Frequency Map O(n), 26-Element Array O(1) Memory & Group Anagrams Hashing
+  - 20. Duplicate Detection: HashSet Membership, First Duplicate Identification, Repeated Characters & System Deduplication
+  - 21. Two Sum Problem: Brute Force O(n^2) vs Complement Hashing (target - current) in Linear O(n) Time
+  - 22. Longest Consecutive Sequence: HashSet O(n) Algorithm, Sequence Start Condition (num - 1 absent) & Streak Expansion
+  - 23. Core Hashing Patterns for Interviews: Fast Lookup, Complement Match, Frequency Counting, Grouping, Membership & Access Tracking
+  - 24. Overall Complexity Cheat Sheet: HashMap, HashSet, LinkedHashMap, LinkedHashSet, TreeMap, TreeSet Comparative Matrix
+  - 25. 30 Theory Interview Questions: Internal Workings, Collision Resolution, Treeification, Thread Safety & Immutability
+  - 26. 30 Practical Coding Assignments: Beginner (1-10), Intermediate (11-20), Advanced (21-30) Hands-on Laboratories
+  - 27. Curated LeetCode Practice Track: 12 High-Yield Problems with Difficulty Tiers and Concept Classification
+  - 28. 20 Assessment MCQs with Comprehensive Explanations & Verification Solutions

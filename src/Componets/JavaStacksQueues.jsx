@@ -698,7 +698,7 @@ export default function JavaStacksQueues() {
           courseId="java-programming"
           currentModuleId="stacks-queues"
           prevRoute="/learning/java/linked-lists"
-          nextRoute={null}
+          nextRoute="/learning/java/hashing"
         />
 
         {/* ======================================================== */}

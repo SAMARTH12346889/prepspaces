@@ -108,5 +108,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "hashing",
+    "courseId": "java-programming",
+    "index": 11,
+    "name": "11. Hashing & Hash-Based Data Structures",
+    "route": "/learning/java/hashing",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

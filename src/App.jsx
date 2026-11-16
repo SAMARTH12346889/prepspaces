@@ -193,6 +193,7 @@ const JavaComplexity = React.lazy(() => import("./Componets/JavaComplexity"));
 const JavaSearchingSorting = React.lazy(() => import("./Componets/JavaSearchingSorting"));
 const JavaLinkedLists = React.lazy(() => import("./Componets/JavaLinkedLists"));
 const JavaStacksQueues = React.lazy(() => import("./Componets/JavaStacksQueues"));
+const JavaHashing = React.lazy(() => import("./Componets/JavaHashing"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1671,6 +1672,12 @@ function App() {
             <Route path="/learning/java/module-10" element={<JavaStacksQueues />} />
             <Route path="/courses/java/stacks-queues" element={<JavaStacksQueues />} />
             <Route path="/learn/java/stacks-queues" element={<JavaStacksQueues />} />
+            <Route path="/learning/java/hashing" element={<JavaHashing />} />
+            <Route path="/learning/java/hash-tables" element={<JavaHashing />} />
+            <Route path="/learning/java/hashmap" element={<JavaHashing />} />
+            <Route path="/learning/java/module-11" element={<JavaHashing />} />
+            <Route path="/courses/java/hashing" element={<JavaHashing />} />
+            <Route path="/learn/java/hashing" element={<JavaHashing />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />
