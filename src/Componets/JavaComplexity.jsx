@@ -640,7 +640,7 @@ export default function JavaComplexity() {
           courseId="java-programming"
           currentModuleId="complexity-analysis"
           prevRoute="/learning/java/recursion-backtracking"
-          nextRoute={null}
+          nextRoute="/learning/java/searching-sorting"
         />
 
         {activeTab === "curriculum" ? (

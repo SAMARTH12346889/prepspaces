@@ -188,7 +188,7 @@
     "route": "/learning/java",
     "tag": "Software Engineering & Systems",
     "modulesCount": "Comprehensive Modules",
-    "totalModules": 7,
+    "totalModules": 8,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
@@ -199,7 +199,8 @@
       "Exceptions, Generics, PECS & Collections Framework",
       "Lambdas, Stream API Pipelines & NIO.2 Storage",
       "Recursion, Induction, Backtracking, N-Queens & Sudoku",
-      "Algorithm Analysis, Big-O, Master Theorem & Amortized Doubling"
+      "Algorithm Analysis, Big-O, Master Theorem & Amortized Doubling",
+      "Searching & Sorting, Binary Bounds, Rotated Search & TimSort"
     ]
   }
 ]

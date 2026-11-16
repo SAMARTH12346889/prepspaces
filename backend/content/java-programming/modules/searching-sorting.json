@@ -1,0 +1,285 @@
+{
+  "id": "searching-sorting",
+  "courseId": "java-programming",
+  "index": 8,
+  "name": "8. Searching & Sorting Algorithms",
+  "title": "Searching, Sorting & Parametric Search Algorithms",
+  "description": "Master foundational and advanced searching and sorting algorithms in Java: linear search, iterative and recursive binary search, lower and upper bounds, rotated sorted array search, binary search on answer (monotonic predicates), elementary sorting (bubble, selection, insertion), efficient divide-and-conquer sorting (merge sort, quicksort, heap sort), non-comparison linear sorting (counting, radix, bucket sort), stability invariants, and Java standard library sorting APIs (Arrays.sort and Collections.sort).",
+  "duration": "14-16 hours",
+  "level": "Core DSA / Algorithms",
+  "route": "/learning/java/searching-sorting",
+  "componentName": "JavaSearchingSorting",
+  "topics": [
+    "What Is Searching: Search Keys, Unsorted vs Sorted Collections & Strategy Trade-offs",
+    "What Is Sorting: Ascending vs Descending, Comparison vs Non-Comparison Lower Bounds (Ω(n log n))",
+    "Linear Search: Sequential Scanning, Best/Avg/Worst Cases & When to Use",
+    "Binary Search: Divide & Conquer Halving, Loop Invariants & Mid Overflow Prevention (low + (high - low) / 2)",
+    "Recursive vs Iterative Binary Search: Auxiliary Stack Frames vs O(1) Iteration",
+    "Binary Search Prerequisites: Sorted Invariants, Consistent Comparators & RandomAccess Lists",
+    "Binary Search on Answer (Parametric Search): Monotonic Predicates & Minimum/Maximum Feasibility Bounds",
+    "Worked Parametric Search: Minimum Ship Capacity Within D Days (O(n log R))",
+    "Lower Bound & Upper Bound: Half-Open Intervals [low, high), First >= Target vs First > Target",
+    "Counting Occurrences & Frequency Range: upperBound(x) - lowerBound(x) in O(log n)",
+    "Search in Rotated Sorted Arrays: Distinct Values Pivot Logic vs Duplicate Handling Degradation",
+    "Bubble Sort: Adjacent Inversion Swapping, Early-Exit Flag Optimization & Stability Proof",
+    "Selection Sort: Unsorted Suffix Minimum Selection, O(n) Swaps & Instability Proof",
+    "Insertion Sort: Sorted Prefix Element Insertion, Adaptive O(n) Best Case & Online Data Feasibility",
+    "Merge Sort: Divide-and-Conquer Recurrence T(n)=2T(n/2)+Θ(n), Stability Preserving <= Merge & O(n) Buffer",
+    "External Merge Sort: Multi-Way Run Merging for Datasets Larger than Physical RAM",
+    "Quick Sort: Lomuto Partitioning, Pivot Selection Strategies & Quicksort Recurrence Analysis",
+    "Quicksort Optimizations: Median-of-Three, 3-Way Partitioning (Dutch National Flag) & Small Subarray Cutoffs",
+    "Heap Sort: Complete Binary Trees in Arrays (2i+1, 2i+2), Max-Heapify O(n) Build & Guaranteed O(n log n)",
+    "Counting Sort: Non-Comparison Frequency Tallies, Cumulative Prefix Positions & Negative Offset Support",
+    "Radix Sort: Least Significant Digit (LSD) Passes, 4-Byte Signed Shift Bitmasks (>>> shift & 0xFF)",
+    "Bucket Sort: Uniform Interval Distribution [0, 1), Individual Bucket Insertion Sort & Average O(n+k)",
+    "Stable vs Unstable Sorting: Key-Tie Preservation Invariants in Multi-Attribute Database Records",
+    "In-Place vs Out-of-Place Sorting: Auxiliary Memory Bounds & Recursive Stack Overhead Accounting",
+    "Complete Sorting Complexity Matrix: Best, Average, Worst & Space Trade-offs Across 9 Algorithms",
+    "Java Arrays.sort(): Dual-Pivot Quicksort for Primitives vs Adaptive Stable TimSort for Objects",
+    "Java Collections.sort(): List Sorting, Custom Comparators & RandomAccess vs LinkedList Traversal",
+    "Common Interview Archetypes: Koko Eating Bananas, Aggressive Cows, Rotated Arrays & First/Last Positions",
+    "Practical Laboratory Exercises (5 Labs), 6 Independent Assignments & SearchSortToolkit Mini-Project"
+  ],
+  "quiz": [
+    {
+      "id": "m8-q1",
+      "question": "Which searching algorithm works without requiring sorted input?",
+      "options": [
+        "Binary search",
+        "Lower bound",
+        "Linear search",
+        "Upper bound"
+      ],
+      "correctIndex": 2,
+      "explanation": "Linear search inspects elements sequentially one by one, functioning correctly on unsorted and sorted datasets alike."
+    },
+    {
+      "id": "m8-q2",
+      "question": "What is the worst-case time complexity of linear search?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "correctIndex": 2,
+      "explanation": "In the worst case (target at the very end or absent), linear search must examine all n elements, taking O(n) time."
+    },
+    {
+      "id": "m8-q3",
+      "question": "What is the time complexity of binary search on a sorted array?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n²)",
+        "O(2ⁿ)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Binary search repeatedly halves the search space, reducing an interval of size n to 1 in at most log2(n) steps."
+    },
+    {
+      "id": "m8-q4",
+      "question": "What is required for ordinary binary search to produce guaranteed correct results?",
+      "options": [
+        "Unsorted input",
+        "Sorted input with consistent ordering",
+        "A hash table",
+        "A doubly linked list"
+      ],
+      "correctIndex": 1,
+      "explanation": "Binary search relies on elements being sorted so it can safely eliminate half of the remaining candidates after each comparison."
+    },
+    {
+      "id": "m8-q5",
+      "question": "Which search algorithm finds the index of the first element greater than or equal to a target?",
+      "options": [
+        "Upper bound",
+        "Linear search",
+        "Lower bound",
+        "Quick search"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lower bound returns the first index i where array[i] >= target, or array.length if no such element exists."
+    },
+    {
+      "id": "m8-q6",
+      "question": "Which sorting algorithm is based on the divide-and-conquer paradigm?",
+      "options": [
+        "Bubble sort",
+        "Selection sort",
+        "Merge sort",
+        "Linear search"
+      ],
+      "correctIndex": 2,
+      "explanation": "Merge sort divides the array into two halves, recursively sorts them, and merges the sorted halves in linear time."
+    },
+    {
+      "id": "m8-q7",
+      "question": "Which sorting algorithm is stable in its standard implementation?",
+      "options": [
+        "Heap sort",
+        "Selection sort",
+        "Insertion sort",
+        "Standard quicksort"
+      ],
+      "correctIndex": 2,
+      "explanation": "Insertion sort preserves the relative order of equal keys because it only shifts elements strictly greater than the key."
+    },
+    {
+      "id": "m8-q8",
+      "question": "Which sorting algorithm typically requires O(n) additional auxiliary array memory?",
+      "options": [
+        "Heap sort",
+        "Merge sort",
+        "Selection sort",
+        "Bubble sort"
+      ],
+      "correctIndex": 1,
+      "explanation": "Standard array merge sort requires an auxiliary buffer of size n to merge two sorted subarrays."
+    },
+    {
+      "id": "m8-q9",
+      "question": "Which sorting algorithm repeatedly builds a sorted prefix by inserting the next element into its correct place?",
+      "options": [
+        "Insertion sort",
+        "Heap sort",
+        "Counting sort",
+        "Quick sort"
+      ],
+      "correctIndex": 0,
+      "explanation": "Insertion sort takes the next unsorted element and shifts larger elements to the right to insert it at its sorted position."
+    },
+    {
+      "id": "m8-q10",
+      "question": "Which sorting algorithm uses a binary heap data structure?",
+      "options": [
+        "Merge sort",
+        "Heap sort",
+        "Bubble sort",
+        "Bucket sort"
+      ],
+      "correctIndex": 1,
+      "explanation": "Heap sort builds a max heap in O(n) time, then repeatedly extracts the root maximum to achieve in-place O(n log n) sorting."
+    },
+    {
+      "id": "m8-q11",
+      "question": "What is the worst-case time complexity of conventional quicksort?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "correctIndex": 3,
+      "explanation": "If the pivot consistently partitions into 0 and n-1 elements (e.g. sorted input with last-element pivot), quicksort degrades to O(n²)."
+    },
+    {
+      "id": "m8-q12",
+      "question": "Which non-comparison sorting algorithm is particularly efficient when integer values fall within a small range k?",
+      "options": [
+        "Counting sort",
+        "Quick sort",
+        "Heap sort",
+        "Merge sort"
+      ],
+      "correctIndex": 0,
+      "explanation": "Counting sort tallies element frequencies in an array of size k, achieving O(n + k) linear-time performance."
+    },
+    {
+      "id": "m8-q13",
+      "question": "Which technique sorts numbers or strings digit by digit from least significant to most significant digit?",
+      "options": [
+        "Bucket sort",
+        "Radix sort",
+        "Heap sort",
+        "Selection sort"
+      ],
+      "correctIndex": 1,
+      "explanation": "LSD Radix sort performs multiple stable sorting passes on individual digit positions, achieving O(d(n + b)) time."
+    },
+    {
+      "id": "m8-q14",
+      "question": "Which Java standard library class provides the static Arrays.sort() method?",
+      "options": [
+        "java.util.Collections",
+        "java.util.Arrays",
+        "java.lang.Array",
+        "java.util.Sort"
+      ],
+      "correctIndex": 1,
+      "explanation": "Arrays.sort() is a static utility in java.util.Arrays for sorting primitive and object arrays."
+    },
+    {
+      "id": "m8-q15",
+      "question": "Which Java utility method sorts a List collection?",
+      "options": [
+        "Arrays.sort()",
+        "Collections.sort()",
+        "List.search()",
+        "Scanner.sort()"
+      ],
+      "correctIndex": 1,
+      "explanation": "java.util.Collections.sort() sorts List implementations using natural ordering or a provided Comparator."
+    },
+    {
+      "id": "m8-q16",
+      "question": "In binary search on answer problems, what property must the feasibility predicate function satisfy?",
+      "options": [
+        "Associativity",
+        "Monotonicity",
+        "Reflexivity",
+        "Idempotence"
+      ],
+      "correctIndex": 1,
+      "explanation": "The feasibility condition must be monotonic (e.g. false, false, ..., true, true) so that binary search can locate the transition threshold."
+    },
+    {
+      "id": "m8-q17",
+      "question": "In a rotated sorted array with distinct values, how does modified binary search eliminate half the search space?",
+      "options": [
+        "By sorting the array first",
+        "By checking whether numbers[low] <= numbers[mid] to determine which half is normally sorted",
+        "By checking if the array length is even",
+        "By performing linear search on both halves"
+      ],
+      "correctIndex": 1,
+      "explanation": "At least one half of the rotated interval is always strictly sorted. If numbers[low] <= numbers[mid], the left half is sorted; otherwise the right half is sorted."
+    },
+    {
+      "id": "m8-q18",
+      "question": "In bucket sort with insertion sort in each bucket, what is the worst-case time complexity if all elements fall into one bucket?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "correctIndex": 3,
+      "explanation": "If all n elements cluster into a single bucket, sorting that bucket with insertion sort incurs its worst-case O(n²) time."
+    },
+    {
+      "id": "m8-q19",
+      "question": "Does Java guarantee that Collections.sort() is stable for object elements?",
+      "options": [
+        "Yes, stability is guaranteed by the API specification",
+        "No, it uses unstable quicksort",
+        "Only for Integer lists",
+        "Only when sorting in descending order"
+      ],
+      "correctIndex": 0,
+      "explanation": "Java guarantees stable sorting for object collections; equal elements never change relative positions."
+    },
+    {
+      "id": "m8-q20",
+      "question": "How can the exact count of occurrences of target in a sorted array be computed in O(log n) time?",
+      "options": [
+        "upperBound(target) - lowerBound(target)",
+        "upperBound(target) + lowerBound(target)",
+        "binarySearch(target)",
+        "linearSearch(target)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Because lower bound points to the first occurrence and upper bound points immediately after the last occurrence, count = upperBound - lowerBound."
+    }
+  ]
+}

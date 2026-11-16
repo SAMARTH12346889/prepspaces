@@ -1575,3 +1575,29 @@ Topics Covered:
   - 22. Practical 7-Step Algorithm Analysis Method: Step-by-Step Execution for Technical Interviews
   - 23. Common Complexity Mistakes: Nested Loop Traps, Stack Omission & Expected vs Worst Guarantees
   - 24. 4 Hands-on Labs, 4 Engineering Assignments, 10 MCQs, 15 Short-Answer Questions & Mini-Project Capstone
+
+### Module 8: Searching & Sorting Algorithms
+URL: https://prepspaces.com/learning/java/searching-sorting
+Topics Covered:
+  - 1. Searching & Sorting Foundations: Definitions, Role in Systems & Foundational Complexities
+  - 2. Linear Search: Iterative Scan, Early Exit, Multiple Occurrences & Sentinel Technique
+  - 3. Binary Search: Preconditions, Mid Calculation Overflow Prevention & Recursive vs Iterative Implementations
+  - 4. Binary Search Boundaries: Lower Bound & Upper Bound Formulations, Duplicates & Range Counting
+  - 5. Rotated Sorted Array Search: Pivot Identification, Monotonic Subarray Logic & O(log n) Guarantees
+  - 6. Binary Search on Answer: Monotonic Feasibility Predicates & Capacity Allocation (Ship Packages in D Days)
+  - 7. Bubble Sort: Adjacent Pair Swapping, Inversion Reduction & Early-Exit Optimization
+  - 8. Selection Sort: Repeated Minimum Selection, Unstable Swapping Mechanics & Minimal Moves (O(n))
+  - 9. Insertion Sort: Adaptive Card Sorting, Shift vs Swap, Partial Sorted Invariants & O(n) Best Case
+  - 10. Divide-and-Conquer Sorting: Recurrence Relations T(n) = 2T(n/2) + O(n) & Subproblem Independence
+  - 11. Merge Sort: Recursive Division, Two-Pointer Merge Step, Auxiliary Space O(n) & Invariant Stability
+  - 12. Quick Sort: Pivot Selection Strategies (Lomuto vs Hoare), In-Place Partitioning & Worst-Case O(n²) Degeneracy
+  - 13. Heap Sort: Complete Binary Trees, Max-Heap Invariant, In-Place Heapify O(n) & O(n log n) Guaranteed Sort
+  - 14. Non-Comparison Sorting: Ω(n log n) Information-Theoretic Lower Bound & Decision Trees
+  - 15. Counting Sort: Frequency Array, Cumulative Prefix Sums & Stable Reverse Ingestion O(n + k)
+  - 16. Radix Sort: Digit Extraction, Stable Pass-by-Pass Counting Sort & O(d·(n + k)) Bounds
+  - 17. Bucket Sort: Uniform Distribution, Dynamic Scatter-Gather & Hybrid Insertion Sort
+  - 18. Stability in Sorting Algorithms: Preserving Relative Order of Equal Keys & Multi-Column Sorting
+  - 19. In-Place vs Out-of-Place Sorting: Auxiliary Memory Bounds & Memory Hierarchy Cache Locality
+  - 20. Java Arrays.sort() and Collections.sort(): Dual-Pivot Quicksort (Primitives) vs TimSort (Objects)
+  - 21. Comparative Benchmark Analysis: Comprehensive Complexity, Memory, Stability & Adaptive Characteristics
+  - 22. 20 Assessment MCQs, 8 Hands-on Labs, 8 Coding Assignments & DSA Problem Roadmaps

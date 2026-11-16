@@ -129,6 +129,12 @@ const routeMeta = {
     keywords: "Algorithm Analysis, Big-O Notation, Asymptotic Complexity, Big Omega, Big Theta, Loop Invariants, Master Theorem, Recurrence Relations, Amortized Analysis, Dynamic Array Doubling, Time Space Trade-offs, Auxiliary Space, Java Algorithms, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/complexity-analysis`,
   },
+  "/learning/java/searching-sorting": {
+    title: "Module 8: Searching & Sorting Algorithms | PrepSpaces",
+    description: "Master searching and sorting algorithms in Java: linear and binary search, lower/upper bounds, rotated sorted array search, monotonic predicates, bubble/selection/insertion sort, merge sort, quick sort, heap sort, non-comparison counting/radix/bucket sort, stability, and Dual-Pivot Quicksort / TimSort internals.",
+    keywords: "Searching Algorithms, Sorting Algorithms, Java Binary Search, Lower Bound Upper Bound Java, Rotated Array Search, Merge Sort Java, Quick Sort Java, Heap Sort Java, Counting Sort, Radix Sort, Bucket Sort, Sorting Stability, Dual-Pivot Quicksort, TimSort Java, Arrays.sort Internals, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/searching-sorting`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

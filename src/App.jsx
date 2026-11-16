@@ -190,6 +190,7 @@ const JavaOOP = React.lazy(() => import("./Componets/JavaOOP"));
 const JavaAdvanced = React.lazy(() => import("./Componets/JavaAdvanced"));
 const JavaRecursion = React.lazy(() => import("./Componets/JavaRecursion"));
 const JavaComplexity = React.lazy(() => import("./Componets/JavaComplexity"));
+const JavaSearchingSorting = React.lazy(() => import("./Componets/JavaSearchingSorting"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1650,6 +1651,12 @@ function App() {
             <Route path="/learning/java/module-7" element={<JavaComplexity />} />
             <Route path="/courses/java/complexity-analysis" element={<JavaComplexity />} />
             <Route path="/learn/java/complexity-analysis" element={<JavaComplexity />} />
+            <Route path="/learning/java/searching-sorting" element={<JavaSearchingSorting />} />
+            <Route path="/learning/java/sorting" element={<JavaSearchingSorting />} />
+            <Route path="/learning/java/searching" element={<JavaSearchingSorting />} />
+            <Route path="/learning/java/module-8" element={<JavaSearchingSorting />} />
+            <Route path="/courses/java/searching-sorting" element={<JavaSearchingSorting />} />
+            <Route path="/learn/java/searching-sorting" element={<JavaSearchingSorting />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

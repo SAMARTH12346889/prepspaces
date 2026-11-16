@@ -249,6 +249,7 @@ const learningTracks = [
       "Recursion, Mathematical Induction & Combinatorics",
       "Backtracking Solvers: N-Queens, Sudoku & Mazes",
       "Algorithm Analysis, Big-O, Master Theorem & Amortized Doubling",
+      "Searching & Sorting, Binary Bounds, Rotated Search & TimSort",
     ],
   },
 ];
