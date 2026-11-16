@@ -2004,3 +2004,29 @@ Topics Covered:
   - 20. 35 Practice Problems Across 4 Levels: Pattern Recognition, Advanced DS & Algorithms, Advanced Optimization & DP, Contest Multi-Pattern
   - 21. 15 Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
   - 22. 8 Interactive Workbenches: N-Queens Backtracker, Binary Search on Answer Lab, Monotonic Stack Studio, Monotonic Queue Maximum Simulator, Graph Pattern Classifier, Tree DP Independent Set Visualizer, Difference Array Range Updater, Mo's Algorithm Sqrt-Decomposition Simulator
+
+### Module 22: Java Collections, JVM & Performance Engineering
+URL: https://prepspaces.com/learning/java/collections-jvm
+Topics Covered:
+  - 1. Java Collections Framework Deep Dive: Iterable and Collection Hierarchies, Separation of Map Hierarchy, Utility Algorithms, and Fail-Fast Iterators
+  - 2. ArrayList Internals: Dynamic Resizing Mechanics, 50% Capacity Growth Formula, Element Shifting on Insertion/Deletion, and Amortized O(1) Appends
+  - 3. LinkedList Internals: Doubly Linked Node Structure, O(1) First/Last Operations vs O(N) Traversal, and Hardware Cache Locality Disadvantages
+  - 4. HashMap Internals: Bit Spreading Hash Function (hash ^ (hash >>> 16)), Power-of-Two Table Capacity, Separate Chaining, Treeification at 8 Entries, 0.75 Load Factor, and equals()/hashCode() Contracts
+  - 5. TreeMap and TreeSet: Red-Black Tree Invariants, Logarithmic Operations O(log N), NavigableMap Range Queries (firstKey, lastKey, floorKey, ceilingKey, lowerKey, higherKey)
+  - 6. PriorityQueue Implementation: Complete Binary Min-Heap Array Storage, Sift-Up on offer() in O(log N), Sift-Down on poll() in O(log N), and Max-Heap Reverse Comparators
+  - 7. Concurrent Collections: Thread-Safety in JCF, ConcurrentHashMap Lock-Free CAS & Bucket Synchronization, CopyOnWriteArrayList for Read-Heavy Registries, and BlockingQueue for Producer-Consumer Systems
+  - 8. Java Memory Model (JMM): Visibility Problems, Volatile Variable Happens-Before Semantics, Non-Atomic Compound Increments, AtomicInteger CAS Loops, Monitor Locks (synchronized), and Object Immutability
+  - 9. Stack and Heap Memory: Per-Thread JVM Stacks, Method Frames (Local Variables, Operand Stack), StackOverflowError, Shared Heap Memory, References vs Objects, and Metaspace
+  - 10. Garbage Collection: Reachability Analysis from GC Roots, Weak Generational Hypothesis (Eden, S0/S1 Survivors, Tenured Old Gen), Mark-Sweep-Compact, Modern Collectors (G1, ZGC, Shenandoah), Stop-The-World Pauses, and Memory Leaks
+  - 11. JVM Architecture: Bytecode Lifecycle (javac -> .class -> JVM), ClassLoader Subsystem, Runtime Data Areas, Execution Engine (Interpreter + JIT), and Native Interface (JNI)
+  - 12. Class Loading Lifecycle: Loading, Linking (Verification, Preparation, Resolution), Class Initialization, Bootstrap/Platform/Application Loaders, and Parent Delegation Model
+  - 13. JIT Compilation: Just-In-Time Native Compilation, Hot Methods, Tiered Compilation (Interpreter Tier 0 -> C1 Tiers 1-3 -> C2 Server Tier 4), Method Inlining, Escape Analysis (Scalar Replacement), and JVM Warm-up
+  - 14. Java Performance Profiling: Latency vs Throughput Metrics, Java Flight Recorder (JFR), Java Mission Control (JMC), VisualVM, jcmd Diagnostics, and JMH Microbenchmarking Harness
+  - 15. Object Allocation: Object Header Layout and Alignment Padding, Thread Local Allocation Buffers (TLABs), String Concatenation vs StringBuilder, Primitive Boxing Costs, and Pooling Antipatterns
+  - 16. Time and Memory Optimization: Data Structure Selection, Eliminating Nested O(N^2) Loops, Collection Views vs Clones, BufferedReader Fast I/O, and Space-Time Tradeoffs
+  - 17. Big-O vs Practical Performance: Why Asymptotics Fail in Hardware, Cache Locality, Object Dereferencing Costs, CPU Branch Prediction, and Allocation Churn
+  - 18. Writing Efficient Java Code: Interface Type Declarations, Idiomatic Map Methods (getOrDefault, merge), Memory-Efficient Duplicate Filtering, and Baseline Measurement Workflows
+  - 19. Worked Examples: K Largest Elements via PriorityQueue Min-Heap, Student Lookup Directory via HashMap, First Non-Repeating Character via LinkedHashMap
+  - 20. 35 Practice Problems Across 4 Levels: Collections & Selection, Concurrency & JMM, JVM Memory & GC Diagnostics, JIT & Enterprise Performance
+  - 21. 15 Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
+  - 22. 8 Interactive Workbenches: ArrayList Dynamic Resizer, HashMap Bucket & Collision Simulator, PriorityQueue Min-Heap Simulator, Collections Selection Matrix, JMM Visibility & Race Simulator, Generational GC Visualizer, JIT Tiered Compilation Engine, and Production Outage Diagnostic Studio

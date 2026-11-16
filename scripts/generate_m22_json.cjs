@@ -1,0 +1,265 @@
+const fs = require('fs');
+const path = require('path');
+
+const m22Assessment = {
+  moduleId: "collections-jvm",
+  moduleName: "22. Java Collections, JVM & Performance Engineering",
+  courseId: "java-programming",
+  track: "java",
+  totalQuestions: 20,
+  passingScore: 70,
+  description: "Assess your mastery of Java Collections Framework internals, JVM runtime architecture, memory models, garbage collection, JIT compilation, and high-performance engineering.",
+  questions: [
+    {
+      id: 1,
+      question: "Why is java.util.Map not an extension of the java.util.Collection interface?",
+      options: [
+        "A Collection represents a group of individual objects, whereas a Map represents key-to-value key/value mappings with two-dimensional entry semantics",
+        "Map was introduced in JDK 1.0 before Collection was conceived in JDK 1.2",
+        "Map cannot be iterated over, whereas Collection allows iterator access",
+        "The JVM bytecode verifier prohibits interface multiple inheritance on key-value pairs"
+      ],
+      correct: 0,
+      explanation: "Collection models an aggregation of single items (List, Set, Queue). Map models unique keys mapped to values. Forcing Map into Collection would force methods like add(Object) or contains(Object) to possess ambiguous or unnatural semantics."
+    },
+    {
+      id: 2,
+      question: "In OpenJDK's standard ArrayList implementation, what is the default capacity growth factor when internal storage overflows?",
+      options: [
+        "Approximately 50% (newCapacity = oldCapacity + (oldCapacity >> 1))",
+        "Exactly 100% (doubling the capacity)",
+        "Fixed incremental increase of 16 elements",
+        "25% plus a fixed overhead of 10 elements"
+      ],
+      correct: 0,
+      explanation: "ArrayList in OpenJDK grows by approximately 50% (newCapacity = oldCapacity + (oldCapacity >> 1)), striking an optimal balance between amortized O(1) appends and avoiding excessive unused allocated heap memory."
+    },
+    {
+      id: 3,
+      question: "Why does traversing an ArrayList frequently outperform traversing a LinkedList in real-world benchmarks, despite both possessing O(N) theoretical time complexity?",
+      options: [
+        "ArrayList stores object references in contiguous memory, maximizing CPU cache line utilization and hardware prefetching, whereas LinkedList incurs cache misses chasing heap node pointers",
+        "LinkedList requires synchronized locks during element traversal",
+        "ArrayList iterations are completely vectorized into SIMD assembly by the JVM interpreter",
+        "LinkedList nodes are automatically allocated in Metaspace rather than young generation heap"
+      ],
+      correct: 0,
+      explanation: "CPUs fetch data in cache lines (typically 64 bytes). ArrayList stores references in a contiguous native array, ensuring sequential memory locality and hardware prefetch hits. LinkedList allocates independent Node objects across the heap, incurring cache misses and pointer-chasing overhead."
+    },
+    {
+      id: 4,
+      question: "In Java 8+ HashMap, under what conditions does an individual hash bucket convert from a singly linked list into a balanced Red-Black Tree (Treeification)?",
+      options: [
+        "When the bucket's collision chain length reaches 8 (TREEIFY_THRESHOLD) AND total table capacity is at least 64 (MIN_TREEIFY_CAPACITY)",
+        "Whenever any two keys produce identical hash codes",
+        "Whenever the table's total element count exceeds 12 (Capacity 16 * 0.75)",
+        "When all keys in the map implement the java.lang.Comparable interface"
+      ],
+      correct: 0,
+      explanation: "In OpenJDK HashMap, treeification triggers only when a bucket's bin count reaches 8 AND the table capacity is at least 64. If capacity is under 64, HashMap resizes the table instead to naturally redistribute collided keys."
+    },
+    {
+      id: 5,
+      question: "What is the primary function of the hash spreading bitwise operation `hash ^ (hash >>> 16)` in HashMap?",
+      options: [
+        "It XORs the upper 16 bits of the hashCode with the lower 16 bits to ensure higher-order bits influence bucket indexing in small tables",
+        "It encrypts the key to prevent malicious memory dumps",
+        "It eliminates all negative integer values from hashCode()",
+        "It converts 32-bit hashes into 64-bit memory addresses"
+      ],
+      correct: 0,
+      explanation: "Because table capacity is always a power of two, bucket indexing `(capacity - 1) & hash` only masks the lower bits. Spreading `hash ^ (hash >>> 16)` folds higher bits into lower bit positions, dramatically reducing collisions when lower bits are similar."
+    },
+    {
+      id: 6,
+      question: "What catastrophic issue occurs if a mutable object used as a HashMap key has its mutated field altered after being inserted into the map?",
+      options: [
+        "The object's new hashCode will calculate a different bucket index, making get() unable to find the entry even though it remains stored in the map",
+        "The JVM immediately throws a ConcurrentModificationException",
+        "The HashMap automatically deletes the entry during its next GC cycle",
+        "The mutated key overwrites all other keys in the bucket"
+      ],
+      correct: 0,
+      explanation: "HashMap places keys in buckets according to their hashCode() at insertion time. If mutable fields modify the hash later, future lookups compute a different bucket index, causing get() to return null and resulting in memory leaks."
+    },
+    {
+      id: 7,
+      question: "How does a TreeSet determine whether an element to be inserted is a duplicate of an existing set member?",
+      options: [
+        "By testing if comparator.compare(a, b) == 0 (or a.compareTo(b) == 0), NOT by calling equals()",
+        "By strictly invoking a.equals(b)",
+        "By checking if a.hashCode() == b.hashCode()",
+        "By comparing object identity memory references (a == b)"
+      ],
+      correct: 0,
+      explanation: "TreeSet (and TreeMap) rely entirely on its Comparator or Comparable implementation. If compare(a, b) == 0, the elements are treated as duplicate keys regardless of what a.equals(b) returns."
+    },
+    {
+      id: 8,
+      question: "What is the worst-case time complexity of PriorityQueue.remove(Object o) and PriorityQueue.contains(Object o)?",
+      options: [
+        "O(N), because locating an arbitrary object requires a linear scan over the internal array backing the heap",
+        "O(log N), because binary search can be performed across the heap",
+        "O(1), because the root element can be checked immediately",
+        "O(N log N), because the heap must be re-sorted from scratch"
+      ],
+      correct: 0,
+      explanation: "While peek() is O(1) and offer()/poll() are O(log N), locating an arbitrary non-root object requires traversing the unordered array elements in O(N) time before sifting down or up."
+    },
+    {
+      id: 9,
+      question: "How does ConcurrentHashMap achieve thread-safe updates without suffering from global locking contention like Hashtable or Collections.synchronizedMap?",
+      options: [
+        "It uses lock-free CAS (Compare-And-Swap) for empty bucket heads and synchronized locking synchronized on individual bucket head nodes for collided bins",
+        "It creates a separate cloned copy of the entire table on every write",
+        "It serializes all updates to an internal background worker thread",
+        "It runs exclusively on virtual threads pinned to the underlying OS core"
+      ],
+      correct: 0,
+      explanation: "Modern ConcurrentHashMap in Java 8+ uses CAS instructions to atomically place the initial node in an empty bucket. For occupied buckets, it synchronizes only on the head node of that specific bin, allowing concurrent threads to write to different buckets simultaneously."
+    },
+    {
+      id: 10,
+      question: "Under the Java Memory Model (JMM), does declaring `volatile int counter = 0` ensure that `counter++` is thread-safe across concurrent threads?",
+      options: [
+        "No, because counter++ is a non-atomic composite operation consisting of read, modify, and write steps",
+        "Yes, volatile enforces hardware-level atomicity on all arithmetic operations",
+        "Yes, because volatile prevents thread CPU registers from caching variables",
+        "No, volatile only works on reference types and boolean flags"
+      ],
+      correct: 0,
+      explanation: "Volatile guarantees memory visibility and instruction ordering (happens-before), but NOT mutual exclusion or operation atomicity. `counter++` reads the value, increments it, and writes it back; two concurrent threads can interleave these steps and lose updates. Use AtomicInteger or synchronization."
+    },
+    {
+      id: 11,
+      question: "Which of the following creates a formal 'Happens-Before' ordering relationship under the Java Memory Model?",
+      options: [
+        "Unlocking a monitor lock happens-before every subsequent lock on that exact same monitor",
+        "Creating an ArrayList happens-before inserting elements into a LinkedList",
+        "Calling System.currentTimeMillis() happens-before any garbage collection pause",
+        "Any read operation happens-before any unrelated write operation in separate threads"
+      ],
+      correct: 0,
+      explanation: "Core JMM rules establish that monitor unlock happens-before subsequent lock on the same monitor, volatile write happens-before subsequent volatile read of that field, and Thread.start() happens-before any actions in the started thread."
+    },
+    {
+      id: 12,
+      question: "Where are local primitive variables, method parameters, and object references stored during method execution?",
+      options: [
+        "In the executing thread's JVM Stack Frame (Local Variable Array)",
+        "In the shared Old Generation Heap",
+        "In the Metaspace native memory area",
+        "In the JVM code cache"
+      ],
+      correct: 0,
+      explanation: "Each thread possesses its own JVM Stack. When a method is called, a Stack Frame is pushed containing local variables, method arguments, operand stack, and reference pointers to heap-allocated objects."
+    },
+    {
+      id: 13,
+      question: "What constitutes a 'GC Root' in JVM reachability analysis?",
+      options: [
+        "Active thread stack frame local references, static class fields, JNI global/local references, and JVM internal system references",
+        "All instances of java.lang.String stored in the heap",
+        "Any object that has survived more than 15 minor garbage collection cycles",
+        "Only the root node of active Red-Black Trees in TreeMap"
+      ],
+      correct: 0,
+      explanation: "GC roots are pointers outside the garbage-collected heap that can reach heap objects: local variables and operand stack references in active threads, static class variables, JNI handles, and system class loaders."
+    },
+    {
+      id: 14,
+      question: "What is the core assumption behind the 'Generational Hypothesis' utilized by modern JVM garbage collectors?",
+      options: [
+        "Most allocated objects have very short lifespans and die shortly after creation, while objects surviving multiple GC cycles tend to persist for a long time",
+        "Old generation objects allocate faster than young generation objects",
+        "Older versions of the JVM allocate less memory than modern versions",
+        "Garbage collection must run once per generational CPU clock tick"
+      ],
+      correct: 0,
+      explanation: "The weak generational hypothesis observes that the vast majority (>90%) of objects die quickly (e.g. temporary method variables, DTOs). Generational collectors isolate young space (Eden + Survivors) to rapidly collect dead objects via minor GCs without scanning the large old generation."
+    },
+    {
+      id: 15,
+      question: "What happens during the 'Parent Delegation Model' when an Application ClassLoader is requested to load a class?",
+      options: [
+        "It delegates the load request up to the Platform ClassLoader (and subsequently Bootstrap ClassLoader) first before attempting to find and load the class locally",
+        "It immediately loads the class from disk and pushes it up to the parent",
+        "It checks if the class is thread-safe before delegating to the JVM execution engine",
+        "It compiles the class with javac in memory"
+      ],
+      correct: 0,
+      explanation: "Parent delegation ensures stability and security: a classloader forwards requests to its parent before searching its own classpath. This prevents untrusted code from replacing foundational classes like java.lang.Object or java.lang.String."
+    },
+    {
+      id: 16,
+      question: "What is 'Tiered Compilation' in the HotSpot JVM execution engine?",
+      options: [
+        "A hybrid system where bytecode starts in the Interpreter, transitions to the C1 compiler with profiling counters, and hot methods are subsequently compiled into highly optimized native code by C2",
+        "A system that divides memory into L1, L2, and L3 cache tiers",
+        "Compiling Java code into C++ before assembling native machine code",
+        "A feature that restricts compilation to classes marked with @Compile"
+      ],
+      correct: 0,
+      explanation: "Tiered compilation combines rapid startup via interpretation and C1 (client compiler with profiling tiers 1-3) with peak steady-state throughput generated by the C2 server optimizing compiler (tier 4) for hot code paths."
+    },
+    {
+      id: 17,
+      question: "What optimization does the HotSpot JIT compiler perform using 'Escape Analysis'?",
+      options: [
+        "It determines if an object allocation does not escape the current method, allowing Scalar Replacement (allocating fields in CPU registers or on stack without heap allocation)",
+        "It breaks infinite while loops when no exit condition is reached",
+        "It automatically encrypts strings escaping across socket connections",
+        "It converts recursive algorithms into iterative loops"
+      ],
+      correct: 0,
+      explanation: "If escape analysis proves an object is never referenced outside the declaring method frame, the JIT compiler can perform scalar replacement: decomposing the object into primitive variables in CPU registers or stack frames, avoiding heap allocation and GC pressure entirely."
+    },
+    {
+      id: 18,
+      question: "Why does repeated string concatenation with `+` inside a loop cause severe performance degradation compared to `StringBuilder`?",
+      options: [
+        "Each `+` iteration allocates a new String object and character array, copying all previous characters in O(N^2) cumulative time, whereas StringBuilder appends to a resizable buffer in amortized O(N) total time",
+        "The `+` operator locks the global String intern pool on every call",
+        "String concatenation triggers an immediate full Stop-the-World garbage collection",
+        "StringBuilder runs natively in the CPU ALU without JVM memory allocation"
+      ],
+      correct: 0,
+      explanation: "Strings are immutable. In loops, naive `+` creates repeated new String instances and copies prior content, resulting in O(N^2) character copying and massive heap allocation churn. StringBuilder maintains a contiguous expandable buffer, appending in amortized O(1) per character."
+    },
+    {
+      id: 19,
+      question: "What is the primary danger of relying on naive `System.nanoTime()` loops instead of JMH (Java Microbenchmark Harness) for performance benchmarking?",
+      options: [
+        "JIT warm-up cycles, dead-code elimination, on-stack replacement (OSR), and background GC pauses can completely distort raw timing measurements",
+        "System.nanoTime() has a 1-second resolution limit on modern multi-core CPUs",
+        "nanoTime() only measures thread sleep time rather than CPU time",
+        "The JVM disables compiler optimizations whenever nanoTime() is called"
+      ],
+      correct: 0,
+      explanation: "Microbenchmarks suffer from JIT warmup anomalies, loop invariant code hoisting, dead-code elimination (where unused results are optimized away completely), and unexpected GC pauses. JMH handles warmup iterations, blackhole sinks, and statistical variance properly."
+    },
+    {
+      id: 20,
+      question: "What diagnostic CLI command in modern OpenJDK can be executed without installing external agents to inspect live thread stacks and detect thread deadlocks on a running PID?",
+      options: [
+        "jcmd <PID> Thread.print (or jstack <PID>)",
+        "java -jar inspect.jar --deadlocks",
+        "kill -9 <PID>",
+        "javac -diagnostics <PID>"
+      ],
+      correct: 0,
+      explanation: "`jcmd <PID> Thread.print` (and the `jstack <PID>` utility) prints stack traces of all running threads, lock monitor ownership, waiting conditions, and automatically runs deadlock detection analysis directly against the target JVM process."
+    }
+  ]
+};
+
+const targetDir1 = path.join(__dirname, '../backend/content/java-programming/modules');
+const targetDir2 = path.join(__dirname, '../backend/content/java/modules');
+
+fs.mkdirSync(targetDir1, { recursive: true });
+fs.mkdirSync(targetDir2, { recursive: true });
+
+fs.writeFileSync(path.join(targetDir1, 'collections-jvm.json'), JSON.stringify(m22Assessment, null, 2), 'utf-8');
+fs.writeFileSync(path.join(targetDir2, 'collections-jvm.json'), JSON.stringify(m22Assessment, null, 2), 'utf-8');
+
+console.log("Successfully generated collections-jvm.json in both backend directories.");

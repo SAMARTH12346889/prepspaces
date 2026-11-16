@@ -229,5 +229,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "collections-jvm",
+    "courseId": "java-programming",
+    "index": 22,
+    "name": "22. Java Collections, JVM & Performance Engineering",
+    "route": "/learning/java/collections-jvm",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

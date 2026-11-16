@@ -522,10 +522,10 @@ export default function JavaProblemSolvingPatterns() {
       <ModuleNav
         currentModuleId="problem-solving-patterns"
         currentTrack="java"
-        totalModules={21}
+        totalModules={22}
         accentColor="indigo"
         prevRoute="/learning/java/advanced-dp"
-        nextRoute={null}
+        nextRoute="/learning/java/collections-jvm"
       />
 
       {/* Hero Banner */}

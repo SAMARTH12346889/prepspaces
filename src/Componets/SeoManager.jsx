@@ -213,6 +213,12 @@ const routeMeta = {
     keywords: "Advanced Problem-Solving Patterns Java, Backtracking Pruning N-Queens Java, Branch and Bound Java, Binary Search on Answer LeetCode 1011, Monotonic Stack Next Greater Element, Largest Rectangle in Histogram LeetCode 84, Monotonic Deque Sliding Window Maximum LeetCode 239, Tree DP Maximum Independent Set, Difference Array Range Updates Java, Mos Algorithm Sqrt Decomposition Java, Offline Query Processing, Greedy Exchange Argument Proof, Competitive Programming Java, DSA Masterclass, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/problem-solving-patterns`,
   },
+  "/learning/java/collections-jvm": {
+    title: "Module 22: Java Collections, JVM & Performance Engineering | PrepSpaces",
+    description: "Master the Java Collections Framework, JVM internals, and high-performance engineering: ArrayList dynamic resizing mechanics, LinkedList node pointers vs CPU cache locality, HashMap hash spreading, separate chaining & treeification, TreeMap Red-Black invariants, PriorityQueue binary min-heap sift-up/down, ConcurrentHashMap CAS & bucket locking, the Java Memory Model (JMM visibility, volatile happens-before, atomicity, AtomicInteger), Stack frames vs Heap memory, Generational Garbage Collection (Eden, Survivors, Tenured, G1, ZGC), HotSpot JIT Tiered Compilation, TLABs, StringBuilder loop efficiency, and profiling diagnostics via JMH, JFR, and jcmd.",
+    keywords: "Java Collections Framework Internals, ArrayList Resizing Java, HashMap Treeification OpenJDK, HashMap Hash Spreading, TreeMap Red Black Tree Java, PriorityQueue Min Heap Java, ConcurrentHashMap Java 8, Java Memory Model JMM, Volatile Happens Before Java, Generational Garbage Collection Java, G1GC ZGC Shenandoah, JVM Stack and Heap, HotSpot JIT Tiered Compilation, Escape Analysis Scalar Replacement, TLAB Java, JMH Java Microbenchmark Harness, Java Flight Recorder JFR, jcmd Diagnostics, High Performance Java, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/collections-jvm`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

@@ -204,6 +204,7 @@ const JavaShortestPathsMST = React.lazy(() => import("./Componets/JavaShortestPa
 const JavaDynamicProgramming = React.lazy(() => import("./Componets/JavaDynamicProgramming"));
 const JavaAdvancedDP = React.lazy(() => import("./Componets/JavaAdvancedDP"));
 const JavaProblemSolvingPatterns = React.lazy(() => import("./Componets/JavaProblemSolvingPatterns"));
+const JavaCollectionsJVM = React.lazy(() => import("./Componets/JavaCollectionsJVM"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1760,6 +1761,13 @@ function App() {
             <Route path="/learning/java/module-21" element={<JavaProblemSolvingPatterns />} />
             <Route path="/courses/java/problem-solving-patterns" element={<JavaProblemSolvingPatterns />} />
             <Route path="/learn/java/problem-solving-patterns" element={<JavaProblemSolvingPatterns />} />
+
+            <Route path="/learning/java/collections-jvm" element={<JavaCollectionsJVM />} />
+            <Route path="/learning/java/collections" element={<JavaCollectionsJVM />} />
+            <Route path="/learning/java/jvm-performance" element={<JavaCollectionsJVM />} />
+            <Route path="/learning/java/module-22" element={<JavaCollectionsJVM />} />
+            <Route path="/courses/java/collections-jvm" element={<JavaCollectionsJVM />} />
+            <Route path="/learn/java/collections-jvm" element={<JavaCollectionsJVM />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />
