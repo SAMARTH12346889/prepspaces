@@ -595,7 +595,7 @@ for (int right = 0; right < s.length(); right++) {
   const totalRubricScore = Object.values(rubricScores).reduce((a, b) => a + b, 0);
   const getRecommendation = (score) => {
     if (score >= 22) return { grade: "Strong Hire", color: "text-emerald-400 bg-emerald-950/40 border-emerald-500/40" };
-    if (score >= 18) return { grade: "Hire / Lean Hire", color: "text-indigo-400 bg-indigo-950/40 border-indigo-500/40" };
+    if (score >= 18) return { grade: "Hire / Lean Hire", color: "text-orange-400 bg-slate-900 border-orange-500/40" };
     if (score >= 14) return { grade: "Lean No Hire", color: "text-amber-400 bg-amber-950/40 border-amber-500/40" };
     return { grade: "No Hire", color: "text-rose-400 bg-rose-950/40 border-rose-500/40" };
   };
@@ -642,7 +642,7 @@ for (int right = 0; right < s.length(); right++) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white pb-16">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Module Navigation Header */}
       <ModuleNav
         track="java"
@@ -656,11 +656,11 @@ for (int right = 0; right < s.length(); right++) {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 w-full flex-1">
         {/* Module Header Banner */}
-        <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-r from-slate-900 via-indigo-950/50 to-slate-900 border border-slate-800 shadow-2xl overflow-hidden mb-8">
-          <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-r from-slate-900 via-slate-900/60 to-slate-900 border border-slate-800 shadow-2xl overflow-hidden mb-8">
+          <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-3">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 Engineering Placement Masterclass
               </div>
@@ -683,7 +683,7 @@ for (int right = 0; right < s.length(); right++) {
                 <span>8 Interactive Workbenches</span>
               </div>
               <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-indigo-400" />
+                <CheckCircle2 className="w-4 h-4 text-orange-400" />
                 <span>35 Placement Labs</span>
               </div>
             </div>
@@ -695,7 +695,7 @@ for (int right = 0; right < s.length(); right++) {
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "curriculum"
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -706,7 +706,7 @@ for (int right = 0; right < s.length(); right++) {
               onClick={() => setActiveTab("workbenches")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "workbenches"
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -717,7 +717,7 @@ for (int right = 0; right < s.length(); right++) {
               onClick={() => setActiveTab("quiz")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "quiz"
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -728,7 +728,7 @@ for (int right = 0; right < s.length(); right++) {
               onClick={() => setActiveTab("problems")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "problems"
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -745,14 +745,14 @@ for (int right = 0; right < s.length(); right++) {
             <div className="lg:col-span-4 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-6 shadow-xl space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                  <Layers className="w-4 h-4 text-indigo-400" />
+                  <Layers className="w-4 h-4 text-orange-400" />
                   Table of Contents
                 </span>
                 <div className="flex items-center gap-1 bg-slate-800/80 p-0.5 rounded-lg border border-slate-700/60">
                   <button
                     onClick={() => setViewMode("guided")}
                     className={`px-2 py-1 rounded text-[11px] font-medium transition-colors ${
-                      viewMode === "guided" ? "bg-indigo-600 text-white" : "text-slate-400 hover:text-slate-200"
+                      viewMode === "guided" ? "bg-orange-500 text-white" : "text-slate-400 hover:text-slate-200"
                     }`}
                   >
                     Focus Mode
@@ -760,7 +760,7 @@ for (int right = 0; right < s.length(); right++) {
                   <button
                     onClick={() => setViewMode("textbook")}
                     className={`px-2 py-1 rounded text-[11px] font-medium transition-colors ${
-                      viewMode === "textbook" ? "bg-indigo-600 text-white" : "text-slate-400 hover:text-slate-200"
+                      viewMode === "textbook" ? "bg-orange-500 text-white" : "text-slate-400 hover:text-slate-200"
                     }`}
                   >
                     Full Book
@@ -776,7 +776,7 @@ for (int right = 0; right < s.length(); right++) {
                   placeholder="Search topics, questions, dry runs..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-950/80 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-950/80 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition-colors"
                 />
               </div>
 
@@ -797,7 +797,7 @@ for (int right = 0; right < s.length(); right++) {
                       title={sec.title}
                       className={`w-full text-left px-3 py-2 rounded-xl transition-all flex flex-col gap-0.5 text-xs ${
                         isActive
-                          ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/40"
+                          ? "bg-orange-500/15 text-orange-300 border border-orange-500/40"
                           : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent"
                       }`}
                     >
@@ -815,7 +815,7 @@ for (int right = 0; right < s.length(); right++) {
                 <div>
                   <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
                     <div>
-                      <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
+                      <span className="text-[11px] font-mono text-orange-400 uppercase tracking-wider">
                         {activeSectionId === 0
                           ? "Module Overview · 23 Core Sections"
                           : `Section ${activeSectionId} of 23`}
@@ -873,7 +873,7 @@ for (int right = 0; right < s.length(); right++) {
                         );
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 text-xs font-semibold text-white disabled:opacity-30 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500 shadow-lg shadow-orange-500/20"
                     >
                       Next Section
                       <ArrowRight className="w-4 h-4" />
@@ -890,7 +890,7 @@ for (int right = 0; right < s.length(); right++) {
                       className="pt-8 border-t first:border-t-0 border-slate-800/80"
                     >
                       <div className="mb-4">
-                        <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
+                        <span className="text-[11px] font-mono text-orange-400 uppercase tracking-wider">
                           {sec.id === 0 ? "Module Overview" : `Section ${sec.id} of 23`}
                         </span>
                         <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-1">
@@ -912,7 +912,7 @@ for (int right = 0; right < s.length(); right++) {
             {/* WORKBENCH 1: 7-STEP INTERVIEW WORKFLOW SIMULATOR */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                   <Compass className="w-6 h-6" />
                 </div>
                 <div>
@@ -933,7 +933,7 @@ for (int right = 0; right < s.length(); right++) {
                     onClick={() => setWorkflowStep(s.step)}
                     className={`p-2.5 rounded-xl text-xs font-semibold flex flex-col items-center gap-1 transition-all ${
                       workflowStep === s.step
-                        ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400"
+                        ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20 border border-orange-400"
                         : "bg-slate-800/60 text-slate-400 hover:bg-slate-800 hover:text-slate-200 border border-slate-700/60"
                     }`}
                   >
@@ -949,11 +949,11 @@ for (int right = 0; right < s.length(); right++) {
                 return (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-slate-950/70 border border-slate-800 p-6 rounded-2xl">
                     <div className="space-y-4">
-                      <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                      <div className="flex items-center gap-2 text-orange-400 text-xs font-bold uppercase tracking-wider">
                         <Users className="w-4 h-4" />
                         Candidate Vocalization (What to Say)
                       </div>
-                      <blockquote className="p-4 rounded-xl bg-slate-900 border-l-4 border-indigo-500 text-slate-200 text-sm italic leading-relaxed">
+                      <blockquote className="p-4 rounded-xl bg-slate-900 border-l-4 border-orange-500 text-slate-200 text-sm italic leading-relaxed">
                         &ldquo;{stepData.candidateSay}&rdquo;
                       </blockquote>
 
@@ -997,7 +997,7 @@ for (int right = 0; right < s.length(); right++) {
                         <button
                           disabled={workflowStep === 7}
                           onClick={() => setWorkflowStep((prev) => Math.min(7, prev + 1))}
-                          className="px-3 py-1.5 rounded-lg bg-indigo-600 text-xs font-semibold text-white disabled:opacity-30 hover:bg-indigo-500"
+                          className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500"
                         >
                           Next Phase &rarr;
                         </button>
@@ -1089,7 +1089,7 @@ for (int right = 0; right < s.length(); right++) {
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-indigo-950/30 border border-indigo-500/30 text-indigo-200 text-xs leading-relaxed">
+                    <div className="p-4 rounded-xl bg-slate-900 border border-orange-500/30 text-orange-200 text-xs leading-relaxed">
                       <strong>Core Optimization Principle:</strong> {data.insight}
                     </div>
                   </div>
@@ -1115,7 +1115,7 @@ for (int right = 0; right < s.length(); right++) {
 
               <div className="my-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
                 <div className="text-xs font-mono text-slate-400 mb-3">
-                  Array: <code className="text-indigo-300">[2, 5, 8, 12, 16, 23, 38]</code> | Target:{" "}
+                  Array: <code className="text-orange-300">[2, 5, 8, 12, 16, 23, 38]</code> | Target:{" "}
                   <code className="text-emerald-400">{TARGET_VAL}</code>
                 </div>
 
@@ -1135,7 +1135,7 @@ for (int right = 0; right < s.length(); right++) {
                             isMid
                               ? "bg-emerald-500 text-slate-950 border-emerald-400 shadow-lg shadow-emerald-500/30 scale-105"
                               : inRange
-                              ? "bg-indigo-950/60 text-indigo-200 border-indigo-500/50"
+                              ? "bg-slate-900 text-orange-200 border-orange-500/50"
                               : "bg-slate-900/60 text-slate-600 border-slate-800 opacity-40"
                           }`}
                         >
@@ -1143,7 +1143,7 @@ for (int right = 0; right < s.length(); right++) {
                         </div>
                         <div className="mt-1 flex flex-col items-center text-[10px] font-mono">
                           <span className="text-slate-500">[{idx}]</span>
-                          {isLow && <span className="text-indigo-400 font-bold">LOW</span>}
+                          {isLow && <span className="text-orange-400 font-bold">LOW</span>}
                           {isHigh && <span className="text-amber-400 font-bold">HIGH</span>}
                           {isMid && <span className="text-emerald-400 font-bold">MID</span>}
                         </div>
@@ -1169,9 +1169,9 @@ for (int right = 0; right < s.length(); right++) {
                       {DRY_RUN_HISTORY.slice(0, dryRunStep + 1).map((row) => (
                         <tr
                           key={row.step}
-                          className={row.step === dryRunStep ? "bg-indigo-950/40 text-white" : ""}
+                          className={row.step === dryRunStep ? "bg-slate-900 text-white" : ""}
                         >
-                          <td className="p-2.5 font-bold text-indigo-400">Step {row.step + 1}</td>
+                          <td className="p-2.5 font-bold text-orange-400">Step {row.step + 1}</td>
                           <td className="p-2.5">{row.low}</td>
                           <td className="p-2.5">{row.high}</td>
                           <td className="p-2.5 font-bold text-emerald-400">{row.mid}</td>
@@ -1230,7 +1230,7 @@ for (int right = 0; right < s.length(); right++) {
                 <select
                   value={selectedAlgo}
                   onChange={(e) => setSelectedAlgo(e.target.value)}
-                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
+                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
                 >
                   <option value="maxSubarray">Maximum Subarray (Kadane)</option>
                   <option value="twoSum">Two Sum (HashMap)</option>
@@ -1252,7 +1252,7 @@ for (int right = 0; right < s.length(); right++) {
                     {EDGE_CASES.map((item, idx) => (
                       <tr key={idx} className="hover:bg-slate-900/40">
                         <td className="p-3 font-semibold text-white">{item.name}</td>
-                        <td className="p-3 font-mono text-indigo-300">{item.input}</td>
+                        <td className="p-3 font-mono text-orange-300">{item.input}</td>
                         <td className="p-3">{item[selectedAlgo]}</td>
                         <td className="p-3">
                           <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-950/60 text-emerald-400 border border-emerald-500/30">
@@ -1269,7 +1269,7 @@ for (int right = 0; right < s.length(); right++) {
             {/* WORKBENCH 5: THINK-EXPLAIN-IMPLEMENT COMMUNICATION TRAINER */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                   <Users className="w-6 h-6" />
                 </div>
                 <div>
@@ -1294,7 +1294,7 @@ for (int right = 0; right < s.length(); right++) {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                         selectedScenario === i
-                          ? "bg-indigo-600 text-white"
+                          ? "bg-orange-500 text-white"
                           : "bg-slate-800/80 text-slate-400 hover:text-white"
                       }`}
                     >
@@ -1307,7 +1307,7 @@ for (int right = 0; right < s.length(); right++) {
                   const activeSc = COMMUNICATION_SCENARIOS[selectedScenario];
                   return (
                     <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4">
-                      <div className="p-3.5 rounded-xl bg-slate-900 border-l-4 border-indigo-500 text-sm font-semibold text-white">
+                      <div className="p-3.5 rounded-xl bg-slate-900 border-l-4 border-orange-500 text-sm font-semibold text-white">
                         {activeSc.scenario}
                       </div>
 
@@ -1319,11 +1319,11 @@ for (int right = 0; right < s.length(); right++) {
                             onClick={() => setSelectedResponse(opt)}
                             className={`w-full text-left p-3.5 rounded-xl text-xs transition-all border ${
                               selectedResponse?.id === opt.id
-                                ? "bg-indigo-950/60 border-indigo-500 text-white"
+                                ? "bg-slate-900 border-orange-500 text-white"
                                 : "bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800"
                             }`}
                           >
-                            <span className="font-bold text-indigo-400 mr-2">{opt.id}.</span>
+                            <span className="font-bold text-orange-400 mr-2">{opt.id}.</span>
                             {opt.text}
                           </button>
                         ))}
@@ -1394,7 +1394,7 @@ for (int right = 0; right < s.length(); right++) {
                             bothMeet
                               ? "bg-emerald-500 text-slate-950 border-emerald-300 shadow-xl shadow-emerald-500/50 scale-110"
                               : isSlow
-                              ? "bg-indigo-600 text-white border-indigo-400 shadow-lg shadow-indigo-500/30"
+                              ? "bg-orange-500 text-white border-orange-400 shadow-lg shadow-orange-500/20"
                               : isFast
                               ? "bg-amber-500 text-slate-950 border-amber-300 shadow-lg shadow-amber-500/30"
                               : "bg-slate-900 text-slate-300 border-slate-800"
@@ -1408,7 +1408,7 @@ for (int right = 0; right < s.length(); right++) {
                               MEET! (Loop)
                             </span>
                           )}
-                          {!bothMeet && isSlow && <span className="text-indigo-400 font-bold">SLOW (1x)</span>}
+                          {!bothMeet && isSlow && <span className="text-orange-400 font-bold">SLOW (1x)</span>}
                           {!bothMeet && isFast && <span className="text-amber-400 font-bold">FAST (2x)</span>}
                         </div>
                       </div>
@@ -1449,7 +1449,7 @@ for (int right = 0; right < s.length(); right++) {
             {/* WORKBENCH 7: KADANE'S SUBARRAY MAX VISUALIZER */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                   <BarChart3 className="w-6 h-6" />
                 </div>
                 <div>
@@ -1458,7 +1458,7 @@ for (int right = 0; right < s.length(); right++) {
                   </h3>
                   <p className="text-xs md:text-sm text-slate-400">
                     Step through index-by-index DP recurrence:{" "}
-                    <code className="text-indigo-300">currentSum = Math.max(nums[i], currentSum + nums[i])</code>.
+                    <code className="text-orange-300">currentSum = Math.max(nums[i], currentSum + nums[i])</code>.
                   </p>
                 </div>
               </div>
@@ -1473,7 +1473,7 @@ for (int right = 0; right < s.length(); right++) {
                         key={idx}
                         className={`w-11 h-11 rounded-xl flex items-center justify-center font-mono font-bold text-xs border transition-all ${
                           isCurrent
-                            ? "bg-indigo-600 text-white border-indigo-400 shadow-lg shadow-indigo-600/40 scale-110"
+                            ? "bg-orange-500 text-white border-orange-400 shadow-lg shadow-orange-500/20 scale-110"
                             : isProcessed
                             ? "bg-slate-800 text-slate-400 border-slate-700"
                             : "bg-slate-900/60 text-slate-600 border-slate-800"
@@ -1495,7 +1495,7 @@ for (int right = 0; right < s.length(); right++) {
                       </div>
                       <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
                         <span className="text-xs font-mono text-slate-400">currentSum</span>
-                        <div className="text-2xl font-bold font-mono text-indigo-400 mt-1">{state.curSum}</div>
+                        <div className="text-2xl font-bold font-mono text-orange-400 mt-1">{state.curSum}</div>
                       </div>
                       <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
                         <span className="text-xs font-mono text-slate-400">maximumSum</span>
@@ -1526,7 +1526,7 @@ for (int right = 0; right < s.length(); right++) {
                   <button
                     disabled={kadaneIndex === KADANE_ARRAY.length - 1}
                     onClick={() => setKadaneIndex((prev) => Math.min(KADANE_ARRAY.length - 1, prev + 1))}
-                    className="px-3 py-1.5 rounded-lg bg-indigo-600 text-xs font-semibold text-white disabled:opacity-30 hover:bg-indigo-500"
+                    className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500"
                   >
                     Next Index &rarr;
                   </button>
@@ -1563,7 +1563,7 @@ for (int right = 0; right < s.length(); right++) {
                     <div key={dim.key} className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                       <div className="flex items-center justify-between text-xs">
                         <span className="font-semibold text-white">{dim.label}</span>
-                        <span className="font-mono font-bold text-indigo-400">{rubricScores[dim.key]} / 5</span>
+                        <span className="font-mono font-bold text-orange-400">{rubricScores[dim.key]} / 5</span>
                       </div>
                       <p className="text-[11px] text-slate-400">{dim.desc}</p>
                       <input
@@ -1574,7 +1574,7 @@ for (int right = 0; right < s.length(); right++) {
                         onChange={(e) =>
                           setRubricScores((prev) => ({ ...prev, [dim.key]: Number(e.target.value) }))
                         }
-                        className="w-full accent-indigo-500 cursor-pointer"
+                        className="w-full accent-orange-500 cursor-pointer"
                       />
                     </div>
                   ))}
@@ -1607,7 +1607,7 @@ for (int right = 0; right < s.length(); right++) {
                       </div>
                       <div className="flex justify-between">
                         <span>18 - 21:</span>
-                        <span className="text-indigo-400 font-semibold">Hire (Competitive Offer)</span>
+                        <span className="text-orange-400 font-semibold">Hire (Competitive Offer)</span>
                       </div>
                       <div className="flex justify-between">
                         <span>14 - 17:</span>
@@ -1664,7 +1664,7 @@ for (int right = 0; right < s.length(); right++) {
                     className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3"
                   >
                     <div className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-6 h-6 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/40 text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                         {idx + 1}
                       </span>
                       <h4 className="text-sm font-semibold text-white">{q.question}</h4>
@@ -1681,7 +1681,7 @@ for (int right = 0; right < s.length(); right++) {
                             optStyle = "bg-rose-950/60 border-rose-500 text-rose-300";
                           }
                         } else if (isThisSelected) {
-                          optStyle = "bg-indigo-950/70 border-indigo-500 text-white font-medium";
+                          optStyle = "bg-slate-900 border-orange-500 text-white font-medium";
                         }
 
                         return (
@@ -1731,7 +1731,7 @@ for (int right = 0; right < s.length(); right++) {
                 <button
                   disabled={Object.keys(userAnswers).length < QUIZ_QUESTIONS.length}
                   onClick={() => setSubmittedQuiz(true)}
-                  className="px-6 py-2.5 rounded-xl bg-indigo-600 text-xs font-bold text-white hover:bg-indigo-500 disabled:opacity-40 shadow-lg shadow-indigo-600/30"
+                  className="px-6 py-2.5 rounded-xl bg-orange-500 text-xs font-bold text-white hover:bg-orange-500 disabled:opacity-40 shadow-lg shadow-orange-500/20"
                 >
                   Submit &amp; View Score
                 </button>
@@ -1750,7 +1750,7 @@ for (int right = 0; right < s.length(); right++) {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-                  <CheckSquare className="w-6 h-6 text-indigo-400" />
+                  <CheckSquare className="w-6 h-6 text-orange-400" />
                   35 Technical Placement Problems Tracker
                 </h3>
                 <p className="text-xs md:text-sm text-slate-400 mt-1">
@@ -1764,7 +1764,7 @@ for (int right = 0; right < s.length(); right++) {
                 <select
                   value={filterLevel}
                   onChange={(e) => setFilterLevel(e.target.value)}
-                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
+                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
                 >
                   <option value="all">All 4 Levels (35)</option>
                   <option value="1">Level 1: Core Fundamentals (9)</option>
@@ -1779,14 +1779,14 @@ for (int right = 0; right < s.length(); right++) {
             <div className="space-y-1.5">
               <div className="flex items-center justify-between text-xs font-mono text-slate-400">
                 <span>Placement Readiness Progress</span>
-                <span className="text-indigo-400 font-bold">
+                <span className="text-orange-400 font-bold">
                   {completedProblems.size} / 35 Solved (
                   {Math.round((completedProblems.size / 35) * 100)}%)
                 </span>
               </div>
               <div className="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-indigo-500 to-emerald-400 transition-all duration-300"
+                  className="h-full bg-gradient-to-r from-orange-500 to-emerald-400 transition-all duration-300"
                   style={{ width: `${(completedProblems.size / 35) * 100}%` }}
                 />
               </div>
@@ -1817,7 +1817,7 @@ for (int right = 0; right < s.length(); right++) {
                           <span>{prob.id}. {prob.title}</span>
                         </div>
                         <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-slate-400">
-                          <span className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300">
+                          <span className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300">
                             {prob.pattern}
                           </span>
                           <span>{prob.time}</span>

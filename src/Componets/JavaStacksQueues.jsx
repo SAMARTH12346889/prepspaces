@@ -686,7 +686,7 @@ export default function JavaStacksQueues() {
                 <TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> Monotonic Stacks & Deques
               </span>
               <span className="flex items-center gap-1 bg-white/10 px-2.5 py-1 rounded-md">
-                <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" /> 15 MCQs & 16 Labs/Assignments
+                <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" /> 15 MCQs & 16 Labs/Assignments
               </span>
             </div>
           </div>
@@ -979,7 +979,7 @@ export default function JavaStacksQueues() {
                                 </span>
                               )}
                               {isRear && (
-                                <span className="px-1.5 py-0.5 rounded bg-purple-600 text-white shadow-2xs">
+                                <span className="px-1.5 py-0.5 rounded bg-orange-500 text-white shadow-2xs">
                                   REAR
                                 </span>
                               )}
@@ -993,7 +993,7 @@ export default function JavaStacksQueues() {
                                   : isFront
                                   ? "border-emerald-500 bg-emerald-50"
                                   : isRear
-                                  ? "border-purple-500 bg-purple-50"
+                                  ? "border-orange-500 bg-orange-500"
                                   : hasVal
                                   ? "border-stone-400 bg-white"
                                   : "border-dashed border-stone-300 bg-stone-100/50"
@@ -1091,7 +1091,7 @@ export default function JavaStacksQueues() {
                         ))}
 
                         <span className="text-stone-400 font-bold">⇄</span>
-                        <span className="px-2 py-0.5 rounded bg-purple-100 border border-purple-300 text-purple-800 text-[10px] font-bold font-mono">
+                        <span className="px-2 py-0.5 rounded bg-orange-500 border border-orange-500 text-orange-400 text-[10px] font-bold font-mono">
                           REAR
                         </span>
                       </div>
@@ -1123,7 +1123,7 @@ export default function JavaStacksQueues() {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={handleAddLast}
-                          className="flex-1 py-1.5 text-xs font-bold bg-purple-600 hover:bg-purple-700 text-white rounded transition-colors"
+                          className="flex-1 py-1.5 text-xs font-bold bg-orange-500 hover:bg-orange-500 text-white rounded transition-colors"
                         >
                           addLast({dequeInput})
                         </button>
@@ -1208,7 +1208,7 @@ export default function JavaStacksQueues() {
                                       isCurr
                                         ? "border-orange-500 bg-orange-50 ring-4 ring-orange-500/20"
                                         : inStack
-                                        ? "border-purple-500 bg-purple-50"
+                                        ? "border-orange-500 bg-orange-500"
                                         : "border-stone-400 bg-white"
                                     }`}
                                   >
@@ -1532,7 +1532,7 @@ export default function JavaStacksQueues() {
                                         : inWindow
                                         ? "border-orange-500 bg-orange-50/50"
                                         : inDeque
-                                        ? "border-purple-400 bg-purple-50"
+                                        ? "border-orange-500 bg-orange-500"
                                         : "border-stone-300 bg-white"
                                     }`}
                                   >
@@ -1553,7 +1553,7 @@ export default function JavaStacksQueues() {
                           </div>
                           <div>
                             <span className="text-stone-400">Deque Indices: </span>
-                            <span className="text-purple-300 font-bold">[{stepData.deque.join(", ")}]</span>
+                            <span className="text-orange-300 font-bold">[{stepData.deque.join(", ")}]</span>
                           </div>
                         </div>
 
@@ -1842,7 +1842,7 @@ export default function JavaStacksQueues() {
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     item.type === "Lab"
                                       ? "bg-orange-100 text-orange-800"
-                                      : "bg-purple-100 text-purple-800"
+                                      : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
                                   {item.type}

@@ -47,8 +47,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
     summary: "The core philosophy of DP, avoiding redundant calculations by storing subproblem answers, and real-world applications.",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-1-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.1 What Is Dynamic Programming?
         </h3>
         <p key="p-1-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -64,23 +64,23 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
           The mathematical definition is:
         </p>
         <p key="p-1-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(n)=F(n-1)+F(n-2) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(n)=F(n-1)+F(n-2) \</span>
         </p>
         <p key="p-1-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           With base cases:
         </p>
         <p key="p-1-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(0)=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(0)=0 \</span>
         </p>
         <p key="p-1-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(1)=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(1)=1 \</span>
         </p>
         <p key="p-1-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The sequence is:
         </p>
         <div key="code-1-25" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -91,13 +91,13 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
           Suppose you want to calculate:
         </p>
         <p key="p-1-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(6) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(6) \</span>
         </p>
         <p key="p-1-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Using recursion:
         </p>
         <p key="p-1-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(6)=F(5)+F(4) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(6)=F(5)+F(4) \</span>
         </p>
         <p key="p-1-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           But calculating F(5) requires F(4), and calculating F(4) requires F(3).
@@ -111,8 +111,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-1-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead of repeatedly calculating F(4), we calculate it once and store its result.
         </p>
-        <h3 key="h3-1-42" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-42" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.2 Understanding the Difference
         </h3>
         <p key="p-1-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -133,50 +133,50 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-1-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           F(0)
         </p>
-        <h3 key="h3-1-56" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-56" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           0
         </h3>
         <p key="p-1-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           F(1)
         </p>
-        <h3 key="h3-1-60" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-60" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1
         </h3>
         <p key="p-1-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           F(2)
         </p>
-        <h3 key="h3-1-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1
         </h3>
         <p key="p-1-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           F(3)
         </p>
-        <h3 key="h3-1-68" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-68" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2
         </h3>
         <p key="p-1-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           F(4)
         </p>
-        <h3 key="h3-1-72" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-72" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3
         </h3>
         <p key="p-1-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           F(5)
         </p>
-        <h3 key="h3-1-76" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-76" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5
         </h3>
         <p key="p-1-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           F(6)
         </p>
-        <h3 key="h3-1-80" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-80" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8
         </h3>
         <p key="p-1-82" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -185,8 +185,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-1-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The difference is that ordinary recursive Fibonacci repeats many calculations, whereas DP remembers previously calculated values.
         </p>
-        <h3 key="h3-1-86" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-86" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.3 Why Is Dynamic Programming Important?
         </h3>
         <p key="p-1-88" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -264,8 +264,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-2-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Overlapping subproblems are one of the two main properties that make Dynamic Programming applicable.
         </p>
-        <h3 key="h3-2-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.1 What Are Overlapping Subproblems?
         </h3>
         <p key="p-2-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -275,16 +275,16 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
           Let's consider:
         </p>
         <p key="p-2-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(5)=F(4)+F(3) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(5)=F(4)+F(3) \</span>
         </p>
         <p key="p-2-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Expanding the expression:
         </p>
         <p key="p-2-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(4)=F(3)+F(2) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(4)=F(3)+F(2) \</span>
         </p>
         <p key="p-2-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(3)=F(2)+F(1) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(3)=F(2)+F(1) \</span>
         </p>
         <p key="p-2-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Notice that F(3) and F(2) appear more than once.
@@ -297,7 +297,7 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         </h4>
         <div key="code-2-33" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -321,8 +321,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-2-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead of recalculating these values, DP stores them.
         </p>
-        <h3 key="h3-2-42" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-42" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.2 How DP Solves Overlapping Subproblems
         </h3>
         <p key="p-2-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -376,8 +376,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-2-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We will study memoization in detail shortly.
         </p>
-        <h3 key="h3-2-63" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-63" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.3 Overlapping Subproblems vs Independent Subproblems
         </h3>
         <p key="p-2-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -407,8 +407,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-3-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Optimal substructure is the second major property commonly associated with Dynamic Programming.
         </p>
-        <h3 key="h3-3-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.1 What Is Optimal Substructure?
         </h3>
         <p key="p-3-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -442,8 +442,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-3-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           That is the idea of optimal substructure.
         </p>
-        <h3 key="h3-3-28" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-28" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.2 Example: Shortest Path
         </h3>
         <p key="p-3-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -451,7 +451,7 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         </p>
         <div key="code-3-35" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -463,7 +463,7 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         </p>
         <div key="code-3-41" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -479,8 +479,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-3-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This illustrates optimal substructure.
         </p>
-        <h3 key="h3-3-48" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-48" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.3 Do Both Properties Matter?
         </h3>
         <p key="p-3-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -528,8 +528,8 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-4-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           When that same subproblem is needed again, the stored answer is returned.
         </p>
-        <h3 key="h3-4-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.1 How Memoization Works
         </h3>
         <p key="p-4-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -539,13 +539,13 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
           Mathematical recurrence:
         </p>
         <p key="p-4-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(n)=F(n-1)+F(n-2) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(n)=F(n-1)+F(n-2) \</span>
         </p>
         <p key="p-4-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Base cases:
         </p>
         <p key="p-4-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(0)=0,\quad F(1)=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(0)=0,\quad F(1)=1 \</span>
         </p>
         <p key="p-4-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We create an array to store calculated values.
@@ -559,13 +559,13 @@ export const JAVA_DYNAMIC_PROGRAMMING_SECTIONS = [
         <p key="p-4-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The next time F(4) is requested, we directly return the stored answer.
         </p>
-        <h3 key="h3-4-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.2 Java Implementation
         </h3>
         <div key="code-4-69" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -611,15 +611,15 @@ public class FibonacciMemoization {
         </p>
         <div key="code-4-75" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`55`}</code>
           </pre>
         </div>
-        <h3 key="h3-4-76" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-76" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.3 Step-by-Step Execution
         </h3>
         <p key="p-4-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -627,7 +627,7 @@ public class FibonacciMemoization {
         </p>
         <div key="code-4-83" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -639,7 +639,7 @@ public class FibonacciMemoization {
         </p>
         <div key="code-4-95" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -658,8 +658,8 @@ public class FibonacciMemoization {
         <p key="p-4-98" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We avoid rebuilding that entire branch.
         </p>
-        <h3 key="h3-4-100" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-100" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.4 Memoization Advantages
         </h3>
         <ul key="ul-4-106" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -668,18 +668,18 @@ public class FibonacciMemoization {
           <li>Avoids repeated recursive calculations.</li>
           <li>Often simpler to formulate for complex recurrences.</li>
       </ul>
-        <h3 key="h3-4-107" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-107" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.5 Memoization Disadvantages
         </h3>
         <ul key="ul-4-113" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
           <li>Uses recursion stack space.</li>
-          <li>Deep recursion can cause <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">StackOverflowError</code>.</li>
+          <li>Deep recursion can cause <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">StackOverflowError</code>.</li>
           <li>Recursive function calls introduce overhead.</li>
           <li>Managing multidimensional states can require more careful implementation.</li>
       </ul>
-        <h3 key="h3-4-114" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-114" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.6 Complexity
         </h3>
         <div key="table-4-122" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -731,24 +731,24 @@ public class FibonacciMemoization {
         <p key="p-5-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead of starting with the original problem and recursively breaking it down, we start with the smallest subproblems and build toward the final answer.
         </p>
-        <h3 key="h3-5-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.1 How Tabulation Works
         </h3>
         <p key="p-5-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For Fibonacci:
         </p>
         <p key="p-5-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(n)=F(n-1)+F(n-2) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(n)=F(n-1)+F(n-2) \</span>
         </p>
         <p key="p-5-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We know:
         </p>
         <p key="p-5-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(0)=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(0)=0 \</span>
         </p>
         <p key="p-5-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(1)=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(1)=1 \</span>
         </p>
         <p key="p-5-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We can calculate the next values using a DP array.
@@ -804,13 +804,13 @@ public class FibonacciMemoization {
         <p key="p-5-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Each answer is constructed using previously calculated entries.
         </p>
-        <h3 key="h3-5-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.2 Java Implementation
         </h3>
         <div key="code-5-64" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -847,15 +847,15 @@ public class FibonacciMemoization {
         </p>
         <div key="code-5-70" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`55`}</code>
           </pre>
         </div>
-        <h3 key="h3-5-71" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-71" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.3 Memoization vs Tabulation
         </h3>
         <div key="table-5-82" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -924,8 +924,8 @@ public class FibonacciMemoization {
         <p key="p-6-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let's understand the process step by step.
         </p>
-        <h3 key="h3-6-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.1 Step 1 — Write the Recursive Solution
         </h3>
         <p key="p-6-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -933,7 +933,7 @@ public class FibonacciMemoization {
         </p>
         <div key="code-6-20" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -950,8 +950,8 @@ public class FibonacciMemoization {
         <p key="p-6-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The function repeatedly solves the same smaller inputs.
         </p>
-        <h3 key="h3-6-23" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-23" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.2 Step 2 — Identify Repeated Subproblems
         </h3>
         <p key="p-6-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -959,7 +959,7 @@ public class FibonacciMemoization {
         </p>
         <div key="code-6-36" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -981,13 +981,13 @@ fib(1)`}</code>
         <p key="p-6-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This means one-dimensional DP storage is sufficient.
         </p>
-        <h3 key="h3-6-43" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-43" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.3 Step 3 — Create the DP Storage
         </h3>
         <div key="code-6-48" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -999,15 +999,15 @@ fib(1)`}</code>
         </p>
         <div key="code-6-54" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`Arrays.fill(dp, -1);`}</code>
           </pre>
         </div>
-        <h3 key="h3-6-55" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-55" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.4 Step 4 — Add a Cache Check
         </h3>
         <p key="p-6-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1015,7 +1015,7 @@ fib(1)`}</code>
         </p>
         <div key="code-6-64" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1024,21 +1024,21 @@ fib(1)`}</code>
 }`}</code>
           </pre>
         </div>
-        <h3 key="h3-6-65" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-65" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.5 Step 5 — Store the Answer
         </h3>
         <div key="code-6-70" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`dp[n] = fib(n - 1, dp) + fib(n - 2, dp);`}</code>
           </pre>
         </div>
-        <h3 key="h3-6-71" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-71" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.6 Step 6 — Convert to Tabulation
         </h3>
         <p key="p-6-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1101,8 +1101,8 @@ fib(1)`}</code>
         <p key="p-7-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Many difficult DP problems become easier once you identify what information must be stored to describe a subproblem.
         </p>
-        <h3 key="h3-7-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.1 What Is a DP State?
         </h3>
         <p key="p-7-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1115,7 +1115,7 @@ fib(1)`}</code>
           For Fibonacci:
         </p>
         <p key="p-7-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=F(i) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=F(i) \</span>
         </p>
         <p key="p-7-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The state is simply the Fibonacci number at index i.
@@ -1124,7 +1124,7 @@ fib(1)`}</code>
           For 0/1 Knapsack:
         </p>
         <p key="p-7-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][w] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][w] \</span>
         </p>
         <p key="p-7-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           can represent the maximum value obtainable using the first i items with capacity w.
@@ -1133,7 +1133,7 @@ fib(1)`}</code>
           For Longest Common Subsequence:
         </p>
         <p key="p-7-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] \</span>
         </p>
         <p key="p-7-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represents the LCS length of the first i characters of one string and the first j characters of another.
@@ -1141,8 +1141,8 @@ fib(1)`}</code>
         <p key="p-7-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The state can contain one variable, two variables, or even more depending on the problem.
         </p>
-        <h3 key="h3-7-32" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-32" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.2 One-Dimensional DP
         </h3>
         <p key="p-7-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1152,7 +1152,7 @@ fib(1)`}</code>
           Fibonacci.
         </p>
         <p key="p-7-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
         </p>
         <p key="p-7-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Only the index i determines the state.
@@ -1162,15 +1162,15 @@ fib(1)`}</code>
         </p>
         <div key="code-7-47" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`int[] dp = new int[n + 1];`}</code>
           </pre>
         </div>
-        <h3 key="h3-7-48" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-48" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.3 Two-Dimensional DP
         </h3>
         <p key="p-7-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1180,7 +1180,7 @@ fib(1)`}</code>
           Longest Common Subsequence.
         </p>
         <p key="p-7-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] \</span>
         </p>
         <p key="p-7-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Two dimensions are required because we are considering prefixes of two separate strings.
@@ -1190,15 +1190,15 @@ fib(1)`}</code>
         </p>
         <div key="code-7-63" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`int[][] dp = new int[m + 1][n + 1];`}</code>
           </pre>
         </div>
-        <h3 key="h3-7-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.4 Three-Dimensional DP
         </h3>
         <p key="p-7-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1216,7 +1216,7 @@ fib(1)`}</code>
           The state may become:
         </p>
         <p key="p-7-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][w][k] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][w][k] \</span>
         </p>
         <p key="p-7-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A three-dimensional table can store these results.
@@ -1224,8 +1224,8 @@ fib(1)`}</code>
         <p key="p-7-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Higher-dimensional DP is possible, but the memory requirement can grow rapidly.
         </p>
-        <h3 key="h3-7-82" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-82" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.5 How to Identify the State
         </h3>
         <p key="p-7-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1256,8 +1256,8 @@ fib(1)`}</code>
         <p key="p-8-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This rule is called a state transition or recurrence relation.
         </p>
-        <h3 key="h3-8-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.1 What Is a State Transition?
         </h3>
         <p key="p-8-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1267,7 +1267,7 @@ fib(1)`}</code>
           Consider Fibonacci:
         </p>
         <p key="p-8-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
         </p>
         <p key="p-8-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The current state depends on two previously computed states.
@@ -1276,13 +1276,13 @@ fib(1)`}</code>
           For Climbing Stairs:
         </p>
         <p key="p-8-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
         </p>
         <p key="p-8-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For 0/1 Knapsack:
         </p>
         <p key="p-8-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][w] = \max( dp[i-1][w], value_i+dp[i-1][w-weight_i] ) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][w] = \max( dp[i-1][w], value_i+dp[i-1][w-weight_i] ) \</span>
         </p>
         <p key="p-8-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           provided the item fits.
@@ -1290,8 +1290,8 @@ fib(1)`}</code>
         <p key="p-8-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For LCS, the transition depends on whether the last characters of the considered prefixes match.
         </p>
-        <h3 key="h3-8-28" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-28" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.2 Four Essential Parts of a DP Solution
         </h3>
         <p key="p-8-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1326,7 +1326,7 @@ fib(1)`}</code>
           </table>
         </div>
         <p key="p-8-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Then identify the answer location, such as <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp[n]</code>, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp[m][n]</code>, or an optimized state variable.
+          Then identify the answer location, such as <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp[n]</code>, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp[m][n]</code>, or an optimized state variable.
         </p>
       </div>
     )
@@ -1343,31 +1343,31 @@ fib(1)`}</code>
         <p key="p-9-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Without correct base cases, a DP solution may produce incorrect answers or access invalid indexes.
         </p>
-        <h3 key="h3-9-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.1 Fibonacci
         </h3>
         <p key="p-9-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0]=0 \</span>
         </p>
         <p key="p-9-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[1]=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[1]=1 \</span>
         </p>
-        <h3 key="h3-9-12" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-12" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.2 Climbing Stairs
         </h3>
         <p key="p-9-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          If we define <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp[i]</code> as the number of ways to reach step i:
+          If we define <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp[i]</code> as the number of ways to reach step i:
         </p>
         <p key="p-9-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0]=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0]=1 \</span>
         </p>
         <p key="p-9-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[1]=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[1]=1 \</span>
         </p>
         <p key="p-9-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Why is <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp[0] = 1</code>?
+          Why is <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp[0] = 1</code>?
         </p>
         <p key="p-9-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There is exactly one way to reach the ground before taking any steps: do nothing.
@@ -1375,8 +1375,8 @@ fib(1)`}</code>
         <p key="p-9-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This convention makes the recurrence work cleanly.
         </p>
-        <h3 key="h3-9-26" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-26" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.3 0/1 Knapsack
         </h3>
         <p key="p-9-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1386,23 +1386,23 @@ fib(1)`}</code>
           If capacity is zero, no positive-weight item can be included.
         </p>
         <p key="p-9-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0][w]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0][w]=0 \</span>
         </p>
         <p key="p-9-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][0]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][0]=0 \</span>
         </p>
-        <h3 key="h3-9-36" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-36" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.4 LCS
         </h3>
         <p key="p-9-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If one string is empty, the common subsequence length is zero.
         </p>
         <p key="p-9-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0][j]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0][j]=0 \</span>
         </p>
         <p key="p-9-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][0]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][0]=0 \</span>
         </p>
         <p key="p-9-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="font-bold text-white">Important:</strong> Base cases depend on the meaning of the state. Always define the state before defining the initial values.
@@ -1422,15 +1422,15 @@ fib(1)`}</code>
         <p key="p-10-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is called DP space optimization.
         </p>
-        <h3 key="h3-10-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.1 Basic Space Optimization
         </h3>
         <p key="p-10-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Suppose:
         </p>
         <p key="p-10-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
         </p>
         <p key="p-10-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The current Fibonacci state does not need the entire previous DP array.
@@ -1443,7 +1443,7 @@ fib(1)`}</code>
         </p>
         <div key="code-10-30" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1463,16 +1463,16 @@ for (int i = 2; i <= n; i++) {
           The space complexity changes from:
         </p>
         <p key="p-10-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> O(N) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> O(N) \</span>
         </p>
         <p key="p-10-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           to:
         </p>
         <p key="p-10-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> O(1) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> O(1) \</span>
         </p>
-        <h3 key="h3-10-39" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-39" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.2 Two-Array Optimization
         </h3>
         <p key="p-10-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1483,7 +1483,7 @@ for (int i = 2; i <= n; i++) {
         </p>
         <div key="code-10-49" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1496,7 +1496,7 @@ int[] current = new int[n + 1];`}</code>
         </p>
         <div key="code-10-55" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1506,8 +1506,8 @@ int[] current = new int[n + 1];`}</code>
         <p key="p-10-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Care is required when reusing arrays: the new row must be initialized or overwritten correctly.
         </p>
-        <h3 key="h3-10-58" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-58" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.3 In-Place One-Dimensional DP
         </h3>
         <p key="p-10-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1525,8 +1525,8 @@ int[] current = new int[n + 1];`}</code>
         <p key="p-10-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This difference is essential and will be explained in the respective sections.
         </p>
-        <h3 key="h3-10-70" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-70" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.4 When Can We Optimize Space?
         </h3>
         <p key="p-10-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1553,8 +1553,8 @@ int[] current = new int[n + 1];`}</code>
         <p key="p-11-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Fibonacci is the simplest problem for understanding Dynamic Programming.
         </p>
-        <h3 key="h3-11-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.1 Problem Statement
         </h3>
         <p key="p-11-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1565,7 +1565,7 @@ int[] current = new int[n + 1];`}</code>
         </p>
         <div key="code-11-22" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1585,15 +1585,15 @@ F(9) = 34`}</code>
           Mathematically:
         </p>
         <p key="p-11-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> F(n)=F(n-1)+F(n-2) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> F(n)=F(n-1)+F(n-2) \</span>
         </p>
-        <h3 key="h3-11-27" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-27" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.2 Approach 1 — Recursion
         </h3>
         <div key="code-11-47" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1620,7 +1620,7 @@ F(9) = 34`}</code>
         </p>
         <div key="code-11-53" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1637,13 +1637,13 @@ F(9) = 34`}</code>
         <p key="p-11-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The actual number of calls grows exponentially, approximately proportional to the Fibonacci sequence itself.
         </p>
-        <h3 key="h3-11-61" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-61" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.3 Approach 2 — Memoization
         </h3>
         <div key="code-11-97" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1688,13 +1688,13 @@ public class FibonacciMemo {
           <li>Time: O(N).</li>
           <li>Space: O(N).</li>
       </ul>
-        <h3 key="h3-11-103" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-103" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.4 Approach 3 — Tabulation
         </h3>
         <div key="code-11-133" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1733,8 +1733,8 @@ public class FibonacciMemo {
           <li>Time: O(N).</li>
           <li>Space: O(N).</li>
       </ul>
-        <h3 key="h3-11-139" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-139" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.5 Approach 4 — Space Optimized
         </h3>
         <p key="p-11-141" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1742,7 +1742,7 @@ public class FibonacciMemo {
         </p>
         <div key="code-11-172" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1815,7 +1815,7 @@ public class FibonacciMemo {
           The optimized version is particularly useful when we only need the final Fibonacci number and not the entire sequence.
         </p>
         <p key="p-11-184" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <strong className="font-bold text-white">Important Java note:</strong> <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">long</code> can represent Fibonacci numbers only through F(92). F(93) exceeds the maximum signed <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">long</code> value. For larger values, use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">BigInteger</code>.
+          <strong className="font-bold text-white">Important Java note:</strong> <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">long</code> can represent Fibonacci numbers only through F(92). F(93) exceeds the maximum signed <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">long</code> value. For larger values, use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">BigInteger</code>.
         </p>
       </div>
     )
@@ -1829,8 +1829,8 @@ public class FibonacciMemo {
         <p key="p-12-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is one of the most common beginner DP interview problems.
         </p>
-        <h3 key="h3-12-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.1 Problem Statement
         </h3>
         <p key="p-12-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1854,7 +1854,7 @@ public class FibonacciMemo {
         </p>
         <div key="code-12-22" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1866,7 +1866,7 @@ public class FibonacciMemo {
         </p>
         <div key="code-12-32" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1882,15 +1882,15 @@ public class FibonacciMemo {
         </p>
         <div key="code-12-38" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`3 ways`}</code>
           </pre>
         </div>
-        <h3 key="h3-12-39" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-39" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.2 Understanding the Recurrence
         </h3>
         <p key="p-12-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1904,22 +1904,22 @@ public class FibonacciMemo {
           Therefore:
         </p>
         <p key="p-12-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[n]=dp[n-1]+dp[n-2] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[n]=dp[n-1]+dp[n-2] \</span>
         </p>
         <p key="p-12-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Base cases:
         </p>
         <p key="p-12-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0]=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0]=1 \</span>
         </p>
         <p key="p-12-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[1]=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[1]=1 \</span>
         </p>
         <p key="p-12-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The recurrence is essentially Fibonacci, with a shifted interpretation.
         </p>
-        <h3 key="h3-12-58" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-58" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.3 Dry Run
         </h3>
         <p key="p-12-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1972,15 +1972,15 @@ public class FibonacciMemo {
           Answer:
         </p>
         <p key="p-12-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> \boxed&#123;8&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> \boxed&#123;8&#125; \</span>
         </p>
-        <h3 key="h3-12-75" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-75" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.4 Java Implementation
         </h3>
         <div key="code-12-106" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2018,7 +2018,7 @@ public class FibonacciMemo {
         </p>
         <div key="code-12-112" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2032,8 +2032,8 @@ public class FibonacciMemo {
           <li>Time: O(N).</li>
           <li>Auxiliary space: O(1).</li>
       </ul>
-        <h3 key="h3-12-118" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-118" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.5 Important Variation
         </h3>
         <p key="p-12-120" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2043,7 +2043,7 @@ public class FibonacciMemo {
           The recurrence becomes:
         </p>
         <p key="p-12-124" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[n]=dp[n-1]+dp[n-2]+dp[n-3] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[n]=dp[n-1]+dp[n-2]+dp[n-3] \</span>
         </p>
         <p key="p-12-126" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The base cases must be defined carefully according to the allowed jumps.
@@ -2066,8 +2066,8 @@ public class FibonacciMemo {
         <p key="p-13-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Unlike ordinary climbing stairs, we now care about minimizing the total cost.
         </p>
-        <h3 key="h3-13-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.1 Problem Statement
         </h3>
         <p key="p-13-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2075,7 +2075,7 @@ public class FibonacciMemo {
         </p>
         <div key="code-13-13" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2094,8 +2094,8 @@ public class FibonacciMemo {
         <p key="p-13-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Find the minimum cost required to reach the top, which is just beyond the last index.
         </p>
-        <h3 key="h3-13-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.2 Understanding the Choices
         </h3>
         <p key="p-13-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2112,7 +2112,7 @@ public class FibonacciMemo {
           Let:
         </p>
         <p key="p-13-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i] \</span>
         </p>
         <p key="p-13-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the minimum cost required to reach stair i.
@@ -2121,22 +2121,22 @@ public class FibonacciMemo {
           Then:
         </p>
         <p key="p-13-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=cost[i]+\min(dp[i-1],dp[i-2]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=cost[i]+\min(dp[i-1],dp[i-2]) \</span>
         </p>
         <p key="p-13-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We define:
         </p>
         <p key="p-13-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0]=cost[0] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0]=cost[0] \</span>
         </p>
         <p key="p-13-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[1]=cost[1] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[1]=cost[1] \</span>
         </p>
         <p key="p-13-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The final answer is:
         </p>
         <p key="p-13-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> \min(dp[n-1],dp[n-2]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> \min(dp[n-1],dp[n-2]) \</span>
         </p>
         <p key="p-13-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Why?
@@ -2144,8 +2144,8 @@ public class FibonacciMemo {
         <p key="p-13-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Because the destination is beyond the final stair, and we can reach it from either of the final two positions.
         </p>
-        <h3 key="h3-13-55" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-55" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.3 Dry Run
         </h3>
         <p key="p-13-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2153,7 +2153,7 @@ public class FibonacciMemo {
         </p>
         <div key="code-13-62" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2165,7 +2165,7 @@ public class FibonacciMemo {
         </p>
         <div key="code-13-69" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2177,24 +2177,24 @@ dp[1] = 15`}</code>
           Calculate:
         </p>
         <p key="p-13-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[2]=20+\min(10,15)=30 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[2]=20+\min(10,15)=30 \</span>
         </p>
         <p key="p-13-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Final answer:
         </p>
         <p key="p-13-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> \min(15,30)=15 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> \min(15,30)=15 \</span>
         </p>
         <p key="p-13-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We can start at index 1, pay 15, then jump to the top.
         </p>
-        <h3 key="h3-13-80" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-80" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.4 Java Implementation
         </h3>
         <div key="code-13-116" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2237,7 +2237,7 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-13-122" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2251,8 +2251,8 @@ dp[1] = 15`}</code>
           <li>Time: O(N).</li>
           <li>Space: O(1).</li>
       </ul>
-        <h3 key="h3-13-128" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-128" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.5 Key Learning
         </h3>
         <p key="p-13-130" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2262,13 +2262,13 @@ dp[1] = 15`}</code>
           Climbing Stairs:
         </p>
         <p key="p-13-134" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
         </p>
         <p key="p-13-136" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Minimum Cost Climbing Stairs:
         </p>
         <p key="p-13-138" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=cost[i]+\min(dp[i-1],dp[i-2]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=cost[i]+\min(dp[i-1],dp[i-2]) \</span>
         </p>
         <p key="p-13-140" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The first problem counts possible ways.
@@ -2294,8 +2294,8 @@ dp[1] = 15`}</code>
         <p key="p-14-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It teaches you how to make decisions that depend on whether you select or skip the current element.
         </p>
-        <h3 key="h3-14-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.1 Problem Statement
         </h3>
         <p key="p-14-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2318,7 +2318,7 @@ dp[1] = 15`}</code>
         </h4>
         <div key="code-14-23" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2337,22 +2337,22 @@ dp[1] = 15`}</code>
           Total:
         </p>
         <p key="p-14-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 2+9+1=12 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 2+9+1=12 \</span>
         </p>
         <p key="p-14-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Another combination:
         </p>
         <p key="p-14-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 7+3=10 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 7+3=10 \</span>
         </p>
         <p key="p-14-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The optimal answer is:
         </p>
         <p key="p-14-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> \boxed&#123;12&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> \boxed&#123;12&#125; \</span>
         </p>
-        <h3 key="h3-14-42" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-42" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.2 Greedy Does Not Work Reliably
         </h3>
         <p key="p-14-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2360,7 +2360,7 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-14-49" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2376,15 +2376,15 @@ dp[1] = 15`}</code>
         <p key="p-14-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is where DP is useful.
         </p>
-        <h3 key="h3-14-56" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-56" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.3 State Definition
         </h3>
         <p key="p-14-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-14-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i] \</span>
         </p>
         <p key="p-14-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the maximum money that can be collected from the first i houses.
@@ -2399,7 +2399,7 @@ dp[1] = 15`}</code>
           We cannot rob the previous house.
         </p>
         <p key="p-14-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> nums[i]+dp[i-2] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> nums[i]+dp[i-2] \</span>
         </p>
         <p key="p-14-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="font-bold text-white">Choice 2: Skip the current house.</strong>
@@ -2408,21 +2408,21 @@ dp[1] = 15`}</code>
           We retain the best answer from the previous house.
         </p>
         <p key="p-14-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i-1] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i-1] \</span>
         </p>
         <p key="p-14-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore:
         </p>
         <p key="p-14-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=\max(dp[i-1],nums[i]+dp[i-2]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=\max(dp[i-1],nums[i]+dp[i-2]) \</span>
         </p>
-        <h3 key="h3-14-82" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-82" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.4 Java Implementation
         </h3>
         <div key="code-14-124" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2471,15 +2471,15 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-14-130" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`12`}</code>
           </pre>
         </div>
-        <h3 key="h3-14-131" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-131" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.5 Dry Run
         </h3>
         <div key="table-14-140" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -2531,23 +2531,23 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-14-146" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`12`}</code>
           </pre>
         </div>
-        <h3 key="h3-14-147" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-147" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.6 Complexity
         </h3>
         <ul key="ul-14-151" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
           <li>Time: O(N).</li>
           <li>Space: O(1).</li>
       </ul>
-        <h3 key="h3-14-152" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-152" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.7 House Robber II — Circular Variation
         </h3>
         <p key="p-14-154" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2568,7 +2568,7 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-14-205" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2630,8 +2630,8 @@ dp[1] = 15`}</code>
         <p key="p-15-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is also a major example of a problem where greedy selection by value-to-weight ratio does not generally work.
         </p>
-        <h3 key="h3-15-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.1 Problem Statement
         </h3>
         <p key="p-15-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2663,7 +2663,7 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-15-30" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2751,17 +2751,17 @@ dp[1] = 15`}</code>
           Optimal answer:
         </p>
         <p key="p-15-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> \boxed&#123;37&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> \boxed&#123;37&#125; \</span>
         </p>
-        <h3 key="h3-15-54" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-54" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.2 State Definition
         </h3>
         <p key="p-15-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-15-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][w] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][w] \</span>
         </p>
         <p key="p-15-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the maximum value obtainable using the first i items with a maximum capacity of w.
@@ -2776,7 +2776,7 @@ dp[1] = 15`}</code>
           The value remains:
         </p>
         <p key="p-15-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i-1][w] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i-1][w] \</span>
         </p>
         <h4 key="h4-15-70" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Choice 2: Take the Item
@@ -2785,13 +2785,13 @@ dp[1] = 15`}</code>
           Only possible when:
         </p>
         <p key="p-15-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> weight_i \leq w \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> weight_i \leq w \</span>
         </p>
         <p key="p-15-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           New value:
         </p>
         <p key="p-15-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> value_i+dp[i-1][w-weight_i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> value_i+dp[i-1][w-weight_i] \</span>
         </p>
         <p key="p-15-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We use the previous row because we are not allowed to take the same item more than once.
@@ -2800,7 +2800,7 @@ dp[1] = 15`}</code>
           Therefore:
         </p>
         <p key="p-15-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][w]= \max \begin&#123;cases&#125; dp[i-1][w]\\\ value_i+dp[i-1][w-weight_i] \end&#123;cases&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][w]= \max \begin&#123;cases&#125; dp[i-1][w]\\\ value_i+dp[i-1][w-weight_i] \end&#123;cases&#125; \</span>
         </p>
         <p key="p-15-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           when the item fits.
@@ -2809,31 +2809,31 @@ dp[1] = 15`}</code>
           If it does not fit:
         </p>
         <p key="p-15-90" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][w]=dp[i-1][w] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][w]=dp[i-1][w] \</span>
         </p>
-        <h3 key="h3-15-92" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-92" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.3 Base Cases
         </h3>
         <p key="p-15-94" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If no items are available:
         </p>
         <p key="p-15-96" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0][w]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0][w]=0 \</span>
         </p>
         <p key="p-15-98" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If the capacity is zero:
         </p>
         <p key="p-15-100" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][0]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][0]=0 \</span>
         </p>
-        <h3 key="h3-15-102" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-102" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.4 Java Implementation — 2D DP
         </h3>
         <div key="code-15-156" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2894,15 +2894,15 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-15-162" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`37`}</code>
           </pre>
         </div>
-        <h3 key="h3-15-163" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-163" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.5 Understanding the DP Table
         </h3>
         <p key="p-15-165" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2985,8 +2985,8 @@ dp[1] = 15`}</code>
         <p key="p-15-183" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           # <strong className="font-bold text-white">Optimal value = 37</strong>
         </p>
-        <h3 key="h3-15-185" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-185" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.6 Space Optimization — One-Dimensional DP
         </h3>
         <p key="p-15-187" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2997,7 +2997,7 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-15-194" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3012,7 +3012,7 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-15-229" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3055,8 +3055,8 @@ dp[1] = 15`}</code>
         <p key="p-15-234" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A reverse iteration ensures that the current item does not reuse a state that was already updated using that same item.
         </p>
-        <h3 key="h3-15-236" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-236" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.7 Complexity
         </h3>
         <div key="table-15-242" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -3106,8 +3106,8 @@ dp[1] = 15`}</code>
         <p key="p-16-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="font-bold text-white">You can use each item an unlimited number of times.</strong>
         </p>
-        <h3 key="h3-16-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.1 Problem Statement
         </h3>
         <p key="p-16-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3129,7 +3129,7 @@ dp[1] = 15`}</code>
         </h4>
         <div key="code-16-25" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3179,17 +3179,17 @@ dp[1] = 15`}</code>
           Optimal value:
         </p>
         <p key="p-16-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> \boxed&#123;40&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> \boxed&#123;40&#125; \</span>
         </p>
-        <h3 key="h3-16-44" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-44" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.2 State Definition
         </h3>
         <p key="p-16-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-16-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[w] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[w] \</span>
         </p>
         <p key="p-16-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the maximum value achievable with capacity at most w.
@@ -3198,21 +3198,21 @@ dp[1] = 15`}</code>
           For every item:
         </p>
         <p key="p-16-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[w]=\max(dp[w],value_i+dp[w-weight_i]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[w]=\max(dp[w],value_i+dp[w-weight_i]) \</span>
         </p>
         <p key="p-16-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The key difference is that the transition uses the same <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp</code> array.
+          The key difference is that the transition uses the same <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp</code> array.
         </p>
         <p key="p-16-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This allows the current item to be used again.
         </p>
-        <h3 key="h3-16-60" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-60" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.3 Java Implementation
         </h3>
         <div key="code-16-103" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3262,15 +3262,15 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-16-109" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`40`}</code>
           </pre>
         </div>
-        <h3 key="h3-16-110" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-110" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.4 Why Iterate Forward?
         </h3>
         <p key="p-16-112" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3284,7 +3284,7 @@ dp[1] = 15`}</code>
         </p>
         <div key="code-16-122" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3297,7 +3297,7 @@ Value = 10`}</code>
         </p>
         <div key="code-16-128" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3305,11 +3305,11 @@ Value = 10`}</code>
           </pre>
         </div>
         <p key="p-16-129" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          If <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp[2]</code> already contains 10 from the same item, then:
+          If <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp[2]</code> already contains 10 from the same item, then:
         </p>
         <div key="code-16-134" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3319,8 +3319,8 @@ Value = 10`}</code>
         <p key="p-16-135" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The item has been used twice.
         </p>
-        <h3 key="h3-16-137" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-137" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.5 0/1 vs Unbounded Knapsack
         </h3>
         <p key="p-16-139" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3389,8 +3389,8 @@ Value = 10`}</code>
         <p key="p-17-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is closely related to 0/1 Knapsack.
         </p>
-        <h3 key="h3-17-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.1 Problem Statement
         </h3>
         <p key="p-17-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3407,7 +3407,7 @@ Value = 10`}</code>
         </h4>
         <div key="code-17-21" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3421,7 +3421,7 @@ target = 9`}</code>
         </p>
         <div key="code-17-27" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3433,22 +3433,22 @@ target = 9`}</code>
         </p>
         <div key="code-17-33" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`true`}</code>
           </pre>
         </div>
-        <h3 key="h3-17-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.2 State Definition
         </h3>
         <p key="p-17-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-17-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][sum] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][sum] \</span>
         </p>
         <p key="p-17-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent whether we can create the sum using the first i elements.
@@ -3464,37 +3464,37 @@ target = 9`}</code>
           The transition:
         </p>
         <p key="p-17-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][sum]=dp[i-1][sum] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][sum]=dp[i-1][sum] \</span>
         </p>
         <p key="p-17-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           or, when the value fits:
         </p>
         <p key="p-17-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][sum] = dp[i-1][sum] \lor dp[i-1][sum-num_i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][sum] = dp[i-1][sum] \lor dp[i-1][sum-num_i] \</span>
         </p>
-        <h3 key="h3-17-55" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-55" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.3 Base Cases
         </h3>
         <p key="p-17-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A sum of zero can always be created by choosing an empty subset.
         </p>
         <p key="p-17-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][0]=true \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][0]=true \</span>
         </p>
         <p key="p-17-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           With zero elements, a positive target cannot be created:
         </p>
         <p key="p-17-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0][sum]=false,\quad sum&gt;0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0][sum]=false,\quad sum&gt;0 \</span>
         </p>
-        <h3 key="h3-17-65" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-65" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.4 Java Implementation
         </h3>
         <div key="code-17-116" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3552,15 +3552,15 @@ target = 9`}</code>
         </p>
         <div key="code-17-122" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`true`}</code>
           </pre>
         </div>
-        <h3 key="h3-17-123" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-123" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.5 Space Optimization
         </h3>
         <p key="p-17-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3568,7 +3568,7 @@ target = 9`}</code>
         </p>
         <div key="code-17-152" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3603,8 +3603,8 @@ target = 9`}</code>
         <p key="p-17-155" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We are selecting each array element at most once, so we must use previous states rather than repeatedly using the same element.
         </p>
-        <h3 key="h3-17-157" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-157" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.6 Complexity
         </h3>
         <ul key="ul-17-161" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -3629,8 +3629,8 @@ target = 9`}</code>
         <p key="p-18-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This problem builds directly on Subset Sum.
         </p>
-        <h3 key="h3-18-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.1 Problem Statement
         </h3>
         <p key="p-18-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3644,7 +3644,7 @@ target = 9`}</code>
         </h4>
         <div key="code-18-15" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3656,7 +3656,7 @@ target = 9`}</code>
         </p>
         <div key="code-18-23" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3670,7 +3670,7 @@ Subset 2 = [11]`}</code>
         </p>
         <div key="code-18-29" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3682,28 +3682,28 @@ Subset 2 = [11]`}</code>
         </p>
         <div key="code-18-35" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`true`}</code>
           </pre>
         </div>
-        <h3 key="h3-18-36" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-36" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.2 The Key Observation
         </h3>
         <p key="p-18-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           First calculate the total sum.
         </p>
         <p key="p-18-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> total=\sum nums[i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> total=\sum nums[i] \</span>
         </p>
         <p key="p-18-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For two equal subsets, each subset must have:
         </p>
         <p key="p-18-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> target=\frac&#123;total&#125;&#123;2&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> target=\frac&#123;total&#125;&#123;2&#125; \</span>
         </p>
         <p key="p-18-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If the total sum is odd, an equal partition is impossible.
@@ -3712,18 +3712,18 @@ Subset 2 = [11]`}</code>
           If the total sum is even, the problem becomes:
         </p>
         <p key="p-18-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Can we find a subset whose sum is equal to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">total / 2</code>?
+          Can we find a subset whose sum is equal to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">total / 2</code>?
         </p>
         <p key="p-18-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is exactly the Subset Sum problem.
         </p>
-        <h3 key="h3-18-54" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-54" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.3 Java Implementation
         </h3>
         <div key="code-18-106" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3782,15 +3782,15 @@ Subset 2 = [11]`}</code>
         </p>
         <div key="code-18-112" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`true`}</code>
           </pre>
         </div>
-        <h3 key="h3-18-113" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-113" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.4 Dry Run
         </h3>
         <p key="p-18-115" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3798,7 +3798,7 @@ Subset 2 = [11]`}</code>
         </p>
         <div key="code-18-120" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3809,13 +3809,13 @@ Subset 2 = [11]`}</code>
           Total:
         </p>
         <p key="p-18-123" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 1+5+11+5=22 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 1+5+11+5=22 \</span>
         </p>
         <p key="p-18-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Target:
         </p>
         <p key="p-18-127" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 22/2=11 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 22/2=11 \</span>
         </p>
         <p key="p-18-129" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We check whether a subset can produce 11.
@@ -3824,22 +3824,22 @@ Subset 2 = [11]`}</code>
           One possibility:
         </p>
         <p key="p-18-133" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 1+5+5=11 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 1+5+5=11 \</span>
         </p>
         <p key="p-18-135" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore:
         </p>
         <div key="code-18-140" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`true`}</code>
           </pre>
         </div>
-        <h3 key="h3-18-141" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-141" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.5 Complexity
         </h3>
         <ul key="ul-18-145" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -3868,8 +3868,8 @@ Subset 2 = [11]`}</code>
         <p key="p-19-7" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These are different problems and require different state transitions.
         </p>
-        <h3 key="h3-19-9" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-9" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.1 Coin Change I — Minimum Number of Coins
         </h3>
         <h4 key="h4-19-11" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
@@ -3896,7 +3896,7 @@ Subset 2 = [11]`}</code>
         </p>
         <div key="code-19-31" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3910,7 +3910,7 @@ amount = 11`}</code>
         </p>
         <div key="code-19-41" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3926,7 +3926,7 @@ amount = 11`}</code>
         </p>
         <div key="code-19-47" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3940,7 +3940,7 @@ amount = 11`}</code>
           Let:
         </p>
         <p key="p-19-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[x] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[x] \</span>
         </p>
         <p key="p-19-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the minimum number of coins required to make amount x.
@@ -3949,19 +3949,19 @@ amount = 11`}</code>
           For every denomination c, we can use it if:
         </p>
         <p key="p-19-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> c \leq x \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> c \leq x \</span>
         </p>
         <p key="p-19-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The transition is:
         </p>
         <p key="p-19-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[x]=\min(dp[x],1+dp[x-c]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[x]=\min(dp[x],1+dp[x-c]) \</span>
         </p>
         <p key="p-19-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We start with:
         </p>
         <p key="p-19-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0]=0 \</span>
         </p>
         <p key="p-19-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           An amount that cannot yet be formed is initialized with a large sentinel value.
@@ -3971,7 +3971,7 @@ amount = 11`}</code>
         </h4>
         <div key="code-19-120" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4028,7 +4028,7 @@ public class CoinChangeMinimum {
         </p>
         <div key="code-19-126" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4056,7 +4056,7 @@ public class CoinChangeMinimum {
         </p>
         <div key="code-19-145" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4070,7 +4070,7 @@ amount = 6`}</code>
         </p>
         <div key="code-19-151" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4085,7 +4085,7 @@ amount = 6`}</code>
         </p>
         <div key="code-19-159" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4098,8 +4098,8 @@ amount = 6`}</code>
         <p key="p-19-162" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This demonstrates why minimum coin change cannot always be solved with greedy selection.
         </p>
-        <h3 key="h3-19-164" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-164" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.2 Coin Change II — Number of Combinations
         </h3>
         <p key="p-19-166" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4113,7 +4113,7 @@ amount = 6`}</code>
         </p>
         <div key="code-19-177" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4127,7 +4127,7 @@ amount = 5`}</code>
         </p>
         <div key="code-19-189" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4145,7 +4145,7 @@ amount = 5`}</code>
         </p>
         <div key="code-19-195" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4160,7 +4160,7 @@ amount = 5`}</code>
         </p>
         <div key="code-19-203" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4172,7 +4172,7 @@ amount = 5`}</code>
         </p>
         <div key="code-19-209" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4189,7 +4189,7 @@ amount = 5`}</code>
           Let:
         </p>
         <p key="p-19-216" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[x] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[x] \</span>
         </p>
         <p key="p-19-218" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the number of combinations that create amount x using the denominations processed so far.
@@ -4198,7 +4198,7 @@ amount = 5`}</code>
           Initialize:
         </p>
         <p key="p-19-222" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0]=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0]=1 \</span>
         </p>
         <p key="p-19-224" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There is one way to create zero: select no coins.
@@ -4207,14 +4207,14 @@ amount = 5`}</code>
           For every coin:
         </p>
         <p key="p-19-228" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[x]=dp[x]+dp[x-coin] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[x]=dp[x]+dp[x-coin] \</span>
         </p>
         <h4 key="h4-19-230" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Java Implementation
         </h4>
         <div key="code-19-269" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4260,7 +4260,7 @@ amount = 5`}</code>
         </p>
         <div key="code-19-275" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4332,7 +4332,7 @@ amount = 5`}</code>
           </table>
         </div>
         <p key="p-19-299" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <strong className="font-bold text-white">Important:</strong> These examples use positive coin denominations. The number of combinations may exceed the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">int</code> range in Java for large inputs, so use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">long</code> or <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">BigInteger</code> when required by the constraints.
+          <strong className="font-bold text-white">Important:</strong> These examples use positive coin denominations. The number of combinations may exceed the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">int</code> range in Java for large inputs, so use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">long</code> or <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">BigInteger</code> when required by the constraints.
         </p>
       </div>
     )
@@ -4349,8 +4349,8 @@ amount = 5`}</code>
         <p key="p-20-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is frequently asked in technical interviews and forms the foundation of several advanced problems.
         </p>
-        <h3 key="h3-20-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.1 What Is a Subsequence?
         </h3>
         <p key="p-20-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4361,7 +4361,7 @@ amount = 5`}</code>
         </p>
         <div key="code-20-15" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4373,7 +4373,7 @@ amount = 5`}</code>
         </p>
         <div key="code-20-27" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4391,7 +4391,7 @@ ABCDE`}</code>
         </p>
         <div key="code-20-33" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4401,8 +4401,8 @@ ABCDE`}</code>
         <p key="p-20-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           is not a valid subsequence because the relative order has changed.
         </p>
-        <h3 key="h3-20-36" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-36" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.2 Problem Statement
         </h3>
         <p key="p-20-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4416,7 +4416,7 @@ ABCDE`}</code>
         </p>
         <div key="code-20-49" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4430,7 +4430,7 @@ text2 = AEDFHR`}</code>
         </p>
         <div key="code-20-55" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4442,7 +4442,7 @@ text2 = AEDFHR`}</code>
         </p>
         <div key="code-20-61" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4454,7 +4454,7 @@ text2 = AEDFHR`}</code>
         </p>
         <div key="code-20-69" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4468,7 +4468,7 @@ text2 = ACE`}</code>
         </p>
         <div key="code-20-75" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4480,22 +4480,22 @@ text2 = ACE`}</code>
         </p>
         <div key="code-20-81" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`3`}</code>
           </pre>
         </div>
-        <h3 key="h3-20-82" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-82" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.3 State Definition
         </h3>
         <p key="p-20-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-20-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] \</span>
         </p>
         <p key="p-20-88" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the length of the longest common subsequence between:
@@ -4507,8 +4507,8 @@ text2 = ACE`}</code>
         <p key="p-20-93" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We use a two-dimensional DP table because the answer depends on two string positions.
         </p>
-        <h3 key="h3-20-95" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-95" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.4 State Transition
         </h3>
         <p key="p-20-97" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4521,13 +4521,13 @@ text2 = ACE`}</code>
           If:
         </p>
         <p key="p-20-103" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> A[i-1]=B[j-1] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> A[i-1]=B[j-1] \</span>
         </p>
         <p key="p-20-105" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           then the common subsequence can be extended by one character.
         </p>
         <p key="p-20-107" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=1+dp[i-1][j-1] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j]=1+dp[i-1][j-1] \</span>
         </p>
         <h4 key="h4-20-109" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Case 2: Characters Do Not Match
@@ -4543,31 +4543,31 @@ text2 = ACE`}</code>
           Take the better result:
         </p>
         <p key="p-20-118" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=\max(dp[i-1][j],dp[i][j-1]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j]=\max(dp[i-1][j],dp[i][j-1]) \</span>
         </p>
-        <h3 key="h3-20-120" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-120" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.5 Base Cases
         </h3>
         <p key="p-20-122" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If either string is empty:
         </p>
         <p key="p-20-124" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0][j]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0][j]=0 \</span>
         </p>
         <p key="p-20-126" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][0]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][0]=0 \</span>
         </p>
         <p key="p-20-128" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There cannot be a non-empty common subsequence when one string is empty.
         </p>
-        <h3 key="h3-20-130" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-130" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.6 Java Implementation
         </h3>
         <div key="code-20-177" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4621,15 +4621,15 @@ text2 = ACE`}</code>
         </p>
         <div key="code-20-183" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`3`}</code>
           </pre>
         </div>
-        <h3 key="h3-20-184" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-184" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.7 Understanding the DP Table
         </h3>
         <p key="p-20-186" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4637,7 +4637,7 @@ text2 = ACE`}</code>
         </p>
         <div key="code-20-192" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4716,15 +4716,15 @@ B = ACE`}</code>
         </p>
         <div key="code-20-213" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`dp[m][n]`}</code>
           </pre>
         </div>
-        <h3 key="h3-20-214" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-214" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.8 Recovering the Actual LCS String
         </h3>
         <p key="p-20-216" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4740,7 +4740,7 @@ B = ACE`}</code>
       </ul>
         <div key="code-20-293" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4818,15 +4818,15 @@ public class LCSString {
         </p>
         <div key="code-20-299" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`ACE`}</code>
           </pre>
         </div>
-        <h3 key="h3-20-300" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-300" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.9 Complexity
         </h3>
         <p key="p-20-302" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4854,8 +4854,8 @@ public class LCSString {
         <p key="p-21-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It differs from LCS because it works with the order of values in a single array.
         </p>
-        <h3 key="h3-21-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.1 What Is an Increasing Subsequence?
         </h3>
         <p key="p-21-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4866,7 +4866,7 @@ public class LCSString {
         </p>
         <div key="code-21-15" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4878,7 +4878,7 @@ public class LCSString {
         </p>
         <div key="code-21-21" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4890,7 +4890,7 @@ public class LCSString {
         </p>
         <div key="code-21-27" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4900,15 +4900,15 @@ public class LCSString {
         <p key="p-21-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Notice that the elements do not need to be adjacent.
         </p>
-        <h3 key="h3-21-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.2 Problem Statement
         </h3>
         <p key="p-21-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Given an integer array, find the length of its longest strictly increasing subsequence.
         </p>
-        <h3 key="h3-21-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.3 Approach 1 — O(N²) Dynamic Programming
         </h3>
         <h4 key="h4-21-36" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
@@ -4918,7 +4918,7 @@ public class LCSString {
           Let:
         </p>
         <p key="p-21-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i] \</span>
         </p>
         <p key="p-21-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the length of the longest increasing subsequence that ends exactly at index i.
@@ -4930,7 +4930,7 @@ public class LCSString {
           Therefore:
         </p>
         <p key="p-21-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=1 \</span>
         </p>
         <p key="p-21-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Initially.
@@ -4945,7 +4945,7 @@ public class LCSString {
           If:
         </p>
         <p key="p-21-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> nums[j]\&lt;nums[i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> nums[j]\&lt;nums[i] \</span>
         </p>
         <p key="p-21-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           we can extend an increasing subsequence ending at j.
@@ -4954,20 +4954,20 @@ public class LCSString {
           Therefore:
         </p>
         <p key="p-21-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=\max(dp[i],dp[j]+1) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=\max(dp[i],dp[j]+1) \</span>
         </p>
         <p key="p-21-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Finally:
         </p>
         <p key="p-21-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> Answer=\max(dp[i]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> Answer=\max(dp[i]) \</span>
         </p>
         <h4 key="h4-21-70" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Java Implementation
         </h4>
         <div key="code-21-123" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5027,7 +5027,7 @@ public class LongestIncreasingSubsequence {
         </p>
         <div key="code-21-129" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5041,8 +5041,8 @@ public class LongestIncreasingSubsequence {
           <li>Time: O(N²).</li>
           <li>Space: O(N).</li>
       </ul>
-        <h3 key="h3-21-135" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-135" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.4 Understanding the DP Array
         </h3>
         <p key="p-21-137" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5050,7 +5050,7 @@ public class LongestIncreasingSubsequence {
         </p>
         <div key="code-21-142" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5062,7 +5062,7 @@ public class LongestIncreasingSubsequence {
         </p>
         <div key="code-21-148" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5074,22 +5074,22 @@ public class LongestIncreasingSubsequence {
         </p>
         <div key="code-21-154" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`4`}</code>
           </pre>
         </div>
-        <h3 key="h3-21-155" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-155" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.5 Approach 2 — O(N log N)
         </h3>
         <p key="p-21-157" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For larger inputs, we can solve LIS using a technique based on binary search.
         </p>
         <p key="p-21-159" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          We maintain an array called <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">tails</code>.
+          We maintain an array called <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">tails</code>.
         </p>
         <p key="p-21-161" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           At each position, we track the smallest possible ending value for increasing subsequences of different lengths.
@@ -5099,7 +5099,7 @@ public class LongestIncreasingSubsequence {
         </p>
         <div key="code-21-168" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5107,11 +5107,11 @@ public class LongestIncreasingSubsequence {
           </pre>
         </div>
         <p key="p-21-169" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The final <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">tails</code> array is:
+          The final <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">tails</code> array is:
         </p>
         <div key="code-21-174" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5122,14 +5122,14 @@ public class LongestIncreasingSubsequence {
           Its length is the LIS length.
         </p>
         <p key="p-21-177" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Important: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">tails</code> is not necessarily the actual longest increasing subsequence. Its entries represent the smallest achievable tail values for different subsequence lengths.
+          Important: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">tails</code> is not necessarily the actual longest increasing subsequence. Its entries represent the smallest achievable tail values for different subsequence lengths.
         </p>
         <h4 key="h4-21-179" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Java Implementation
         </h4>
         <div key="code-21-232" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5189,7 +5189,7 @@ public class LISOLogN {
         </p>
         <div key="code-21-238" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5252,8 +5252,8 @@ public class LISOLogN {
         <p key="p-22-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is also known as Levenshtein Distance when the permitted operations are insertion, deletion, and substitution, each with unit cost.
         </p>
-        <h3 key="h3-22-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.1 Problem Statement
         </h3>
         <p key="p-22-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5275,7 +5275,7 @@ public class LISOLogN {
         </h4>
         <div key="code-22-27" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5289,7 +5289,7 @@ word2 = "ros"`}</code>
         </p>
         <div key="code-22-36" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5304,22 +5304,22 @@ ros      Delete e`}</code>
         </p>
         <div key="code-22-42" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`3 operations`}</code>
           </pre>
         </div>
-        <h3 key="h3-22-43" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-43" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.2 State Definition
         </h3>
         <p key="p-22-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-22-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] \</span>
         </p>
         <p key="p-22-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the minimum edit distance between:
@@ -5328,37 +5328,37 @@ ros      Delete e`}</code>
           <li>The first i characters of word1.</li>
           <li>The first j characters of word2.</li>
       </ul>
-        <h3 key="h3-22-54" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-54" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.3 Base Cases
         </h3>
         <p key="p-22-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If the first string is empty, we must insert all characters from the second string.
         </p>
         <p key="p-22-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0][j]=j \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0][j]=j \</span>
         </p>
         <p key="p-22-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If the second string is empty, we must delete all characters from the first string.
         </p>
         <p key="p-22-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][0]=i \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][0]=i \</span>
         </p>
-        <h3 key="h3-22-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.4 State Transition
         </h3>
         <p key="p-22-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If the current characters match:
         </p>
         <p key="p-22-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> word1[i-1]=word2[j-1] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> word1[i-1]=word2[j-1] \</span>
         </p>
         <p key="p-22-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           No additional operation is required:
         </p>
         <p key="p-22-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=dp[i-1][j-1] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j]=dp[i-1][j-1] \</span>
         </p>
         <p key="p-22-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If the characters do not match, we consider three operations.
@@ -5367,7 +5367,7 @@ ros      Delete e`}</code>
           <strong className="font-bold text-white">Insertion:</strong>
         </p>
         <p key="p-22-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j-1]+1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j-1]+1 \</span>
         </p>
         <p key="p-22-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We insert the required character into the first string.
@@ -5376,7 +5376,7 @@ ros      Delete e`}</code>
           <strong className="font-bold text-white">Deletion:</strong>
         </p>
         <p key="p-22-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i-1][j]+1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i-1][j]+1 \</span>
         </p>
         <p key="p-22-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We delete the current character from the first string.
@@ -5385,7 +5385,7 @@ ros      Delete e`}</code>
           <strong className="font-bold text-white">Replacement:</strong>
         </p>
         <p key="p-22-90" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i-1][j-1]+1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i-1][j-1]+1 \</span>
         </p>
         <p key="p-22-92" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We replace one character with another.
@@ -5394,18 +5394,18 @@ ros      Delete e`}</code>
           Therefore:
         </p>
         <p key="p-22-96" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] = 1+\min \begin&#123;cases&#125; dp[i-1][j]\\\ dp[i][j-1]\\\ dp[i-1][j-1] \end&#123;cases&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] = 1+\min \begin&#123;cases&#125; dp[i-1][j]\\\ dp[i][j-1]\\\ dp[i-1][j-1] \end&#123;cases&#125; \</span>
         </p>
         <p key="p-22-98" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           when the characters are different.
         </p>
-        <h3 key="h3-22-100" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-100" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.5 Java Implementation
         </h3>
         <div key="code-22-164" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5476,15 +5476,15 @@ ros      Delete e`}</code>
         </p>
         <div key="code-22-170" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`3`}</code>
           </pre>
         </div>
-        <h3 key="h3-22-171" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-171" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.6 Understanding the Operations
         </h3>
         <div key="table-22-179" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -5525,15 +5525,15 @@ ros      Delete e`}</code>
         </p>
         <div key="code-22-185" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`dp[word1.length()][word2.length()]`}</code>
           </pre>
         </div>
-        <h3 key="h3-22-186" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-186" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.7 Complexity
         </h3>
         <p key="p-22-188" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5549,8 +5549,8 @@ ros      Delete e`}</code>
         <p key="p-22-195" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           However, reconstructing the exact sequence of editing operations requires retaining additional information or recomputing decisions.
         </p>
-        <h3 key="h3-22-197" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-197" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.8 Real-World Applications
         </h3>
         <p key="p-22-199" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5589,8 +5589,8 @@ ros      Delete e`}</code>
         <p key="p-23-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The challenge is deciding the optimal order of multiplication.
         </p>
-        <h3 key="h3-23-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.1 Understanding Matrix Multiplication
         </h3>
         <p key="p-23-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5600,25 +5600,25 @@ ros      Delete e`}</code>
           Matrix A:
         </p>
         <p key="p-23-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> m \times n \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> m \times n \</span>
         </p>
         <p key="p-23-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Matrix B:
         </p>
         <p key="p-23-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> n \times p \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> n \times p \</span>
         </p>
         <p key="p-23-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Their multiplication produces:
         </p>
         <p key="p-23-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> m \times p \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> m \times p \</span>
         </p>
         <p key="p-23-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The number of scalar multiplications required is:
         </p>
         <p key="p-23-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> m \times n \times p \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> m \times n \times p \</span>
         </p>
         <p key="p-23-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For example:
@@ -5633,13 +5633,13 @@ ros      Delete e`}</code>
           The multiplication cost is:
         </p>
         <p key="p-23-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 10 \times 30 \times 5=1500 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 10 \times 30 \times 5=1500 \</span>
         </p>
         <p key="p-23-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The resulting matrix has dimensions 10 × 5.
         </p>
-        <h3 key="h3-23-42" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-42" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.2 Problem Statement
         </h3>
         <p key="p-23-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5647,7 +5647,7 @@ ros      Delete e`}</code>
         </p>
         <div key="code-23-49" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5661,7 +5661,7 @@ ros      Delete e`}</code>
           Matrix multiplication is associative:
         </p>
         <p key="p-23-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> (A_1A_2)A_3=A_1(A_2A_3) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> (A_1A_2)A_3=A_1(A_2A_3) \</span>
         </p>
         <p key="p-23-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           However, different parenthesizations can require very different numbers of scalar multiplications.
@@ -5669,8 +5669,8 @@ ros      Delete e`}</code>
         <p key="p-23-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Our goal is to find the minimum cost.
         </p>
-        <h3 key="h3-23-60" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-60" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.3 Example
         </h3>
         <p key="p-23-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5710,7 +5710,7 @@ ros      Delete e`}</code>
           First:
         </p>
         <p key="p-23-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 10 \times 30 \times 5=1500 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 10 \times 30 \times 5=1500 \</span>
         </p>
         <p key="p-23-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The result is a 10 × 5 matrix.
@@ -5719,13 +5719,13 @@ ros      Delete e`}</code>
           Then:
         </p>
         <p key="p-23-82" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 10 \times 5 \times 60=3000 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 10 \times 5 \times 60=3000 \</span>
         </p>
         <p key="p-23-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Total:
         </p>
         <p key="p-23-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 1500+3000=\boxed&#123;4500&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 1500+3000=\boxed&#123;4500&#125; \</span>
         </p>
         <h4 key="h4-23-88" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Option 2: A1 × (A2 × A3)
@@ -5734,7 +5734,7 @@ ros      Delete e`}</code>
           First:
         </p>
         <p key="p-23-92" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 30 \times 5 \times 60=9000 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 30 \times 5 \times 60=9000 \</span>
         </p>
         <p key="p-23-94" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The result is a 30 × 60 matrix.
@@ -5743,13 +5743,13 @@ ros      Delete e`}</code>
           Then:
         </p>
         <p key="p-23-98" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 10 \times 30 \times 60=18000 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 10 \times 30 \times 60=18000 \</span>
         </p>
         <p key="p-23-100" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Total:
         </p>
         <p key="p-23-102" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 9000+18000=\boxed&#123;27000&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 9000+18000=\boxed&#123;27000&#125; \</span>
         </p>
         <p key="p-23-104" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="font-bold text-white">Compare multiplication orders</strong>
@@ -5778,8 +5778,8 @@ ros      Delete e`}</code>
         <p key="p-23-120" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Six times the cost of the optimal order.
         </p>
-        <h3 key="h3-23-122" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-122" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.4 State Definition
         </h3>
         <p key="p-23-124" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5787,7 +5787,7 @@ ros      Delete e`}</code>
         </p>
         <div key="code-23-129" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5799,7 +5799,7 @@ ros      Delete e`}</code>
         </p>
         <div key="code-23-139" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5814,7 +5814,7 @@ A3 = 5 × 60`}</code>
           Let:
         </p>
         <p key="p-23-142" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] \</span>
         </p>
         <p key="p-23-144" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the minimum number of scalar multiplications required to multiply matrices from Ai through Aj.
@@ -5823,7 +5823,7 @@ A3 = 5 × 60`}</code>
           For a single matrix:
         </p>
         <p key="p-23-148" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][i]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][i]=0 \</span>
         </p>
         <p key="p-23-150" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Why?
@@ -5831,8 +5831,8 @@ A3 = 5 × 60`}</code>
         <p key="p-23-152" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Multiplying one matrix requires no matrix-to-matrix multiplication.
         </p>
-        <h3 key="h3-23-154" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-154" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.5 State Transition
         </h3>
         <p key="p-23-156" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5843,7 +5843,7 @@ A3 = 5 × 60`}</code>
         </p>
         <div key="code-23-163" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5862,7 +5862,7 @@ A3 = 5 × 60`}</code>
           The total cost is:
         </p>
         <p key="p-23-172" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][k]+dp[k+1][j]+p[i-1]\times p[k]\times p[j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][k]+dp[k+1][j]+p[i-1]\times p[k]\times p[j] \</span>
         </p>
         <p key="p-23-174" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We try every possible split point.
@@ -5871,20 +5871,20 @@ A3 = 5 × 60`}</code>
           Therefore:
         </p>
         <p key="p-23-178" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] = \min\_&#123;i\leq k\&lt;j&#125; \left( dp[i][k]+dp[k+1][j] +p[i-1]p[k]p[j] \right) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] = \min\_&#123;i\leq k\&lt;j&#125; \left( dp[i][k]+dp[k+1][j] +p[i-1]p[k]p[j] \right) \</span>
         </p>
         <p key="p-23-180" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is the central recurrence of Matrix Chain Multiplication.
         </p>
-        <h3 key="h3-23-182" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-182" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.6 Why Is It Called Interval DP?
         </h3>
         <p key="p-23-184" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Because the state represents a continuous range:
         </p>
         <p key="p-23-186" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> [i,j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> [i,j] \</span>
         </p>
         <p key="p-23-188" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We solve smaller ranges first and combine them to solve larger ranges.
@@ -5901,13 +5901,13 @@ A3 = 5 × 60`}</code>
         <p key="p-23-197" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is a common pattern in advanced DP problems.
         </p>
-        <h3 key="h3-23-199" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-199" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.7 Java Implementation
         </h3>
         <div key="code-23-255" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5970,7 +5970,7 @@ A3 = 5 × 60`}</code>
         </p>
         <div key="code-23-261" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5978,10 +5978,10 @@ A3 = 5 × 60`}</code>
           </pre>
         </div>
         <p key="p-23-262" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          This code uses <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">int</code> for a small example. For larger dimensions, intermediate multiplication costs can overflow. Use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">long</code> for the DP table and multiplication expressions when constraints require it.
+          This code uses <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">int</code> for a small example. For larger dimensions, intermediate multiplication costs can overflow. Use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">long</code> for the DP table and multiplication expressions when constraints require it.
         </p>
-        <h3 key="h3-23-264" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-264" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.8 Dry Run
         </h3>
         <p key="p-23-266" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5989,7 +5989,7 @@ A3 = 5 × 60`}</code>
         </p>
         <div key="code-23-271" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6004,7 +6004,7 @@ A3 = 5 × 60`}</code>
         </p>
         <div key="code-23-281" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6017,10 +6017,10 @@ dp[3][3] = 0`}</code>
           Calculate two-matrix intervals:
         </p>
         <p key="p-23-284" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[1][2]=10\times30\times5=1500 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[1][2]=10\times30\times5=1500 \</span>
         </p>
         <p key="p-23-286" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[2][3]=30\times5\times60=9000 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[2][3]=30\times5\times60=9000 \</span>
         </p>
         <p key="p-23-288" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Now calculate the three-matrix interval.
@@ -6032,28 +6032,28 @@ dp[3][3] = 0`}</code>
           Split at 1:
         </p>
         <p key="p-23-294" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 0+9000+10\times30\times60 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 0+9000+10\times30\times60 \</span>
         </p>
         <p key="p-23-296" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> =27000 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> =27000 \</span>
         </p>
         <p key="p-23-298" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Split at 2:
         </p>
         <p key="p-23-300" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 1500+0+10\times5\times60 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 1500+0+10\times5\times60 \</span>
         </p>
         <p key="p-23-302" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> =4500 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> =4500 \</span>
         </p>
         <p key="p-23-304" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Choose the minimum:
         </p>
         <p key="p-23-306" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[1][3]=4500 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[1][3]=4500 \</span>
         </p>
-        <h3 key="h3-23-308" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-308" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.9 Complexity
         </h3>
         <p key="p-23-310" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6092,8 +6092,8 @@ dp[3][3] = 0`}</code>
         <p key="p-24-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           You must recognize the pattern yourself.
         </p>
-        <h3 key="h3-24-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           24.1 One-Dimensional DP
         </h3>
         <p key="p-24-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6112,10 +6112,10 @@ dp[3][3] = 0`}</code>
           Typical state:
         </p>
         <p key="p-24-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i] \</span>
         </p>
-        <h3 key="h3-24-23" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-23" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           24.2 Two-Dimensional DP
         </h3>
         <p key="p-24-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6134,10 +6134,10 @@ dp[3][3] = 0`}</code>
           Typical state:
         </p>
         <p key="p-24-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] \</span>
         </p>
-        <h3 key="h3-24-38" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-38" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           24.3 Knapsack DP
         </h3>
         <p key="p-24-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6160,8 +6160,8 @@ dp[3][3] = 0`}</code>
           <li>Take an item.</li>
           <li>Do not take an item.</li>
       </ul>
-        <h3 key="h3-24-55" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-55" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           24.4 Subsequences DP
         </h3>
         <p key="p-24-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6176,8 +6176,8 @@ dp[3][3] = 0`}</code>
           <li>Longest Palindromic Subsequence.</li>
           <li>Minimum Insertions to Make a String Palindrome.</li>
       </ul>
-        <h3 key="h3-24-66" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-66" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           24.5 String DP
         </h3>
         <p key="p-24-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6193,8 +6193,8 @@ dp[3][3] = 0`}</code>
           <li>Wildcard Matching.</li>
           <li>Regular Expression Matching.</li>
       </ul>
-        <h3 key="h3-24-78" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-78" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           24.6 Interval DP
         </h3>
         <p key="p-24-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6213,13 +6213,13 @@ dp[3][3] = 0`}</code>
           Typical state:
         </p>
         <p key="p-24-91" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j] \</span>
         </p>
         <p key="p-24-93" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           where i and j represent the boundaries of an interval.
         </p>
-        <h3 key="h3-24-95" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-95" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           24.7 DP Pattern Recognition Table
         </h3>
         <div key="table-24-109" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -6289,8 +6289,8 @@ dp[3][3] = 0`}</code>
         <p key="p-25-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Both techniques can solve optimization problems, but they make decisions differently.
         </p>
-        <h3 key="h3-25-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           25.1 Greedy Approach
         </h3>
         <p key="p-25-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6305,8 +6305,8 @@ dp[3][3] = 0`}</code>
         <p key="p-25-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We select items according to their value-to-weight ratio.
         </p>
-        <h3 key="h3-25-16" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-16" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           25.2 Dynamic Programming Approach
         </h3>
         <p key="p-25-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6321,8 +6321,8 @@ dp[3][3] = 0`}</code>
         <p key="p-25-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We consider taking or skipping each item.
         </p>
-        <h3 key="h3-25-26" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-26" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           25.3 Detailed Comparison
         </h3>
         <div key="table-25-37" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -6373,8 +6373,8 @@ dp[3][3] = 0`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-25-38" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-38" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           25.4 Example: Fractional vs 0/1 Knapsack
         </h3>
         <p key="p-25-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6396,8 +6396,8 @@ dp[3][3] = 0`}</code>
           <li>Fractional Knapsack → Greedy.</li>
           <li>0/1 Knapsack → DP for the general problem.</li>
       </ul>
-        <h3 key="h3-25-53" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-53" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           25.5 Example: Coin Change
         </h3>
         <p key="p-25-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6405,7 +6405,7 @@ dp[3][3] = 0`}</code>
         </p>
         <div key="code-25-62" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6419,7 +6419,7 @@ amount = 6`}</code>
         </p>
         <div key="code-25-68" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6434,7 +6434,7 @@ amount = 6`}</code>
         </p>
         <div key="code-25-76" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6465,18 +6465,18 @@ amount = 6`}</code>
         <p key="p-26-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These are some of the most common mistakes.
         </p>
-        <h3 key="h3-26-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 1: Incorrect State Definition
         </h3>
         <p key="p-26-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          If <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp[i]</code> does not clearly describe the subproblem, writing its transition becomes difficult.
+          If <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp[i]</code> does not clearly describe the subproblem, writing its transition becomes difficult.
         </p>
         <p key="p-26-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Always explain what each DP entry represents in one precise sentence.
         </p>
-        <h3 key="h3-26-12" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-12" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 2: Incorrect Base Cases
         </h3>
         <p key="p-26-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6487,7 +6487,7 @@ amount = 6`}</code>
         </p>
         <div key="code-26-21" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6502,15 +6502,15 @@ amount = 6`}</code>
         </p>
         <div key="code-26-29" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`dp[0] = 1;`}</code>
           </pre>
         </div>
-        <h3 key="h3-26-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 3: Wrong Loop Direction
         </h3>
         <p key="p-26-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6547,8 +6547,8 @@ amount = 6`}</code>
         <p key="p-26-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Incorrect direction can accidentally allow an item to be selected multiple times.
         </p>
-        <h3 key="h3-26-43" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-43" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 4: Forgetting Impossible States
         </h3>
         <p key="p-26-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6559,7 +6559,7 @@ amount = 6`}</code>
         </p>
         <div key="code-26-52" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6569,8 +6569,8 @@ amount = 6`}</code>
         <p key="p-26-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Be careful when adding to INF because integer overflow can occur.
         </p>
-        <h3 key="h3-26-55" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-55" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 5: Confusing Subsequence and Substring
         </h3>
         <p key="p-26-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6584,7 +6584,7 @@ amount = 6`}</code>
         </p>
         <div key="code-26-66" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6592,13 +6592,13 @@ amount = 6`}</code>
           </pre>
         </div>
         <p key="p-26-67" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ACE</code> is a subsequence but not a substring.
+          <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ACE</code> is a subsequence but not a substring.
         </p>
         <p key="p-26-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           LCS operates on subsequences, not necessarily contiguous substrings.
         </p>
-        <h3 key="h3-26-71" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-71" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 6: Not Understanding the DP Table
         </h3>
         <p key="p-26-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6610,8 +6610,8 @@ amount = 6`}</code>
           <li>Why the previous row is used.</li>
           <li>Why the upper, left, or diagonal cell is relevant.</li>
       </ul>
-        <h3 key="h3-26-80" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-80" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 7: Using the Entire Table When It Is Not Necessary
         </h3>
         <p key="p-26-82" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6620,8 +6620,8 @@ amount = 6`}</code>
         <p key="p-26-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Look for space optimization after obtaining a correct implementation.
         </p>
-        <h3 key="h3-26-86" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-86" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 8: Overflow
         </h3>
         <p key="p-26-88" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6632,7 +6632,7 @@ amount = 6`}</code>
         </p>
         <div key="code-26-95" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6647,7 +6647,7 @@ amount = 6`}</code>
         </p>
         <div key="code-26-103" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6659,7 +6659,7 @@ amount = 6`}</code>
         </p>
         <div key="code-26-109" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -6669,8 +6669,8 @@ amount = 6`}</code>
         <p key="p-26-110" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           when constraints require larger values.
         </p>
-        <h3 key="h3-26-112" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-112" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 9: Ignoring Empty Inputs
         </h3>
         <p key="p-26-114" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6684,8 +6684,8 @@ amount = 6`}</code>
           <li>One element.</li>
           <li>Impossible target.</li>
       </ul>
-        <h3 key="h3-26-123" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-26-123" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Mistake 10: Optimizing Before Understanding
         </h3>
         <p key="p-26-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6841,8 +6841,8 @@ amount = 6`}</code>
         <p key="p-28-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Here is a structured problem list.
         </p>
-        <h3 key="h3-28-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-28-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 1 — DP Fundamentals
         </h3>
         <ol key="ol-28-20" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -6857,8 +6857,8 @@ amount = 6`}</code>
           <li>Delete and Earn.</li>
           <li>Decode Ways.</li>
       </ol>
-        <h3 key="h3-28-21" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-28-21" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 2 — Knapsack and Subset DP
         </h3>
         <ol key="ol-28-33" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -6873,8 +6873,8 @@ amount = 6`}</code>
           <li>Coin Change II.</li>
           <li>Rod Cutting.</li>
       </ol>
-        <h3 key="h3-28-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-28-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 3 — String and Subsequence DP
         </h3>
         <ol key="ol-28-46" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -6889,8 +6889,8 @@ amount = 6`}</code>
           <li>Longest Palindromic Subsequence.</li>
           <li>Minimum Insertions to Make a String Palindrome.</li>
       </ol>
-        <h3 key="h3-28-47" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-28-47" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 4 — Advanced DP
         </h3>
         <ol key="ol-28-59" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -6957,7 +6957,7 @@ amount = 6`}</code>
           <li><strong className="font-bold text-white">Define the DP state</strong></li>
       </ol>
         <p key="p-29-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Clearly explain what <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp[i]</code>, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">dp[i][j]</code>, or a higher-dimensional state represents.
+          Clearly explain what <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp[i]</code>, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">dp[i][j]</code>, or a higher-dimensional state represents.
         </p>
         <ol key="ol-29-26" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
           <li><strong className="font-bold text-white">Write the recurrence</strong></li>
@@ -6989,8 +6989,8 @@ amount = 6`}</code>
         <p key="p-29-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Reduce time or memory only after the original solution is correct.
         </p>
-        <h3 key="h3-29-41" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-29-41" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Example of Applying This Framework
         </h3>
         <p key="p-29-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -7004,7 +7004,7 @@ amount = 6`}</code>
         </p>
         <div key="code-29-52" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -7027,22 +7027,22 @@ amount = 6`}</code>
           Step 3 — State:
         </p>
         <p key="p-29-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=\text&#123;maximum sum using the first i elements&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=\text&#123;maximum sum using the first i elements&#125; \</span>
         </p>
         <p key="p-29-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Step 4 — Transition:
         </p>
         <p key="p-29-67" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=\max(dp[i-1],nums[i-1]+dp[i-2]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=\max(dp[i-1],nums[i-1]+dp[i-2]) \</span>
         </p>
         <p key="p-29-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Step 5 — Base cases:
         </p>
         <p key="p-29-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[0]=0 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[0]=0 \</span>
         </p>
         <p key="p-29-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[1]=\max(0,nums[0]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[1]=\max(0,nums[0]) \</span>
         </p>
         <p key="p-29-75" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Step 6 — Answer:
@@ -7052,7 +7052,7 @@ amount = 6`}</code>
         </p>
         <div key="code-29-82" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 19 Dynamic Programming Fundamentals</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -7080,8 +7080,8 @@ amount = 6`}</code>
         <p key="p-30-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           0 / 26 completed
         </p>
-        <h3 key="h3-30-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-30-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           0%
         </h3>
         <p key="p-30-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -7188,8 +7188,8 @@ amount = 6`}</code>
           <li>LCS, LIS, and Edit Distance are important sequence and string DP patterns.</li>
           <li>Matrix Chain Multiplication introduces interval DP.</li>
       </ol>
-        <h3 key="h3-31-15" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-31-15" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Your Expected Skill After This Module
         </h3>
         <p key="p-31-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">

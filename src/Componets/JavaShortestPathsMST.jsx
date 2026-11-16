@@ -495,7 +495,7 @@ export default function JavaShortestPathsMST() {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-200">
       {/* Top Navigation Bar */}
       <header className="sticky top-0 z-40 bg-slate-900/90 backdrop-blur border-b border-slate-800 px-4 lg:px-8 py-3 flex items-center justify-between shadow-lg">
         <div className="flex items-center gap-3">
@@ -508,13 +508,13 @@ export default function JavaShortestPathsMST() {
           </button>
           <div>
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded">
+              <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-400 border border-orange-500/30 rounded">
                 Module 18
               </span>
               <span className="text-xs text-slate-400 font-mono hidden sm:inline">Advanced Java + DSA</span>
             </div>
             <h1 className="text-sm sm:text-base font-extrabold text-white flex items-center gap-2">
-              <Compass className="w-4 h-4 text-indigo-400" />
+              <Compass className="w-4 h-4 text-orange-400" />
               Shortest Paths & Minimum Spanning Trees
             </h1>
           </div>
@@ -526,7 +526,7 @@ export default function JavaShortestPathsMST() {
             onClick={() => setActiveTab("curriculum")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
               activeTab === "curriculum"
-                ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
+                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                 : "text-slate-400 hover:text-slate-200"
             }`}
           >
@@ -537,7 +537,7 @@ export default function JavaShortestPathsMST() {
             onClick={() => setActiveTab("workbenches")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
               activeTab === "workbenches"
-                ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
+                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                 : "text-slate-400 hover:text-slate-200"
             }`}
           >
@@ -548,7 +548,7 @@ export default function JavaShortestPathsMST() {
             onClick={() => setActiveTab("quiz")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
               activeTab === "quiz"
-                ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
+                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                 : "text-slate-400 hover:text-slate-200"
             }`}
           >
@@ -559,7 +559,7 @@ export default function JavaShortestPathsMST() {
             onClick={() => setActiveTab("labs")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
               activeTab === "labs"
-                ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
+                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                 : "text-slate-400 hover:text-slate-200"
             }`}
           >
@@ -581,7 +581,7 @@ export default function JavaShortestPathsMST() {
             <aside className="w-full lg:w-80 shrink-0 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col h-fit lg:sticky lg:top-20 max-h-[85vh]">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                  <Layers className="w-3.5 h-3.5 text-indigo-400" />
+                  <Layers className="w-3.5 h-3.5 text-orange-400" />
                   Sections (27)
                 </span>
                 <span className="text-[10px] text-slate-400 font-mono">Module 18</span>
@@ -595,7 +595,7 @@ export default function JavaShortestPathsMST() {
                   placeholder="Filter 27 sections..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-400 focus:outline-none focus:border-indigo-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-400 focus:outline-none focus:border-orange-500"
                 />
               </div>
 
@@ -608,7 +608,7 @@ export default function JavaShortestPathsMST() {
                     title={sec.title}
                     className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-start justify-between ${
                       activeSectionId === sec.id
-                        ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/40 font-semibold"
+                        ? "bg-orange-500/15 text-orange-300 border border-orange-500/40 font-semibold"
                         : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
                     }`}
                   >
@@ -629,7 +629,7 @@ export default function JavaShortestPathsMST() {
                     <div className="border-b border-slate-800 pb-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2 mb-1.5">
-                          <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                          <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/10 text-orange-400 border border-orange-500/20">
                             {currentSec.id === 0
                               ? "Module Overview · 27 Core Sections"
                               : `Section ${currentSec.id} of 27`}
@@ -653,9 +653,9 @@ export default function JavaShortestPathsMST() {
                           else if (currentSec.id <= 17) setActiveWorkbench(7);
                           else setActiveWorkbench(8);
                         }}
-                        className="px-3.5 py-2 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-xs font-semibold flex items-center gap-2 transition shrink-0"
+                        className="px-3.5 py-2 rounded-xl bg-orange-500/10 hover:bg-orange-500/15 border border-orange-500/30 text-orange-300 text-xs font-semibold flex items-center gap-2 transition shrink-0"
                       >
-                        <Cpu className="w-3.5 h-3.5 text-indigo-400" />
+                        <Cpu className="w-3.5 h-3.5 text-orange-400" />
                         Open Interactive Visualizer
                       </button>
                     </div>
@@ -678,7 +678,7 @@ export default function JavaShortestPathsMST() {
                       <button
                         disabled={activeSectionId === JAVA_SHORTEST_PATHS_MST_SECTIONS.length - 1}
                         onClick={() => setActiveSectionId(prev => Math.min(JAVA_SHORTEST_PATHS_MST_SECTIONS.length - 1, prev + 1))}
-                        className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 transition shadow-md shadow-indigo-600/30"
+                        className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-white text-xs font-semibold disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 transition shadow-md shadow-orange-500/20"
                       >
                         Next Section
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -713,11 +713,11 @@ export default function JavaShortestPathsMST() {
                     onClick={() => setActiveWorkbench(wb.id)}
                     className={`p-3 rounded-xl border text-left transition flex flex-col gap-1.5 ${
                       activeWorkbench === wb.id
-                        ? "bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-600/25"
+                        ? "bg-orange-500 text-white border-orange-500 shadow-lg shadow-orange-500/20"
                         : "bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800"
                     }`}
                   >
-                    <Icon className="w-4 h-4 text-indigo-300" />
+                    <Icon className="w-4 h-4 text-orange-300" />
                     <span className="text-xs font-bold" title={wb.title}>{wb.title}</span>
                   </button>
                 );
@@ -729,7 +729,7 @@ export default function JavaShortestPathsMST() {
               <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 1
                     </span>
                     <span className="text-xs text-slate-400">Nonnegative Shortest Paths & PriorityQueue</span>
@@ -799,7 +799,7 @@ export default function JavaShortestPathsMST() {
                                 isCurr
                                   ? "fill-amber-500 stroke-amber-300 stroke-2"
                                   : d !== "∞"
-                                  ? "fill-indigo-600 stroke-indigo-400 stroke-2"
+                                  ? "fill-orange-500 stroke-orange-400 stroke-2"
                                   : "fill-slate-800 stroke-slate-600"
                               }`}
                             />
@@ -832,7 +832,7 @@ export default function JavaShortestPathsMST() {
 
                     <div className="flex items-center gap-4 text-[11px] text-slate-400 mt-2">
                       <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-amber-500"></span> Current Extracted</span>
-                      <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-indigo-600"></span> Discovered / In PQ</span>
+                      <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-orange-500"></span> Discovered / In PQ</span>
                       <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-slate-800 border border-slate-600"></span> Unvisited</span>
                     </div>
                   </div>
@@ -841,7 +841,7 @@ export default function JavaShortestPathsMST() {
                   <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between gap-4">
                     <div className="space-y-4">
                       {/* Step Note */}
-                      <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-indigo-300 font-mono leading-relaxed">
+                      <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-orange-300 font-mono leading-relaxed">
                         {curWb1.note}
                       </div>
 
@@ -864,7 +864,7 @@ export default function JavaShortestPathsMST() {
                               <span
                                 key={idx}
                                 className={`px-2.5 py-1 rounded text-xs font-mono font-bold ${
-                                  idx === 0 ? "bg-amber-500 text-slate-950" : "bg-indigo-600 text-white"
+                                  idx === 0 ? "bg-amber-500 text-slate-950" : "bg-orange-500 text-white"
                                 }`}
                               >
                                 State(node:{st.node}, d:{st.d}) {idx === 0 && "(Min)"}
@@ -914,7 +914,7 @@ export default function JavaShortestPathsMST() {
                         <button
                           disabled={wb1Step === wb1Trace.length - 1}
                           onClick={() => setWb1Step(prev => Math.min(wb1Trace.length - 1, prev + 1))}
-                          className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white disabled:opacity-40 shadow-md shadow-indigo-600/30"
+                          className="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-500 text-xs font-semibold text-white disabled:opacity-40 shadow-md shadow-orange-500/20"
                         >
                           Next Step
                         </button>
@@ -930,7 +930,7 @@ export default function JavaShortestPathsMST() {
               <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 2
                     </span>
                     <span className="text-xs text-slate-400">V - 1 Iterations & Negative Cycle Flag</span>
@@ -945,7 +945,7 @@ export default function JavaShortestPathsMST() {
                   <button
                     onClick={() => { setWb2HasCycle(false); setWb2Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      !wb2HasCycle ? "bg-indigo-600 text-white" : "bg-slate-900 text-slate-400"
+                      !wb2HasCycle ? "bg-orange-500 text-white" : "bg-slate-900 text-slate-400"
                     }`}
                   >
                     Valid Graph (No Negative Cycle)
@@ -968,7 +968,7 @@ export default function JavaShortestPathsMST() {
                       <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
-                            <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                            <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                               Iteration Round: {cur.pass}
                             </span>
                             <span className="text-[10px] font-mono text-slate-400">V = {cur.dist.length} vertices</span>
@@ -998,7 +998,7 @@ export default function JavaShortestPathsMST() {
                         </div>
 
                         <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
-                          Invariance: <strong className="text-indigo-300">Shortest simple path has at most V - 1 edges</strong>
+                          Invariance: <strong className="text-orange-300">Shortest simple path has at most V - 1 edges</strong>
                         </div>
                       </div>
 
@@ -1041,7 +1041,7 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb2Step === trace.length - 1}
                               onClick={() => setWb2Step(p => Math.min(trace.length - 1, p + 1))}
-                              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-500 text-xs font-semibold text-white disabled:opacity-40"
                             >
                               Next
                             </button>
@@ -1059,7 +1059,7 @@ export default function JavaShortestPathsMST() {
               <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 3
                     </span>
                     <span className="text-xs text-slate-400">All-Pairs Shortest Paths O(V³) DP</span>
@@ -1073,18 +1073,18 @@ export default function JavaShortestPathsMST() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Matrix Grid */}
                   <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
-                    <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-4">
+                    <div className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-4">
                       {wb3Matrices[wb3K].title}
                     </div>
 
                     <div className="grid grid-cols-4 gap-1.5 text-center font-mono text-xs">
                       <div className="p-2 text-slate-400 font-bold">i \ j</div>
-                      <div className="p-2 text-indigo-400 font-bold">0</div>
-                      <div className="p-2 text-indigo-400 font-bold">1</div>
-                      <div className="p-2 text-indigo-400 font-bold">2</div>
+                      <div className="p-2 text-orange-400 font-bold">0</div>
+                      <div className="p-2 text-orange-400 font-bold">1</div>
+                      <div className="p-2 text-orange-400 font-bold">2</div>
                       {wb3Matrices[wb3K].mat.map((row, r) => (
                         <React.Fragment key={r}>
-                          <div className="p-2 text-indigo-400 font-bold">{r}</div>
+                          <div className="p-2 text-orange-400 font-bold">{r}</div>
                           {row.map((val, c) => (
                             <div
                               key={c}
@@ -1092,7 +1092,7 @@ export default function JavaShortestPathsMST() {
                                 r === c
                                   ? "bg-slate-800/80 border-slate-700 text-slate-300"
                                   : val !== "∞"
-                                  ? "bg-indigo-600/30 border-indigo-500 text-indigo-200"
+                                  ? "bg-orange-500/20 border-orange-500 text-orange-200"
                                   : "bg-slate-900 border-slate-800 text-slate-400"
                               }`}
                             >
@@ -1104,7 +1104,7 @@ export default function JavaShortestPathsMST() {
                     </div>
 
                     <p className="text-[11px] text-slate-400 mt-4 text-center">
-                      Recurrence: <code className="text-indigo-300 font-mono">dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])</code>
+                      Recurrence: <code className="text-orange-300 font-mono">dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])</code>
                     </p>
                   </div>
 
@@ -1114,7 +1114,7 @@ export default function JavaShortestPathsMST() {
                       <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
                         Intermediate Waypoint Explanation
                       </span>
-                      <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-indigo-300 leading-relaxed mb-4">
+                      <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-orange-300 leading-relaxed mb-4">
                         {wb3Matrices[wb3K].note}
                       </div>
 
@@ -1145,7 +1145,7 @@ export default function JavaShortestPathsMST() {
                         <button
                           disabled={wb3K === wb3Matrices.length - 1}
                           onClick={() => setWb3K(p => Math.min(wb3Matrices.length - 1, p + 1))}
-                          className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white disabled:opacity-40"
+                          className="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-500 text-xs font-semibold text-white disabled:opacity-40"
                         >
                           Next
                         </button>
@@ -1161,7 +1161,7 @@ export default function JavaShortestPathsMST() {
               <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 4
                     </span>
                     <span className="text-xs text-slate-400">Linear Time O(V + E) Topological Relaxation</span>
@@ -1179,7 +1179,7 @@ export default function JavaShortestPathsMST() {
                       <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
                         <div>
                           <div className="mb-3">
-                            <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-1">
+                            <span className="text-xs font-bold text-orange-400 uppercase tracking-wider block mb-1">
                               Topological Sequence
                             </span>
                             <div className="flex items-center gap-2">
@@ -1243,7 +1243,7 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb4Step === wb4Trace.length - 1}
                               onClick={() => setWb4Step(p => Math.min(wb4Trace.length - 1, p + 1))}
-                              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-500 text-xs font-semibold text-white disabled:opacity-40"
                             >
                               Next
                             </button>
@@ -1261,7 +1261,7 @@ export default function JavaShortestPathsMST() {
               <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 5
                     </span>
                     <span className="text-xs text-slate-400">Tree-Growing Greedy Strategy O(E log V)</span>
@@ -1279,7 +1279,7 @@ export default function JavaShortestPathsMST() {
                       <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
-                            <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                            <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                               MST Tree Nodes ({cur.tree.length}/4)
                             </span>
                             <span className="text-xs font-mono text-emerald-400 font-bold">Total Weight: {cur.totalW}</span>
@@ -1287,7 +1287,7 @@ export default function JavaShortestPathsMST() {
 
                           <div className="flex items-center gap-2 mb-4">
                             {cur.tree.map((n, i) => (
-                              <span key={i} className="px-3 py-1 rounded bg-indigo-600 text-white font-mono text-xs font-bold">
+                              <span key={i} className="px-3 py-1 rounded bg-orange-500 text-white font-mono text-xs font-bold">
                                 Vertex {n}
                               </span>
                             ))}
@@ -1306,7 +1306,7 @@ export default function JavaShortestPathsMST() {
                         </div>
 
                         <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
-                          Cut Property: <strong className="text-indigo-300">Minimum-weight edge crossing the cut is always safe</strong>
+                          Cut Property: <strong className="text-orange-300">Minimum-weight edge crossing the cut is always safe</strong>
                         </div>
                       </div>
 
@@ -1321,7 +1321,7 @@ export default function JavaShortestPathsMST() {
                               cur.cand.map((c, i) => (
                                 <div key={i} className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono flex items-center justify-between">
                                   <span>{c}</span>
-                                  <span className="text-[10px] text-indigo-400 font-bold">{i === 0 ? "Next Min Candidate" : "In PQ"}</span>
+                                  <span className="text-[10px] text-orange-400 font-bold">{i === 0 ? "Next Min Candidate" : "In PQ"}</span>
                                 </div>
                               ))
                             ) : (
@@ -1349,7 +1349,7 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb5Step === wb5Trace.length - 1}
                               onClick={() => setWb5Step(p => Math.min(wb5Trace.length - 1, p + 1))}
-                              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-500 text-xs font-semibold text-white disabled:opacity-40"
                             >
                               Next
                             </button>
@@ -1367,7 +1367,7 @@ export default function JavaShortestPathsMST() {
               <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 6
                     </span>
                     <span className="text-xs text-slate-400">Global Edge Sorting & DSU Cycle Rejection</span>
@@ -1385,7 +1385,7 @@ export default function JavaShortestPathsMST() {
                       <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
-                            <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                            <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                               Edge Under Test: {cur.edge}
                             </span>
                             <span className="text-xs font-mono text-emerald-400 font-bold">Total MST Weight: {cur.total}</span>
@@ -1413,7 +1413,7 @@ export default function JavaShortestPathsMST() {
                         </div>
 
                         <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
-                          DSU Optimization: <strong className="text-indigo-300">Path compression + Union by size = O(alpha(V))</strong>
+                          DSU Optimization: <strong className="text-orange-300">Path compression + Union by size = O(alpha(V))</strong>
                         </div>
                       </div>
 
@@ -1425,7 +1425,7 @@ export default function JavaShortestPathsMST() {
                           </span>
                           <div className="space-y-2">
                             {cur.dsu.map((setStr, i) => (
-                              <div key={i} className="p-3 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs text-indigo-300 flex items-center justify-between">
+                              <div key={i} className="p-3 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs text-orange-300 flex items-center justify-between">
                                 <span>Component {i + 1}</span>
                                 <span className="font-bold text-emerald-400">{setStr}</span>
                               </div>
@@ -1452,7 +1452,7 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb6Step === wb6Trace.length - 1}
                               onClick={() => setWb6Step(p => Math.min(wb6Trace.length - 1, p + 1))}
-                              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-500 text-xs font-semibold text-white disabled:opacity-40"
                             >
                               Next
                             </button>
@@ -1470,7 +1470,7 @@ export default function JavaShortestPathsMST() {
               <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 7
                     </span>
                     <span className="text-xs text-slate-400">Nearest Zero / Rotting Oranges Wavefront</span>
@@ -1487,7 +1487,7 @@ export default function JavaShortestPathsMST() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       {/* Grid Display */}
                       <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
-                        <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-4">
+                        <span className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-4">
                           Grid State & Distance Matrix (Time = {cur.step})
                         </span>
 
@@ -1528,7 +1528,7 @@ export default function JavaShortestPathsMST() {
                           <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
                             Step Log
                           </span>
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-indigo-300 leading-relaxed mb-4">
+                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-orange-300 leading-relaxed mb-4">
                             {cur.note}
                           </div>
 
@@ -1561,7 +1561,7 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb7Step === wb7Grids.length - 1}
                               onClick={() => setWb7Step(p => Math.min(wb7Grids.length - 1, p + 1))}
-                              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-500 text-xs font-semibold text-white disabled:opacity-40"
                             >
                               Next
                             </button>
@@ -1579,7 +1579,7 @@ export default function JavaShortestPathsMST() {
               <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 8
                     </span>
                     <span className="text-xs text-slate-400">ArrayDeque Front/Back Push O(V + E)</span>
@@ -1597,7 +1597,7 @@ export default function JavaShortestPathsMST() {
                       <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
-                            <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                            <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                               Processing Node: {cur.curr} (d = {cur.d})
                             </span>
                             <span className="text-[10px] font-mono text-emerald-400 font-bold">Weights: &#123;0, 1&#125;</span>
@@ -1615,7 +1615,7 @@ export default function JavaShortestPathsMST() {
                               {cur.deque.length > 0 ? (
                                 cur.deque.map((item, i) => (
                                   <span key={i} className={`px-2.5 py-1 rounded text-xs font-mono font-bold ${
-                                    i === 0 ? "bg-amber-500 text-slate-950" : "bg-indigo-600 text-white"
+                                    i === 0 ? "bg-amber-500 text-slate-950" : "bg-orange-500 text-white"
                                   }`}>
                                     {item} {i === 0 && "(Front)"}
                                   </span>
@@ -1628,7 +1628,7 @@ export default function JavaShortestPathsMST() {
                         </div>
 
                         <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
-                          Invariant: <strong className="text-indigo-300">Elements in Deque differ by at most 1 in distance</strong>
+                          Invariant: <strong className="text-orange-300">Elements in Deque differ by at most 1 in distance</strong>
                         </div>
                       </div>
 
@@ -1669,7 +1669,7 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb8Step === wb8Trace.length - 1}
                               onClick={() => setWb8Step(p => Math.min(wb8Trace.length - 1, p + 1))}
-                              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-500 text-xs font-semibold text-white disabled:opacity-40"
                             >
                               Next
                             </button>
@@ -1691,7 +1691,7 @@ export default function JavaShortestPathsMST() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Evaluation Quiz
                     </span>
                     <span className="text-xs text-slate-400">15 Multiple Choice Questions</span>
@@ -1700,7 +1700,7 @@ export default function JavaShortestPathsMST() {
                 </div>
 
                 {quizSubmitted && (
-                  <div className="px-4 py-2 rounded-xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 font-bold text-sm">
+                  <div className="px-4 py-2 rounded-xl bg-orange-500/15 border border-orange-500/30 text-orange-300 font-bold text-sm">
                     Score: {score} / {QUIZ_QUESTIONS.length} ({Math.round((score / QUIZ_QUESTIONS.length) * 100)}%)
                   </div>
                 )}
@@ -1728,7 +1728,7 @@ export default function JavaShortestPathsMST() {
                             btnStyle = "bg-rose-500/20 border-rose-500/50 text-rose-300";
                           }
                         } else if (isSelected) {
-                          btnStyle = "bg-indigo-600/30 border-indigo-500 text-indigo-200 font-semibold";
+                          btnStyle = "bg-orange-500/20 border-orange-500 text-orange-200 font-semibold";
                         }
 
                         return (
@@ -1749,7 +1749,7 @@ export default function JavaShortestPathsMST() {
 
                     {quizSubmitted && (
                       <div className="mt-2 p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
-                        <strong className="text-indigo-400 block mb-0.5">Explanation:</strong>
+                        <strong className="text-orange-400 block mb-0.5">Explanation:</strong>
                         {q.explanation}
                       </div>
                     )}
@@ -1772,7 +1772,7 @@ export default function JavaShortestPathsMST() {
                 ) : (
                   <button
                     onClick={() => setQuizSubmitted(true)}
-                    className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shadow-lg shadow-indigo-600/30"
+                    className="px-6 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-500 text-white font-bold text-xs transition shadow-lg shadow-orange-500/20"
                   >
                     Submit Answers
                   </button>
@@ -1789,7 +1789,7 @@ export default function JavaShortestPathsMST() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Problem Roadmap
                     </span>
                     <span className="text-xs text-slate-400">4 Difficulty Tiers</span>
@@ -1822,8 +1822,8 @@ export default function JavaShortestPathsMST() {
 
                 return (
                   <div key={tier} className="space-y-3">
-                    <h3 className="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+                    <h3 className="text-xs font-bold text-orange-400 uppercase tracking-wider flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-orange-500"></span>
                       {tierTitles[tier]} ({problemsInTier.length})
                     </h3>
 

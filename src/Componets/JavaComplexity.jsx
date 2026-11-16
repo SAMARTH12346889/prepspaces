@@ -718,7 +718,7 @@ export default function JavaComplexity() {
                       { key: "c1", label: "O(1) Constant", color: "text-emerald-700 bg-emerald-50 border-emerald-300" },
                       { key: "logn", label: "O(log n) Logarithmic", color: "text-blue-700 bg-blue-50 border-blue-300" },
                       { key: "n", label: "O(n) Linear", color: "text-amber-700 bg-amber-50 border-amber-300" },
-                      { key: "nlogn", label: "O(n log n) Linearithmic", color: "text-purple-700 bg-purple-50 border-purple-300" },
+                      { key: "nlogn", label: "O(n log n) Linearithmic", color: "text-orange-400 bg-orange-500 border-orange-500" },
                       { key: "n2", label: "O(n²) Quadratic", color: "text-orange-700 bg-orange-50 border-orange-300" },
                       { key: "n3", label: "O(n³) Cubic", color: "text-pink-700 bg-pink-50 border-pink-300" },
                       { key: "twoN", label: "O(2ⁿ) Exponential", color: "text-red-700 bg-red-50 border-red-300" },
@@ -756,7 +756,7 @@ export default function JavaComplexity() {
                     </div>
                     <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
                       <div className="text-[11px] text-stone-500 font-mono font-semibold">O(n log n)</div>
-                      <div className="text-xl font-mono font-black text-purple-600 mt-1">{asymptoticData.nlogn} ops</div>
+                      <div className="text-xl font-mono font-black text-orange-400 mt-1">{asymptoticData.nlogn} ops</div>
                       <div className="text-[10px] text-stone-400 mt-0.5">~150 ns</div>
                     </div>
                     <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
@@ -813,11 +813,11 @@ export default function JavaComplexity() {
                       </div>
                       <div>
                         <div className="flex justify-between text-[11px] mb-1">
-                          <span className="text-purple-400">O(n log n)</span>
+                          <span className="text-orange-400">O(n log n)</span>
                           <span>{asymptoticData.nlogn}</span>
                         </div>
                         <div className="w-full bg-neutral-800 rounded-full h-2">
-                          <div className="bg-purple-500 h-2 rounded-full" style={{ width: `${Math.min(100, (asymptoticData.nlogn / asymptoticData.n2) * 100 + 15)}%` }}></div>
+                          <div className="bg-orange-500 h-2 rounded-full" style={{ width: `${Math.min(100, (asymptoticData.nlogn / asymptoticData.n2) * 100 + 15)}%` }}></div>
                         </div>
                       </div>
                       <div>
@@ -1095,7 +1095,7 @@ export default function JavaComplexity() {
                     </div>
                     <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
                       <div className="text-[11px] text-stone-500 font-mono">Total Elements Copied</div>
-                      <div className="text-xl font-mono font-black text-purple-600 mt-0.5">{totalCopies}</div>
+                      <div className="text-xl font-mono font-black text-orange-400 mt-0.5">{totalCopies}</div>
                     </div>
                     <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-center">
                       <div className="text-[11px] text-stone-500 font-mono">Amortized Avg Cost</div>
@@ -1146,13 +1146,13 @@ export default function JavaComplexity() {
                             <div className="flex items-center gap-2">
                               <span className="font-mono font-bold text-stone-800">Append #{log.val}</span>
                               {log.resized && (
-                                <span className="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 text-[10px] font-bold font-mono">
+                                <span className="px-2 py-0.5 rounded-full bg-orange-500 text-orange-400 text-[10px] font-bold font-mono">
                                   Resized: {log.oldCap} &rarr; {log.newCap}
                                 </span>
                               )}
                             </div>
                             <div className="flex items-center gap-4 font-mono text-xs">
-                              <span className={log.cost > 1 ? "text-purple-700 font-bold" : "text-stone-600"}>
+                              <span className={log.cost > 1 ? "text-orange-400 font-bold" : "text-stone-600"}>
                                 Work Cost: {log.cost}
                               </span>
                               <span className="text-emerald-700 font-bold">
@@ -1598,7 +1598,7 @@ export default function JavaComplexity() {
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     lab.type === "Lab"
                                       ? "bg-orange-100 text-orange-800"
-                                      : "bg-purple-100 text-purple-800"
+                                      : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
                                   {lab.type}

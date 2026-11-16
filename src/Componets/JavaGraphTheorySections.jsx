@@ -24,27 +24,27 @@ export const JAVA_GRAPH_THEORY_SECTIONS = [
         </p>
         <ul key="ul-0-16" className="my-3 space-y-1.5 pl-2">
           <li key="li-0-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Google Maps represents locations and roads as a graph.</span>
           </li>
           <li key="li-0-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Social networks represent people and friendships as a graph.</span>
           </li>
           <li key="li-0-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Computer networks represent computers and connections as a graph.</span>
           </li>
           <li key="li-0-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Course prerequisite systems represent dependencies as a directed graph.</span>
           </li>
           <li key="li-0-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Operating systems can use graphs to detect resource deadlocks.</span>
           </li>
           <li key="li-0-5" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Communication networks use graph algorithms to find routes between devices.</span>
           </li>
         </ul>
@@ -63,8 +63,8 @@ export const JAVA_GRAPH_THEORY_SECTIONS = [
     category: "Core Principles",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-1-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.1 What Is a Graph?
         </h3>
         <p key="p-1-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -72,18 +72,18 @@ export const JAVA_GRAPH_THEORY_SECTIONS = [
         </p>
         <ul key="ul-1-8" className="my-3 space-y-1.5 pl-2">
           <li key="li-1-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Vertices (also called nodes).</span>
           </li>
           <li key="li-1-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Edges (connections between vertices).</span>
           </li>
         </ul>
         <p key="p-1-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A graph is generally represented as:
         </p>
-        <div key="eq-1-12" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-1-12" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"G = (V,E) \\"}
         </div>
         <p key="p-1-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -91,11 +91,11 @@ export const JAVA_GRAPH_THEORY_SECTIONS = [
         </p>
         <ul key="ul-1-17" className="my-3 space-y-1.5 pl-2">
           <li key="li-1-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>\<code className="font-mono text-cyan-300 font-semibold px-1 py-0.5 rounded bg-slate-900 border border-slate-800">V\</code> = Set of vertices.</span>
           </li>
           <li key="li-1-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>\<code className="font-mono text-cyan-300 font-semibold px-1 py-0.5 rounded bg-slate-900 border border-slate-800">E\</code> = Set of edges.</span>
           </li>
         </ul>
@@ -113,7 +113,7 @@ export const JAVA_GRAPH_THEORY_SECTIONS = [
         </p>
         <div key="code-1-41" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -135,23 +135,23 @@ E = {
         <p key="p-1-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore:
         </p>
-        <div key="eq-1-45" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-1-45" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"|V|=5 \\"}
         </div>
-        <div key="eq-1-47" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-1-47" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"|E|=7 \\"}
         </div>
         <p key="p-1-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The graph contains five vertices and seven edges.
         </p>
-        <h3 key="h3-1-50" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-50" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.2 Real-World Applications
         </h3>
         <div key="table-1-61" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-1-0" className="p-3 font-semibold">Application</th>
                 <th key="th-1-1" className="p-3 font-semibold">Vertices</th>
                 <th key="th-1-2" className="p-3 font-semibold">Edges</th>
@@ -214,8 +214,8 @@ E = {
         <p key="p-2-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There are two fundamental types of graphs based on the direction of their edges.
         </p>
-        <h3 key="h3-2-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.1 Undirected Graph
         </h3>
         <p key="p-2-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -227,7 +227,7 @@ E = {
         <p key="p-2-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The edge is represented as:
         </p>
-        <div key="eq-2-13" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-2-13" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"(A,B) = (B,A) \\"}
         </div>
         <p key="p-2-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -241,19 +241,19 @@ E = {
         </p>
         <ul key="ul-2-24" className="my-3 space-y-1.5 pl-2">
           <li key="li-2-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>A can reach B.</span>
           </li>
           <li key="li-2-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>B can reach A.</span>
           </li>
           <li key="li-2-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>B can reach C.</span>
           </li>
           <li key="li-2-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>C can reach B.</span>
           </li>
         </ul>
@@ -262,15 +262,15 @@ E = {
         </p>
         <ul key="ul-2-30" className="my-3 space-y-1.5 pl-2">
           <li key="li-2-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Mutual friendship.</span>
           </li>
           <li key="li-2-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Two-way roads.</span>
           </li>
           <li key="li-2-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Two computers connected through a two-way network link.</span>
           </li>
         </ul>
@@ -279,7 +279,7 @@ E = {
         </p>
         <div key="code-2-37" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -290,8 +290,8 @@ adj.get(v).add(u);`}</code>
         <p key="p-2-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Both directions are stored.
         </p>
-        <h3 key="h3-2-40" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-40" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.2 Directed Graph
         </h3>
         <p key="p-2-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -303,7 +303,7 @@ adj.get(v).add(u);`}</code>
         <p key="p-2-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is represented as:
         </p>
-        <div key="eq-2-49" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-2-49" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"A \\rightarrow B \\"}
         </div>
         <p key="p-2-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -314,7 +314,7 @@ adj.get(v).add(u);`}</code>
         </p>
         <div key="code-2-57" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -329,23 +329,23 @@ adj.get(v).add(u);`}</code>
         </p>
         <ul key="ul-2-67" className="my-3 space-y-1.5 pl-2">
           <li key="li-2-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Instagram following relationships.</span>
           </li>
           <li key="li-2-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>One-way roads.</span>
           </li>
           <li key="li-2-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Course dependencies.</span>
           </li>
           <li key="li-2-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Webpage hyperlinks.</span>
           </li>
           <li key="li-2-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Directed communication or workflow relationships.</span>
           </li>
         </ul>
@@ -354,7 +354,7 @@ adj.get(v).add(u);`}</code>
         </p>
         <div key="code-2-73" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -364,14 +364,14 @@ adj.get(v).add(u);`}</code>
         <p key="p-2-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We add only one direction.
         </p>
-        <h3 key="h3-2-76" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-76" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.3 Directed vs Undirected
         </h3>
         <div key="table-2-86" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-2-0" className="p-3 font-semibold">Feature</th>
                 <th key="th-2-1" className="p-3 font-semibold">Directed graph</th>
                 <th key="th-2-2" className="p-3 font-semibold">Undirected graph</th>
@@ -423,8 +423,8 @@ adj.get(v).add(u);`}</code>
         <p key="p-3-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Graphs can also be categorized based on whether their edges contain weights.
         </p>
-        <h3 key="h3-3-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.1 Unweighted Graph
         </h3>
         <p key="p-3-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -438,7 +438,7 @@ adj.get(v).add(u);`}</code>
         </p>
         <div key="code-3-17" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -455,24 +455,24 @@ D — — — E`}</code>
         </p>
         <ul key="ul-3-26" className="my-3 space-y-1.5 pl-2">
           <li key="li-3-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Friend relationships.</span>
           </li>
           <li key="li-3-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Basic network connectivity.</span>
           </li>
           <li key="li-3-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Number of connections between users.</span>
           </li>
           <li key="li-3-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Minimum number of steps between nodes.</span>
           </li>
         </ul>
-        <h3 key="h3-3-27" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-27" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.2 Weighted Graph
         </h3>
         <p key="p-3-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -483,27 +483,27 @@ D — — — E`}</code>
         </p>
         <ul key="ul-3-39" className="my-3 space-y-1.5 pl-2">
           <li key="li-3-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Distance.</span>
           </li>
           <li key="li-3-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Time.</span>
           </li>
           <li key="li-3-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Cost.</span>
           </li>
           <li key="li-3-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Network latency.</span>
           </li>
           <li key="li-3-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Travel expense.</span>
           </li>
           <li key="li-3-5" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Connection strength.</span>
           </li>
         </ul>
@@ -518,19 +518,19 @@ D — — — E`}</code>
         </p>
         <ul key="ul-3-50" className="my-3 space-y-1.5 pl-2">
           <li key="li-3-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>A to B: 10</span>
           </li>
           <li key="li-3-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>B to C: 15</span>
           </li>
           <li key="li-3-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>A to D: 20</span>
           </li>
           <li key="li-3-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>D to C: 12</span>
           </li>
         </ul>
@@ -552,8 +552,8 @@ D — — — E`}</code>
         <p key="p-4-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Before implementing graphs, you must understand the terminology used in graph problems.
         </p>
-        <h3 key="h3-4-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.1 Vertex
         </h3>
         <p key="p-4-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -564,7 +564,7 @@ D — — — E`}</code>
         </p>
         <div key="code-4-13" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -574,8 +574,8 @@ D — — — E`}</code>
         <p key="p-4-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Each represents a vertex.
         </p>
-        <h3 key="h3-4-16" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-16" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.2 Edge
         </h3>
         <p key="p-4-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -586,7 +586,7 @@ D — — — E`}</code>
         </p>
         <div key="code-4-25" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -596,8 +596,8 @@ D — — — E`}</code>
         <p key="p-4-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This connection is an edge.
         </p>
-        <h3 key="h3-4-28" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-28" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.3 Adjacent Vertices
         </h3>
         <p key="p-4-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -608,7 +608,7 @@ D — — — E`}</code>
         </p>
         <div key="code-4-37" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -620,20 +620,20 @@ D — — — E`}</code>
         </p>
         <ul key="ul-4-43" className="my-3 space-y-1.5 pl-2">
           <li key="li-4-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>A and B are adjacent.</span>
           </li>
           <li key="li-4-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>B and C are adjacent.</span>
           </li>
           <li key="li-4-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>A and C are not adjacent.</span>
           </li>
         </ul>
-        <h3 key="h3-4-44" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-44" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.4 Degree of a Vertex
         </h3>
         <p key="p-4-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -644,7 +644,7 @@ D — — — E`}</code>
         </p>
         <div key="code-4-57" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -658,7 +658,7 @@ C — A — D
         <p key="p-4-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Vertex A has four connections.
         </p>
-        <div key="eq-4-61" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-4-61" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"degree(A)=4 \\"}
         </div>
         <p key="p-4-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -667,8 +667,8 @@ C — A — D
         <p key="p-4-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A leaf vertex in a tree has degree one, except for a single-vertex tree.
         </p>
-        <h3 key="h3-4-66" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-66" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.5 In-Degree and Out-Degree
         </h3>
         <p key="p-4-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -685,7 +685,7 @@ C — A — D
         </p>
         <div key="code-4-82" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -698,17 +698,17 @@ C → E`}</code>
         <p key="p-4-83" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For vertex C:
         </p>
-        <div key="eq-4-86" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-4-86" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"indegree(C)=2 \\"}
         </div>
-        <div key="eq-4-88" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-4-88" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"outdegree(C)=2 \\"}
         </div>
         <p key="p-4-89" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These concepts are particularly important in Kahn&apos;s topological sorting algorithm.
         </p>
-        <h3 key="h3-4-91" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-91" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.6 Path
         </h3>
         <p key="p-4-93" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -719,7 +719,7 @@ C → E`}</code>
         </p>
         <div key="code-4-100" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -729,8 +729,8 @@ C → E`}</code>
         <p key="p-4-101" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is a path from A to D.
         </p>
-        <h3 key="h3-4-103" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-103" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.7 Cycle
         </h3>
         <p key="p-4-105" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -741,7 +741,7 @@ C → E`}</code>
         </p>
         <div key="code-4-112" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -751,8 +751,8 @@ C → E`}</code>
         <p key="p-4-113" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Cycle detection is an important graph problem that we will cover later.
         </p>
-        <h3 key="h3-4-115" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-115" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.8 Connected Graph
         </h3>
         <p key="p-4-117" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -761,8 +761,8 @@ C → E`}</code>
         <p key="p-4-119" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If some vertices cannot reach others, the graph is disconnected.
         </p>
-        <h3 key="h3-4-121" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-121" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.9 Complete Graph
         </h3>
         <p key="p-4-123" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -771,17 +771,17 @@ C → E`}</code>
         <p key="p-4-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For N vertices, the number of edges is:
         </p>
-        <div key="eq-4-128" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-4-128" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"E=\\frac{N(N-1)}{2} \\"}
         </div>
         <p key="p-4-129" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For example, a complete graph of four vertices has:
         </p>
-        <div key="eq-4-132" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-4-132" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"E=\\frac{4(4-1)}{2}=6 \\"}
         </div>
-        <h3 key="h3-4-133" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-133" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.10 Self-Loop and Parallel Edges
         </h3>
         <p key="p-4-135" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -789,7 +789,7 @@ C → E`}</code>
         </p>
         <div key="code-4-140" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -819,19 +819,19 @@ C → E`}</code>
         </p>
         <ol key="ol-5-9" className="my-3 space-y-2 pl-2">
           <li key="oli-5-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Adjacency Matrix.</span>
           </li>
           <li key="oli-5-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Adjacency List.</span>
           </li>
           <li key="oli-5-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Edge List.</span>
@@ -845,7 +845,7 @@ C → E`}</code>
         </p>
         <div key="code-5-23" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -858,8 +858,8 @@ Edges:
 2 — 3`}</code>
           </pre>
         </div>
-        <h3 key="h3-5-24" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-24" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.1 Adjacency Matrix
         </h3>
         <p key="p-5-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -868,7 +868,7 @@ Edges:
         <p key="p-5-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If there are N vertices, we create:
         </p>
-        <div key="eq-5-31" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-5-31" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"N \\times N \\"}
         </div>
         <p key="p-5-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -879,12 +879,12 @@ Edges:
         </p>
         <ul key="ul-5-38" className="my-3 space-y-1.5 pl-2">
           <li key="li-5-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
-            <span><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">1</code> means an edge exists.</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
+            <span><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">1</code> means an edge exists.</span>
           </li>
           <li key="li-5-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
-            <span><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">0</code> means no edge exists.</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
+            <span><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">0</code> means no edge exists.</span>
           </li>
         </ul>
         <p key="p-5-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -896,7 +896,7 @@ Edges:
         <div key="table-5-49" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-5-0" className="p-3 font-semibold"><strong className="text-white font-semibold">&amp;#x20;</strong></th>
                 <th key="th-5-1" className="p-3 font-semibold"><strong className="text-white font-semibold">0</strong></th>
                 <th key="th-5-2" className="p-3 font-semibold"><strong className="text-white font-semibold">1</strong></th>
@@ -942,16 +942,16 @@ Edges:
         <p key="p-5-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For an undirected graph, the matrix is symmetric:
         </p>
-        <div key="eq-5-55" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-5-55" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"matrix[u][v]=matrix[v][u] \\"}
         </div>
         <h4 key="h4-5-56" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Java Implementation
         </h4>
         <div key="code-5-96" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -998,7 +998,7 @@ Edges:
         </p>
         <div key="code-5-105" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1013,7 +1013,7 @@ Edges:
         </p>
         <div key="code-5-111" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1024,7 +1024,7 @@ Edges:
           Do not automatically add the reverse connection.
         </p>
         <h4 key="h4-5-114" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Weighted Adjacency Matrix
         </h4>
         <p key="p-5-116" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1035,7 +1035,7 @@ Edges:
         </p>
         <div key="code-5-124" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1044,11 +1044,11 @@ matrix[1][0] = 10;`}</code>
           </pre>
         </div>
         <p key="p-5-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Use a special value such as <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">INF</code> to represent the absence of an edge.
+          Use a special value such as <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">INF</code> to represent the absence of an edge.
         </p>
         <div key="code-5-139" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1065,13 +1065,13 @@ for (int i = 0; i < vertices; i++) {
           </pre>
         </div>
         <h4 key="h4-5-140" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Complexity
         </h4>
         <div key="table-5-149" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-5-0" className="p-3 font-semibold">Operation</th>
                 <th key="th-5-1" className="p-3 font-semibold">Complexity</th>
               </tr>
@@ -1101,7 +1101,7 @@ for (int i = 0; i < vertices; i++) {
           </table>
         </div>
         <h4 key="h4-5-150" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           When Should You Use It?
         </h4>
         <p key="p-5-152" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1109,27 +1109,27 @@ for (int i = 0; i < vertices; i++) {
         </p>
         <ul key="ul-5-158" className="my-3 space-y-1.5 pl-2">
           <li key="li-5-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>The graph is dense.</span>
           </li>
           <li key="li-5-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>There are many edges.</span>
           </li>
           <li key="li-5-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>You frequently check whether a particular edge exists.</span>
           </li>
           <li key="li-5-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>The number of vertices is relatively small.</span>
           </li>
         </ul>
         <p key="p-5-159" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A major disadvantage is that even a graph with very few edges still requires space proportional to \<code className="font-mono text-cyan-300 font-semibold px-1 py-0.5 rounded bg-slate-900 border border-slate-800">V^2\</code>.
         </p>
-        <h3 key="h3-5-161" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-161" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.2 Adjacency List
         </h3>
         <p key="p-5-163" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1143,7 +1143,7 @@ for (int i = 0; i < vertices; i++) {
         </p>
         <div key="code-5-175" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1158,7 +1158,7 @@ for (int i = 0; i < vertices; i++) {
         </p>
         <div key="code-5-184" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1169,15 +1169,15 @@ for (int i = 0; i < vertices; i++) {
           </pre>
         </div>
         <h4 key="h4-5-185" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Java Implementation
         </h4>
         <p key="p-5-187" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Java&apos;s <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">ArrayList</code> can be used to implement an adjacency list.
+          Java&apos;s <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">ArrayList</code> can be used to implement an adjacency list.
         </p>
         <div key="code-5-233" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1230,7 +1230,7 @@ public class AdjacencyList {
         </p>
         <div key="code-5-242" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1245,7 +1245,7 @@ public class AdjacencyList {
         </p>
         <div key="code-5-248" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1253,13 +1253,13 @@ public class AdjacencyList {
           </pre>
         </div>
         <h4 key="h4-5-249" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Complexity
         </h4>
         <div key="table-5-258" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-5-0" className="p-3 font-semibold">Operation</th>
                 <th key="th-5-1" className="p-3 font-semibold">Complexity</th>
               </tr>
@@ -1291,8 +1291,8 @@ public class AdjacencyList {
         <p key="p-5-259" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The adjacency list is generally the preferred representation for sparse graphs and most traversal algorithms.
         </p>
-        <h3 key="h3-5-261" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-261" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.3 Edge List
         </h3>
         <p key="p-5-263" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1306,7 +1306,7 @@ public class AdjacencyList {
         </p>
         <div key="code-5-275" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1321,7 +1321,7 @@ public class AdjacencyList {
         </p>
         <div key="code-5-286" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1334,12 +1334,12 @@ public class AdjacencyList {
           </pre>
         </div>
         <h4 key="h4-5-287" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Java Implementation
         </h4>
         <div key="code-5-312" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1371,7 +1371,7 @@ public class EdgeList {
         </p>
         <div key="code-5-318" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1379,13 +1379,13 @@ public class EdgeList {
           </pre>
         </div>
         <h4 key="h4-5-319" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Complexity
         </h4>
         <div key="table-5-328" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-5-0" className="p-3 font-semibold">Operation</th>
                 <th key="th-5-1" className="p-3 font-semibold">Complexity</th>
               </tr>
@@ -1417,14 +1417,14 @@ public class EdgeList {
         <p key="p-5-329" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Edge lists are useful for algorithms that process every edge directly, such as Kruskal&apos;s Minimum Spanning Tree algorithm.
         </p>
-        <h3 key="h3-5-331" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-331" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.4 Adjacency Matrix vs Adjacency List vs Edge List
         </h3>
         <div key="table-5-340" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-5-0" className="p-3 font-semibold">Feature</th>
                 <th key="th-5-1" className="p-3 font-semibold">Matrix</th>
                 <th key="th-5-2" className="p-3 font-semibold">Adjacency list</th>
@@ -1480,13 +1480,13 @@ public class EdgeList {
         <p key="p-6-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Now let&apos;s build a reusable graph implementation rather than rewriting the graph structure for every problem.
         </p>
-        <h3 key="h3-6-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.1 Basic Graph Class
         </h3>
         <div key="code-6-67" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1556,7 +1556,7 @@ public class GraphImplementation {
         </p>
         <div key="code-6-77" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1567,8 +1567,8 @@ public class GraphImplementation {
 4 → [2]`}</code>
           </pre>
         </div>
-        <h3 key="h3-6-78" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-78" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.2 Weighted Graph Implementation
         </h3>
         <p key="p-6-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1576,20 +1576,20 @@ public class GraphImplementation {
         </p>
         <ul key="ul-6-84" className="my-3 space-y-1.5 pl-2">
           <li key="li-6-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Destination vertex.</span>
           </li>
           <li key="li-6-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Edge weight.</span>
           </li>
         </ul>
         <p key="p-6-85" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          We can create an <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">Edge</code> class.
+          We can create an <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">Edge</code> class.
         </p>
         <div key="code-6-155" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1666,7 +1666,7 @@ class WeightedGraph {
         </p>
         <div key="code-6-167" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1684,7 +1684,7 @@ graph.display();`}</code>
         </p>
         <div key="code-6-175" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1717,8 +1717,8 @@ graph.display();`}</code>
         <p key="p-7-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           BFS uses a <strong className="text-white font-semibold">Queue</strong> data structure.
         </p>
-        <h3 key="h3-7-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.1 How BFS Works
         </h3>
         <p key="p-7-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1726,7 +1726,7 @@ graph.display();`}</code>
         </p>
         <div key="code-7-21" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1745,15 +1745,15 @@ graph.display();`}</code>
         </p>
         <ul key="ul-7-29" className="my-3 space-y-1.5 pl-2">
           <li key="li-7-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Level 0: 0</span>
           </li>
           <li key="li-7-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Level 1: 1, 2</span>
           </li>
           <li key="li-7-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Level 2: 3, 4, 5</span>
           </li>
         </ul>
@@ -1762,7 +1762,7 @@ graph.display();`}</code>
         </p>
         <div key="code-7-35" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1772,37 +1772,37 @@ graph.display();`}</code>
         <p key="p-7-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This assumes the adjacency lists are processed in the displayed neighbor order. Changing the order of neighbors may change the traversal order without changing BFS correctness.
         </p>
-        <h3 key="h3-7-38" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-38" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.2 BFS Algorithm
         </h3>
         <ol key="ol-7-45" className="my-3 space-y-2 pl-2">
           <li key="oli-7-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Create a visited array.</span>
           </li>
           <li key="oli-7-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Create an empty queue.</span>
           </li>
           <li key="oli-7-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Insert the starting vertex into the queue.</span>
           </li>
           <li key="oli-7-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Mark the starting vertex as visited.</span>
           </li>
           <li key="oli-7-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>While the queue is not empty:</span>
@@ -1810,23 +1810,23 @@ graph.display();`}</code>
         </ol>
         <ul key="ul-7-50" className="my-3 space-y-1.5 pl-2">
           <li key="li-7-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Remove a vertex from the front.</span>
           </li>
           <li key="li-7-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Process that vertex.</span>
           </li>
           <li key="li-7-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Visit its unvisited neighbors.</span>
           </li>
           <li key="li-7-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Mark each neighbor visited when it is inserted.</span>
           </li>
           <li key="li-7-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Add each neighbor to the queue.</span>
           </li>
         </ul>
@@ -1836,13 +1836,13 @@ graph.display();`}</code>
         <p key="p-7-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We mark a vertex when adding it to the queue, not when removing it. This prevents the same vertex from being inserted repeatedly.
         </p>
-        <h3 key="h3-7-55" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-55" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.3 BFS Java Implementation
         </h3>
         <div key="code-7-121" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1915,15 +1915,15 @@ public class BFS {
         </p>
         <div key="code-7-127" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`0 1 2 3 4 5`}</code>
           </pre>
         </div>
-        <h3 key="h3-7-128" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-128" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.4 BFS Dry Run
         </h3>
         <p key="p-7-130" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1965,8 +1965,8 @@ public class BFS {
         <p key="p-7-154" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The queue ensures that vertices discovered earlier are processed before vertices discovered later.
         </p>
-        <h3 key="h3-7-156" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-156" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.5 BFS for Shortest Path in an Unweighted Graph
         </h3>
         <p key="p-7-158" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1983,21 +1983,21 @@ public class BFS {
         </p>
         <ul key="ul-7-168" className="my-3 space-y-1.5 pl-2">
           <li key="li-7-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
-            <span><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">dist[]</code>: Minimum number of edges from the starting vertex.</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
+            <span><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">dist[]</code>: Minimum number of edges from the starting vertex.</span>
           </li>
           <li key="li-7-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
-            <span><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">parent[]</code>: Previous vertex on the discovered shortest path.</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
+            <span><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">parent[]</code>: Previous vertex on the discovered shortest path.</span>
           </li>
         </ul>
         <h4 key="h4-7-169" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Java Implementation
         </h4>
         <div key="code-7-240" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2073,14 +2073,14 @@ public class BFSShortestPath {
         <p key="p-7-241" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The shortest distance is measured in edges, not the sum of arbitrary edge weights.
         </p>
-        <h3 key="h3-7-243" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-243" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.6 BFS Complexity
         </h3>
         <p key="p-7-245" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For an adjacency list:
         </p>
-        <div key="eq-7-248" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-7-248" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-7-249" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2088,22 +2088,22 @@ public class BFSShortestPath {
         </p>
         <ul key="ul-7-254" className="my-3 space-y-1.5 pl-2">
           <li key="li-7-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Every vertex is inserted into the queue at most once.</span>
           </li>
           <li key="li-7-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Every vertex is removed at most once.</span>
           </li>
           <li key="li-7-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Every adjacency-list entry is examined at most once.</span>
           </li>
         </ul>
         <p key="p-7-255" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space complexity:
         </p>
-        <div key="eq-7-258" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-7-258" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V) \\"}
         </div>
         <p key="p-7-259" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2112,7 +2112,7 @@ public class BFSShortestPath {
         <p key="p-7-261" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For an adjacency matrix, exploring all neighbors requires scanning V possible entries per vertex:
         </p>
-        <div key="eq-7-264" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-7-264" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V^2) \\"}
         </div>
       </div>
@@ -2132,16 +2132,16 @@ public class BFSShortestPath {
         </p>
         <ul key="ul-8-8" className="my-3 space-y-1.5 pl-2">
           <li key="li-8-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Recursion, which implicitly uses the call stack.</span>
           </li>
           <li key="li-8-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>An explicit Stack data structure.</span>
           </li>
         </ul>
-        <h3 key="h3-8-9" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-9" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.1 How DFS Works
         </h3>
         <p key="p-8-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2149,7 +2149,7 @@ public class BFSShortestPath {
         </p>
         <div key="code-8-20" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2168,7 +2168,7 @@ public class BFSShortestPath {
         </p>
         <div key="code-8-28" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2180,37 +2180,37 @@ public class BFSShortestPath {
         </p>
         <ol key="ol-8-37" className="my-3 space-y-2 pl-2">
           <li key="oli-8-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Visit the starting vertex.</span>
           </li>
           <li key="oli-8-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Mark it as visited.</span>
           </li>
           <li key="oli-8-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Explore one unvisited neighbor.</span>
           </li>
           <li key="oli-8-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Continue deeper.</span>
           </li>
           <li key="oli-8-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>When no unvisited neighbor remains, backtrack.</span>
           </li>
           <li key="oli-8-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Continue exploring remaining neighbors.</span>
@@ -2219,20 +2219,20 @@ public class BFSShortestPath {
         <p key="p-8-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Unlike BFS, DFS does not guarantee shortest paths.
         </p>
-        <h3 key="h3-8-40" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-40" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.2 Recursive DFS
         </h3>
         <p key="p-8-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is the most common implementation.
         </p>
         <h4 key="h4-8-44" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Java Implementation
         </h4>
         <div key="code-8-97" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2292,15 +2292,15 @@ public class DFS {
         </p>
         <div key="code-8-103" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`0 1 3 4 2 5`}</code>
           </pre>
         </div>
-        <h3 key="h3-8-104" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-104" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.3 Iterative DFS Using Stack
         </h3>
         <p key="p-8-106" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2311,7 +2311,7 @@ public class DFS {
         </p>
         <div key="code-8-149" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2357,20 +2357,20 @@ public class IterativeDFS {
         <p key="p-8-150" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Depending on the order in which neighbors are pushed onto the stack, iterative DFS may produce a different valid traversal order from recursive DFS.
         </p>
-        <h3 key="h3-8-152" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-152" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.4 DFS Complexity
         </h3>
         <p key="p-8-154" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Adjacency list:
         </p>
-        <div key="eq-8-157" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-8-157" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-8-158" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space:
         </p>
-        <div key="eq-8-161" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-8-161" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V) \\"}
         </div>
         <p key="p-8-162" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2391,7 +2391,7 @@ public class IterativeDFS {
         <div key="table-9-15" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-9-0" className="p-3 font-semibold">Feature</th>
                 <th key="th-9-1" className="p-3 font-semibold">BFS</th>
                 <th key="th-9-2" className="p-3 font-semibold">DFS</th>
@@ -2451,11 +2451,11 @@ public class IterativeDFS {
         </p>
         <ul key="ul-9-20" className="my-3 space-y-1.5 pl-2">
           <li key="li-9-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Use BFS when you need level-based traversal or minimum number of edges.</span>
           </li>
           <li key="li-9-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Use DFS when you need to explore paths deeply, detect structures, or perform recursive graph analysis.</span>
           </li>
         </ul>
@@ -2471,8 +2471,8 @@ public class IterativeDFS {
         <p key="p-10-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Connected components are an important concept in undirected graphs.
         </p>
-        <h3 key="h3-10-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.1 What Is a Connected Component?
         </h3>
         <p key="p-10-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2483,7 +2483,7 @@ public class IterativeDFS {
         </p>
         <div key="code-10-23" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2509,8 +2509,8 @@ Component 3:
         <p key="p-10-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Notice that vertices from different components cannot reach each other.
         </p>
-        <h3 key="h3-10-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.2 How to Find Connected Components
         </h3>
         <p key="p-10-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2521,43 +2521,43 @@ Component 3:
         </p>
         <ol key="ol-10-43" className="my-3 space-y-2 pl-2">
           <li key="oli-10-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Create a visited array.</span>
           </li>
           <li key="oli-10-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Start from vertex 0.</span>
           </li>
           <li key="oli-10-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Run BFS or DFS.</span>
           </li>
           <li key="oli-10-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>All vertices discovered belong to the same component.</span>
           </li>
           <li key="oli-10-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>Continue scanning all vertices.</span>
           </li>
           <li key="oli-10-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Whenever an unvisited vertex is found, begin another traversal.</span>
           </li>
           <li key="oli-10-6" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               7
             </span>
             <span>Count the components.</span>
@@ -2566,13 +2566,13 @@ Component 3:
         <p key="p-10-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This works because every vertex belongs to exactly one connected component.
         </p>
-        <h3 key="h3-10-46" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-46" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.3 Java Implementation Using BFS
         </h3>
         <div key="code-10-102" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2635,7 +2635,7 @@ public class ConnectedComponents {
         </p>
         <div key="code-10-115" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2654,7 +2654,7 @@ System.out.println(
         </p>
         <div key="code-10-122" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2662,8 +2662,8 @@ System.out.println(
 Number of components: 3`}</code>
           </pre>
         </div>
-        <h3 key="h3-10-123" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-123" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.4 Why Do We Need the Outer Loop?
         </h3>
         <p key="p-10-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2678,20 +2678,20 @@ Number of components: 3`}</code>
         <p key="p-10-131" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The outer loop ensures that every unvisited component is explored.
         </p>
-        <h3 key="h3-10-133" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-133" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.5 Complexity
         </h3>
         <p key="p-10-135" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Time:
         </p>
-        <div key="eq-10-138" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-10-138" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-10-139" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space:
         </p>
-        <div key="eq-10-142" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-10-142" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V) \\"}
         </div>
         <p key="p-10-143" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2702,11 +2702,11 @@ Number of components: 3`}</code>
         </p>
         <ul key="ul-10-149" className="my-3 space-y-1.5 pl-2">
           <li key="li-10-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Weakly connected components: Treat directed edges as undirected for connectivity.</span>
           </li>
           <li key="li-10-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Strongly connected components: Every vertex can reach every other vertex following directed edges.</span>
           </li>
         </ul>
@@ -2731,8 +2731,8 @@ Number of components: 3`}</code>
         <p key="p-11-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The detection strategy depends on whether the graph is directed or undirected.
         </p>
-        <h3 key="h3-11-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.1 Cycle Detection in an Undirected Graph
         </h3>
         <p key="p-11-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2740,7 +2740,7 @@ Number of components: 3`}</code>
         </p>
         <div key="code-11-17" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2754,7 +2754,7 @@ Number of components: 3`}</code>
         </p>
         <div key="code-11-23" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2762,7 +2762,7 @@ Number of components: 3`}</code>
           </pre>
         </div>
         <h4 key="h4-11-24" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           The Parent Concept
         </h4>
         <p key="p-11-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2782,16 +2782,16 @@ Number of components: 3`}</code>
         </p>
         <ul key="ul-11-38" className="my-3 space-y-1.5 pl-2">
           <li key="li-11-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>If a neighbor is unvisited, continue DFS.</span>
           </li>
           <li key="li-11-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>If a neighbor is already visited and is not the parent, we found a cycle.</span>
           </li>
         </ul>
         <h4 key="h4-11-39" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Java Implementation Using DFS
         </h4>
         <p key="p-11-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2799,7 +2799,7 @@ Number of components: 3`}</code>
         </p>
         <div key="code-11-125" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2890,7 +2890,7 @@ public class UndirectedCycleDetection {
         </p>
         <div key="code-11-131" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2898,7 +2898,7 @@ public class UndirectedCycleDetection {
           </pre>
         </div>
         <h4 key="h4-11-132" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Why Does the Parent Check Work?
         </h4>
         <p key="p-11-134" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2906,7 +2906,7 @@ public class UndirectedCycleDetection {
         </p>
         <div key="code-11-139" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2931,8 +2931,8 @@ public class UndirectedCycleDetection {
         <p key="p-11-150" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="text-white font-semibold">Advanced note:</strong> If the graph can contain parallel edges, parent vertex alone is insufficient. You should track the exact edge ID used to enter a vertex, so a second parallel edge to the parent is correctly recognized as a cycle.
         </p>
-        <h3 key="h3-11-152" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-152" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.2 Cycle Detection in a Directed Graph
         </h3>
         <p key="p-11-154" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2943,7 +2943,7 @@ public class UndirectedCycleDetection {
         </p>
         <div key="code-11-163" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2961,7 +2961,7 @@ public class UndirectedCycleDetection {
         <div key="table-11-173" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-11-0" className="p-3 font-semibold">State</th>
                 <th key="th-11-1" className="p-3 font-semibold">Meaning</th>
               </tr>
@@ -2995,12 +2995,12 @@ public class UndirectedCycleDetection {
           Reaching a fully processed vertex does not by itself indicate a cycle.
         </p>
         <h4 key="h4-11-182" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Java Implementation
         </h4>
         <div key="code-11-238" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3059,19 +3059,19 @@ public class DirectedCycleDetection {
           </pre>
         </div>
         <h4 key="h4-11-239" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Complexity
         </h4>
         <p key="p-11-241" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Both directed and undirected cycle detection using adjacency lists take:
         </p>
-        <div key="eq-11-244" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-11-244" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-11-245" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space:
         </p>
-        <div key="eq-11-248" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-11-248" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V) \\"}
         </div>
         <p key="p-11-249" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3092,8 +3092,8 @@ public class DirectedCycleDetection {
         <p key="p-12-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There must be no edge connecting two vertices within the same set.
         </p>
-        <h3 key="h3-12-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.1 Understanding Bipartite Graphs
         </h3>
         <p key="p-12-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3101,7 +3101,7 @@ public class DirectedCycleDetection {
         </p>
         <div key="code-12-14" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3121,8 +3121,8 @@ Set B: Courses`}</code>
         <p key="p-12-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If we can color every vertex without two adjacent vertices receiving the same color, the graph is bipartite.
         </p>
-        <h3 key="h3-12-23" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-23" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.2 Example of a Bipartite Graph
         </h3>
         <p key="p-12-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3134,8 +3134,8 @@ Set B: Courses`}</code>
         <p key="p-12-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Color 1
         </p>
-        <h3 key="h3-12-31" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-31" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.3 Important Property: Odd Cycles
         </h3>
         <p key="p-12-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3146,11 +3146,11 @@ Set B: Courses`}</code>
         </p>
         <ul key="ul-12-39" className="my-3 space-y-1.5 pl-2">
           <li key="li-12-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>A triangle has three edges and forms an odd cycle. It is not bipartite.</span>
           </li>
           <li key="li-12-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>A square has four edges and forms an even cycle. It is bipartite.</span>
           </li>
         </ul>
@@ -3160,8 +3160,8 @@ Set B: Courses`}</code>
         <p key="p-12-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           When we alternate colors around a cycle, an odd cycle eventually forces two adjacent vertices to have the same color.
         </p>
-        <h3 key="h3-12-44" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-44" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.4 Greedy-Style BFS Coloring
         </h3>
         <p key="p-12-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3172,49 +3172,49 @@ Set B: Courses`}</code>
         </p>
         <ol key="ol-12-56" className="my-3 space-y-2 pl-2">
           <li key="oli-12-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Create a color array initialized to -1.</span>
           </li>
           <li key="oli-12-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Choose an uncolored vertex.</span>
           </li>
           <li key="oli-12-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Assign color 0.</span>
           </li>
           <li key="oli-12-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Assign the opposite color to every uncolored neighbor.</span>
           </li>
           <li key="oli-12-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>If an adjacent vertex already has the same color, the graph is not bipartite.</span>
           </li>
           <li key="oli-12-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Repeat for every disconnected component.</span>
           </li>
         </ol>
         <h4 key="h4-12-57" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Java Implementation
         </h4>
         <div key="code-12-110" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3274,7 +3274,7 @@ public class BipartiteGraph {
         </p>
         <div key="code-12-116" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3286,7 +3286,7 @@ public class BipartiteGraph {
         </p>
         <div key="code-12-123" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3295,19 +3295,19 @@ public class BipartiteGraph {
           </pre>
         </div>
         <h4 key="h4-12-124" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Complexity
         </h4>
         <p key="p-12-126" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Time:
         </p>
-        <div key="eq-12-129" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-12-129" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-12-130" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space:
         </p>
-        <div key="eq-12-133" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-12-133" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V) \\"}
         </div>
       </div>
@@ -3325,8 +3325,8 @@ public class BipartiteGraph {
         <p key="p-13-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It arranges vertices in an order that respects all directed dependencies.
         </p>
-        <h3 key="h3-13-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.1 What Is Topological Sorting?
         </h3>
         <p key="p-13-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3340,7 +3340,7 @@ public class BipartiteGraph {
         </p>
         <div key="code-13-21" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3357,8 +3357,8 @@ Mathematics → Machine Learning`}</code>
         <p key="p-13-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A topological ordering provides a valid sequence that respects these relationships.
         </p>
-        <h3 key="h3-13-26" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-26" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.2 Directed Acyclic Graph (DAG)
         </h3>
         <p key="p-13-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3372,7 +3372,7 @@ Mathematics → Machine Learning`}</code>
         </p>
         <div key="code-13-39" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3386,7 +3386,7 @@ Mathematics → Machine Learning`}</code>
         </p>
         <div key="code-13-45" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3398,7 +3398,7 @@ Mathematics → Machine Learning`}</code>
         </p>
         <div key="code-13-51" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3413,7 +3413,7 @@ Mathematics → Machine Learning`}</code>
         </p>
         <div key="code-13-59" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3426,57 +3426,57 @@ Mathematics → Machine Learning`}</code>
         <p key="p-13-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A valid topological ordering is impossible because every vertex in the cycle would need to come before another vertex in that same cycle.
         </p>
-        <h3 key="h3-13-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.3 Applications of Topological Sorting
         </h3>
         <ul key="ul-13-74" className="my-3 space-y-1.5 pl-2">
           <li key="li-13-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Course prerequisite scheduling.</span>
           </li>
           <li key="li-13-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Software build systems.</span>
           </li>
           <li key="li-13-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Task dependency management.</span>
           </li>
           <li key="li-13-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Package installation.</span>
           </li>
           <li key="li-13-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Compilation order.</span>
           </li>
           <li key="li-13-5" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Workflow execution.</span>
           </li>
           <li key="li-13-6" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Project planning.</span>
           </li>
           <li key="li-13-7" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Dependency resolution.</span>
           </li>
         </ul>
-        <h3 key="h3-13-75" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-75" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.4 Two Ways to Perform Topological Sorting
         </h3>
         <ol key="ol-13-79" className="my-3 space-y-2 pl-2">
           <li key="oli-13-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>DFS-based topological sorting.</span>
           </li>
           <li key="oli-13-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Kahn&apos;s algorithm using in-degree and a queue.</span>
@@ -3500,8 +3500,8 @@ Mathematics → Machine Learning`}</code>
         <p key="p-14-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It uses the in-degree of every vertex.
         </p>
-        <h3 key="h3-14-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.1 What Is In-Degree?
         </h3>
         <p key="p-14-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3512,7 +3512,7 @@ Mathematics → Machine Learning`}</code>
         </p>
         <div key="code-14-17" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3527,7 +3527,7 @@ Mathematics → Machine Learning`}</code>
         <div key="table-14-26" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-14-0" className="p-3 font-semibold">Vertex</th>
                 <th key="th-14-1" className="p-3 font-semibold">In-degree</th>
               </tr>
@@ -3558,8 +3558,8 @@ Mathematics → Machine Learning`}</code>
         <p key="p-14-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           They can be processed first.
         </p>
-        <h3 key="h3-14-31" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-31" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.2 Kahn&apos;s Algorithm Logic
         </h3>
         <p key="p-14-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3573,43 +3573,43 @@ Mathematics → Machine Learning`}</code>
         </p>
         <ol key="ol-14-46" className="my-3 space-y-2 pl-2">
           <li key="oli-14-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Calculate the in-degree of every vertex.</span>
           </li>
           <li key="oli-14-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Insert all vertices with in-degree zero into a queue.</span>
           </li>
           <li key="oli-14-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Remove a vertex from the queue.</span>
           </li>
           <li key="oli-14-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Add it to the topological ordering.</span>
           </li>
           <li key="oli-14-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>Remove its outgoing edges conceptually by decreasing its neighbors&apos; in-degree.</span>
           </li>
           <li key="oli-14-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>If a neighbor&apos;s in-degree becomes zero, insert it into the queue.</span>
           </li>
           <li key="oli-14-6" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               7
             </span>
             <span>Continue until the queue becomes empty.</span>
@@ -3618,13 +3618,13 @@ Mathematics → Machine Learning`}</code>
         <p key="p-14-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If the number of processed vertices is less than V, the graph contains a directed cycle.
         </p>
-        <h3 key="h3-14-49" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-49" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.3 Java Implementation
         </h3>
         <div key="code-14-146" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3728,15 +3728,15 @@ public class KahnsAlgorithm {
         </p>
         <div key="code-14-152" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`[0, 1, 2, 3]`}</code>
           </pre>
         </div>
-        <h3 key="h3-14-153" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-153" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.4 Dry Run
         </h3>
         <p key="p-14-155" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3744,7 +3744,7 @@ public class KahnsAlgorithm {
         </p>
         <div key="code-14-162" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3758,7 +3758,7 @@ public class KahnsAlgorithm {
         </p>
         <div key="code-14-171" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3773,7 +3773,7 @@ public class KahnsAlgorithm {
         </p>
         <div key="code-14-177" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3786,7 +3786,7 @@ public class KahnsAlgorithm {
         <div key="table-14-186" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-14-0" className="p-3 font-semibold">Step</th>
                 <th key="th-14-1" className="p-3 font-semibold">Vertex removed</th>
                 <th key="th-14-2" className="p-3 font-semibold">Updated in-degree</th>
@@ -3826,34 +3826,34 @@ public class KahnsAlgorithm {
         </p>
         <div key="code-14-192" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`0 → 1 → 2 → 3`}</code>
           </pre>
         </div>
-        <h3 key="h3-14-193" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-193" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.5 Complexity
         </h3>
         <p key="p-14-195" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Time:
         </p>
-        <div key="eq-14-198" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-14-198" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-14-199" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space:
         </p>
-        <div key="eq-14-202" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-14-202" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V) \\"}
         </div>
         <p key="p-14-203" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The adjacency list is not copied or modified. The algorithm uses an additional in-degree array and queue.
         </p>
-        <h3 key="h3-14-205" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-205" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.6 DFS-Based Topological Sorting
         </h3>
         <p key="p-14-207" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3889,8 +3889,8 @@ public class KahnsAlgorithm {
         <p key="p-15-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Before understanding Kosaraju&apos;s and Tarjan&apos;s algorithms, you need to understand what makes a group of vertices strongly connected.
         </p>
-        <h3 key="h3-15-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.1 What Is a Strongly Connected Component?
         </h3>
         <p key="p-15-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3901,7 +3901,7 @@ public class KahnsAlgorithm {
         </p>
         <div key="code-15-20" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3918,7 +3918,7 @@ public class KahnsAlgorithm {
         </p>
         <div key="code-15-31" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3935,7 +3935,7 @@ public class KahnsAlgorithm {
         </p>
         <div key="code-15-39" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3952,15 +3952,15 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <ul key="ul-15-47" className="my-3 space-y-1.5 pl-2">
           <li key="li-15-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>0 can reach 1 and 2.</span>
           </li>
           <li key="li-15-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>1 can reach 2 and 0.</span>
           </li>
           <li key="li-15-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>2 can reach 0 and 1.</span>
           </li>
         </ul>
@@ -3969,11 +3969,11 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <ul key="ul-15-52" className="my-3 space-y-1.5 pl-2">
           <li key="li-15-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>3 can reach 4.</span>
           </li>
           <li key="li-15-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>4 can reach 3.</span>
           </li>
         </ul>
@@ -3983,14 +3983,14 @@ SCC 2 = {3, 4}`}</code>
         <p key="p-15-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore, these are separate SCCs.
         </p>
-        <h3 key="h3-15-57" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-57" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.2 Connected vs Strongly Connected
         </h3>
         <div key="table-15-65" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-15-0" className="p-3 font-semibold">Feature</th>
                 <th key="th-15-1" className="p-3 font-semibold">Connected component</th>
                 <th key="th-15-2" className="p-3 font-semibold">Strongly connected component</th>
@@ -4023,8 +4023,8 @@ SCC 2 = {3, 4}`}</code>
         <p key="p-15-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A strongly connected component must be maximal. In other words, we cannot add another vertex without breaking the property that every pair of vertices is mutually reachable.
         </p>
-        <h3 key="h3-15-68" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-68" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.3 Applications of SCC
         </h3>
         <p key="p-15-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4032,35 +4032,35 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <ul key="ul-15-80" className="my-3 space-y-1.5 pl-2">
           <li key="li-15-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Social network relationship analysis.</span>
           </li>
           <li key="li-15-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Dependency analysis.</span>
           </li>
           <li key="li-15-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Webpage link analysis.</span>
           </li>
           <li key="li-15-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Detecting mutually dependent modules.</span>
           </li>
           <li key="li-15-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Compiler optimization.</span>
           </li>
           <li key="li-15-5" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Program control-flow analysis.</span>
           </li>
           <li key="li-15-6" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Finding cyclic regions in directed graphs.</span>
           </li>
           <li key="li-15-7" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Analyzing communication networks.</span>
           </li>
         </ul>
@@ -4069,13 +4069,13 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <ol key="ol-15-85" className="my-3 space-y-2 pl-2">
           <li key="oli-15-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Kosaraju&apos;s Algorithm.</span>
           </li>
           <li key="oli-15-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Tarjan&apos;s Algorithm.</span>
@@ -4096,8 +4096,8 @@ SCC 2 = {3, 4}`}</code>
         <p key="p-16-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It performs two DFS passes and uses the graph&apos;s transpose.
         </p>
-        <h3 key="h3-16-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.1 What Is a Transpose Graph?
         </h3>
         <p key="p-16-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4108,7 +4108,7 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <div key="code-16-18" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4123,7 +4123,7 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <div key="code-16-27" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4136,23 +4136,23 @@ SCC 2 = {3, 4}`}</code>
         <p key="p-16-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Mathematically:
         </p>
-        <div key="eq-16-31" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-16-31" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"G^T=(V,E^T) \\"}
         </div>
         <p key="p-16-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Where every original edge:
         </p>
-        <div key="eq-16-35" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-16-35" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"(u,v) \\"}
         </div>
         <p key="p-16-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           becomes:
         </p>
-        <div key="eq-16-39" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-16-39" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"(v,u) \\"}
         </div>
-        <h3 key="h3-16-40" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-40" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.2 The Two-Pass Strategy
         </h3>
         <p key="p-16-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4163,19 +4163,19 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <ol key="ol-16-49" className="my-3 space-y-2 pl-2">
           <li key="oli-16-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Visit all vertices.</span>
           </li>
           <li key="oli-16-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>When a DFS call finishes, add that vertex to a finishing-order list.</span>
           </li>
           <li key="oli-16-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Continue until every vertex has been processed.</span>
@@ -4186,32 +4186,32 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <ol key="ol-16-56" className="my-3 space-y-2 pl-2">
           <li key="oli-16-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Reverse every directed edge to construct the transpose graph.</span>
           </li>
           <li key="oli-16-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Process vertices in decreasing order of their finishing times.</span>
           </li>
           <li key="oli-16-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Run DFS on the transpose graph.</span>
           </li>
           <li key="oli-16-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Every DFS traversal identifies one strongly connected component.</span>
           </li>
         </ol>
         <h4 key="h4-16-57" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Why Does the Ordering Matter?
         </h4>
         <p key="p-16-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4219,7 +4219,7 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <div key="code-16-64" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4238,8 +4238,8 @@ SCC 2 = {3, 4}`}</code>
         <p key="p-16-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Processing vertices in decreasing finishing-time order ensures that each second-pass traversal discovers exactly one SCC.
         </p>
-        <h3 key="h3-16-73" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-73" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.3 Step-by-Step Example
         </h3>
         <p key="p-16-75" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4247,7 +4247,7 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <div key="code-16-87" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4269,7 +4269,7 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <div key="code-16-96" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4282,7 +4282,7 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <div key="code-16-102" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4297,7 +4297,7 @@ SCC 2 = {3, 4}`}</code>
         </p>
         <div key="code-16-112" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4306,13 +4306,13 @@ SCC 2 = {3, 4}`}</code>
 Component 2: {3, 4}`}</code>
           </pre>
         </div>
-        <h3 key="h3-16-113" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-113" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.4 Java Implementation
         </h3>
         <div key="code-16-271" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4477,7 +4477,7 @@ public class Kosaraju {
         </p>
         <div key="code-16-277" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4487,38 +4487,38 @@ public class Kosaraju {
         <p key="p-16-278" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The order of vertices inside a component and the order of components can differ depending on traversal order.
         </p>
-        <h3 key="h3-16-280" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-280" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.5 Complexity Analysis
         </h3>
         <p key="p-16-282" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           First DFS:
         </p>
-        <div key="eq-16-285" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-16-285" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-16-286" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Transpose construction:
         </p>
-        <div key="eq-16-289" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-16-289" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-16-290" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Second DFS:
         </p>
-        <div key="eq-16-293" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-16-293" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-16-294" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Total:
         </p>
-        <div key="eq-16-297" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-16-297" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"\\boxed{O(V+E)} \\"}
         </div>
         <p key="p-16-298" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space:
         </p>
-        <div key="eq-16-301" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-16-301" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-16-302" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4526,23 +4526,23 @@ public class Kosaraju {
         </p>
         <ul key="ul-16-309" className="my-3 space-y-1.5 pl-2">
           <li key="li-16-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Transpose adjacency list.</span>
           </li>
           <li key="li-16-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Visited array.</span>
           </li>
           <li key="li-16-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Finishing-order list.</span>
           </li>
           <li key="li-16-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Recursion stack.</span>
           </li>
           <li key="li-16-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Result components.</span>
           </li>
         </ul>
@@ -4569,24 +4569,24 @@ public class Kosaraju {
         </p>
         <ul key="ul-17-14" className="my-3 space-y-1.5 pl-2">
           <li key="li-17-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Discovery time.</span>
           </li>
           <li key="li-17-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Low-link value.</span>
           </li>
           <li key="li-17-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>DFS stack.</span>
           </li>
           <li key="li-17-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>On-stack status.</span>
           </li>
         </ul>
-        <h3 key="h3-17-15" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-15" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.1 Discovery Time
         </h3>
         <p key="p-17-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4597,7 +4597,7 @@ public class Kosaraju {
         </p>
         <div key="code-17-27" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4612,15 +4612,15 @@ Vertex 3 → Discovery time 3`}</code>
         </p>
         <div key="code-17-33" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`discovery[u] = timer++;`}</code>
           </pre>
         </div>
-        <h3 key="h3-17-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.2 Low-Link Value
         </h3>
         <p key="p-17-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4628,18 +4628,18 @@ Vertex 3 → Discovery time 3`}</code>
         </p>
         <ul key="ul-17-40" className="my-3 space-y-1.5 pl-2">
           <li key="li-17-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>DFS tree edges.</span>
           </li>
           <li key="li-17-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Back edges to vertices that are still on the current DFS stack.</span>
           </li>
         </ul>
         <p key="p-17-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For a vertex u, its low-link value is:
         </p>
-        <div key="eq-17-44" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-17-44" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"low[u] \\"}
         </div>
         <p key="p-17-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4657,7 +4657,7 @@ Vertex 3 → Discovery time 3`}</code>
         <p key="p-17-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           After returning:
         </p>
-        <div key="eq-17-56" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-17-56" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"low[u]=\\min(low[u],low[v]) \\"}
         </div>
         <p key="p-17-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4666,23 +4666,23 @@ Vertex 3 → Discovery time 3`}</code>
         <p key="p-17-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We update using its discovery time:
         </p>
-        <div key="eq-17-62" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-17-62" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"low[u]=\\min(low[u],disc[v]) \\"}
         </div>
         <p key="p-17-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Notice that we use <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">disc[v]</code> in the second case, not <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[v]</code>.
+          Notice that we use <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">disc[v]</code> in the second case, not <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[v]</code>.
         </p>
         <p key="p-17-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A visited vertex that has already been removed from the stack should not be used to establish this SCC relationship.
         </p>
-        <h3 key="h3-17-67" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-67" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.3 When Is an SCC Found?
         </h3>
         <p key="p-17-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The key condition is:
         </p>
-        <div key="eq-17-72" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-17-72" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"low[u]=disc[u] \\"}
         </div>
         <p key="p-17-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4694,13 +4694,13 @@ Vertex 3 → Discovery time 3`}</code>
         <p key="p-17-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           All removed vertices belong to the same SCC.
         </p>
-        <h3 key="h3-17-79" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-79" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.4 Java Implementation
         </h3>
         <div key="code-17-222" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4850,7 +4850,7 @@ public class TarjanSCC {
         </p>
         <div key="code-17-228" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4860,14 +4860,14 @@ public class TarjanSCC {
         <p key="p-17-229" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The component order is reverse-related to the DFS discovery/finishing structure, and members may be listed in stack-pop order.
         </p>
-        <h3 key="h3-17-231" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-231" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.5 Tarjan vs Kosaraju
         </h3>
         <div key="table-17-242" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-17-0" className="p-3 font-semibold">Feature</th>
                 <th key="th-17-1" className="p-3 font-semibold">Kosaraju</th>
                 <th key="th-17-2" className="p-3 font-semibold">Tarjan</th>
@@ -4939,8 +4939,8 @@ public class TarjanSCC {
         <p key="p-18-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="text-white font-semibold">A bridge is a connection that, when removed, disconnects part of the graph.</strong>
         </p>
-        <h3 key="h3-18-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.1 Example
         </h3>
         <p key="p-18-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4948,7 +4948,7 @@ public class TarjanSCC {
         </p>
         <div key="code-18-19" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4968,7 +4968,7 @@ public class TarjanSCC {
         </p>
         <div key="code-18-29" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4981,8 +4981,8 @@ public class TarjanSCC {
         <p key="p-18-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           But removing an edge inside the cycle does not disconnect the cycle because another route still exists.
         </p>
-        <h3 key="h3-18-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.2 Why Do We Need Bridges?
         </h3>
         <p key="p-18-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4990,35 +4990,35 @@ public class TarjanSCC {
         </p>
         <ul key="ul-18-44" className="my-3 space-y-1.5 pl-2">
           <li key="li-18-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Network reliability.</span>
           </li>
           <li key="li-18-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Communication infrastructure.</span>
           </li>
           <li key="li-18-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Road connectivity.</span>
           </li>
           <li key="li-18-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Electrical networks.</span>
           </li>
           <li key="li-18-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Identifying critical links.</span>
           </li>
           <li key="li-18-5" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Dependency and connectivity analysis.</span>
           </li>
         </ul>
         <p key="p-18-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A bridge represents a vulnerable connection.
         </p>
-        <h3 key="h3-18-47" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-47" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.3 Discovery Time and Low-Link
         </h3>
         <p key="p-18-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5029,12 +5029,12 @@ public class TarjanSCC {
         </p>
         <ul key="ul-18-55" className="my-3 space-y-1.5 pl-2">
           <li key="li-18-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
-            <span><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">disc[u]</code>: Discovery time.</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
+            <span><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">disc[u]</code>: Discovery time.</span>
           </li>
           <li key="li-18-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
-            <span><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[u]</code>: Earliest discovery time reachable from u&apos;s DFS subtree using tree edges and at most one back edge to an ancestor.</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
+            <span><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[u]</code>: Earliest discovery time reachable from u&apos;s DFS subtree using tree edges and at most one back edge to an ancestor.</span>
           </li>
         </ul>
         <p key="p-18-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5042,7 +5042,7 @@ public class TarjanSCC {
         </p>
         <div key="code-18-61" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5052,7 +5052,7 @@ public class TarjanSCC {
         <p key="p-18-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The crucial condition is:
         </p>
-        <div key="eq-18-65" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-18-65" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"\\boxed{low[v] > disc[u]} \\"}
         </div>
         <p key="p-18-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5064,11 +5064,11 @@ public class TarjanSCC {
         <p key="p-18-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           So:
         </p>
-        <div key="eq-18-73" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-18-73" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"(u,v) \\text{ is a bridge} \\"}
         </div>
-        <h3 key="h3-18-74" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-74" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.4 Java Implementation
         </h3>
         <p key="p-18-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5079,7 +5079,7 @@ public class TarjanSCC {
         </p>
         <div key="code-18-221" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5229,7 +5229,7 @@ public class BridgeFinder {
         </p>
         <div key="code-18-228" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5240,14 +5240,14 @@ public class BridgeFinder {
         <p key="p-18-229" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These are the two bridges in this example.
         </p>
-        <h3 key="h3-18-231" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-231" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.5 Complexity
         </h3>
         <p key="p-18-233" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For adjacency lists:
         </p>
-        <div key="eq-18-236" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-18-236" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-18-237" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5256,7 +5256,7 @@ public class BridgeFinder {
         <p key="p-18-239" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Additional space:
         </p>
-        <div key="eq-18-242" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-18-242" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-18-243" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5277,8 +5277,8 @@ public class BridgeFinder {
         <p key="p-19-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is also called a cut vertex.
         </p>
-        <h3 key="h3-19-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.1 Understanding Articulation Points
         </h3>
         <p key="p-19-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5286,7 +5286,7 @@ public class BridgeFinder {
         </p>
         <div key="code-19-15" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5300,15 +5300,15 @@ public class BridgeFinder {
         </p>
         <ul key="ul-19-21" className="my-3 space-y-1.5 pl-2">
           <li key="li-19-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Vertex 0 becomes isolated.</span>
           </li>
           <li key="li-19-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Vertex 2 becomes separated.</span>
           </li>
           <li key="li-19-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Vertices 3 and 4 form another part.</span>
           </li>
         </ul>
@@ -5321,8 +5321,8 @@ public class BridgeFinder {
         <p key="p-19-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The actual result depends on the full graph structure.
         </p>
-        <h3 key="h3-19-28" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-28" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.2 Articulation Point Conditions
         </h3>
         <p key="p-19-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5332,7 +5332,7 @@ public class BridgeFinder {
           There are two important cases.
         </p>
         <h4 key="h4-19-34" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Case 1: Non-Root Vertex
         </h4>
         <p key="p-19-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5341,7 +5341,7 @@ public class BridgeFinder {
         <p key="p-19-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The condition is:
         </p>
-        <div key="eq-19-41" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-19-41" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"\\boxed{low[v] \\geq disc[u]} \\"}
         </div>
         <p key="p-19-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5354,7 +5354,7 @@ public class BridgeFinder {
           So u is an articulation point.
         </p>
         <h4 key="h4-19-48" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Case 2: DFS Root
         </h4>
         <p key="p-19-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5363,7 +5363,7 @@ public class BridgeFinder {
         <p key="p-19-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The root is an articulation point if it has more than one DFS child.
         </p>
-        <div key="eq-19-55" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-19-55" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"\\boxed{childCount > 1} \\"}
         </div>
         <p key="p-19-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5372,13 +5372,13 @@ public class BridgeFinder {
         <p key="p-19-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Because different DFS subtrees of the root do not have a path connecting them without passing through the root. If there is more than one such subtree, removing the root separates them.
         </p>
-        <h3 key="h3-19-60" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-60" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.3 Java Implementation
         </h3>
         <div key="code-19-222" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5547,7 +5547,7 @@ public class ArticulationPoints {
         </p>
         <div key="code-19-228" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5557,14 +5557,14 @@ public class ArticulationPoints {
         <p key="p-19-229" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These vertices are the articulation points.
         </p>
-        <h3 key="h3-19-231" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-231" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.4 Bridges vs Articulation Points
         </h3>
         <div key="table-19-240" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-19-0" className="p-3 font-semibold">Feature</th>
                 <th key="th-19-1" className="p-3 font-semibold">Bridge</th>
                 <th key="th-19-2" className="p-3 font-semibold">Articulation point</th>
@@ -5600,22 +5600,22 @@ public class ArticulationPoints {
           </table>
         </div>
         <p key="p-19-241" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The difference between <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">&gt;</code> and <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">&gt;=</code> is extremely important.
+          The difference between <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">&gt;</code> and <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">&gt;=</code> is extremely important.
         </p>
         <p key="p-19-243" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For a bridge:
         </p>
-        <div key="eq-19-246" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-19-246" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"low[v] > disc[u] \\"}
         </div>
         <p key="p-19-247" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For a non-root articulation point:
         </p>
-        <div key="eq-19-250" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-19-250" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"low[v] \\geq disc[u] \\"}
         </div>
         <p key="p-19-251" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          When <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[v] == disc[u]</code>, the child subtree can reach u itself, so the connecting edge is not a bridge. However, it still cannot bypass u to reach an ancestor, so u can be an articulation point.
+          When <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[v] == disc[u]</code>, the child subtree can reach u itself, so the connecting edge is not a bridge. However, it still cannot bypass u to reach an ancestor, so u can be an articulation point.
         </p>
       </div>
     )
@@ -5634,25 +5634,25 @@ public class ArticulationPoints {
         </p>
         <ul key="ul-20-8" className="my-3 space-y-1.5 pl-2">
           <li key="li-20-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>V = Number of vertices.</span>
           </li>
           <li key="li-20-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>E = Number of edges.</span>
           </li>
         </ul>
         <p key="p-20-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For an adjacency list, most fundamental graph algorithms take:
         </p>
-        <div key="eq-20-12" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-20-12" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
         <p key="p-20-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let&apos;s understand why.
         </p>
-        <h3 key="h3-20-15" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-15" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.1 Why O(V + E)?
         </h3>
         <p key="p-20-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5660,11 +5660,11 @@ public class ArticulationPoints {
         </p>
         <ul key="ul-20-21" className="my-3 space-y-1.5 pl-2">
           <li key="li-20-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Every vertex is visited at most once.</span>
           </li>
           <li key="li-20-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Every edge is examined a constant number of times.</span>
           </li>
         </ul>
@@ -5674,23 +5674,23 @@ public class ArticulationPoints {
         <p key="p-20-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore, the total traversal cost is proportional to:
         </p>
-        <div key="eq-20-27" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-20-27" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"V+2E \\"}
         </div>
         <p key="p-20-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Ignoring constants:
         </p>
-        <div key="eq-20-31" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-20-31" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"O(V+E) \\"}
         </div>
-        <h3 key="h3-20-32" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-32" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.2 Complete Complexity Table
         </h3>
         <div key="table-20-48" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-20-0" className="p-3 font-semibold">Algorithm</th>
                 <th key="th-20-1" className="p-3 font-semibold">Time complexity</th>
                 <th key="th-20-2" className="p-3 font-semibold">Auxiliary space</th>
@@ -5763,8 +5763,8 @@ public class ArticulationPoints {
         <p key="p-20-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These auxiliary-space estimates exclude the input graph and, where applicable, the result being returned. Recursion can also require O(V) call-stack space.
         </p>
-        <h3 key="h3-20-51" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-51" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.3 How Graph Density Affects Performance
         </h3>
         <p key="p-20-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5779,7 +5779,7 @@ public class ArticulationPoints {
         <p key="p-20-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For a simple undirected graph:
         </p>
-        <div key="eq-20-62" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-indigo-300 text-center overflow-x-auto">
+        <div key="eq-20-62" className="my-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-orange-300 text-center overflow-x-auto">
           {"E\\_{\\max}=\\frac{V(V-1)}{2} \\"}
         </div>
         <p key="p-20-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5803,7 +5803,7 @@ public class ArticulationPoints {
         <div key="table-21-20" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-21-0" className="p-3 font-semibold">Concept</th>
                 <th key="th-21-1" className="p-3 font-semibold">Main idea</th>
                 <th key="th-21-2" className="p-3 font-semibold">Important data structure</th>
@@ -5896,7 +5896,7 @@ public class ArticulationPoints {
           Graph problems are often difficult not because of complicated mathematics, but because of small implementation mistakes.
         </p>
         <h4 key="h4-22-4" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 1: Forgetting Disconnected Components
         </h4>
         <p key="p-22-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5906,7 +5906,7 @@ public class ArticulationPoints {
           Use an outer loop over all vertices when the algorithm must process the complete graph.
         </p>
         <h4 key="h4-22-10" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 2: Incorrectly Adding Undirected Edges
         </h4>
         <p key="p-22-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5914,7 +5914,7 @@ public class ArticulationPoints {
         </p>
         <div key="code-22-18" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5926,7 +5926,7 @@ adj.get(v).add(u);`}</code>
           For a directed graph, add only the forward edge.
         </p>
         <h4 key="h4-22-21" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 3: Marking BFS Vertices Too Late
         </h4>
         <p key="p-22-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5936,7 +5936,7 @@ adj.get(v).add(u);`}</code>
           Otherwise, multiple neighboring vertices may insert the same vertex repeatedly.
         </p>
         <h4 key="h4-22-27" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 4: Using BFS for Weighted Shortest Paths
         </h4>
         <p key="p-22-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5946,7 +5946,7 @@ adj.get(v).add(u);`}</code>
           For general nonnegative weighted shortest paths, Dijkstra&apos;s algorithm is usually appropriate.
         </p>
         <h4 key="h4-22-33" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 5: Confusing Directed and Undirected Cycle Detection
         </h4>
         <p key="p-22-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5959,7 +5959,7 @@ adj.get(v).add(u);`}</code>
           A simple visited array cannot distinguish these situations correctly.
         </p>
         <h4 key="h4-22-41" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 6: Applying Topological Sorting to Cyclic Graphs
         </h4>
         <p key="p-22-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5970,7 +5970,7 @@ adj.get(v).add(u);`}</code>
         </p>
         <div key="code-22-50" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 17 Graph Theory</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5981,7 +5981,7 @@ adj.get(v).add(u);`}</code>
           Otherwise, the graph contains a cycle.
         </p>
         <h4 key="h4-22-53" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 7: Confusing Connected Components with SCCs
         </h4>
         <p key="p-22-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5991,7 +5991,7 @@ adj.get(v).add(u);`}</code>
           Do not ignore edge directions when finding SCCs.
         </p>
         <h4 key="h4-22-59" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 8: Mixing Tarjan&apos;s Low-Link Conditions
         </h4>
         <p key="p-22-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6000,7 +6000,7 @@ adj.get(v).add(u);`}</code>
         <div key="table-22-69" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-22-0" className="p-3 font-semibold">Problem</th>
                 <th key="th-22-1" className="p-3 font-semibold">Condition</th>
               </tr>
@@ -6008,15 +6008,15 @@ adj.get(v).add(u);`}</code>
             <tbody className="divide-y divide-slate-850 bg-slate-950/60 font-sans">
               <tr key="tr-22-0" className="hover:bg-slate-900/40 transition-colors">
                 <td key="td-22-0-0" className="p-3 text-slate-300 font-mono text-slate-200">Tarjan SCC root</td>
-                <td key="td-22-0-1" className="p-3 text-slate-300 "><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[u] == discovery[u]</code></td>
+                <td key="td-22-0-1" className="p-3 text-slate-300 "><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[u] == discovery[u]</code></td>
               </tr>
               <tr key="tr-22-1" className="hover:bg-slate-900/40 transition-colors">
                 <td key="td-22-1-0" className="p-3 text-slate-300 font-mono text-slate-200">Bridge</td>
-                <td key="td-22-1-1" className="p-3 text-slate-300 "><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[v] &gt; discovery[u]</code></td>
+                <td key="td-22-1-1" className="p-3 text-slate-300 "><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[v] &gt; discovery[u]</code></td>
               </tr>
               <tr key="tr-22-2" className="hover:bg-slate-900/40 transition-colors">
                 <td key="td-22-2-0" className="p-3 text-slate-300 font-mono text-slate-200">Non-root articulation point</td>
-                <td key="td-22-2-1" className="p-3 text-slate-300 "><code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[v] &gt;= discovery[u]</code></td>
+                <td key="td-22-2-1" className="p-3 text-slate-300 "><code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">low[v] &gt;= discovery[u]</code></td>
               </tr>
               <tr key="tr-22-3" className="hover:bg-slate-900/40 transition-colors">
                 <td key="td-22-3-0" className="p-3 text-slate-300 font-mono text-slate-200">Root articulation point</td>
@@ -6029,20 +6029,20 @@ adj.get(v).add(u);`}</code>
           Although these algorithms share low-link concepts, their conditions serve different purposes.
         </p>
         <h4 key="h4-22-72" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 9: Ignoring Recursion Depth
         </h4>
         <p key="p-22-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           DFS, Kosaraju, Tarjan, bridge detection, and articulation-point detection can recurse deeply.
         </p>
         <p key="p-22-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For very large graphs, Java may throw <code className="font-mono text-indigo-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">StackOverflowError</code>.
+          For very large graphs, Java may throw <code className="font-mono text-orange-300 text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">StackOverflowError</code>.
         </p>
         <p key="p-22-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           An iterative DFS or an iterative implementation of the required algorithm may be necessary when graph depth is large.
         </p>
         <h4 key="h4-22-80" className="text-base font-semibold text-white mt-6 mb-2 flex items-center gap-2">
-          <span className="text-indigo-500 font-mono">▸</span>
+          <span className="text-orange-500 font-mono">▸</span>
           Mistake 10: Assuming Every Graph Is Simple
         </h4>
         <p key="p-22-82" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6050,15 +6050,15 @@ adj.get(v).add(u);`}</code>
         </p>
         <ul key="ul-22-87" className="my-3 space-y-1.5 pl-2">
           <li key="li-22-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Self-loops.</span>
           </li>
           <li key="li-22-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Parallel edges.</span>
           </li>
           <li key="li-22-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Disconnected components.</span>
           </li>
         </ul>
@@ -6080,7 +6080,7 @@ adj.get(v).add(u);`}</code>
         <div key="table-23-17" className="my-5 overflow-x-auto rounded-xl border border-slate-800 shadow-md">
           <table className="w-full text-xs text-left border-collapse">
             <thead>
-              <tr className="bg-slate-900 border-b border-slate-800 text-indigo-400 font-mono">
+              <tr className="bg-slate-900 border-b border-slate-800 text-orange-400 font-mono">
                 <th key="th-23-0" className="p-3 font-semibold">Problem statement clue</th>
                 <th key="th-23-1" className="p-3 font-semibold">Possible graph algorithm</th>
               </tr>
@@ -6133,8 +6133,8 @@ adj.get(v).add(u);`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-23-18" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-18" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           A Practical Interview Approach
         </h3>
         <p key="p-23-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6160,19 +6160,19 @@ adj.get(v).add(u);`}</code>
         </p>
         <ul key="ul-23-38" className="my-3 space-y-1.5 pl-2">
           <li key="li-23-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Directed or undirected?</span>
           </li>
           <li key="li-23-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Weighted or unweighted?</span>
           </li>
           <li key="li-23-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Connected or disconnected?</span>
           </li>
           <li key="li-23-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Cyclic or acyclic?</span>
           </li>
         </ul>
@@ -6202,35 +6202,35 @@ adj.get(v).add(u);`}</code>
         </p>
         <ul key="ul-23-63" className="my-3 space-y-1.5 pl-2">
           <li key="li-23-0" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Empty graph.</span>
           </li>
           <li key="li-23-1" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>One vertex.</span>
           </li>
           <li key="li-23-2" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Disconnected graph.</span>
           </li>
           <li key="li-23-3" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Self-loop.</span>
           </li>
           <li key="li-23-4" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Multiple edges.</span>
           </li>
           <li key="li-23-5" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Directed cycle.</span>
           </li>
           <li key="li-23-6" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>No cycle.</span>
           </li>
           <li key="li-23-7" className="flex items-start gap-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 shrink-0"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0"></span>
             <span>Multiple components.</span>
           </li>
         </ul>
@@ -6249,295 +6249,295 @@ adj.get(v).add(u);`}</code>
         <p key="p-24-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These problems are arranged from fundamental to advanced.
         </p>
-        <h3 key="h3-24-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 1 — Graph Fundamentals
         </h3>
         <ol key="ol-24-18" className="my-3 space-y-2 pl-2">
           <li key="oli-24-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Implement Graph Using Adjacency List.</span>
           </li>
           <li key="oli-24-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Implement Graph Using Adjacency Matrix.</span>
           </li>
           <li key="oli-24-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>BFS Traversal.</span>
           </li>
           <li key="oli-24-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>DFS Traversal.</span>
           </li>
           <li key="oli-24-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>Number of Provinces.</span>
           </li>
           <li key="oli-24-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Number of Connected Components.</span>
           </li>
           <li key="oli-24-6" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               7
             </span>
             <span>Find if Path Exists in Graph.</span>
           </li>
           <li key="oli-24-7" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               8
             </span>
             <span>Flood Fill.</span>
           </li>
           <li key="oli-24-8" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               9
             </span>
             <span>Number of Islands.</span>
           </li>
           <li key="oli-24-9" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               10
             </span>
             <span>Max Area of Island.</span>
           </li>
         </ol>
-        <h3 key="h3-24-19" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-19" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 2 — Graph Traversal and Properties
         </h3>
         <ol key="ol-24-31" className="my-3 space-y-2 pl-2">
           <li key="oli-24-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Detect Cycle in an Undirected Graph.</span>
           </li>
           <li key="oli-24-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Detect Cycle in a Directed Graph.</span>
           </li>
           <li key="oli-24-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Find Eventual Safe States.</span>
           </li>
           <li key="oli-24-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Is Graph Bipartite?</span>
           </li>
           <li key="oli-24-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>Possible Bipartition.</span>
           </li>
           <li key="oli-24-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Shortest Path in an Unweighted Graph.</span>
           </li>
           <li key="oli-24-6" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               7
             </span>
             <span>Rotting Oranges.</span>
           </li>
           <li key="oli-24-7" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               8
             </span>
             <span>Shortest Path in a Binary Matrix.</span>
           </li>
           <li key="oli-24-8" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               9
             </span>
             <span>Word Ladder.</span>
           </li>
           <li key="oli-24-9" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               10
             </span>
             <span>Minimum Genetic Mutation.</span>
           </li>
         </ol>
-        <h3 key="h3-24-32" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-32" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 3 — Topological Sorting
         </h3>
         <ol key="ol-24-42" className="my-3 space-y-2 pl-2">
           <li key="oli-24-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Topological Sort.</span>
           </li>
           <li key="oli-24-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Course Schedule.</span>
           </li>
           <li key="oli-24-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Course Schedule II.</span>
           </li>
           <li key="oli-24-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Find a Valid Course Ordering.</span>
           </li>
           <li key="oli-24-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>Alien Dictionary.</span>
           </li>
           <li key="oli-24-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Eventual Safe States.</span>
           </li>
           <li key="oli-24-6" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               7
             </span>
             <span>Parallel Courses.</span>
           </li>
           <li key="oli-24-7" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               8
             </span>
             <span>Minimum Semesters to Complete All Courses.</span>
           </li>
         </ol>
-        <h3 key="h3-24-43" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-43" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 4 — Strongly Connected Components
         </h3>
         <ol key="ol-24-51" className="my-3 space-y-2 pl-2">
           <li key="oli-24-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Strongly Connected Components.</span>
           </li>
           <li key="oli-24-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Kosaraju&apos;s Algorithm.</span>
           </li>
           <li key="oli-24-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Tarjan&apos;s SCC Algorithm.</span>
           </li>
           <li key="oli-24-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Number of Strongly Connected Components.</span>
           </li>
           <li key="oli-24-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>2-SAT Introduction.</span>
           </li>
           <li key="oli-24-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Critical Connections in a Network.</span>
           </li>
         </ol>
-        <h3 key="h3-24-52" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-52" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 5 — Advanced Graph Problems
         </h3>
         <ol key="ol-24-64" className="my-3 space-y-2 pl-2">
           <li key="oli-24-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>Critical Connections in a Network.</span>
           </li>
           <li key="oli-24-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Articulation Points.</span>
           </li>
           <li key="oli-24-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>Bridges in Graphs.</span>
           </li>
           <li key="oli-24-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>Minimum Number of Edges to Make a Graph Connected.</span>
           </li>
           <li key="oli-24-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>Clone Graph.</span>
           </li>
           <li key="oli-24-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Reconstruct Itinerary.</span>
           </li>
           <li key="oli-24-6" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               7
             </span>
             <span>Evaluate Division.</span>
           </li>
           <li key="oli-24-7" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               8
             </span>
             <span>Minimum Height Trees.</span>
           </li>
           <li key="oli-24-8" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               9
             </span>
             <span>Redundant Connection.</span>
           </li>
           <li key="oli-24-9" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               10
             </span>
             <span>Largest Component Size by Common Factor.</span>
@@ -6564,8 +6564,8 @@ adj.get(v).add(u);`}</code>
         <p key="p-25-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           0 / 25 completed
         </p>
-        <h3 key="h3-25-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           0%
         </h3>
         <p key="p-25-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -6646,74 +6646,74 @@ adj.get(v).add(u);`}</code>
         <p key="p-25-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Reset progress
         </p>
-        <h3 key="h3-25-62" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-62" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           The 10 Most Important Things to Remember
         </h3>
         <ol key="ol-25-74" className="my-3 space-y-2 pl-2">
           <li key="oli-25-0" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               1
             </span>
             <span>A graph consists of vertices and edges.</span>
           </li>
           <li key="oli-25-1" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               2
             </span>
             <span>Adjacency lists are generally the most useful representation for graph traversal.</span>
           </li>
           <li key="oli-25-2" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               3
             </span>
             <span>BFS uses a queue and explores level by level.</span>
           </li>
           <li key="oli-25-3" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               4
             </span>
             <span>DFS uses recursion or a stack and explores deeply.</span>
           </li>
           <li key="oli-25-4" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               5
             </span>
             <span>Connected components identify separate reachable groups.</span>
           </li>
           <li key="oli-25-5" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               6
             </span>
             <span>Directed and undirected cycle detection require different logic.</span>
           </li>
           <li key="oli-25-6" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               7
             </span>
             <span>Bipartite graphs can be checked through two-coloring.</span>
           </li>
           <li key="oli-25-7" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               8
             </span>
             <span>Kahn&apos;s algorithm uses in-degree to produce a topological ordering.</span>
           </li>
           <li key="oli-25-8" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               9
             </span>
             <span>Kosaraju and Tarjan find strongly connected components.</span>
           </li>
           <li key="oli-25-9" className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <span className="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
+            <span className="w-5 h-5 rounded-full bg-slate-800 text-orange-400 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-slate-700">
               10
             </span>
             <span>Discovery time and low-link values are fundamental to Tarjan&apos;s SCC, bridge, and articulation-point algorithms.</span>
           </li>
         </ol>
-        <h3 key="h3-25-75" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-75" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           What You Should Be Able to Do After This Module
         </h3>
         <p key="p-25-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">

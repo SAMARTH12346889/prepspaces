@@ -1164,13 +1164,13 @@ export default function JavaSpecializedDS() {
                     <span className="text-xs font-semibold text-slate-300">DFS Wildcard Resolution Logic</span>
                     <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 text-xs font-mono text-slate-300 space-y-2">
                       <div className="text-slate-400">// Java LeetCode 211 Recursive DFS Logic:</div>
-                      <div className="text-purple-300">if (char == '.') &#123;</div>
+                      <div className="text-orange-300">if (char == '.') &#123;</div>
                       <div className="pl-4 text-emerald-300">// Branch across ALL non-null children:</div>
                       <div className="pl-4 text-cyan-300">for (TrieNode child : node.children) &#123;</div>
                       <div className="pl-8 text-slate-200">if (child != null && dfs(word, index + 1, child)) return true;</div>
                       <div className="pl-4 text-cyan-300">&#125;</div>
                       <div className="pl-4 text-rose-300">return false; // Backtrack if no child branch matched</div>
-                      <div className="text-purple-300">&#125;</div>
+                      <div className="text-orange-300">&#125;</div>
                     </div>
                   </div>
 
@@ -2233,7 +2233,7 @@ export default function JavaSpecializedDS() {
                               ? "bg-cyan-500/20 text-cyan-400"
                               : lab.tier === "Intermediate"
                               ? "bg-amber-500/20 text-amber-400"
-                              : "bg-purple-500/20 text-purple-400"
+                              : "bg-orange-500/15 text-orange-400"
                           }`}
                         >
                           {lab.tier}

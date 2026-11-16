@@ -31,8 +31,8 @@ export const JAVA_PROBLEM_SOLVING_PATTERNS_SECTIONS = [
     summary: "Choose-explore-unchoose framework, pruning strategies, N-Queens with O(1) diagonal arrays, and bitmask state tracking.",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-1-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.1 What is backtracking?
         </h3>
         <p key="p-1-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -58,8 +58,8 @@ export const JAVA_PROBLEM_SOLVING_PATTERNS_SECTIONS = [
         <p key="p-1-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           That is backtracking.
         </p>
-        <h3 key="h3-1-20" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-20" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.2 Backtracking versus brute force
         </h3>
         <p key="p-1-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -73,7 +73,7 @@ export const JAVA_PROBLEM_SOLVING_PATTERNS_SECTIONS = [
         </p>
         <div key="code-1-32" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -86,7 +86,7 @@ Target = 7`}</code>
         </p>
         <div key="code-1-39" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -133,8 +133,8 @@ Target = 7`}</code>
         <p key="p-1-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Each decision creates further choices. Invalid branches are discarded.
         </p>
-        <h3 key="h3-1-66" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-66" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.3 General backtracking template
         </h3>
         <p key="p-1-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -142,7 +142,7 @@ Target = 7`}</code>
         </p>
         <div key="code-1-95" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -175,18 +175,18 @@ Target = 7`}</code>
           Understand the responsibilities:
         </p>
         <ul key="ul-1-104" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">State</code> represents the current partial solution.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">isSolution()</code> checks whether a complete solution has been found.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">getAvailableChoices()</code> generates possible decisions.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">isValid()</code> rejects decisions that violate constraints.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">applyChoice()</code> updates the current state.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">undoChoice()</code> restores the previous state.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">State</code> represents the current partial solution.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">isSolution()</code> checks whether a complete solution has been found.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">getAvailableChoices()</code> generates possible decisions.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">isValid()</code> rejects decisions that violate constraints.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">applyChoice()</code> updates the current state.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">undoChoice()</code> restores the previous state.</li>
       </ul>
         <p key="p-1-105" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The most important rule is that the state must be restored correctly after returning from recursion.
         </p>
-        <h3 key="h3-1-107" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-107" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.4 Advanced backtracking problem: N-Queens
         </h3>
         <p key="p-1-109" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -205,7 +205,7 @@ Target = 7`}</code>
         </p>
         <div key="code-1-125" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -243,7 +243,7 @@ Q . . .
         </h4>
         <div key="code-1-219" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -325,16 +325,16 @@ public class NQueens {
           Complexity analysis
         </h4>
         <p key="p-1-222" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The upper-bound search space can be described using permutations of column positions, approximately \<span className="font-mono text-indigo-300 font-semibold">O(N!)\</span>, with additional work for checking and recording solutions.
+          The upper-bound search space can be described using permutations of column positions, approximately \<span className="font-mono text-orange-300 font-semibold">O(N!)\</span>, with additional work for checking and recording solutions.
         </p>
         <p key="p-1-224" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The diagonal arrays allow each safety check to run in \<span className="font-mono text-indigo-300 font-semibold">O(1)\</span> time.
+          The diagonal arrays allow each safety check to run in \<span className="font-mono text-orange-300 font-semibold">O(1)\</span> time.
         </p>
         <p key="p-1-226" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The actual number of explored states is usually smaller because invalid positions are pruned.
         </p>
-        <h3 key="h3-1-228" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-228" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.5 Other advanced backtracking problems
         </h3>
         <div key="table-1-239" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -400,7 +400,7 @@ public class NQueens {
         </p>
         <div key="code-1-266" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -425,8 +425,8 @@ mask = mask & ~(1 << 2);`}</code>
     summary: "Pruning optimization decision trees using optimistic mathematical bounds (upper/lower bounds, fractional knapsack relaxation).",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-2-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.1 What is Branch and Bound?
         </h3>
         <p key="p-2-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -445,8 +445,8 @@ mask = mask & ~(1 << 2);`}</code>
         <p key="p-2-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If a branch cannot outperform the current best solution, it can be discarded.
         </p>
-        <h3 key="h3-2-15" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-15" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.2 Backtracking versus Branch and Bound
         </h3>
         <p key="p-2-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -487,8 +487,8 @@ mask = mask & ~(1 << 2);`}</code>
         <p key="p-2-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Backtracking can also solve optimization problems. Branch and Bound adds the concept of an optimization bound.
         </p>
-        <h3 key="h3-2-29" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-29" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.3 Understanding the lower and upper bounds
         </h3>
         <p key="p-2-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -499,7 +499,7 @@ mask = mask & ~(1 << 2);`}</code>
         </p>
         <div key="code-2-38" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -511,7 +511,7 @@ mask = mask & ~(1 << 2);`}</code>
         </p>
         <div key="code-2-44" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -532,7 +532,7 @@ mask = mask & ~(1 << 2);`}</code>
         </p>
         <div key="code-2-59" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -551,8 +551,8 @@ Lower bound = 20 + 35 = 55`}</code>
         <p key="p-2-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For maximization problems, we often calculate an upper bound instead. If that upper bound cannot beat the best known result, we discard the branch.
         </p>
-        <h3 key="h3-2-66" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-66" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.4 Example: 0/1 Knapsack
         </h3>
         <p key="p-2-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -602,7 +602,7 @@ Lower bound = 20 + 35 = 55`}</code>
         </p>
         <div key="code-2-87" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -615,7 +615,7 @@ Do not include item`}</code>
         </p>
         <div key="code-2-97" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -658,8 +658,8 @@ Do not include item`}</code>
     summary: "Divide-conquer-combine paradigm, Merge Sort implementation, recurrence relations, and Master Theorem T(n) = aT(n/b) + f(n).",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-3-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.1 What is Divide and Conquer?
         </h3>
         <p key="p-3-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -715,8 +715,8 @@ Do not include item`}</code>
         <p key="p-3-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           [2, 3, 6, 8]
         </p>
-        <h3 key="h3-3-40" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-40" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.2 Merge Sort example
         </h3>
         <p key="p-3-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -727,7 +727,7 @@ Do not include item`}</code>
         </h4>
         <div key="code-3-53" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -755,7 +755,7 @@ Do not include item`}</code>
         </p>
         <div key="code-3-71" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -771,7 +771,7 @@ Do not include item`}</code>
         </h4>
         <div key="code-3-140" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -846,15 +846,15 @@ public class MergeSort {
         </p>
         <div key="code-3-146" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`[1, 2, 3, 6, 8, 9]`}</code>
           </pre>
         </div>
-        <h3 key="h3-3-147" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-147" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.3 Recurrence relations
         </h3>
         <p key="p-3-149" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -864,27 +864,27 @@ public class MergeSort {
           A general form is:
         </p>
         <p key="p-3-153" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> T(n) = aT(n/b) + f(n) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> T(n) = aT(n/b) + f(n) \</span>
         </p>
         <p key="p-3-155" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Where:
         </p>
         <ul key="ul-3-160" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>\<span className="font-mono text-indigo-300 font-semibold">a\</span> = number of subproblems.</li>
-          <li>\<span className="font-mono text-indigo-300 font-semibold">n/b\</span> = approximate size of each subproblem.</li>
-          <li>\<span className="font-mono text-indigo-300 font-semibold">f(n)\</span> = work done outside recursive calls.</li>
+          <li>\<span className="font-mono text-orange-300 font-semibold">a\</span> = number of subproblems.</li>
+          <li>\<span className="font-mono text-orange-300 font-semibold">n/b\</span> = approximate size of each subproblem.</li>
+          <li>\<span className="font-mono text-orange-300 font-semibold">f(n)\</span> = work done outside recursive calls.</li>
       </ul>
         <p key="p-3-161" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For Merge Sort:
         </p>
         <p key="p-3-163" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> T(n)=2T(n/2)+O(n) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> T(n)=2T(n/2)+O(n) \</span>
         </p>
         <p key="p-3-165" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This gives:
         </p>
         <p key="p-3-167" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> T(n)=O(n\log n) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> T(n)=O(n\log n) \</span>
         </p>
         <p key="p-3-169" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The recurrence can be analyzed using the Master Theorem.
@@ -903,27 +903,27 @@ public class MergeSort {
             <tbody className="divide-y divide-slate-800/60 text-slate-300 font-sans">
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Binary Search</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(\log n)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(\log n)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Merge Sort</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(n\log n)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(n\log n)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Quick Sort</td>
-                  <td className="p-3">Average \<span className="font-mono text-indigo-300 font-semibold">O(n\log n)\</span></td>
+                  <td className="p-3">Average \<span className="font-mono text-orange-300 font-semibold">O(n\log n)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Quick Sort</td>
-                  <td className="p-3">Worst \<span className="font-mono text-indigo-300 font-semibold">O(n^2)\</span></td>
+                  <td className="p-3">Worst \<span className="font-mono text-orange-300 font-semibold">O(n^2)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Closest Pair of Points</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(n\log n)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(n\log n)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Fast Exponentiation</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(\log n)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(\log n)\</span></td>
                 </tr>
             </tbody>
           </table>
@@ -943,8 +943,8 @@ public class MergeSort {
         <p key="p-4-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is one of the most important advanced problem-solving techniques.
         </p>
-        <h3 key="h3-4-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.1 What is Binary Search on Answer?
         </h3>
         <p key="p-4-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -956,13 +956,13 @@ public class MergeSort {
         <p key="p-4-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead of asking:
         </p>
-        <blockquote key="bq-4-12" className="my-3 pl-4 border-l-2 border-indigo-500 text-xs md:text-sm text-indigo-300/90 italic bg-indigo-500/5 py-2 rounded-r-lg">
+        <blockquote key="bq-4-12" className="my-3 pl-4 border-l-2 border-orange-500 text-xs md:text-sm text-orange-300/90 italic bg-orange-500/5 py-2 rounded-r-lg">
           Is this element present in the array?
         </blockquote>
         <p key="p-4-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We ask:
         </p>
-        <blockquote key="bq-4-16" className="my-3 pl-4 border-l-2 border-indigo-500 text-xs md:text-sm text-indigo-300/90 italic bg-indigo-500/5 py-2 rounded-r-lg">
+        <blockquote key="bq-4-16" className="my-3 pl-4 border-l-2 border-orange-500 text-xs md:text-sm text-orange-300/90 italic bg-orange-500/5 py-2 rounded-r-lg">
           Is this candidate answer feasible?
         </blockquote>
         <p key="p-4-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -981,8 +981,8 @@ public class MergeSort {
         <p key="p-4-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           You can binary-search the capacity.
         </p>
-        <h3 key="h3-4-29" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-29" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.2 The monotonic property
         </h3>
         <p key="p-4-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -993,7 +993,7 @@ public class MergeSort {
         </p>
         <div key="code-4-39" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1009,7 +1009,7 @@ Feasible:          No No No Yes Yes Yes Yes`}</code>
         </p>
         <div key="code-4-48" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1023,8 +1023,8 @@ Feasible:          Yes Yes Yes Yes No No No`}</code>
         <p key="p-4-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This monotonicity allows us to eliminate half the search range after every check.
         </p>
-        <h3 key="h3-4-53" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-53" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.3 Example: Capacity to Ship Packages Within D Days
         </h3>
         <p key="p-4-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1032,7 +1032,7 @@ Feasible:          Yes Yes Yes Yes No No No`}</code>
         </p>
         <div key="code-4-61" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1050,13 +1050,13 @@ days = 5`}</code>
           Minimum capacity:
         </p>
         <p key="p-4-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> low = \max(weights)=10 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> low = \max(weights)=10 \</span>
         </p>
         <p key="p-4-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Maximum capacity:
         </p>
         <p key="p-4-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> high = \sum(weights)=55 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> high = \sum(weights)=55 \</span>
         </p>
         <h4 key="h4-4-74" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Step 2: Test a candidate capacity
@@ -1069,7 +1069,7 @@ days = 5`}</code>
         </p>
         <div key="code-4-87" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1091,7 +1091,7 @@ Day 5: 10 = 10`}</code>
         </h4>
         <div key="code-4-161" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1167,7 +1167,7 @@ Day 5: 10 = 10`}</code>
         </p>
         <div key="code-4-167" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1178,12 +1178,12 @@ Day 5: 10 = 10`}</code>
           Complexity:
         </p>
         <ul key="ul-4-173" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Feasibility check: \<span className="font-mono text-indigo-300 font-semibold">O(n)\</span>.</li>
-          <li>Binary search iterations: \<span className="font-mono text-indigo-300 font-semibold">O(\log S)\</span>, where \<span className="font-mono text-indigo-300 font-semibold">S\</span> is the search-range size.</li>
-          <li>Total: \<span className="font-mono text-indigo-300 font-semibold">O(n\log S)\</span>.</li>
+          <li>Feasibility check: \<span className="font-mono text-orange-300 font-semibold">O(n)\</span>.</li>
+          <li>Binary search iterations: \<span className="font-mono text-orange-300 font-semibold">O(\log S)\</span>, where \<span className="font-mono text-orange-300 font-semibold">S\</span> is the search-range size.</li>
+          <li>Total: \<span className="font-mono text-orange-300 font-semibold">O(n\log S)\</span>.</li>
       </ul>
-        <h3 key="h3-4-174" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-174" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.4 Common Binary Search on Answer problems
         </h3>
         <div key="table-4-185" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -1260,8 +1260,8 @@ Day 5: 10 = 10`}</code>
     summary: "Maintaining monotonic ordering: Next Greater Element, index tracking, Stock Span, and Largest Rectangle in Histogram O(N).",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-5-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.1 What is a Monotonic Stack?
         </h3>
         <p key="p-5-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1289,8 +1289,8 @@ Day 5: 10 = 10`}</code>
           <li>Largest Rectangle in Histogram.</li>
           <li>Trapping Rain Water.</li>
       </ul>
-        <h3 key="h3-5-23" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-23" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.2 Increasing Monotonic Stack
         </h3>
         <p key="p-5-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1301,7 +1301,7 @@ Day 5: 10 = 10`}</code>
         </p>
         <div key="code-5-47" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1326,8 +1326,8 @@ Stack: [7]`}</code>
         <p key="p-5-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The exact removal condition depends on whether the problem requires strict or non-strict comparisons.
         </p>
-        <h3 key="h3-5-50" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-50" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.3 Decreasing Monotonic Stack
         </h3>
         <p key="p-5-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1344,7 +1344,7 @@ Stack: [7]`}</code>
         </p>
         <div key="code-5-63" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1359,7 +1359,7 @@ Stack: [7]`}</code>
         </p>
         <div key="code-5-71" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1381,7 +1381,7 @@ Stack: [7]`}</code>
         </h4>
         <div key="code-5-123" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1431,7 +1431,7 @@ public class NextGreaterElement {
         </p>
         <div key="code-5-129" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1441,8 +1441,8 @@ public class NextGreaterElement {
         <p key="p-5-130" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We store indices rather than values because we need to know exactly which element has found its next greater element.
         </p>
-        <h3 key="h3-5-132" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-132" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.4 Largest Rectangle in Histogram
         </h3>
         <p key="p-5-134" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1453,7 +1453,7 @@ public class NextGreaterElement {
         </p>
         <div key="code-5-141" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1474,20 +1474,20 @@ public class NextGreaterElement {
           These determine how far a rectangle of that bar's height can extend.
         </p>
         <p key="p-5-151" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For bar \<span className="font-mono text-indigo-300 font-semibold">i\</span>:
+          For bar \<span className="font-mono text-orange-300 font-semibold">i\</span>:
         </p>
         <p key="p-5-153" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> width = rightSmaller_i-leftSmaller_i-1 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> width = rightSmaller_i-leftSmaller_i-1 \</span>
         </p>
         <p key="p-5-155" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> area = height_i \times width \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> area = height_i \times width \</span>
         </p>
         <p key="p-5-157" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation:
         </p>
         <div key="code-5-210" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1547,7 +1547,7 @@ public class LargestRectangle {
         </p>
         <div key="code-5-216" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1555,7 +1555,7 @@ public class LargestRectangle {
           </pre>
         </div>
         <p key="p-5-217" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The algorithm runs in \<span className="font-mono text-indigo-300 font-semibold">O(n)\</span>, because each index is pushed onto and popped from the stack at most once.
+          The algorithm runs in \<span className="font-mono text-orange-300 font-semibold">O(n)\</span>, because each index is pushed onto and popped from the stack at most once.
         </p>
         <p key="p-5-219" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="font-bold text-white">Important:</strong> Monotonic Stack is especially useful when the problem asks for the nearest greater or smaller element in a particular direction.
@@ -1569,15 +1569,15 @@ public class LargestRectangle {
     summary: "Double-ended queues (ArrayDeque) for extrema over moving ranges, Sliding Window Maximum in linear O(N) time.",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-6-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.1 What is a Monotonic Queue?
         </h3>
         <p key="p-6-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A Monotonic Queue maintains its elements in sorted order while supporting efficient insertion and removal from both ends.
         </p>
         <p key="p-6-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          In Java, we commonly implement it using <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayDeque</code>.
+          In Java, we commonly implement it using <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayDeque</code>.
         </p>
         <p key="p-6-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is particularly useful for finding minimum or maximum values in a sliding window.
@@ -1585,8 +1585,8 @@ public class LargestRectangle {
         <p key="p-6-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A Monotonic Stack usually finds the next or previous greater/smaller element. A Monotonic Queue is commonly used when we need an extremum over a moving range.
         </p>
-        <h3 key="h3-6-12" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-12" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.2 Sliding Window Maximum
         </h3>
         <p key="p-6-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1594,7 +1594,7 @@ public class LargestRectangle {
         </p>
         <div key="code-6-20" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1610,7 +1610,7 @@ Window size = 3`}</code>
         </p>
         <div key="code-6-33" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1627,7 +1627,7 @@ Window size = 3`}</code>
         </p>
         <div key="code-6-39" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1635,18 +1635,18 @@ Window size = 3`}</code>
           </pre>
         </div>
         <p key="p-6-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          A brute-force solution takes \<span className="font-mono text-indigo-300 font-semibold">O(nk)\</span>, where \<span className="font-mono text-indigo-300 font-semibold">k\</span> is the window size.
+          A brute-force solution takes \<span className="font-mono text-orange-300 font-semibold">O(nk)\</span>, where \<span className="font-mono text-orange-300 font-semibold">k\</span> is the window size.
         </p>
         <p key="p-6-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The Monotonic Queue approach takes \<span className="font-mono text-indigo-300 font-semibold">O(n)\</span>.
+          The Monotonic Queue approach takes \<span className="font-mono text-orange-300 font-semibold">O(n)\</span>.
         </p>
-        <h3 key="h3-6-44" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-44" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.3 Java implementation
         </h3>
         <div key="code-6-103" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1756,8 +1756,8 @@ public class SlidingWindowMaximum {
           <li>Tasks and dependencies.</li>
           <li>People and relationships.</li>
       </ul>
-        <h3 key="h3-7-14" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-14" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.1 Pattern 1: Traversal and Connected Components
         </h3>
         <p key="p-7-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1782,8 +1782,8 @@ public class SlidingWindowMaximum {
         <p key="p-7-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For an unweighted graph, BFS also finds shortest paths measured by number of edges.
         </p>
-        <h3 key="h3-7-32" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-32" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.2 Pattern 2: Shortest Path
         </h3>
         <p key="p-7-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1802,32 +1802,32 @@ public class SlidingWindowMaximum {
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">BFS</td>
                   <td className="p-3">Unweighted edges</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(V+E)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(V+E)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">0–1 BFS</td>
                   <td className="p-3">Edge weights are 0 or 1</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(V+E)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(V+E)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Dijkstra</td>
                   <td className="p-3">Non-negative edge weights</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O((V+E)\log V)\</span> with a heap</td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O((V+E)\log V)\</span> with a heap</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Bellman–Ford</td>
                   <td className="p-3">Negative edges allowed; detects negative cycles</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(VE)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(VE)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Floyd–Warshall</td>
                   <td className="p-3">All-pairs shortest paths</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(V^3)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(V^3)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">DAG shortest path</td>
                   <td className="p-3">Directed acyclic graph</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(V+E)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(V+E)\</span></td>
                 </tr>
             </tbody>
           </table>
@@ -1835,8 +1835,8 @@ public class SlidingWindowMaximum {
         <p key="p-7-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A common mistake is using Dijkstra when negative-weight edges are present. Its usual correctness guarantee requires non-negative edge weights.
         </p>
-        <h3 key="h3-7-47" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-47" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.3 Pattern 3: Topological Sorting
         </h3>
         <p key="p-7-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1847,7 +1847,7 @@ public class SlidingWindowMaximum {
         </p>
         <div key="code-7-56" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1877,10 +1877,10 @@ public class SlidingWindowMaximum {
           <li>Dependency resolution.</li>
       </ul>
         <p key="p-7-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          If Kahn's Algorithm processes fewer than \<span className="font-mono text-indigo-300 font-semibold">V\</span> vertices, the graph contains a directed cycle.
+          If Kahn's Algorithm processes fewer than \<span className="font-mono text-orange-300 font-semibold">V\</span> vertices, the graph contains a directed cycle.
         </p>
-        <h3 key="h3-7-75" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-75" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.4 Pattern 4: Disjoint Set Union (DSU)
         </h3>
         <p key="p-7-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1908,8 +1908,8 @@ public class SlidingWindowMaximum {
           <li>Network connectivity.</li>
           <li>Grouping related objects.</li>
       </ul>
-        <h3 key="h3-7-95" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-95" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.5 Pattern 5: Bipartite Graphs
         </h3>
         <p key="p-7-97" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1920,7 +1920,7 @@ public class SlidingWindowMaximum {
         </p>
         <div key="code-7-105" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1940,8 +1940,8 @@ Group B: 2, 4`}</code>
         <p key="p-7-113" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A graph is bipartite exactly when it contains no odd-length cycle.
         </p>
-        <h3 key="h3-7-115" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-115" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.6 Pattern 6: Minimum Spanning Tree
         </h3>
         <p key="p-7-117" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2033,8 +2033,8 @@ Group B: 2, 4`}</code>
         <p key="p-8-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead of memorizing hundreds of DP solutions, learn how to recognize recurring state structures.
         </p>
-        <h3 key="h3-8-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.1 What makes a problem suitable for DP?
         </h3>
         <p key="p-8-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2049,8 +2049,8 @@ Group B: 2, 4`}</code>
         <p key="p-8-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           DP normally stores the results of subproblems so they do not need to be recomputed.
         </p>
-        <h3 key="h3-8-16" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-16" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.2 Major DP categories
         </h3>
         <h4 key="h4-8-18" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
@@ -2064,7 +2064,7 @@ Group B: 2, 4`}</code>
         </p>
         <div key="code-8-27" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2085,7 +2085,7 @@ Group B: 2, 4`}</code>
           Example transition for Climbing Stairs:
         </p>
         <p key="p-8-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i]=dp[i-1]+dp[i-2] \</span>
         </p>
         <h4 key="h4-8-40" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           B. Grid DP
@@ -2095,7 +2095,7 @@ Group B: 2, 4`}</code>
         </p>
         <div key="code-8-47" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2133,7 +2133,7 @@ Group B: 2, 4`}</code>
           For 0/1 Knapsack:
         </p>
         <p key="p-8-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][w]=\max(dp[i-1][w],v_i+dp[i-1][w-w_i]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][w]=\max(dp[i-1][w],v_i+dp[i-1][w-w_i]) \</span>
         </p>
         <p key="p-8-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The first option excludes the item; the second includes it if the capacity permits.
@@ -2159,7 +2159,7 @@ Group B: 2, 4`}</code>
           For Longest Common Subsequence:
         </p>
         <p key="p-8-90" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[i][j]= \begin&#123;cases&#125; 1+dp[i-1][j-1] &amp; \text&#123;if characters match&#125;\\\ \max(dp[i-1][j],dp[i][j-1]) &amp; \text&#123;otherwise&#125; \end&#123;cases&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[i][j]= \begin&#123;cases&#125; 1+dp[i-1][j-1] &amp; \text&#123;if characters match&#125;\\\ \max(dp[i-1][j],dp[i][j-1]) &amp; \text&#123;otherwise&#125; \end&#123;cases&#125; \</span>
         </p>
         <h4 key="h4-8-92" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           E. Interval DP
@@ -2169,7 +2169,7 @@ Group B: 2, 4`}</code>
         </p>
         <div key="code-8-99" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2211,10 +2211,10 @@ Group B: 2, 4`}</code>
           For example, a mask can describe which cities have already been visited.
         </p>
         <p key="p-8-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[mask][i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[mask][i] \</span>
         </p>
         <p key="p-8-127" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          This might represent the minimum cost of visiting the subset represented by <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">mask</code> and finishing at city <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">i</code>.
+          This might represent the minimum cost of visiting the subset represented by <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">mask</code> and finishing at city <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">i</code>.
         </p>
         <p key="p-8-129" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Applications:
@@ -2245,7 +2245,7 @@ Group B: 2, 4`}</code>
         </p>
         <div key="code-8-155" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2259,12 +2259,12 @@ additional constraint state`}</code>
           Where:
         </p>
         <ul key="ul-8-161" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">position</code> is the current digit position.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">tight</code> indicates whether the prefix still matches the upper bound.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">started</code> indicates whether a non-leading-zero digit has been chosen.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">position</code> is the current digit position.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">tight</code> indicates whether the prefix still matches the upper bound.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">started</code> indicates whether a non-leading-zero digit has been chosen.</li>
       </ul>
-        <h3 key="h3-8-162" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-162" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.3 How to classify an unfamiliar DP problem
         </h3>
         <p key="p-8-164" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2293,8 +2293,8 @@ additional constraint state`}</code>
     summary: "Post-order tree processing, Maximum Independent Set (take vs skip), tree diameter, and subtree aggregations in O(V).",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-9-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.1 What is Tree DP?
         </h3>
         <p key="p-9-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2316,8 +2316,8 @@ additional constraint state`}</code>
         <p key="p-9-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is commonly known as postorder tree processing.
         </p>
-        <h3 key="h3-9-18" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-18" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.2 Example: Maximum Independent Set on a Tree
         </h3>
         <p key="p-9-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2328,7 +2328,7 @@ additional constraint state`}</code>
         </p>
         <div key="code-9-28" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2340,19 +2340,19 @@ skip[node] = best answer when not selecting this node`}</code>
           If we select the current node, we cannot select its children.
         </p>
         <p key="p-9-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> take[u]=1+\sum\_&#123;v\in children(u)&#125;skip[v] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> take[u]=1+\sum\_&#123;v\in children(u)&#125;skip[v] \</span>
         </p>
         <p key="p-9-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If we do not select the current node, each child may be selected or skipped:
         </p>
         <p key="p-9-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> skip[u]=\sum\_&#123;v\in children(u)&#125;\max(take[v],skip[v]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> skip[u]=\sum\_&#123;v\in children(u)&#125;\max(take[v],skip[v]) \</span>
         </p>
         <p key="p-9-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The final answer is:
         </p>
         <p key="p-9-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> \max(take[root],skip[root]) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> \max(take[root],skip[root]) \</span>
         </p>
         <h4 key="h4-9-41" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Example
@@ -2366,13 +2366,13 @@ skip[node] = best answer when not selecting this node`}</code>
         <p key="p-9-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The best selection is nodes 2, 3, 4, and 5 only if the tree contains the shown edges and the selected nodes do not share an edge. In the pictured tree, selecting 2 prevents selecting 4 and 5, so the actual best solution must compare the two DP alternatives.
         </p>
-        <h3 key="h3-9-49" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-49" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.3 Java implementation
         </h3>
         <div key="code-9-119" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2449,7 +2449,7 @@ public class TreeIndependentSet {
         </p>
         <div key="code-9-125" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2480,7 +2480,7 @@ public class TreeIndependentSet {
           For many basic tree DP problems, each node and edge is processed a constant number of times:
         </p>
         <p key="p-9-144" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> O(V) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> O(V) \</span>
         </p>
         <p key="p-9-146" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           However, more advanced states, rerooting, or expensive child-to-child transitions can increase complexity.
@@ -2494,8 +2494,8 @@ public class TreeIndependentSet {
     summary: "Mathematical justification: Exchange Arguments, Stays Ahead proofs, Cut Property in MSTs, and proof by contradiction.",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-10-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.1 What is a Greedy Algorithm?
         </h3>
         <p key="p-10-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2510,8 +2510,8 @@ public class TreeIndependentSet {
         <p key="p-10-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           That is why Greedy algorithms need mathematical justification.
         </p>
-        <h3 key="h3-10-12" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-12" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.2 Why is proving a Greedy algorithm important?
         </h3>
         <p key="p-10-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2519,7 +2519,7 @@ public class TreeIndependentSet {
         </p>
         <div key="code-10-20" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2532,7 +2532,7 @@ Target = 6`}</code>
         </p>
         <div key="code-10-26" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2547,7 +2547,7 @@ Target = 6`}</code>
         </p>
         <div key="code-10-34" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2560,8 +2560,8 @@ Target = 6`}</code>
         <p key="p-10-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore, the largest-denomination-first strategy is not always optimal for arbitrary coin systems.
         </p>
-        <h3 key="h3-10-39" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-39" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.3 Greedy proof technique 1: Exchange Argument
         </h3>
         <p key="p-10-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2575,7 +2575,7 @@ Target = 6`}</code>
         </p>
         <div key="code-10-51" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2601,21 +2601,21 @@ Activity B: 2–3`}</code>
         <p key="p-10-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This justifies the greedy selection.
         </p>
-        <h3 key="h3-10-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.4 Greedy proof technique 2: Stays Ahead
         </h3>
         <p key="p-10-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A greedy algorithm stays ahead when, after every step, its partial result is at least as good as the corresponding partial result of any competing solution under a suitable measure.
         </p>
         <p key="p-10-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For example, in earliest-finish-time activity selection, after selecting the first \<span className="font-mono text-indigo-300 font-semibold">k\</span> activities, the greedy schedule can be shown to finish no later than a competing valid schedule's \<span className="font-mono text-indigo-300 font-semibold">k\</span>-th selected activity.
+          For example, in earliest-finish-time activity selection, after selecting the first \<span className="font-mono text-orange-300 font-semibold">k\</span> activities, the greedy schedule can be shown to finish no later than a competing valid schedule's \<span className="font-mono text-orange-300 font-semibold">k\</span>-th selected activity.
         </p>
         <p key="p-10-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This leaves at least as much room for future activities.
         </p>
-        <h3 key="h3-10-72" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-72" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.5 Greedy proof technique 3: Cut Property
         </h3>
         <p key="p-10-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2634,8 +2634,8 @@ Activity B: 2–3`}</code>
           <li>Kruskal's Algorithm.</li>
           <li>Prim's Algorithm.</li>
       </ul>
-        <h3 key="h3-10-85" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-85" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.6 Greedy proof technique 4: Contradiction
         </h3>
         <p key="p-10-87" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2678,8 +2678,8 @@ Activity B: 2–3`}</code>
         <p key="p-11-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead of examining every possible value, sometimes you can use mathematical properties to calculate the answer directly.
         </p>
-        <h3 key="h3-11-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.1 Greatest Common Divisor — GCD
         </h3>
         <p key="p-11-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2690,7 +2690,7 @@ Activity B: 2–3`}</code>
         </p>
         <div key="code-11-15" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2701,7 +2701,7 @@ Activity B: 2–3`}</code>
           The Euclidean Algorithm uses:
         </p>
         <p key="p-11-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> gcd(a,b)=gcd(b,a\bmod b) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> gcd(a,b)=gcd(b,a\bmod b) \</span>
         </p>
         <p key="p-11-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Continue until the second value becomes zero.
@@ -2711,7 +2711,7 @@ Activity B: 2–3`}</code>
         </h4>
         <div key="code-11-46" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2741,24 +2741,24 @@ Activity B: 2–3`}</code>
           Time complexity:
         </p>
         <p key="p-11-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> O(\log(\min(a,b))) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> O(\log(\min(a,b))) \</span>
         </p>
-        <h3 key="h3-11-51" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-51" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.2 Least Common Multiple — LCM
         </h3>
         <p key="p-11-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The LCM is the smallest positive integer divisible by both numbers.
         </p>
         <p key="p-11-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> LCM(a,b)=\frac&#123;|a\times b|&#125;&#123;GCD(a,b)&#125; \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> LCM(a,b)=\frac&#123;|a\times b|&#125;&#123;GCD(a,b)&#125; \</span>
         </p>
         <p key="p-11-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          In Java, calculate with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">long</code> and divide before multiplying when appropriate to reduce overflow risk.
+          In Java, calculate with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">long</code> and divide before multiplying when appropriate to reduce overflow risk.
         </p>
         <div key="code-11-82" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2785,8 +2785,8 @@ static long gcdLong(long a, long b) {
 }`}</code>
           </pre>
         </div>
-        <h3 key="h3-11-83" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-83" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.3 Prime Number Sieve
         </h3>
         <p key="p-11-85" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2797,7 +2797,7 @@ static long gcdLong(long a, long b) {
         </p>
         <div key="code-11-122" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2838,10 +2838,10 @@ public class PrimeSieve {
           Complexity:
         </p>
         <p key="p-11-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> O(n\log\log n) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> O(n\log\log n) \</span>
         </p>
-        <h3 key="h3-11-127" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-127" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.4 Modular Arithmetic
         </h3>
         <p key="p-11-129" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2854,51 +2854,51 @@ public class PrimeSieve {
           For example:
         </p>
         <p key="p-11-135" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> (17+9)\bmod 10=6 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> (17+9)\bmod 10=6 \</span>
         </p>
         <p key="p-11-137" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Important properties:
         </p>
         <p key="p-11-139" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> (a+b)\bmod m = ((a\bmod m)+(b\bmod m))\bmod m \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> (a+b)\bmod m = ((a\bmod m)+(b\bmod m))\bmod m \</span>
         </p>
         <p key="p-11-141" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> (a\times b)\bmod m = ((a\bmod m)(b\bmod m))\bmod m \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> (a\times b)\bmod m = ((a\bmod m)(b\bmod m))\bmod m \</span>
         </p>
         <p key="p-11-143" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A common modulus in programming problems is:
         </p>
         <p key="p-11-145" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> 10^9+7 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> 10^9+7 \</span>
         </p>
         <p key="p-11-147" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For multiplication, using <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">long</code> is important when intermediate products may exceed the range of <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">int</code>.
+          For multiplication, using <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">long</code> is important when intermediate products may exceed the range of <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">int</code>.
         </p>
-        <h3 key="h3-11-149" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-149" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.5 Fast Exponentiation
         </h3>
         <p key="p-11-151" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Calculating \<span className="font-mono text-indigo-300 font-semibold">a^b\</span> by multiplying \<span className="font-mono text-indigo-300 font-semibold">a\</span> exactly \<span className="font-mono text-indigo-300 font-semibold">b\</span> times takes \<span className="font-mono text-indigo-300 font-semibold">O(b)\</span> multiplications.
+          Calculating \<span className="font-mono text-orange-300 font-semibold">a^b\</span> by multiplying \<span className="font-mono text-orange-300 font-semibold">a\</span> exactly \<span className="font-mono text-orange-300 font-semibold">b\</span> times takes \<span className="font-mono text-orange-300 font-semibold">O(b)\</span> multiplications.
         </p>
         <p key="p-11-153" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Binary Exponentiation reduces this to \<span className="font-mono text-indigo-300 font-semibold">O(\log b)\</span>.
+          Binary Exponentiation reduces this to \<span className="font-mono text-orange-300 font-semibold">O(\log b)\</span>.
         </p>
         <p key="p-11-155" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The key idea:
         </p>
         <p key="p-11-157" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> a^&#123;2k&#125;=(a^k)^2 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> a^&#123;2k&#125;=(a^k)^2 \</span>
         </p>
         <p key="p-11-159" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> a^&#123;2k+1&#125;=a(a^k)^2 \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> a^&#123;2k+1&#125;=a(a^k)^2 \</span>
         </p>
         <h4 key="h4-11-161" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Java implementation
         </h4>
         <div key="code-11-190" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2934,7 +2934,7 @@ public class PrimeSieve {
         </p>
         <div key="code-11-196" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2972,8 +2972,8 @@ public class PrimeSieve {
         <p key="p-12-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Advanced array problems are often solved by combining arrays with other data structures and algorithmic techniques.
         </p>
-        <h3 key="h3-12-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.1 Difference Arrays
         </h3>
         <p key="p-12-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2984,7 +2984,7 @@ public class PrimeSieve {
         </p>
         <div key="code-12-13" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2995,17 +2995,17 @@ public class PrimeSieve {
           You want to add 5 to all elements from index 1 to 3.
         </p>
         <p key="p-12-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          A direct update takes \<span className="font-mono text-indigo-300 font-semibold">O(n)\</span> per operation.
+          A direct update takes \<span className="font-mono text-orange-300 font-semibold">O(n)\</span> per operation.
         </p>
         <p key="p-12-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead, use a difference array:
         </p>
         <p key="p-12-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For a range update \<span className="font-mono text-indigo-300 font-semibold">[l,r]\</span> adding \<span className="font-mono text-indigo-300 font-semibold">x\</span>:
+          For a range update \<span className="font-mono text-orange-300 font-semibold">[l,r]\</span> adding \<span className="font-mono text-orange-300 font-semibold">x\</span>:
         </p>
         <div key="code-12-26" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3014,14 +3014,14 @@ diff[r + 1] -= x;`}</code>
           </pre>
         </div>
         <p key="p-12-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          After processing all updates, take the prefix sum of <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">diff</code> to recover the resulting array.
+          After processing all updates, take the prefix sum of <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">diff</code> to recover the resulting array.
         </p>
         <p key="p-12-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For the above update:
         </p>
         <div key="code-12-35" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3034,7 +3034,7 @@ Prefix:     [0, 5, 5, 5, 0, 0]`}</code>
         </p>
         <div key="code-12-41" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3042,13 +3042,13 @@ Prefix:     [0, 5, 5, 5, 0, 0]`}</code>
           </pre>
         </div>
         <p key="p-12-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The extra position allows the implementation to handle <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">r + 1</code> conveniently.
+          The extra position allows the implementation to handle <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">r + 1</code> conveniently.
         </p>
         <p key="p-12-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This technique is useful when there are many range updates and the final array is needed afterward.
         </p>
-        <h3 key="h3-12-46" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-46" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.2 Coordinate Compression
         </h3>
         <p key="p-12-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3059,7 +3059,7 @@ Prefix:     [0, 5, 5, 5, 0, 0]`}</code>
         </p>
         <div key="code-12-59" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3082,33 +3082,33 @@ Compressed values:
         <p key="p-12-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is also helpful when implementing offline queries.
         </p>
-        <h3 key="h3-12-68" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-68" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.3 Prefix Sum and Prefix XOR
         </h3>
         <p key="p-12-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Prefix sums allow fast range-sum queries.
         </p>
         <p key="p-12-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> prefix[i]=a_0+a_1+\cdots+a_i \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> prefix[i]=a_0+a_1+\cdots+a_i \</span>
         </p>
         <p key="p-12-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Range sum from \<span className="font-mono text-indigo-300 font-semibold">l\</span> to \<span className="font-mono text-indigo-300 font-semibold">r\</span>:
+          Range sum from \<span className="font-mono text-orange-300 font-semibold">l\</span> to \<span className="font-mono text-orange-300 font-semibold">r\</span>:
         </p>
         <p key="p-12-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> sum(l,r)=prefix[r]-prefix[l-1] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> sum(l,r)=prefix[r]-prefix[l-1] \</span>
         </p>
         <p key="p-12-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For XOR, the same principle works because XOR is its own inverse:
         </p>
         <p key="p-12-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> xor(l,r)=prefixXor[r]\oplus prefixXor[l-1] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> xor(l,r)=prefixXor[r]\oplus prefixXor[l-1] \</span>
         </p>
         <p key="p-12-82" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These techniques transform many repeated range calculations into constant-time queries after preprocessing.
         </p>
-        <h3 key="h3-12-84" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-84" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.4 Sweep Line Pattern
         </h3>
         <p key="p-12-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3119,7 +3119,7 @@ Compressed values:
         </p>
         <div key="code-12-95" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3144,8 +3144,8 @@ Compressed values:
         <p key="p-12-106" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For endpoint rules, decide carefully whether intervals are open or closed. If one interval ends at the same time another begins, the event ordering can affect the answer.
         </p>
-        <h3 key="h3-12-108" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-108" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.5 Other advanced array patterns
         </h3>
         <div key="table-12-123" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -3213,8 +3213,8 @@ Compressed values:
     summary: "Reordering batch queries for global optimization, Mo's Algorithm with sqrt-decomposition blocks in O((N + Q) sqrt(N)).",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-13-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.1 What are offline queries?
         </h3>
         <p key="p-13-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3257,8 +3257,8 @@ Compressed values:
             </tbody>
           </table>
         </div>
-        <h3 key="h3-13-19" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-19" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.2 Example: Range Sum Queries
         </h3>
         <p key="p-13-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3266,7 +3266,7 @@ Compressed values:
         </p>
         <div key="code-13-26" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3278,7 +3278,7 @@ Compressed values:
         </p>
         <div key="code-13-34" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3291,13 +3291,13 @@ Q3: Sum from index 2 to 4`}</code>
           One solution is to calculate prefix sums first.
         </p>
         <p key="p-13-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Then every query can be answered in \<span className="font-mono text-indigo-300 font-semibold">O(1)\</span>.
+          Then every query can be answered in \<span className="font-mono text-orange-300 font-semibold">O(1)\</span>.
         </p>
         <p key="p-13-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is a form of preprocessing that becomes possible because all queries are known.
         </p>
-        <h3 key="h3-13-41" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-41" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.3 Mo's Algorithm
         </h3>
         <p key="p-13-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3316,14 +3316,14 @@ Q3: Sum from index 2 to 4`}</code>
           It sorts queries into blocks based on the left endpoint and orders queries by their right endpoints.
         </p>
         <p key="p-13-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The algorithm maintains a current range \<span className="font-mono text-indigo-300 font-semibold">[L,R]\</span>. To move from one query to another, it adds or removes elements from the range.
+          The algorithm maintains a current range \<span className="font-mono text-orange-300 font-semibold">[L,R]\</span>. To move from one query to another, it adds or removes elements from the range.
         </p>
         <p key="p-13-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For example, if one query asks for:
         </p>
         <div key="code-13-61" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3335,7 +3335,7 @@ Q3: Sum from index 2 to 4`}</code>
         </p>
         <div key="code-13-67" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3356,7 +3356,7 @@ Q3: Sum from index 2 to 4`}</code>
           A common query ordering is:
         </p>
         <p key="p-13-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> block(l)=\left\lfloor\frac&#123;l&#125;&#123;\sqrt&#123;n&#125;&#125;\right\rfloor \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> block(l)=\left\lfloor\frac&#123;l&#125;&#123;\sqrt&#123;n&#125;&#125;\right\rfloor \</span>
         </p>
         <p key="p-13-79" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Sort primarily by the left block, and secondarily by the right endpoint.
@@ -3372,10 +3372,10 @@ Q3: Sum from index 2 to 4`}</code>
           <li>Other queries that support efficient add/remove operations.</li>
       </ul>
         <p key="p-13-89" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          A typical complexity with standard block ordering is approximately \<span className="font-mono text-indigo-300 font-semibold">O((n+q)\sqrt n)\</span> for suitable query-maintenance operations, with the precise cost depending on the number of queries and the ordering strategy.
+          A typical complexity with standard block ordering is approximately \<span className="font-mono text-orange-300 font-semibold">O((n+q)\sqrt n)\</span> for suitable query-maintenance operations, with the precise cost depending on the number of queries and the ordering strategy.
         </p>
-        <h3 key="h3-13-91" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-91" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.4 Other Offline Query Techniques
         </h3>
         <p key="p-13-93" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3418,8 +3418,8 @@ Q3: Sum from index 2 to 4`}</code>
         <p key="p-14-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It combines DSA, mathematical reasoning, implementation discipline, and complexity analysis.
         </p>
-        <h3 key="h3-14-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.1 Understand the input constraints first
         </h3>
         <p key="p-14-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3438,8 +3438,8 @@ Q3: Sum from index 2 to 4`}</code>
         <p key="p-14-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These details influence which algorithms are feasible.
         </p>
-        <h3 key="h3-14-21" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-21" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.2 Time complexity awareness
         </h3>
         <p key="p-14-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3455,32 +3455,32 @@ Q3: Sum from index 2 to 4`}</code>
             </thead>
             <tbody className="divide-y divide-slate-800/60 text-slate-300 font-sans">
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">n \leq 10\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">n \leq 10\</span></td>
                   <td className="p-3">Exhaustive search, permutations</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">n \leq 20\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">n \leq 20\</span></td>
                   <td className="p-3">Bitmask DP, subset enumeration</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">n \leq 100\</span></td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(n^3)\</span> may be feasible</td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">n \leq 100\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(n^3)\</span> may be feasible</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">n \leq 1,000\</span></td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(n^2)\</span> may be feasible</td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">n \leq 1,000\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(n^2)\</span> may be feasible</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">n \leq 100,000\</span></td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(n\log n)\</span> or \<span className="font-mono text-indigo-300 font-semibold">O(n)\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">n \leq 100,000\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(n\log n)\</span> or \<span className="font-mono text-orange-300 font-semibold">O(n)\</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">n \leq 1,000,000\</span></td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">n \leq 1,000,000\</span></td>
                   <td className="p-3">Usually seek linear or near-linear methods</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Very large numeric ranges</td>
-                  <td className="p-3">\<span className="font-mono text-indigo-300 font-semibold">O(\log n)\</span>, mathematical methods, or binary search</td>
+                  <td className="p-3">\<span className="font-mono text-orange-300 font-semibold">O(\log n)\</span>, mathematical methods, or binary search</td>
                 </tr>
             </tbody>
           </table>
@@ -3488,19 +3488,19 @@ Q3: Sum from index 2 to 4`}</code>
         <p key="p-14-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Always calculate the expected number of operations rather than blindly following this table.
         </p>
-        <h3 key="h3-14-37" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-37" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.3 Fast input and output in Java
         </h3>
         <p key="p-14-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Java's <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Scanner</code> is convenient, but can be slow for very large inputs.
+          Java's <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Scanner</code> is convenient, but can be slow for very large inputs.
         </p>
         <p key="p-14-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Competitive programming often uses <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">BufferedReader</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">StringTokenizer</code>.
+          Competitive programming often uses <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">BufferedReader</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">StringTokenizer</code>.
         </p>
         <div key="code-14-86" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3550,19 +3550,19 @@ public class Main {
         <p key="p-14-87" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           In real contests, input-reading logic must account for the exact problem format, including line boundaries and empty lines.
         </p>
-        <h3 key="h3-14-89" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-89" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.4 Integer Overflow
         </h3>
         <p key="p-14-91" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Java's <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">int</code> has a maximum value of approximately 2.1 billion.
+          Java's <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">int</code> has a maximum value of approximately 2.1 billion.
         </p>
         <p key="p-14-93" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          When calculations may exceed that limit, use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">long</code>.
+          When calculations may exceed that limit, use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">long</code>.
         </p>
         <div key="code-14-105" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3579,8 +3579,8 @@ long result = (long) a * b;`}</code>
         <p key="p-14-106" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Notice that casting must happen before multiplication.
         </p>
-        <h3 key="h3-14-108" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-108" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.5 Essential competitive programming habits
         </h3>
         <ul key="ul-14-122" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -3614,7 +3614,7 @@ long result = (long) a * b;`}</code>
         </p>
         <div key="code-15-9" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3629,7 +3629,7 @@ long result = (long) a * b;`}</code>
         </p>
         <div key="code-15-17" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3639,8 +3639,8 @@ long result = (long) a * b;`}</code>
         <p key="p-15-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           An exponential approach such as subset enumeration may be perfectly reasonable.
         </p>
-        <h3 key="h3-15-20" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-20" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.1 Analyze numeric ranges
         </h3>
         <p key="p-15-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3648,7 +3648,7 @@ long result = (long) a * b;`}</code>
         </p>
         <div key="code-15-27" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3656,7 +3656,7 @@ long result = (long) a * b;`}</code>
           </pre>
         </div>
         <p key="p-15-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          An array of size \<span className="font-mono text-indigo-300 font-semibold">10^9\</span> is not practical.
+          An array of size \<span className="font-mono text-orange-300 font-semibold">10^9\</span> is not practical.
         </p>
         <p key="p-15-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           You may need:
@@ -3673,7 +3673,7 @@ long result = (long) a * b;`}</code>
         </p>
         <div key="code-15-43" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3693,8 +3693,8 @@ long result = (long) a * b;`}</code>
           <li>Binary search feasibility.</li>
           <li>Modulo operations.</li>
       </ul>
-        <h3 key="h3-15-54" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-54" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.2 Constraints reveal algorithmic possibilities
         </h3>
         <div key="table-15-68" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -3707,11 +3707,11 @@ long result = (long) a * b;`}</code>
             </thead>
             <tbody className="divide-y divide-slate-800/60 text-slate-300 font-sans">
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">Very small \<span className="font-mono text-indigo-300 font-semibold">n\</span></td>
+                  <td className="p-3">Very small \<span className="font-mono text-orange-300 font-semibold">n\</span></td>
                   <td className="p-3">Backtracking, brute force, bitmask DP</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">Large \<span className="font-mono text-indigo-300 font-semibold">n\</span>, small value range</td>
+                  <td className="p-3">Large \<span className="font-mono text-orange-300 font-semibold">n\</span>, small value range</td>
                   <td className="p-3">Frequency counting, counting arrays</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
@@ -3731,7 +3731,7 @@ long result = (long) a * b;`}</code>
                   <td className="p-3">DSU</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">Tree with up to \<span className="font-mono text-indigo-300 font-semibold">10^5\</span> nodes</td>
+                  <td className="p-3">Tree with up to \<span className="font-mono text-orange-300 font-semibold">10^5\</span> nodes</td>
                   <td className="p-3">DFS, BFS, tree DP; consider recursion depth</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
@@ -3749,8 +3749,8 @@ long result = (long) a * b;`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-15-69" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-69" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.3 Watch for integer overflow
         </h3>
         <p key="p-15-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3758,7 +3758,7 @@ long result = (long) a * b;`}</code>
         </p>
         <div key="code-15-79" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3769,14 +3769,14 @@ int product = a * b;`}</code>
           </pre>
         </div>
         <p key="p-15-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Even though both operands fit into <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">int</code>, their product does not.
+          Even though both operands fit into <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">int</code>, their product does not.
         </p>
         <p key="p-15-82" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Use:
         </p>
         <div key="code-15-87" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3798,17 +3798,17 @@ int product = a * b;`}</code>
         <p key="p-15-98" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A solution that is logically correct but overflows will still produce incorrect results.
         </p>
-        <h3 key="h3-15-100" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-100" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.4 Consider memory constraints
         </h3>
         <p key="p-15-102" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For \<span className="font-mono text-indigo-300 font-semibold">n\</span> elements:
+          For \<span className="font-mono text-orange-300 font-semibold">n\</span> elements:
         </p>
         <ul key="ul-15-109" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">int[n]</code> stores approximately \<span className="font-mono text-indigo-300 font-semibold">4n\</span> bytes for the primitive array data.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">long[n]</code> stores approximately \<span className="font-mono text-indigo-300 font-semibold">8n\</span> bytes.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">boolean[][]</code> and object-based structures have additional object overhead.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">int[n]</code> stores approximately \<span className="font-mono text-orange-300 font-semibold">4n\</span> bytes for the primitive array data.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">long[n]</code> stores approximately \<span className="font-mono text-orange-300 font-semibold">8n\</span> bytes.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">boolean[][]</code> and object-based structures have additional object overhead.</li>
           <li>Large recursive searches require stack space.</li>
           <li>Adjacency lists and hash maps require more memory than simple primitive arrays.</li>
       </ul>
@@ -3830,8 +3830,8 @@ int product = a * b;`}</code>
         <p key="p-16-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The right data structure can turn an inefficient solution into an efficient one.
         </p>
-        <h3 key="h3-16-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.1 Data structure selection table
         </h3>
         <div key="table-16-27" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -3914,18 +3914,18 @@ int product = a * b;`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-16-28" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-28" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.2 Important comparisons
         </h3>
         <h4 key="h4-16-30" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           HashMap versus TreeMap
         </h4>
         <p key="p-16-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          HashMap provides expected \<span className="font-mono text-indigo-300 font-semibold">O(1)\</span> lookup, insertion, and deletion under normal hashing assumptions.
+          HashMap provides expected \<span className="font-mono text-orange-300 font-semibold">O(1)\</span> lookup, insertion, and deletion under normal hashing assumptions.
         </p>
         <p key="p-16-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          TreeMap maintains sorted keys and provides \<span className="font-mono text-indigo-300 font-semibold">O(\log n)\</span> lookup, insertion, and deletion.
+          TreeMap maintains sorted keys and provides \<span className="font-mono text-orange-300 font-semibold">O(\log n)\</span> lookup, insertion, and deletion.
         </p>
         <p key="p-16-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Choose:
@@ -3942,7 +3942,7 @@ int product = a * b;`}</code>
         </p>
         <div key="code-16-48" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3954,7 +3954,7 @@ int product = a * b;`}</code>
         </p>
         <div key="code-16-54" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 21 Problem-Solving Patterns</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3983,13 +3983,13 @@ int product = a * b;`}</code>
           Heap versus Sorting
         </h4>
         <p key="p-16-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Sorting the entire collection costs \<span className="font-mono text-indigo-300 font-semibold">O(n\log n)\</span>.
+          Sorting the entire collection costs \<span className="font-mono text-orange-300 font-semibold">O(n\log n)\</span>.
         </p>
         <p key="p-16-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A PriorityQueue is preferable when you repeatedly need the smallest or largest item, especially if you only need a limited number of elements.
         </p>
         <p key="p-16-75" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For example, finding the smallest \<span className="font-mono text-indigo-300 font-semibold">k\</span> elements can use a max-heap of size \<span className="font-mono text-indigo-300 font-semibold">k\</span>, giving \<span className="font-mono text-indigo-300 font-semibold">O(n\log k)\</span> time.
+          For example, finding the smallest \<span className="font-mono text-orange-300 font-semibold">k\</span> elements can use a max-heap of size \<span className="font-mono text-orange-300 font-semibold">k\</span>, giving \<span className="font-mono text-orange-300 font-semibold">O(n\log k)\</span> time.
         </p>
         <h4 key="h4-16-77" className="text-base font-semibold text-emerald-400 mt-6 mb-2">
           Array versus Linked List
@@ -4001,7 +4001,7 @@ int product = a * b;`}</code>
           Linked lists provide efficient local insertion and deletion when you already have the relevant node, but accessing an arbitrary position takes linear time.
         </p>
         <p key="p-16-83" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          In Java, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code> is usually a strong default for indexed collections, while <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">LinkedList</code> is useful for particular linked-list operations and deque behavior. For stack and queue use cases, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayDeque</code> is generally a better default.
+          In Java, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code> is usually a strong default for indexed collections, while <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">LinkedList</code> is useful for particular linked-list operations and deque behavior. For stack and queue use cases, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayDeque</code> is generally a better default.
         </p>
       </div>
     )
@@ -4018,8 +4018,8 @@ int product = a * b;`}</code>
         <p key="p-17-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A problem may have several possible solutions. Your job is to identify the approach that satisfies correctness, time complexity, and memory constraints.
         </p>
-        <h3 key="h3-17-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.1 Algorithm selection guide
         </h3>
         <div key="table-17-24" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -4090,15 +4090,15 @@ int product = a * b;`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-17-25" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-25" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.2 A decision-making framework
         </h3>
         <p key="p-17-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           When you receive an unfamiliar problem, follow this sequence:
         </p>
-        <h3 key="h3-17-29" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-29" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Problem-solving workflow
         </h3>
         <ol key="ol-17-32" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -4170,8 +4170,8 @@ int product = a * b;`}</code>
         <p key="p-18-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Here are some important combinations.
         </p>
-        <h3 key="h3-18-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.1 Binary Search + Greedy
         </h3>
         <p key="p-18-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4193,8 +4193,8 @@ int product = a * b;`}</code>
         <p key="p-18-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The binary search handles the answer range. Greedy checks feasibility.
         </p>
-        <h3 key="h3-18-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.2 Graph + BFS + Hashing
         </h3>
         <p key="p-18-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4213,8 +4213,8 @@ int product = a * b;`}</code>
         <p key="p-18-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           BFS finds the shortest number of transformations because each change has equal cost.
         </p>
-        <h3 key="h3-18-36" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-36" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.3 DP + Bitmasking
         </h3>
         <p key="p-18-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4227,10 +4227,10 @@ int product = a * b;`}</code>
           Define:
         </p>
         <p key="p-18-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> dp[mask][i] \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> dp[mask][i] \</span>
         </p>
         <p key="p-18-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          as the minimum travel cost for visiting the cities contained in <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">mask</code> and finishing at city <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">i</code>.
+          as the minimum travel cost for visiting the cities contained in <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">mask</code> and finishing at city <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">i</code>.
         </p>
         <p key="p-18-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The mask represents the visited cities.
@@ -4242,22 +4242,22 @@ int product = a * b;`}</code>
           A standard subset-DP solution takes:
         </p>
         <p key="p-18-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> O(n^2 2^n) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> O(n^2 2^n) \</span>
         </p>
         <p key="p-18-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           time and:
         </p>
         <p key="p-18-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          \<span className="font-mono text-indigo-300 font-semibold"> O(n2^n) \</span>
+          \<span className="font-mono text-orange-300 font-semibold"> O(n2^n) \</span>
         </p>
         <p key="p-18-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           space.
         </p>
         <p key="p-18-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          This is practical only for relatively small \<span className="font-mono text-indigo-300 font-semibold">n\</span>.
+          This is practical only for relatively small \<span className="font-mono text-orange-300 font-semibold">n\</span>.
         </p>
-        <h3 key="h3-18-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.4 Monotonic Stack + Prefix Sum
         </h3>
         <p key="p-18-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4274,8 +4274,8 @@ int product = a * b;`}</code>
           <li>Monotonic stacks for nearest boundaries.</li>
           <li>Sorting or indexing for organizing candidates.</li>
       </ul>
-        <h3 key="h3-18-76" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-76" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.5 Tree + DFS + DP
         </h3>
         <p key="p-18-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4357,13 +4357,13 @@ int product = a * b;`}</code>
                   <td className="p-3">Use appropriate numeric types</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
-                  <td className="p-3">Using \<span className="font-mono text-indigo-300 font-semibold">O(n^2)\</span> for large \<span className="font-mono text-indigo-300 font-semibold">n\</span></td>
+                  <td className="p-3">Using \<span className="font-mono text-orange-300 font-semibold">O(n^2)\</span> for large \<span className="font-mono text-orange-300 font-semibold">n\</span></td>
                   <td className="p-3">Runtime may be too high</td>
                   <td className="p-3">Optimize with hashing, sorting, or advanced structures</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Ignoring recursion depth</td>
-                  <td className="p-3">Java may throw <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">StackOverflowError</code></td>
+                  <td className="p-3">Java may throw <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">StackOverflowError</code></td>
                   <td className="p-3">Consider iterative traversal</td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
@@ -4389,8 +4389,8 @@ int product = a * b;`}</code>
         <p key="p-20-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Start with understanding the problem, then identify the pattern before attempting implementation.
         </p>
-        <h3 key="h3-20-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 1 — Pattern Recognition
         </h3>
         <div key="table-20-19" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -4441,8 +4441,8 @@ int product = a * b;`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-20-20" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-20" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 2 — Advanced Data Structures and Algorithms
         </h3>
         <div key="table-20-33" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -4493,8 +4493,8 @@ int product = a * b;`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-20-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 3 — Advanced Optimization and DP
         </h3>
         <div key="table-20-47" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -4685,8 +4685,8 @@ int product = a * b;`}</code>
           <li>Select suitable data structures and algorithms for unfamiliar problems.</li>
           <li>Combine multiple patterns to solve advanced competitive programming problems.</li>
       </ol>
-        <h3 key="h3-22-20" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-20" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           The most important principle
         </h3>
         <p key="p-22-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">

@@ -1592,7 +1592,7 @@ export default function JavaHeaps() {
                               ? "bg-blue-100 text-blue-800"
                               : lab.tier === "Intermediate"
                               ? "bg-amber-100 text-amber-800"
-                              : "bg-purple-100 text-purple-800"
+                              : "bg-orange-500 text-orange-400"
                           }`}>
                             {lab.tier} #{lab.id}
                           </span>

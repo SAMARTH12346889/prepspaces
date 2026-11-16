@@ -39,7 +39,7 @@ export const JAVA_COLLECTIONS_JVM_SECTIONS = [
       </p>
     
 
-        <div key="quote-0-5" className="my-5 p-4 rounded-xl border-l-4 border-indigo-500 bg-indigo-950/20 text-slate-300 text-sm leading-relaxed">
+        <div key="quote-0-5" className="my-5 p-4 rounded-xl border-l-4 border-orange-500 bg-slate-900 text-slate-300 text-sm leading-relaxed">
           <div dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Important:</strong> Some internal details below describe common OpenJDK implementations, particularly HotSpot. They explain how Java commonly works in practice, but implementation details are not all guaranteed by the Java language specification.` }} />
         </div>
       
@@ -63,7 +63,7 @@ export const JAVA_COLLECTIONS_JVM_SECTIONS = [
         </h3>
       
 
-        <h4 key="h3-1-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-1-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">1.1 What is the Java Collections Framework?</strong>` }} />
         </h4>
       
@@ -81,7 +81,7 @@ export const JAVA_COLLECTIONS_JVM_SECTIONS = [
         <div key="code-1-4" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -116,7 +116,7 @@ students[4] = "Arjun";`}</code>
         <div key="code-1-8" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -150,7 +150,7 @@ public class Main &#123;
         <div key="code-1-10" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -166,7 +166,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-1-12" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-1-12" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">1.2 The Collections Framework hierarchy</strong>` }} />
         </h4>
       
@@ -312,7 +312,7 @@ public class Main &#123;
     
 
       <p key="p-1-41" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Because a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collection</code> represents a group of individual elements, whereas a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Map</code> represents relationships between keys and values.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Because a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collection</code> represents a group of individual elements, whereas a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Map</code> represents relationships between keys and values.` }} />
       </p>
     
 
@@ -324,7 +324,7 @@ public class Main &#123;
         <div key="code-1-43" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -351,7 +351,7 @@ names.add("Rahul");`}</code>
         <div key="code-1-46" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -370,7 +370,7 @@ students.put(102, "Rahul");`}</code>
       </p>
     
 
-        <h4 key="h3-1-48" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-1-48" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">1.3 Important collection interfaces</strong>` }} />
         </h4>
       
@@ -409,20 +409,20 @@ students.put(102, "Rahul");`}</code>
           </div>
         
 
-        <h4 key="h3-1-50" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-1-50" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">1.4 Collection algorithms</strong>` }} />
         </h4>
       
 
       <p key="p-1-51" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `The <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collections</code> utility class provides useful algorithms.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `The <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collections</code> utility class provides useful algorithms.` }} />
       </p>
     
 
         <div key="code-1-52" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -464,11 +464,11 @@ public class Main &#123;
     
 
         <ul key="ul-1-54" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collections.sort()</code> — sorts a list.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collections.reverse()</code> — reverses the order.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collections.shuffle()</code> — randomly shuffles elements.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collections.max()</code> — finds the maximum.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collections.min()</code> — finds the minimum.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collections.frequency()</code> — counts occurrences.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Collections.binarySearch()</code> — searches a sorted list.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collections.sort()</code> — sorts a list.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collections.reverse()</code> — reverses the order.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collections.shuffle()</code> — randomly shuffles elements.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collections.max()</code> — finds the maximum.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collections.min()</code> — finds the minimum.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collections.frequency()</code> — counts occurrences.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Collections.binarySearch()</code> — searches a sorted list.` }} /></li>
         </ul>
       
 
-        <h4 key="h3-1-55" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-1-55" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">1.5 Iterators and fail-fast behaviour</strong>` }} />
         </h4>
       
@@ -481,7 +481,7 @@ public class Main &#123;
         <div key="code-1-57" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -510,7 +510,7 @@ while (iterator.hasNext()) &#123;
         <div key="code-1-59" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -531,14 +531,14 @@ while (iterator.hasNext()) &#123;
       
 
       <p key="p-1-60" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `What happens when you modify an <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code> directly while iterating over it?` }} />
+        <span dangerouslySetInnerHTML={{ __html: `What happens when you modify an <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code> directly while iterating over it?` }} />
       </p>
     
 
         <div key="code-1-61" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -552,7 +552,7 @@ while (iterator.hasNext()) &#123;
       
 
       <p key="p-1-62" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `This commonly produces a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ConcurrentModificationException</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `This commonly produces a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ConcurrentModificationException</code>.` }} />
       </p>
     
 
@@ -572,7 +572,7 @@ while (iterator.hasNext()) &#123;
     
 
       <p key="p-1-66" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">List</code> when sequence and positional access matter, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Set</code> when uniqueness matters, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Queue</code> when processing order matters, and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Map</code> when you need to look up values by keys.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">List</code> when sequence and positional access matter, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Set</code> when uniqueness matters, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Queue</code> when processing order matters, and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Map</code> when you need to look up values by keys.` }} />
       </p>
     
       </div>
@@ -590,13 +590,13 @@ while (iterator.hasNext()) &#123;
         </h3>
       
 
-        <h4 key="h3-2-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.1 What is ArrayList?</strong>` }} />
         </h4>
       
 
       <p key="p-2-2" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code> is a resizable array implementation of the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">List</code> interface.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code> is a resizable array implementation of the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">List</code> interface.` }} />
       </p>
     
 
@@ -608,7 +608,7 @@ while (iterator.hasNext()) &#123;
         <div key="code-2-4" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -633,7 +633,7 @@ System.out.println(numbers.get(1));`}</code>
         <div key="code-2-6" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -644,18 +644,18 @@ System.out.println(numbers.get(1));`}</code>
         </div>
       
 
-        <h4 key="h3-2-7" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-7" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.2 How does ArrayList work internally?</strong>` }} />
         </h4>
       
 
       <p key="p-2-8" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `An <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code> internally maintains:` }} />
+        <span dangerouslySetInnerHTML={{ __html: `An <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code> internally maintains:` }} />
       </p>
     
 
         <ol key="ol-2-9" className="my-4 space-y-2 text-sm text-slate-300 list-decimal list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `An array that stores references to elements.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">size</code> representing the number of actual elements.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `A capacity representing the length of the internal array.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `An array that stores references to elements.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">size</code> representing the number of actual elements.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `A capacity representing the length of the internal array.` }} /></li>
         </ol>
       
 
@@ -667,7 +667,7 @@ System.out.println(numbers.get(1));`}</code>
         <div key="code-2-11" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -782,7 +782,7 @@ numbers.add(30);`}</code>
         </ul>
       
 
-        <h4 key="h3-2-32" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-32" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.3 How does insertion work?</strong>` }} />
         </h4>
       
@@ -795,7 +795,7 @@ numbers.add(30);`}</code>
         <div key="code-2-34" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -814,7 +814,7 @@ numbers.add(30);`}</code>
         <div key="code-2-36" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -841,7 +841,7 @@ After:
       </p>
     
 
-        <h4 key="h3-2-39" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-39" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.4 Dynamic resizing</strong>` }} />
         </h4>
       
@@ -854,7 +854,7 @@ After:
         <div key="code-2-41" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -873,7 +873,7 @@ After:
         <div key="code-2-43" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -975,7 +975,7 @@ After:
     
 
       <p key="p-2-62" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Resizing requires copying existing references, so one insertion can take <span className="font-mono text-indigo-300 font-semibold">O(n)</span> time.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Resizing requires copying existing references, so one insertion can take <span className="font-mono text-orange-300 font-semibold">O(n)</span> time.` }} />
       </p>
     
 
@@ -985,11 +985,11 @@ After:
     
 
       <p key="p-2-64" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Over many insertions, the average cost per insertion remains <strong className="font-bold text-white">amortized</strong> <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Over many insertions, the average cost per insertion remains <strong className="font-bold text-white">amortized</strong> <span className="font-mono text-orange-300 font-semibold">O(1)</span>.` }} />
       </p>
     
 
-        <h4 key="h3-2-65" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-65" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.5 Inserting in the middle</strong>` }} />
         </h4>
       
@@ -1002,7 +1002,7 @@ After:
         <div key="code-2-67" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1017,7 +1017,7 @@ numbers.add(1, 15);`}</code>
       
 
       <p key="p-2-68" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `The element <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">15</code> is inserted at index 1.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `The element <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">15</code> is inserted at index 1.` }} />
       </p>
     
 
@@ -1029,7 +1029,7 @@ numbers.add(1, 15);`}</code>
         <div key="code-2-70" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1047,11 +1047,11 @@ After:
       
 
       <p key="p-2-71" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `This takes <span className="font-mono text-indigo-300 font-semibold">O(n)</span> time in the worst case.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `This takes <span className="font-mono text-orange-300 font-semibold">O(n)</span> time in the worst case.` }} />
       </p>
     
 
-        <h4 key="h3-2-72" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-72" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.6 Removing elements</strong>` }} />
         </h4>
       
@@ -1059,7 +1059,7 @@ After:
         <div key="code-2-73" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1076,11 +1076,11 @@ After:
     
 
       <p key="p-2-75" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `This generally takes <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `This generally takes <span className="font-mono text-orange-300 font-semibold">O(n)</span>.` }} />
       </p>
     
 
-        <h4 key="h3-2-76" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-76" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.7 ArrayList time complexity</strong>` }} />
         </h4>
       
@@ -1095,31 +1095,31 @@ After:
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">get(index)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">get(index)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">set(index, value)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">set(index, value)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">add(value)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Amortized <span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">add(value)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Amortized <span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">add(index, value)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">add(index, value)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">remove(index)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">remove(index)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">contains(value)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">contains(value)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Iteration</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Iteration</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
               </tbody>
@@ -1127,7 +1127,7 @@ After:
           </div>
         
 
-        <h4 key="h3-2-78" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-78" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.8 ArrayList optimization</strong>` }} />
         </h4>
       
@@ -1140,7 +1140,7 @@ After:
         <div key="code-2-80" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1166,7 +1166,7 @@ numbers.ensureCapacity(100000);`}</code>
         <div key="code-2-83" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1183,13 +1183,13 @@ numbers.ensureCapacity(100000);`}</code>
       </p>
     
 
-        <h4 key="h3-2-85" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-2-85" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">2.9 When should you use ArrayList?</strong>` }} />
         </h4>
       
 
       <p key="p-2-86" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code> when:` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code> when:` }} />
       </p>
     
 
@@ -1217,18 +1217,18 @@ numbers.ensureCapacity(100000);`}</code>
         </h3>
       
 
-        <h4 key="h3-3-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">3.1 What is LinkedList?</strong>` }} />
         </h4>
       
 
       <p key="p-3-2" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">LinkedList</code> is a doubly linked list.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">LinkedList</code> is a doubly linked list.` }} />
       </p>
     
 
       <p key="p-3-3" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Unlike <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code>, it does not store all elements in one continuous array.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Unlike <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code>, it does not store all elements in one continuous array.` }} />
       </p>
     
 
@@ -1247,7 +1247,7 @@ numbers.ensureCapacity(100000);`}</code>
         </ul>
       
 
-        <h4 key="h3-3-7" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-7" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">3.2 Internal node structure</strong>` }} />
         </h4>
       
@@ -1260,7 +1260,7 @@ numbers.ensureCapacity(100000);`}</code>
         <div key="code-3-9" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1283,7 +1283,7 @@ numbers.ensureCapacity(100000);`}</code>
       </p>
     
 
-        <h4 key="h3-3-11" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-11" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">3.3 How does a LinkedList work?</strong>` }} />
         </h4>
       
@@ -1296,7 +1296,7 @@ numbers.ensureCapacity(100000);`}</code>
         <div key="code-3-13" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1367,7 +1367,7 @@ numbers.add(30);`}</code>
       </p>
     
 
-        <h4 key="h3-3-25" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-25" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">3.4 Insertion at the beginning</strong>` }} />
         </h4>
       
@@ -1375,7 +1375,7 @@ numbers.add(30);`}</code>
         <div key="code-3-26" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1394,7 +1394,7 @@ numbers.add(30);`}</code>
         <div key="code-3-28" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1417,11 +1417,11 @@ After:
     
 
       <p key="p-3-30" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Therefore, adding at the beginning takes <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Therefore, adding at the beginning takes <span className="font-mono text-orange-300 font-semibold">O(1)</span>.` }} />
       </p>
     
 
-        <h4 key="h3-3-31" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-31" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">3.5 Insertion at the end</strong>` }} />
         </h4>
       
@@ -1429,7 +1429,7 @@ After:
         <div key="code-3-32" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1441,17 +1441,17 @@ After:
       
 
       <p key="p-3-33" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">LinkedList</code> maintains a reference to its final node, so appending also takes <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">LinkedList</code> maintains a reference to its final node, so appending also takes <span className="font-mono text-orange-300 font-semibold">O(1)</span>.` }} />
       </p>
     
 
-        <h4 key="h3-3-34" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-34" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">3.6 Insertion in the middle</strong>` }} />
         </h4>
       
 
       <p key="p-3-35" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Suppose you want to insert <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">15</code> between <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">10</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">20</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Suppose you want to insert <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">15</code> between <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">10</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">20</code>.` }} />
       </p>
     
 
@@ -1476,16 +1476,16 @@ After:
     
 
         <ul key="ul-3-40" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `Finding the position: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Updating references: <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Overall indexed insertion: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `Finding the position: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Updating references: <span className="font-mono text-orange-300 font-semibold">O(1)</span>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Overall indexed insertion: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.` }} /></li>
         </ul>
       
 
       <p key="p-3-41" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `An insertion using an already-positioned <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ListIterator</code> can be <span className="font-mono text-indigo-300 font-semibold">O(1)</span>, because the list does not need to search again.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `An insertion using an already-positioned <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ListIterator</code> can be <span className="font-mono text-orange-300 font-semibold">O(1)</span>, because the list does not need to search again.` }} />
       </p>
     
 
-        <h4 key="h3-3-42" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-42" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">3.7 LinkedList time complexity</strong>` }} />
         </h4>
       
@@ -1500,35 +1500,35 @@ After:
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add at beginning</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add at beginning</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add at end</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add at end</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove first</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove first</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove last</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove last</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Get by index</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Get by index</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Search by value</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Search by value</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insert at index</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insert at index</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove at index</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove at index</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
               </tbody>
@@ -1536,7 +1536,7 @@ After:
           </div>
         
 
-        <h4 key="h3-3-44" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-44" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">3.8 ArrayList vs LinkedList</strong>` }} />
         </h4>
       
@@ -1555,19 +1555,19 @@ After:
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Index access</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Index access</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add at end</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Amortized <span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add at end</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Amortized <span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add at beginning</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add at beginning</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove at beginning</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove at beginning</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
@@ -1583,7 +1583,7 @@ After:
           </div>
         
 
-        <h4 key="h3-3-46" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-3-46" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Why can ArrayList outperform LinkedList?</strong>` }} />
         </h4>
       
@@ -1594,12 +1594,12 @@ After:
     
 
       <p key="p-3-48" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `An <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code> stores references in a compact array. When traversing it, the processor can often access nearby memory efficiently.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `An <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code> stores references in a compact array. When traversing it, the processor can often access nearby memory efficiently.` }} />
       </p>
     
 
       <p key="p-3-49" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">LinkedList</code> stores nodes as separate objects. The next node may be located somewhere else in memory.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">LinkedList</code> stores nodes as separate objects. The next node may be located somewhere else in memory.` }} />
       </p>
     
 
@@ -1609,17 +1609,17 @@ After:
     
 
       <p key="p-3-51" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Therefore, even when a linked list offers <span className="font-mono text-indigo-300 font-semibold">O(1)</span> insertion at a known position, it may still perform worse in real applications.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Therefore, even when a linked list offers <span className="font-mono text-orange-300 font-semibold">O(1)</span> insertion at a known position, it may still perform worse in real applications.` }} />
       </p>
     
 
       <p key="p-3-52" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Practical rule:</strong> Choose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code> by default. Use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">LinkedList</code> when its end-insertion/removal behaviour or list-iterator operations provide a genuine advantage.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Practical rule:</strong> Choose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code> by default. Use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">LinkedList</code> when its end-insertion/removal behaviour or list-iterator operations provide a genuine advantage.` }} />
       </p>
     
 
       <p key="p-3-53" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Also consider <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayDeque</code> for queue and stack operations. It is usually a better choice than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">LinkedList</code> for those purposes.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Also consider <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayDeque</code> for queue and stack operations. It is usually a better choice than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">LinkedList</code> for those purposes.` }} />
       </p>
     
       </div>
@@ -1642,20 +1642,20 @@ After:
       </p>
     
 
-        <h4 key="h3-4-2" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-2" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.1 What is HashMap?</strong>` }} />
         </h4>
       
 
       <p key="p-4-3" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">HashMap</code> stores data as key-value pairs.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">HashMap</code> stores data as key-value pairs.` }} />
       </p>
     
 
         <div key="code-4-4" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1680,7 +1680,7 @@ System.out.println(students.get(102));`}</code>
         <div key="code-4-6" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1692,11 +1692,11 @@ System.out.println(students.get(102));`}</code>
       
 
       <p key="p-4-7" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">HashMap</code> provides efficient key-based insertion, retrieval, and deletion on average.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">HashMap</code> provides efficient key-based insertion, retrieval, and deletion on average.` }} />
       </p>
     
 
-        <h4 key="h3-4-8" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-8" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.2 How does HashMap work internally?</strong>` }} />
         </h4>
       
@@ -1724,7 +1724,7 @@ System.out.println(students.get(102));`}</code>
         <div key="code-4-13" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1745,7 +1745,7 @@ marks.put("Amit", 90);`}</code>
         <div key="code-4-15" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1768,7 +1768,7 @@ Store key-value entry`}</code>
         </div>
       
 
-        <h4 key="h3-4-16" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-16" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.3 What is a hash function?</strong>` }} />
         </h4>
       
@@ -1786,7 +1786,7 @@ Store key-value entry`}</code>
         <div key="code-4-19" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1810,7 +1810,7 @@ Store key-value entry`}</code>
         <div key="code-4-22" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1843,7 +1843,7 @@ System.out.println(name.hashCode());`}</code>
       </p>
     
 
-        <h4 key="h3-4-27" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-27" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.4 How does HashMap calculate a bucket index?</strong>` }} />
         </h4>
       
@@ -1856,7 +1856,7 @@ System.out.println(name.hashCode());`}</code>
         <div key="code-4-29" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1877,7 +1877,7 @@ hash = hash ^ (hash &gt;&gt;&gt; 16);`}</code>
         <div key="code-4-31" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1903,7 +1903,7 @@ hash = hash ^ (hash &gt;&gt;&gt; 16);`}</code>
       </p>
     
 
-        <h4 key="h3-4-35" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-35" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.5 What is a hash collision?</strong>` }} />
         </h4>
       
@@ -1921,7 +1921,7 @@ hash = hash ^ (hash &gt;&gt;&gt; 16);`}</code>
         <div key="code-4-38" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -1947,7 +1947,7 @@ Bucket 3 → Entry`}</code>
       </p>
     
 
-        <h4 key="h3-4-41" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-41" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.6 Collision handling: Separate chaining</strong>` }} />
         </h4>
       
@@ -2008,11 +2008,11 @@ Bucket 3 → Entry`}</code>
     
 
       <p key="p-4-53" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `It uses hash values and equality comparisons, including <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">equals()</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `It uses hash values and equality comparisons, including <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">equals()</code>.` }} />
       </p>
     
 
-        <h4 key="h3-4-54" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-54" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.7 Treeification: When does a bucket become a tree?</strong>` }} />
         </h4>
       
@@ -2033,12 +2033,12 @@ Bucket 3 → Entry`}</code>
     
 
       <p key="p-4-58" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Searching through a long linked chain can require <span className="font-mono text-indigo-300 font-semibold">O(n)</span> time.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Searching through a long linked chain can require <span className="font-mono text-orange-300 font-semibold">O(n)</span> time.` }} />
       </p>
     
 
       <p key="p-4-59" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `A balanced tree can reduce that search to approximately <span className="font-mono text-indigo-300 font-semibold">O(log n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `A balanced tree can reduce that search to approximately <span className="font-mono text-orange-300 font-semibold">O(log n)</span>.` }} />
       </p>
     
 
@@ -2053,11 +2053,11 @@ Bucket 3 → Entry`}</code>
       
 
       <p key="p-4-62" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `These are implementation details, not guarantees of the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Map</code> interface.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `These are implementation details, not guarantees of the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Map</code> interface.` }} />
       </p>
     
 
-        <h4 key="h3-4-63" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-63" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.8 HashMap resizing and load factor</strong>` }} />
         </h4>
       
@@ -2078,7 +2078,7 @@ Bucket 3 → Entry`}</code>
     
 
       <p key="p-4-67" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> 0.75 </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> 0.75 </span>` }} />
       </p>
     
 
@@ -2088,7 +2088,7 @@ Bucket 3 → Entry`}</code>
     
 
       <p key="p-4-69" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> text&#123;Threshold&#125;=text&#123;Capacity&#125;&times;text&#123;Load Factor&#125; </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> text&#123;Threshold&#125;=text&#123;Capacity&#125;&times;text&#123;Load Factor&#125; </span>` }} />
       </p>
     
 
@@ -2098,7 +2098,7 @@ Bucket 3 → Entry`}</code>
     
 
       <p key="p-4-71" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> 16&times;0.75=12 </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> 16&times;0.75=12 </span>` }} />
       </p>
     
 
@@ -2117,7 +2117,7 @@ Bucket 3 → Entry`}</code>
       </p>
     
 
-        <h4 key="h3-4-75" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-75" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.9 Why are hashCode() and equals() important?</strong>` }} />
         </h4>
       
@@ -2130,7 +2130,7 @@ Bucket 3 → Entry`}</code>
         <div key="code-4-77" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2156,7 +2156,7 @@ Bucket 3 → Entry`}</code>
         <div key="code-4-79" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2175,12 +2175,12 @@ System.out.println(students.get(s2));`}</code>
       
 
       <p key="p-4-80" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `You might expect <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">"Amit"</code> because both students have the same ID.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `You might expect <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">"Amit"</code> because both students have the same ID.` }} />
       </p>
     
 
       <p key="p-4-81" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `But the default implementation of <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">equals()</code> checks object identity, so <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">s1</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">s2</code> are not equal.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `But the default implementation of <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">equals()</code> checks object identity, so <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">s1</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">s2</code> are not equal.` }} />
       </p>
     
 
@@ -2192,7 +2192,7 @@ System.out.println(students.get(s2));`}</code>
         <div key="code-4-83" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2242,7 +2242,7 @@ class Student &#123;
     
 
       <p key="p-4-86" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `If two objects are equal according to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">equals()</code>, they must return the same <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">hashCode()</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `If two objects are equal according to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">equals()</code>, they must return the same <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">hashCode()</code>.` }} />
       </p>
     
 
@@ -2251,7 +2251,7 @@ class Student &#123;
       </p>
     
 
-        <h4 key="h3-4-88" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-88" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.10 Why should HashMap keys generally be immutable?</strong>` }} />
         </h4>
       
@@ -2264,7 +2264,7 @@ class Student &#123;
         <div key="code-4-90" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2283,12 +2283,12 @@ class Student &#123;
       
 
       <p key="p-4-91" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Suppose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">hashCode()</code> depends on <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">id</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Suppose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">hashCode()</code> depends on <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">id</code>.` }} />
       </p>
     
 
       <p key="p-4-92" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `You insert a student with ID <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">101</code>, then change its ID to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">202</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `You insert a student with ID <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">101</code>, then change its ID to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">202</code>.` }} />
       </p>
     
 
@@ -2312,7 +2312,7 @@ class Student &#123;
       </p>
     
 
-        <h4 key="h3-4-97" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-97" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.11 HashMap complexity</strong>` }} />
         </h4>
       
@@ -2327,23 +2327,23 @@ class Student &#123;
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">put()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Can degrade</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">put()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Can degrade</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">get()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span> in adverse cases</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">get()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span> in adverse cases</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">remove()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Can degrade</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">remove()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Can degrade</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">containsKey()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Can degrade</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">containsKey()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Can degrade</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Iteration</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n+c)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Depends on table size and entries</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Iteration</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n+c)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Depends on table size and entries</td>
                   </tr>
                 
               </tbody>
@@ -2352,16 +2352,16 @@ class Student &#123;
         
 
       <p key="p-4-99" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Here, <span className="font-mono text-indigo-300 font-semibold">c</span> represents table capacity.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Here, <span className="font-mono text-orange-300 font-semibold">c</span> represents table capacity.` }} />
       </p>
     
 
       <p key="p-4-100" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Tree bins can improve collision-heavy bucket operations, but you should not treat every HashMap operation as guaranteed <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Tree bins can improve collision-heavy bucket operations, but you should not treat every HashMap operation as guaranteed <span className="font-mono text-orange-300 font-semibold">O(1)</span>.` }} />
       </p>
     
 
-        <h4 key="h3-4-101" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-4-101" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">4.12 When should you use HashMap?</strong>` }} />
         </h4>
       
@@ -2384,7 +2384,7 @@ class Student &#123;
         <div key="code-4-105" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2423,7 +2423,7 @@ public class Main &#123;
         <div key="code-4-107" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2442,7 +2442,7 @@ public class Main &#123;
         <div key="code-4-109" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2472,13 +2472,13 @@ public class Main &#123;
         </h3>
       
 
-        <h4 key="h3-5-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-5-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">5.1 What is TreeMap?</strong>` }} />
         </h4>
       
 
       <p key="p-5-2" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">TreeMap</code> implements the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">NavigableMap</code> interface.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">TreeMap</code> implements the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">NavigableMap</code> interface.` }} />
       </p>
     
 
@@ -2495,7 +2495,7 @@ public class Main &#123;
         <div key="code-5-5" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2520,7 +2520,7 @@ System.out.println(students);`}</code>
         <div key="code-5-7" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2536,7 +2536,7 @@ System.out.println(students);`}</code>
       </p>
     
 
-        <h4 key="h3-5-9" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-5-9" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">5.2 What is a Red-Black Tree?</strong>` }} />
         </h4>
       
@@ -2566,7 +2566,7 @@ System.out.println(students);`}</code>
       </p>
     
 
-        <h4 key="h3-5-15" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-5-15" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">5.3 TreeMap operations</strong>` }} />
         </h4>
       
@@ -2574,7 +2574,7 @@ System.out.println(students);`}</code>
         <div key="code-5-16" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2609,7 +2609,7 @@ System.out.println(map.ceilingKey(25));`}</code>
         <div key="code-5-18" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2640,27 +2640,27 @@ System.out.println(map.ceilingKey(25));`}</code>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">firstKey()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Smallest key</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">firstKey()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Smallest key</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">lastKey()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Largest key</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">lastKey()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Largest key</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">lowerKey(k)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Greatest key strictly smaller than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">lowerKey(k)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Greatest key strictly smaller than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">higherKey(k)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Smallest key strictly greater than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">higherKey(k)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Smallest key strictly greater than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">floorKey(k)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Greatest key less than or equal to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">floorKey(k)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Greatest key less than or equal to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ceilingKey(k)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Smallest key greater than or equal to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ceilingKey(k)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Smallest key greater than or equal to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code></td>
                   </tr>
                 
               </tbody>
@@ -2668,7 +2668,7 @@ System.out.println(map.ceilingKey(25));`}</code>
           </div>
         
 
-        <h4 key="h3-5-21" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-5-21" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">5.4 TreeMap complexity</strong>` }} />
         </h4>
       
@@ -2683,23 +2683,23 @@ System.out.println(map.ceilingKey(25));`}</code>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insert</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insert</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Search</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Search</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">First/last key</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span> in common implementations</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">First/last key</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span> in common implementations</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Iteration</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Iteration</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
               </tbody>
@@ -2707,20 +2707,20 @@ System.out.println(map.ceilingKey(25));`}</code>
           </div>
         
 
-        <h4 key="h3-5-23" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-5-23" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">5.5 What is TreeSet?</strong>` }} />
         </h4>
       
 
       <p key="p-5-24" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">TreeSet</code> stores unique elements in sorted order.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">TreeSet</code> stores unique elements in sorted order.` }} />
       </p>
     
 
         <div key="code-5-25" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2746,7 +2746,7 @@ System.out.println(numbers);`}</code>
         <div key="code-5-27" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2758,11 +2758,11 @@ System.out.println(numbers);`}</code>
       
 
       <p key="p-5-28" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Internally, a common implementation uses a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">TreeMap</code> to store the elements as keys.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Internally, a common implementation uses a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">TreeMap</code> to store the elements as keys.` }} />
       </p>
     
 
-        <h4 key="h3-5-29" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-5-29" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">5.6 Important comparison: HashSet vs TreeSet</strong>` }} />
         </h4>
       
@@ -2789,15 +2789,15 @@ System.out.println(numbers);`}</code>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Add</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Search</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Search</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Remove</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td>
                   </tr>
                 
               </tbody>
@@ -2806,12 +2806,12 @@ System.out.println(numbers);`}</code>
         
 
       <p key="p-5-31" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">TreeSet</code> determines uniqueness using comparison: if the comparator returns zero, the elements are treated as the same set element.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `A <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">TreeSet</code> determines uniqueness using comparison: if the comparator returns zero, the elements are treated as the same set element.` }} />
       </p>
     
 
       <p key="p-5-32" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `This means the comparator should be consistent with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">equals()</code> when you want standard <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Set</code> equality semantics.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `This means the comparator should be consistent with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">equals()</code> when you want standard <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Set</code> equality semantics.` }} />
       </p>
     
 
@@ -2839,7 +2839,7 @@ System.out.println(numbers);`}</code>
         </h3>
       
 
-        <h4 key="h3-6-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-6-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">6.1 What is PriorityQueue?</strong>` }} />
         </h4>
       
@@ -2850,7 +2850,7 @@ System.out.println(numbers);`}</code>
     
 
       <p key="p-6-3" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Java's <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">PriorityQueue</code> is commonly implemented using a binary heap.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Java's <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">PriorityQueue</code> is commonly implemented using a binary heap.` }} />
       </p>
     
 
@@ -2867,7 +2867,7 @@ System.out.println(numbers);`}</code>
         <div key="code-6-6" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2893,7 +2893,7 @@ System.out.println(pq.peek());`}</code>
         <div key="code-6-8" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2904,7 +2904,7 @@ System.out.println(pq.peek());`}</code>
         </div>
       
 
-        <h4 key="h3-6-9" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-6-9" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">6.2 What is a Binary Heap?</strong>` }} />
         </h4>
       
@@ -2920,7 +2920,7 @@ System.out.println(pq.peek());`}</code>
     
 
       <p key="p-6-12" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> Parent &le; Children </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> Parent &le; Children </span>` }} />
       </p>
     
 
@@ -2944,20 +2944,20 @@ System.out.println(pq.peek());`}</code>
       </p>
     
 
-        <h4 key="h3-6-17" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-6-17" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">6.3 How does insertion work?</strong>` }} />
         </h4>
       
 
       <p key="p-6-18" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Suppose you insert <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">5</code> into a heap:` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Suppose you insert <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">5</code> into a heap:` }} />
       </p>
     
 
         <div key="code-6-19" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2980,7 +2980,7 @@ System.out.println(pq.peek());`}</code>
         <div key="code-6-21" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -2996,7 +2996,7 @@ System.out.println(pq.peek());`}</code>
       
 
       <p key="p-6-22" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `The heap property is violated because <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">5</code> is smaller than its parent.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `The heap property is violated because <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">5</code> is smaller than its parent.` }} />
       </p>
     
 
@@ -3006,14 +3006,14 @@ System.out.println(pq.peek());`}</code>
     
 
       <p key="p-6-24" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `It swaps <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">5</code> with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">20</code>, then with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">10</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `It swaps <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">5</code> with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">20</code>, then with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">10</code>.` }} />
       </p>
     
 
         <div key="code-6-25" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3034,11 +3034,11 @@ System.out.println(pq.peek());`}</code>
     
 
       <p key="p-6-27" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `This takes <span className="font-mono text-indigo-300 font-semibold">O(log n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `This takes <span className="font-mono text-orange-300 font-semibold">O(log n)</span>.` }} />
       </p>
     
 
-        <h4 key="h3-6-28" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-6-28" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">6.4 How does removal work?</strong>` }} />
         </h4>
       
@@ -3051,7 +3051,7 @@ System.out.println(pq.peek());`}</code>
         <div key="code-6-30" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3073,11 +3073,11 @@ System.out.println(pq.peek());`}</code>
     
 
       <p key="p-6-33" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `This also takes <span className="font-mono text-indigo-300 font-semibold">O(log n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `This also takes <span className="font-mono text-orange-300 font-semibold">O(log n)</span>.` }} />
       </p>
     
 
-        <h4 key="h3-6-34" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-6-34" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">6.5 PriorityQueue complexity</strong>` }} />
         </h4>
       
@@ -3092,23 +3092,23 @@ System.out.println(pq.peek());`}</code>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">peek()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">peek()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">offer()</code> / <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">add()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">offer()</code> / <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">add()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">poll()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">poll()</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">remove(Object)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">remove(Object)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">contains(Object)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">contains(Object)</code></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                   </tr>
                 
               </tbody>
@@ -3129,7 +3129,7 @@ System.out.println(pq.peek());`}</code>
         <div key="code-6-38" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3142,7 +3142,7 @@ System.out.println(pq.peek());`}</code>
         </div>
       
 
-        <h4 key="h3-6-39" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-6-39" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">6.6 Creating a max-heap</strong>` }} />
         </h4>
       
@@ -3155,7 +3155,7 @@ System.out.println(pq.peek());`}</code>
         <div key="code-6-41" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3181,7 +3181,7 @@ System.out.println(maxHeap.poll());`}</code>
         <div key="code-6-43" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3192,7 +3192,7 @@ System.out.println(maxHeap.poll());`}</code>
         </div>
       
 
-        <h4 key="h3-6-44" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-6-44" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">6.7 Where is PriorityQueue used?</strong>` }} />
         </h4>
       
@@ -3216,7 +3216,7 @@ System.out.println(maxHeap.poll());`}</code>
         </h3>
       
 
-        <h4 key="h3-7-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-7-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">7.1 What is a concurrent collection?</strong>` }} />
         </h4>
       
@@ -3227,14 +3227,14 @@ System.out.println(maxHeap.poll());`}</code>
     
 
       <p key="p-7-3" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Consider a shared <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code>:` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Consider a shared <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code>:` }} />
       </p>
     
 
         <div key="code-7-4" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3261,24 +3261,24 @@ System.out.println(maxHeap.poll());`}</code>
     
 
       <p key="p-7-8" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Regular collections such as <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code>, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">HashMap</code>, and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">HashSet</code> are not inherently thread-safe.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Regular collections such as <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code>, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">HashMap</code>, and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">HashSet</code> are not inherently thread-safe.` }} />
       </p>
     
 
-        <h4 key="h3-7-9" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-7-9" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">7.2 ConcurrentHashMap</strong>` }} />
         </h4>
       
 
       <p key="p-7-10" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ConcurrentHashMap</code> is designed for concurrent access.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ConcurrentHashMap</code> is designed for concurrent access.` }} />
       </p>
     
 
         <div key="code-7-11" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3321,7 +3321,7 @@ map.put(102, "Rahul");`}</code>
         <div key="code-7-17" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3347,7 +3347,7 @@ public class Main &#123;
         </div>
       
 
-        <h4 key="h3-7-18" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-7-18" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">7.3 Concurrent collection types</strong>` }} />
         </h4>
       
@@ -3394,7 +3394,7 @@ public class Main &#123;
           </div>
         
 
-        <h4 key="h3-7-20" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-7-20" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">7.4 CopyOnWriteArrayList</strong>` }} />
         </h4>
       
@@ -3422,7 +3422,7 @@ public class Main &#123;
         <div key="code-7-25" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3437,7 +3437,7 @@ names.add("Rahul");`}</code>
         </div>
       
 
-        <h4 key="h3-7-26" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-7-26" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">7.5 BlockingQueue</strong>` }} />
         </h4>
       
@@ -3455,7 +3455,7 @@ names.add("Rahul");`}</code>
         <div key="code-7-29" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3477,7 +3477,7 @@ names.add("Rahul");`}</code>
       </p>
     
 
-        <h4 key="h3-7-32" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-7-32" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">7.6 Important concurrent collection differences</strong>` }} />
         </h4>
       
@@ -3528,7 +3528,7 @@ names.add("Rahul");`}</code>
     
 
       <p key="p-7-37" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Remember that thread-safe individual operations do not automatically make a sequence of several operations atomic. Use appropriate atomic methods such as <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">compute</code>, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">merge</code>, and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">putIfAbsent</code>, or additional synchronization when required.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Remember that thread-safe individual operations do not automatically make a sequence of several operations atomic. Use appropriate atomic methods such as <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">compute</code>, <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">merge</code>, and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">putIfAbsent</code>, or additional synchronization when required.` }} />
       </p>
     
 
@@ -3551,7 +3551,7 @@ names.add("Rahul");`}</code>
         </h3>
       
 
-        <h4 key="h3-8-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-8-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">8.1 What is the Java Memory Model?</strong>` }} />
         </h4>
       
@@ -3576,7 +3576,7 @@ names.add("Rahul");`}</code>
       </p>
     
 
-        <h4 key="h3-8-6" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-8-6" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">8.2 The visibility problem</strong>` }} />
         </h4>
       
@@ -3589,7 +3589,7 @@ names.add("Rahul");`}</code>
         <div key="code-8-8" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3615,7 +3615,7 @@ names.add("Rahul");`}</code>
         <div key="code-8-10" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3636,7 +3636,7 @@ names.add("Rahul");`}</code>
         <div key="code-8-12" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3667,20 +3667,20 @@ names.add("Rahul");`}</code>
       </p>
     
 
-        <h4 key="h3-8-17" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-8-17" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">8.3 Using volatile</strong>` }} />
         </h4>
       
 
       <p key="p-8-18" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Declare the shared variable as <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">volatile</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Declare the shared variable as <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">volatile</code>.` }} />
       </p>
     
 
         <div key="code-8-19" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3713,7 +3713,7 @@ names.add("Rahul");`}</code>
       </p>
     
 
-        <h4 key="h3-8-23" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-8-23" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">8.4 Atomicity problem</strong>` }} />
         </h4>
       
@@ -3726,7 +3726,7 @@ names.add("Rahul");`}</code>
         <div key="code-8-25" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3760,14 +3760,14 @@ counter++;`}</code>
     
 
       <p key="p-8-30" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `For atomic increments, use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">AtomicInteger</code>:` }} />
+        <span dangerouslySetInnerHTML={{ __html: `For atomic increments, use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">AtomicInteger</code>:` }} />
       </p>
     
 
         <div key="code-8-31" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3782,20 +3782,20 @@ counter.incrementAndGet();`}</code>
         </div>
       
 
-        <h4 key="h3-8-32" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-8-32" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">8.5 Using synchronized</strong>` }} />
         </h4>
       
 
       <p key="p-8-33" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">synchronized</code> provides mutual exclusion and memory visibility through monitor lock rules.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">synchronized</code> provides mutual exclusion and memory visibility through monitor lock rules.` }} />
       </p>
     
 
         <div key="code-8-34" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3827,7 +3827,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-8-37" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-8-37" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">8.6 Happens-before relationship</strong>` }} />
         </h4>
       
@@ -3843,11 +3843,11 @@ counter.incrementAndGet();`}</code>
     
 
         <ul key="ul-8-40" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `Unlocking a monitor happens-before a later lock on the same monitor.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `A volatile write happens-before a subsequent read of that same volatile variable.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Calling <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Thread.start()</code> happens-before actions in the started thread.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Actions in a thread happen-before another thread successfully returns from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">join()</code> on it.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Program order inside a single thread establishes ordering between its operations.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `Unlocking a monitor happens-before a later lock on the same monitor.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `A volatile write happens-before a subsequent read of that same volatile variable.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Calling <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Thread.start()</code> happens-before actions in the started thread.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Actions in a thread happen-before another thread successfully returns from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">join()</code> on it.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Program order inside a single thread establishes ordering between its operations.` }} /></li>
         </ul>
       
 
-        <h4 key="h3-8-41" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-8-41" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">8.7 Immutable objects and thread safety</strong>` }} />
         </h4>
       
@@ -3865,7 +3865,7 @@ counter.incrementAndGet();`}</code>
         <div key="code-8-44" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -3900,7 +3900,7 @@ counter.incrementAndGet();`}</code>
     
 
         <ul key="ul-8-46" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `Is declared <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">final</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Uses private fields.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Uses final fields.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Does not provide setters.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Does not expose mutable internal state.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `Is declared <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">final</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Uses private fields.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Uses final fields.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Does not provide setters.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Does not expose mutable internal state.` }} /></li>
         </ul>
       
 
@@ -3914,7 +3914,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-8-49" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-8-49" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">8.8 JMM summary</strong>` }} />
         </h4>
       
@@ -3991,7 +3991,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-9-2" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-9-2" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">9.1 Stack memory</strong>` }} />
         </h4>
       
@@ -4024,7 +4024,7 @@ counter.incrementAndGet();`}</code>
         <div key="code-9-8" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -4053,12 +4053,12 @@ counter.incrementAndGet();`}</code>
       
 
       <p key="p-9-9" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `When <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">main()</code> calls <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">add()</code>, a new method frame is created for <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">add()</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `When <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">main()</code> calls <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">add()</code>, a new method frame is created for <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">add()</code>.` }} />
       </p>
     
 
       <p key="p-9-10" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `When <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">add()</code> returns, its frame is removed.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `When <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">add()</code> returns, its frame is removed.` }} />
       </p>
     
 
@@ -4097,20 +4097,20 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-9-18" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-9-18" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">9.2 Stack overflow</strong>` }} />
         </h4>
       
 
       <p key="p-9-19" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Because stack memory has a limit, extremely deep recursion can cause <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">StackOverflowError</code>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Because stack memory has a limit, extremely deep recursion can cause <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">StackOverflowError</code>.` }} />
       </p>
     
 
         <div key="code-9-20" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -4142,7 +4142,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-9-23" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-9-23" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">9.3 Heap memory</strong>` }} />
         </h4>
       
@@ -4165,7 +4165,7 @@ counter.incrementAndGet();`}</code>
         <div key="code-9-27" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -4182,7 +4182,7 @@ counter.incrementAndGet();`}</code>
     
 
       <p key="p-9-29" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `The local variable <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">student</code> holds a reference to the object.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `The local variable <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">student</code> holds a reference to the object.` }} />
       </p>
     
 
@@ -4256,7 +4256,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-9-44" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-9-44" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">9.4 Other JVM memory areas</strong>` }} />
         </h4>
       
@@ -4304,7 +4304,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-9-47" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-9-47" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">9.5 Stack vs heap</strong>` }} />
         </h4>
       
@@ -4357,7 +4357,7 @@ counter.incrementAndGet();`}</code>
         </h3>
       
 
-        <h4 key="h3-10-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.1 What is Garbage Collection?</strong>` }} />
         </h4>
       
@@ -4380,7 +4380,7 @@ counter.incrementAndGet();`}</code>
         <div key="code-10-5" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -4400,7 +4400,7 @@ counter.incrementAndGet();`}</code>
       
 
       <p key="p-10-6" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `After the reference is set to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">null</code>, the object may become eligible for garbage collection if no other reachable references point to it.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `After the reference is set to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">null</code>, the object may become eligible for garbage collection if no other reachable references point to it.` }} />
       </p>
     
 
@@ -4409,7 +4409,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-10-8" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-8" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.2 How does garbage collection determine what can be removed?</strong>` }} />
         </h4>
       
@@ -4449,7 +4449,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-10-16" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-16" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.3 Generational garbage collection</strong>` }} />
         </h4>
       
@@ -4529,7 +4529,7 @@ counter.incrementAndGet();`}</code>
         </ol>
       
 
-        <h4 key="h3-10-32" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-32" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.4 Garbage collection algorithms</strong>` }} />
         </h4>
       
@@ -4569,7 +4569,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-10-40" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-40" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.5 Important Java garbage collectors</strong>` }} />
         </h4>
       
@@ -4613,7 +4613,7 @@ counter.incrementAndGet();`}</code>
       </p>
     
 
-        <h4 key="h3-10-43" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-43" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.6 What is Stop-the-World?</strong>` }} />
         </h4>
       
@@ -4636,7 +4636,7 @@ counter.incrementAndGet();`}</code>
         <div key="code-10-47" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -4661,7 +4661,7 @@ Request processing resumes`}</code>
       </p>
     
 
-        <h4 key="h3-10-50" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-50" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.7 Memory leaks in Java</strong>` }} />
         </h4>
       
@@ -4689,7 +4689,7 @@ Request processing resumes`}</code>
         <div key="code-10-55" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -4733,7 +4733,7 @@ Request processing resumes`}</code>
         </ul>
       
 
-        <h4 key="h3-10-61" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-61" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.8 Can you force garbage collection?</strong>` }} />
         </h4>
       
@@ -4746,7 +4746,7 @@ Request processing resumes`}</code>
         <div key="code-10-63" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -4763,11 +4763,11 @@ Request processing resumes`}</code>
     
 
       <p key="p-10-65" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Do not use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">System.gc()</code> as your normal application memory-management strategy.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Do not use <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">System.gc()</code> as your normal application memory-management strategy.` }} />
       </p>
     
 
-        <h4 key="h3-10-66" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-10-66" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">10.9 Garbage collection is not resource management</strong>` }} />
         </h4>
       
@@ -4785,7 +4785,7 @@ Request processing resumes`}</code>
         <div key="code-10-69" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -4834,7 +4834,7 @@ public class Main &#123;
         </h3>
       
 
-        <h4 key="h3-11-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-11-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">11.1 What is the JVM?</strong>` }} />
         </h4>
       
@@ -4924,7 +4924,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-11-19" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-11-19" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">11.2 Main JVM components</strong>` }} />
         </h4>
       
@@ -4994,7 +4994,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-11-33" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-11-33" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">11.3 JVM vs JRE vs JDK</strong>` }} />
         </h4>
       
@@ -5044,7 +5044,7 @@ public class Main &#123;
         </h3>
       
 
-        <h4 key="h3-12-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-12-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">12.1 What is class loading?</strong>` }} />
         </h4>
       
@@ -5062,7 +5062,7 @@ public class Main &#123;
         <div key="code-12-4" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5078,7 +5078,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-12-6" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-12-6" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">12.2 Class loading lifecycle</strong>` }} />
         </h4>
       
@@ -5158,7 +5158,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-12-22" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-12-22" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">12.3 Class loaders</strong>` }} />
         </h4>
       
@@ -5198,7 +5198,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-12-30" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-12-30" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">12.4 Parent delegation model</strong>` }} />
         </h4>
       
@@ -5226,7 +5226,7 @@ public class Main &#123;
         <div key="code-12-35" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5253,7 +5253,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-12-38" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-12-38" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">12.5 Static initialization</strong>` }} />
         </h4>
       
@@ -5266,7 +5266,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-12-40" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5314,7 +5314,7 @@ Bootstrap ClassLoader`}</code>
         </h3>
       
 
-        <h4 key="h3-13-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-13-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">13.1 What is JIT?</strong>` }} />
         </h4>
       
@@ -5339,7 +5339,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-13-6" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-13-6" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">13.2 Interpreter vs JIT</strong>` }} />
         </h4>
       
@@ -5384,7 +5384,7 @@ Bootstrap ClassLoader`}</code>
         </ul>
       
 
-        <h4 key="h3-13-15" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-13-15" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">13.3 What are hot methods?</strong>` }} />
         </h4>
       
@@ -5402,7 +5402,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-13-18" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5438,7 +5438,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-13-20" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-13-20" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">13.4 Tiered compilation</strong>` }} />
         </h4>
       
@@ -5468,7 +5468,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-13-26" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-13-26" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">13.5 Important JIT optimizations</strong>` }} />
         </h4>
       
@@ -5486,7 +5486,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-13-29" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5549,7 +5549,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-13-40" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-13-40" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">13.6 Why does Java sometimes start slower and become faster?</strong>` }} />
         </h4>
       
@@ -5598,7 +5598,7 @@ Bootstrap ClassLoader`}</code>
         </h3>
       
 
-        <h4 key="h3-14-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-14-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">14.1 What is profiling?</strong>` }} />
         </h4>
       
@@ -5618,7 +5618,7 @@ Bootstrap ClassLoader`}</code>
         </ul>
       
 
-        <h4 key="h3-14-5" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-14-5" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">14.2 Important performance metrics</strong>` }} />
         </h4>
       
@@ -5674,7 +5674,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-14-8" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-14-8" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">14.3 Profiling tools</strong>` }} />
         </h4>
       
@@ -5759,7 +5759,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-14-25" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-14-25" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">14.4 Useful diagnostic commands</strong>` }} />
         </h4>
       
@@ -5772,7 +5772,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-14-27" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5791,7 +5791,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-14-29" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5810,7 +5810,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-14-31" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5829,7 +5829,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-14-33" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5848,7 +5848,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-14-35" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5864,7 +5864,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-14-37" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-14-37" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">14.5 Example: Finding a slow method</strong>` }} />
         </h4>
       
@@ -5894,7 +5894,7 @@ Bootstrap ClassLoader`}</code>
       </p>
     
 
-        <h4 key="h3-14-43" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-14-43" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">14.6 Microbenchmarking with JMH</strong>` }} />
         </h4>
       
@@ -5907,7 +5907,7 @@ Bootstrap ClassLoader`}</code>
         <div key="code-14-45" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -5956,7 +5956,7 @@ public class ExampleBenchmark &#123;
     
 
       <p key="p-14-47" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Do not rely on a simple <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">System.nanoTime()</code> loop as a substitute for a proper benchmark. JVM warm-up, dead-code elimination, compilation, and garbage collection can distort results.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Do not rely on a simple <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">System.nanoTime()</code> loop as a substitute for a proper benchmark. JVM warm-up, dead-code elimination, compilation, and garbage collection can distort results.` }} />
       </p>
     
       </div>
@@ -5974,7 +5974,7 @@ public class ExampleBenchmark &#123;
         </h3>
       
 
-        <h4 key="h3-15-1" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-15-1" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">15.1 What is object allocation?</strong>` }} />
         </h4>
       
@@ -5992,7 +5992,7 @@ public class ExampleBenchmark &#123;
         <div key="code-15-4" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6023,7 +6023,7 @@ public class ExampleBenchmark &#123;
       </p>
     
 
-        <h4 key="h3-15-9" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-15-9" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">15.2 Where are objects allocated?</strong>` }} />
         </h4>
       
@@ -6043,7 +6043,7 @@ public class ExampleBenchmark &#123;
       </p>
     
 
-        <h4 key="h3-15-13" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-15-13" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">15.3 Thread Local Allocation Buffers (TLABs)</strong>` }} />
         </h4>
       
@@ -6063,7 +6063,7 @@ public class ExampleBenchmark &#123;
       </p>
     
 
-        <h4 key="h3-15-17" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-15-17" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">15.4 Excessive object allocation</strong>` }} />
         </h4>
       
@@ -6076,7 +6076,7 @@ public class ExampleBenchmark &#123;
         <div key="code-15-19" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6105,7 +6105,7 @@ for (int i = 0; i &lt; 1000; i++) &#123;
         <div key="code-15-22" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6124,11 +6124,11 @@ String finalResult = result.toString();`}</code>
       
 
       <p key="p-15-23" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">StringBuilder</code> is designed for efficient mutable string construction in a single-threaded context.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">StringBuilder</code> is designed for efficient mutable string construction in a single-threaded context.` }} />
       </p>
     
 
-        <h4 key="h3-15-24" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-15-24" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">15.5 Boxing and unboxing</strong>` }} />
         </h4>
       
@@ -6139,14 +6139,14 @@ String finalResult = result.toString();`}</code>
     
 
       <p key="p-15-26" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `This means storing an <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">int</code> in a collection requires boxing.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `This means storing an <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">int</code> in a collection requires boxing.` }} />
       </p>
     
 
         <div key="code-15-27" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6160,7 +6160,7 @@ numbers.add(10);`}</code>
       
 
       <p key="p-15-28" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Conceptually, Java converts the primitive <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">int</code> into an <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Integer</code> object.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Conceptually, Java converts the primitive <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">int</code> into an <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Integer</code> object.` }} />
       </p>
     
 
@@ -6172,7 +6172,7 @@ numbers.add(10);`}</code>
         <div key="code-15-30" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6198,7 +6198,7 @@ numbers.add(10);`}</code>
       </p>
     
 
-        <h4 key="h3-15-34" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-15-34" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">15.6 Object pooling</strong>` }} />
         </h4>
       
@@ -6257,7 +6257,7 @@ numbers.add(10);`}</code>
       </p>
     
 
-        <h4 key="h3-16-3" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-16-3" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">16.1 Choose the right data structure</strong>` }} />
         </h4>
       
@@ -6275,7 +6275,7 @@ numbers.add(10);`}</code>
         <div key="code-16-6" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6289,7 +6289,7 @@ boolean exists = ids.contains(101);`}</code>
       
 
       <p key="p-16-7" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Searching a list takes <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Searching a list takes <span className="font-mono text-orange-300 font-semibold">O(n)</span>.` }} />
       </p>
     
 
@@ -6301,7 +6301,7 @@ boolean exists = ids.contains(101);`}</code>
         <div key="code-16-9" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6315,7 +6315,7 @@ boolean exists = ids.contains(101);`}</code>
       
 
       <p key="p-16-10" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Membership testing takes average <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Membership testing takes average <span className="font-mono text-orange-300 font-semibold">O(1)</span>.` }} />
       </p>
     
 
@@ -6324,7 +6324,7 @@ boolean exists = ids.contains(101);`}</code>
       </p>
     
 
-        <h4 key="h3-16-12" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-16-12" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">16.2 Avoid unnecessary nested loops</strong>` }} />
         </h4>
       
@@ -6337,7 +6337,7 @@ boolean exists = ids.contains(101);`}</code>
         <div key="code-16-14" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6360,12 +6360,12 @@ boolean exists = ids.contains(101);`}</code>
     
 
       <p key="p-16-16" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> O(n^2) </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> O(n^2) </span>` }} />
       </p>
     
 
       <p key="p-16-17" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `For <span className="font-mono text-indigo-300 font-semibold">n=10,000</span>, there are approximately 100 million inner-loop executions.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `For <span className="font-mono text-orange-300 font-semibold">n=10,000</span>, there are approximately 100 million inner-loop executions.` }} />
       </p>
     
 
@@ -6374,7 +6374,7 @@ boolean exists = ids.contains(101);`}</code>
       </p>
     
 
-        <h4 key="h3-16-19" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-16-19" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">16.3 Reduce unnecessary copying</strong>` }} />
         </h4>
       
@@ -6392,7 +6392,7 @@ boolean exists = ids.contains(101);`}</code>
         <div key="code-16-22" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6423,7 +6423,7 @@ boolean exists = ids.contains(101);`}</code>
       </p>
     
 
-        <h4 key="h3-16-27" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-16-27" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">16.4 Use efficient input/output</strong>` }} />
         </h4>
       
@@ -6436,7 +6436,7 @@ boolean exists = ids.contains(101);`}</code>
         <div key="code-16-29" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6473,7 +6473,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-16-32" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-16-32" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">16.5 Avoid unnecessary repeated computation</strong>` }} />
         </h4>
       
@@ -6486,7 +6486,7 @@ public class Main &#123;
         <div key="code-16-34" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6501,12 +6501,12 @@ public class Main &#123;
       
 
       <p key="p-16-35" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `For an <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">ArrayList</code>, this is generally fine.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `For an <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">ArrayList</code>, this is generally fine.` }} />
       </p>
     
 
       <p key="p-16-36" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `But for a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">LinkedList</code>, repeated indexed access can result in <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span> traversal.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `But for a <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">LinkedList</code>, repeated indexed access can result in <span className="font-mono text-orange-300 font-semibold">O(n^2)</span> traversal.` }} />
       </p>
     
 
@@ -6518,7 +6518,7 @@ public class Main &#123;
         <div key="code-16-38" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6537,7 +6537,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-16-40" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-16-40" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">16.6 Memory optimization techniques</strong>` }} />
         </h4>
       
@@ -6547,7 +6547,7 @@ public class Main &#123;
         </ul>
       
 
-        <h4 key="h3-16-42" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-16-42" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">16.7 Time vs memory trade-offs</strong>` }} />
         </h4>
       
@@ -6601,7 +6601,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-17-3" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-17-3" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">17.1 What does Big-O tell us?</strong>` }} />
         </h4>
       
@@ -6626,27 +6626,27 @@ public class Main &#123;
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Constant</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Array index access</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Constant</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Array index access</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Logarithmic</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Binary search</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Logarithmic</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Binary search</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Linear</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">List traversal</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Linear</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">List traversal</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Linearithmic</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Efficient comparison sorting</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Linearithmic</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Efficient comparison sorting</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Quadratic</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Two nested loops</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Quadratic</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Two nested loops</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(2^n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Exponential</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Some brute-force searches</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(2^n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Exponential</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Some brute-force searches</td>
                   </tr>
                 
               </tbody>
@@ -6654,7 +6654,7 @@ public class Main &#123;
           </div>
         
 
-        <h4 key="h3-17-7" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-17-7" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">17.2 Why isn't Big-O enough?</strong>` }} />
         </h4>
       
@@ -6670,7 +6670,7 @@ public class Main &#123;
       
 
       <p key="p-17-10" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Both provide <span className="font-mono text-indigo-300 font-semibold">O(1)</span> indexed access.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Both provide <span className="font-mono text-orange-300 font-semibold">O(1)</span> indexed access.` }} />
       </p>
     
 
@@ -6685,7 +6685,7 @@ public class Main &#123;
     
 
         <ul key="ul-17-13" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `ArrayList iteration is <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `LinkedList iteration is <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `ArrayList iteration is <span className="font-mono text-orange-300 font-semibold">O(n)</span>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `LinkedList iteration is <span className="font-mono text-orange-300 font-semibold">O(n)</span>.` }} /></li>
         </ul>
       
 
@@ -6694,7 +6694,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-17-15" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-17-15" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">17.3 Important practical performance factors</strong>` }} />
         </h4>
       
@@ -6759,7 +6759,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-17-28" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-17-28" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">17.4 Practical data structure comparison</strong>` }} />
         </h4>
       
@@ -6774,31 +6774,31 @@ public class Main &#123;
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">ArrayList</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span> by value; <span className="font-mono text-indigo-300 font-semibold">O(1)</span> by index</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Amortized <span className="font-mono text-indigo-300 font-semibold">O(1)</span> at end</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insertion order</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">ArrayList</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span> by value; <span className="font-mono text-orange-300 font-semibold">O(1)</span> by index</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Amortized <span className="font-mono text-orange-300 font-semibold">O(1)</span> at end</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insertion order</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">LinkedList</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span> at known node</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insertion order</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">LinkedList</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span> at known node</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insertion order</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">HashSet</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">No guaranteed order</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">HashSet</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">No guaranteed order</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">TreeSet</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Sorted</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">TreeSet</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Sorted</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">HashMap</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-indigo-300 font-semibold">O(1)</span> by key</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-indigo-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">No guaranteed order</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">HashMap</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-orange-300 font-semibold">O(1)</span> by key</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average <span className="font-mono text-orange-300 font-semibold">O(1)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">No guaranteed order</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">TreeMap</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span> by key</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Sorted by key</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">TreeMap</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span> by key</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Sorted by key</td>
                   </tr>
                 
                   <tr className="hover:bg-slate-800/30 transition-colors">
-                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">PriorityQueue</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span> for head</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Priority at head</td>
+                    <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">PriorityQueue</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span> for head</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(log n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Priority at head</td>
                   </tr>
                 
               </tbody>
@@ -6806,7 +6806,7 @@ public class Main &#123;
           </div>
         
 
-        <h4 key="h3-17-30" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-17-30" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">17.5 Example: Searching a million values</strong>` }} />
         </h4>
       
@@ -6824,7 +6824,7 @@ public class Main &#123;
         <div key="code-17-33" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6848,7 +6848,7 @@ public class Main &#123;
         <div key="code-17-36" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6893,7 +6893,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-18-2" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-18-2" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">18.1 Select data structures based on the task</strong>` }} />
         </h4>
       
@@ -6948,7 +6948,7 @@ public class Main &#123;
           </div>
         
 
-        <h4 key="h3-18-4" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-18-4" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">18.2 Prefer interfaces for variable declarations</strong>` }} />
         </h4>
       
@@ -6961,7 +6961,7 @@ public class Main &#123;
         <div key="code-18-6" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -6980,7 +6980,7 @@ public class Main &#123;
         <div key="code-18-8" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7002,11 +7002,11 @@ public class Main &#123;
     
 
       <p key="p-18-11" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `You can later change the implementation without changing code that uses the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">List</code> interface.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `You can later change the implementation without changing code that uses the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">List</code> interface.` }} />
       </p>
     
 
-        <h4 key="h3-18-12" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-18-12" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">18.3 Use the correct collection methods</strong>` }} />
         </h4>
       
@@ -7019,7 +7019,7 @@ public class Main &#123;
         <div key="code-18-14" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7043,7 +7043,7 @@ public class Main &#123;
         <div key="code-18-17" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7067,7 +7067,7 @@ public class Main &#123;
         <div key="code-18-20" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7091,7 +7091,7 @@ public class Main &#123;
         <div key="code-18-23" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7107,7 +7107,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-18-25" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-18-25" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">18.4 Avoid inefficient string concatenation inside loops</strong>` }} />
         </h4>
       
@@ -7120,7 +7120,7 @@ public class Main &#123;
         <div key="code-18-27" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7143,7 +7143,7 @@ for (int i = 0; i &lt; 1000; i++) &#123;
         <div key="code-18-29" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7158,7 +7158,7 @@ for (int i = 0; i &lt; 1000; i++) &#123;
         </div>
       
 
-        <h4 key="h3-18-30" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-18-30" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">18.5 Avoid unnecessary object creation</strong>` }} />
         </h4>
       
@@ -7178,7 +7178,7 @@ for (int i = 0; i &lt; 1000; i++) &#123;
       </p>
     
 
-        <h4 key="h3-18-34" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-18-34" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">18.6 Write algorithms with complexity in mind</strong>` }} />
         </h4>
       
@@ -7196,7 +7196,7 @@ for (int i = 0; i &lt; 1000; i++) &#123;
         <div key="code-18-37" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7221,7 +7221,7 @@ for (int i = 0; i &lt; 1000; i++) &#123;
     
 
       <p key="p-18-39" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> O(n^2) </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> O(n^2) </span>` }} />
       </p>
     
 
@@ -7233,7 +7233,7 @@ for (int i = 0; i &lt; 1000; i++) &#123;
         <div key="code-18-41" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7272,7 +7272,7 @@ public class Main &#123;
     
 
       <p key="p-18-43" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> O(n) </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> O(n) </span>` }} />
       </p>
     
 
@@ -7282,7 +7282,7 @@ public class Main &#123;
     
 
       <p key="p-18-45" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> O(n) </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> O(n) </span>` }} />
       </p>
     
 
@@ -7291,7 +7291,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-18-47" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-18-47" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">18.7 Use profiling before optimizing</strong>` }} />
         </h4>
       
@@ -7393,7 +7393,7 @@ public class Main &#123;
         <div key="code-19-5" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7412,7 +7412,7 @@ public class Main &#123;
         <div key="code-19-7" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7423,30 +7423,30 @@ public class Main &#123;
         </div>
       
 
-        <h4 key="h3-19-8" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-19-8" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Approach</strong>` }} />
         </h4>
       
 
       <p key="p-19-9" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Maintain a min-heap with at most <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code> elements.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Maintain a min-heap with at most <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code> elements.` }} />
       </p>
     
 
       <p key="p-19-10" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Whenever the heap becomes larger than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code>, remove its smallest element.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Whenever the heap becomes larger than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code>, remove its smallest element.` }} />
       </p>
     
 
       <p key="p-19-11" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `At the end, the heap contains the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code> largest values.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `At the end, the heap contains the <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code> largest values.` }} />
       </p>
     
 
         <div key="code-19-12" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7505,7 +7505,7 @@ public class Main &#123;
         <div key="code-19-14" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7522,12 +7522,12 @@ public class Main &#123;
     
 
         <ul key="ul-19-16" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `Time: <span className="font-mono text-indigo-300 font-semibold">O(nlog k)</span>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Extra space: <span className="font-mono text-indigo-300 font-semibold">O(k)</span>.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `Time: <span className="font-mono text-orange-300 font-semibold">O(nlog k)</span>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Extra space: <span className="font-mono text-orange-300 font-semibold">O(k)</span>.` }} /></li>
         </ul>
       
 
       <p key="p-19-17" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `This is useful when <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code> is much smaller than the total input size.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `This is useful when <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code> is much smaller than the total input size.` }} />
       </p>
     
 
@@ -7544,7 +7544,7 @@ public class Main &#123;
         <div key="code-19-20" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7586,7 +7586,7 @@ public class Main &#123;
     
 
       <p key="p-19-22" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold"> O(1) </span>` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold"> O(1) </span>` }} />
       </p>
     
 
@@ -7613,7 +7613,7 @@ public class Main &#123;
         <div key="code-19-27" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7632,7 +7632,7 @@ public class Main &#123;
         <div key="code-19-29" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7643,7 +7643,7 @@ public class Main &#123;
         </div>
       
 
-        <h4 key="h3-19-30" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-19-30" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Approach</strong>` }} />
         </h4>
       
@@ -7656,7 +7656,7 @@ public class Main &#123;
         <div key="code-19-32" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7705,7 +7705,7 @@ public class Main &#123;
     
 
         <ul key="ul-19-34" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `Time: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>, assuming ordinary HashMap operations.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Space: <span className="font-mono text-indigo-300 font-semibold">O(k)</span>, where <span className="font-mono text-indigo-300 font-semibold">k</span> is the number of distinct characters.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `Time: <span className="font-mono text-orange-300 font-semibold">O(n)</span>, assuming ordinary HashMap operations.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Space: <span className="font-mono text-orange-300 font-semibold">O(k)</span>, where <span className="font-mono text-orange-300 font-semibold">k</span> is the number of distinct characters.` }} /></li>
         </ul>
       
 
@@ -7809,7 +7809,7 @@ public class Main &#123;
     
 
         <ul key="ul-20-12" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `An array of buckets.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `A hash function.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Key-value entries.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Collision handling with linked nodes.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">put()</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">get()</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">remove()</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Resizing.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `An array of buckets.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `A hash function.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Key-value entries.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Collision handling with linked nodes.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">put()</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">get()</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `<code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">remove()</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Resizing.` }} /></li>
         </ul>
       
 
@@ -7836,7 +7836,7 @@ public class Main &#123;
         <div key="code-20-17" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7880,7 +7880,7 @@ public class MemoryExperiment &#123;
         <div key="code-20-21" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -7947,7 +7947,7 @@ public class MemoryExperiment &#123;
     
 
       <p key="p-20-33" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Version B:</strong> An <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">AtomicInteger</code> counter.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Version B:</strong> An <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">AtomicInteger</code> counter.` }} />
       </p>
     
 
@@ -7957,7 +7957,7 @@ public class MemoryExperiment &#123;
     
 
         <ol key="ol-20-35" className="my-4 space-y-2 text-sm text-slate-300 list-decimal list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `Create multiple worker threads.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Let each worker increment the counter a fixed number of times.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Compare the result of both implementations.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Fix Version A using <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">synchronized</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Compare <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">synchronized</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">AtomicInteger</code>.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `Create multiple worker threads.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Let each worker increment the counter a fixed number of times.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Compare the result of both implementations.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Fix Version A using <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">synchronized</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Compare <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">synchronized</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">AtomicInteger</code>.` }} /></li>
         </ol>
       
 
@@ -8008,7 +8008,7 @@ public class MemoryExperiment &#123;
         <div key="code-21-6" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -8057,7 +8057,7 @@ public class Main &#123;
     
 
       <p key="p-21-10" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Each indexed lookup requires traversal. Repeating this for every index can produce <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span> time.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Each indexed lookup requires traversal. Repeating this for every index can produce <span className="font-mono text-orange-300 font-semibold">O(n^2)</span> time.` }} />
       </p>
     
 
@@ -8069,7 +8069,7 @@ public class Main &#123;
         <div key="code-21-12" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -8088,7 +8088,7 @@ public class Main &#123;
         <div key="code-21-14" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               TEXT
             </span>
             <span className="text-[11px] text-slate-400">Java &amp; JVM Internals</span>
@@ -8122,7 +8122,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-21-19" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-21-19" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Requirements</strong>` }} />
         </h4>
       
@@ -8436,7 +8436,7 @@ public class Main &#123;
       </p>
     
 
-        <h4 key="h3-22-45" className="text-lg md:text-xl font-semibold text-indigo-300 mt-6 mb-2">
+        <h4 key="h3-22-45" className="text-lg md:text-xl font-semibold text-orange-300 mt-6 mb-2">
           <span dangerouslySetInnerHTML={{ __html: `<strong className="font-bold text-white">Additional advanced interview questions</strong>` }} />
         </h4>
       
@@ -8632,7 +8632,7 @@ public class Main &#123;
       
 
         <ul key="ul-23-8" className="my-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-          <li><span dangerouslySetInnerHTML={{ __html: `Explain the Java Collections Framework hierarchy.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Describe how ArrayList grows and shifts elements.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain LinkedList node connections and traversal.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain HashMap hashing, collisions, resizing, and treeification.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain the importance of <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">hashCode()</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">equals()</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Compare HashMap, TreeMap, and ConcurrentHashMap.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain how PriorityQueue uses a binary heap.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Choose the right collection for a real application.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain visibility, atomicity, ordering, and happens-before.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Describe stack and heap memory.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain reachability and garbage collection.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Describe JVM architecture and the class-loading lifecycle.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain JIT compilation and common optimizations.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Use JVM diagnostic tools and understand profiling basics.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Identify inefficient object allocation and algorithm choices.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Compare Big-O complexity with practical performance.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Optimize Java programs based on measurements.` }} /></li>
+          <li><span dangerouslySetInnerHTML={{ __html: `Explain the Java Collections Framework hierarchy.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Describe how ArrayList grows and shifts elements.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain LinkedList node connections and traversal.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain HashMap hashing, collisions, resizing, and treeification.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain the importance of <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">hashCode()</code> and <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">equals()</code>.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Compare HashMap, TreeMap, and ConcurrentHashMap.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain how PriorityQueue uses a binary heap.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Choose the right collection for a real application.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain visibility, atomicity, ordering, and happens-before.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Describe stack and heap memory.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain reachability and garbage collection.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Describe JVM architecture and the class-loading lifecycle.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Explain JIT compilation and common optimizations.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Use JVM diagnostic tools and understand profiling basics.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Identify inefficient object allocation and algorithm choices.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Compare Big-O complexity with practical performance.` }} /></li><li><span dangerouslySetInnerHTML={{ __html: `Optimize Java programs based on measurements.` }} /></li>
         </ul>
       
 

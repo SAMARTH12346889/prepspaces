@@ -1771,7 +1771,7 @@ export default function JavaAdvanced() {
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     lab.type === "Lab"
                                       ? "bg-orange-100 text-orange-800"
-                                      : "bg-purple-100 text-purple-800"
+                                      : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
                                   {lab.type}

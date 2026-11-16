@@ -288,6 +288,9 @@ export default function JavaProblemSolvingPatterns() {
   // --- WORKBENCH 1 STATE: Backtracking N-Queens ---
   const [nQueensSize, setNQueensSize] = useState(4);
   const nQueensSolutions = useMemo(() => {
+    if (activeMode !== "workbenches" || activeWb !== 1) {
+      return { count: 2, firstSolution: [".Q..", "...Q", "Q...", "..Q."] };
+    }
     const n = nQueensSize;
     const solutions = [];
     const cols = new Array(n).fill(false);
@@ -314,13 +317,16 @@ export default function JavaProblemSolvingPatterns() {
     }
     solve(0);
     return { count: solutions.length, firstSolution: solutions[0] || [] };
-  }, [nQueensSize]);
+  }, [nQueensSize, activeMode, activeWb]);
 
   // --- WORKBENCH 2 STATE: Binary Search on Answer ---
   const [shipPackages] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [shipDays, setShipDays] = useState(5);
 
   const shipResult = useMemo(() => {
+    if (activeMode !== "workbenches" || activeWb !== 2) {
+      return { minCapacity: 15, minBound: 10, maxBound: 55 };
+    }
     const weights = shipPackages;
     const days = shipDays;
     let low = Math.max(...weights);
@@ -349,11 +355,14 @@ export default function JavaProblemSolvingPatterns() {
     }
 
     return { minCapacity: low, minBound: Math.max(...weights), maxBound: weights.reduce((a, b) => a + b, 0) };
-  }, [shipPackages, shipDays]);
+  }, [shipPackages, shipDays, activeMode, activeWb]);
 
   // --- WORKBENCH 3 STATE: Monotonic Stack ---
   const [ngeInput] = useState([4, 5, 2, 10, 8]);
   const ngeResult = useMemo(() => {
+    if (activeMode !== "workbenches" || activeWb !== 3) {
+      return [5, 10, 10, -1, -1];
+    }
     const arr = ngeInput;
     const ans = new Array(arr.length).fill(-1);
     const stack = []; // indices
@@ -366,13 +375,16 @@ export default function JavaProblemSolvingPatterns() {
       stack.push(i);
     }
     return ans;
-  }, [ngeInput]);
+  }, [ngeInput, activeMode, activeWb]);
 
   // --- WORKBENCH 4 STATE: Monotonic Queue ---
   const [mqArray] = useState([1, 3, -1, -3, 5, 3, 6, 7]);
   const [mqWindowK, setMqWindowK] = useState(3);
 
   const mqResult = useMemo(() => {
+    if (activeMode !== "workbenches" || activeWb !== 4) {
+      return [3, 3, 5, 5, 6, 7];
+    }
     const arr = mqArray;
     const k = mqWindowK;
     const result = [];
@@ -391,7 +403,7 @@ export default function JavaProblemSolvingPatterns() {
       }
     }
     return result;
-  }, [mqArray, mqWindowK]);
+  }, [mqArray, mqWindowK, activeMode, activeWb]);
 
   // --- WORKBENCH 5 STATE: Graph Pattern Classifier ---
   const [hasWeights, setHasWeights] = useState(true);
@@ -437,6 +449,9 @@ export default function JavaProblemSolvingPatterns() {
   });
 
   const treeISResult = useMemo(() => {
+    if (activeMode !== "workbenches" || activeWb !== 6) {
+      return { maxSetSize: 3, rootTake: 3, rootSkip: 2 };
+    }
     function dfs(node) {
       if (!node) return { take: 0, skip: 0 };
       let take = 1;
@@ -450,13 +465,16 @@ export default function JavaProblemSolvingPatterns() {
     }
     const res = dfs(treeIS);
     return { maxSetSize: Math.max(res.take, res.skip), rootTake: res.take, rootSkip: res.skip };
-  }, [treeIS]);
+  }, [treeIS, activeMode, activeWb]);
 
   // --- WORKBENCH 7 STATE: Difference Array ---
   const [diffBase] = useState([0, 0, 0, 0, 0]);
   const [rangeUpdateVal, setRangeUpdateVal] = useState(5);
 
   const diffResult = useMemo(() => {
+    if (activeMode !== "workbenches" || activeWb !== 7) {
+      return { diffArray: [0, 5, 0, 0, -5, 0], recovered: [0, 5, 5, 5, 0] };
+    }
     const n = diffBase.length;
     const diff = new Array(n + 1).fill(0);
     // Apply update [1, 3] += val
@@ -472,7 +490,7 @@ export default function JavaProblemSolvingPatterns() {
       recovered[i] = cur;
     }
     return { diffArray: diff.slice(0, n + 1), recovered };
-  }, [diffBase, rangeUpdateVal]);
+  }, [diffBase, rangeUpdateVal, activeMode, activeWb]);
 
   // --- WORKBENCH 8 STATE: Mo's Sqrt-Decomposition Simulator ---
   const [moQueries] = useState([
@@ -483,6 +501,9 @@ export default function JavaProblemSolvingPatterns() {
   ]);
 
   const moSortedQueries = useMemo(() => {
+    if (activeMode !== "workbenches" || activeWb !== 8) {
+      return { blockSize: 2, sorted: moQueries };
+    }
     const n = 6;
     const blockSize = Math.max(1, Math.floor(Math.sqrt(n)));
     const sorted = [...moQueries].sort((a, b) => {
@@ -492,7 +513,7 @@ export default function JavaProblemSolvingPatterns() {
       return a.r - b.r;
     });
     return { blockSize, sorted };
-  }, [moQueries]);
+  }, [moQueries, activeMode, activeWb]);
 
   // Filtered curriculum sections
   const filteredSections = useMemo(() => {
@@ -517,22 +538,22 @@ export default function JavaProblemSolvingPatterns() {
   }, [quizAnswers]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-orange-500/20 selection:text-orange-200">
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="problem-solving-patterns"
         track="java"
         totalModules={24}
-        accentColor="indigo"
+        accentColor="orange"
         prevRoute="/learning/java/advanced-dp"
         nextRoute="/learning/java/collections-jvm"
       />
 
       {/* Hero Banner */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-indigo-950/30 via-slate-900/40 to-slate-950 px-4 py-8 md:py-12">
+      <div className="border-b border-slate-800 bg-gradient-to-b from-orange-950/20 via-slate-900/40 to-slate-950 px-4 py-8 md:py-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold tracking-wide uppercase">
               <Zap className="w-3.5 h-3.5" />
               Module 21 — Master Problem Solving Track
             </div>
@@ -556,7 +577,7 @@ export default function JavaProblemSolvingPatterns() {
 
             <button
               onClick={() => setShowQuizModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-medium text-xs md:text-sm shadow-lg shadow-indigo-600/20 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 transition-all hover:scale-[1.02]"
             >
               <Award className="w-4 h-4" />
               Take Assessment Quiz ({QUIZ_QUESTIONS.length} MCQs)
@@ -570,7 +591,7 @@ export default function JavaProblemSolvingPatterns() {
             onClick={() => setActiveMode("workbenches")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "workbenches"
-                ? "border-indigo-500 text-indigo-400 bg-indigo-500/10 rounded-t-lg"
+                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
                 : "border-transparent text-slate-400 hover:text-slate-200"
             }`}
           >
@@ -581,7 +602,7 @@ export default function JavaProblemSolvingPatterns() {
             onClick={() => setActiveMode("reader")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "reader"
-                ? "border-indigo-500 text-indigo-400 bg-indigo-500/10 rounded-t-lg"
+                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
                 : "border-transparent text-slate-400 hover:text-slate-200"
             }`}
           >
@@ -592,7 +613,7 @@ export default function JavaProblemSolvingPatterns() {
             onClick={() => setActiveMode("labs")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "labs"
-                ? "border-indigo-500 text-indigo-400 bg-indigo-500/10 rounded-t-lg"
+                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
                 : "border-transparent text-slate-400 hover:text-slate-200"
             }`}
           >
@@ -627,11 +648,11 @@ export default function JavaProblemSolvingPatterns() {
                     onClick={() => setActiveWb(wb.id)}
                     className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between gap-2 ${
                       isSel
-                        ? "bg-indigo-600/20 border-indigo-500/70 text-indigo-300 shadow-md shadow-indigo-600/10"
+                        ? "bg-orange-500/15 border-orange-500/60 text-orange-300 shadow-md shadow-orange-500/20"
                         : "bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     }`}
                   >
-                    <IconComponent className={`w-4 h-4 ${isSel ? "text-indigo-400" : "text-slate-400"}`} />
+                    <IconComponent className={`w-4 h-4 ${isSel ? "text-orange-400" : "text-slate-400"}`} />
                     <span className="text-xs font-semibold leading-tight">{wb.name}</span>
                   </button>
                 );
@@ -644,11 +665,11 @@ export default function JavaProblemSolvingPatterns() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <div>
                     <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                      <Grid className="w-5 h-5 text-indigo-400" />
+                      <Grid className="w-5 h-5 text-orange-400" />
                       Workbench 1: Backtracking & N-Queens Visualizer
                     </h2>
                     <p className="text-xs md:text-sm text-slate-400">
-                      O(1) diagonal conflict verification using <code className="text-indigo-300 font-mono">d1[r - c + n - 1]</code> and <code className="text-indigo-300 font-mono">d2[r + c]</code>.
+                      O(1) diagonal conflict verification using <code className="text-orange-300 font-mono">d1[r - c + n - 1]</code> and <code className="text-orange-300 font-mono">d2[r + c]</code>.
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-mono">
@@ -659,9 +680,9 @@ export default function JavaProblemSolvingPatterns() {
                       max="8"
                       value={nQueensSize}
                       onChange={(e) => setNQueensSize(Number(e.target.value))}
-                      className="w-24 accent-indigo-500"
+                      className="w-24 accent-orange-500"
                     />
-                    <span className="text-indigo-400 font-bold">{nQueensSize} × {nQueensSize}</span>
+                    <span className="text-orange-400 font-bold">{nQueensSize} × {nQueensSize}</span>
                   </div>
                 </div>
 
@@ -686,7 +707,7 @@ export default function JavaProblemSolvingPatterns() {
                               key={c}
                               className={`w-7 h-7 flex items-center justify-center font-mono text-xs font-bold rounded ${
                                 cell === 'Q'
-                                  ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/30"
+                                  ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                                   : (r + c) % 2 === 0
                                   ? "bg-slate-800 text-slate-400"
                                   : "bg-slate-850 text-slate-400"
@@ -709,11 +730,11 @@ export default function JavaProblemSolvingPatterns() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <div>
                     <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                      <Search className="w-5 h-5 text-indigo-400" />
+                      <Search className="w-5 h-5 text-orange-400" />
                       Workbench 2: Binary Search on Answer (Capacity to Ship Packages)
                     </h2>
                     <p className="text-xs md:text-sm text-slate-400">
-                      Searching over monotonic feasibility range <code className="text-indigo-300 font-mono">[max(weights), sum(weights)]</code> in O(N log S).
+                      Searching over monotonic feasibility range <code className="text-orange-300 font-mono">[max(weights), sum(weights)]</code> in O(N log S).
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-mono">
@@ -724,9 +745,9 @@ export default function JavaProblemSolvingPatterns() {
                       max="10"
                       value={shipDays}
                       onChange={(e) => setShipDays(Number(e.target.value))}
-                      className="w-24 accent-indigo-500"
+                      className="w-24 accent-orange-500"
                     />
-                    <span className="text-indigo-400 font-bold">{shipDays} Days</span>
+                    <span className="text-orange-400 font-bold">{shipDays} Days</span>
                   </div>
                 </div>
 
@@ -736,7 +757,7 @@ export default function JavaProblemSolvingPatterns() {
                     <div className="text-3xl font-extrabold text-white font-mono mt-1">{shipResult.minCapacity} kg/day</div>
                   </div>
                   <div className="text-right text-xs text-slate-400 font-mono space-y-1">
-                    <div>Lower Bound (max package): <span className="text-indigo-400">{shipResult.minBound}</span></div>
+                    <div>Lower Bound (max package): <span className="text-orange-400">{shipResult.minBound}</span></div>
                     <div>Upper Bound (sum of packages): <span className="text-emerald-400">{shipResult.maxBound}</span></div>
                   </div>
                 </div>
@@ -748,7 +769,7 @@ export default function JavaProblemSolvingPatterns() {
               <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
                 <div className="border-b border-slate-800 pb-4">
                   <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                    <Layers className="w-5 h-5 text-indigo-400" />
+                    <Layers className="w-5 h-5 text-orange-400" />
                     Workbench 3: Monotonic Stack Studio (Next Greater Element)
                   </h2>
                   <p className="text-xs md:text-sm text-slate-400">
@@ -776,7 +797,7 @@ export default function JavaProblemSolvingPatterns() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <div>
                     <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                      <Sliders className="w-5 h-5 text-indigo-400" />
+                      <Sliders className="w-5 h-5 text-orange-400" />
                       Workbench 4: Monotonic Queue (Sliding Window Maximum)
                     </h2>
                     <p className="text-xs md:text-sm text-slate-400">
@@ -791,9 +812,9 @@ export default function JavaProblemSolvingPatterns() {
                       max="5"
                       value={mqWindowK}
                       onChange={(e) => setMqWindowK(Number(e.target.value))}
-                      className="w-20 accent-indigo-500"
+                      className="w-20 accent-orange-500"
                     />
-                    <span className="text-indigo-400 font-bold">K = {mqWindowK}</span>
+                    <span className="text-orange-400 font-bold">K = {mqWindowK}</span>
                   </div>
                 </div>
 
@@ -816,7 +837,7 @@ export default function JavaProblemSolvingPatterns() {
               <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
                 <div className="border-b border-slate-800 pb-4">
                   <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                    <Compass className="w-5 h-5 text-indigo-400" />
+                    <Compass className="w-5 h-5 text-orange-400" />
                     Workbench 5: Graph Algorithm Classifier & Decision Matrix
                   </h2>
                   <p className="text-xs md:text-sm text-slate-400">
@@ -828,7 +849,7 @@ export default function JavaProblemSolvingPatterns() {
                   <button
                     onClick={() => setHasWeights(!hasWeights)}
                     className={`px-3 py-1.5 rounded-lg border text-xs font-mono ${
-                      hasWeights ? "bg-indigo-600/30 border-indigo-500 text-indigo-300" : "bg-slate-950 border-slate-800 text-slate-400"
+                      hasWeights ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-slate-950 border-slate-800 text-slate-400"
                     }`}
                   >
                     Weighted Edges: {hasWeights ? "YES" : "NO (Unweighted)"}
@@ -838,7 +859,7 @@ export default function JavaProblemSolvingPatterns() {
                     onClick={() => setHasNegatives(!hasNegatives)}
                     disabled={!hasWeights}
                     className={`px-3 py-1.5 rounded-lg border text-xs font-mono disabled:opacity-30 ${
-                      hasNegatives ? "bg-indigo-600/30 border-indigo-500 text-indigo-300" : "bg-slate-950 border-slate-800 text-slate-400"
+                      hasNegatives ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-slate-950 border-slate-800 text-slate-400"
                     }`}
                   >
                     Negative Weights: {hasNegatives ? "YES" : "NO"}
@@ -847,7 +868,7 @@ export default function JavaProblemSolvingPatterns() {
                   <button
                     onClick={() => setIsDAG(!isDAG)}
                     className={`px-3 py-1.5 rounded-lg border text-xs font-mono ${
-                      isDAG ? "bg-indigo-600/30 border-indigo-500 text-indigo-300" : "bg-slate-950 border-slate-800 text-slate-400"
+                      isDAG ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-slate-950 border-slate-800 text-slate-400"
                     }`}
                   >
                     Acyclic (DAG): {isDAG ? "YES" : "NO"}
@@ -857,7 +878,7 @@ export default function JavaProblemSolvingPatterns() {
                 <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
                   <span className="text-xs font-mono text-slate-400 uppercase">Recommended Architecture</span>
                   <div className="text-2xl font-bold text-emerald-400 font-mono">{graphRecommendation.algo}</div>
-                  <div className="text-xs font-mono text-indigo-400">Complexity: {graphRecommendation.complexity}</div>
+                  <div className="text-xs font-mono text-orange-400">Complexity: {graphRecommendation.complexity}</div>
                   <p className="text-xs text-slate-300 leading-relaxed pt-1">{graphRecommendation.reason}</p>
                 </div>
               </div>
@@ -868,11 +889,11 @@ export default function JavaProblemSolvingPatterns() {
               <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
                 <div className="border-b border-slate-800 pb-4">
                   <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                    <GitBranch className="w-5 h-5 text-indigo-400" />
+                    <GitBranch className="w-5 h-5 text-orange-400" />
                     Workbench 6: Tree DP (Maximum Independent Set)
                   </h2>
                   <p className="text-xs md:text-sm text-slate-400">
-                    Post-order DFS state vector: <code className="text-indigo-300 font-mono">take[u] = 1 + sum(skip[c])</code> and <code className="text-indigo-300 font-mono">skip[u] = sum(max(take, skip))</code>.
+                    Post-order DFS state vector: <code className="text-orange-300 font-mono">take[u] = 1 + sum(skip[c])</code> and <code className="text-orange-300 font-mono">skip[u] = sum(max(take, skip))</code>.
                   </p>
                 </div>
 
@@ -882,7 +903,7 @@ export default function JavaProblemSolvingPatterns() {
                     <div className="text-3xl font-extrabold text-white font-mono mt-1">{treeISResult.maxSetSize} Nodes</div>
                   </div>
                   <div className="text-right text-xs text-slate-400 font-mono space-y-1">
-                    <div>Root Take: <span className="text-indigo-400">{treeISResult.rootTake}</span></div>
+                    <div>Root Take: <span className="text-orange-400">{treeISResult.rootTake}</span></div>
                     <div>Root Skip: <span className="text-emerald-400">{treeISResult.rootSkip}</span></div>
                   </div>
                 </div>
@@ -895,11 +916,11 @@ export default function JavaProblemSolvingPatterns() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <div>
                     <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                      <Code2 className="w-5 h-5 text-indigo-400" />
+                      <Code2 className="w-5 h-5 text-orange-400" />
                       Workbench 7: Difference Array Range Updates
                     </h2>
                     <p className="text-xs md:text-sm text-slate-400">
-                      O(1) range additions via <code className="text-indigo-300 font-mono">diff[l] += x; diff[r+1] -= x;</code> with prefix sum recovery.
+                      O(1) range additions via <code className="text-orange-300 font-mono">diff[l] += x; diff[r+1] -= x;</code> with prefix sum recovery.
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-mono">
@@ -910,9 +931,9 @@ export default function JavaProblemSolvingPatterns() {
                       max="15"
                       value={rangeUpdateVal}
                       onChange={(e) => setRangeUpdateVal(Number(e.target.value))}
-                      className="w-20 accent-indigo-500"
+                      className="w-20 accent-orange-500"
                     />
-                    <span className="text-indigo-400 font-bold">+{rangeUpdateVal}</span>
+                    <span className="text-orange-400 font-bold">+{rangeUpdateVal}</span>
                   </div>
                 </div>
 
@@ -923,7 +944,7 @@ export default function JavaProblemSolvingPatterns() {
                       {diffResult.diffArray.map((v, i) => (
                         <div key={i} className="px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded font-mono text-xs text-center">
                           <span className="block text-[8px] text-slate-400">{i}</span>
-                          <span className="font-bold text-indigo-300">{v}</span>
+                          <span className="font-bold text-orange-300">{v}</span>
                         </div>
                       ))}
                     </div>
@@ -949,11 +970,11 @@ export default function JavaProblemSolvingPatterns() {
               <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
                 <div className="border-b border-slate-800 pb-4">
                   <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                    <Cpu className="w-5 h-5 text-indigo-400" />
+                    <Cpu className="w-5 h-5 text-orange-400" />
                     Workbench 8: Mo's Algorithm Offline Query Sqrt-Decomposition
                   </h2>
                   <p className="text-xs md:text-sm text-slate-400">
-                    Sorting queries by <code className="text-indigo-300 font-mono">block(L) = L / sqrt(N)</code> balances pointer movement to O((N + Q) sqrt(N)).
+                    Sorting queries by <code className="text-orange-300 font-mono">block(L) = L / sqrt(N)</code> balances pointer movement to O((N + Q) sqrt(N)).
                   </p>
                 </div>
 
@@ -1000,7 +1021,7 @@ export default function JavaProblemSolvingPatterns() {
                   placeholder="Filter sections..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
                 />
               </div>
 
@@ -1012,7 +1033,7 @@ export default function JavaProblemSolvingPatterns() {
                     title={sec.title}
                     className={`w-full text-left p-2.5 rounded-xl text-xs transition flex items-start gap-2 ${
                       activeSectionId === sec.id
-                        ? "bg-indigo-600/20 border border-indigo-500/50 text-indigo-300 font-semibold"
+                        ? "bg-orange-500/15 border border-orange-500/50 text-orange-300 font-semibold"
                         : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
                     }`}
                   >
@@ -1026,7 +1047,7 @@ export default function JavaProblemSolvingPatterns() {
             {/* Main Content Area */}
             <div className="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
               <div className="border-b border-slate-800 pb-4">
-                <div className="text-xs font-mono text-indigo-400 uppercase tracking-wider mb-1">
+                <div className="text-xs font-mono text-orange-400 uppercase tracking-wider mb-1">
                   {activeSection.id === 0
                     ? "Module Overview · 22 Core Sections"
                     : `Section ${activeSection.id} of 22`}
@@ -1056,7 +1077,7 @@ export default function JavaProblemSolvingPatterns() {
                 <button
                   disabled={activeSectionId >= JAVA_PROBLEM_SOLVING_PATTERNS_SECTIONS.length - 1}
                   onClick={() => setActiveSectionId(prev => Math.min(JAVA_PROBLEM_SOLVING_PATTERNS_SECTIONS.length - 1, prev + 1))}
-                  className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-medium text-white disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition shadow-md shadow-indigo-600/20"
+                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition shadow-md shadow-orange-500/20"
                 >
                   Next Section <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -1072,7 +1093,7 @@ export default function JavaProblemSolvingPatterns() {
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
                   <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                    <CheckSquare className="w-5 h-5 text-indigo-400" />
+                    <CheckSquare className="w-5 h-5 text-orange-400" />
                     35 Advanced Problem-Solving Patterns Labs
                   </h2>
                   <p className="text-xs md:text-sm text-slate-400">
@@ -1099,8 +1120,8 @@ export default function JavaProblemSolvingPatterns() {
                 return (
                   <div key={tier} className="space-y-3 pt-2">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+                      <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wider flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-orange-500"></span>
                         {tier} ({tierDone}/{tierLabs.length})
                       </h3>
                     </div>
@@ -1153,7 +1174,7 @@ export default function JavaProblemSolvingPatterns() {
             <div className="p-5 border-b border-slate-800 flex items-center justify-between">
               <div>
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <Award className="w-5 h-5 text-indigo-400" />
+                  <Award className="w-5 h-5 text-orange-400" />
                   Module 21 Mastery Assessment Quiz
                 </h3>
                 <p className="text-xs text-slate-400">15 Scenario-based Pattern Recognition Questions</p>
@@ -1173,7 +1194,7 @@ export default function JavaProblemSolvingPatterns() {
                 return (
                   <div key={q.id} className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
                     <div className="text-xs md:text-sm font-semibold text-white flex items-start gap-2">
-                      <span className="font-mono text-indigo-400">Q{idx + 1}.</span>
+                      <span className="font-mono text-orange-400">Q{idx + 1}.</span>
                       <span>{q.question}</span>
                     </div>
 
@@ -1185,7 +1206,7 @@ export default function JavaProblemSolvingPatterns() {
                           if (optIdx === q.correct) optClass = "bg-emerald-950/40 border-emerald-500 text-emerald-300 font-semibold";
                           else if (isSelected) optClass = "bg-red-950/40 border-red-500 text-red-300";
                         } else if (isSelected) {
-                          optClass = "bg-indigo-600/30 border-indigo-500 text-indigo-300 font-semibold";
+                          optClass = "bg-orange-500/20 border-orange-500 text-orange-300 font-semibold";
                         }
 
                         return (
@@ -1242,7 +1263,7 @@ export default function JavaProblemSolvingPatterns() {
                   <button
                     onClick={() => setQuizSubmitted(true)}
                     disabled={Object.keys(quizAnswers).length === 0}
-                    className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-medium text-white disabled:opacity-40 transition shadow-lg shadow-indigo-600/20"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
                   >
                     Submit Answers
                   </button>

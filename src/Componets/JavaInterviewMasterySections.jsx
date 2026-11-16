@@ -54,7 +54,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-1-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `1. Data Structures Interview Preparation` }} />
         </h2>
       
@@ -124,7 +124,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
         <div key="table-1-13" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Data Structure</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Important Concepts</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Typical Interview Problems</th>
               </tr>
             </thead>
@@ -213,7 +213,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
         <div key="table-1-16" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Operation</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Array</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">ArrayList</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">HashMap</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">TreeMap</th>
               </tr>
             </thead>
@@ -460,7 +460,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-2-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `2. Algorithms Interview Preparation` }} />
         </h2>
       
@@ -484,7 +484,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
         <div key="table-2-4" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Category</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Important Algorithms</th>
               </tr>
             </thead>
@@ -575,7 +575,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       </p>
     
 
-        <div key="math-2-12" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-2-12" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -595,7 +595,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       </p>
     
 
-        <div key="math-2-16" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-2-16" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(log n)` }} />
         </div>
       
@@ -686,7 +686,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-3-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `3. Coding Interview Methodology` }} />
         </h2>
       
@@ -802,7 +802,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-4-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `4. Clarifying Problem Requirements` }} />
         </h2>
       
@@ -1100,7 +1100,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-5-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `5. Brute Force to Optimized Solution` }} />
         </h2>
       
@@ -1228,7 +1228,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       </p>
     
 
-        <div key="math-5-19" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-5-19" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n^2)` }} />
         </div>
       
@@ -1238,7 +1238,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       </p>
     
 
-        <div key="math-5-21" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-5-21" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -1263,7 +1263,7 @@ export const JAVA_INTERVIEW_MASTERY_SECTIONS = [
       </p>
     
 
-        <div key="math-5-26" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-5-26" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `complement=target-current` }} />
         </div>
       
@@ -1326,7 +1326,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-5-32" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-5-32" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -1336,7 +1336,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-5-34" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-5-34" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -1457,7 +1457,7 @@ public class TwoSumOptimized  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-6-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `6. Complexity Explanation` }} />
         </h2>
       
@@ -1494,7 +1494,7 @@ public class TwoSumOptimized  &#123;
     
 
       <p key="p-6-7" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `The loop executes <span className="font-mono text-indigo-300 font-semibold">n</span> times.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `The loop executes <span className="font-mono text-orange-300 font-semibold">n</span> times.` }} />
       </p>
     
 
@@ -1503,7 +1503,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-6-9" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-9" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -1519,7 +1519,7 @@ public class TwoSumOptimized  &#123;
     
 
       <p key="p-6-12" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `The inner loop executes <span className="font-mono text-indigo-300 font-semibold">n</span> times for each of the <span className="font-mono text-indigo-300 font-semibold">n</span> outer-loop iterations.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `The inner loop executes <span className="font-mono text-orange-300 font-semibold">n</span> times for each of the <span className="font-mono text-orange-300 font-semibold">n</span> outer-loop iterations.` }} />
       </p>
     
 
@@ -1528,7 +1528,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-6-14" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-14" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n^2)` }} />
         </div>
       
@@ -1705,7 +1705,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-6-49" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-49" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -1725,7 +1725,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-6-53" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-53" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -1741,7 +1741,7 @@ public class TwoSumOptimized  &#123;
     
 
       <p key="p-6-56" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `For example, a solution that receives an input array of size <span className="font-mono text-indigo-300 font-semibold">n</span> and uses a HashMap of size <span className="font-mono text-indigo-300 font-semibold">n</span> has:` }} />
+        <span dangerouslySetInnerHTML={{ __html: `For example, a solution that receives an input array of size <span className="font-mono text-orange-300 font-semibold">n</span> and uses a HashMap of size <span className="font-mono text-orange-300 font-semibold">n</span> has:` }} />
       </p>
     
 
@@ -1777,7 +1777,7 @@ public class TwoSumOptimized  &#123;
     
 
       <p key="p-6-63" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `The function creates approximately <span className="font-mono text-indigo-300 font-semibold">n</span> recursive stack frames.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `The function creates approximately <span className="font-mono text-orange-300 font-semibold">n</span> recursive stack frames.` }} />
       </p>
     
 
@@ -1786,7 +1786,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-6-65" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-65" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -1796,7 +1796,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-6-67" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-67" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -1832,7 +1832,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-6-74" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-74" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -1867,7 +1867,7 @@ public class TwoSumOptimized  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-7-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `7. Edge Case Analysis` }} />
         </h2>
       
@@ -1947,7 +1947,7 @@ public class TwoSumOptimized  &#123;
         <div key="table-7-15" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Category</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Example</th>
               </tr>
             </thead>
@@ -2128,7 +2128,7 @@ public class TwoSumOptimized  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-8-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `8. Dry Runs` }} />
         </h2>
       
@@ -2369,7 +2369,7 @@ public class TwoSumOptimized  &#123;
         <div key="table-8-47" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Step</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Low</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">High</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Mid</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Value at Mid</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Action</th>
               </tr>
             </thead>
@@ -2427,7 +2427,7 @@ public class TwoSumOptimized  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-9-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `9. Code Quality and Readability` }} />
         </h2>
       
@@ -2675,7 +2675,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-9-37" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-9-37" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -2685,7 +2685,7 @@ public class TwoSumOptimized  &#123;
       </p>
     
 
-        <div key="math-9-39" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-9-39" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -2700,7 +2700,7 @@ public class TwoSumOptimized  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-10-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `10. Interview Communication` }} />
         </h2>
       
@@ -3025,7 +3025,7 @@ public class TwoSumOptimized  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-11-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `11. Java Coding Interview Questions` }} />
         </h2>
       
@@ -3547,7 +3547,7 @@ public class TwoSumOptimized  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-12-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `12. Arrays and Strings Interview Patterns` }} />
         </h2>
       
@@ -3937,7 +3937,7 @@ public class LongestUniqueSubstring  &#123;
       </p>
     
 
-        <div key="math-12-71" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-12-71" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -3947,7 +3947,7 @@ public class LongestUniqueSubstring  &#123;
       </p>
     
 
-        <div key="math-12-73" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-12-73" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -4083,7 +4083,7 @@ public class LongestUniqueSubstring  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-13-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `13. Linked List Interview Questions` }} />
         </h2>
       
@@ -4360,7 +4360,7 @@ public class LongestUniqueSubstring  &#123;
       </p>
     
 
-        <div key="math-13-46" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-13-46" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -4370,7 +4370,7 @@ public class LongestUniqueSubstring  &#123;
       </p>
     
 
-        <div key="math-13-48" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-13-48" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -4411,7 +4411,7 @@ public class LongestUniqueSubstring  &#123;
       </p>
     
 
-        <div key="math-13-56" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-13-56" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -4421,7 +4421,7 @@ public class LongestUniqueSubstring  &#123;
       </p>
     
 
-        <div key="math-13-58" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-13-58" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -4492,7 +4492,7 @@ public class LongestUniqueSubstring  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-14-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `14. Tree and Graph Interview Questions` }} />
         </h2>
       
@@ -4660,7 +4660,7 @@ public class TreeLevelOrder  &#123;
       </p>
     
 
-        <div key="math-14-23" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-14-23" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -4670,7 +4670,7 @@ public class TreeLevelOrder  &#123;
       </p>
     
 
-        <div key="math-14-25" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-14-25" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -4889,7 +4889,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-14-57" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-14-57" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(V+E)` }} />
         </div>
       
@@ -5025,7 +5025,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-15-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `15. Dynamic Programming Interview Questions` }} />
         </h2>
       
@@ -5147,7 +5147,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-15-24" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-15-24" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `dp[i]` }} />
         </div>
       
@@ -5177,7 +5177,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-15-30" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-15-30" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `nums[i]+dp[i-2]` }} />
         </div>
       
@@ -5187,7 +5187,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-15-32" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-15-32" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `dp[i-1]` }} />
         </div>
       
@@ -5197,7 +5197,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-15-34" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-15-34" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `dp[i]=max(dp[i-1],nums[i]+dp[i-2])` }} />
         </div>
       
@@ -5207,12 +5207,12 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-15-36" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-15-36" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `dp[0]=nums[0]` }} />
         </div>
       
 
-        <div key="math-15-37" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-15-37" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `dp[1]=max(nums[0],nums[1])` }} />
         </div>
       
@@ -5271,7 +5271,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-15-43" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-15-43" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -5281,7 +5281,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-15-45" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-15-45" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -5300,7 +5300,7 @@ public class GraphBFS  &#123;
         <div key="table-15-48" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Category</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Essential Questions</th>
               </tr>
             </thead>
@@ -5439,7 +5439,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-16-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `16. Mock Technical Interviews` }} />
         </h2>
       
@@ -5612,12 +5612,12 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-16-34" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-16-34" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `currentSum=max(value,currentSum+value)` }} />
         </div>
       
 
-        <div key="math-16-35" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-16-35" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `maximumSum=max(maximumSum,currentSum)` }} />
         </div>
       
@@ -5675,7 +5675,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-16-41" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-16-41" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -5685,7 +5685,7 @@ public class GraphBFS  &#123;
       </p>
     
 
-        <div key="math-16-43" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-16-43" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(1)` }} />
         </div>
       
@@ -5740,7 +5740,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-17-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `17. Timed Coding Assessments` }} />
         </h2>
       
@@ -5810,7 +5810,7 @@ public class GraphBFS  &#123;
         <div key="table-17-13" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Time Window</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Activity</th>
               </tr>
             </thead>
@@ -6064,7 +6064,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-18-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `18. Competitive Programming Revision` }} />
         </h2>
       
@@ -6402,7 +6402,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-19-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `19. Interview Mistake Analysis` }} />
         </h2>
       
@@ -6452,7 +6452,7 @@ public class GraphBFS  &#123;
         <div key="table-19-9" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Mistake Category</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Example</th>
               </tr>
             </thead>
@@ -6525,7 +6525,7 @@ public class GraphBFS  &#123;
         <div key="table-19-12" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Problem</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Mistake</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Root Cause</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Corrective Action</th>
               </tr>
             </thead>
@@ -6692,7 +6692,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-20-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `20. Technical Interview Question Bank` }} />
         </h2>
       
@@ -6977,7 +6977,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-21-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `21. Practical Interview Preparation Strategy` }} />
         </h2>
       
@@ -7222,7 +7222,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-22-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `22. Module 23 Final Practice Assessment` }} />
         </h2>
       
@@ -7457,7 +7457,7 @@ public class GraphBFS  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-23-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `23. Final Learning Outcomes` }} />
         </h2>
       

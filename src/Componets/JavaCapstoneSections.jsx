@@ -104,7 +104,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-1-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `1. Understanding the three capstone projects` }} />
         </h2>
       
@@ -119,17 +119,17 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-          <div key="link-card-1-3" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-indigo-500/30 text-indigo-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
+          <div key="link-card-1-3" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-orange-500/30 text-orange-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
             <span className="font-semibold" dangerouslySetInnerHTML={{ __html: `VisualGo: Visualising data structures and algorithms through animation - Rushi's` }} />
-            <a href="https://images.openai.com/static-rsc-4/qG77XUhcgRL6AF9TYJfxu3hq2XFrjU3n4quFlXa2XTEWNwIQRqncQGOJbbpXLSx2WOBvSbQMT11jJmDZeUpCa2TadryQWQd8TGf9xo-vt4g33XNZuokkZUQfK1DT9H8LO8wpV3VZKVUVACcxwlTp_QkS6jXNKPt-3hWAmVGGciA?purpose=inline" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-indigo-600/30 text-indigo-300 hover:bg-indigo-600 hover:text-white transition-colors">
+            <a href="https://images.openai.com/static-rsc-4/qG77XUhcgRL6AF9TYJfxu3hq2XFrjU3n4quFlXa2XTEWNwIQRqncQGOJbbpXLSx2WOBvSbQMT11jJmDZeUpCa2TadryQWQd8TGf9xo-vt4g33XNZuokkZUQfK1DT9H8LO8wpV3VZKVUVACcxwlTp_QkS6jXNKPt-3hWAmVGGciA?purpose=inline" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-white transition-colors">
               Reference Blueprint &rarr;
             </a>
           </div>
         
 
-          <div key="link-card-1-4" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-indigo-500/30 text-indigo-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
+          <div key="link-card-1-4" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-orange-500/30 text-orange-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
             <span className="font-semibold" dangerouslySetInnerHTML={{ __html: `rushis.com` }} />
-            <a href="https://www.rushis.com/visualgo-visualising-data-structures-and-algorithms-through-animation/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-indigo-600/30 text-indigo-300 hover:bg-indigo-600 hover:text-white transition-colors">
+            <a href="https://www.rushis.com/visualgo-visualising-data-structures-and-algorithms-through-animation/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-white transition-colors">
               Reference Blueprint &rarr;
             </a>
           </div>
@@ -155,17 +155,17 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-          <div key="link-card-1-9" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-indigo-500/30 text-indigo-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
+          <div key="link-card-1-9" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-orange-500/30 text-orange-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
             <span className="font-semibold" dangerouslySetInnerHTML={{ __html: `面试官面试指引` }} />
-            <a href="https://images.openai.com/static-rsc-4/zTPI42SsO4eMsbtWvRf_V6sILtr8d6vRfpkEi5DqcZiMUi1a95w09QfB3p0aG3hggIqB7_RrWehcflrquUvURodCS4i8qYxcVAQ4TC8ihXZ3iMapICdiBmneb1LR45afAPHUIunKi2TSit2CQ30M3JKOtXVpPWcB78bazedtiWE?purpose=inline" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-indigo-600/30 text-indigo-300 hover:bg-indigo-600 hover:text-white transition-colors">
+            <a href="https://images.openai.com/static-rsc-4/zTPI42SsO4eMsbtWvRf_V6sILtr8d6vRfpkEi5DqcZiMUi1a95w09QfB3p0aG3hggIqB7_RrWehcflrquUvURodCS4i8qYxcVAQ4TC8ihXZ3iMapICdiBmneb1LR45afAPHUIunKi2TSit2CQ30M3JKOtXVpPWcB78bazedtiWE?purpose=inline" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-white transition-colors">
               Reference Blueprint &rarr;
             </a>
           </div>
         
 
-          <div key="link-card-1-10" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-indigo-500/30 text-indigo-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
+          <div key="link-card-1-10" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-orange-500/30 text-orange-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
             <span className="font-semibold" dangerouslySetInnerHTML={{ __html: `docs.showmebug.com` }} />
-            <a href="https://docs.showmebug.com/015-interview-guide/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-indigo-600/30 text-indigo-300 hover:bg-indigo-600 hover:text-white transition-colors">
+            <a href="https://docs.showmebug.com/015-interview-guide/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-white transition-colors">
               Reference Blueprint &rarr;
             </a>
           </div>
@@ -191,17 +191,17 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-          <div key="link-card-1-15" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-indigo-500/30 text-indigo-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
+          <div key="link-card-1-15" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-orange-500/30 text-orange-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
             <span className="font-semibold" dangerouslySetInnerHTML={{ __html: `DS Visualizer` }} />
-            <a href="https://images.openai.com/static-rsc-4/9ZLl3kSPlyxGJLlKG_YaWzOvNCrfl_XcW3QTWtbC40SqLh1dFBX3wkY9XMeqk0k-DP3cjscc0BXz9xcfMc8rG4HNMItAlE4eVuAnL9JQs59oIYtRUpRwqZgEpK5NC98lYU33gzKQj5NVXypqudF44CEfi-2KgWVLgftl8aPeVKc?purpose=inline" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-indigo-600/30 text-indigo-300 hover:bg-indigo-600 hover:text-white transition-colors">
+            <a href="https://images.openai.com/static-rsc-4/9ZLl3kSPlyxGJLlKG_YaWzOvNCrfl_XcW3QTWtbC40SqLh1dFBX3wkY9XMeqk0k-DP3cjscc0BXz9xcfMc8rG4HNMItAlE4eVuAnL9JQs59oIYtRUpRwqZgEpK5NC98lYU33gzKQj5NVXypqudF44CEfi-2KgWVLgftl8aPeVKc?purpose=inline" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-white transition-colors">
               Reference Blueprint &rarr;
             </a>
           </div>
         
 
-          <div key="link-card-1-16" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-indigo-500/30 text-indigo-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
+          <div key="link-card-1-16" className="my-3 p-3.5 rounded-xl bg-slate-900/80 border border-orange-500/30 text-orange-300 text-xs flex items-center justify-between hover:bg-slate-900 transition-colors">
             <span className="font-semibold" dangerouslySetInnerHTML={{ __html: `dsa-visualizer-delta.vercel.app` }} />
-            <a href="https://dsa-visualizer-delta.vercel.app/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-indigo-600/30 text-indigo-300 hover:bg-indigo-600 hover:text-white transition-colors">
+            <a href="https://dsa-visualizer-delta.vercel.app/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1 rounded bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-white transition-colors">
               Reference Blueprint &rarr;
             </a>
           </div>
@@ -231,7 +231,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-1-21" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Your Objective</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Best Choice</th>
               </tr>
             </thead>
@@ -286,13 +286,13 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-2-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 1 — PROJECT 1: INTERACTIVE DSA ALGORITHM VISUALIZER` }} />
         </h2>
       
 
         <h2 key="h1-2-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `2. What is an Algorithm Visualizer?` }} />
         </h2>
       
@@ -644,7 +644,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-3-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `3. Visualize Sorting Algorithms` }} />
         </h2>
       
@@ -688,26 +688,26 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-3-8" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Case</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Complexity</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800/60 text-slate-300">
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Best</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span>, with early-exit optimization</td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Best</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span>, with early-exit optimization</td>
                 </tr>
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Average</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td>
                 </tr>
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Worst</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Worst</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td>
                 </tr>
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Auxiliary space</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Auxiliary space</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                 </tr>
               
             </tbody>
@@ -742,22 +742,22 @@ export const JAVA_CAPSTONE_SECTIONS = [
     
 
       <p key="p-3-14" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Best: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Best: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.` }} />
       </p>
     
 
       <p key="p-3-15" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.` }} />
       </p>
     
 
       <p key="p-3-16" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.` }} />
       </p>
     
 
       <p key="p-3-17" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(1)</span>.` }} />
       </p>
     
 
@@ -783,22 +783,22 @@ export const JAVA_CAPSTONE_SECTIONS = [
     
 
       <p key="p-3-22" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Best: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Best: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.` }} />
       </p>
     
 
       <p key="p-3-23" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.` }} />
       </p>
     
 
       <p key="p-3-24" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.` }} />
       </p>
     
 
       <p key="p-3-25" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(1)</span>.` }} />
       </p>
     
 
@@ -849,22 +849,22 @@ export const JAVA_CAPSTONE_SECTIONS = [
     
 
       <p key="p-3-35" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Best: <span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Best: <span className="font-mono text-orange-300 font-semibold">O(nlog n)</span>.` }} />
       </p>
     
 
       <p key="p-3-36" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-orange-300 font-semibold">O(nlog n)</span>.` }} />
       </p>
     
 
       <p key="p-3-37" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-orange-300 font-semibold">O(nlog n)</span>.` }} />
       </p>
     
 
       <p key="p-3-38" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(n)</span> for a conventional array implementation.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(n)</span> for a conventional array implementation.` }} />
       </p>
     
 
@@ -885,12 +885,12 @@ export const JAVA_CAPSTONE_SECTIONS = [
     
 
       <p key="p-3-42" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-orange-300 font-semibold">O(nlog n)</span>.` }} />
       </p>
     
 
       <p key="p-3-43" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.` }} />
       </p>
     
 
@@ -916,22 +916,22 @@ export const JAVA_CAPSTONE_SECTIONS = [
     
 
       <p key="p-3-48" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Best: <span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Best: <span className="font-mono text-orange-300 font-semibold">O(nlog n)</span>.` }} />
       </p>
     
 
       <p key="p-3-49" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Average: <span className="font-mono text-orange-300 font-semibold">O(nlog n)</span>.` }} />
       </p>
     
 
       <p key="p-3-50" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Worst: <span className="font-mono text-orange-300 font-semibold">O(nlog n)</span>.` }} />
       </p>
     
 
       <p key="p-3-51" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(1)</span> for an in-place implementation, excluding implementation details such as recursion if used.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(1)</span> for an in-place implementation, excluding implementation details such as recursion if used.` }} />
       </p>
     
 
@@ -949,34 +949,34 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-3-54" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Algorithm</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Average Time</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Worst Time</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Typical Extra Space</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800/60 text-slate-300">
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Bubble Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Bubble Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                 </tr>
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Selection Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Selection Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                 </tr>
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insertion Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Insertion Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                 </tr>
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Merge Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n)</span></td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Merge Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n)</span></td>
                 </tr>
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Quick Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Depends on recursion</td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Quick Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(n^2)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Depends on recursion</td>
                 </tr>
               
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Heap Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-indigo-300 font-semibold">O(1)</span></td>
+                  <td className="p-3.5 border-r border-slate-800/40 last:border-r-0">Heap Sort</td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(nlog n)</span></td><td className="p-3.5 border-r border-slate-800/40 last:border-r-0"><span className="font-mono text-orange-300 font-semibold">O(1)</span></td>
                 </tr>
               
             </tbody>
@@ -999,7 +999,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-4-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `4. Visualize Searching Algorithms` }} />
         </h2>
       
@@ -1046,7 +1046,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-4-6" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-4-6" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(n)` }} />
         </div>
       
@@ -1107,7 +1107,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-4-13" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-4-13" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(log n)` }} />
         </div>
       
@@ -1157,7 +1157,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-5-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `5. Visualize Trees` }} />
         </h2>
       
@@ -1228,7 +1228,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-5-14" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-5-14" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `Left < Root < Right` }} />
         </div>
       
@@ -1254,7 +1254,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
     
 
       <p key="p-5-19" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `For a balanced tree, searching is <span className="font-mono text-indigo-300 font-semibold">O(log n)</span>. For a severely unbalanced BST, the worst case is <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `For a balanced tree, searching is <span className="font-mono text-orange-300 font-semibold">O(log n)</span>. For a severely unbalanced BST, the worst case is <span className="font-mono text-orange-300 font-semibold">O(n)</span>.` }} />
       </p>
     
 
@@ -1309,7 +1309,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-6-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `6. Visualize Graphs` }} />
         </h2>
       
@@ -1507,7 +1507,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-6-39" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-39" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O((V+E)log V)` }} />
         </div>
       
@@ -1558,7 +1558,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-6-49" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-6-49" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(Elog V)` }} />
         </div>
       
@@ -1603,7 +1603,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-7-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `7. Dynamic Programming Visualization` }} />
         </h2>
       
@@ -1659,7 +1659,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-7-11" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-7-11" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `F(n)=F(n-1)+F(n-2)` }} />
         </div>
       
@@ -1669,7 +1669,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-7-13" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-7-13" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `F(0)=0,   F(1)=1` }} />
         </div>
       
@@ -1682,7 +1682,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-7-15" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">n</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Value</th>
               </tr>
             </thead>
@@ -1777,7 +1777,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-8-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `8. Architecture for Project 1` }} />
         </h2>
       
@@ -1943,12 +1943,12 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="code-8-30" className="my-5 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
             <span className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500/80 inline-block"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500/80 inline-block"></span>
               PROJECT STRUCTURE / ASCII DIAGRAM
             </span>
             <span className="text-[11px] text-slate-400">Architecture Blueprint</span>
           </div>
-          <pre className="p-4 overflow-x-auto text-xs md:text-sm font-mono text-indigo-200 leading-relaxed scrollbar-thin scrollbar-thumb-slate-800">
+          <pre className="p-4 overflow-x-auto text-xs md:text-sm font-mono text-orange-200 leading-relaxed scrollbar-thin scrollbar-thumb-slate-800">
             <code>{`DSAVisualizer/ │ ├── src/ │ ├── main/ │ │ ├── java/ │ │ │ └── com/example/visualizer/ │ │ │ ├── algorithms/ │ │ │ │ ├── sorting/ │ │ │ │ ├── searching/ │ │ │ │ ├── graph/ │ │ │ │ └── dynamicprogramming/ │ │ │ │ │ │ │ ├── datastructures/ │ │ │ │ ├── trees/ │ │ │ │ ├── heaps/ │ │ │ │ └── graphs/ │ │ │ │ │ │ │ ├── visualization/ │ │ │ ├── controllers/ │ │ │ ├── models/ │ │ │ └── Main.java │ │ │ │ │ └── resources/ │ │ │ └── test/ │ └── java/ │ └── com/example/visualizer/ │ ├── README.md ├── pom.xml └── .gitignore`}</code>
           </pre>
         </div>
@@ -1969,13 +1969,13 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-9-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 2 — PROJECT 2: JAVA CODING INTERVIEW PLATFORM` }} />
         </h2>
       
 
         <h2 key="h1-9-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `9. What is a Coding Interview Platform?` }} />
         </h2>
       
@@ -2607,7 +2607,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-9-123" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Result Verdict</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Meaning</th>
               </tr>
             </thead>
@@ -2684,7 +2684,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-9-132" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-9-132" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `Score = 100A + 40M + 20E` }} />
         </div>
       
@@ -2695,17 +2695,17 @@ export const JAVA_CAPSTONE_SECTIONS = [
     
 
       <p key="p-9-134" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold">A</span> = number of easy problems solved.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold">A</span> = number of easy problems solved.` }} />
       </p>
     
 
       <p key="p-9-135" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold">M</span> = number of medium problems solved.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold">M</span> = number of medium problems solved.` }} />
       </p>
     
 
       <p key="p-9-136" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-indigo-300 font-semibold">E</span> = number of hard problems solved.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `<span className="font-mono text-orange-300 font-semibold">E</span> = number of hard problems solved.` }} />
       </p>
     
 
@@ -2728,7 +2728,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-9-140" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Database Entity</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Main Fields</th>
               </tr>
             </thead>
@@ -2778,13 +2778,13 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-10-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 3 — PROJECT 3: INTELLIGENT DATA STRUCTURES PLAYGROUND` }} />
         </h2>
       
 
         <h2 key="h1-10-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `10. What is a Data Structures Playground?` }} />
         </h2>
       
@@ -2843,7 +2843,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-10-12" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Data Structure</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Operations</th>
               </tr>
             </thead>
@@ -3254,7 +3254,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-10-69" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-10-69" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `BalanceFactor = Height(Left)-Height(Right)` }} />
         </div>
       
@@ -3409,7 +3409,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-10-99" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Operation</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Custom Array</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">ArrayList</th>
               </tr>
             </thead>
@@ -3451,7 +3451,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-11-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 4 — CAPSTONE ENGINEERING REQUIREMENTS` }} />
         </h2>
       
@@ -3462,7 +3462,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
     
 
         <h2 key="h1-11-2" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `11. Project Architecture` }} />
         </h2>
       
@@ -3615,7 +3615,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-12-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `12. Requirement Analysis` }} />
         </h2>
       
@@ -3773,7 +3773,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-13-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `13. Data Structure Selection` }} />
         </h2>
       
@@ -3801,7 +3801,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
         <div key="table-13-5" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">System Requirement</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Optimal Collection Choice</th>
               </tr>
             </thead>
@@ -3869,7 +3869,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-14-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `14. Algorithm Design` }} />
         </h2>
       
@@ -3995,7 +3995,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-14-25" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-14-25" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O((V+E)log V)` }} />
         </div>
       
@@ -4010,7 +4010,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       </p>
     
 
-        <div key="math-14-28" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-indigo-300 text-base">
+        <div key="math-14-28" className="my-4 p-3 text-center bg-slate-900/60 border border-slate-800 rounded-xl font-mono text-orange-300 text-base">
           <span dangerouslySetInnerHTML={{ __html: `O(V+E)` }} />
         </div>
       
@@ -4096,13 +4096,13 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-15-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 5 — JAVA IMPLEMENTATION AND TESTING` }} />
         </h2>
       
 
         <h2 key="h1-15-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `15. Java Implementation Standards` }} />
         </h2>
       
@@ -4331,7 +4331,7 @@ export const JAVA_CAPSTONE_SECTIONS = [
       <div className="space-y-4">
         
         <h2 key="h1-16-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `16. Unit Testing` }} />
         </h2>
       
@@ -4393,7 +4393,7 @@ class BubbleSortTest  &#123;
         <div key="table-16-7" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Testing Type</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Engineering Purpose</th>
               </tr>
             </thead>
@@ -4479,13 +4479,13 @@ class BubbleSortTest  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-17-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 6 — EDGE CASE VALIDATION` }} />
         </h2>
       
 
         <h2 key="h1-17-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `17. What is Edge Case Testing?` }} />
         </h2>
       
@@ -4508,7 +4508,7 @@ class BubbleSortTest  &#123;
         <div key="table-17-5" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Test Case</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Sample Input</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Expected Behavior</th>
               </tr>
             </thead>
@@ -4617,7 +4617,7 @@ class BubbleSortTest  &#123;
         <div key="table-17-19" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Feature</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Normal Case</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Boundary Case</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Invalid Case</th>
               </tr>
             </thead>
@@ -4662,13 +4662,13 @@ class BubbleSortTest  &#123;
       <div className="space-y-4">
         
         <h2 key="h1-18-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 7 — PERFORMANCE BENCHMARKING` }} />
         </h2>
       
 
         <h2 key="h1-18-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `18. What is Performance Benchmarking?` }} />
         </h2>
       
@@ -4712,7 +4712,7 @@ class BubbleSortTest  &#123;
         <div key="table-18-9" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Benchmark Metric</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Engineering Meaning</th>
               </tr>
             </thead>
@@ -4842,7 +4842,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
       <p key="p-18-25" className="my-3 text-sm md:text-base text-slate-300 leading-relaxed">
-        <span dangerouslySetInnerHTML={{ __html: `For a sufficiently large input, Merge Sort's <span className="font-mono text-indigo-300 font-semibold">O(nlog n)</span> behaviour generally becomes much more favourable.` }} />
+        <span dangerouslySetInnerHTML={{ __html: `For a sufficiently large input, Merge Sort's <span className="font-mono text-orange-300 font-semibold">O(nlog n)</span> behaviour generally becomes much more favourable.` }} />
       </p>
     
 
@@ -4866,13 +4866,13 @@ System.out.println("Time: " + duration + " ns");`}</code>
       <div className="space-y-4">
         
         <h2 key="h1-19-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 8 — GIT AND GITHUB` }} />
         </h2>
       
 
         <h2 key="h1-19-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `19. Version Control` }} />
         </h2>
       
@@ -5051,13 +5051,13 @@ System.out.println("Time: " + duration + " ns");`}</code>
       <div className="space-y-4">
         
         <h2 key="h1-20-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 9 — DOCUMENTATION` }} />
         </h2>
       
 
         <h2 key="h1-20-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `20. Project Documentation` }} />
         </h2>
       
@@ -5356,13 +5356,13 @@ System.out.println("Time: " + duration + " ns");`}</code>
       <div className="space-y-4">
         
         <h2 key="h1-21-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 10 — DEPLOYMENT` }} />
         </h2>
       
 
         <h2 key="h1-21-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `21. What is Deployment?` }} />
         </h2>
       
@@ -5515,13 +5515,13 @@ System.out.println("Time: " + duration + " ns");`}</code>
       <div className="space-y-4">
         
         <h2 key="h1-22-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 11 — TECHNICAL PRESENTATION` }} />
         </h2>
       
 
         <h2 key="h1-22-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `22. How to Present Your Project` }} />
         </h2>
       
@@ -5537,7 +5537,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-4" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `1. Problem statement` }} />
         </h2>
       
@@ -5548,7 +5548,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-6" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `2. Objectives` }} />
         </h2>
       
@@ -5559,7 +5559,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-8" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `3. Architecture` }} />
         </h2>
       
@@ -5570,7 +5570,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-10" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `4. Technologies` }} />
         </h2>
       
@@ -5581,7 +5581,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-12" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `5. Data structures` }} />
         </h2>
       
@@ -5592,7 +5592,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-14" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `6. Algorithms` }} />
         </h2>
       
@@ -5603,7 +5603,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-16" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `7. Complexity analysis` }} />
         </h2>
       
@@ -5614,7 +5614,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-18" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `8. Testing` }} />
         </h2>
       
@@ -5625,7 +5625,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-20" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `9. Performance` }} />
         </h2>
       
@@ -5636,7 +5636,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-22" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `10. Demonstration` }} />
         </h2>
       
@@ -5647,7 +5647,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-22-24" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `11. Limitations` }} />
         </h2>
       
@@ -5665,7 +5665,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
         <div key="table-22-27" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Slide #</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Content / Focus Area</th>
               </tr>
             </thead>
@@ -5726,13 +5726,13 @@ System.out.println("Time: " + duration + " ns");`}</code>
       <div className="space-y-4">
         
         <h2 key="h1-23-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 12 — COMPLETE CAPSTONE ROADMAP` }} />
         </h2>
       
 
         <h2 key="h1-23-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `23. Implementation phases` }} />
         </h2>
       
@@ -5907,13 +5907,13 @@ System.out.println("Time: " + duration + " ns");`}</code>
       <div className="space-y-4">
         
         <h2 key="h1-24-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 13 — FINAL CAPSTONE EVALUATION` }} />
         </h2>
       
 
         <h2 key="h1-24-1" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `24. How should the project be evaluated?` }} />
         </h2>
       
@@ -6026,7 +6026,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
         <div key="table-24-23" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40 shadow-lg">
           <table className="w-full text-left text-xs md:text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-indigo-300 font-semibold font-mono">
+              <tr className="bg-slate-900/90 border-b border-slate-800 text-orange-300 font-semibold font-mono">
                 <th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Score Range</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Competency Level</th><th className="p-3.5 border-r border-slate-800/60 last:border-r-0">Description</th>
               </tr>
             </thead>
@@ -6072,7 +6072,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
       <div className="space-y-4">
         
         <h2 key="h1-25-0" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 14 — ADVANCED EXTENSIONS` }} />
         </h2>
       
@@ -6233,7 +6233,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-25-32" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `PART 15 — FINAL REVISION AND KNOWLEDGE CHECK` }} />
         </h2>
       
@@ -6409,7 +6409,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-25-67" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `1. Planning` }} />
         </h2>
       
@@ -6435,7 +6435,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-25-72" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `2. Core implementation` }} />
         </h2>
       
@@ -6461,7 +6461,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-25-77" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `3. Testing` }} />
         </h2>
       
@@ -6487,7 +6487,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-25-82" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `4. Performance` }} />
         </h2>
       
@@ -6513,7 +6513,7 @@ System.out.println("Time: " + duration + " ns");`}</code>
     
 
         <h2 key="h1-25-87" className="text-2xl md:text-3xl font-extrabold text-white mt-10 mb-4 tracking-tight border-b border-slate-800 pb-3 flex items-center gap-3">
-          <span className="w-2 h-7 bg-indigo-500 rounded-full inline-block"></span>
+          <span className="w-2 h-7 bg-orange-500 rounded-full inline-block"></span>
           <span dangerouslySetInnerHTML={{ __html: `5. Delivery` }} />
         </h2>
       

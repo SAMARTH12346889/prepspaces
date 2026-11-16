@@ -880,7 +880,7 @@ class HashTable  {
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 inline-block"></span>
             <span>5.6 Advantages and disadvantages</span>
           </h4>
-          <div className="p-4 rounded-xl border bg-blue-500/10 border-blue-500/30 text-blue-950 my-4 text-xs sm:text-sm leading-relaxed">
+          <div className="p-4 rounded-xl border bg-orange-500/10 border-orange-500/30 text-orange-950 my-4 text-xs sm:text-sm leading-relaxed">
             <div className="font-bold flex items-center gap-1.5 mb-1 text-stone-900">
               <span>ℹ️</span>
               <span>Advantages</span>
@@ -2671,7 +2671,7 @@ public class Main  {
 }`}</code>
             </pre>
           </div>
-          <div className="p-4 rounded-xl border bg-blue-500/10 border-blue-500/30 text-blue-950 my-4 text-xs sm:text-sm leading-relaxed">
+          <div className="p-4 rounded-xl border bg-orange-500/10 border-orange-500/30 text-orange-950 my-4 text-xs sm:text-sm leading-relaxed">
             <div className="font-bold flex items-center gap-1.5 mb-1 text-stone-900">
               <span>ℹ️</span>
               <span>Note</span>
@@ -3194,7 +3194,7 @@ map.tailMap(20);`}</code>
           <p className="text-stone-700 text-sm sm:text-base leading-relaxed my-2.5">
             Sorted data
           </p>
-          <div className="p-4 rounded-xl border bg-blue-500/10 border-blue-500/30 text-blue-950 my-4 text-xs sm:text-sm leading-relaxed">
+          <div className="p-4 rounded-xl border bg-orange-500/10 border-orange-500/30 text-orange-950 my-4 text-xs sm:text-sm leading-relaxed">
             <div className="font-bold flex items-center gap-1.5 mb-1 text-stone-900">
               <span>ℹ️</span>
               <span>Remember</span>

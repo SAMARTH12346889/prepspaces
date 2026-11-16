@@ -1333,16 +1333,17 @@ export default function JavaGreedyAlgorithms() {
                   {/* Table of Codes */}
                   <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-3">
                     <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Generated Prefix Codes:</span>
-                    <table className="w-full text-xs text-left border-collapse">
-                      <thead>
-                        <tr className="border-b border-slate-800 text-amber-400 font-mono">
-                          <th className="pb-2">Char</th>
-                          <th className="pb-2">Freq</th>
-                          <th className="pb-2">Prefix Code</th>
-                          <th className="pb-2">Length</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-850 font-mono">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs text-left border-collapse min-w-[240px]">
+                        <thead>
+                          <tr className="border-b border-slate-800 text-amber-400 font-mono">
+                            <th className="pb-2">Char</th>
+                            <th className="pb-2">Freq</th>
+                            <th className="pb-2">Prefix Code</th>
+                            <th className="pb-2">Length</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-850 font-mono">
                         {huffmanData.map((row) => (
                           <tr key={row.char}>
                             <td className="py-2 font-bold text-white">{row.char}</td>
@@ -1353,6 +1354,7 @@ export default function JavaGreedyAlgorithms() {
                         ))}
                       </tbody>
                     </table>
+                    </div>
                   </div>
 
                   {/* Compression Metrics */}

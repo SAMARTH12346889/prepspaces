@@ -40,8 +40,8 @@ export const JAVA_SHORTEST_PATHS_MST_SECTIONS = [
     summary: "Graph fundamentals, path costs, and variations (single-source, single-pair, all-pairs, DAGs).",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-1-0" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-0" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1. Shortest Path Problem
         </h3>
         <p key="p-1-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -58,8 +58,8 @@ export const JAVA_SHORTEST_PATHS_MST_SECTIONS = [
         <p key="p-1-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Consider this weighted graph:
         </p>
-        <h3 key="h3-1-12" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-12" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Example weighted graph
         </h3>
         <p key="p-1-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -73,7 +73,7 @@ export const JAVA_SHORTEST_PATHS_MST_SECTIONS = [
         </p>
         <div key="code-1-23" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -85,7 +85,7 @@ export const JAVA_SHORTEST_PATHS_MST_SECTIONS = [
         </p>
         <div key="code-1-30" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -97,14 +97,14 @@ B → C = 3`}</code>
           The total path cost is:
         </p>
         <p key="p-1-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 4+3=7 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 4+3=7 </span>
         </p>
         <p key="p-1-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Another possible path might be:
         </p>
         <div key="code-1-40" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -116,7 +116,7 @@ B → C = 3`}</code>
         </p>
         <div key="code-1-47" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -128,13 +128,13 @@ D → C = 2`}</code>
           Its total cost is:
         </p>
         <p key="p-1-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 7+2=9 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 7+2=9 </span>
         </p>
         <p key="p-1-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore, the shortest path from A to C is the path with total cost 7.
         </p>
-        <h3 key="h3-1-54" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-54" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.1 Types of Shortest Path Problems
         </h3>
         <p key="p-1-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -183,8 +183,8 @@ D → C = 2`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-1-67" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-67" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.2 Unweighted vs Weighted Graphs
         </h3>
         <p key="p-1-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -195,7 +195,7 @@ D → C = 2`}</code>
         </p>
         <div key="code-1-78" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -218,7 +218,7 @@ A → D → C`}</code>
         </p>
         <div key="code-1-92" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -233,8 +233,8 @@ A --2-- D --1-- C`}</code>
         <p key="p-1-95" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For weighted graphs, we need algorithms such as Dijkstra or Bellman-Ford.
         </p>
-        <h3 key="h3-1-97" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-97" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.3 Directed vs Undirected Graphs
         </h3>
         <p key="p-1-99" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -242,7 +242,7 @@ A --2-- D --1-- C`}</code>
         </p>
         <div key="code-1-104" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -257,7 +257,7 @@ A --2-- D --1-- C`}</code>
         </p>
         <div key="code-1-112" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -272,7 +272,7 @@ A --2-- D --1-- C`}</code>
         </p>
         <div key="code-1-121" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -298,13 +298,13 @@ graph.get(1).add(new Edge(0, 5));`}</code>
         <p key="p-2-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We will use an adjacency list because it is efficient for sparse graphs.
         </p>
-        <h3 key="h3-2-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.1 Weighted Edge Class
         </h3>
         <div key="code-2-20" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -324,16 +324,16 @@ graph.get(1).add(new Edge(0, 5));`}</code>
           Each edge stores:
         </p>
         <ul key="ul-2-25" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">to</code>: Destination vertex.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">weight</code>: Cost of travelling to that vertex.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">to</code>: Destination vertex.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">weight</code>: Cost of travelling to that vertex.</li>
       </ul>
-        <h3 key="h3-2-26" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-26" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.2 Creating an Adjacency List
         </h3>
         <div key="code-2-75" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -389,7 +389,7 @@ public class GraphModel {
         </p>
         <div key="code-2-86" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -406,7 +406,7 @@ addUndirectedEdge(graph, 2, 3, 1);`}</code>
         </p>
         <div key="code-2-96" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -421,13 +421,13 @@ addUndirectedEdge(graph, 2, 3, 1);`}</code>
           <strong className="font-bold text-white">Complexity:</strong>
         </p>
         <ul key="ul-2-103" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Creating the graph: <span className="font-mono text-indigo-300 font-semibold">O(V)</span>.</li>
-          <li>Adding one directed edge: <span className="font-mono text-indigo-300 font-semibold">O(1)</span> amortized.</li>
-          <li>Adding one undirected edge: <span className="font-mono text-indigo-300 font-semibold">O(1)</span> amortized.</li>
-          <li>Storage: <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>.</li>
+          <li>Creating the graph: <span className="font-mono text-orange-300 font-semibold">O(V)</span>.</li>
+          <li>Adding one directed edge: <span className="font-mono text-orange-300 font-semibold">O(1)</span> amortized.</li>
+          <li>Adding one undirected edge: <span className="font-mono text-orange-300 font-semibold">O(1)</span> amortized.</li>
+          <li>Storage: <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>.</li>
       </ul>
         <p key="p-2-104" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The following weighted-graph examples use this <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">Edge</code> class and adjacency-list structure.
+          The following weighted-graph examples use this <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">Edge</code> class and adjacency-list structure.
         </p>
         <p key="p-2-106" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           # <strong className="font-bold text-white">Part 2 — Shortest Path Algorithms</strong>
@@ -447,8 +447,8 @@ addUndirectedEdge(graph, 2, 3, 1);`}</code>
         <p key="p-3-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It finds the shortest path in an unweighted graph, or a graph in which every edge has the same weight.
         </p>
-        <h3 key="h3-3-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.1 How BFS Works
         </h3>
         <p key="p-3-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -459,7 +459,7 @@ addUndirectedEdge(graph, 2, 3, 1);`}</code>
         </p>
         <div key="code-3-22" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -477,16 +477,16 @@ addUndirectedEdge(graph, 2, 3, 1);`}</code>
           Starting from vertex 0:
         </p>
         <ul key="ul-3-29" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Level 0: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">0</code></li>
-          <li>Level 1: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">1, 2</code></li>
-          <li>Level 2: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">3, 4</code></li>
-          <li>Level 3: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">5</code></li>
+          <li>Level 0: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">0</code></li>
+          <li>Level 1: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">1, 2</code></li>
+          <li>Level 2: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">3, 4</code></li>
+          <li>Level 3: <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">5</code></li>
       </ul>
         <p key="p-3-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The first time BFS visits a vertex, it has found a path with the minimum number of edges to that vertex.
         </p>
-        <h3 key="h3-3-32" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-32" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.2 BFS Algorithm
         </h3>
         <ol key="ol-3-42" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -499,8 +499,8 @@ addUndirectedEdge(graph, 2, 3, 1);`}</code>
           <li>Set its distance to the current distance plus one.</li>
           <li>Continue until the queue is empty.</li>
       </ol>
-        <h3 key="h3-3-43" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-43" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.3 Java Implementation
         </h3>
         <p key="p-3-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -508,7 +508,7 @@ addUndirectedEdge(graph, 2, 3, 1);`}</code>
         </p>
         <div key="code-3-117" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -587,7 +587,7 @@ public class BFSShortestPath {
         </p>
         <div key="code-3-127" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -601,8 +601,8 @@ Shortest path:
         <p key="p-3-128" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There may be multiple shortest paths of equal length. BFS returns one of them, depending on adjacency-list order.
         </p>
-        <h3 key="h3-3-130" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-130" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.4 Complexity
         </h3>
         <div key="table-3-138" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -616,25 +616,25 @@ Shortest path:
             <tbody className="divide-y divide-slate-800/60 text-slate-300 font-sans">
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Visiting vertices</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Processing edges</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(E)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Total time</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V+E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V+E)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Auxiliary space</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V)</span></td>
                 </tr>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-3-139" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-139" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.5 When to Use BFS
         </h3>
         <p key="p-3-141" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -675,8 +675,8 @@ Shortest path:
         <p key="p-4-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Nonnegative edge weights required
         </p>
-        <h3 key="h3-4-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.1 Why Do We Need Dijkstra?
         </h3>
         <p key="p-4-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -687,7 +687,7 @@ Shortest path:
         </p>
         <div key="code-4-21" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -710,22 +710,22 @@ C --2-- D`}</code>
         <p key="p-4-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This allows it to efficiently discover shortest paths.
         </p>
-        <h3 key="h3-4-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.2 Core Concept: Relaxation
         </h3>
         <p key="p-4-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Relaxation is the fundamental operation used in shortest-path algorithms.
         </p>
         <p key="p-4-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Suppose we know the distance to vertex <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">u</code>.
+          Suppose we know the distance to vertex <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">u</code>.
         </p>
         <p key="p-4-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We are examining an edge:
         </p>
         <div key="code-4-41" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -733,32 +733,32 @@ C --2-- D`}</code>
           </pre>
         </div>
         <p key="p-4-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          with weight <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">w</code>.
+          with weight <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">w</code>.
         </p>
         <p key="p-4-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The potential new distance to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">v</code> is:
+          The potential new distance to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">v</code> is:
         </p>
         <p key="p-4-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> newDistance=dist[u]+w </span>
+          <span className="font-mono text-orange-300 font-semibold"> newDistance=dist[u]+w </span>
         </p>
         <p key="p-4-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If this is smaller than the currently known distance:
         </p>
         <p key="p-4-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dist[u]+w&lt;dist[v] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dist[u]+w&lt;dist[v] </span>
         </p>
         <p key="p-4-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           we update:
         </p>
         <p key="p-4-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dist[v]=dist[u]+w </span>
+          <span className="font-mono text-orange-300 font-semibold"> dist[v]=dist[u]+w </span>
         </p>
         <p key="p-4-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           In Java:
         </p>
         <div key="code-4-64" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -771,8 +771,8 @@ C --2-- D`}</code>
         <p key="p-4-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This operation is called <strong className="font-bold text-white">edge relaxation</strong>.
         </p>
-        <h3 key="h3-4-67" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-67" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.3 Dijkstra's Algorithm Step by Step
         </h3>
         <p key="p-4-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -780,7 +780,7 @@ C --2-- D`}</code>
         </p>
         <div key="code-4-83" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -843,7 +843,7 @@ C --2-- D`}</code>
         </p>
         <div key="code-4-106" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -862,7 +862,7 @@ dist[4] = ∞`}</code>
         </p>
         <div key="code-4-115" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -881,7 +881,7 @@ dist[2] = 1`}</code>
         </p>
         <div key="code-4-127" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -898,7 +898,7 @@ Distance = 1 + 2 = 3`}</code>
         </p>
         <div key="code-4-137" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -912,7 +912,7 @@ Distance = 1 + 5 = 6`}</code>
         </p>
         <div key="code-4-143" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -927,7 +927,7 @@ Distance = 1 + 5 = 6`}</code>
         </p>
         <div key="code-4-153" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -950,7 +950,7 @@ Distance = 1 + 2 + 1 = 4`}</code>
         </p>
         <div key="code-4-167" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -994,8 +994,8 @@ Distance = 1 + 2 + 1 + 3 = 7`}</code>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-4-178" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-178" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.4 Priority Queue in Dijkstra
         </h3>
         <p key="p-4-180" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1012,7 +1012,7 @@ Distance = 1 + 2 + 1 + 3 = 7`}</code>
         </p>
         <div key="code-4-191" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1027,7 +1027,7 @@ Distance = 1 + 2 + 1 + 3 = 7`}</code>
         </p>
         <div key="code-4-208" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1048,7 +1048,7 @@ Distance = 1 + 2 + 1 + 3 = 7`}</code>
         </p>
         <div key="code-4-217" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1058,13 +1058,13 @@ Distance = 1 + 2 + 1 + 3 = 7`}</code>
     );`}</code>
           </pre>
         </div>
-        <h3 key="h3-4-218" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-218" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.5 Complete Java Implementation
         </h3>
         <div key="code-4-336" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1189,7 +1189,7 @@ public class Dijkstra {
         </p>
         <div key="code-4-346" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1203,8 +1203,8 @@ public class Dijkstra {
         <p key="p-4-347" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This example uses directed edges. To create an undirected graph, add the reverse edge as well.
         </p>
-        <h3 key="h3-4-349" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-349" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.6 Why Check Outdated Priority Queue Entries?
         </h3>
         <p key="p-4-351" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1212,7 +1212,7 @@ public class Dijkstra {
         </p>
         <div key="code-4-357" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1225,7 +1225,7 @@ Later, a better path gives distance 5.`}</code>
         </p>
         <div key="code-4-364" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1234,17 +1234,17 @@ Later, a better path gives distance 5.`}</code>
           </pre>
         </div>
         <p key="p-4-365" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          When <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">(1, 5)</code> gets processed, the distance is updated correctly.
+          When <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">(1, 5)</code> gets processed, the distance is updated correctly.
         </p>
         <p key="p-4-367" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The old entry <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">(1, 10)</code> might still exist.
+          The old entry <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">(1, 10)</code> might still exist.
         </p>
         <p key="p-4-369" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We ignore it with:
         </p>
         <div key="code-4-376" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1256,22 +1256,22 @@ Later, a better path gives distance 5.`}</code>
         <p key="p-4-377" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This avoids unnecessary processing.
         </p>
-        <h3 key="h3-4-379" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-379" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.7 Complexity
         </h3>
         <p key="p-4-381" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Using adjacency lists and a binary heap:
         </p>
         <ul key="ul-4-385" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Time: <span className="font-mono text-indigo-300 font-semibold">O((V+E)\log V)</span>, commonly expressed as <span className="font-mono text-indigo-300 font-semibold">O((V+E)\log V)</span>.</li>
-          <li>Space: <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>, including the graph, distance array, and priority queue.</li>
+          <li>Time: <span className="font-mono text-orange-300 font-semibold">O((V+E)\log V)</span>, commonly expressed as <span className="font-mono text-orange-300 font-semibold">O((V+E)\log V)</span>.</li>
+          <li>Space: <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>, including the graph, distance array, and priority queue.</li>
       </ul>
         <p key="p-4-386" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For sparse graphs, this is generally very efficient.
         </p>
-        <h3 key="h3-4-388" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-388" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.8 Limitations of Dijkstra
         </h3>
         <p key="p-4-390" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1282,7 +1282,7 @@ Later, a better path gives distance 5.`}</code>
         </p>
         <div key="code-4-399" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1295,7 +1295,7 @@ C → B = -10`}</code>
           The direct route to B costs 2, but another route costs:
         </p>
         <p key="p-4-402" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 5+(-10)=-5 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 5+(-10)=-5 </span>
         </p>
         <p key="p-4-404" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The algorithm's greedy assumption that a processed vertex has its final shortest distance is no longer valid.
@@ -1330,7 +1330,7 @@ C → B = -10`}</code>
         </p>
         <div key="code-5-11" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1343,7 +1343,7 @@ C → D = 2`}</code>
           Total cost:
         </p>
         <p key="p-5-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 5-3+2=4 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 5-3+2=4 </span>
         </p>
         <p key="p-5-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Negative edges may represent:
@@ -1354,8 +1354,8 @@ C → D = 2`}</code>
           <li>Cost adjustments.</li>
           <li>Rewards in state-transition models.</li>
       </ul>
-        <h3 key="h3-5-23" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-23" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.1 Why Are Negative Weights Important?
         </h3>
         <p key="p-5-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1377,8 +1377,8 @@ C → D = 2`}</code>
         <p key="p-5-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A third useful approach is topological relaxation when the graph is a DAG, covered later.
         </p>
-        <h3 key="h3-5-38" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-38" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.2 Negative Edge vs Negative Cycle
         </h3>
         <p key="p-5-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1389,7 +1389,7 @@ C → D = 2`}</code>
         </p>
         <div key="code-5-47" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1404,7 +1404,7 @@ C → D = 2`}</code>
         </p>
         <div key="code-5-57" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1417,7 +1417,7 @@ C → A = 1`}</code>
           The total cycle cost is:
         </p>
         <p key="p-5-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 2-5+1=-2 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 2-5+1=-2 </span>
         </p>
         <p key="p-5-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Every time we travel around this cycle, the total cost decreases by 2.
@@ -1443,8 +1443,8 @@ C → A = 1`}</code>
         <p key="p-6-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Supports negative edge weights
         </p>
-        <h3 key="h3-6-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.1 Core Idea
         </h3>
         <p key="p-6-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1454,7 +1454,7 @@ C → A = 1`}</code>
           The key theoretical observation is:
         </p>
         <p key="p-6-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          A shortest simple path in a graph with no relevant negative cycle contains at most <span className="font-mono text-indigo-300 font-semibold">V-1</span> edges.
+          A shortest simple path in a graph with no relevant negative cycle contains at most <span className="font-mono text-orange-300 font-semibold">V-1</span> edges.
         </p>
         <p key="p-6-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Why?
@@ -1463,23 +1463,23 @@ C → A = 1`}</code>
           A simple path cannot visit the same vertex twice. If it does, it contains a cycle, and removing a nonnegative cycle cannot increase the path cost.
         </p>
         <p key="p-6-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          A path with at most <span className="font-mono text-indigo-300 font-semibold">V-1</span> edges can be discovered after at most <span className="font-mono text-indigo-300 font-semibold">V-1</span> rounds of edge relaxation.
+          A path with at most <span className="font-mono text-orange-300 font-semibold">V-1</span> edges can be discovered after at most <span className="font-mono text-orange-300 font-semibold">V-1</span> rounds of edge relaxation.
         </p>
-        <h3 key="h3-6-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.2 Algorithm Steps
         </h3>
         <ol key="ol-6-31" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
           <li>Initialize every distance to infinity.</li>
           <li>Set the source distance to zero.</li>
-          <li>Repeat <span className="font-mono text-indigo-300 font-semibold">V-1</span> times.</li>
+          <li>Repeat <span className="font-mono text-orange-300 font-semibold">V-1</span> times.</li>
           <li>During each iteration, examine every edge.</li>
           <li>Relax the edge if a shorter route is found.</li>
           <li>Perform one additional pass.</li>
           <li>If any distance can still be reduced, a reachable negative cycle exists.</li>
       </ol>
-        <h3 key="h3-6-32" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-32" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.3 Worked Example
         </h3>
         <p key="p-6-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1487,7 +1487,7 @@ C → A = 1`}</code>
         </p>
         <div key="code-6-43" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1503,7 +1503,7 @@ C → A = 1`}</code>
         </p>
         <div key="code-6-49" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1515,7 +1515,7 @@ C → A = 1`}</code>
         </p>
         <div key="code-6-55" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1527,7 +1527,7 @@ C → A = 1`}</code>
         </p>
         <div key="code-6-63" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1538,7 +1538,7 @@ dist[1] = 4`}</code>
         </div>
         <div key="code-6-69" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1549,7 +1549,7 @@ dist[2] = 5`}</code>
         </div>
         <div key="code-6-76" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1561,7 +1561,7 @@ dist[2] = min(5, 4 - 2)
         </div>
         <div key="code-6-82" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1572,7 +1572,7 @@ dist[3] = 10`}</code>
         </div>
         <div key="code-6-89" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1587,15 +1587,15 @@ dist[3] = min(10, 2 + 3)
         </p>
         <div key="code-6-95" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`[0, 4, 2, 5]`}</code>
           </pre>
         </div>
-        <h3 key="h3-6-96" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-96" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.4 Java Implementation
         </h3>
         <p key="p-6-98" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1603,7 +1603,7 @@ dist[3] = min(10, 2 + 3)
         </p>
         <div key="code-6-193" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1704,16 +1704,16 @@ public class BellmanFord {
           <strong className="font-bold text-white">Complexity:</strong>
         </p>
         <ul key="ul-6-199" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Time: <span className="font-mono text-indigo-300 font-semibold">O(VE)</span>.</li>
-          <li>Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(V)</span>, excluding the edge-list input.</li>
-          <li>Graph storage: <span className="font-mono text-indigo-300 font-semibold">O(E)</span>.</li>
+          <li>Time: <span className="font-mono text-orange-300 font-semibold">O(VE)</span>.</li>
+          <li>Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(V)</span>, excluding the edge-list input.</li>
+          <li>Graph storage: <span className="font-mono text-orange-300 font-semibold">O(E)</span>.</li>
       </ul>
-        <h3 key="h3-6-200" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-200" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.5 Negative Cycle Detection
         </h3>
         <p key="p-6-202" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Suppose we complete the normal <span className="font-mono text-indigo-300 font-semibold">V-1</span> relaxation iterations.
+          Suppose we complete the normal <span className="font-mono text-orange-300 font-semibold">V-1</span> relaxation iterations.
         </p>
         <p key="p-6-204" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If another relaxation is possible, the distance can still improve.
@@ -1725,10 +1725,10 @@ public class BellmanFord {
           Why?
         </p>
         <p key="p-6-210" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Because every shortest simple path would already have been discovered within <span className="font-mono text-indigo-300 font-semibold">V-1</span> edges. Continued improvement means a path involving a cycle can keep reducing the cost.
+          Because every shortest simple path would already have been discovered within <span className="font-mono text-orange-300 font-semibold">V-1</span> edges. Continued improvement means a path involving a cycle can keep reducing the cost.
         </p>
-        <h3 key="h3-6-212" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-212" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.6 Important Negative Cycle Detail
         </h3>
         <p key="p-6-214" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1746,8 +1746,8 @@ public class BellmanFord {
         <p key="p-6-222" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A destination has no finite shortest path if it is reachable from that negative cycle.
         </p>
-        <h3 key="h3-6-224" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-224" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.7 When to Use Bellman-Ford
         </h3>
         <ul key="ul-6-231" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -1755,7 +1755,7 @@ public class BellmanFord {
           <li>Negative cycle detection.</li>
           <li>Financial or cost-adjustment graph models.</li>
           <li>When Dijkstra's nonnegative-edge assumption does not hold.</li>
-          <li>When graph size is small enough for <span className="font-mono text-indigo-300 font-semibold">O(VE)</span>.</li>
+          <li>When graph size is small enough for <span className="font-mono text-orange-300 font-semibold">O(VE)</span>.</li>
       </ul>
       </div>
     )
@@ -1778,59 +1778,59 @@ public class BellmanFord {
         <p key="p-7-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It uses dynamic programming.
         </p>
-        <h3 key="h3-7-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.1 Core Idea
         </h3>
         <p key="p-7-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Suppose we want to find the shortest distance from vertex <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">i</code> to vertex <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">j</code>.
+          Suppose we want to find the shortest distance from vertex <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">i</code> to vertex <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">j</code>.
         </p>
         <p key="p-7-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We initially know the direct distance.
         </p>
         <p key="p-7-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          But what if travelling through another vertex <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code> provides a shorter path?
+          But what if travelling through another vertex <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code> provides a shorter path?
         </p>
         <p key="p-7-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We compare:
         </p>
         <ol key="ol-7-22" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
-          <li>The current distance from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">i</code> to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">j</code>.</li>
-          <li>The route from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">i</code> to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code> and then from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code> to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">j</code>.</li>
+          <li>The current distance from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">i</code> to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">j</code>.</li>
+          <li>The route from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">i</code> to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code> and then from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code> to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">j</code>.</li>
       </ol>
         <p key="p-7-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The recurrence is:
         </p>
         <p key="p-7-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dist[i][j]= \min \left( dist[i][j], dist[i][k]+dist[k][j] \right) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dist[i][j]= \min \left( dist[i][j], dist[i][k]+dist[k][j] \right) </span>
         </p>
         <p key="p-7-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We consider every vertex as an intermediate vertex.
         </p>
-        <h3 key="h3-7-29" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-29" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.2 Dynamic Programming Interpretation
         </h3>
         <p key="p-7-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Define:
         </p>
         <p key="p-7-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> DP[k][i][j] </span>
+          <span className="font-mono text-orange-300 font-semibold"> DP[k][i][j] </span>
         </p>
         <p key="p-7-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          as the shortest path from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">i</code> to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">j</code> using only vertices from the first <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">k</code> vertices as intermediate vertices.
+          as the shortest path from <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">i</code> to <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">j</code> using only vertices from the first <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">k</code> vertices as intermediate vertices.
         </p>
         <p key="p-7-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The transition is:
         </p>
         <p key="p-7-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> DP[k][i][j] = \min \begin&#123;cases&#125; DP[k-1][i][j]\\ DP[k-1][i][k]+DP[k-1][k][j] \end&#123;cases&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> DP[k][i][j] = \min \begin&#123;cases&#125; DP[k-1][i][j]\\ DP[k-1][i][k]+DP[k-1][k][j] \end&#123;cases&#125; </span>
         </p>
         <p key="p-7-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We do not need a three-dimensional array because we can update the distance matrix in place.
         </p>
-        <h3 key="h3-7-43" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-43" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.3 Example
         </h3>
         <p key="p-7-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1838,7 +1838,7 @@ public class BellmanFord {
         </p>
         <div key="code-7-53" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1853,7 +1853,7 @@ public class BellmanFord {
         </p>
         <div key="code-7-63" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1869,7 +1869,7 @@ public class BellmanFord {
         </p>
         <div key="code-7-69" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1880,7 +1880,7 @@ public class BellmanFord {
           has cost:
         </p>
         <p key="p-7-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 5+3=8 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 5+3=8 </span>
         </p>
         <p key="p-7-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is better than the direct route cost 10.
@@ -1890,7 +1890,7 @@ public class BellmanFord {
         </p>
         <div key="code-7-85" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1904,13 +1904,13 @@ public class BellmanFord {
         <p key="p-7-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The remaining values are obtained by considering all possible intermediate vertices.
         </p>
-        <h3 key="h3-7-88" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-88" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.4 Java Implementation
         </h3>
         <div key="code-7-143" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1972,7 +1972,7 @@ public class FloydWarshall {
         </p>
         <div key="code-7-151" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -1981,8 +1981,8 @@ public class FloydWarshall {
 [2, 7, 0]`}</code>
           </pre>
         </div>
-        <h3 key="h3-7-152" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-152" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.5 Negative Cycle Detection
         </h3>
         <p key="p-7-154" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1993,7 +1993,7 @@ public class FloydWarshall {
         </p>
         <div key="code-7-161" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2007,7 +2007,7 @@ public class FloydWarshall {
           If:
         </p>
         <p key="p-7-166" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dist[i][i]&lt;0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dist[i][i]&lt;0 </span>
         </p>
         <p key="p-7-168" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           a negative cycle exists.
@@ -2017,7 +2017,7 @@ public class FloydWarshall {
         </p>
         <div key="code-7-181" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2030,8 +2030,8 @@ public class FloydWarshall {
 }`}</code>
           </pre>
         </div>
-        <h3 key="h3-7-182" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-182" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.6 Path Reconstruction
         </h3>
         <p key="p-7-184" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2042,7 +2042,7 @@ public class FloydWarshall {
         </p>
         <div key="code-7-191" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2053,16 +2053,16 @@ public class FloydWarshall {
           Initially:
         </p>
         <ul key="ul-7-197" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">next[i][j] = j</code> when a direct edge exists.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">next[i][j] = -1</code> when no route exists.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">next[i][i] = i</code>.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">next[i][j] = j</code> when a direct edge exists.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">next[i][j] = -1</code> when no route exists.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">next[i][i] = i</code>.</li>
       </ul>
         <p key="p-7-198" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Whenever you improve:
         </p>
         <div key="code-7-203" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2074,7 +2074,7 @@ public class FloydWarshall {
         </p>
         <div key="code-7-209" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2082,13 +2082,13 @@ public class FloydWarshall {
           </pre>
         </div>
         <p key="p-7-210" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          To reconstruct the route, repeatedly follow <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">next[current][destination]</code>.
+          To reconstruct the route, repeatedly follow <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">next[current][destination]</code>.
         </p>
         <p key="p-7-212" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is useful in route-planning applications.
         </p>
-        <h3 key="h3-7-214" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-214" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.7 Complexity
         </h3>
         <div key="table-7-221" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -2102,21 +2102,21 @@ public class FloydWarshall {
             <tbody className="divide-y divide-slate-800/60 text-slate-300 font-sans">
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Time</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V^3)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V^3)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Distance matrix</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V^2)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V^2)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Optional next matrix</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V^2)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V^2)</span></td>
                 </tr>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-7-222" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-222" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.8 When to Use Floyd-Warshall
         </h3>
         <ul key="ul-7-229" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -2149,7 +2149,7 @@ public class FloydWarshall {
         </p>
         <div key="code-8-17" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2171,15 +2171,15 @@ public class FloydWarshall {
         <p key="p-8-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This allows shortest paths to be calculated efficiently.
         </p>
-        <h3 key="h3-8-24" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-24" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.1 Why Does a DAG Need a Different Algorithm?
         </h3>
         <p key="p-8-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Dijkstra requires nonnegative weights.
         </p>
         <p key="p-8-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Bellman-Ford supports negative weights but takes <span className="font-mono text-indigo-300 font-semibold">O(VE)</span>.
+          Bellman-Ford supports negative weights but takes <span className="font-mono text-orange-300 font-semibold">O(VE)</span>.
         </p>
         <p key="p-8-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A DAG allows a more efficient approach:
@@ -2192,8 +2192,8 @@ public class FloydWarshall {
         <p key="p-8-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Because all incoming routes to a vertex are processed before we process that vertex, its shortest distance can be finalized in one pass.
         </p>
-        <h3 key="h3-8-38" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-38" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.2 Important Advantage
         </h3>
         <p key="p-8-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2205,8 +2205,8 @@ public class FloydWarshall {
         <p key="p-8-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A DAG cannot contain a cycle at all, so a negative cycle is impossible.
         </p>
-        <h3 key="h3-8-46" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-46" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.3 Java Implementation
         </h3>
         <p key="p-8-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2214,7 +2214,7 @@ public class FloydWarshall {
         </p>
         <div key="code-8-150" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2322,13 +2322,13 @@ public class DAGShortestPath {
           <strong className="font-bold text-white">Complexity:</strong>
         </p>
         <ul key="ul-8-157" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Topological sorting: <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>.</li>
-          <li>Edge relaxation: <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>.</li>
-          <li>Total time: <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>.</li>
-          <li>Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(V)</span>, excluding graph storage.</li>
+          <li>Topological sorting: <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>.</li>
+          <li>Edge relaxation: <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>.</li>
+          <li>Total time: <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>.</li>
+          <li>Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(V)</span>, excluding graph storage.</li>
       </ul>
-        <h3 key="h3-8-158" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-158" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.4 When to Use DAG Shortest Paths
         </h3>
         <ul key="ul-8-166" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -2360,8 +2360,8 @@ public class DAGShortestPath {
         <p key="p-9-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Connected, undirected, weighted graph
         </p>
-        <h3 key="h3-9-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.1 What Is a Spanning Tree?
         </h3>
         <p key="p-9-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2369,7 +2369,7 @@ public class DAGShortestPath {
         </p>
         <div key="code-9-19" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2387,13 +2387,13 @@ public class DAGShortestPath {
           <li>Includes every vertex.</li>
           <li>Connects all vertices.</li>
           <li>Contains no cycles.</li>
-          <li>Has exactly <span className="font-mono text-indigo-300 font-semibold">V-1</span> edges.</li>
+          <li>Has exactly <span className="font-mono text-orange-300 font-semibold">V-1</span> edges.</li>
       </ul>
         <p key="p-9-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For four vertices:
         </p>
         <p key="p-9-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> V-1=4-1=3 </span>
+          <span className="font-mono text-orange-300 font-semibold"> V-1=4-1=3 </span>
         </p>
         <p key="p-9-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore, every spanning tree contains exactly three edges.
@@ -2401,8 +2401,8 @@ public class DAGShortestPath {
         <p key="p-9-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There can be multiple possible spanning trees.
         </p>
-        <h3 key="h3-9-35" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-35" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.2 What Makes It a Minimum Spanning Tree?
         </h3>
         <p key="p-9-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2448,7 +2448,7 @@ public class DAGShortestPath {
         </p>
         <div key="code-9-56" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2461,13 +2461,13 @@ C — D = 3`}</code>
           Total weight:
         </p>
         <p key="p-9-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 1+2+3=6 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 1+2+3=6 </span>
         </p>
         <p key="p-9-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is the minimum spanning tree.
         </p>
-        <h3 key="h3-9-63" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-63" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.3 Shortest Path vs Minimum Spanning Tree
         </h3>
         <p key="p-9-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2511,27 +2511,27 @@ C — D = 3`}</code>
         <p key="p-9-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A shortest-path problem asks:
         </p>
-        <blockquote key="bq-9-79" className="my-3 pl-4 border-l-2 border-indigo-500 text-xs md:text-sm text-indigo-300/90 italic bg-indigo-500/5 py-2 rounded-r-lg">
+        <blockquote key="bq-9-79" className="my-3 pl-4 border-l-2 border-orange-500 text-xs md:text-sm text-orange-300/90 italic bg-orange-500/5 py-2 rounded-r-lg">
           What is the cheapest route from City A to City E?
         </blockquote>
         <p key="p-9-81" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           An MST problem asks:
         </p>
-        <blockquote key="bq-9-83" className="my-3 pl-4 border-l-2 border-indigo-500 text-xs md:text-sm text-indigo-300/90 italic bg-indigo-500/5 py-2 rounded-r-lg">
+        <blockquote key="bq-9-83" className="my-3 pl-4 border-l-2 border-orange-500 text-xs md:text-sm text-orange-300/90 italic bg-orange-500/5 py-2 rounded-r-lg">
           What is the cheapest collection of roads that connects all five cities?
         </blockquote>
         <p key="p-9-85" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These are different goals.
         </p>
-        <h3 key="h3-9-87" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-87" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.4 Important Properties of MST
         </h3>
         <p key="p-9-89" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For a connected undirected graph:
         </p>
         <ol key="ol-9-96" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
-          <li>An MST contains exactly <span className="font-mono text-indigo-300 font-semibold">V-1</span> edges.</li>
+          <li>An MST contains exactly <span className="font-mono text-orange-300 font-semibold">V-1</span> edges.</li>
           <li>It does not contain cycles.</li>
           <li>It connects every vertex.</li>
           <li>It minimizes the total selected edge weight.</li>
@@ -2558,8 +2558,8 @@ C — D = 3`}</code>
         <p key="p-10-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Greedy MST algorithm
         </p>
-        <h3 key="h3-10-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.1 Core Idea
         </h3>
         <ol key="ol-10-16" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -2576,8 +2576,8 @@ C — D = 3`}</code>
         <p key="p-10-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="font-bold text-white">Never add an edge that connects two vertices already inside the current MST.</strong>
         </p>
-        <h3 key="h3-10-21" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-21" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.2 Step-by-Step Example
         </h3>
         <p key="p-10-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2585,7 +2585,7 @@ C — D = 3`}</code>
         </p>
         <div key="code-10-32" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2601,7 +2601,7 @@ C --3-- D`}</code>
         </p>
         <div key="code-10-42" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2620,7 +2620,7 @@ C-D = 3`}</code>
         </p>
         <div key="code-10-50" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2632,7 +2632,7 @@ C-D = 3`}</code>
         </p>
         <div key="code-10-57" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2645,7 +2645,7 @@ A-C = 4`}</code>
         </p>
         <div key="code-10-63" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2660,7 +2660,7 @@ A-C = 4`}</code>
         </p>
         <div key="code-10-71" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2672,7 +2672,7 @@ A-C = 4`}</code>
         </p>
         <div key="code-10-79" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2686,7 +2686,7 @@ B-D = 5`}</code>
         </p>
         <div key="code-10-85" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2701,7 +2701,7 @@ B-D = 5`}</code>
         </p>
         <div key="code-10-95" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2715,7 +2715,7 @@ B-D = 5`}</code>
         </p>
         <div key="code-10-102" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2728,7 +2728,7 @@ C-D = 3`}</code>
         </p>
         <div key="code-10-108" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2743,7 +2743,7 @@ C-D = 3`}</code>
         </p>
         <div key="code-10-118" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2756,10 +2756,10 @@ C-D = 3`}</code>
           Total cost:
         </p>
         <p key="p-10-121" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 1+2+3=6 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 1+2+3=6 </span>
         </p>
-        <h3 key="h3-10-123" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-123" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.3 Priority Queue for Prim's Algorithm
         </h3>
         <p key="p-10-125" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2775,13 +2775,13 @@ C-D = 3`}</code>
         <p key="p-10-132" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This difference is crucial.
         </p>
-        <h3 key="h3-10-134" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-134" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.4 Java Implementation
         </h3>
         <div key="code-10-257" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -2910,21 +2910,21 @@ public class PrimMST {
           For an undirected graph, each edge must be present in both adjacency lists.
         </p>
         <p key="p-10-260" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The returned <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">connected</code> field tells you whether the graph has a spanning tree.
+          The returned <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">connected</code> field tells you whether the graph has a spanning tree.
         </p>
-        <h3 key="h3-10-262" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-262" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.5 Complexity
         </h3>
         <p key="p-10-264" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Using an adjacency list and binary heap:
         </p>
         <ul key="ul-10-268" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Time: <span className="font-mono text-indigo-300 font-semibold">O((V+E)\log V)</span>, commonly simplified to <span className="font-mono text-indigo-300 font-semibold">O(E\log V)</span> for a connected graph.</li>
-          <li>Space: <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>.</li>
+          <li>Time: <span className="font-mono text-orange-300 font-semibold">O((V+E)\log V)</span>, commonly simplified to <span className="font-mono text-orange-300 font-semibold">O(E\log V)</span> for a connected graph.</li>
+          <li>Space: <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>.</li>
       </ul>
-        <h3 key="h3-10-269" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-269" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.6 When to Use Prim
         </h3>
         <ul key="ul-10-275" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -2951,8 +2951,8 @@ public class PrimMST {
         <p key="p-11-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Sorting + DSU
         </p>
-        <h3 key="h3-11-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.1 Core Idea
         </h3>
         <ol key="ol-11-17" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -2962,7 +2962,7 @@ public class PrimMST {
           <li>If it connects two different components, select it.</li>
           <li>Merge those components.</li>
           <li>If it connects vertices already in the same component, skip it because it would create a cycle.</li>
-          <li>Stop after selecting <span className="font-mono text-indigo-300 font-semibold">V-1</span> edges.</li>
+          <li>Stop after selecting <span className="font-mono text-orange-300 font-semibold">V-1</span> edges.</li>
       </ol>
         <p key="p-11-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The main challenge is efficiently checking whether two vertices are already connected.
@@ -2970,8 +2970,8 @@ public class PrimMST {
         <p key="p-11-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is solved using Disjoint Set Union.
         </p>
-        <h3 key="h3-11-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.2 Worked Example
         </h3>
         <p key="p-11-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3014,7 +3014,7 @@ public class PrimMST {
         </p>
         <div key="code-11-43" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3026,14 +3026,14 @@ B-D = 5`}</code>
           </pre>
         </div>
         <p key="p-11-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Choose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">A-B = 1</code>.
+          Choose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">A-B = 1</code>.
         </p>
         <p key="p-11-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Current components:
         </p>
         <div key="code-11-53" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3043,11 +3043,11 @@ B-D = 5`}</code>
           </pre>
         </div>
         <p key="p-11-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Choose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">B-C = 2</code>.
+          Choose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">B-C = 2</code>.
         </p>
         <div key="code-11-60" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3056,11 +3056,11 @@ B-D = 5`}</code>
           </pre>
         </div>
         <p key="p-11-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Choose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">C-D = 3</code>.
+          Choose <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">C-D = 3</code>.
         </p>
         <div key="code-11-66" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3068,7 +3068,7 @@ B-D = 5`}</code>
           </pre>
         </div>
         <p key="p-11-67" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          We have selected <span className="font-mono text-indigo-300 font-semibold">V-1=3</span> edges.
+          We have selected <span className="font-mono text-orange-300 font-semibold">V-1=3</span> edges.
         </p>
         <p key="p-11-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Stop.
@@ -3077,10 +3077,10 @@ B-D = 5`}</code>
           Final MST weight:
         </p>
         <p key="p-11-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 1+2+3=6 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 1+2+3=6 </span>
         </p>
-        <h3 key="h3-11-75" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-75" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.3 Why Do We Need DSU?
         </h3>
         <p key="p-11-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3092,22 +3092,22 @@ B-D = 5`}</code>
         <p key="p-11-81" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We need an efficient way to answer:
         </p>
-        <blockquote key="bq-11-83" className="my-3 pl-4 border-l-2 border-indigo-500 text-xs md:text-sm text-indigo-300/90 italic bg-indigo-500/5 py-2 rounded-r-lg">
+        <blockquote key="bq-11-83" className="my-3 pl-4 border-l-2 border-orange-500 text-xs md:text-sm text-orange-300/90 italic bg-orange-500/5 py-2 rounded-r-lg">
           Are these two vertices already connected?
         </blockquote>
         <p key="p-11-85" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           DSU answers this using two operations:
         </p>
         <ul key="ul-11-89" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">find(x)</code>: Find the representative of x's component.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">union(a, b)</code>: Merge the components containing a and b.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">find(x)</code>: Find the representative of x's component.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">union(a, b)</code>: Merge the components containing a and b.</li>
       </ul>
         <p key="p-11-90" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A cycle is formed if:
         </p>
         <div key="code-11-95" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3136,8 +3136,8 @@ B-D = 5`}</code>
         <p key="p-12-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is particularly important for Kruskal's algorithm and dynamic connectivity problems.
         </p>
-        <h3 key="h3-12-11" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-11" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.1 Basic Example
         </h3>
         <p key="p-12-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3145,7 +3145,7 @@ B-D = 5`}</code>
         </p>
         <div key="code-12-18" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3157,7 +3157,7 @@ B-D = 5`}</code>
         </p>
         <div key="code-12-25" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3170,7 +3170,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-12-31" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3182,7 +3182,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-12-37" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3194,7 +3194,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-12-43" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3204,8 +3204,8 @@ union(1, 2)`}</code>
         <p key="p-12-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We have two connected components.
         </p>
-        <h3 key="h3-12-46" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-46" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.2 Parent Array
         </h3>
         <p key="p-12-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3216,7 +3216,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-12-55" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3231,7 +3231,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-12-63" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3243,7 +3243,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-12-71" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3255,8 +3255,8 @@ union(1, 2)`}</code>
         <p key="p-12-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The representative is 0.
         </p>
-        <h3 key="h3-12-74" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-74" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.3 Find Operation
         </h3>
         <p key="p-12-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3267,7 +3267,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-12-90" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3287,8 +3287,8 @@ union(1, 2)`}</code>
         <p key="p-12-93" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           To improve it, use path compression.
         </p>
-        <h3 key="h3-12-95" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-95" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.4 Path Compression
         </h3>
         <p key="p-12-97" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3296,7 +3296,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-12-110" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3314,8 +3314,8 @@ union(1, 2)`}</code>
         <p key="p-12-111" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For future queries, the path becomes much shorter.
         </p>
-        <h3 key="h3-12-113" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-113" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.5 Union by Size
         </h3>
         <p key="p-12-115" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3332,7 +3332,7 @@ union(1, 2)`}</code>
         </h4>
         <div key="code-12-186" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3399,20 +3399,20 @@ union(1, 2)`}</code>
 }`}</code>
           </pre>
         </div>
-        <h3 key="h3-12-187" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-187" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.6 DSU Complexity
         </h3>
         <p key="p-12-189" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           With path compression and union by size or rank:
         </p>
         <ul key="ul-12-194" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Find: <span className="font-mono text-indigo-300 font-semibold">O(\alpha(V))</span> amortized.</li>
-          <li>Union: <span className="font-mono text-indigo-300 font-semibold">O(\alpha(V))</span> amortized.</li>
-          <li>Initialization: <span className="font-mono text-indigo-300 font-semibold">O(V)</span>.</li>
+          <li>Find: <span className="font-mono text-orange-300 font-semibold">O(\alpha(V))</span> amortized.</li>
+          <li>Union: <span className="font-mono text-orange-300 font-semibold">O(\alpha(V))</span> amortized.</li>
+          <li>Initialization: <span className="font-mono text-orange-300 font-semibold">O(V)</span>.</li>
       </ul>
         <p key="p-12-195" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Here, <span className="font-mono text-indigo-300 font-semibold">\alpha(V)</span> is the inverse Ackermann function.
+          Here, <span className="font-mono text-orange-300 font-semibold">\alpha(V)</span> is the inverse Ackermann function.
         </p>
         <p key="p-12-197" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It grows so slowly that for practical input sizes it is effectively constant.
@@ -3431,7 +3431,7 @@ union(1, 2)`}</code>
         </p>
         <div key="code-13-134" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3570,15 +3570,15 @@ public class KruskalMST {
         </p>
         <div key="code-13-140" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
             <code>{`6`}</code>
           </pre>
         </div>
-        <h3 key="h3-13-141" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-141" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.1 Complexity
         </h3>
         <div key="table-13-149" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -3592,25 +3592,25 @@ public class KruskalMST {
             <tbody className="divide-y divide-slate-800/60 text-slate-300 font-sans">
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Sorting edges</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(E\log E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(E\log E)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">DSU operations</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(E\alpha(V))</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(E\alpha(V))</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Total</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(E\log E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(E\log E)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Auxiliary space</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V)</span>, excluding the edge list</td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V)</span>, excluding the edge list</td>
                 </tr>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-13-150" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-150" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.2 When to Use Kruskal
         </h3>
         <ul key="ul-13-157" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -3648,13 +3648,13 @@ public class KruskalMST {
           <li>How many edges are needed to connect a network?</li>
           <li>Can several groups be merged efficiently?</li>
       </ul>
-        <h3 key="h3-14-14" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-14" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.1 Checking Whether Two Vertices Are Connected
         </h3>
         <div key="code-14-26" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3673,7 +3673,7 @@ System.out.println(
         </p>
         <div key="code-14-32" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3683,8 +3683,8 @@ System.out.println(
         <p key="p-14-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Vertices 0 and 2 belong to the same component.
         </p>
-        <h3 key="h3-14-35" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-35" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.2 Detecting Cycles in an Undirected Graph
         </h3>
         <p key="p-14-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3698,7 +3698,7 @@ System.out.println(
       </ol>
         <div key="code-14-57" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3732,7 +3732,7 @@ System.out.println(
         </p>
         <div key="code-15-11" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3750,16 +3750,16 @@ Computer 4`}</code>
           Suppose we want to make the entire network connected using additional connections.
         </p>
         <p key="p-15-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          To connect <span className="font-mono text-indigo-300 font-semibold">C</span> components, we need at least:
+          To connect <span className="font-mono text-orange-300 font-semibold">C</span> components, we need at least:
         </p>
         <p key="p-15-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> C-1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> C-1 </span>
         </p>
         <p key="p-15-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           additional connections, provided we have enough reusable or redundant cables.
         </p>
-        <h3 key="h3-15-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.1 Minimum Connections Needed
         </h3>
         <p key="p-15-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3767,7 +3767,7 @@ Computer 4`}</code>
         </p>
         <div key="code-15-29" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3779,7 +3779,7 @@ Computer 4`}</code>
         </p>
         <div key="code-15-39" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3797,31 +3797,31 @@ Computer 4`}</code>
           The minimum number of new connections is:
         </p>
         <p key="p-15-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 3-1=2 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 3-1=2 </span>
         </p>
-        <h3 key="h3-15-46" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-46" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.2 Important Condition
         </h3>
         <p key="p-15-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          A connected graph with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">n</code> vertices requires at least <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">n - 1</code> edges.
+          A connected graph with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">n</code> vertices requires at least <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">n - 1</code> edges.
         </p>
         <p key="p-15-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          If the number of available edges is smaller than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">n - 1</code>, it is impossible to connect the entire network without adding new edges.
+          If the number of available edges is smaller than <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">n - 1</code>, it is impossible to connect the entire network without adding new edges.
         </p>
         <p key="p-15-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           With redundant edges available, the answer is:
         </p>
         <p key="p-15-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> operations=components-1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> operations=components-1 </span>
         </p>
-        <h3 key="h3-15-56" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-56" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.3 Java Implementation
         </h3>
         <div key="code-15-77" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3849,7 +3849,7 @@ Computer 4`}</code>
         </p>
         <div key="code-15-93" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3871,7 +3871,7 @@ System.out.println(
         </p>
         <div key="code-15-99" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3885,8 +3885,8 @@ System.out.println(
           <strong className="font-bold text-white">Complexity:</strong>
         </p>
         <ul key="ul-15-106" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Time: <span className="font-mono text-indigo-300 font-semibold">O(E\alpha(V))</span>.</li>
-          <li>Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(V)</span>.</li>
+          <li>Time: <span className="font-mono text-orange-300 font-semibold">O(E\alpha(V))</span>.</li>
+          <li>Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(V)</span>.</li>
       </ul>
       </div>
     )
@@ -3911,7 +3911,7 @@ System.out.println(
         </p>
         <div key="code-16-15" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3924,10 +3924,10 @@ System.out.println(
           Where:
         </p>
         <ul key="ul-16-22" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">S</code> = starting point.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">E</code> = destination.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">.</code> = open cell.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">#</code> = blocked cell.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">S</code> = starting point.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">E</code> = destination.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">.</code> = open cell.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">#</code> = blocked cell.</li>
       </ul>
         <p key="p-16-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Possible movements:
@@ -3944,8 +3944,8 @@ System.out.println(
         <p key="p-16-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is called an implicit graph representation.
         </p>
-        <h3 key="h3-16-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.1 Grid as a Graph
         </h3>
         <p key="p-16-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3953,7 +3953,7 @@ System.out.println(
         </p>
         <div key="code-16-41" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3965,7 +3965,7 @@ System.out.println(
         </p>
         <div key="code-16-50" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3980,7 +3980,7 @@ System.out.println(
         </p>
         <div key="code-16-57" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -3991,16 +3991,16 @@ int[] dc = {0, 0, -1, 1};`}</code>
         <p key="p-16-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For diagonals, we would use eight movement directions instead.
         </p>
-        <h3 key="h3-16-60" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-60" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.2 Shortest Path in a Grid Using BFS
         </h3>
         <p key="p-16-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Assume:
         </p>
         <ul key="ul-16-67" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">0</code> = open cell.</li>
-          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">1</code> = blocked cell.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">0</code> = open cell.</li>
+          <li><code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">1</code> = blocked cell.</li>
           <li>Every movement has cost 1.</li>
       </ul>
         <p key="p-16-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4011,7 +4011,7 @@ int[] dc = {0, 0, -1, 1};`}</code>
         </h4>
         <div key="code-16-141" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4088,14 +4088,14 @@ public class GridShortestPath {
           <strong className="font-bold text-white">Complexity:</strong>
         </p>
         <ul key="ul-16-146" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Time: <span className="font-mono text-indigo-300 font-semibold">O(RC)</span>.</li>
-          <li>Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(RC)</span>.</li>
+          <li>Time: <span className="font-mono text-orange-300 font-semibold">O(RC)</span>.</li>
+          <li>Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(RC)</span>.</li>
       </ul>
         <p key="p-16-147" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Every cell is visited at most once.
         </p>
-        <h3 key="h3-16-149" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-149" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.3 Where Grid Graphs Are Used
         </h3>
         <ul key="ul-16-159" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -4126,8 +4126,8 @@ public class GridShortestPath {
         <p key="p-17-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is useful when we want to find the minimum distance to the nearest source.
         </p>
-        <h3 key="h3-17-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.1 Example
         </h3>
         <p key="p-17-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4135,7 +4135,7 @@ public class GridShortestPath {
         </p>
         <div key="code-17-18" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4146,7 +4146,7 @@ public class GridShortestPath {
           </pre>
         </div>
         <p key="p-17-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Assume every cell containing <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">1</code> is a source.
+          Assume every cell containing <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">1</code> is a source.
         </p>
         <p key="p-17-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We want the distance of every other cell to the nearest source.
@@ -4160,24 +4160,24 @@ public class GridShortestPath {
         <p key="p-17-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Then BFS expands outward from all sources together.
         </p>
-        <h3 key="h3-17-29" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-29" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.2 Algorithm
         </h3>
         <ol key="ol-17-36" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
-          <li>Initialize the distance array with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">-1</code>.</li>
+          <li>Initialize the distance array with <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">-1</code>.</li>
           <li>Insert every source into the queue.</li>
           <li>Assign distance zero to each source.</li>
           <li>Process neighbors normally using BFS.</li>
           <li>First discovery of any cell gives its nearest-source distance.</li>
       </ol>
-        <h3 key="h3-17-37" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-37" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.3 Java Implementation
         </h3>
         <div key="code-17-104" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4249,13 +4249,13 @@ public class MultiSourceBFS {
         <p key="p-17-105" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Here, all cells are allowed for movement. If the grid contains blocked cells, add the corresponding validity condition.
         </p>
-        <h3 key="h3-17-107" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-107" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.4 Complexity
         </h3>
         <ul key="ul-17-111" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Time: <span className="font-mono text-indigo-300 font-semibold">O(RC)</span>.</li>
-          <li>Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(RC)</span>.</li>
+          <li>Time: <span className="font-mono text-orange-300 font-semibold">O(RC)</span>.</li>
+          <li>Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(RC)</span>.</li>
       </ul>
         <p key="p-17-112" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Running BFS independently from every source could take much longer.
@@ -4263,8 +4263,8 @@ public class MultiSourceBFS {
         <p key="p-17-114" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Multi-source BFS solves the problem with a single traversal.
         </p>
-        <h3 key="h3-17-116" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-116" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.5 Important Applications
         </h3>
         <ul key="ul-17-124" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -4291,7 +4291,7 @@ public class MultiSourceBFS {
           It works when edge weights are restricted to:
         </p>
         <p key="p-18-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> w\in\&#123;0,1\&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> w\in\&#123;0,1\&#125; </span>
         </p>
         <p key="p-18-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           That means every edge has a cost of either zero or one.
@@ -4299,8 +4299,8 @@ public class MultiSourceBFS {
         <p key="p-18-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Only 0 and 1 edge weights
         </p>
-        <h3 key="h3-18-12" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-12" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.1 Why Do We Need 0-1 BFS?
         </h3>
         <p key="p-18-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4308,7 +4308,7 @@ public class MultiSourceBFS {
         </p>
         <div key="code-18-22" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4327,8 +4327,8 @@ C → D = 1`}</code>
         <p key="p-18-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           0-1 BFS uses a Deque to achieve linear time.
         </p>
-        <h3 key="h3-18-29" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-29" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.2 Core Idea
         </h3>
         <p key="p-18-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4339,7 +4339,7 @@ C → D = 1`}</code>
         </p>
         <div key="code-18-38" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4362,13 +4362,13 @@ C → D = 1`}</code>
         <p key="p-18-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A one-cost transition belongs behind the existing zero-cost alternatives.
         </p>
-        <h3 key="h3-18-50" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-50" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.3 Java Implementation
         </h3>
         <div key="code-18-145" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4465,16 +4465,16 @@ public class ZeroOneBFS {
 }`}</code>
           </pre>
         </div>
-        <h3 key="h3-18-146" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-146" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.4 Complexity
         </h3>
         <ul key="ul-18-150" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
-          <li>Time: <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>.</li>
-          <li>Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(V)</span>, excluding graph storage.</li>
+          <li>Time: <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>.</li>
+          <li>Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(V)</span>, excluding graph storage.</li>
       </ul>
-        <h3 key="h3-18-151" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-151" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.5 When to Use 0-1 BFS
         </h3>
         <ul key="ul-18-157" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-disc list-inside">
@@ -4504,8 +4504,8 @@ public class ZeroOneBFS {
         <p key="p-19-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Different algorithms solve different types of shortest-path and connectivity problems.
         </p>
-        <h3 key="h3-19-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.1 Shortest Path Algorithm Comparison
         </h3>
         <div key="table-19-17" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -4523,49 +4523,49 @@ public class ZeroOneBFS {
                   <td className="p-3">BFS</td>
                   <td className="p-3">Unweighted / equal weights</td>
                   <td className="p-3">Single-source shortest paths</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V+E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V+E)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Dijkstra</td>
                   <td className="p-3">Nonnegative weights</td>
                   <td className="p-3">Single-source shortest paths</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O((V+E)\log V)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O((V+E)\log V)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Bellman-Ford</td>
                   <td className="p-3">Negative weights allowed</td>
                   <td className="p-3">Single-source + negative cycle detection</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(VE)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(VE)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Floyd-Warshall</td>
                   <td className="p-3">Weighted graph</td>
                   <td className="p-3">All-pairs shortest paths</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V^3)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V^3)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">DAG shortest path</td>
                   <td className="p-3">Directed acyclic graph</td>
                   <td className="p-3">Single-source shortest paths</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V+E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V+E)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Multi-source BFS</td>
                   <td className="p-3">Unweighted graph</td>
                   <td className="p-3">Distance to nearest source</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V+E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V+E)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">0-1 BFS</td>
                   <td className="p-3">Edge weights 0 or 1</td>
                   <td className="p-3">Single-source shortest paths</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(V+E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(V+E)</span></td>
                 </tr>
             </tbody>
           </table>
         </div>
-        <h3 key="h3-19-18" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-18" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.2 MST Algorithm Comparison
         </h3>
         <div key="table-19-28" className="my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/70 shadow-sm">
@@ -4600,8 +4600,8 @@ public class ZeroOneBFS {
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Typical time</td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(E\log V)</span></td>
-                  <td className="p-3"><span className="font-mono text-indigo-300 font-semibold">O(E\log E)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(E\log V)</span></td>
+                  <td className="p-3"><span className="font-mono text-orange-300 font-semibold">O(E\log E)</span></td>
                 </tr>
               <tr className="hover:bg-slate-900/40 transition">
                   <td className="p-3">Best suited for</td>
@@ -4614,8 +4614,8 @@ public class ZeroOneBFS {
         <p key="p-19-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Both algorithms find an MST when the input is a connected, undirected, weighted graph.
         </p>
-        <h3 key="h3-19-31" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-31" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.3 Which Algorithm Should You Choose?
         </h3>
         <p key="p-19-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4703,8 +4703,8 @@ public class ZeroOneBFS {
         <p key="p-20-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These concepts help you understand why the algorithms work, rather than simply memorizing their implementations.
         </p>
-        <h3 key="h3-20-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.1 Greedy Algorithms in Graphs
         </h3>
         <p key="p-20-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4734,8 +4734,8 @@ public class ZeroOneBFS {
         <p key="p-20-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The correctness of these algorithms depends on their specific greedy properties.
         </p>
-        <h3 key="h3-20-24" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-24" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.2 Edge Relaxation
         </h3>
         <p key="p-20-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4752,13 +4752,13 @@ public class ZeroOneBFS {
           The basic operation is:
         </p>
         <p key="p-20-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dist[v]=\min(dist[v],dist[u]+w) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dist[v]=\min(dist[v],dist[u]+w) </span>
         </p>
         <p key="p-20-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Understanding this operation is essential for shortest-path problems.
         </p>
-        <h3 key="h3-20-40" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-40" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.3 Cut Property of MST
         </h3>
         <p key="p-20-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4776,8 +4776,8 @@ public class ZeroOneBFS {
         <p key="p-20-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Kruskal selects edges in increasing order while ensuring that the selected edges remain a forest.
         </p>
-        <h3 key="h3-20-52" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-52" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.4 Cycle Property of MST
         </h3>
         <p key="p-20-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4795,8 +4795,8 @@ public class ZeroOneBFS {
         <p key="p-20-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This property is useful in understanding why some edges can safely be excluded.
         </p>
-        <h3 key="h3-20-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.5 Minimum Spanning Forest
         </h3>
         <p key="p-20-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4814,8 +4814,8 @@ public class ZeroOneBFS {
         <p key="p-20-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Prim can also be run separately on each unvisited component.
         </p>
-        <h3 key="h3-20-76" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-76" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.6 Unique vs Multiple MSTs
         </h3>
         <p key="p-20-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4832,7 +4832,7 @@ public class ZeroOneBFS {
         </p>
         <div key="code-20-93" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4855,8 +4855,8 @@ C-------`}</code>
     summary: "9 critical pitfalls: Dijkstra with negative edges, confusing MST with shortest path, stale PQ states, integer overflow.",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-21-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.1 Using Dijkstra with Negative Edges
         </h3>
         <p key="p-21-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4864,7 +4864,7 @@ C-------`}</code>
         </p>
         <div key="code-21-9" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4877,8 +4877,8 @@ C-------`}</code>
         <p key="p-21-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="font-bold text-white">Solution:</strong> Use Bellman-Ford or DAG shortest paths when appropriate.
         </p>
-        <h3 key="h3-21-14" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-14" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.2 Confusing MST with Shortest Paths
         </h3>
         <p key="p-21-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4890,18 +4890,18 @@ C-------`}</code>
         <p key="p-21-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           <strong className="font-bold text-white">Solution:</strong> Identify whether the question asks for the cost of connecting the entire network or the cost of travelling between vertices.
         </p>
-        <h3 key="h3-21-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.3 Forgetting the V-1 Relaxation Rule
         </h3>
         <p key="p-21-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Bellman-Ford requires at most <span className="font-mono text-indigo-300 font-semibold">V-1</span> full edge-relaxation rounds.
+          Bellman-Ford requires at most <span className="font-mono text-orange-300 font-semibold">V-1</span> full edge-relaxation rounds.
         </p>
         <p key="p-21-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The additional pass is for negative-cycle detection.
         </p>
-        <h3 key="h3-21-28" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-28" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.4 Incorrect Priority Queue Updates
         </h3>
         <p key="p-21-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4912,7 +4912,7 @@ C-------`}</code>
         </p>
         <div key="code-21-39" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4921,8 +4921,8 @@ C-------`}</code>
 }`}</code>
           </pre>
         </div>
-        <h3 key="h3-21-40" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-40" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.5 Not Detecting Disconnected Graphs in Prim
         </h3>
         <p key="p-21-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4933,7 +4933,7 @@ C-------`}</code>
         </p>
         <div key="code-21-49" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4943,8 +4943,8 @@ C-------`}</code>
         <p key="p-21-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           for a connected MST.
         </p>
-        <h3 key="h3-21-52" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-52" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.6 Forgetting DSU Path Compression
         </h3>
         <p key="p-21-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4955,7 +4955,7 @@ C-------`}</code>
         </p>
         <div key="code-21-61" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4965,8 +4965,8 @@ C-------`}</code>
         <p key="p-21-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           along with union by size or rank.
         </p>
-        <h3 key="h3-21-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.7 Using BFS for Weighted Graphs
         </h3>
         <p key="p-21-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4975,8 +4975,8 @@ C-------`}</code>
         <p key="p-21-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Use a weighted shortest-path algorithm instead.
         </p>
-        <h3 key="h3-21-70" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-70" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.8 Using Integer Distances Carelessly
         </h3>
         <p key="p-21-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4987,7 +4987,7 @@ C-------`}</code>
         </p>
         <div key="code-21-79" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -4999,7 +4999,7 @@ C-------`}</code>
         </p>
         <div key="code-21-85" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5007,10 +5007,10 @@ C-------`}</code>
           </pre>
         </div>
         <p key="p-21-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Before adding distances in algorithms that use infinity, check that the value is not <code className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700/60">INF</code>.
+          Before adding distances in algorithms that use infinity, check that the value is not <code className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300 font-mono text-xs border border-slate-700/60">INF</code>.
         </p>
-        <h3 key="h3-21-88" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-88" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.9 Assuming Every Negative Cycle Affects Every Destination
         </h3>
         <p key="p-21-90" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5098,7 +5098,7 @@ C-------`}</code>
         </p>
         <div key="code-22-30" className="my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
           <div className="bg-slate-900/80 px-4 py-1.5 border-b border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50"></span>Java / Code Snippet</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500/20 border border-orange-500/50"></span>Java / Code Snippet</span>
             <span className="text-[10px] text-slate-400 font-sans">Module 18 Shortest Paths & MST</span>
           </div>
           <pre className="p-4 text-xs font-mono text-slate-200 overflow-x-auto leading-relaxed whitespace-pre">
@@ -5143,8 +5143,8 @@ City D to E = 12`}</code>
         <p key="p-23-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These problems progress from implementation fundamentals to advanced graph interview challenges.
         </p>
-        <h3 key="h3-23-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 1 — Graph Shortest-Path Fundamentals
         </h3>
         <ol key="ol-23-13" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -5156,8 +5156,8 @@ City D to E = 12`}</code>
           <li>Implement Dijkstra using an adjacency list.</li>
           <li>Find the distance to every vertex from a source.</li>
       </ol>
-        <h3 key="h3-23-14" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-14" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 2 — Advanced Shortest Paths
         </h3>
         <ol key="ol-23-23" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -5169,8 +5169,8 @@ City D to E = 12`}</code>
           <li>Find shortest paths in a DAG.</li>
           <li>Find shortest paths in a directed weighted graph.</li>
       </ol>
-        <h3 key="h3-23-24" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-24" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 3 — Minimum Spanning Trees and DSU
         </h3>
         <ol key="ol-23-34" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -5183,8 +5183,8 @@ City D to E = 12`}</code>
           <li>Find the number of connected components.</li>
           <li>Find the minimum number of additional network connections.</li>
       </ol>
-        <h3 key="h3-23-35" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-35" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Level 4 — Advanced Interview Problems
         </h3>
         <ol key="ol-23-50" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
@@ -5467,37 +5467,37 @@ City D to E = 12`}</code>
           Shortest-path relaxation:
         </p>
         <p key="p-26-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dist[v]=\min(dist[v],dist[u]+w) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dist[v]=\min(dist[v],dist[u]+w) </span>
         </p>
         <p key="p-26-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Number of edges in a spanning tree:
         </p>
         <p key="p-26-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> E_&#123;\text&#123;MST&#125;&#125;=V-1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> E_&#123;\text&#123;MST&#125;&#125;=V-1 </span>
         </p>
         <p key="p-26-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Bellman-Ford relaxation rounds:
         </p>
         <p key="p-26-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> V-1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> V-1 </span>
         </p>
         <p key="p-26-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Floyd-Warshall transition:
         </p>
         <p key="p-26-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dist[i][j]=\min(dist[i][j],dist[i][k]+dist[k][j]) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dist[i][j]=\min(dist[i][j],dist[i][k]+dist[k][j]) </span>
         </p>
         <p key="p-26-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Minimum connections to join <span className="font-mono text-indigo-300 font-semibold">C</span> components:
+          Minimum connections to join <span className="font-mono text-orange-300 font-semibold">C</span> components:
         </p>
         <p key="p-26-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> C-1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> C-1 </span>
         </p>
         <p key="p-26-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           DSU operations with optimizations:
         </p>
         <p key="p-26-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(\alpha(V))\text&#123; amortized&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(\alpha(V))\text&#123; amortized&#125; </span>
         </p>
       </div>
     )
@@ -5508,8 +5508,8 @@ City D to E = 12`}</code>
     summary: "15 core architectural questions and final decision framework for selecting optimal graph algorithms.",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-27-0" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-27-0" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           27. What You Should Be Able to Explain in an Interview
         </h3>
         <p key="p-27-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -5520,20 +5520,20 @@ City D to E = 12`}</code>
           <li>Why does Dijkstra require nonnegative edge weights?</li>
           <li>What is relaxation in shortest-path algorithms?</li>
           <li>How does a PriorityQueue optimize Dijkstra?</li>
-          <li>Why does Bellman-Ford perform <span className="font-mono text-indigo-300 font-semibold">V-1</span> iterations?</li>
+          <li>Why does Bellman-Ford perform <span className="font-mono text-orange-300 font-semibold">V-1</span> iterations?</li>
           <li>How does Bellman-Ford detect a negative cycle?</li>
           <li>How does Floyd-Warshall calculate all-pairs shortest paths?</li>
           <li>Why can a DAG support negative edge weights without negative cycles?</li>
           <li>What is the difference between an MST and a shortest-path tree?</li>
-          <li>Why does an MST have exactly <span className="font-mono text-indigo-300 font-semibold">V-1</span> edges?</li>
+          <li>Why does an MST have exactly <span className="font-mono text-orange-300 font-semibold">V-1</span> edges?</li>
           <li>How do Prim and Kruskal differ?</li>
           <li>Why does Kruskal use DSU?</li>
           <li>How does path compression improve DSU?</li>
           <li>How do multi-source BFS and 0-1 BFS work?</li>
           <li>How do you choose the correct shortest-path algorithm based on graph properties?</li>
       </ol>
-        <h3 key="h3-27-20" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-27-20" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           Final Understanding
         </h3>
         <p key="p-27-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">

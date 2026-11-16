@@ -895,7 +895,7 @@ export default function JavaLinkedLists() {
                 <Repeat className="w-3.5 h-3.5 text-emerald-400" /> Floyd's Cycle Detection
               </span>
               <span className="flex items-center gap-1 bg-white/10 px-2.5 py-1 rounded-md">
-                <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" /> 15 MCQs & 12 Labs/Assignments
+                <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" /> 15 MCQs & 12 Labs/Assignments
               </span>
             </div>
           </div>
@@ -1097,7 +1097,7 @@ export default function JavaLinkedLists() {
                                 <div className="mt-1 flex items-center gap-1 text-[10px] font-mono text-stone-400">
                                   {isHead && <span className="text-orange-600 font-bold">head</span>}
                                   {isHead && isTail && <span>·</span>}
-                                  {isTail && <span className="text-purple-600 font-bold">tail</span>}
+                                  {isTail && <span className="text-orange-400 font-bold">tail</span>}
                                 </div>
                               </div>
 
@@ -1221,7 +1221,7 @@ export default function JavaLinkedLists() {
                     {/* Panel 3: Traversal & Search */}
                     <div className="p-4 rounded-xl border border-stone-200 bg-[#faf8f5] space-y-3">
                       <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
-                        <Search className="w-3.5 h-3.5 text-blue-600" />
+                        <Search className="w-3.5 h-3.5 text-[#f97316]" />
                         <span>Search & Traversal</span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -1234,7 +1234,7 @@ export default function JavaLinkedLists() {
                         />
                         <button
                           onClick={handleSearch}
-                          className="flex-1 px-3 py-1 text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded transition-colors"
+                          className="flex-1 px-3 py-1 text-xs font-semibold bg-[#f97316] hover:bg-[#ea580c] text-white rounded transition-colors"
                         >
                           Linear Search O(n)
                         </button>
@@ -1308,7 +1308,7 @@ export default function JavaLinkedLists() {
                                   {/* Pointer labels pointing down */}
                                   <div className="h-6 flex items-center gap-1 font-mono text-[10px] font-bold">
                                     {isPrev && (
-                                      <span className="px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 border border-blue-300">
+                                      <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300">
                                         prev
                                       </span>
                                     )}
@@ -1318,7 +1318,7 @@ export default function JavaLinkedLists() {
                                       </span>
                                     )}
                                     {isNext && (
-                                      <span className="px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 border border-purple-300">
+                                      <span className="px-1.5 py-0.5 rounded bg-orange-500 text-orange-400 border border-orange-500">
                                         next
                                       </span>
                                     )}
@@ -1330,7 +1330,7 @@ export default function JavaLinkedLists() {
                                       isCurr
                                         ? "border-orange-500 bg-orange-50 ring-4 ring-orange-500/20"
                                         : isPrev
-                                        ? "border-blue-500 bg-blue-50/50"
+                                        ? "border-amber-500 bg-amber-50/50"
                                         : "border-stone-400 bg-white"
                                     }`}
                                   >
@@ -1477,7 +1477,7 @@ export default function JavaLinkedLists() {
                                         </span>
                                       )}
                                       {isFast && (
-                                        <span className="px-2 py-0.5 rounded bg-purple-600 text-white shadow-2xs">
+                                        <span className="px-2 py-0.5 rounded bg-orange-500 text-white shadow-2xs">
                                           FAST (Hare)
                                         </span>
                                       )}
@@ -1490,7 +1490,7 @@ export default function JavaLinkedLists() {
                                           : isSlow
                                           ? "border-emerald-500 bg-emerald-50 ring-4 ring-emerald-500/20"
                                           : isFast
-                                          ? "border-purple-500 bg-purple-50 ring-4 ring-purple-500/20"
+                                          ? "border-orange-500 bg-orange-500 ring-4 ring-orange-500/30"
                                           : "border-stone-400 bg-white"
                                       }`}
                                     >
@@ -1612,12 +1612,12 @@ export default function JavaLinkedLists() {
                                         </span>
                                       )}
                                       {isFast && (
-                                        <span className="px-1.5 py-0.5 rounded bg-purple-600 text-white">
+                                        <span className="px-1.5 py-0.5 rounded bg-orange-500 text-white">
                                           fast
                                         </span>
                                       )}
                                       {isP1 && (
-                                        <span className="px-1.5 py-0.5 rounded bg-blue-600 text-white">
+                                        <span className="px-1.5 py-0.5 rounded bg-amber-500 text-white">
                                           p1 (head)
                                         </span>
                                       )}
@@ -1663,9 +1663,9 @@ export default function JavaLinkedLists() {
                         </div>
 
                         {/* Step commentary */}
-                        <div className="p-4 rounded-xl bg-purple-50/70 border border-purple-200 text-xs text-stone-800 flex items-center justify-between gap-3">
+                        <div className="p-4 rounded-xl bg-orange-500/15 border border-orange-500 text-xs text-stone-800 flex items-center justify-between gap-3">
                           <p className="font-medium">{stepData.desc}</p>
-                          <span className="font-mono text-purple-800 font-bold shrink-0">
+                          <span className="font-mono text-orange-400 font-bold shrink-0">
                             Phase {stepData.phase} · Step {floydStep} / {floydSim.length - 1}
                           </span>
                         </div>
@@ -1685,7 +1685,7 @@ export default function JavaLinkedLists() {
                           <button
                             disabled={floydStep === floydSim.length - 1}
                             onClick={() => setFloydStep((s) => Math.min(floydSim.length - 1, s + 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-purple-700 text-white hover:bg-purple-800 disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-orange-500 text-white hover:bg-orange-500 disabled:opacity-40"
                           >
                             Advance Floyd Algorithm →
                           </button>
@@ -1757,7 +1757,7 @@ export default function JavaLinkedLists() {
                                   key={idx}
                                   className={`px-3 py-2 rounded-lg border font-mono text-xs font-bold transition-all ${
                                     stepData.p2 === idx
-                                      ? "bg-blue-50 border-blue-500 text-blue-700 ring-2 ring-blue-500/20"
+                                      ? "bg-amber-50 border-amber-500 text-amber-700 ring-2 ring-amber-500/20"
                                       : idx < stepData.p2
                                       ? "bg-stone-200 text-stone-400 border-stone-300"
                                       : "bg-white text-stone-900 border-stone-300"
@@ -1873,7 +1873,7 @@ List B:         [5] ---/
                             </div>
                             <div className="p-3 bg-white rounded-xl border border-stone-200 flex items-center justify-between">
                               <span className="text-xs font-mono text-stone-500">Pointer B Position:</span>
-                              <span className="px-2.5 py-1 bg-blue-100 border border-blue-300 rounded font-mono text-blue-800 text-xs font-bold">
+                              <span className="px-2.5 py-1 bg-amber-100 border border-amber-300 rounded font-mono text-amber-800 text-xs font-bold">
                                 {stepData.nodeB.label} ({stepData.nodeB.val})
                               </span>
                             </div>
@@ -1885,7 +1885,7 @@ List B:         [5] ---/
                           className={`p-4 rounded-xl border text-xs flex items-center justify-between ${
                             stepData.match
                               ? "bg-emerald-50 border-emerald-300 text-emerald-900"
-                              : "bg-blue-50 border-blue-200 text-stone-800"
+                              : "bg-orange-50 border-orange-200 text-stone-800"
                           }`}
                         >
                           <p className="font-medium">{stepData.desc}</p>
@@ -1906,7 +1906,7 @@ List B:         [5] ---/
                           <button
                             disabled={interStep === interHistory.length - 1}
                             onClick={() => setInterStep((s) => Math.min(interHistory.length - 1, s + 1))}
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-40"
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#f97316] hover:bg-[#ea580c] text-white disabled:opacity-40"
                           >
                             Advance Both Pointers (Jump on null) →
                           </button>
@@ -2222,7 +2222,7 @@ List B:         [5] ---/
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     item.type === "Lab"
                                       ? "bg-orange-100 text-orange-800"
-                                      : "bg-purple-100 text-purple-800"
+                                      : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
                                   {item.type}

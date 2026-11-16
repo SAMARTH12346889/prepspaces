@@ -100,8 +100,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-1-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Advanced DP focuses on designing states for problems with several interacting conditions.
         </p>
-        <h3 key="h3-1-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.1 What Is a DP State?
         </h3>
         <p key="p-1-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -117,7 +117,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           A basic state might be:
         </p>
         <p key="p-1-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][w] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][w] </span>
         </p>
         <p key="p-1-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Where:
@@ -137,8 +137,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-1-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We need two dimensions because the result depends on both the available items and the capacity.
         </p>
-        <h3 key="h3-1-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.2 Five Steps for Designing a DP Solution
         </h3>
         <p key="p-1-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -177,8 +177,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-1-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           After these steps, determine the final answer, analyze complexity, and check whether the DP table can be optimized.
         </p>
-        <h3 key="h3-1-35" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-35" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.3 Advanced State Modeling Example — 0/1 Knapsack
         </h3>
         <p key="p-1-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -203,7 +203,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Define:
         </p>
         <p key="p-1-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][w] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][w] </span>
         </p>
         <p key="p-1-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           as the maximum value obtainable using the first i items with capacity w.
@@ -215,7 +215,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Choice 1: Do not select the item.
         </p>
         <p key="p-1-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i-1][w] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i-1][w] </span>
         </p>
         <p key="p-1-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Choice 2: Select the item.
@@ -224,13 +224,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If its weight fits:
         </p>
         <p key="p-1-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> value_i+dp[i-1][w-weight_i] </span>
+          <span className="font-mono text-orange-300 font-semibold"> value_i+dp[i-1][w-weight_i] </span>
         </p>
         <p key="p-1-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore:
         </p>
         <p key="p-1-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][w]= \max \begin&#123;cases&#125; dp[i-1][w]\\ value_i+dp[i-1][w-weight_i] \end&#123;cases&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][w]= \max \begin&#123;cases&#125; dp[i-1][w]\\ value_i+dp[i-1][w-weight_i] \end&#123;cases&#125; </span>
         </p>
         <p key="p-1-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The second choice is available only when the item fits.
@@ -251,22 +251,22 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           We select items A and B:
         </p>
         <p key="p-1-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 10+20=30 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 10+20=30 </span>
         </p>
         <p key="p-1-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Complexity:
         </p>
         <p key="p-1-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(nW)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(nW)</span>.
         </p>
         <p key="p-1-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(nW)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(nW)</span>.
         </p>
         <p key="p-1-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is called pseudopolynomial time because its complexity depends on the numerical capacity W, not merely on the number of bits required to represent W.
         </p>
-        <h3 key="h3-1-64" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-1-64" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           1.4 State Modeling with More Dimensions
         </h3>
         <p key="p-1-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -288,13 +288,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           We may define:
         </p>
         <p key="p-1-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[day][holding][transactionsLeft] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[day][holding][transactionsLeft] </span>
         </p>
         <p key="p-1-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Or:
         </p>
         <p key="p-1-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j][k] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j][k] </span>
         </p>
         <p key="p-1-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Each dimension represents a different condition.
@@ -338,8 +338,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-2-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           State-transition problems.
         </p>
-        <h3 key="h3-2-9" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-9" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.1 Two-Dimensional DP
         </h3>
         <p key="p-2-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -370,7 +370,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Define:
         </p>
         <p key="p-2-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j] </span>
         </p>
         <p key="p-2-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           as the LCS length between the first i characters of A and the first j characters of B.
@@ -379,13 +379,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If the last characters match:
         </p>
         <p key="p-2-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=1+dp[i-1][j-1] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=1+dp[i-1][j-1] </span>
         </p>
         <p key="p-2-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Otherwise:
         </p>
         <p key="p-2-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=\max(dp[i-1][j],dp[i][j-1]) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=\max(dp[i-1][j],dp[i][j-1]) </span>
         </p>
         <p key="p-2-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation
@@ -397,13 +397,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-2-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(mn)</span>.
         </p>
         <p key="p-2-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(mn)</span>.
         </p>
-        <h3 key="h3-2-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-2-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           2.2 Three-Dimensional DP
         </h3>
         <p key="p-2-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -428,7 +428,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Define:
         </p>
         <p key="p-2-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][w][v] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][w][v] </span>
         </p>
         <p key="p-2-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           as the maximum value using the first i items with weight capacity w and volume capacity v.
@@ -437,13 +437,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The transition becomes:
         </p>
         <p key="p-2-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][w][v]= \max \begin&#123;cases&#125; dp[i-1][w][v]\\ value_i+dp[i-1][w-weight_i][v-volume_i] \end&#123;cases&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][w][v]= \max \begin&#123;cases&#125; dp[i-1][w][v]\\ value_i+dp[i-1][w-weight_i][v-volume_i] \end&#123;cases&#125; </span>
         </p>
         <p key="p-2-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The complexity is:
         </p>
         <p key="p-2-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(nWV) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(nWV) </span>
         </p>
         <p key="p-2-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This can become memory-intensive because the DP table contains three dimensions.
@@ -502,12 +502,12 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-3-7" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The answer is calculated by combining results from neighboring cells.
         </p>
-        <h3 key="h3-3-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.1 Unique Paths
         </h3>
         <p key="p-3-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Problem: A robot starts at the top-left corner of an <span className="font-mono text-indigo-300 font-semibold">m \times n</span> grid.
+          Problem: A robot starts at the top-left corner of an <span className="font-mono text-orange-300 font-semibold">m \times n</span> grid.
         </p>
         <p key="p-3-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It can move only:
@@ -543,7 +543,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           DP State
         </p>
         <p key="p-3-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j] </span>
         </p>
         <p key="p-3-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represents the number of ways to reach cell (i, j).
@@ -561,13 +561,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Therefore:
         </p>
         <p key="p-3-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=dp[i-1][j]+dp[i][j-1] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=dp[i-1][j]+dp[i][j-1] </span>
         </p>
         <p key="p-3-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Base condition:
         </p>
         <p key="p-3-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[0][0]=1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[0][0]=1 </span>
         </p>
         <p key="p-3-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation
@@ -579,13 +579,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-3-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(mn)</span>.
         </p>
         <p key="p-3-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(mn)</span>.
         </p>
-        <h3 key="h3-3-35" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-35" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.2 Unique Paths with Obstacles
         </h3>
         <p key="p-3-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -610,7 +610,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The transition becomes:
         </p>
         <p key="p-3-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=0 </span>
         </p>
         <p key="p-3-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           for blocked cells.
@@ -619,7 +619,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Otherwise:
         </p>
         <p key="p-3-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=dp[i-1][j]+dp[i][j-1] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=dp[i-1][j]+dp[i][j-1] </span>
         </p>
         <p key="p-3-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation
@@ -627,8 +627,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-3-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           public class UniquePathsObstacles &#123; public static long uniquePaths(int[][] grid) &#123; int m = grid.length; int n = grid[0].length; long[][] dp = new long[m][n]; if (grid[0][0] == 1) &#123; return 0; &#125; dp[0][0] = 1; for (int i = 0; i &lt; m; i++) &#123; for (int j = 0; j &lt; n; j++) &#123; if (grid[i][j] == 1) &#123; dp[i][j] = 0; continue; &#125; if (i &gt; 0) &#123; dp[i][j] += dp[i - 1][j]; &#125; if (j &gt; 0) &#123; dp[i][j] += dp[i][j - 1]; &#125; &#125; &#125; return dp[m - 1][n - 1]; &#125; &#125;
         </p>
-        <h3 key="h3-3-49" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-3-49" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           3.3 Minimum Path Sum
         </h3>
         <p key="p-3-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -653,13 +653,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Total:
         </p>
         <p key="p-3-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 1+3+1+1+1=7 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 1+3+1+1+1=7 </span>
         </p>
         <p key="p-3-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           DP Transition
         </p>
         <p key="p-3-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=grid[i][j]+ \min(dp[i-1][j],dp[i][j-1]) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=grid[i][j]+ \min(dp[i-1][j],dp[i][j-1]) </span>
         </p>
         <p key="p-3-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation
@@ -671,10 +671,10 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-3-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(mn)</span>.
         </p>
         <p key="p-3-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(mn)</span>.
         </p>
         <p key="p-3-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Important Grid DP Patterns
@@ -757,8 +757,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-4-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Wildcard Matching.
         </p>
-        <h3 key="h3-4-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.1 Edit Distance
         </h3>
         <p key="p-4-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -798,7 +798,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           DP State
         </p>
         <p key="p-4-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j] </span>
         </p>
         <p key="p-4-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represents the minimum operations needed to transform the first i characters of string A into the first j characters of string B.
@@ -807,7 +807,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If the current characters match:
         </p>
         <p key="p-4-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=dp[i-1][j-1] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=dp[i-1][j-1] </span>
         </p>
         <p key="p-4-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Otherwise, consider three operations.
@@ -816,25 +816,25 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Insertion:
         </p>
         <p key="p-4-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j-1]+1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j-1]+1 </span>
         </p>
         <p key="p-4-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Deletion:
         </p>
         <p key="p-4-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i-1][j]+1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i-1][j]+1 </span>
         </p>
         <p key="p-4-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Replacement:
         </p>
         <p key="p-4-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i-1][j-1]+1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i-1][j-1]+1 </span>
         </p>
         <p key="p-4-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore:
         </p>
         <p key="p-4-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=1+\min \begin&#123;cases&#125; dp[i-1][j]\\ dp[i][j-1]\\ dp[i-1][j-1] \end&#123;cases&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=1+\min \begin&#123;cases&#125; dp[i-1][j]\\ dp[i][j-1]\\ dp[i-1][j-1] \end&#123;cases&#125; </span>
         </p>
         <p key="p-4-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation
@@ -852,13 +852,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-4-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(mn)</span>.
         </p>
         <p key="p-4-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(mn)</span>.
         </p>
-        <h3 key="h3-4-43" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-4-43" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           4.2 Longest Common Substring
         </h3>
         <p key="p-4-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -886,13 +886,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If characters match:
         </p>
         <p key="p-4-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=1+dp[i-1][j-1] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=1+dp[i-1][j-1] </span>
         </p>
         <p key="p-4-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Otherwise:
         </p>
         <p key="p-4-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=0 </span>
         </p>
         <p key="p-4-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We track the maximum value across all cells.
@@ -933,15 +933,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-5-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The selected characters do not need to be adjacent.
         </p>
-        <h3 key="h3-5-9" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-9" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.1 DP State
         </h3>
         <p key="p-5-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Define:
         </p>
         <p key="p-5-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j] </span>
         </p>
         <p key="p-5-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           as the longest palindromic subsequence contained in the substring from index i to index j.
@@ -950,25 +950,25 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If the two boundary characters match:
         </p>
         <p key="p-5-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]=2+dp[i+1][j-1] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]=2+dp[i+1][j-1] </span>
         </p>
         <p key="p-5-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Otherwise:
         </p>
         <p key="p-5-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]= \max(dp[i+1][j],dp[i][j-1]) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]= \max(dp[i+1][j],dp[i][j-1]) </span>
         </p>
         <p key="p-5-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Base case:
         </p>
         <p key="p-5-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][i]=1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][i]=1 </span>
         </p>
         <p key="p-5-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A single character is itself a palindrome.
         </p>
-        <h3 key="h3-5-20" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-20" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.2 Why Do We Process the Table Backwards?
         </h3>
         <p key="p-5-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -995,8 +995,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-5-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This ensures the smaller intervals are already available.
         </p>
-        <h3 key="h3-5-29" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-29" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.3 Java Implementation
         </h3>
         <p key="p-5-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1012,13 +1012,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-5-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.
         </p>
         <p key="p-5-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.
         </p>
-        <h3 key="h3-5-36" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-5-36" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           5.4 Connection Between LPS and LCS
         </h3>
         <p key="p-5-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1081,8 +1081,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-6-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Minimum vertex cover.
         </p>
-        <h3 key="h3-6-11" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-11" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.1 Example — House Robber on a Tree
         </h3>
         <p key="p-6-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1112,21 +1112,21 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-6-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We can rob the root and its grandchildren because there are no direct connections between them.
         </p>
-        <h3 key="h3-6-21" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-21" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.2 DP State
         </h3>
         <p key="p-6-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For every node, maintain two answers:
         </p>
         <p key="p-6-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> take[u] </span>
+          <span className="font-mono text-orange-300 font-semibold"> take[u] </span>
         </p>
         <p key="p-6-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Maximum money when we rob node u.
         </p>
         <p key="p-6-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> skip[u] </span>
+          <span className="font-mono text-orange-300 font-semibold"> skip[u] </span>
         </p>
         <p key="p-6-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Maximum money when we do not rob node u.
@@ -1135,19 +1135,19 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If we take the current node, we cannot take its children:
         </p>
         <p key="p-6-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> take[u]=value[u]+ skip[left]+skip[right] </span>
+          <span className="font-mono text-orange-300 font-semibold"> take[u]=value[u]+ skip[left]+skip[right] </span>
         </p>
         <p key="p-6-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If we skip the current node, we can take or skip each child:
         </p>
         <p key="p-6-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> skip[u]= \max(take[left],skip[left]) + \max(take[right],skip[right]) </span>
+          <span className="font-mono text-orange-300 font-semibold"> skip[u]= \max(take[left],skip[left]) + \max(take[right],skip[right]) </span>
         </p>
         <p key="p-6-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For a general tree, sum over all children.
         </p>
-        <h3 key="h3-6-32" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-6-32" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           6.3 Java Implementation
         </h3>
         <p key="p-6-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1157,13 +1157,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-6-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.
         </p>
         <p key="p-6-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(h)</span> recursion stack, where h is the tree height.
+          Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(h)</span> recursion stack, where h is the tree height.
         </p>
         <p key="p-6-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For a balanced tree, height is approximately <span className="font-mono text-indigo-300 font-semibold">O(\log n)</span>. For a skewed tree, it can be <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.
+          For a balanced tree, height is approximately <span className="font-mono text-orange-300 font-semibold">O(\log n)</span>. For a skewed tree, it can be <span className="font-mono text-orange-300 font-semibold">O(n)</span>.
         </p>
         <p key="p-6-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Important Tree DP Patterns
@@ -1234,8 +1234,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-7-5" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This guarantees that we can process a node after all of its predecessors have been processed.
         </p>
-        <h3 key="h3-7-6" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-6" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.1 Longest Path in a DAG
         </h3>
         <p key="p-7-7" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1254,25 +1254,25 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Define:
         </p>
         <p key="p-7-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[v]=\text&#123;maximum path weight from source to &#125;v </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[v]=\text&#123;maximum path weight from source to &#125;v </span>
         </p>
         <p key="p-7-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For every edge:
         </p>
         <p key="p-7-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> u\rightarrow v </span>
+          <span className="font-mono text-orange-300 font-semibold"> u\rightarrow v </span>
         </p>
         <p key="p-7-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           with weight w:
         </p>
         <p key="p-7-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[v]=\max(dp[v],dp[u]+w) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[v]=\max(dp[v],dp[u]+w) </span>
         </p>
         <p key="p-7-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Process vertices in topological order.
         </p>
-        <h3 key="h3-7-18" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-18" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.2 Java Implementation
         </h3>
         <p key="p-7-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1282,13 +1282,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-7-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>.
         </p>
         <p key="p-7-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(V)</span>.
+          Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(V)</span>.
         </p>
-        <h3 key="h3-7-23" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-7-23" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           7.3 DP on Cyclic Graphs
         </h3>
         <p key="p-7-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1336,8 +1336,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-8-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It is particularly useful when the number of elements is small, usually around 15–20 for more demanding state-transition problems, depending on memory and implementation.
         </p>
-        <h3 key="h3-8-3" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-3" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.1 Why Use Bitmasks?
         </h3>
         <p key="p-8-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1404,13 +1404,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The resulting integer is:
         </p>
         <p key="p-8-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> mask=0101_2=5 </span>
+          <span className="font-mono text-orange-300 font-semibold"> mask=0101_2=5 </span>
         </p>
         <p key="p-8-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is called a bitmask.
         </p>
-        <h3 key="h3-8-27" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-27" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.2 Common Bitmask Operations
         </h3>
         <p key="p-8-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1437,15 +1437,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-8-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           mask ^ (1 &lt;&lt; i)
         </p>
-        <h3 key="h3-8-36" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-36" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.3 Bitmask DP State
         </h3>
         <p key="p-8-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A common state is:
         </p>
         <p key="p-8-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[mask][i] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[mask][i] </span>
         </p>
         <p key="p-8-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This means:
@@ -1456,15 +1456,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-8-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is a powerful state representation for problems involving subsets and permutations.
         </p>
-        <h3 key="h3-8-42" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-8-42" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           8.4 Complexity
         </h3>
         <p key="p-8-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There are:
         </p>
         <p key="p-8-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 2^n </span>
+          <span className="font-mono text-orange-300 font-semibold"> 2^n </span>
         </p>
         <p key="p-8-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           possible masks.
@@ -1473,7 +1473,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If we have another dimension for the ending vertex, we have:
         </p>
         <p key="p-8-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> n2^n </span>
+          <span className="font-mono text-orange-300 font-semibold"> n2^n </span>
         </p>
         <p key="p-8-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           states.
@@ -1482,10 +1482,10 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If each state considers up to n transitions:
         </p>
         <p key="p-8-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n^2 2^n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n^2 2^n) </span>
         </p>
         <p key="p-8-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          This is exponential, but significantly better than enumerating all <span className="font-mono text-indigo-300 font-semibold">n!</span> possible permutations for many problems.
+          This is exponential, but significantly better than enumerating all <span className="font-mono text-orange-300 font-semibold">n!</span> possible permutations for many problems.
         </p>
       </div>
     )
@@ -1518,7 +1518,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           A brute-force approach considers approximately:
         </p>
         <p key="p-9-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> (n-1)! </span>
+          <span className="font-mono text-orange-300 font-semibold"> (n-1)! </span>
         </p>
         <p key="p-9-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           tours when fixing the starting city.
@@ -1526,15 +1526,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-9-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Bitmask DP can solve it more efficiently.
         </p>
-        <h3 key="h3-9-11" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-11" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.1 DP State
         </h3>
         <p key="p-9-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-9-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[mask][u] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[mask][u] </span>
         </p>
         <p key="p-9-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the minimum cost of:
@@ -1552,13 +1552,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Initial state:
         </p>
         <p key="p-9-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[1][0]=0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[1][0]=0 </span>
         </p>
         <p key="p-9-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           because only city 0 is visited initially.
         </p>
-        <h3 key="h3-9-21" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-21" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.2 Transition
         </h3>
         <p key="p-9-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1571,22 +1571,22 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The new mask is:
         </p>
         <p key="p-9-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> newMask=mask|(1&lt;&lt;v) </span>
+          <span className="font-mono text-orange-300 font-semibold"> newMask=mask|(1&lt;&lt;v) </span>
         </p>
         <p key="p-9-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The new cost is:
         </p>
         <p key="p-9-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[newMask][v] = \min \left( dp[newMask][v], dp[mask][u]+cost[u][v] \right) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[newMask][v] = \min \left( dp[newMask][v], dp[mask][u]+cost[u][v] \right) </span>
         </p>
         <p key="p-9-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Finally, after visiting all cities, return to city 0.
         </p>
         <p key="p-9-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> answer= \min_&#123;u\ne0&#125; \left( dp[fullMask][u]+cost[u][0] \right) </span>
+          <span className="font-mono text-orange-300 font-semibold"> answer= \min_&#123;u\ne0&#125; \left( dp[fullMask][u]+cost[u][0] \right) </span>
         </p>
-        <h3 key="h3-9-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-9-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           9.3 Java Implementation
         </h3>
         <p key="p-9-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1605,10 +1605,10 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-9-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n^2 2^n)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n^2 2^n)</span>.
         </p>
         <p key="p-9-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(n2^n)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(n2^n)</span>.
         </p>
         <p key="p-9-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Important TSP Insight
@@ -1661,8 +1661,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-10-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead of checking every number individually, Digit DP processes the digits of an upper bound.
         </p>
-        <h3 key="h3-10-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.1 Example Problem
         </h3>
         <p key="p-10-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1680,15 +1680,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-10-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We can construct a DP using the digits of the upper bound.
         </p>
-        <h3 key="h3-10-16" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-16" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.2 Digit DP State
         </h3>
         <p key="p-10-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A common state consists of:
         </p>
         <p key="p-10-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[pos][sum][tight] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[pos][sum][tight] </span>
         </p>
         <p key="p-10-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Where:
@@ -1723,15 +1723,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-10-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Once non-tight, later digits can range freely from 0 to 9.
         </p>
-        <h3 key="h3-10-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.3 Transition
         </h3>
         <p key="p-10-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           At each position:
         </p>
         <p key="p-10-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> limit= \begin&#123;cases&#125; digit[pos] &amp; \text&#123;if tight&#125;\\ 9 &amp; \text&#123;otherwise&#125; \end&#123;cases&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> limit= \begin&#123;cases&#125; digit[pos] &amp; \text&#123;if tight&#125;\\ 9 &amp; \text&#123;otherwise&#125; \end&#123;cases&#125; </span>
         </p>
         <p key="p-10-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Try every digit from zero to limit.
@@ -1739,8 +1739,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-10-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Update the sum and the tight flag.
         </p>
-        <h3 key="h3-10-35" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-10-35" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           10.4 Java Implementation — Count Numbers with Digit Sum at Most K
         </h3>
         <p key="p-10-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1762,13 +1762,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If the upper bound has D digits and the digit-sum limit is K:
         </p>
         <p key="p-10-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(DK \times 10)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(DK \times 10)</span>.
         </p>
         <p key="p-10-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Memoization space: <span className="font-mono text-indigo-300 font-semibold">O(DK)</span>.
+          Memoization space: <span className="font-mono text-orange-300 font-semibold">O(DK)</span>.
         </p>
         <p key="p-10-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Recursion depth: <span className="font-mono text-indigo-300 font-semibold">O(D)</span>.
+          Recursion depth: <span className="font-mono text-orange-300 font-semibold">O(D)</span>.
         </p>
         <p key="p-10-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Advanced Digit DP States
@@ -1789,7 +1789,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           For example, counting numbers divisible by 7 may require tracking:
         </p>
         <p key="p-10-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> remainder=(remainder\times10+digit)\bmod7 </span>
+          <span className="font-mono text-orange-300 font-semibold"> remainder=(remainder\times10+digit)\bmod7 </span>
         </p>
         <p key="p-10-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Important: For very large bounds or counts that exceed long, use BigInteger.
@@ -1830,15 +1830,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-11-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Boolean expression evaluation.
         </p>
-        <h3 key="h3-11-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.1 Basic Idea
         </h3>
         <p key="p-11-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Define:
         </p>
         <p key="p-11-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j] </span>
         </p>
         <p key="p-11-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           as the best answer for the interval from index i to index j.
@@ -1850,13 +1850,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The general structure is:
         </p>
         <p key="p-11-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]= \min_&#123;i\le k&lt;j&#125; \left( dp[i][k]+dp[k+1][j]+cost(i,k,j) \right) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]= \min_&#123;i\le k&lt;j&#125; \left( dp[i][k]+dp[k+1][j]+cost(i,k,j) \right) </span>
         </p>
         <p key="p-11-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For maximization problems, replace minimum with maximum.
         </p>
-        <h3 key="h3-11-18" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-18" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.2 Matrix Chain Multiplication
         </h3>
         <p key="p-11-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1866,7 +1866,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Matrix multiplication is associative:
         </p>
         <p key="p-11-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> (A\times B)\times C = A\times(B\times C) </span>
+          <span className="font-mono text-orange-300 font-semibold"> (A\times B)\times C = A\times(B\times C) </span>
         </p>
         <p key="p-11-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           But the number of scalar operations can be different depending on the order.
@@ -1887,7 +1887,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Cost of A × B:
         </p>
         <p key="p-11-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 10\times30\times5=1500 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 10\times30\times5=1500 </span>
         </p>
         <p key="p-11-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Result size:
@@ -1899,13 +1899,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Then multiply by C:
         </p>
         <p key="p-11-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 10\times5\times60=3000 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 10\times5\times60=3000 </span>
         </p>
         <p key="p-11-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Total:
         </p>
         <p key="p-11-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 1500+3000=4500 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 1500+3000=4500 </span>
         </p>
         <p key="p-11-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Option 2:
@@ -1917,32 +1917,32 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Cost of B × C:
         </p>
         <p key="p-11-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 30\times5\times60=9000 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 30\times5\times60=9000 </span>
         </p>
         <p key="p-11-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Then multiply A by the result:
         </p>
         <p key="p-11-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 10\times30\times60=18000 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 10\times30\times60=18000 </span>
         </p>
         <p key="p-11-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Total:
         </p>
         <p key="p-11-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 27000 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 27000 </span>
         </p>
         <p key="p-11-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Option 1 is significantly cheaper.
         </p>
-        <h3 key="h3-11-44" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-44" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.3 DP State
         </h3>
         <p key="p-11-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-11-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j] </span>
         </p>
         <p key="p-11-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           represent the minimum number of scalar multiplications needed to multiply matrices from i through j.
@@ -1951,7 +1951,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If we split at k:
         </p>
         <p key="p-11-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i][j]= \min_&#123;i\le k&lt;j&#125; \left( dp[i][k]+dp[k+1][j] +p[i]p[k+1]p[j+1] \right) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i][j]= \min_&#123;i\le k&lt;j&#125; \left( dp[i][k]+dp[k+1][j] +p[i]p[k+1]p[j+1] \right) </span>
         </p>
         <p key="p-11-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Here, the dimension array is:
@@ -1959,8 +1959,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-11-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           p = [10, 30, 5, 60]
         </p>
-        <h3 key="h3-11-52" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-52" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.4 Java Implementation
         </h3>
         <p key="p-11-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1976,13 +1976,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-11-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n^3)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n^3)</span>.
         </p>
         <p key="p-11-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>.
         </p>
-        <h3 key="h3-11-59" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-11-59" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           11.5 Burst Balloons
         </h3>
         <p key="p-11-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -1998,7 +1998,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           When you burst balloon i, you receive:
         </p>
         <p key="p-11-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> leftValue\times currentValue\times rightValue </span>
+          <span className="font-mono text-orange-300 font-semibold"> leftValue\times currentValue\times rightValue </span>
         </p>
         <p key="p-11-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The challenge is that bursting a balloon changes its neighboring balloons.
@@ -2016,7 +2016,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           This produces an interval transition similar to:
         </p>
         <p key="p-11-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[l][r]= \max_k \left( dp[l][k-1] +dp[k+1][r] +nums[l-1]\times nums[k]\times nums[r+1] \right) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[l][r]= \max_k \left( dp[l][k-1] +dp[k+1][r] +nums[l-1]\times nums[k]\times nums[r+1] \right) </span>
         </p>
         <p key="p-11-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is a classic example of how changing the perspective of a DP state can make a difficult problem manageable.
@@ -2066,8 +2066,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-12-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Knuth optimization.
         </p>
-        <h3 key="h3-12-13" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-13" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.1 Memoization
         </h3>
         <p key="p-12-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2086,16 +2086,16 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Time:
         </p>
         <p key="p-12-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n) </span>
         </p>
         <p key="p-12-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space:
         </p>
         <p key="p-12-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n) </span>
         </p>
-        <h3 key="h3-12-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.2 Tabulation
         </h3>
         <p key="p-12-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2116,8 +2116,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-12-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Makes state dependencies explicit.
         </p>
-        <h3 key="h3-12-29" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-29" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.3 Space Optimization
         </h3>
         <p key="p-12-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2130,7 +2130,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           For Fibonacci:
         </p>
         <p key="p-12-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> F(n)=F(n-1)+F(n-2) </span>
+          <span className="font-mono text-orange-300 font-semibold"> F(n)=F(n-1)+F(n-2) </span>
         </p>
         <p key="p-12-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           We only need two values.
@@ -2139,16 +2139,16 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           public static long fibonacci(int n) &#123; if (n &lt;= 1) &#123; return n; &#125; long prev2 = 0; long prev1 = 1; for (int i = 2; i &lt;= n; i++) &#123; long current = prev1 + prev2; prev2 = prev1; prev1 = current; &#125; return prev1; &#125;
         </p>
         <p key="p-12-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.
         </p>
         <p key="p-12-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.
+          Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(1)</span>.
         </p>
         <p key="p-12-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is a simple example of space-optimized DP.
         </p>
-        <h3 key="h3-12-39" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-12-39" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           12.4 Transition Optimization
         </h3>
         <p key="p-12-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2158,13 +2158,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           For example:
         </p>
         <p key="p-12-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[i]=\min_&#123;j&lt;i&#125;(dp[j]+cost(j,i)) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[i]=\min_&#123;j&lt;i&#125;(dp[j]+cost(j,i)) </span>
         </p>
         <p key="p-12-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A direct calculation requires checking all previous positions.
         </p>
         <p key="p-12-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          This leads to <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span> time.
+          This leads to <span className="font-mono text-orange-300 font-semibold">O(n^2)</span> time.
         </p>
         <p key="p-12-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Special properties of cost may allow faster techniques, such as:
@@ -2196,8 +2196,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-13-1" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Space optimization deserves special attention because it is frequently tested in interviews.
         </p>
-        <h3 key="h3-13-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.1 Reducing a Two-Dimensional DP to One Dimension
         </h3>
         <p key="p-13-3" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2207,7 +2207,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The two-dimensional DP uses:
         </p>
         <p key="p-13-5" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(nW) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(nW) </span>
         </p>
         <p key="p-13-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           space.
@@ -2239,12 +2239,12 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-13-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For complete/unbounded knapsack, where an item may be reused, the ascending iteration is appropriate.
         </p>
-        <h3 key="h3-13-16" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-13-16" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           13.2 LCS Space Optimization
         </h3>
         <p key="p-13-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          The standard LCS table uses <span className="font-mono text-indigo-300 font-semibold">O(mn)</span> memory.
+          The standard LCS table uses <span className="font-mono text-orange-300 font-semibold">O(mn)</span> memory.
         </p>
         <p key="p-13-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           However, each row depends only on:
@@ -2265,13 +2265,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Space complexity becomes:
         </p>
         <p key="p-13-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n) </span>
         </p>
         <p key="p-13-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           instead of:
         </p>
         <p key="p-13-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(mn) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(mn) </span>
         </p>
         <p key="p-13-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           When Is Space Optimization Possible?
@@ -2306,15 +2306,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-14-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           It becomes useful when a DP recurrence contains a minimum or maximum over many possible previous split positions.
         </p>
-        <h3 key="h3-14-3" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-3" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.1 General DP Form
         </h3>
         <p key="p-14-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Consider:
         </p>
         <p key="p-14-5" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[g][i] = \min_&#123;j&lt;i&#125; \left( dp[g-1][j]+cost(j,i) \right) </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[g][i] = \min_&#123;j&lt;i&#125; \left( dp[g-1][j]+cost(j,i) \right) </span>
         </p>
         <p key="p-14-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Where:
@@ -2338,17 +2338,17 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           For n positions and k groups, this often takes:
         </p>
         <p key="p-14-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(kn^2) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(kn^2) </span>
         </p>
-        <h3 key="h3-14-14" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-14" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.2 The Key Optimization Property
         </h3>
         <p key="p-14-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Let:
         </p>
         <p key="p-14-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> opt[g][i] </span>
+          <span className="font-mono text-orange-300 font-semibold"> opt[g][i] </span>
         </p>
         <p key="p-14-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           be the smallest split position j that produces the optimal answer.
@@ -2357,7 +2357,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Divide-and-conquer DP optimization can be applied when optimal split positions are monotonic:
         </p>
         <p key="p-14-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> opt[g][i]\le opt[g][i+1] </span>
+          <span className="font-mono text-orange-300 font-semibold"> opt[g][i]\le opt[g][i+1] </span>
         </p>
         <p key="p-14-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This means that the optimal split for a larger endpoint cannot move backwards.
@@ -2365,8 +2365,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-14-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This property must be justified using the problem's cost function. It is not automatically true for every partition DP.
         </p>
-        <h3 key="h3-14-22" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-22" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.3 How Divide and Conquer Works
         </h3>
         <p key="p-14-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2390,24 +2390,24 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-14-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           compute(left, right, optLeft, optRight) &#123; int mid = (left + right) / 2; // Find the best split for mid. // Recurse on the left half. // Recurse on the right half. &#125;
         </p>
-        <h3 key="h3-14-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-14-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           14.4 Complexity
         </h3>
         <p key="p-14-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Under the usual monotonic-optimum condition, a DP layer can often be computed in:
         </p>
         <p key="p-14-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n\log n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n\log n) </span>
         </p>
         <p key="p-14-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           leading to:
         </p>
         <p key="p-14-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(kn\log n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(kn\log n) </span>
         </p>
         <p key="p-14-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          instead of <span className="font-mono text-indigo-300 font-semibold">O(kn^2)</span>.
+          instead of <span className="font-mono text-orange-300 font-semibold">O(kn^2)</span>.
         </p>
         <p key="p-14-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Some specific recurrences permit even tighter bounds.
@@ -2446,10 +2446,10 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Meet in the Middle is an algorithmic technique that splits a problem into two smaller parts, solves each part independently, and then combines the results.
         </p>
         <p key="p-15-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          It is especially useful for problems involving subsets when the input size is too large for ordinary <span className="font-mono text-indigo-300 font-semibold">O(2^n)</span> enumeration, but small enough for approximately <span className="font-mono text-indigo-300 font-semibold">O(2^&#123;n/2&#125;)</span> work.
+          It is especially useful for problems involving subsets when the input size is too large for ordinary <span className="font-mono text-orange-300 font-semibold">O(2^n)</span> enumeration, but small enough for approximately <span className="font-mono text-orange-300 font-semibold">O(2^&#123;n/2&#125;)</span> work.
         </p>
-        <h3 key="h3-15-3" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-3" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.1 Why Do We Need It?
         </h3>
         <p key="p-15-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2468,7 +2468,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           A brute-force algorithm checks:
         </p>
         <p key="p-15-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 2^n </span>
+          <span className="font-mono text-orange-300 font-semibold"> 2^n </span>
         </p>
         <p key="p-15-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           subsets.
@@ -2477,13 +2477,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           For n = 40:
         </p>
         <p key="p-15-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 2^&#123;40&#125;\approx1.1\times10^&#123;12&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> 2^&#123;40&#125;\approx1.1\times10^&#123;12&#125; </span>
         </p>
         <p key="p-15-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is too large for straightforward enumeration.
         </p>
-        <h3 key="h3-15-14" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-14" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.2 Core Idea
         </h3>
         <p key="p-15-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2499,7 +2499,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Each half contains only three elements, so each has:
         </p>
         <p key="p-15-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 2^3=8 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 2^3=8 </span>
         </p>
         <p key="p-15-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           subset sums.
@@ -2510,8 +2510,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-15-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           In a larger example with 40 elements, each half has only 20 elements.
         </p>
-        <h3 key="h3-15-23" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-23" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.3 Algorithm
         </h3>
         <p key="p-15-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2532,8 +2532,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-15-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Keep the best answer.
         </p>
-        <h3 key="h3-15-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-15-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           15.4 Java Implementation — Maximum Subset Sum Not Exceeding Target
         </h3>
         <p key="p-15-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2546,19 +2546,19 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-15-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Let each half contain approximately <span className="font-mono text-indigo-300 font-semibold">n/2</span> elements.
+          Let each half contain approximately <span className="font-mono text-orange-300 font-semibold">n/2</span> elements.
         </p>
         <p key="p-15-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Generate subset sums: <span className="font-mono text-indigo-300 font-semibold">O(2^&#123;n/2&#125;\cdot n)</span> in this straightforward implementation.
+          Generate subset sums: <span className="font-mono text-orange-300 font-semibold">O(2^&#123;n/2&#125;\cdot n)</span> in this straightforward implementation.
         </p>
         <p key="p-15-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Sort one list: <span className="font-mono text-indigo-300 font-semibold">O(2^&#123;n/2&#125;n)</span>.
+          Sort one list: <span className="font-mono text-orange-300 font-semibold">O(2^&#123;n/2&#125;n)</span>.
         </p>
         <p key="p-15-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Binary searches: <span className="font-mono text-indigo-300 font-semibold">O(n2^&#123;n/2&#125;)</span>.
+          Binary searches: <span className="font-mono text-orange-300 font-semibold">O(n2^&#123;n/2&#125;)</span>.
         </p>
         <p key="p-15-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(2^&#123;n/2&#125;)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(2^&#123;n/2&#125;)</span>.
         </p>
         <p key="p-15-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The main achievement is replacing exponential work over n elements with work over roughly half the input size.
@@ -2635,8 +2635,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-16-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Optimization problems.
         </p>
-        <h3 key="h3-16-15" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-15" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.1 Basic Bitwise Operators
         </h3>
         <p key="p-16-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2691,8 +2691,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
             </tbody>
           </table>
         </div>
-        <h3 key="h3-16-26" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-26" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.2 Bitwise AND
         </h3>
         <p key="p-16-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2713,8 +2713,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-16-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           9
         </p>
-        <h3 key="h3-16-33" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-33" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.3 Bitwise OR
         </h3>
         <p key="p-16-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2732,8 +2732,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-16-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           15
         </p>
-        <h3 key="h3-16-39" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-39" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.4 Bitwise XOR
         </h3>
         <p key="p-16-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2805,8 +2805,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-16-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           6
         </p>
-        <h3 key="h3-16-63" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-63" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.5 Bitwise NOT
         </h3>
         <p key="p-16-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2837,16 +2837,16 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           For signed integers:
         </p>
         <p key="p-16-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> \sim x=-x-1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> \sim x=-x-1 </span>
         </p>
         <p key="p-16-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore:
         </p>
         <p key="p-16-75" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> \sim5=-6 </span>
+          <span className="font-mono text-orange-300 font-semibold"> \sim5=-6 </span>
         </p>
-        <h3 key="h3-16-76" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-76" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.6 Left Shift
         </h3>
         <p key="p-16-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2874,10 +2874,10 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           For suitable non-overflowing positive values:
         </p>
         <p key="p-16-85" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> x&lt;&lt;k=x\times2^k </span>
+          <span className="font-mono text-orange-300 font-semibold"> x&lt;&lt;k=x\times2^k </span>
         </p>
-        <h3 key="h3-16-86" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-16-86" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           16.7 Right Shift
         </h3>
         <p key="p-16-87" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2902,7 +2902,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           5
         </p>
         <p key="p-16-94" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For nonnegative values, right shift is equivalent to integer division by <span className="font-mono text-indigo-300 font-semibold">2^k</span>.
+          For nonnegative values, right shift is equivalent to integer division by <span className="font-mono text-orange-300 font-semibold">2^k</span>.
         </p>
         <p key="p-16-95" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For negative numbers, Java's signed right shift preserves the sign bit.
@@ -2916,8 +2916,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
     summary: "Parity checking (n & 1), power of two (n & (n - 1) == 0), Brian Kernighan's set bit count, isolating rightmost bit (n & -n).",
     content: (
       <div className="space-y-4">
-        <h3 key="h3-17-1" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-1" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.1 Check Whether a Number Is Even or Odd
         </h3>
         <p key="p-17-2" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2926,8 +2926,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-17-3" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           if ((n &amp; 1) == 0) &#123; System.out.println("Even"); &#125; else &#123; System.out.println("Odd"); &#125;
         </p>
-        <h3 key="h3-17-4" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-4" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.2 Check Whether a Number Is a Power of Two
         </h3>
         <p key="p-17-5" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2955,7 +2955,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Therefore:
         </p>
         <p key="p-17-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> n\&amp;(n-1)=0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> n\&amp;(n-1)=0 </span>
         </p>
         <p key="p-17-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation
@@ -2963,8 +2963,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-17-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           public static boolean isPowerOfTwo(int n) &#123; return n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0; &#125;
         </p>
-        <h3 key="h3-17-16" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-16" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.3 Count Set Bits
         </h3>
         <p key="p-17-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -2989,20 +2989,20 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-17-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(k) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(k) </span>
         </p>
         <p key="p-17-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Where k is the number of set bits.
         </p>
-        <h3 key="h3-17-26" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-26" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.4 Find the Rightmost Set Bit
         </h3>
         <p key="p-17-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Use:
         </p>
         <p key="p-17-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> n\&amp;(-n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> n\&amp;(-n) </span>
         </p>
         <p key="p-17-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Example:
@@ -3019,8 +3019,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-17-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is especially helpful when iterating through subset bits.
         </p>
-        <h3 key="h3-17-34" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-17-34" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           17.5 Set, Clear, Toggle and Check a Bit
         </h3>
         <p key="p-17-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3078,22 +3078,22 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Important properties:
         </p>
         <p key="p-18-3" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> a\oplus0=a </span>
+          <span className="font-mono text-orange-300 font-semibold"> a\oplus0=a </span>
         </p>
         <p key="p-18-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> a\oplus a=0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> a\oplus a=0 </span>
         </p>
         <p key="p-18-5" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> a\oplus b=b\oplus a </span>
+          <span className="font-mono text-orange-300 font-semibold"> a\oplus b=b\oplus a </span>
         </p>
         <p key="p-18-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> (a\oplus b)\oplus c = a\oplus(b\oplus c) </span>
+          <span className="font-mono text-orange-300 font-semibold"> (a\oplus b)\oplus c = a\oplus(b\oplus c) </span>
         </p>
         <p key="p-18-7" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           These allow us to cancel repeated values.
         </p>
-        <h3 key="h3-18-8" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-8" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.1 Find the Number That Appears Once
         </h3>
         <p key="p-18-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3118,25 +3118,25 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           XOR every element:
         </p>
         <p key="p-18-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 4\oplus1\oplus2\oplus1\oplus2 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 4\oplus1\oplus2\oplus1\oplus2 </span>
         </p>
         <p key="p-18-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Because:
         </p>
         <p key="p-18-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 1\oplus1=0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 1\oplus1=0 </span>
         </p>
         <p key="p-18-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           and:
         </p>
         <p key="p-18-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 2\oplus2=0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 2\oplus2=0 </span>
         </p>
         <p key="p-18-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The remaining result is:
         </p>
         <p key="p-18-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 4 </span>
+          <span className="font-mono text-orange-300 font-semibold"> 4 </span>
         </p>
         <p key="p-18-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation
@@ -3148,13 +3148,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-18-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.
         </p>
         <p key="p-18-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.
+          Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(1)</span>.
         </p>
-        <h3 key="h3-18-28" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-28" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.2 Find Two Numbers That Appear Once
         </h3>
         <p key="p-18-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3179,7 +3179,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           First XOR everything:
         </p>
         <p key="p-18-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> xor=7\oplus9 </span>
+          <span className="font-mono text-orange-300 font-semibold"> xor=7\oplus9 </span>
         </p>
         <p key="p-18-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Because 7 and 9 are different, their XOR contains at least one set bit.
@@ -3206,13 +3206,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-18-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.
         </p>
         <p key="p-18-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.
+          Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(1)</span>.
         </p>
-        <h3 key="h3-18-47" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-47" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.3 Find the Missing Number Using XOR
         </h3>
         <p key="p-18-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3239,15 +3239,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-18-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           public static int missingNumber(int[] nums) &#123; int xor = nums.length; for (int i = 0; i &lt; nums.length; i++) &#123; xor ^= i; xor ^= nums[i]; &#125; return xor; &#125;
         </p>
-        <h3 key="h3-18-56" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-18-56" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           18.4 XOR of Numbers from 0 Through N
         </h3>
         <p key="p-18-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The XOR pattern repeats every four numbers.
         </p>
         <p key="p-18-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> F(n)= \begin&#123;cases&#125; n &amp; n\bmod4=0\\ 1 &amp; n\bmod4=1\\ n+1 &amp; n\bmod4=2\\ 0 &amp; n\bmod4=3 \end&#123;cases&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> F(n)= \begin&#123;cases&#125; n &amp; n\bmod4=0\\ 1 &amp; n\bmod4=1\\ n+1 &amp; n\bmod4=2\\ 0 &amp; n\bmod4=3 \end&#123;cases&#125; </span>
         </p>
         <p key="p-18-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java:
@@ -3309,15 +3309,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-19-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           N-Queens optimizations.
         </p>
-        <h3 key="h3-19-15" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-15" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.1 Enumerating All Subsets
         </h3>
         <p key="p-19-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For an array of size n, there are:
         </p>
         <p key="p-19-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 2^n </span>
+          <span className="font-mono text-orange-300 font-semibold"> 2^n </span>
         </p>
         <p key="p-19-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           possible subsets.
@@ -3422,13 +3422,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-19-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Number of subsets: <span className="font-mono text-indigo-300 font-semibold">2^n</span>.
+          Number of subsets: <span className="font-mono text-orange-300 font-semibold">2^n</span>.
         </p>
         <p key="p-19-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Printing all elements across all subsets: <span className="font-mono text-indigo-300 font-semibold">O(n2^n)</span>.
+          Printing all elements across all subsets: <span className="font-mono text-orange-300 font-semibold">O(n2^n)</span>.
         </p>
-        <h3 key="h3-19-54" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-54" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.2 Enumerating All Submasks
         </h3>
         <p key="p-19-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3452,15 +3452,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-19-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is useful in advanced subset DP transitions.
         </p>
-        <h3 key="h3-19-62" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-19-62" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           19.3 Bitmasking and DP Connection
         </h3>
         <p key="p-19-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Many subset problems define:
         </p>
         <p key="p-19-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[mask] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[mask] </span>
         </p>
         <p key="p-19-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           as the best result for the set represented by mask.
@@ -3469,7 +3469,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Others use:
         </p>
         <p key="p-19-67" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> dp[mask][last] </span>
+          <span className="font-mono text-orange-300 font-semibold"> dp[mask][last] </span>
         </p>
         <p key="p-19-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           to remember both the selected subset and the final element.
@@ -3519,8 +3519,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-20-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Number-theoretic properties.
         </p>
-        <h3 key="h3-20-11" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-11" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.1 Greatest Common Divisor (GCD)
         </h3>
         <p key="p-20-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3536,7 +3536,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The Euclidean algorithm uses:
         </p>
         <p key="p-20-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> gcd(a,b)=gcd(b,a\bmod b) </span>
+          <span className="font-mono text-orange-300 font-semibold"> gcd(a,b)=gcd(b,a\bmod b) </span>
         </p>
         <p key="p-20-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The process continues until the second value becomes zero.
@@ -3551,13 +3551,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-20-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(\log(\min(a,b))) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(\log(\min(a,b))) </span>
         </p>
         <p key="p-20-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For arbitrary long values, take care with Math.abs(Long.MIN_VALUE), which cannot be represented as a positive long.
         </p>
-        <h3 key="h3-20-23" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-23" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.2 Least Common Multiple (LCM)
         </h3>
         <p key="p-20-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3567,7 +3567,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Relationship:
         </p>
         <p key="p-20-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> LCM(a,b)=\frac&#123;|a\times b|&#125;&#123;GCD(a,b)&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> LCM(a,b)=\frac&#123;|a\times b|&#125;&#123;GCD(a,b)&#125; </span>
         </p>
         <p key="p-20-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           To reduce the chance of overflow, divide before multiplying.
@@ -3578,8 +3578,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-20-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For large values, the multiplication can still overflow. Use BigInteger when arbitrary precision is required.
         </p>
-        <h3 key="h3-20-30" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-30" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.3 Sieve of Eratosthenes
         </h3>
         <p key="p-20-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3622,13 +3622,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-20-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n\log\log n)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n\log\log n)</span>.
         </p>
         <p key="p-20-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Space: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.
+          Space: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.
         </p>
-        <h3 key="h3-20-46" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-46" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.4 Modular Arithmetic
         </h3>
         <p key="p-20-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3641,7 +3641,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           For example:
         </p>
         <p key="p-20-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> (a+b)\bmod m </span>
+          <span className="font-mono text-orange-300 font-semibold"> (a+b)\bmod m </span>
         </p>
         <p key="p-20-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Instead of storing an enormous number, store its remainder.
@@ -3650,10 +3650,10 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Important rules:
         </p>
         <p key="p-20-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> (a+b)\bmod m = ((a\bmod m)+(b\bmod m))\bmod m </span>
+          <span className="font-mono text-orange-300 font-semibold"> (a+b)\bmod m = ((a\bmod m)+(b\bmod m))\bmod m </span>
         </p>
         <p key="p-20-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> (a\times b)\bmod m = ((a\bmod m)(b\bmod m))\bmod m </span>
+          <span className="font-mono text-orange-300 font-semibold"> (a\times b)\bmod m = ((a\bmod m)(b\bmod m))\bmod m </span>
         </p>
         <p key="p-20-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For negative numbers, Java's % operator can return a negative remainder, so normalize when necessary.
@@ -3661,21 +3661,21 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-20-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           long normalized = ((x % mod) + mod) % mod;
         </p>
-        <h3 key="h3-20-57" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-57" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.5 Fast Exponentiation
         </h3>
         <p key="p-20-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Suppose we need:
         </p>
         <p key="p-20-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> a^n\bmod m </span>
+          <span className="font-mono text-orange-300 font-semibold"> a^n\bmod m </span>
         </p>
         <p key="p-20-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Calculating <span className="font-mono text-indigo-300 font-semibold">a</span> multiplied by itself n times takes <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.
+          Calculating <span className="font-mono text-orange-300 font-semibold">a</span> multiplied by itself n times takes <span className="font-mono text-orange-300 font-semibold">O(n)</span>.
         </p>
         <p key="p-20-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Binary exponentiation reduces this to <span className="font-mono text-indigo-300 font-semibold">O(\log n)</span>.
+          Binary exponentiation reduces this to <span className="font-mono text-orange-300 font-semibold">O(\log n)</span>.
         </p>
         <p key="p-20-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Core Idea
@@ -3684,13 +3684,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           If the exponent is even:
         </p>
         <p key="p-20-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> a^n=(a^&#123;n/2&#125;)^2 </span>
+          <span className="font-mono text-orange-300 font-semibold"> a^n=(a^&#123;n/2&#125;)^2 </span>
         </p>
         <p key="p-20-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           If the exponent is odd:
         </p>
         <p key="p-20-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> a^n=a\times a^&#123;n-1&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> a^n=a\times a^&#123;n-1&#125; </span>
         </p>
         <p key="p-20-67" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Java implementation
@@ -3701,27 +3701,27 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-20-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This implementation assumes multiplication does not overflow long before taking the remainder. It is safe for many common competitive-programming moduli such as 1,000,000,007, but arbitrary large long moduli require a safe modular multiplication method or BigInteger.
         </p>
-        <h3 key="h3-20-70" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-70" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.6 Modular Multiplicative Inverse
         </h3>
         <p key="p-20-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           A modular inverse of a modulo m is a number x such that:
         </p>
         <p key="p-20-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> (a\times x)\bmod m=1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> (a\times x)\bmod m=1 </span>
         </p>
         <p key="p-20-73" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           An inverse exists exactly when:
         </p>
         <p key="p-20-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> gcd(a,m)=1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> gcd(a,m)=1 </span>
         </p>
         <p key="p-20-75" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For prime m, Fermat's Little Theorem gives:
         </p>
         <p key="p-20-76" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> a^&#123;-1&#125;\bmod m=a^&#123;m-2&#125;\bmod m </span>
+          <span className="font-mono text-orange-300 font-semibold"> a^&#123;-1&#125;\bmod m=a^&#123;m-2&#125;\bmod m </span>
         </p>
         <p key="p-20-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           provided a is not divisible by m.
@@ -3729,15 +3729,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-20-78" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is frequently used in combinatorics problems.
         </p>
-        <h3 key="h3-20-79" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-20-79" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           20.7 Combinatorics — nCr
         </h3>
         <p key="p-20-80" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The number of ways to choose r elements from n elements is:
         </p>
         <p key="p-20-81" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> \binom nr=\frac&#123;n!&#125;&#123;r!(n-r)!&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> \binom nr=\frac&#123;n!&#125;&#123;r!(n-r)!&#125; </span>
         </p>
         <p key="p-20-82" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           For large values, we usually calculate combinations modulo a prime.
@@ -3746,13 +3746,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Precompute factorials:
         </p>
         <p key="p-20-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> fact[i]=i!\bmod m </span>
+          <span className="font-mono text-orange-300 font-semibold"> fact[i]=i!\bmod m </span>
         </p>
         <p key="p-20-85" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Then:
         </p>
         <p key="p-20-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> nCr= fact[n]\times inverse(fact[r]) \times inverse(fact[n-r]) \bmod m </span>
+          <span className="font-mono text-orange-300 font-semibold"> nCr= fact[n]\times inverse(fact[r]) \times inverse(fact[n-r]) \bmod m </span>
         </p>
         <p key="p-20-87" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This gives efficient repeated combination queries after preprocessing.
@@ -3817,8 +3817,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-21-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There are two major types.
         </p>
-        <h3 key="h3-21-10" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-10" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.1 Las Vegas Algorithms
         </h3>
         <p key="p-21-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3840,16 +3840,16 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Expected time:
         </p>
         <p key="p-21-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n\log n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n\log n) </span>
         </p>
         <p key="p-21-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Worst-case time:
         </p>
         <p key="p-21-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n^2) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n^2) </span>
         </p>
-        <h3 key="h3-21-20" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-20" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.2 Monte Carlo Algorithms
         </h3>
         <p key="p-21-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3873,8 +3873,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-21-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The probability of error can often be reduced by repeating the algorithm with independent random choices.
         </p>
-        <h3 key="h3-21-28" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-28" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.3 Randomized QuickSort
         </h3>
         <p key="p-21-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3896,19 +3896,19 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Expected time:
         </p>
         <p key="p-21-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n\log n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n\log n) </span>
         </p>
         <p key="p-21-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Worst case:
         </p>
         <p key="p-21-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n^2) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n^2) </span>
         </p>
         <p key="p-21-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Randomization improves expected performance; it does not eliminate the theoretical worst case.
         </p>
-        <h3 key="h3-21-39" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-21-39" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           21.4 Reservoir Sampling
         </h3>
         <p key="p-21-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -3927,7 +3927,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Select the first element.
         </p>
         <p key="p-21-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          For the i-th element, choose it with probability <span className="font-mono text-indigo-300 font-semibold">1/i</span>.
+          For the i-th element, choose it with probability <span className="font-mono text-orange-300 font-semibold">1/i</span>.
         </p>
         <p key="p-21-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Replace the stored element if it is selected.
@@ -3942,13 +3942,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Complexity:
         </p>
         <p key="p-21-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Time: <span className="font-mono text-indigo-300 font-semibold">O(n)</span>.
+          Time: <span className="font-mono text-orange-300 font-semibold">O(n)</span>.
         </p>
         <p key="p-21-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Auxiliary space: <span className="font-mono text-indigo-300 font-semibold">O(1)</span>.
+          Auxiliary space: <span className="font-mono text-orange-300 font-semibold">O(1)</span>.
         </p>
         <p key="p-21-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Each element has an equal probability of <span className="font-mono text-indigo-300 font-semibold">1/n</span> of being selected.
+          Each element has an equal probability of <span className="font-mono text-orange-300 font-semibold">1/n</span> of being selected.
         </p>
         <p key="p-21-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Where Randomized Algorithms Are Used
@@ -3989,15 +3989,15 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-22-1" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Advanced algorithms are not only about finding correct answers. They are also about understanding how the running time and memory requirements grow.
         </p>
-        <h3 key="h3-22-2" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-2" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.1 DP Complexity
         </h3>
         <p key="p-22-3" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The typical complexity can be estimated using:
         </p>
         <p key="p-22-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> \text&#123;Number of states&#125; \times \text&#123;Transitions per state&#125; </span>
+          <span className="font-mono text-orange-300 font-semibold"> \text&#123;Number of states&#125; \times \text&#123;Transitions per state&#125; </span>
         </p>
         <p key="p-22-5" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Example: LCS.
@@ -4006,19 +4006,19 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Number of states:
         </p>
         <p key="p-22-7" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(mn) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(mn) </span>
         </p>
         <p key="p-22-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Transitions per state:
         </p>
         <p key="p-22-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(1) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(1) </span>
         </p>
         <p key="p-22-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Total:
         </p>
         <p key="p-22-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(mn) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(mn) </span>
         </p>
         <p key="p-22-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Example: TSP Bitmask DP.
@@ -4027,19 +4027,19 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Number of states:
         </p>
         <p key="p-22-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n2^n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n2^n) </span>
         </p>
         <p key="p-22-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Transitions per state:
         </p>
         <p key="p-22-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n) </span>
         </p>
         <p key="p-22-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Total:
         </p>
         <p key="p-22-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n^2 2^n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n^2 2^n) </span>
         </p>
         <p key="p-22-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Example: Matrix Chain Multiplication.
@@ -4048,25 +4048,25 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Number of states:
         </p>
         <p key="p-22-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n^2) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n^2) </span>
         </p>
         <p key="p-22-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Transitions per state:
         </p>
         <p key="p-22-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n) </span>
         </p>
         <p key="p-22-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Total:
         </p>
         <p key="p-22-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> O(n^3) </span>
+          <span className="font-mono text-orange-300 font-semibold"> O(n^3) </span>
         </p>
         <p key="p-22-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           This is one of the most reliable ways to calculate DP complexity.
         </p>
-        <h3 key="h3-22-27" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-27" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.2 Complexity Comparison
         </h3>
         <p key="p-22-28" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4082,55 +4082,55 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           LCS
         </p>
         <p key="p-22-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-22-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-22-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Edit Distance
         </p>
         <p key="p-22-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-22-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-22-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Longest Palindromic Subsequence
         </p>
         <p key="p-22-38" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>
         </p>
         <p key="p-22-39" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>
         </p>
         <p key="p-22-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Grid DP
         </p>
         <p key="p-22-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-22-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-22-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Tree DP
         </p>
         <p key="p-22-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n)</span>
         </p>
         <p key="p-22-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(h)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(h)</span>
         </p>
         <p key="p-22-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           DAG DP
         </p>
         <p key="p-22-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>
         </p>
         <p key="p-22-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(V)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(V)</span>
         </p>
         <p key="p-22-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Bitmask DP
@@ -4145,67 +4145,67 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           TSP Bitmask DP
         </p>
         <p key="p-22-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^2 2^n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^2 2^n)</span>
         </p>
         <p key="p-22-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n2^n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n2^n)</span>
         </p>
         <p key="p-22-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Digit DP
         </p>
         <p key="p-22-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(DK\times10)</span> for the illustrated digit-sum problem
+          <span className="font-mono text-orange-300 font-semibold">O(DK\times10)</span> for the illustrated digit-sum problem
         </p>
         <p key="p-22-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(DK)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(DK)</span>
         </p>
         <p key="p-22-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Matrix Chain Multiplication
         </p>
         <p key="p-22-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^3)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^3)</span>
         </p>
         <p key="p-22-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>
         </p>
         <p key="p-22-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Meet in the Middle
         </p>
         <p key="p-22-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Typically <span className="font-mono text-indigo-300 font-semibold">O(n2^&#123;n/2&#125;)</span> here
+          Typically <span className="font-mono text-orange-300 font-semibold">O(n2^&#123;n/2&#125;)</span> here
         </p>
         <p key="p-22-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(2^&#123;n/2&#125;)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(2^&#123;n/2&#125;)</span>
         </p>
         <p key="p-22-64" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Sieve of Eratosthenes
         </p>
         <p key="p-22-65" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n\log\log n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n\log\log n)</span>
         </p>
         <p key="p-22-66" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n)</span>
         </p>
         <p key="p-22-67" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Fast Exponentiation
         </p>
         <p key="p-22-68" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(\log n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(\log n)</span>
         </p>
         <p key="p-22-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(1)</span> iterative
+          <span className="font-mono text-orange-300 font-semibold">O(1)</span> iterative
         </p>
         <p key="p-22-70" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Reservoir Sampling
         </p>
         <p key="p-22-71" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n)</span>
         </p>
         <p key="p-22-72" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(1)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(1)</span>
         </p>
-        <h3 key="h3-22-73" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-22-73" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           22.3 Understanding Exponential Complexity
         </h3>
         <p key="p-22-74" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4233,49 +4233,49 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Meaning
         </p>
         <p key="p-22-82" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(1)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(1)</span>
         </p>
         <p key="p-22-83" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Constant
         </p>
         <p key="p-22-84" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(\log n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(\log n)</span>
         </p>
         <p key="p-22-85" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Logarithmic
         </p>
         <p key="p-22-86" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n)</span>
         </p>
         <p key="p-22-87" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Linear
         </p>
         <p key="p-22-88" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n\log n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n\log n)</span>
         </p>
         <p key="p-22-89" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Linearithmic
         </p>
         <p key="p-22-90" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>
         </p>
         <p key="p-22-91" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Quadratic
         </p>
         <p key="p-22-92" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^3)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^3)</span>
         </p>
         <p key="p-22-93" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Cubic
         </p>
         <p key="p-22-94" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(2^n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(2^n)</span>
         </p>
         <p key="p-22-95" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Exponential
         </p>
         <p key="p-22-96" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n!)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n!)</span>
         </p>
         <p key="p-22-97" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Factorial
@@ -4307,8 +4307,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-23-4" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           There are several common proof techniques.
         </p>
-        <h3 key="h3-23-5" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-5" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.1 Mathematical Induction
         </h3>
         <p key="p-23-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4333,13 +4333,13 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           We define:
         </p>
         <p key="p-23-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> F(0)=0 </span>
+          <span className="font-mono text-orange-300 font-semibold"> F(0)=0 </span>
         </p>
         <p key="p-23-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> F(1)=1 </span>
+          <span className="font-mono text-orange-300 font-semibold"> F(1)=1 </span>
         </p>
         <p key="p-23-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> F(n)=F(n-1)+F(n-2) </span>
+          <span className="font-mono text-orange-300 font-semibold"> F(n)=F(n-1)+F(n-2) </span>
         </p>
         <p key="p-23-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Base case:
@@ -4363,7 +4363,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The recurrence uses the two previously correct values:
         </p>
         <p key="p-23-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> F(n-1)+F(n-2) </span>
+          <span className="font-mono text-orange-300 font-semibold"> F(n-1)+F(n-2) </span>
         </p>
         <p key="p-23-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore it produces the correct F(n).
@@ -4371,8 +4371,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-23-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Hence, by induction, the algorithm correctly computes all Fibonacci values.
         </p>
-        <h3 key="h3-23-26" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-26" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.2 DP Correctness Proof
         </h3>
         <p key="p-23-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4417,8 +4417,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-23-40" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Therefore, the recurrence calculates the optimum over all permitted selections.
         </p>
-        <h3 key="h3-23-41" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-41" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.3 Loop Invariants
         </h3>
         <p key="p-23-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4463,8 +4463,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-23-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Array processing.
         </p>
-        <h3 key="h3-23-56" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-56" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.4 Exchange Argument
         </h3>
         <p key="p-23-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4500,8 +4500,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-23-67" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Some scheduling and optimization algorithms.
         </p>
-        <h3 key="h3-23-68" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-68" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.5 Randomized Algorithm Correctness
         </h3>
         <p key="p-23-69" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4525,8 +4525,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-23-75" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           The final probability after all elements have been processed.
         </p>
-        <h3 key="h3-23-76" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-23-76" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           23.6 A Complete Algorithm Proof Template
         </h3>
         <p key="p-23-77" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4682,8 +4682,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-24-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Exchange argument
         </p>
-        <h3 key="h3-24-45" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-24-45" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           24.1 How to Recognize Advanced DP Problems
         </h3>
         <p key="p-24-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4884,8 +4884,8 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
         <p key="p-25-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Modular Combinatorics.
         </p>
-        <h3 key="h3-25-46" className="text-lg md:text-xl font-bold text-indigo-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <h3 key="h3-25-46" className="text-lg md:text-xl font-bold text-orange-400 mt-8 mb-3 flex items-center gap-2 border-b border-slate-800 pb-2">
+          <span className="w-2 h-2 rounded-full bg-orange-500"></span>
           25.1 Particularly Important Interview Problems
         </h3>
         <p key="p-25-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
@@ -4961,70 +4961,70 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Multidimensional Knapsack
         </p>
         <p key="p-26-5" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(nWV)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(nWV)</span>
         </p>
         <p key="p-26-6" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(nWV)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(nWV)</span>
         </p>
         <p key="p-26-7" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Grid DP
         </p>
         <p key="p-26-8" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-26-9" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-26-10" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           LCS
         </p>
         <p key="p-26-11" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-26-12" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-26-13" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Edit Distance
         </p>
         <p key="p-26-14" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-26-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(mn)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(mn)</span>
         </p>
         <p key="p-26-16" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Longest Palindromic Subsequence
         </p>
         <p key="p-26-17" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>
         </p>
         <p key="p-26-18" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>
         </p>
         <p key="p-26-19" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Tree DP
         </p>
         <p key="p-26-20" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n)</span>
         </p>
         <p key="p-26-21" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(h)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(h)</span>
         </p>
         <p key="p-26-22" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           DAG DP
         </p>
         <p key="p-26-23" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(V+E)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(V+E)</span>
         </p>
         <p key="p-26-24" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(V)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(V)</span>
         </p>
         <p key="p-26-25" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Bitmask DP
         </p>
         <p key="p-26-26" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Problem-dependent, often <span className="font-mono text-indigo-300 font-semibold">O(n2^n)</span> or <span className="font-mono text-indigo-300 font-semibold">O(n^22^n)</span>
+          Problem-dependent, often <span className="font-mono text-orange-300 font-semibold">O(n2^n)</span> or <span className="font-mono text-orange-300 font-semibold">O(n^22^n)</span>
         </p>
         <p key="p-26-27" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Problem-dependent
@@ -5033,28 +5033,28 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           TSP Bitmask DP
         </p>
         <p key="p-26-29" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^22^n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^22^n)</span>
         </p>
         <p key="p-26-30" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n2^n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n2^n)</span>
         </p>
         <p key="p-26-31" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Digit DP
         </p>
         <p key="p-26-32" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(DK\times10)</span> in the example
+          <span className="font-mono text-orange-300 font-semibold">O(DK\times10)</span> in the example
         </p>
         <p key="p-26-33" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(DK)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(DK)</span>
         </p>
         <p key="p-26-34" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Interval DP
         </p>
         <p key="p-26-35" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Often <span className="font-mono text-indigo-300 font-semibold">O(n^3)</span>
+          Often <span className="font-mono text-orange-300 font-semibold">O(n^3)</span>
         </p>
         <p key="p-26-36" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n^2)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n^2)</span>
         </p>
         <p key="p-26-37" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Two-row DP optimization
@@ -5069,73 +5069,73 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           Divide-and-conquer DP
         </p>
         <p key="p-26-41" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Often <span className="font-mono text-indigo-300 font-semibold">O(kn\log n)</span>
+          Often <span className="font-mono text-orange-300 font-semibold">O(kn\log n)</span>
         </p>
         <p key="p-26-42" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Typically <span className="font-mono text-indigo-300 font-semibold">O(n)</span> per layer, depending on implementation
+          Typically <span className="font-mono text-orange-300 font-semibold">O(n)</span> per layer, depending on implementation
         </p>
         <p key="p-26-43" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Meet in the Middle
         </p>
         <p key="p-26-44" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n2^&#123;n/2&#125;)</span> in the example
+          <span className="font-mono text-orange-300 font-semibold">O(n2^&#123;n/2&#125;)</span> in the example
         </p>
         <p key="p-26-45" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(2^&#123;n/2&#125;)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(2^&#123;n/2&#125;)</span>
         </p>
         <p key="p-26-46" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Bit manipulation
         </p>
         <p key="p-26-47" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Usually <span className="font-mono text-indigo-300 font-semibold">O(1)</span> per operation
+          Usually <span className="font-mono text-orange-300 font-semibold">O(1)</span> per operation
         </p>
         <p key="p-26-48" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(1)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(1)</span>
         </p>
         <p key="p-26-49" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           GCD
         </p>
         <p key="p-26-50" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(\log n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(\log n)</span>
         </p>
         <p key="p-26-51" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(1)</span> iterative
+          <span className="font-mono text-orange-300 font-semibold">O(1)</span> iterative
         </p>
         <p key="p-26-52" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Sieve
         </p>
         <p key="p-26-53" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n\log\log n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n\log\log n)</span>
         </p>
         <p key="p-26-54" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n)</span>
         </p>
         <p key="p-26-55" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Modular exponentiation
         </p>
         <p key="p-26-56" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(\log n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(\log n)</span>
         </p>
         <p key="p-26-57" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(1)</span> iterative
+          <span className="font-mono text-orange-300 font-semibold">O(1)</span> iterative
         </p>
         <p key="p-26-58" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Randomized QuickSort
         </p>
         <p key="p-26-59" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Expected <span className="font-mono text-indigo-300 font-semibold">O(n\log n)</span>
+          Expected <span className="font-mono text-orange-300 font-semibold">O(n\log n)</span>
         </p>
         <p key="p-26-60" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          Expected <span className="font-mono text-indigo-300 font-semibold">O(\log n)</span> stack for balanced recursion; worst <span className="font-mono text-indigo-300 font-semibold">O(n)</span>
+          Expected <span className="font-mono text-orange-300 font-semibold">O(\log n)</span> stack for balanced recursion; worst <span className="font-mono text-orange-300 font-semibold">O(n)</span>
         </p>
         <p key="p-26-61" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
           Reservoir Sampling
         </p>
         <p key="p-26-62" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(n)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(n)</span>
         </p>
         <p key="p-26-63" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold">O(1)</span>
+          <span className="font-mono text-orange-300 font-semibold">O(1)</span>
         </p>
       </div>
     )
@@ -5189,7 +5189,7 @@ export const JAVA_ADVANCED_DP_SECTIONS = [
           The number of masks grows exponentially:
         </p>
         <p key="p-27-15" className="my-2 text-xs md:text-sm text-slate-300 leading-relaxed">
-          <span className="font-mono text-indigo-300 font-semibold"> 2^n </span>
+          <span className="font-mono text-orange-300 font-semibold"> 2^n </span>
         </p>
         <ol key="ol-27-17" className="my-3 space-y-1.5 text-xs md:text-sm text-slate-300 list-decimal list-inside">
           <li>Incorrect TSP base state.</li>

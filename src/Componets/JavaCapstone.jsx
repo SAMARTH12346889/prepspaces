@@ -493,7 +493,7 @@ export default function JavaCapstone() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white pb-16">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white pb-16">
       {/* Module Navigation Header */}
       <ModuleNav
         track="java"
@@ -507,11 +507,11 @@ export default function JavaCapstone() {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 w-full flex-1">
         {/* Module Header Banner */}
-        <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-r from-slate-900 via-indigo-950/60 to-slate-900 border border-slate-800 shadow-2xl overflow-hidden mb-8">
-          <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-r from-slate-900 via-slate-900/60 to-slate-900 border border-slate-800 shadow-2xl overflow-hidden mb-8">
+          <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-3">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 Final Masterclass Capstone Project
               </div>
@@ -534,7 +534,7 @@ export default function JavaCapstone() {
                 <span>8 Interactive Workbenches</span>
               </div>
               <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-indigo-400" />
+                <CheckCircle2 className="w-4 h-4 text-orange-400" />
                 <span>35 Capstone Milestones</span>
               </div>
             </div>
@@ -546,7 +546,7 @@ export default function JavaCapstone() {
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "curriculum"
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -557,7 +557,7 @@ export default function JavaCapstone() {
               onClick={() => setActiveTab("workbenches")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "workbenches"
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -568,7 +568,7 @@ export default function JavaCapstone() {
               onClick={() => setActiveTab("quiz")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "quiz"
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -579,7 +579,7 @@ export default function JavaCapstone() {
               onClick={() => setActiveTab("milestones")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "milestones"
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
                   : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -596,14 +596,14 @@ export default function JavaCapstone() {
             <div className="lg:col-span-4 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-6 shadow-xl space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                  <Layers className="w-4 h-4 text-indigo-400" />
+                  <Layers className="w-4 h-4 text-orange-400" />
                   Table of Contents
                 </span>
                 <div className="flex items-center gap-1 bg-slate-800/80 p-0.5 rounded-lg border border-slate-700/60">
                   <button
                     onClick={() => setViewMode("guided")}
                     className={`px-2 py-1 rounded text-[11px] font-medium transition-colors ${
-                      viewMode === "guided" ? "bg-indigo-600 text-white" : "text-slate-400 hover:text-slate-200"
+                      viewMode === "guided" ? "bg-orange-500 text-white" : "text-slate-400 hover:text-slate-200"
                     }`}
                   >
                     Focus Mode
@@ -611,7 +611,7 @@ export default function JavaCapstone() {
                   <button
                     onClick={() => setViewMode("textbook")}
                     className={`px-2 py-1 rounded text-[11px] font-medium transition-colors ${
-                      viewMode === "textbook" ? "bg-indigo-600 text-white" : "text-slate-400 hover:text-slate-200"
+                      viewMode === "textbook" ? "bg-orange-500 text-white" : "text-slate-400 hover:text-slate-200"
                     }`}
                   >
                     Full Book
@@ -627,7 +627,7 @@ export default function JavaCapstone() {
                   placeholder="Search topics, projects, architectures..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-950/80 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-950/80 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition-colors"
                 />
               </div>
 
@@ -648,7 +648,7 @@ export default function JavaCapstone() {
                       title={sec.title}
                       className={`w-full text-left px-3 py-2 rounded-xl transition-all flex flex-col gap-0.5 text-xs ${
                         isActive
-                          ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/40"
+                          ? "bg-orange-500/15 text-orange-300 border border-orange-500/40"
                           : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent"
                       }`}
                     >
@@ -666,7 +666,7 @@ export default function JavaCapstone() {
                 <div>
                   <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
                     <div>
-                      <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
+                      <span className="text-[11px] font-mono text-orange-400 uppercase tracking-wider">
                         {activeSectionId === 0
                           ? "Capstone Overview · 25 Project Sections"
                           : `Section ${activeSectionId} of 25`}
@@ -724,7 +724,7 @@ export default function JavaCapstone() {
                         );
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 text-xs font-semibold text-white disabled:opacity-30 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500 shadow-lg shadow-orange-500/20"
                     >
                       Next Section
                       <ArrowRight className="w-4 h-4" />
@@ -741,7 +741,7 @@ export default function JavaCapstone() {
                       className="pt-8 border-t first:border-t-0 border-slate-800/80"
                     >
                       <div className="mb-4">
-                        <span className="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">
+                        <span className="text-[11px] font-mono text-orange-400 uppercase tracking-wider">
                           {sec.id === 0 ? "Capstone Overview" : `Section ${sec.id} of 25`}
                         </span>
                         <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-1">
@@ -763,7 +763,7 @@ export default function JavaCapstone() {
             {/* WORKBENCH 1: CAPSTONE PROJECT SELECTOR & BLUEPRINT */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                   <Compass className="w-6 h-6" />
                 </div>
                 <div>
@@ -784,12 +784,12 @@ export default function JavaCapstone() {
                     onClick={() => setSelectedProject(p.id)}
                     className={`p-4 rounded-2xl text-left border transition-all flex flex-col justify-between ${
                       selectedProject === p.id
-                        ? "bg-indigo-950/60 border-indigo-500 text-white shadow-xl shadow-indigo-600/20"
+                        ? "bg-slate-900 border-orange-500 text-white shadow-xl shadow-orange-500/20"
                         : "bg-slate-950/70 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     }`}
                   >
                     <div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-400">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         {p.difficulty}
                       </span>
                       <h4 className="text-sm font-bold text-white mt-1">{p.name}</h4>
@@ -810,9 +810,9 @@ export default function JavaCapstone() {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800">
                       <div>
                         <h4 className="text-lg font-bold text-white">{b.name}</h4>
-                        <p className="text-xs text-indigo-400 font-mono mt-0.5">{b.tagline}</p>
+                        <p className="text-xs text-orange-400 font-mono mt-0.5">{b.tagline}</p>
                       </div>
-                      <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 self-start">
+                      <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-orange-500/10 border border-orange-500/30 text-orange-300 self-start">
                         {b.difficulty}
                       </span>
                     </div>
@@ -820,13 +820,13 @@ export default function JavaCapstone() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-3">
                         <span className="text-xs font-mono uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                          <FolderTree className="w-3.5 h-3.5 text-indigo-400" />
+                          <FolderTree className="w-3.5 h-3.5 text-orange-400" />
                           Layered Architecture Blueprint
                         </span>
                         <ul className="space-y-2 text-xs text-slate-300">
                           {b.architecture.map((layer, idx) => (
                             <li key={idx} className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-start gap-2">
-                              <span className="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-mono text-[10px] shrink-0 mt-0.5">
+                              <span className="w-5 h-5 rounded-full bg-orange-500/15 text-orange-400 flex items-center justify-center font-mono text-[10px] shrink-0 mt-0.5">
                                 {idx + 1}
                               </span>
                               <span>{layer}</span>
@@ -852,7 +852,7 @@ export default function JavaCapstone() {
                           <p className="text-xs text-slate-300 leading-relaxed">{b.pros}</p>
                         </div>
 
-                        <div className="p-4 rounded-xl bg-indigo-950/20 border border-indigo-500/30 text-indigo-200 text-xs">
+                        <div className="p-4 rounded-xl bg-slate-900 border border-orange-500/30 text-orange-200 text-xs">
                           <strong>Target Career Trajectory:</strong> {b.targetAudience}
                         </div>
                       </div>
@@ -914,7 +914,7 @@ export default function JavaCapstone() {
                               className={`w-12 rounded-t-xl transition-all duration-300 flex items-center justify-center ${
                                 isActive
                                   ? "bg-amber-400 shadow-xl shadow-amber-500/50 scale-105"
-                                  : "bg-indigo-600"
+                                  : "bg-orange-500"
                               }`}
                             />
                             <span className="text-[10px] font-mono text-slate-500">[{idx}]</span>
@@ -925,7 +925,7 @@ export default function JavaCapstone() {
 
                     <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 flex items-center justify-between">
                       <span>{currentData.action}</span>
-                      <span className="text-indigo-400 font-bold">
+                      <span className="text-orange-400 font-bold">
                         Step {sortStep + 1} / {steps.length}
                       </span>
                     </div>
@@ -1061,7 +1061,7 @@ export default function JavaCapstone() {
             {/* WORKBENCH 4: DYNAMIC PROGRAMMING TABLE STATE VISUALIZER */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                   <BarChart3 className="w-6 h-6" />
                 </div>
                 <div>
@@ -1076,7 +1076,7 @@ export default function JavaCapstone() {
 
               <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
                 <div className="text-xs font-mono text-slate-400">
-                  Recurrence: <code className="text-indigo-300 font-bold">F(n) = F(n-1) + F(n-2)</code> | Base: F(0)=0, F(1)=1
+                  Recurrence: <code className="text-orange-300 font-bold">F(n) = F(n-1) + F(n-2)</code> | Base: F(0)=0, F(1)=1
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -1091,7 +1091,7 @@ export default function JavaCapstone() {
                         <div
                           className={`w-12 h-12 rounded-xl flex items-center justify-center font-mono font-bold text-sm border transition-all ${
                             isTarget
-                              ? "bg-indigo-600 text-white border-indigo-400 shadow-xl shadow-indigo-500/50 scale-110"
+                              ? "bg-orange-500 text-white border-orange-400 shadow-xl shadow-orange-500/20 scale-110"
                               : isOperand1 || isOperand2
                               ? "bg-emerald-950/60 text-emerald-300 border-emerald-500/50"
                               : isFilled
@@ -1109,7 +1109,7 @@ export default function JavaCapstone() {
 
                 <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">
                   Calculating F({dpStep}): F({dpStep - 1}) [{DP_FIB[dpStep - 1]}] + F({dpStep - 2}) [{DP_FIB[dpStep - 2]}] ={" "}
-                  <strong className="text-indigo-400">{DP_FIB[dpStep]}</strong>
+                  <strong className="text-orange-400">{DP_FIB[dpStep]}</strong>
                 </div>
 
                 <div className="flex items-center justify-between pt-2">
@@ -1123,7 +1123,7 @@ export default function JavaCapstone() {
                   <button
                     disabled={dpStep >= DP_FIB.length - 1}
                     onClick={() => setDpStep((prev) => Math.min(DP_FIB.length - 1, prev + 1))}
-                    className="px-3 py-1.5 rounded-lg bg-indigo-600 text-xs font-semibold text-white disabled:opacity-30 hover:bg-indigo-500"
+                    className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500"
                   >
                     Next Cell &rarr;
                   </button>
@@ -1230,13 +1230,13 @@ export default function JavaCapstone() {
               <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="text-xs font-mono text-slate-400">
-                    DynamicArray Capacity: <strong className="text-indigo-400">{arrayCapacity}</strong> | Size:{" "}
+                    DynamicArray Capacity: <strong className="text-orange-400">{arrayCapacity}</strong> | Size:{" "}
                     <strong className="text-emerald-400">{arrayElements.length}</strong>
                   </div>
                   <div className="flex gap-2">
                     <button
                       onClick={addArrayElement}
-                      className="px-3 py-1.5 rounded-lg bg-indigo-600 text-white text-xs font-semibold hover:bg-indigo-500"
+                      className="px-3 py-1.5 rounded-lg bg-orange-500 text-white text-xs font-semibold hover:bg-orange-500"
                     >
                       + Append Element
                     </button>
@@ -1258,7 +1258,7 @@ export default function JavaCapstone() {
                         key={idx}
                         className={`w-14 h-14 rounded-xl border flex flex-col items-center justify-center font-mono text-xs transition-all ${
                           hasVal
-                            ? "bg-indigo-950/70 border-indigo-500 text-white font-bold"
+                            ? "bg-slate-900 border-orange-500 text-white font-bold"
                             : "bg-slate-950/60 border-slate-800 text-slate-600 border-dashed"
                         }`}
                       >
@@ -1269,7 +1269,7 @@ export default function JavaCapstone() {
                   })}
                 </div>
 
-                <div className="p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 text-indigo-200 text-xs">
+                <div className="p-3 rounded-lg bg-slate-900 border border-orange-500/30 text-orange-200 text-xs">
                   <strong>Memory Invariant:</strong> Whenever size == capacity, the array doubles capacity via{" "}
                   <code>System.arraycopy(elements, 0, newArray, 0, size)</code>, guaranteeing amortized O(1) appends.
                 </div>
@@ -1323,7 +1323,7 @@ export default function JavaCapstone() {
                       <tbody className="divide-y divide-slate-800 text-slate-300">
                         <tr>
                           <td className="p-3 font-semibold text-white">ArrayList.get(index)</td>
-                          <td className="p-3 text-indigo-400">O(1)</td>
+                          <td className="p-3 text-orange-400">O(1)</td>
                           <td className="p-3 text-emerald-400 font-bold">{metric.alGet}</td>
                           <td className="p-3 text-emerald-300">Contiguous memory, 99% cache line hit</td>
                         </tr>
@@ -1335,13 +1335,13 @@ export default function JavaCapstone() {
                         </tr>
                         <tr>
                           <td className="p-3 font-semibold text-white">HashMap.put(key, val)</td>
-                          <td className="p-3 text-indigo-400">Expected O(1)</td>
+                          <td className="p-3 text-orange-400">Expected O(1)</td>
                           <td className="p-3 text-emerald-400 font-bold">{metric.hmPut}</td>
                           <td className="p-3">Hash table bucket lookup</td>
                         </tr>
                         <tr>
                           <td className="p-3 font-semibold text-white">TreeMap.put(key, val)</td>
-                          <td className="p-3 text-indigo-400">O(log N)</td>
+                          <td className="p-3 text-orange-400">O(log N)</td>
                           <td className="p-3 text-amber-300 font-bold">{metric.tmPut}</td>
                           <td className="p-3">Red-Black tree rebalancing</td>
                         </tr>
@@ -1372,13 +1372,13 @@ export default function JavaCapstone() {
               <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4">
                 <div className="flex items-center justify-between text-xs font-mono text-slate-400">
                   <span>Capstone Readiness Progress</span>
-                  <span className="text-indigo-400 font-bold">
+                  <span className="text-orange-400 font-bold">
                     {checklist.size} / 21 Requirements Completed ({Math.round((checklist.size / 21) * 100)}%)
                   </span>
                 </div>
                 <div className="w-full h-3 rounded-full bg-slate-800 overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-indigo-500 via-amber-400 to-emerald-400 transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-orange-500 via-amber-400 to-emerald-400 transition-all duration-300"
                     style={{ width: `${(checklist.size / 21) * 100}%` }}
                   />
                 </div>
@@ -1402,7 +1402,7 @@ export default function JavaCapstone() {
                           <Square className="w-4 h-4 text-slate-600 shrink-0 mt-0.5" />
                         )}
                         <div className="text-xs">
-                          <span className="font-mono text-[10px] text-indigo-400 block">{item.phase}</span>
+                          <span className="font-mono text-[10px] text-orange-400 block">{item.phase}</span>
                           <span className={isDone ? "text-white font-medium" : ""}>{item.text}</span>
                         </div>
                       </div>
@@ -1446,7 +1446,7 @@ export default function JavaCapstone() {
                 return (
                   <div key={q.id} className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3">
                     <div className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-6 h-6 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/40 text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                         {idx + 1}
                       </span>
                       <h4 className="text-sm font-semibold text-white">{q.question}</h4>
@@ -1463,7 +1463,7 @@ export default function JavaCapstone() {
                             optStyle = "bg-rose-950/60 border-rose-500 text-rose-300";
                           }
                         } else if (isThisSelected) {
-                          optStyle = "bg-indigo-950/70 border-indigo-500 text-white font-medium";
+                          optStyle = "bg-slate-900 border-orange-500 text-white font-medium";
                         }
 
                         return (
@@ -1513,7 +1513,7 @@ export default function JavaCapstone() {
                 <button
                   disabled={Object.keys(userAnswers).length < QUIZ_QUESTIONS.length}
                   onClick={() => setSubmittedQuiz(true)}
-                  className="px-6 py-2.5 rounded-xl bg-indigo-600 text-xs font-bold text-white hover:bg-indigo-500 disabled:opacity-40 shadow-lg shadow-indigo-600/30"
+                  className="px-6 py-2.5 rounded-xl bg-orange-500 text-xs font-bold text-white hover:bg-orange-500 disabled:opacity-40 shadow-lg shadow-orange-500/20"
                 >
                   Submit &amp; View Score
                 </button>
@@ -1532,7 +1532,7 @@ export default function JavaCapstone() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-                  <CheckSquare className="w-6 h-6 text-indigo-400" />
+                  <CheckSquare className="w-6 h-6 text-orange-400" />
                   35 Capstone Engineering Milestones Tracker
                 </h3>
                 <p className="text-xs md:text-sm text-slate-400 mt-1">
@@ -1546,7 +1546,7 @@ export default function JavaCapstone() {
                 <select
                   value={filterTier}
                   onChange={(e) => setFilterTier(e.target.value)}
-                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
+                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
                 >
                   <option value="all">All 4 Tiers (35)</option>
                   <option value="1">Tier 1: Planning &amp; Architecture (9)</option>
@@ -1561,14 +1561,14 @@ export default function JavaCapstone() {
             <div className="space-y-1.5">
               <div className="flex items-center justify-between text-xs font-mono text-slate-400">
                 <span>Milestone Completion Progress</span>
-                <span className="text-indigo-400 font-bold">
+                <span className="text-orange-400 font-bold">
                   {completedMilestones.size} / 35 Completed (
                   {Math.round((completedMilestones.size / 35) * 100)}%)
                 </span>
               </div>
               <div className="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-indigo-500 via-amber-400 to-emerald-400 transition-all duration-300"
+                  className="h-full bg-gradient-to-r from-orange-500 via-amber-400 to-emerald-400 transition-all duration-300"
                   style={{ width: `${(completedMilestones.size / 35) * 100}%` }}
                 />
               </div>
@@ -1599,7 +1599,7 @@ export default function JavaCapstone() {
                           <span>{milestone.id}. {milestone.title}</span>
                         </div>
                         <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-slate-400">
-                          <span className="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300">
+                          <span className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300">
                             {milestone.category}
                           </span>
                           <span>{milestone.deliverable}</span>

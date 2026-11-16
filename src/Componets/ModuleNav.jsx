@@ -506,7 +506,7 @@ export default function ModuleNav({
   }, [currentModuleId, resolvedCourseId, modules, isAuthenticated, completedModuleIds]);
 
   const defaultFallback =
-    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : track === "blockchain" ? "intro" : track === "ai" || track === "ai-engineering" ? "foundations" : "cloud")
+    currentModuleId === (track === "devops" ? "linux" : track === "system-design" ? "intro" : track === "os" ? "intro" : track === "networks" ? "intro" : track === "cybersecurity" ? "intro" : track === "blockchain" ? "intro" : track === "ai" || track === "ai-engineering" ? "foundations" : track === "java" || track === "java-programming" ? "intro" : "cloud")
       ? "/learning"
       : track === "devops"
       ? "/learning/devops/linux"
@@ -522,6 +522,8 @@ export default function ModuleNav({
       ? "/learning/blockchain"
       : track === "ai" || track === "ai-engineering"
       ? "/learning/ai"
+      : track === "java" || track === "java-programming"
+      ? "/learning/java"
       : "/learning/cloud";
 
   const { goBack } = useSafeBack(defaultFallback);

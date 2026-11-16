@@ -1029,7 +1029,7 @@ export default function JavaSearchingSorting() {
                         onClick={() => setRotatedHasDuplicates((p) => !p)}
                         className={`text-xs px-3 py-1 rounded-lg border font-bold transition cursor-pointer ${
                           rotatedHasDuplicates
-                            ? "bg-purple-100 text-purple-800 border-purple-300"
+                            ? "bg-orange-500 text-orange-400 border-orange-500"
                             : "bg-white text-stone-600 border-stone-300"
                         }`}
                       >
@@ -1488,7 +1488,7 @@ export default function JavaSearchingSorting() {
                                   className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase ${
                                     lab.type === "Lab"
                                       ? "bg-orange-100 text-orange-800"
-                                      : "bg-purple-100 text-purple-800"
+                                      : "bg-orange-500 text-orange-400"
                                   }`}
                                 >
                                   {lab.type}

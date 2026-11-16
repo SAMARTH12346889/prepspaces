@@ -998,7 +998,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs space-y-1">
                       <div><strong>Phase:</strong> <span className="text-cyan-400 font-mono">{cyclePhase === "detect" ? "1. Detect Cycle Existence" : "2. Locate Cycle Entrance"}</span></div>
                       <div><strong>Slow Pointer Node:</strong> <span className="text-emerald-400 font-bold">{cycleSlow}</span></div>
-                      <div><strong>Fast Pointer Node:</strong> <span className="text-purple-400 font-bold">{cycleFast}</span></div>
+                      <div><strong>Fast Pointer Node:</strong> <span className="text-orange-400 font-bold">{cycleFast}</span></div>
                     </div>
 
                     <div className="flex gap-2">
@@ -1049,7 +1049,7 @@ export default function JavaTwoPointersSlidingWindow() {
                             <div className="text-base font-bold my-1 text-white">Node {node}</div>
                             <div className="text-[10px] space-y-0.5">
                               {isS && <div className="px-1 rounded bg-emerald-500/20 text-emerald-400">Slow</div>}
-                              {isF && <div className="px-1 rounded bg-purple-500/20 text-purple-400">Fast</div>}
+                              {isF && <div className="px-1 rounded bg-orange-500/15 text-orange-400">Fast</div>}
                               {!isS && !isF && <div className="text-slate-600">-</div>}
                             </div>
                           </div>
@@ -1891,10 +1891,10 @@ export default function JavaTwoPointersSlidingWindow() {
                             lab.tier === "Level 1"
                               ? "bg-cyan-500/20 text-cyan-400"
                               : lab.tier === "Level 2"
-                              ? "bg-blue-500/20 text-blue-400"
+                              ? "bg-emerald-500/20 text-emerald-400"
                               : lab.tier === "Level 3"
                               ? "bg-amber-500/20 text-amber-400"
-                              : "bg-purple-500/20 text-purple-400"
+                              : "bg-orange-500/20 text-orange-400"
                           }`}
                         >
                           {lab.tier}
