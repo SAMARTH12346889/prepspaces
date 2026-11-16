@@ -220,6 +220,13 @@ export const DATA_ENGINEERING_MODULES = [
   { id: "system-design-capstone", name: "23. Data Engineering System Design and Final Capstone", route: "/learning/data-engineering/system-design-capstone" },
 ];
 
+export const JAVA_MODULES = [
+  { id: "intro", name: "1. Intro to Programming with Java", route: "/learning/java" },
+  { id: "control-flow", name: "2. Control Flow, Methods & Problem-Solving", route: "/learning/java/control-flow" },
+  { id: "arrays-strings", name: "3. Arrays, Strings & Basic Data Handling", route: "/learning/java/arrays-strings" },
+  { id: "oop", name: "4. Object-Oriented Programming (OOP) with Java", route: "/learning/java/oop" },
+];
+
 export const BLOCKCHAIN_MODULES = [
   { id: "intro", name: "1. Intro to Blockchain Technology", route: "/learning/blockchain" },
   { id: "cryptography", name: "2. Cryptography Fundamentals", route: "/learning/blockchain/cryptography" },
@@ -275,10 +282,12 @@ export default function ModuleNav({
       if (rawTrack === "devops") return "devops";
       if (rawTrack === "blockchain") return "blockchain";
       if (rawTrack === "data-engineering") return "data-engineering";
+      if (rawTrack === "java" || rawTrack === "java-programming") return "java";
       return rawTrack;
     }
     const path = (location?.pathname || "").toLowerCase();
     if (path.includes("/learning/data-engineering") || path.includes("/learn/data-engineering") || path.includes("/courses/data-engineering")) return "data-engineering";
+    if (path.includes("/learning/java") || path.includes("/learn/java") || path.includes("/courses/java")) return "java";
     if (path.includes("/learning/ai") || path.includes("/learn/ai")) return "ai";
     if (path.includes("/learning/os") || path.includes("/learn/os")) return "os";
     if (path.includes("/learning/networks") || path.includes("/learn/networks")) return "networks";
@@ -301,6 +310,8 @@ export default function ModuleNav({
     "ai-engineering": "ai-engineering",
     blockchain: "blockchain",
     "data-engineering": "data-engineering",
+    java: "java-programming",
+    "java-programming": "java-programming",
   };
   const resolvedCourseId = courseIdMap[track] || track;
 
@@ -323,6 +334,9 @@ export default function ModuleNav({
         return BLOCKCHAIN_MODULES;
       case "data-engineering":
         return DATA_ENGINEERING_MODULES;
+      case "java":
+      case "java-programming":
+        return JAVA_MODULES;
       default:
         return CLOUD_MODULES;
     }

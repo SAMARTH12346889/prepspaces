@@ -1,0 +1,275 @@
+{
+  "id": "arrays-strings",
+  "courseId": "java-programming",
+  "index": 3,
+  "name": "3. Arrays, Strings & Basic Data Handling",
+  "title": "Arrays, Strings & Mathematical Programming",
+  "description": "Master 1D and 2D arrays, memory references and aliasing, jagged arrays, matrix operations, String immutability, the JVM String Pool, StringBuilder vs StringBuffer, Unicode code points, frequency counting, prime sieves, Euclidean GCD/LCM, modular arithmetic, and two-pointer algorithms.",
+  "duration": "10-12 hours",
+  "level": "Beginner to Intermediate",
+  "route": "/learning/java/arrays-strings",
+  "componentName": "JavaArraysStrings",
+  "topics": [
+    "1D Arrays: Declaration, Creation, Allocation & Zero-Based Indexing",
+    "Array Traversal: Counted Loops vs Enhanced For-Each",
+    "Dynamic Insertion, Shifting & Element Deletion with Spare Capacity",
+    "Searching Algorithms: Linear Search vs Sorted Binary Search",
+    "Memory Reference Semantics, Aliasing, Cloning & Parameter Passing",
+    "Multidimensional Arrays, Jagged Rows & 3D Spatial Structures",
+    "Matrix Operations: Addition, Transpose, Multiplication & Diagonals",
+    "String Architecture, Immutability & Memory Footprint",
+    "The Java String Constant Pool, Literal Interning & == vs equals()",
+    "Standard String API: Slicing, Splitting, Joining & Case Transformations",
+    "Mutable Sequences: StringBuilder vs Synchronized StringBuffer",
+    "Character Classification, UTF-16 Code Units vs Unicode Code Points",
+    "Frequency Counting: 26-Letter Buckets vs Unicode Hash Maps",
+    "String Algorithms: In-Place Reverse, Palindromes & Anagram Validation",
+    "Number Theory & Math: Optimized Primes O(sqrt(n)) & Sieve of Eratosthenes",
+    "Euclidean Algorithm for GCD, Division-Safe LCM & Modular Arithmetic",
+    "Integer Digit Reversal & Two-Pointer Array Reversal Algorithms",
+    "Prefix Sums for O(1) Range Queries & Two-Pointer In-Place Deduplication",
+    "Full Mini Project: Array, Text & Matrix Analysis Toolkit"
+  ],
+  "quiz": [
+    {
+      "id": "m3-q1",
+      "question": "What is an array in Java?",
+      "options": [
+        "A collection that automatically grows in size",
+        "A fixed-length object containing elements of one component type",
+        "A method that stores multiple values",
+        "A primitive data type"
+      ],
+      "correctIndex": 1,
+      "explanation": "An array in Java is a dynamically allocated, fixed-length object that stores a contiguous sequence of elements belonging to a single homogeneous component type."
+    },
+    {
+      "id": "m3-q2",
+      "question": "What is the first valid index of a Java array?",
+      "options": [
+        "-1",
+        "0",
+        "1",
+        "Depends on the array size"
+      ],
+      "correctIndex": 1,
+      "explanation": "Java arrays use zero-based indexing; the first element is at index 0 and the final element is at index length - 1."
+    },
+    {
+      "id": "m3-q3",
+      "question": "How do you obtain an array's length?",
+      "options": [
+        "`array.length()`",
+        "`array.size()`",
+        "`array.length`",
+        "`array.count()`"
+      ],
+      "correctIndex": 2,
+      "explanation": "In Java, array length is an immutable public final field accessed directly as array.length (without parentheses, unlike String.length())."
+    },
+    {
+      "id": "m3-q4",
+      "question": "Which operation usually takes O(1) time for an array?",
+      "options": [
+        "Full traversal",
+        "Linear search",
+        "Indexed access",
+        "Copying the complete array"
+      ],
+      "correctIndex": 2,
+      "explanation": "Direct indexed access array[i] takes constant O(1) time because the JVM calculates the direct memory offset using the base address and element byte size."
+    },
+    {
+      "id": "m3-q5",
+      "question": "Which searching algorithm requires sorted input?",
+      "options": [
+        "Linear search",
+        "Binary search",
+        "Sequential search",
+        "Unordered search"
+      ],
+      "correctIndex": 1,
+      "explanation": "Binary search requires that elements be sorted in ascending order so that the search space can be halved at each iteration."
+    },
+    {
+      "id": "m3-q6",
+      "question": "What does assigning one array variable to another do?",
+      "options": [
+        "Automatically creates a deep copy",
+        "Copies all primitive elements to a different object",
+        "Copies the reference value",
+        "Deletes the first array"
+      ],
+      "correctIndex": 2,
+      "explanation": "In Java, array variables hold reference values. Assigning one array variable to another copies the reference, meaning both variables point to the exact same underlying array object (aliasing)."
+    },
+    {
+      "id": "m3-q7",
+      "question": "What happens when an invalid array index is accessed?",
+      "options": [
+        "The array automatically expands",
+        "An ArrayIndexOutOfBoundsException occurs",
+        "Java returns zero",
+        "The operation is ignored"
+      ],
+      "correctIndex": 1,
+      "explanation": "Attempting to access an index outside the valid range [0, length - 1] throws a runtime java.lang.ArrayIndexOutOfBoundsException."
+    },
+    {
+      "id": "m3-q8",
+      "question": "Which statement about Java's two-dimensional arrays is correct?",
+      "options": [
+        "Every two-dimensional array must be rectangular",
+        "They are arrays whose elements can reference other arrays",
+        "They are primitive values",
+        "They cannot be traversed using nested loops"
+      ],
+      "correctIndex": 1,
+      "explanation": "Java does not use true 2D contiguous matrices; 2D arrays are arrays of references where each element references an independent 1D array object, allowing jagged/ragged structures."
+    },
+    {
+      "id": "m3-q9",
+      "question": "Why are String objects immutable?",
+      "options": [
+        "Their contents can never be accessed",
+        "Their character sequence cannot be changed after construction",
+        "They cannot be assigned to variables",
+        "They cannot be compared"
+      ],
+      "correctIndex": 1,
+      "explanation": "String objects are immutable: once instantiated on the heap or string pool, their character sequences cannot be altered; any modification operation returns a brand-new String object."
+    },
+    {
+      "id": "m3-q10",
+      "question": "What does `equals()` do when used on String objects?",
+      "options": [
+        "Checks reference identity",
+        "Compares String content",
+        "Deletes the String",
+        "Converts the String to uppercase"
+      ],
+      "correctIndex": 1,
+      "explanation": "The equals() method in the String class performs character-by-character semantic content comparison, whereas the == operator checks reference memory identity."
+    },
+    {
+      "id": "m3-q11",
+      "question": "Which class is generally preferred for repeated String construction in single-threaded code?",
+      "options": [
+        "String",
+        "StringBuilder",
+        "StringBuffer",
+        "Scanner"
+      ],
+      "correctIndex": 1,
+      "explanation": "StringBuilder is an unsynchronized, mutable sequence of characters designed for high-performance single-threaded string construction without intermediate garbage collection overhead."
+    },
+    {
+      "id": "m3-q12",
+      "question": "Which class provides synchronized methods for mutable character-sequence operations?",
+      "options": [
+        "String",
+        "StringBuilder",
+        "StringBuffer",
+        "Character"
+      ],
+      "correctIndex": 2,
+      "explanation": "StringBuffer provides synchronized methods for thread-safe mutable string operations when multiple threads concurrently modify the same character buffer."
+    },
+    {
+      "id": "m3-q13",
+      "question": "What does `String.indexOf()` return if the target is absent?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "null"
+      ],
+      "correctIndex": 2,
+      "explanation": "String.indexOf() returns -1 whenever the target character or substring is not found within the calling String."
+    },
+    {
+      "id": "m3-q14",
+      "question": "What is the usual time complexity of linear search?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "correctIndex": 2,
+      "explanation": "Linear search checks elements sequentially from index 0 to length - 1, resulting in O(n) average and worst-case time complexity."
+    },
+    {
+      "id": "m3-q15",
+      "question": "What is the optimized trial-division complexity of checking whether a number is prime?",
+      "options": [
+        "O(n²)",
+        "O(√n)",
+        "O(log n)",
+        "O(1)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Optimized trial division tests potential divisors up to sqrt(n) because any composite factor above sqrt(n) must have a complementary factor below sqrt(n), yielding O(sqrt(n)) complexity."
+    },
+    {
+      "id": "m3-q16",
+      "question": "What is the GCD of 12 and 18?",
+      "options": [
+        "2",
+        "3",
+        "6",
+        "36"
+      ],
+      "correctIndex": 2,
+      "explanation": "The greatest positive integer that divides both 12 and 18 without a remainder is 6 (factors of 12: 1,2,3,4,6,12; factors of 18: 1,2,3,6,9,18)."
+    },
+    {
+      "id": "m3-q17",
+      "question": "What is the LCM of 4 and 6?",
+      "options": [
+        "4",
+        "6",
+        "10",
+        "12"
+      ],
+      "correctIndex": 3,
+      "explanation": "The least common multiple of 4 and 6 is 12 (multiples of 4: 4,8,12; multiples of 6: 6,12)."
+    },
+    {
+      "id": "m3-q18",
+      "question": "What is the result of `Math.floorMod(-17, 5)`?",
+      "options": [
+        "-2",
+        "-3",
+        "2",
+        "3"
+      ],
+      "correctIndex": 3,
+      "explanation": "Math.floorMod(-17, 5) produces 3 because mathematical modulo floors towards negative infinity: -17 = 5 * (-4) + 3."
+    },
+    {
+      "id": "m3-q19",
+      "question": "Which structure is useful for storing character frequencies for lowercase English letters?",
+      "options": [
+        "int array of length 10",
+        "int array of length 26",
+        "boolean array of length 2",
+        "double array of length 5"
+      ],
+      "correctIndex": 1,
+      "explanation": "For lowercase English characters from a to z, an integer array of size 26 maps directly using the character offset index ch - a."
+    },
+    {
+      "id": "m3-q20",
+      "question": "What is the time complexity of traversing every element of an r × c matrix?",
+      "options": [
+        "O(r + c)",
+        "O(r × c)",
+        "O(log r)",
+        "O(1)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Traversing all cells in a matrix with r rows and c columns requires visiting r * c elements, yielding O(r * c) time complexity."
+    }
+  ]
+}

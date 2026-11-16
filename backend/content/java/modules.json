@@ -1,0 +1,46 @@
+[
+  {
+    "id": "intro",
+    "courseId": "java-programming",
+    "index": 1,
+    "name": "1. Intro to Programming with Java",
+    "route": "/learning/java",
+    "questionCount": 10,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "control-flow",
+    "courseId": "java-programming",
+    "index": 2,
+    "name": "2. Control Flow, Methods & Problem-Solving",
+    "route": "/learning/java/control-flow",
+    "questionCount": 15,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "arrays-strings",
+    "courseId": "java-programming",
+    "index": 3,
+    "name": "3. Arrays, Strings & Basic Data Handling",
+    "route": "/learning/java/arrays-strings",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  },
+  {
+    "id": "oop",
+    "courseId": "java-programming",
+    "index": 4,
+    "name": "4. Object-Oriented Programming (OOP) with Java",
+    "route": "/learning/java/oop",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
+  }
+]

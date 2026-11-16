@@ -75,6 +75,42 @@ const routeMeta = {
     keywords: "Generative AI course, GenAI course, Generative AI online learning, Large Language Models course, LLM course, Prompt engineering course, RAG course, Learn Generative AI",
     canonical: `${BASE_URL}/courses/generative-ai`,
   },
+  "/courses/java": {
+    title: "Java Programming Master Course | Syntax, JVM & Enterprise Development – PrepSpaces",
+    description: "Master Java programming from computational thinking and primitive types to JVM bytecode architecture, object-oriented design, Scanner I/O, operators, and systematic debugging.",
+    keywords: "Java Programming Course, Learn Java, Java Development Kit, JVM Architecture, Java Bytecode, Java Data Types, Java Operators, Java Scanner, Java Debugging, PrepSpaces",
+    canonical: `${BASE_URL}/courses/java`,
+  },
+  "/learning/java": {
+    title: "Java Programming Master Course | Syntax, JVM & Enterprise Development – PrepSpaces",
+    description: "Master Java programming from computational thinking and primitive types to JVM bytecode architecture, object-oriented design, Scanner I/O, operators, and systematic debugging.",
+    keywords: "Java Programming Course, Learn Java, Java Development Kit, JVM Architecture, Java Bytecode, Java Data Types, Java Operators, Java Scanner, Java Debugging, PrepSpaces",
+    canonical: `${BASE_URL}/courses/java`,
+  },
+  "/learning/java/intro": {
+    title: "Module 1: Introduction to Programming with Java | PrepSpaces",
+    description: "Master Java foundations: computational thinking, JDK vs JRE vs JVM, source code compilation to bytecode, main() entry point, primitive data types, type casting, operators, Scanner I/O, and systematic debugging.",
+    keywords: "Java Introduction, Java Module 1, JDK JRE JVM, Java Primitive Types, Type Casting Java, Java Operators, Scanner Java, Java Debugging, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/intro`,
+  },
+  "/learning/java/control-flow": {
+    title: "Module 2: Java Control Flow, Methods & Problem-Solving | PrepSpaces",
+    description: "Master Java control flow, algorithmic problem solving, conditional branching, modern switch expressions, loops (for, while, do-while), method design, variable scope, recursion, and pattern generation.",
+    keywords: "Java Control Flow, Java If Else, Java Switch Expressions, Java Loops, Java Methods, Method Overloading, Java Recursion, Java Pattern Programs, Algorithmic Thinking, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/control-flow`,
+  },
+  "/learning/java/arrays-strings": {
+    title: "Module 3: Java Arrays, Strings & Mathematical Programming | PrepSpaces",
+    description: "Master 1D and 2D arrays, memory reference aliasing, jagged arrays, 2D matrix operations, String immutability, the JVM String Pool, StringBuilder vs StringBuffer, Unicode processing, frequency counting, prime sieves, Euclidean GCD/LCM, and prefix sums.",
+    keywords: "Java Arrays, Java Strings, Java String Pool, StringBuilder Java, Multidimensional Arrays Java, Matrix Multiplication Java, Sieve of Eratosthenes Java, GCD LCM Java, Java Prefix Sums, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/arrays-strings`,
+  },
+  "/learning/java/oop": {
+    title: "Module 4: Object-Oriented Programming (OOP) with Java | PrepSpaces",
+    description: "Master object-oriented programming in Java: classes, runtime objects, encapsulation, constructors and chaining, inheritance, dynamic method dispatch, abstract classes, interfaces, static members, UML diagrams, and SOLID principles.",
+    keywords: "Java OOP, Java Classes and Objects, Java Encapsulation, Java Inheritance, Java Polymorphism, Dynamic Method Dispatch, Java Abstract Classes, Java Interfaces, UML Class Diagrams, SOLID Principles Java, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/oop`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
@@ -1342,6 +1378,18 @@ function updateCourseSchema(pathname, meta) {
       "Data warehouses, data lakes, and modern lakehouses (Delta Lake, Apache Iceberg)",
       "Data quality dimensions: accuracy, completeness, consistency, validity, uniqueness, timeliness",
       "Hands-on data pipeline implementation in Python and Pandas"
+    ];
+  }
+
+  if (pathname.includes("java")) {
+    courseData.teaches = [
+      "Computational thinking, problem decomposition, abstraction, and algorithm design",
+      "Java architecture: JDK development tools, JRE runtime, and JVM execution engine",
+      "Java source code compilation into bytecode (.class) and JIT optimization",
+      "Java primitive data types, memory representations, widening and narrowing type casts",
+      "Java arithmetic, relational, logical short-circuit, bitwise, and conditional operators",
+      "Standard console input/output with Scanner and formatted printf printing",
+      "Systematic debugging techniques, breakpoints, call-stack inspection, and error classification"
     ];
   }
 

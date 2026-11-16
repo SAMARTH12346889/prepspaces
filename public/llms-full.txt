@@ -1376,3 +1376,104 @@
   - 20. Designing Scalable Ingestion Systems (Horizontal scaling, Kafka partitioning, backpressure management, micro-batching, monitoring)
   - 21. Practical Project: Build a Real-Time CDC Ingestion Pipeline (MySQL -> Binlog -> Debezium -> Kafka -> Delta Lakehouse)
   - 22. Common Ingestion Mistakes & Production Anti-Patterns
+
+## Java Programming Master Course
+Track Hub: https://prepspaces.com/learning/java
+Canonical Course URL: https://prepspaces.com/courses/java
+Comprehensive University-grade Java curriculum covering computational thinking, JVM architecture, bytecode mechanics, control structures, object-oriented systems, collections, concurrency, and enterprise application patterns.
+
+### Module 1: Introduction to Programming with Java
+URL: https://prepspaces.com/learning/java/intro
+Topics Covered:
+  - 1. Computational Thinking and Problem Solving
+  - 2. Programming Languages and Java's Architectural Role
+  - 3. Java Architecture: JDK, JRE, and JVM internals
+  - 4. Environment Setup, CLI tooling (javac, java, javap), and Classpath
+  - 5. Structure of a Java Source File and Anatomy of main()
+  - 6. Source Compilation, Bytecode Generation, and Class Loading Mechanics
+  - 7. Primitive Data Types, Memory Sizing, and Two's Complement Integer Limits
+  - 8. Type Conversion, Automatic Widening, and Explicit Narrowing Casts
+  - 9. Operators: Arithmetic, Relational, Logical Short-Circuiting, and Precedence
+  - 10. Scanner Input/Output and Text Tokenization
+  - 11. Coding Conventions, Comments, and Static Analysis
+  - 12. Systematic Debugging: Compile-time vs Runtime vs Logical Errors
+  - 13. Practical Worked Programs (8 complete examples)
+  - 14. 5 Practical Labs and 6 Independent Assignments
+  - 15. Comprehensive Assessment Questions and Student Result Capstone
+
+### Module 2: Control Flow, Methods & Problem-Solving Fundamentals
+URL: https://prepspaces.com/learning/java/control-flow
+Topics Covered:
+  - 1. Algorithmic Thinking and Problem Decomposition
+  - 2. Pseudocode and Standard Flowchart Design
+  - 3. Conditional Branching: if, if-else, and else-if ladders
+  - 4. Nested Conditional Logic and Dangling-Else Pitfalls
+  - 5. Traditional Switch Statements vs Modern Java Switch Expressions (yield and -> arrows)
+  - 6. Loops: Counted for Loops, Condition-Controlled while Loops, and Post-Test do-while Loops
+  - 7. Nested Loops and 2D Coordinate Grid Logic
+  - 8. Jump Control: break, continue, and Labeled Jumps
+  - 9. Method Architecture: Parameters, Arguments, Return Types, and void
+  - 10. Method Overloading and Compile-Time Polymorphism
+  - 11. Parameter Passing Semantics: Java's Strict Pass-by-Value Mechanics
+  - 12. Variable Scope: Block, Local, Parameter, Instance, and Static Scope vs Lifetime
+  - 13. Recursion: Base Cases, Recursive Cases, and JVM Call Stack Activation Records
+  - 14. 2D Pattern Generation: Squares, Right Triangles, Pyramids, and Diamonds
+  - 15. Mathematical Algorithms: Primes, Palindromes, Reverse, GCD/LCM, and Armstrong Numbers
+  - 16. 7 Worked Code Examples, 7 Practical Labs, and 7 Independent Assignments
+  - 17. 15 Comprehensive Assessment MCQs and Review Problems
+  - 18. Mini-Project: Student Performance & Result Management System
+
+### Module 3: Arrays, Strings & Mathematical Programming
+URL: https://prepspaces.com/learning/java/arrays-strings
+Topics Covered:
+  - 1. One-Dimensional Arrays: Declaration, Allocation, and Zero-Based Indexing
+  - 2. Array Traversal: Counted Loops vs Enhanced For-Each
+  - 3. Element Shifting, Insertion, and Deletion with Spare Capacity
+  - 4. Searching: Linear Search O(n) vs Binary Search O(log n)
+  - 5. Reference Semantics, Aliasing, Cloning, and Method Arguments
+  - 6. Multidimensional Arrays, Jagged/Ragged Rows, and 3D Structures
+  - 7. Two-Dimensional Matrix Operations: Addition, Transpose, and Multiplication
+  - 8. String Fundamentals, Immutability Architecture, and UTF-16 Code Units
+  - 9. The JVM String Constant Pool, Literal Interning, and == vs equals()
+  - 10. String Manipulation API: substring, indexOf, split, and join
+  - 11. Mutable Character Sequences: StringBuilder vs Synchronized StringBuffer
+  - 12. Character Classification, Unicode Code Points, and Frequency Arrays
+  - 13. Classic String Algorithms: In-Place Reverse, Palindromes, and Anagrams
+  - 14. Basic Mathematics: Divisibility, Factors, and Prime Checking O(sqrt(n))
+  - 15. Prime Sieve of Eratosthenes O(n log log n)
+  - 16. Euclidean Algorithm for GCD and Division-Safe LCM
+  - 17. Modular Arithmetic, Math.floorMod, and Modular Exponentiation
+  - 18. Digit Reversal and Number Palindromes
+  - 19. Advanced Array Foundations: Two-Pointer Technique and Prefix Sums
+  - 20. 5 Worked Programs, 8 Practical Labs, and 10 Independent Assignments
+  - 21. 20 Assessment MCQs and Review Problems
+  - 22. Capstone Project: Array, Text & Matrix Analysis Toolkit
+
+### Module 4: Object-Oriented Programming (OOP) with Java
+URL: https://prepspaces.com/learning/java/oop
+Topics Covered:
+  - 1. Procedural vs Object-Oriented Programming Paradigms
+  - 2. The Four Pillars: Encapsulation, Inheritance, Polymorphism, Abstraction
+  - 3. Classes and Objects: Blueprints, Instantiation, Heap Allocation, and Identity
+  - 4. Constructors: Implicit Default, Parameterized, Overloading, and Chaining
+  - 5. The this Keyword: Shadowing Resolution, Chaining, and Fluent APIs
+  - 6. The super Keyword: Superclass Constructors, Invocation Order, and Member Access
+  - 7. Encapsulation: Private Fields, Validation Guards, and Invariant Protection
+  - 8. Inheritance: IS-A Hierarchy, Single, Multilevel, and Hierarchical Topologies
+  - 9. Method Overriding: Signatures, Covariant Returns, and the @Override Annotation
+  - 10. Runtime Polymorphism: Upcasting, Downcasting, and Dynamic Method Dispatch
+  - 11. Abstraction and Abstract Classes: Incomplete Blueprints and Constructors
+  - 12. Interfaces: Contracts, Multiple Realization, Default, Static, and Private Methods
+  - 13. Static Members: Class-Level Variables, Metaspace Storage, and Static Blocks
+  - 14. The final Keyword: Constants, Immutability, Blank Finals, and Sealed Classes
+  - 15. Access Modifiers: Public, Protected, Package-Private, and Private Scopes
+  - 16. Java Packages: Namespace Organization, Directory Mapping, and Classpath (-cp)
+  - 17. Composition vs Inheritance: HAS-A Relationships and Dependency Injection
+  - 18. Object Relationships: Association, Aggregation, Strong Composition, and Dependencies
+  - 19. UML Class Diagrams: Notations, Visibility (+, -, #, ~), and Multiplicity
+  - 20. SOLID Principles: SRP, OCP, LSP, ISP, and DIP Architectural Guidelines
+  - 21. Worked Example: Banking Management System with Polymorphic Overdraft
+  - 22. 10 Practical Laboratory Exercises and 8 Independent Programming Assignments
+  - 23. 20 Assessment MCQs, Output Prediction, and Error Diagnosis
+  - 24. Capstone Mini Project: University Course Registration and Management System
+  - 25. Phase 1 Foundations Milestone and Transition Roadmap to DSA

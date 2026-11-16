@@ -18,6 +18,7 @@ import {
   Brain,
   Blocks,
   Database,
+  Coffee,
   User,
   LogOut,
 } from "lucide-react";
@@ -225,6 +226,27 @@ const learningTracks = [
       "Batch vs Stream Processing (Kafka & Spark)",
       "ETL vs ELT & Lakehouse Architecture",
       "Data Quality, Reliability & SLAs",
+    ],
+  },
+  {
+    id: "java-programming",
+    title: "Java Programming Master Course",
+    tagline: "Syntax, OOP, JVM Architecture, Concurrency & Enterprise Systems",
+    description:
+      "Master modern Java engineering from computational thinking, language syntax, primitive types, memory architecture (JVM/JRE/JDK), and control flow to object-oriented design, collections, multithreading, and production software development.",
+    icon: Coffee,
+    route: "/learning/java",
+    tag: "Software Engineering & Systems",
+    modulesCount: "Comprehensive Modules",
+    color: "from-stone-900 via-orange-950 to-orange-600",
+    badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
+    highlights: [
+      "Computational Thinking & Algorithm Design",
+      "JDK, JRE & JVM Bytecode Architecture",
+      "Primitive Types, Strings & 2D Matrix Mathematics",
+      "Control Flow, Methods, Scope & Recursion",
+      "Object-Oriented Programming (OOP) & Dynamic Dispatch",
+      "UML Class Modeling & SOLID Software Principles",
     ],
   },
 ];

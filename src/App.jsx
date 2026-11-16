@@ -183,6 +183,10 @@ const BlockchainDAOsGovernance = React.lazy(() => import("./Componets/Blockchain
 const BlockchainHyperledgerFabric = React.lazy(() => import("./Componets/BlockchainHyperledgerFabric"));
 const BlockchainSolanaRust = React.lazy(() => import("./Componets/BlockchainSolanaRust"));
 const BlockchainFinalCapstone = React.lazy(() => import("./Componets/BlockchainFinalCapstone"));
+const JavaIntro = React.lazy(() => import("./Componets/JavaIntro"));
+const JavaControlFlow = React.lazy(() => import("./Componets/JavaControlFlow"));
+const JavaArraysStrings = React.lazy(() => import("./Componets/JavaArraysStrings"));
+const JavaOOP = React.lazy(() => import("./Componets/JavaOOP"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1607,6 +1611,27 @@ function App() {
             <Route path="/learn/blockchain/capstone" element={<BlockchainFinalCapstone />} />
             <Route path="/learn/blockchain/capstone-project" element={<BlockchainFinalCapstone />} />
             <Route path="/learn/blockchain/module-24" element={<BlockchainFinalCapstone />} />
+
+            {/* JAVA PROGRAMMING MASTER COURSE */}
+            <Route path="/learning/java" element={<JavaIntro />} />
+            <Route path="/learning/java/intro" element={<JavaIntro />} />
+            <Route path="/learning/java/module-1" element={<JavaIntro />} />
+            <Route path="/courses/java" element={<JavaIntro />} />
+            <Route path="/courses/java-programming" element={<JavaIntro />} />
+            <Route path="/learn/java" element={<JavaIntro />} />
+            <Route path="/learn/java/intro" element={<JavaIntro />} />
+            <Route path="/learning/java/control-flow" element={<JavaControlFlow />} />
+            <Route path="/learning/java/module-2" element={<JavaControlFlow />} />
+            <Route path="/courses/java/control-flow" element={<JavaControlFlow />} />
+            <Route path="/learn/java/control-flow" element={<JavaControlFlow />} />
+            <Route path="/learning/java/arrays-strings" element={<JavaArraysStrings />} />
+            <Route path="/learning/java/module-3" element={<JavaArraysStrings />} />
+            <Route path="/courses/java/arrays-strings" element={<JavaArraysStrings />} />
+            <Route path="/learn/java/arrays-strings" element={<JavaArraysStrings />} />
+            <Route path="/learning/java/oop" element={<JavaOOP />} />
+            <Route path="/learning/java/module-4" element={<JavaOOP />} />
+            <Route path="/courses/java/oop" element={<JavaOOP />} />
+            <Route path="/learn/java/oop" element={<JavaOOP />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

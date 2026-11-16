@@ -1,0 +1,208 @@
+{
+  "id": "control-flow",
+  "courseId": "java-programming",
+  "index": 2,
+  "name": "2. Control Flow, Methods & Problem-Solving",
+  "title": "Control Flow, Methods & Problem-Solving Fundamentals",
+  "description": "Master algorithmic thinking, decision-making (if-else, switch expressions), loops (for, while, do-while), methods, variable scope, recursion, mathematical problem-solving, and nested loop pattern generation.",
+  "duration": "8-10 hours",
+  "level": "Beginner to Intermediate",
+  "route": "/learning/java/control-flow",
+  "componentName": "JavaControlFlow",
+  "topics": [
+    "Algorithmic Thinking & Problem Decomposition",
+    "Pseudocode & Flowchart Design",
+    "Conditional Control Flow (if, if-else, if-else-if ladders)",
+    "Modern Switch Expressions vs Traditional Switch",
+    "Loops: for, while, do-while & Sentinel Patterns",
+    "Nested Loops, Break, Continue & Labeled Jumps",
+    "Method Design, Pass-by-Value & Overloading",
+    "Variable Scope, Shadowing & Stack Lifetime",
+    "Recursion Fundamentals, Call Stacks & Base Cases",
+    "Pattern Generation (Stars, Numbers, Pyramids, Diamonds)",
+    "Mathematical Algorithms (Primes, GCD, LCM, Palindromes, Armstrong)",
+    "Full Mini Project: Student Performance & Result Management System"
+  ],
+  "quiz": [
+    {
+      "id": "m2-q1",
+      "question": "What is an algorithm?",
+      "options": [
+        "A programming language",
+        "A finite sequence of well-defined steps to solve a problem",
+        "A computer hardware component",
+        "A Java library"
+      ],
+      "correctIndex": 1,
+      "explanation": "An algorithm is formally defined as a finite, ordered sequence of unambiguous instructions designed to solve a specific problem or computational task."
+    },
+    {
+      "id": "m2-q2",
+      "question": "Which technique divides a large problem into smaller problems?",
+      "options": [
+        "Compilation",
+        "Decomposition",
+        "Casting",
+        "Inheritance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Problem decomposition breaks down a complex problem into smaller, more manageable subproblems or functional units that can be solved and tested independently."
+    },
+    {
+      "id": "m2-q3",
+      "question": "Which flowchart symbol is used for a decision?",
+      "options": [
+        "Rectangle",
+        "Oval",
+        "Diamond",
+        "Parallelogram"
+      ],
+      "correctIndex": 2,
+      "explanation": "In standard flowchart conventions (ANSI/ISO), the diamond symbol represents a decision/conditional branch with two or more exiting paths (e.g. Yes/No)."
+    },
+    {
+      "id": "m2-q4",
+      "question": "Which statement executes a block only if a condition is true?",
+      "options": [
+        "`for`",
+        "`if`",
+        "`break`",
+        "`return`"
+      ],
+      "correctIndex": 1,
+      "explanation": "The if statement evaluates a boolean condition and executes its enclosed block only if that expression evaluates to true."
+    },
+    {
+      "id": "m2-q5",
+      "question": "Which loop executes its body at least once?",
+      "options": [
+        "`for`",
+        "`while`",
+        "`do-while`",
+        "Enhanced for"
+      ],
+      "correctIndex": 2,
+      "explanation": "A do-while loop is an exit-controlled (post-test) loop, meaning the loop body executes once before its termination condition is ever evaluated."
+    },
+    {
+      "id": "m2-q6",
+      "question": "Which statement terminates the nearest enclosing loop?",
+      "options": [
+        "`continue`",
+        "`break`",
+        "`return` only",
+        "`skip`"
+      ],
+      "correctIndex": 1,
+      "explanation": "The break statement unconditionally terminates the execution of the innermost enclosing loop or switch statement."
+    },
+    {
+      "id": "m2-q7",
+      "question": "What does continue do?",
+      "options": [
+        "Terminates the application",
+        "Terminates every loop",
+        "Skips the current iteration and proceeds to the next",
+        "Restarts the program"
+      ],
+      "correctIndex": 2,
+      "explanation": "The continue statement halts the current iteration of the innermost loop and immediately passes control to the loop condition/update expression for the next iteration."
+    },
+    {
+      "id": "m2-q8",
+      "question": "Which keyword specifies that a method does not return a value?",
+      "options": [
+        "`null`",
+        "`static`",
+        "`void`",
+        "`final`"
+      ],
+      "correctIndex": 2,
+      "explanation": "The void keyword indicates that a method performs actions but does not return any value to its caller."
+    },
+    {
+      "id": "m2-q9",
+      "question": "What is method overloading?",
+      "options": [
+        "Defining methods with identical names and different parameter lists",
+        "Defining methods only inside loops",
+        "Calling a method repeatedly",
+        "Returning multiple unrelated values"
+      ],
+      "correctIndex": 0,
+      "explanation": "Method overloading occurs when two or more methods within the same class share identical names but possess different parameter lists (by count, type, or order)."
+    },
+    {
+      "id": "m2-q10",
+      "question": "What is the base case in recursion?",
+      "options": [
+        "The first variable declaration",
+        "The condition that terminates recursive calls",
+        "The method name",
+        "The return type"
+      ],
+      "correctIndex": 1,
+      "explanation": "The base case is the terminating condition in a recursive method that returns a concrete value directly without initiating further recursive calls, preventing infinite recursion."
+    },
+    {
+      "id": "m2-q11",
+      "question": "What happens if a recursive method has no reachable terminating condition?",
+      "options": [
+        "It always returns zero",
+        "It may continue until a stack overflow occurs",
+        "It automatically becomes a loop",
+        "The compiler always optimizes it away"
+      ],
+      "correctIndex": 1,
+      "explanation": "Without a reachable base case, recursive calls consume stack frames indefinitely until the JVM runs out of call stack memory and throws a java.lang.StackOverflowError."
+    },
+    {
+      "id": "m2-q12",
+      "question": "What is the result of `7 % 2`?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 1,
+      "explanation": "The modulo operator % returns the remainder of integer division: 7 divided by 2 is 3 with a remainder of 1."
+    },
+    {
+      "id": "m2-q13",
+      "question": "Which statement is most suitable for a menu that must appear at least once?",
+      "options": [
+        "`do-while`",
+        "`if`",
+        "`return`",
+        "`continue`"
+      ],
+      "correctIndex": 0,
+      "explanation": "A do-while loop guarantees at least one execution of its body, making it ideal for console menus where options must be shown prior to reading user input."
+    },
+    {
+      "id": "m2-q14",
+      "question": "What is the time complexity of two independent nested loops, each iterating n times?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "correctIndex": 3,
+      "explanation": "Two nested loops each iterating n times execute n * n iterations in total, resulting in quadratic time complexity O(n²)."
+    },
+    {
+      "id": "m2-q15",
+      "question": "Which construct can directly produce a value in modern Java?",
+      "options": [
+        "Traditional `if` statement only",
+        "Switch expression",
+        "`break` statement",
+        "`continue` statement"
+      ],
+      "correctIndex": 1,
+      "explanation": "Modern Java switch expressions (introduced in Java 14) can be evaluated directly on the right-hand side of assignments to produce a value, unlike traditional switch statements."
+    }
+  ]
+}
