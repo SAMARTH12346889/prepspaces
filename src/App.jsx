@@ -195,6 +195,7 @@ const JavaLinkedLists = React.lazy(() => import("./Componets/JavaLinkedLists"));
 const JavaStacksQueues = React.lazy(() => import("./Componets/JavaStacksQueues"));
 const JavaHashing = React.lazy(() => import("./Componets/JavaHashing"));
 const JavaTrees = React.lazy(() => import("./Componets/JavaTrees"));
+const JavaHeaps = React.lazy(() => import("./Componets/JavaHeaps"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1685,6 +1686,12 @@ function App() {
             <Route path="/learning/java/module-12" element={<JavaTrees />} />
             <Route path="/courses/java/trees" element={<JavaTrees />} />
             <Route path="/learn/java/trees" element={<JavaTrees />} />
+            <Route path="/learning/java/heaps" element={<JavaHeaps />} />
+            <Route path="/learning/java/priority-queues" element={<JavaHeaps />} />
+            <Route path="/learning/java/avl-trees" element={<JavaHeaps />} />
+            <Route path="/learning/java/module-13" element={<JavaHeaps />} />
+            <Route path="/courses/java/heaps" element={<JavaHeaps />} />
+            <Route path="/learn/java/heaps" element={<JavaHeaps />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

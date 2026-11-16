@@ -130,5 +130,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "heaps",
+    "courseId": "java-programming",
+    "index": 13,
+    "name": "13. Heaps, Priority Queues & Advanced Trees",
+    "route": "/learning/java/heaps",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

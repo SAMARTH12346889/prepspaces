@@ -188,7 +188,7 @@
     "route": "/learning/java",
     "tag": "Software Engineering & Systems",
     "modulesCount": "Comprehensive Modules",
-    "totalModules": 12,
+    "totalModules": 13,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
@@ -204,7 +204,8 @@
       "Linked Lists, References, Floyd's Cycle Detection & Fast/Slow Pointers",
       "Stacks, Queues, Deques, Monotonic Stacks & Sliding Window Maximum",
       "Hash Tables, Chaining, Probing, HashMap Treeification & LRU Cache",
-      "Trees, BST Invariants, Tree Traversals, LCA & Tree Serialization"
+      "Trees, BST Invariants, Tree Traversals, LCA & Tree Serialization",
+      "Heaps, PriorityQueue, Top-K, Median Stream, AVL Rotations & Red-Black Trees"
     ]
   }
 ]

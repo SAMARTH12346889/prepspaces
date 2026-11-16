@@ -1722,3 +1722,34 @@ Topics Covered:
   - 30. Serialize and Deserialize Binary Tree: Codec Design, Preorder Tokenization with Sentinel Nulls ("#") & Queue Rebuilder
   - 31. Tree Interview Cheat Sheet: DFS vs BFS Comparison, Traversal Signatures, Invariant Cheatsheet, Master Checklist
   - 32. 45 Practical Labs & Assignments: Level 1-4 Problem Hierarchy & 20 Assessment MCQs with Explanations
+
+### Module 13: Heaps, Priority Queues & Advanced Trees
+URL: https://prepspaces.com/learning/java/heaps
+Topics Covered:
+  - 1. Heap Fundamentals: Complete Binary Tree & Heap-Order Invariants, University Exam Scenario, Priority Access
+  - 2. Min Heap and Max Heap: Mathematical Definitions (Parent <= Children vs Parent >= Children), Root Extremes
+  - 3. Complete Binary Tree Representation: Zero-Based Array Indexing, Left (2i+1), Right (2i+2), Parent floor((i-1)/2), Leaf Index Range (n/2 to n-1)
+  - 4. Heap Insertion: Append at Last Available Index, Sift-Up (Bubble Up / Percolate Up) Logarithmic Height O(log n)
+  - 5. Heap Deletion: Root Extraction, Last Element Replacement, Sift-Down (Heapify Down) O(log n)
+  - 6. Heapify: Subtree Invariant Restoration, Top-Down Sift Repair
+  - 7. Build Heap: Bottom-Up Linear O(n) Construction Proof, Arithmetic-Geometric Series Summation vs O(n log n) Insertion
+  - 8. Heap Sort: In-Place Comparison Sorting, Max Heap Construction, Root Swap to End, Active Size Shrinking, O(n log n) Time, O(1) Space
+  - 9. Java PriorityQueue: Default Min Heap Natural Ordering, Comparator.reverseOrder() Max Heap, Custom Comparator Pitfalls, Iterator Non-Sorted Trap
+  - 10. Kth Largest and Kth Smallest Elements: Opposite Heap Sizing Technique, Min Heap of Size K for Kth Largest in O(n log k) Time
+  - 11. Top K Frequent Elements: HashMap Count + Min Heap of Size K (LeetCode 347)
+  - 12. Merge K Sorted Lists: K-Way Heap Consolidation, Comparing Active Heads, Dummy Node Mechanics (LeetCode 23)
+  - 13. Median from Data Stream: Dual-Heap Balancing Architecture (Lower Max Heap, Upper Min Heap) for O(1) Median Queries (LeetCode 295)
+  - 14. Binary Heap Complexity Cheat Sheet: Time & Auxiliary Space Comprehensive Matrix
+  - 15. Why Do We Need Advanced Balanced Trees?: Ordinary BST Degeneracy to Skewed O(n) Linked Lists
+  - 16. AVL Trees: Height Invariant (|Height(left) - Height(right)| <= 1), Balance Factors {-1, 0, 1}
+  - 17. Four AVL Rotations: LL Right Rotation, RR Left Rotation, LR Left-Right Double Rotation, RL Right-Left Double Rotation
+  - 18. Implementing AVL Insertion in Java: Node Structure, Height Tracking, Balance Factor Calculation, Recursive Rebalance
+  - 19. Red-Black Trees Fundamentals: 5 Invariant Rules, Root Black, NIL Leaves Black, No Consecutive Red Nodes, Equal Black-Height
+  - 20. Balanced Tree Comparison: Normal BST vs AVL vs Red-Black vs Binary Heap Architectural Decision Matrix
+  - 21. Common Mistakes in Heap and Advanced Tree Problems: 12 Defensive Engineering Traps
+  - 22. Important Theoretical Interview Questions: 45 Comprehensive Technical Q&As
+  - 23. Practical Coding Assignments: 45 Problems across Beginner, Intermediate, and Advanced Tiers
+  - 24. Curated LeetCode Practice Track: 15 High-Yield Problems
+  - 25. 15 Assessment MCQs with Explanations and Interactive Testing
+  - 26. Learning Outcomes & Engineering Mastery Roadmap
+  - 27. Recommended Practical Study Sequence

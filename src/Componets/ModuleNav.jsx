@@ -233,6 +233,7 @@ export const JAVA_MODULES = [
   { id: "stacks-queues", name: "10. Stacks, Queues & Deques", route: "/learning/java/stacks-queues" },
   { id: "hashing", name: "11. Hashing & Hash-Based Data Structures", route: "/learning/java/hashing" },
   { id: "trees", name: "12. Trees & Binary Search Trees", route: "/learning/java/trees" },
+  { id: "heaps", name: "13. Heaps, Priority Queues & Advanced Trees", route: "/learning/java/heaps" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

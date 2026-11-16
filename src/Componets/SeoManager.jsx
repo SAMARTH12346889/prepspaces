@@ -159,6 +159,12 @@ const routeMeta = {
     keywords: "Java Trees, Binary Tree Java, Binary Search Tree Java, BST Insertion Deletion Java, Tree Traversals Preorder Inorder Postorder Java, Level Order Traversal Java, Lowest Common Ancestor LCA Java, BST Validation Range Bounds, Tree Diameter Java, Tree Serialization Deserialization, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/trees`,
   },
+  "/learning/java/heaps": {
+    title: "Module 13: Heaps, Priority Queues & Advanced Trees | PrepSpaces",
+    description: "Master heaps, priority queues, and advanced balanced trees in Java: Min Heap, Max Heap, complete binary tree array mapping (2i+1, 2i+2, (i-1)/2), sift-up and sift-down mechanics, O(n) bottom-up Build Heap proof, in-place Heap Sort, Java PriorityQueue internals, Kth largest/smallest elements, Top K Frequent Elements, Merge K Sorted Lists, streaming running median, AVL tree balance factors and 4 rotation cases (LL, RR, LR, RL), and Red-Black tree invariants.",
+    keywords: "Java Heap, Binary Heap Java, PriorityQueue Java, Heap Sort In-Place, Min Heap Max Heap Java, Build Heap Linear Time O(n), Top K Frequent Elements, Merge K Sorted Lists Java, Running Median Two Heaps, AVL Tree Rotations LL RR LR RL, Red-Black Tree Java, TreeMap Internals, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/heaps`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

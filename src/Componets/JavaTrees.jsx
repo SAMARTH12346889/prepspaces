@@ -554,7 +554,7 @@ export default function JavaTrees() {
       <ModuleNav
         currentModuleId="trees"
         prevRoute="/learning/java/hashing"
-        nextRoute={null}
+        nextRoute="/learning/java/heaps"
       />
 
       {/* Main Container */}
