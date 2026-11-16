@@ -229,6 +229,7 @@ export const JAVA_MODULES = [
   { id: "recursion-backtracking", name: "6. Recursion, Backtracking & Mathematical Foundations", route: "/learning/java/recursion-backtracking" },
   { id: "complexity-analysis", name: "7. Algorithm Analysis & Big-O Complexity", route: "/learning/java/complexity-analysis" },
   { id: "searching-sorting", name: "8. Searching & Sorting Algorithms", route: "/learning/java/searching-sorting" },
+  { id: "linked-lists", name: "9. Linked Lists", route: "/learning/java/linked-lists" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

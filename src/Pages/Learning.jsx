@@ -250,6 +250,7 @@ const learningTracks = [
       "Backtracking Solvers: N-Queens, Sudoku & Mazes",
       "Algorithm Analysis, Big-O, Master Theorem & Amortized Doubling",
       "Searching & Sorting, Binary Bounds, Rotated Search & TimSort",
+      "Linked Lists, Dynamic References, Floyd's Cycle & Pointer Splicing",
     ],
   },
 ];

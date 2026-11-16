@@ -188,7 +188,7 @@
     "route": "/learning/java",
     "tag": "Software Engineering & Systems",
     "modulesCount": "Comprehensive Modules",
-    "totalModules": 8,
+    "totalModules": 9,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
@@ -200,7 +200,8 @@
       "Lambdas, Stream API Pipelines & NIO.2 Storage",
       "Recursion, Induction, Backtracking, N-Queens & Sudoku",
       "Algorithm Analysis, Big-O, Master Theorem & Amortized Doubling",
-      "Searching & Sorting, Binary Bounds, Rotated Search & TimSort"
+      "Searching & Sorting, Binary Bounds, Rotated Search & TimSort",
+      "Linked Lists, References, Floyd's Cycle Detection & Fast/Slow Pointers"
     ]
   }
 ]

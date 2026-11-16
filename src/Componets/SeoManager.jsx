@@ -135,6 +135,12 @@ const routeMeta = {
     keywords: "Searching Algorithms, Sorting Algorithms, Java Binary Search, Lower Bound Upper Bound Java, Rotated Array Search, Merge Sort Java, Quick Sort Java, Heap Sort Java, Counting Sort, Radix Sort, Bucket Sort, Sorting Stability, Dual-Pivot Quicksort, TimSort Java, Arrays.sort Internals, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/searching-sorting`,
   },
+  "/learning/java/linked-lists": {
+    title: "Module 9: Linked Lists | PrepSpaces",
+    description: "Master linked lists in Java: node architecture, reference mechanics, singly, doubly, and circular linked lists, constant-time head/tail operations, iterative & recursive reversals, slow/fast pointer middle node detection, Floyd's cycle detection algorithm, two-pointer intersection, and hardware cache locality benchmarks.",
+    keywords: "Java Linked Lists, Singly Linked List, Doubly Linked List, Circular Linked List, Floyds Cycle Detection Java, Fast and Slow Pointers, Reverse Linked List Java, Linked List vs Array, LinkedList Java Internals, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/linked-lists`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

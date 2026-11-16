@@ -191,6 +191,7 @@ const JavaAdvanced = React.lazy(() => import("./Componets/JavaAdvanced"));
 const JavaRecursion = React.lazy(() => import("./Componets/JavaRecursion"));
 const JavaComplexity = React.lazy(() => import("./Componets/JavaComplexity"));
 const JavaSearchingSorting = React.lazy(() => import("./Componets/JavaSearchingSorting"));
+const JavaLinkedLists = React.lazy(() => import("./Componets/JavaLinkedLists"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1657,6 +1658,12 @@ function App() {
             <Route path="/learning/java/module-8" element={<JavaSearchingSorting />} />
             <Route path="/courses/java/searching-sorting" element={<JavaSearchingSorting />} />
             <Route path="/learn/java/searching-sorting" element={<JavaSearchingSorting />} />
+            <Route path="/learning/java/linked-lists" element={<JavaLinkedLists />} />
+            <Route path="/learning/java/linkedlist" element={<JavaLinkedLists />} />
+            <Route path="/learning/java/linked-list" element={<JavaLinkedLists />} />
+            <Route path="/learning/java/module-9" element={<JavaLinkedLists />} />
+            <Route path="/courses/java/linked-lists" element={<JavaLinkedLists />} />
+            <Route path="/learn/java/linked-lists" element={<JavaLinkedLists />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

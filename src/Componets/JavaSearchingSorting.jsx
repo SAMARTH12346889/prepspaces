@@ -657,7 +657,7 @@ export default function JavaSearchingSorting() {
           courseId="java-programming"
           currentModuleId="searching-sorting"
           prevRoute="/learning/java/complexity-analysis"
-          nextRoute={null}
+          nextRoute="/learning/java/linked-lists"
         />
 
         {activeTab === "curriculum" ? (

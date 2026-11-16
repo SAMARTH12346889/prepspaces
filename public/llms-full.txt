@@ -1601,3 +1601,32 @@ Topics Covered:
   - 20. Java Arrays.sort() and Collections.sort(): Dual-Pivot Quicksort (Primitives) vs TimSort (Objects)
   - 21. Comparative Benchmark Analysis: Comprehensive Complexity, Memory, Stability & Adaptive Characteristics
   - 22. 20 Assessment MCQs, 8 Hands-on Labs, 8 Coding Assignments & DSA Problem Roadmaps
+
+### Module 9: Linked Lists
+URL: https://prepspaces.com/learning/java/linked-lists
+Topics Covered:
+  - 1. Linked List Fundamentals: Linear Node Data Structure, Dynamic Memory Allocation & Reference Links
+  - 2. Java References & Heap Allocation: Pointer Semantics, Reference Assignment & Automatic Garbage Collection
+  - 3. Singly Linked Lists: Single-Direction Traversal, Node Structure, Head/Tail Invariants & Manual Creation
+  - 4. Doubly Linked Lists: Bidirectional Traversal, Prev/Next Pointers, Invariant Consistency & Deque Mechanics
+  - 5. Circular Linked Lists: Tail-to-Head Loopback, Cyclic Traversal Termination & Round-Robin Scheduling
+  - 6. Insertion Operations: Head Prepend O(1), Tail Append O(1), Indexed Insertion O(n) & Predecessor Linking
+  - 7. Deletion Operations: Head Removal O(1), Singly Tail Removal O(n), Doubly Tail Removal O(1) & Deletion by Value
+  - 8. Searching & Traversal: Linear Traversal O(n), Value Lookup O(n) & Node Counting / Dynamic Size Tracking
+  - 9. Iterative Linked List Reversal: 3-Pointer Technique (previous, current, next), Link Inversion & O(1) Memory
+  - 10. Recursive Linked List Reversal: Subproblem Division, Base Case, Recursive Unwinding & O(n) Stack Depth
+  - 11. Finding the Middle Node: Two-Pointer Technique (Slow 1-step & Fast 2-step Pointers) & Odd vs Even Lists
+  - 12. Floyd's Cycle Detection Algorithm: Tortoise and Hare Invariant, Relative Phase Gain & Pointer Collision Proof
+  - 13. Cycle Start Node Detection: Meeting Point Reset to Head, Distance Equivalence μ = kλ - d & Proof
+  - 14. Merging Two Sorted Linked Lists: Dummy Node Technique, Front Comparison, O(m + n) Time & O(1) Auxiliary Memory
+  - 15. Removing Duplicates: Adjacent Comparison in Sorted Lists O(1) Space vs HashSet Deduplication in Unsorted Lists O(n)
+  - 16. Intersection of Two Linked Lists: Reference Identity (==) vs Value Equality & Equalized Path Switching Algorithm
+  - 17. Recursive Linked List Operations: Recursive Traversal, Length Calculation, Searching & Stack Overflow Risks
+  - 18. Complete Production SinglyLinkedList<T>: Generic Implementation, Boundary Check Invariants & Robust Iterator
+  - 19. Complete Production DoublyLinkedList<T>: Bidirectional Navigation, Mid-Split Indexed Optimization & Invariants
+  - 20. Complete Production CircularSinglyLinkedList<T>: Tail-Based Access, Safe Cyclic Loops & Invariant Management
+  - 21. Arrays vs Linked Lists: Contiguous Memory Buffers vs Scattered Heap Nodes, Cache Locality & Hardware Prefetchers
+  - 22. Java java.util.LinkedList: Collections Framework, List / Deque / Queue Interfaces & pollFirst vs removeFirst
+  - 23. Complete Linked-List Complexity Matrix: Operations Comparison Across Singly, Doubly, and Circular Topologies
+  - 24. 12 Critical Linked-List Bugs & Traps: Reference Loss, Stale Tail, Cycle Infinite Loops & Invariant Violations
+  - 25. 5 Hands-on Laboratories, 7 Coding Assignments, 15 MCQs, 25 Short-Answer Questions & Mini-Project Capstone
