@@ -493,7 +493,14 @@ export default function JavaCapstone() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white pb-16">
+    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-[#f97316] selection:text-white px-4 py-6 sm:px-8 sm:py-10 md:px-12">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
       {/* Module Navigation Header */}
       <ModuleNav
         track="java"
@@ -507,33 +514,33 @@ export default function JavaCapstone() {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 w-full flex-1">
         {/* Module Header Banner */}
-        <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-r from-slate-900 via-slate-900/60 to-slate-900 border border-slate-800 shadow-2xl overflow-hidden mb-8">
+        <div className="relative rounded-3xl p-6 sm:p-8 bg-white border border-[#e7e3da] shadow-xs overflow-hidden mb-8">
           <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#ea580c] text-xs font-semibold uppercase tracking-wider mb-3">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 Final Masterclass Capstone Project
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight">
                 Module 24 — Final Java &amp; DSA Capstone Project
               </h1>
-              <p className="mt-2 text-sm md:text-base text-slate-300 max-w-3xl leading-relaxed">
+              <p className="mt-2 text-sm md:text-base text-stone-700 max-w-3xl leading-relaxed">
                 Design, implement, benchmark, test, document, and deploy a production-grade software engineering project integrating 24 modules of Java, OOP, Data Structures, Algorithms, and JVM performance.
               </p>
             </div>
 
             {/* Metrics */}
             <div className="flex flex-wrap md:flex-col gap-3 shrink-0">
-              <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
+              <div className="px-4 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-mono text-stone-700 flex items-center gap-2">
                 <Code2 className="w-4 h-4 text-emerald-400" />
                 <span>25 Project Sections</span>
               </div>
-              <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
+              <div className="px-4 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-mono text-stone-700 flex items-center gap-2">
                 <Zap className="w-4 h-4 text-amber-400" />
                 <span>8 Interactive Workbenches</span>
               </div>
-              <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
+              <div className="px-4 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-mono text-stone-700 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-orange-400" />
                 <span>35 Capstone Milestones</span>
               </div>
@@ -541,13 +548,13 @@ export default function JavaCapstone() {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap items-center gap-2 mt-6 pt-6 border-t border-slate-800/80">
+          <div className="flex flex-wrap items-center gap-2 mt-6 pt-6 border-t border-[#e7e3da]">
             <button
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "curriculum"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-[#18181b] text-white shadow-sm font-bold"
+                  : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold"
               }`}
             >
               <BookOpen className="w-4 h-4" />
@@ -557,8 +564,8 @@ export default function JavaCapstone() {
               onClick={() => setActiveTab("workbenches")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "workbenches"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-[#18181b] text-white shadow-sm font-bold"
+                  : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold"
               }`}
             >
               <Terminal className="w-4 h-4" />
@@ -568,8 +575,8 @@ export default function JavaCapstone() {
               onClick={() => setActiveTab("quiz")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "quiz"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-[#18181b] text-white shadow-sm font-bold"
+                  : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold"
               }`}
             >
               <Award className="w-4 h-4" />
@@ -579,8 +586,8 @@ export default function JavaCapstone() {
               onClick={() => setActiveTab("milestones")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "milestones"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-[#18181b] text-white shadow-sm font-bold"
+                  : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold"
               }`}
             >
               <CheckSquare className="w-4 h-4" />
@@ -593,17 +600,17 @@ export default function JavaCapstone() {
         {activeTab === "curriculum" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar Navigation */}
-            <div className="lg:col-span-4 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-6 shadow-xl space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+            <div className="lg:col-span-4 bg-white/70 border border-[#e7e3da] rounded-2xl p-4 sticky top-6 shadow-xl space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-[#e7e3da]">
+                <span className="text-xs font-bold uppercase tracking-wider text-stone-500 flex items-center gap-1.5">
                   <Layers className="w-4 h-4 text-orange-400" />
                   Table of Contents
                 </span>
-                <div className="flex items-center gap-1 bg-slate-800/80 p-0.5 rounded-lg border border-slate-700/60">
+                <div className="flex items-center gap-1 bg-stone-100/80 p-0.5 rounded-lg border border-stone-200/60">
                   <button
                     onClick={() => setViewMode("guided")}
                     className={`px-2 py-1 rounded text-[11px] font-medium transition-colors ${
-                      viewMode === "guided" ? "bg-orange-500 text-white" : "text-slate-400 hover:text-slate-200"
+                      viewMode === "guided" ? "bg-orange-500 text-stone-900" : "text-stone-500 hover:text-stone-800"
                     }`}
                   >
                     Focus Mode
@@ -611,7 +618,7 @@ export default function JavaCapstone() {
                   <button
                     onClick={() => setViewMode("textbook")}
                     className={`px-2 py-1 rounded text-[11px] font-medium transition-colors ${
-                      viewMode === "textbook" ? "bg-orange-500 text-white" : "text-slate-400 hover:text-slate-200"
+                      viewMode === "textbook" ? "bg-orange-500 text-stone-900" : "text-stone-500 hover:text-stone-800"
                     }`}
                   >
                     Full Book
@@ -627,12 +634,12 @@ export default function JavaCapstone() {
                   placeholder="Search topics, projects, architectures..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-950/80 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition-colors"
+                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-stone-50/80 border border-[#e7e3da] rounded-xl text-stone-800 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition-colors"
                 />
               </div>
 
               {/* Section list */}
-              <div className="max-h-[60vh] overflow-y-auto space-y-1 pr-1 custom-scrollbar dark-scrollbar">
+              <div className="max-h-[60vh] overflow-y-auto space-y-1 pr-1 custom-scrollbar ">
                 {filteredSections.map((sec) => {
                   const isActive = activeSectionId === sec.id;
                   return (
@@ -649,7 +656,7 @@ export default function JavaCapstone() {
                       className={`w-full text-left px-3 py-2 rounded-xl transition-all flex flex-col gap-0.5 text-xs ${
                         isActive
                           ? "bg-orange-500/15 text-orange-300 border border-orange-500/40"
-                          : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent"
+                          : "text-stone-500 hover:bg-stone-100 hover:text-stone-800 border border-transparent"
                       }`}
                     >
                       <div className="font-semibold break-words whitespace-normal leading-snug">{sec.title}</div>
@@ -661,17 +668,17 @@ export default function JavaCapstone() {
             </div>
 
             {/* Main Content Area */}
-            <div className="lg:col-span-8 bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="lg:col-span-8 bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               {viewMode === "guided" ? (
                 <div>
-                  <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+                  <div className="flex items-center justify-between pb-4 border-b border-[#e7e3da] mb-6">
                     <div>
                       <span className="text-[11px] font-mono text-orange-400 uppercase tracking-wider">
                         {activeSectionId === 0
                           ? "Capstone Overview · 25 Project Sections"
                           : `Section ${activeSectionId} of 25`}
                       </span>
-                      <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
+                      <h2 className="text-xl md:text-2xl font-bold text-stone-900 mt-1">
                         {JAVA_CAPSTONE_SECTIONS[activeSectionId]?.title}
                       </h2>
                     </div>
@@ -679,7 +686,7 @@ export default function JavaCapstone() {
                       <button
                         disabled={activeSectionId === 0}
                         onClick={() => setActiveSectionId((prev) => Math.max(0, prev - 1))}
-                        className="p-2 rounded-xl bg-slate-800 border border-slate-700 disabled:opacity-40 hover:bg-slate-700 transition-colors"
+                        className="p-2 rounded-xl bg-stone-100 border border-stone-200 disabled:opacity-40 hover:bg-stone-200 transition-colors"
                         title="Previous section"
                       >
                         <ArrowLeft className="w-4 h-4" />
@@ -691,7 +698,7 @@ export default function JavaCapstone() {
                             Math.min(JAVA_CAPSTONE_SECTIONS.length - 1, prev + 1)
                           )
                         }
-                        className="p-2 rounded-xl bg-slate-800 border border-slate-700 disabled:opacity-40 hover:bg-slate-700 transition-colors"
+                        className="p-2 rounded-xl bg-stone-100 border border-stone-200 disabled:opacity-40 hover:bg-stone-200 transition-colors"
                         title="Next section"
                       >
                         <ArrowRight className="w-4 h-4" />
@@ -704,14 +711,14 @@ export default function JavaCapstone() {
                   </div>
 
                   {/* Section bottom navigation */}
-                  <div className="flex items-center justify-between pt-8 mt-12 border-t border-slate-800">
+                  <div className="flex items-center justify-between pt-8 mt-12 border-t border-[#e7e3da]">
                     <button
                       disabled={activeSectionId === 0}
                       onClick={() => {
                         setActiveSectionId((prev) => Math.max(0, prev - 1));
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       Previous Section
@@ -724,7 +731,7 @@ export default function JavaCapstone() {
                         );
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500 shadow-lg shadow-orange-500/20"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-500 text-xs font-semibold text-stone-900 disabled:opacity-30 hover:bg-orange-500 shadow-lg shadow-orange-500/20"
                     >
                       Next Section
                       <ArrowRight className="w-4 h-4" />
@@ -738,13 +745,13 @@ export default function JavaCapstone() {
                     <div
                       key={sec.id}
                       id={`section-${sec.id}`}
-                      className="pt-8 border-t first:border-t-0 border-slate-800/80"
+                      className="pt-8 border-t first:border-t-0 border-[#e7e3da]"
                     >
                       <div className="mb-4">
                         <span className="text-[11px] font-mono text-orange-400 uppercase tracking-wider">
                           {sec.id === 0 ? "Capstone Overview" : `Section ${sec.id} of 25`}
                         </span>
-                        <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-1">
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-stone-900 mt-1">
                           {sec.title}
                         </h2>
                       </div>
@@ -761,16 +768,16 @@ export default function JavaCapstone() {
         {activeTab === "workbenches" && (
           <div className="space-y-12">
             {/* WORKBENCH 1: CAPSTONE PROJECT SELECTOR & BLUEPRINT */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
+                <div className="p-2.5 rounded-2xl bg-orange-50 border border-orange-200 text-[#ea580c]">
                   <Compass className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 1: Capstone Project Selector &amp; Blueprint Generator
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Compare the three capstone pathways and review their layered architectures, tech stacks, and deliverables.
                   </p>
                 </div>
@@ -784,18 +791,18 @@ export default function JavaCapstone() {
                     onClick={() => setSelectedProject(p.id)}
                     className={`p-4 rounded-2xl text-left border transition-all flex flex-col justify-between ${
                       selectedProject === p.id
-                        ? "bg-slate-900 border-orange-500 text-white shadow-xl shadow-orange-500/20"
-                        : "bg-slate-950/70 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                        ? "bg-white border-orange-500 text-stone-900 shadow-xl shadow-orange-500/20"
+                        : "bg-stone-50/70 border-[#e7e3da] text-stone-500 hover:border-stone-200 hover:text-stone-800"
                     }`}
                   >
                     <div>
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-orange-400">
                         {p.difficulty}
                       </span>
-                      <h4 className="text-sm font-bold text-white mt-1">{p.name}</h4>
-                      <p className="text-xs text-slate-400 mt-1 line-clamp-2">{p.tagline}</p>
+                      <h4 className="text-sm font-bold text-stone-900 mt-1">{p.name}</h4>
+                      <p className="text-xs text-stone-500 mt-1 line-clamp-2">{p.tagline}</p>
                     </div>
-                    <div className="mt-4 pt-3 border-t border-slate-800/80 text-[11px] font-mono text-slate-500">
+                    <div className="mt-4 pt-3 border-t border-[#e7e3da] text-[11px] font-mono text-slate-500">
                       Tech: {p.techStack.split(",")[0]}, {p.techStack.split(",")[1]}
                     </div>
                   </button>
@@ -806,10 +813,10 @@ export default function JavaCapstone() {
               {(() => {
                 const b = PROJECT_BLUEPRINTS[selectedProject];
                 return (
-                  <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800">
+                  <div className="p-6 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#e7e3da]">
                       <div>
-                        <h4 className="text-lg font-bold text-white">{b.name}</h4>
+                        <h4 className="text-lg font-bold text-stone-900">{b.name}</h4>
                         <p className="text-xs text-orange-400 font-mono mt-0.5">{b.tagline}</p>
                       </div>
                       <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-orange-500/10 border border-orange-500/30 text-orange-300 self-start">
@@ -819,13 +826,13 @@ export default function JavaCapstone() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-3">
-                        <span className="text-xs font-mono uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                        <span className="text-xs font-mono uppercase tracking-wider text-stone-500 flex items-center gap-1.5">
                           <FolderTree className="w-3.5 h-3.5 text-orange-400" />
                           Layered Architecture Blueprint
                         </span>
-                        <ul className="space-y-2 text-xs text-slate-300">
+                        <ul className="space-y-2 text-xs text-stone-700">
                           {b.architecture.map((layer, idx) => (
-                            <li key={idx} className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-start gap-2">
+                            <li key={idx} className="p-2.5 rounded-xl bg-white border border-[#e7e3da] shadow-xs flex items-start gap-2">
                               <span className="w-5 h-5 rounded-full bg-orange-500/15 text-orange-400 flex items-center justify-center font-mono text-[10px] shrink-0 mt-0.5">
                                 {idx + 1}
                               </span>
@@ -836,8 +843,8 @@ export default function JavaCapstone() {
                       </div>
 
                       <div className="space-y-4">
-                        <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
-                          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                        <div className="p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs space-y-1.5">
+                          <span className="text-xs font-mono text-stone-500 uppercase tracking-wider">
                             Recommended Technology Stack:
                           </span>
                           <div className="text-xs font-mono font-semibold text-emerald-300">
@@ -845,14 +852,14 @@ export default function JavaCapstone() {
                           </div>
                         </div>
 
-                        <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
-                          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                        <div className="p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs space-y-1.5">
+                          <span className="text-xs font-mono text-stone-500 uppercase tracking-wider">
                             Strategic Engineering Value:
                           </span>
-                          <p className="text-xs text-slate-300 leading-relaxed">{b.pros}</p>
+                          <p className="text-xs text-stone-700 leading-relaxed">{b.pros}</p>
                         </div>
 
-                        <div className="p-4 rounded-xl bg-slate-900 border border-orange-500/30 text-orange-200 text-xs">
+                        <div className="p-4 rounded-xl bg-white border border-orange-500/30 text-orange-200 text-xs">
                           <strong>Target Career Trajectory:</strong> {b.targetAudience}
                         </div>
                       </div>
@@ -863,16 +870,16 @@ export default function JavaCapstone() {
             </div>
 
             {/* WORKBENCH 2: INTERACTIVE SORTING & SEARCHING STUDIO */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400">
                   <Play className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 2: Interactive Algorithm Animation Studio
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Step through real-time state transitions, pointer highlights, and comparison operations.
                   </p>
                 </div>
@@ -889,7 +896,7 @@ export default function JavaCapstone() {
                     className={`px-4 py-2 rounded-xl text-xs font-semibold capitalize transition-all ${
                       sortAlgo === algoKey
                         ? "bg-amber-500 text-slate-950 font-bold shadow-lg shadow-amber-500/20"
-                        : "bg-slate-800/80 text-slate-300 hover:bg-slate-800"
+                        : "bg-stone-100/80 text-stone-700 hover:bg-stone-100"
                     }`}
                   >
                     {algoKey} Sort Visualizer
@@ -901,14 +908,14 @@ export default function JavaCapstone() {
                 const steps = SORT_DATA[sortAlgo];
                 const currentData = steps[sortStep] || steps[0];
                 return (
-                  <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
+                  <div className="p-6 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-6">
                     {/* Array visualization bars */}
-                    <div className="flex items-end justify-center gap-4 h-48 pt-6 pb-2 border-b border-slate-800">
+                    <div className="flex items-end justify-center gap-4 h-48 pt-6 pb-2 border-b border-[#e7e3da]">
                       {currentData.arr.map((val, idx) => {
                         const isActive = currentData.active.includes(idx);
                         return (
                           <div key={idx} className="flex flex-col items-center gap-2">
-                            <div className="text-xs font-mono font-bold text-white">{val}</div>
+                            <div className="text-xs font-mono font-bold text-stone-900">{val}</div>
                             <div
                               style={{ height: `${val * 2.5}px` }}
                               className={`w-12 rounded-t-xl transition-all duration-300 flex items-center justify-center ${
@@ -923,7 +930,7 @@ export default function JavaCapstone() {
                       })}
                     </div>
 
-                    <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 flex items-center justify-between">
+                    <div className="p-3.5 rounded-xl bg-white border border-[#e7e3da] shadow-xs text-xs font-mono text-stone-700 flex items-center justify-between">
                       <span>{currentData.action}</span>
                       <span className="text-orange-400 font-bold">
                         Step {sortStep + 1} / {steps.length}
@@ -934,13 +941,13 @@ export default function JavaCapstone() {
                       <button
                         disabled={sortStep === 0}
                         onClick={() => setSortStep((prev) => Math.max(0, prev - 1))}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                       >
                         &larr; Step Back
                       </button>
                       <button
                         onClick={() => setSortStep(0)}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-slate-400 hover:text-white flex items-center gap-1"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs text-stone-500 hover:text-stone-900 flex items-center gap-1"
                       >
                         <RotateCcw className="w-3 h-3" /> Reset
                       </button>
@@ -958,16 +965,16 @@ export default function JavaCapstone() {
             </div>
 
             {/* WORKBENCH 3: TREE & GRAPH EXPLORATION ENGINE */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
                   <Activity className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 3: Tree &amp; Graph Interactive Exploration Engine
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Explore Dijkstra's shortest path edge relaxations and BFS level-by-level queue management.
                   </p>
                 </div>
@@ -980,7 +987,7 @@ export default function JavaCapstone() {
                     setGraphStep(0);
                   }}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold ${
-                    graphMode === "dijkstra" ? "bg-cyan-600 text-white" : "bg-slate-800 text-slate-400"
+                    graphMode === "dijkstra" ? "bg-cyan-600 text-stone-900" : "bg-stone-100 text-stone-500"
                   }`}
                 >
                   Dijkstra Shortest Path
@@ -991,7 +998,7 @@ export default function JavaCapstone() {
                     setGraphStep(0);
                   }}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold ${
-                    graphMode === "bfs" ? "bg-cyan-600 text-white" : "bg-slate-800 text-slate-400"
+                    graphMode === "bfs" ? "bg-cyan-600 text-stone-900" : "bg-stone-100 text-stone-500"
                   }`}
                 >
                   Breadth-First Search (BFS)
@@ -1002,8 +1009,8 @@ export default function JavaCapstone() {
                 const steps = GRAPH_STEPS[graphMode];
                 const active = steps[graphStep] || steps[0];
                 return (
-                  <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
-                    <div className="flex flex-wrap items-center justify-around gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <div className="p-6 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-6">
+                    <div className="flex flex-wrap items-center justify-around gap-4 p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs">
                       {["A", "B", "C", "D"].map((node) => {
                         const isCurrent = active.current === node;
                         return (
@@ -1012,7 +1019,7 @@ export default function JavaCapstone() {
                               className={`w-14 h-14 rounded-2xl flex items-center justify-center font-mono font-bold text-base border transition-all ${
                                 isCurrent
                                   ? "bg-cyan-500 text-slate-950 border-cyan-300 shadow-xl shadow-cyan-500/50 scale-110"
-                                  : "bg-slate-800 text-slate-200 border-slate-700"
+                                  : "bg-stone-100 text-stone-800 border-stone-200"
                               }`}
                             >
                               {node}
@@ -1027,7 +1034,7 @@ export default function JavaCapstone() {
                       })}
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 font-mono space-y-2">
+                    <div className="p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs text-xs text-stone-700 font-mono space-y-2">
                       <div className="text-cyan-400 font-bold">
                         {graphMode === "dijkstra" ? `Queue State: ${active.pq}` : `Queue: ${active.queue}`}
                       </div>
@@ -1038,7 +1045,7 @@ export default function JavaCapstone() {
                       <button
                         disabled={graphStep === 0}
                         onClick={() => setGraphStep((prev) => Math.max(0, prev - 1))}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                       >
                         &larr; Prev Step
                       </button>
@@ -1048,7 +1055,7 @@ export default function JavaCapstone() {
                       <button
                         disabled={graphStep === steps.length - 1}
                         onClick={() => setGraphStep((prev) => Math.min(steps.length - 1, prev + 1))}
-                        className="px-3 py-1.5 rounded-lg bg-cyan-600 text-xs font-semibold text-white disabled:opacity-30 hover:bg-cyan-500"
+                        className="px-3 py-1.5 rounded-lg bg-cyan-600 text-xs font-semibold text-stone-900 disabled:opacity-30 hover:bg-cyan-500"
                       >
                         Advance Step &rarr;
                       </button>
@@ -1059,23 +1066,23 @@ export default function JavaCapstone() {
             </div>
 
             {/* WORKBENCH 4: DYNAMIC PROGRAMMING TABLE STATE VISUALIZER */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                   <BarChart3 className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 4: Dynamic Programming Table State Visualizer
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Watch tabulation fill cell-by-cell using previous overlapping subproblem solutions.
                   </p>
                 </div>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
-                <div className="text-xs font-mono text-slate-400">
+              <div className="p-6 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-6">
+                <div className="text-xs font-mono text-stone-500">
                   Recurrence: <code className="text-orange-300 font-bold">F(n) = F(n-1) + F(n-2)</code> | Base: F(0)=0, F(1)=1
                 </div>
 
@@ -1091,12 +1098,12 @@ export default function JavaCapstone() {
                         <div
                           className={`w-12 h-12 rounded-xl flex items-center justify-center font-mono font-bold text-sm border transition-all ${
                             isTarget
-                              ? "bg-orange-500 text-white border-orange-400 shadow-xl shadow-orange-500/20 scale-110"
+                              ? "bg-orange-500 text-stone-900 border-orange-400 shadow-xl shadow-orange-500/20 scale-110"
                               : isOperand1 || isOperand2
                               ? "bg-emerald-950/60 text-emerald-300 border-emerald-500/50"
                               : isFilled
-                              ? "bg-slate-900 text-slate-300 border-slate-800"
-                              : "bg-slate-950 text-slate-700 border-slate-900 opacity-40"
+                              ? "bg-white text-stone-700 border-[#e7e3da]"
+                              : "bg-stone-50 text-slate-700 border-slate-900 opacity-40"
                           }`}
                         >
                           {isFilled ? val : "?"}
@@ -1107,7 +1114,7 @@ export default function JavaCapstone() {
                   })}
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">
+                <div className="p-3.5 rounded-xl bg-white border border-[#e7e3da] shadow-xs text-xs font-mono text-stone-700">
                   Calculating F({dpStep}): F({dpStep - 1}) [{DP_FIB[dpStep - 1]}] + F({dpStep - 2}) [{DP_FIB[dpStep - 2]}] ={" "}
                   <strong className="text-orange-400">{DP_FIB[dpStep]}</strong>
                 </div>
@@ -1116,14 +1123,14 @@ export default function JavaCapstone() {
                   <button
                     disabled={dpStep <= 2}
                     onClick={() => setDpStep((prev) => Math.max(2, prev - 1))}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                    className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                   >
                     &larr; Prev Cell
                   </button>
                   <button
                     disabled={dpStep >= DP_FIB.length - 1}
                     onClick={() => setDpStep((prev) => Math.min(DP_FIB.length - 1, prev + 1))}
-                    className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500"
+                    className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-stone-900 disabled:opacity-30 hover:bg-orange-500"
                   >
                     Next Cell &rarr;
                   </button>
@@ -1132,52 +1139,52 @@ export default function JavaCapstone() {
             </div>
 
             {/* WORKBENCH 5: ISOLATED JUDGE ENGINE SIMULATOR */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
                   <Terminal className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 5: Isolated Judge Engine Simulator (Project 2)
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Simulate the sandboxed execution pipeline: validation, sandbox execution, timeout enforcement, and official verdicts.
                   </p>
                 </div>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
-                <div className="flex items-center justify-between text-xs font-mono pb-3 border-b border-slate-800">
-                  <span className="text-slate-400">Judge Target: TwoSum.java ({judgeLang})</span>
+              <div className="p-6 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-6">
+                <div className="flex items-center justify-between text-xs font-mono pb-3 border-b border-[#e7e3da]">
+                  <span className="text-stone-500">Judge Target: TwoSum.java ({judgeLang})</span>
                   <span className="text-emerald-400">Sandbox: Disposable Container (Non-root, Net Disabled)</span>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
                   <button
                     onClick={() => runJudgeSimulation("Accepted")}
-                    className="px-3 py-1.5 rounded-lg bg-emerald-600/30 text-emerald-300 hover:bg-emerald-600 hover:text-white text-xs font-semibold border border-emerald-500/40"
+                    className="px-3 py-1.5 rounded-lg bg-emerald-600/30 text-emerald-300 hover:bg-emerald-600 hover:text-stone-900 text-xs font-semibold border border-emerald-500/40"
                   >
                     Simulate Correct Code (Accepted)
                   </button>
                   <button
                     onClick={() => runJudgeSimulation("Time Limit Exceeded")}
-                    className="px-3 py-1.5 rounded-lg bg-amber-600/30 text-amber-300 hover:bg-amber-600 hover:text-white text-xs font-semibold border border-amber-500/40"
+                    className="px-3 py-1.5 rounded-lg bg-amber-600/30 text-amber-300 hover:bg-amber-600 hover:text-stone-900 text-xs font-semibold border border-amber-500/40"
                   >
                     Simulate Infinite Loop (TLE)
                   </button>
                   <button
                     onClick={() => runJudgeSimulation("Wrong Answer")}
-                    className="px-3 py-1.5 rounded-lg bg-rose-600/30 text-rose-300 hover:bg-rose-600 hover:text-white text-xs font-semibold border border-rose-500/40"
+                    className="px-3 py-1.5 rounded-lg bg-rose-600/30 text-rose-300 hover:bg-rose-600 hover:text-stone-900 text-xs font-semibold border border-rose-500/40"
                   >
                     Simulate Off-by-One (WA)
                   </button>
                 </div>
 
                 {judgeState !== "idle" && (
-                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+                  <div className="p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs space-y-3">
                     <div className="flex items-center gap-2 text-xs font-mono">
-                      <span className="text-slate-400">Pipeline Status:</span>
+                      <span className="text-stone-500">Pipeline Status:</span>
                       {judgeState === "compiling" && (
                         <span className="text-amber-400 animate-pulse">Compiling javac TwoSum.java...</span>
                       )}
@@ -1200,7 +1207,7 @@ export default function JavaCapstone() {
                     </div>
 
                     {judgeState === "verdict" && (
-                      <div className="p-3 rounded-lg bg-slate-950 text-xs font-mono text-slate-300 border border-slate-800 space-y-1">
+                      <div className="p-3 rounded-lg bg-stone-50 text-xs font-mono text-stone-700 border border-[#e7e3da] space-y-1">
                         <div>Test Suite: 10/10 Test Cases Evaluated</div>
                         <div>Execution Time: {simVerdict === "Time Limit Exceeded" ? "> 1000 ms (Killed)" : "42 ms"}</div>
                         <div>Peak Heap Memory: 18.4 MB</div>
@@ -1212,37 +1219,37 @@ export default function JavaCapstone() {
             </div>
 
             {/* WORKBENCH 6: CUSTOM DATA STRUCTURE MEMORY STUDIO */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
                   <Boxes className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 6: Custom Data Structure Memory Studio (Project 3)
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Interact with hand-crafted DynamicArray doubling, LinkedList node pointers, and HashMap bucket chains.
                   </p>
                 </div>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
+              <div className="p-6 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-6">
                 <div className="flex items-center justify-between">
-                  <div className="text-xs font-mono text-slate-400">
+                  <div className="text-xs font-mono text-stone-500">
                     DynamicArray Capacity: <strong className="text-orange-400">{arrayCapacity}</strong> | Size:{" "}
                     <strong className="text-emerald-400">{arrayElements.length}</strong>
                   </div>
                   <div className="flex gap-2">
                     <button
                       onClick={addArrayElement}
-                      className="px-3 py-1.5 rounded-lg bg-orange-500 text-white text-xs font-semibold hover:bg-orange-500"
+                      className="px-3 py-1.5 rounded-lg bg-orange-500 text-stone-900 text-xs font-semibold hover:bg-orange-500"
                     >
                       + Append Element
                     </button>
                     <button
                       onClick={resetArray}
-                      className="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-400 text-xs font-semibold hover:text-white"
+                      className="px-3 py-1.5 rounded-lg bg-stone-100 text-stone-500 text-xs font-semibold hover:text-stone-900"
                     >
                       Reset
                     </button>
@@ -1250,7 +1257,7 @@ export default function JavaCapstone() {
                 </div>
 
                 {/* Slots display */}
-                <div className="flex flex-wrap gap-2 p-4 rounded-xl bg-slate-900 border border-slate-800">
+                <div className="flex flex-wrap gap-2 p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs">
                   {Array.from({ length: arrayCapacity }).map((_, idx) => {
                     const hasVal = idx < arrayElements.length;
                     return (
@@ -1258,8 +1265,8 @@ export default function JavaCapstone() {
                         key={idx}
                         className={`w-14 h-14 rounded-xl border flex flex-col items-center justify-center font-mono text-xs transition-all ${
                           hasVal
-                            ? "bg-slate-900 border-orange-500 text-white font-bold"
-                            : "bg-slate-950/60 border-slate-800 text-slate-600 border-dashed"
+                            ? "bg-white border-orange-500 text-stone-900 font-bold"
+                            : "bg-stone-50/60 border-[#e7e3da] text-slate-600 border-dashed"
                         }`}
                       >
                         <span>{hasVal ? arrayElements[idx] : "null"}</span>
@@ -1269,7 +1276,7 @@ export default function JavaCapstone() {
                   })}
                 </div>
 
-                <div className="p-3 rounded-lg bg-slate-900 border border-orange-500/30 text-orange-200 text-xs">
+                <div className="p-3 rounded-lg bg-white border border-orange-500/30 text-orange-200 text-xs">
                   <strong>Memory Invariant:</strong> Whenever size == capacity, the array doubles capacity via{" "}
                   <code>System.arraycopy(elements, 0, newArray, 0, size)</code>, guaranteeing amortized O(1) appends.
                 </div>
@@ -1277,29 +1284,29 @@ export default function JavaCapstone() {
             </div>
 
             {/* WORKBENCH 7: BENCHMARK & PROFILING COMPARISON MATRIX */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400">
                   <Cpu className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 7: Benchmark &amp; Profiling Comparison Matrix
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Compare theoretical Big-O predictions against empirical JMH microbenchmark hardware measurements.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 my-4">
-                <span className="text-xs text-slate-400">Dataset Size (N):</span>
+                <span className="text-xs text-stone-500">Dataset Size (N):</span>
                 {[1000, 100000, 1000000].map((sz) => (
                   <button
                     key={sz}
                     onClick={() => setBenchmarkN(sz)}
                     className={`px-3 py-1 rounded-xl text-xs font-mono font-semibold ${
-                      benchmarkN === sz ? "bg-amber-500 text-slate-950 font-bold" : "bg-slate-800 text-slate-300"
+                      benchmarkN === sz ? "bg-amber-500 text-slate-950 font-bold" : "bg-stone-100 text-stone-700"
                     }`}
                   >
                     N = {sz.toLocaleString()}
@@ -1310,37 +1317,37 @@ export default function JavaCapstone() {
               {(() => {
                 const metric = BENCHMARK_METRICS[benchmarkN];
                 return (
-                  <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-950/80">
+                  <div className="overflow-x-auto rounded-2xl border border-[#e7e3da] bg-stone-50/80">
                     <table className="w-full text-left text-xs font-mono">
                       <thead>
-                        <tr className="bg-slate-900 text-slate-300 border-b border-slate-800">
+                        <tr className="bg-white text-stone-700 border-b border-[#e7e3da]">
                           <th className="p-3">Data Structure Operation</th>
                           <th className="p-3">Big-O Complexity</th>
                           <th className="p-3">Measured Latency (JMH)</th>
                           <th className="p-3">Hardware Cache Impact</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800 text-slate-300">
+                      <tbody className="divide-y divide-slate-800 text-stone-700">
                         <tr>
-                          <td className="p-3 font-semibold text-white">ArrayList.get(index)</td>
+                          <td className="p-3 font-semibold text-stone-900">ArrayList.get(index)</td>
                           <td className="p-3 text-orange-400">O(1)</td>
                           <td className="p-3 text-emerald-400 font-bold">{metric.alGet}</td>
                           <td className="p-3 text-emerald-300">Contiguous memory, 99% cache line hit</td>
                         </tr>
                         <tr>
-                          <td className="p-3 font-semibold text-white">LinkedList.get(index)</td>
+                          <td className="p-3 font-semibold text-stone-900">LinkedList.get(index)</td>
                           <td className="p-3 text-rose-400">O(N)</td>
                           <td className="p-3 text-rose-400 font-bold">{metric.llGet}</td>
                           <td className="p-3 text-rose-300">Pointer chasing, frequent L3 cache misses</td>
                         </tr>
                         <tr>
-                          <td className="p-3 font-semibold text-white">HashMap.put(key, val)</td>
+                          <td className="p-3 font-semibold text-stone-900">HashMap.put(key, val)</td>
                           <td className="p-3 text-orange-400">Expected O(1)</td>
                           <td className="p-3 text-emerald-400 font-bold">{metric.hmPut}</td>
                           <td className="p-3">Hash table bucket lookup</td>
                         </tr>
                         <tr>
-                          <td className="p-3 font-semibold text-white">TreeMap.put(key, val)</td>
+                          <td className="p-3 font-semibold text-stone-900">TreeMap.put(key, val)</td>
                           <td className="p-3 text-orange-400">O(log N)</td>
                           <td className="p-3 text-amber-300 font-bold">{metric.tmPut}</td>
                           <td className="p-3">Red-Black tree rebalancing</td>
@@ -1353,30 +1360,30 @@ export default function JavaCapstone() {
             </div>
 
             {/* WORKBENCH 8: CAPSTONE RUBRIC & 21-STEP READINESS CHECKLIST */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 8: Capstone Evaluation Rubric &amp; 21-Step Readiness Checklist
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Track your project completion against the official 100% weighted capstone assessment rubric.
                   </p>
                 </div>
               </div>
 
               {/* Progress Summary */}
-              <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4">
-                <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+              <div className="p-6 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-4">
+                <div className="flex items-center justify-between text-xs font-mono text-stone-500">
                   <span>Capstone Readiness Progress</span>
                   <span className="text-orange-400 font-bold">
                     {checklist.size} / 21 Requirements Completed ({Math.round((checklist.size / 21) * 100)}%)
                   </span>
                 </div>
-                <div className="w-full h-3 rounded-full bg-slate-800 overflow-hidden">
+                <div className="w-full h-3 rounded-full bg-stone-100 overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-orange-500 via-amber-400 to-emerald-400 transition-all duration-300"
                     style={{ width: `${(checklist.size / 21) * 100}%` }}
@@ -1392,8 +1399,8 @@ export default function JavaCapstone() {
                         onClick={() => toggleChecklist(item.id)}
                         className={`p-3 rounded-xl border cursor-pointer transition-all flex items-start gap-3 ${
                           isDone
-                            ? "bg-emerald-950/20 border-emerald-500/40 text-slate-200"
-                            : "bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700"
+                            ? "bg-emerald-950/20 border-emerald-500/40 text-stone-800"
+                            : "bg-white border-[#e7e3da] text-stone-500 hover:border-stone-200"
                         }`}
                       >
                         {isDone ? (
@@ -1403,7 +1410,7 @@ export default function JavaCapstone() {
                         )}
                         <div className="text-xs">
                           <span className="font-mono text-[10px] text-orange-400 block">{item.phase}</span>
-                          <span className={isDone ? "text-white font-medium" : ""}>{item.text}</span>
+                          <span className={isDone ? "text-stone-900 font-medium" : ""}>{item.text}</span>
                         </div>
                       </div>
                     );
@@ -1416,14 +1423,14 @@ export default function JavaCapstone() {
 
         {/* TAB 3: 15 MCQ CAPSTONE QUIZ */}
         {activeTab === "quiz" && (
-          <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-8">
-            <div className="flex items-center justify-between pb-6 border-b border-slate-800">
+          <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl space-y-8">
+            <div className="flex items-center justify-between pb-6 border-b border-[#e7e3da]">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                <h3 className="text-xl md:text-2xl font-bold text-stone-900 flex items-center gap-2">
                   <Award className="w-6 h-6 text-amber-400" />
                   Module 24 Comprehensive Capstone Assessment
                 </h3>
-                <p className="text-xs md:text-sm text-slate-400 mt-1">
+                <p className="text-xs md:text-sm text-stone-500 mt-1">
                   15 architectural and engineering questions evaluating complete project delivery readiness.
                 </p>
               </div>
@@ -1432,7 +1439,7 @@ export default function JavaCapstone() {
                   <div className="text-2xl font-extrabold text-emerald-400">
                     {calculateQuizScore()} / {QUIZ_QUESTIONS.length}
                   </div>
-                  <div className="text-xs text-slate-400">
+                  <div className="text-xs text-stone-500">
                     {Math.round((calculateQuizScore() / QUIZ_QUESTIONS.length) * 100)}% Score
                   </div>
                 </div>
@@ -1444,18 +1451,18 @@ export default function JavaCapstone() {
                 const selectedOpt = userAnswers[q.id];
                 const isCorrect = selectedOpt === q.correct;
                 return (
-                  <div key={q.id} className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3">
+                  <div key={q.id} className="p-5 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-3">
                     <div className="flex items-start gap-3">
                       <span className="w-6 h-6 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/40 text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                         {idx + 1}
                       </span>
-                      <h4 className="text-sm font-semibold text-white">{q.question}</h4>
+                      <h4 className="text-sm font-semibold text-stone-900">{q.question}</h4>
                     </div>
 
                     <div className="grid grid-cols-1 gap-2 pl-9">
                       {q.options.map((opt, optIdx) => {
                         const isThisSelected = selectedOpt === optIdx;
-                        let optStyle = "bg-slate-900/70 border-slate-800 text-slate-300 hover:bg-slate-800";
+                        let optStyle = "bg-white/70 border-[#e7e3da] text-stone-700 hover:bg-stone-100";
                         if (submittedQuiz) {
                           if (optIdx === q.correct) {
                             optStyle = "bg-emerald-950/60 border-emerald-500 text-emerald-300 font-semibold";
@@ -1463,7 +1470,7 @@ export default function JavaCapstone() {
                             optStyle = "bg-rose-950/60 border-rose-500 text-rose-300";
                           }
                         } else if (isThisSelected) {
-                          optStyle = "bg-slate-900 border-orange-500 text-white font-medium";
+                          optStyle = "bg-white border-orange-500 text-stone-900 font-medium";
                         }
 
                         return (
@@ -1498,13 +1505,13 @@ export default function JavaCapstone() {
               })}
             </div>
 
-            <div className="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <div className="pt-6 border-t border-[#e7e3da] flex items-center justify-between">
               <button
                 onClick={() => {
                   setUserAnswers({});
                   setSubmittedQuiz(false);
                 }}
-                className="px-4 py-2 rounded-xl bg-slate-800 text-xs font-semibold text-slate-400 hover:text-white"
+                className="px-4 py-2 rounded-xl bg-stone-100 text-xs font-semibold text-stone-500 hover:text-stone-900"
               >
                 Reset Assessment
               </button>
@@ -1513,7 +1520,7 @@ export default function JavaCapstone() {
                 <button
                   disabled={Object.keys(userAnswers).length < QUIZ_QUESTIONS.length}
                   onClick={() => setSubmittedQuiz(true)}
-                  className="px-6 py-2.5 rounded-xl bg-orange-500 text-xs font-bold text-white hover:bg-orange-500 disabled:opacity-40 shadow-lg shadow-orange-500/20"
+                  className="px-6 py-2.5 rounded-xl bg-orange-500 text-xs font-bold text-stone-900 hover:bg-orange-500 disabled:opacity-40 shadow-lg shadow-orange-500/20"
                 >
                   Submit &amp; View Score
                 </button>
@@ -1528,25 +1535,25 @@ export default function JavaCapstone() {
 
         {/* TAB 4: 35 CAPSTONE MILESTONES TRACKER */}
         {activeTab === "milestones" && (
-          <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#e7e3da]">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                <h3 className="text-xl md:text-2xl font-bold text-stone-900 flex items-center gap-2">
                   <CheckSquare className="w-6 h-6 text-orange-400" />
                   35 Capstone Engineering Milestones Tracker
                 </h3>
-                <p className="text-xs md:text-sm text-slate-400 mt-1">
+                <p className="text-xs md:text-sm text-stone-500 mt-1">
                   Track your project deliverables from requirements and data structures to deployment and final defense.
                 </p>
               </div>
 
               {/* Tier Filter */}
               <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-400">Filter Tier:</span>
+                <span className="text-xs text-stone-500">Filter Tier:</span>
                 <select
                   value={filterTier}
                   onChange={(e) => setFilterTier(e.target.value)}
-                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
+                  className="bg-stone-100 border border-stone-200 rounded-xl px-3 py-1.5 text-xs text-stone-800 focus:outline-none focus:border-orange-500"
                 >
                   <option value="all">All 4 Tiers (35)</option>
                   <option value="1">Tier 1: Planning &amp; Architecture (9)</option>
@@ -1559,14 +1566,14 @@ export default function JavaCapstone() {
 
             {/* Progress bar */}
             <div className="space-y-1.5">
-              <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+              <div className="flex items-center justify-between text-xs font-mono text-stone-500">
                 <span>Milestone Completion Progress</span>
                 <span className="text-orange-400 font-bold">
                   {completedMilestones.size} / 35 Completed (
                   {Math.round((completedMilestones.size / 35) * 100)}%)
                 </span>
               </div>
-              <div className="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
+              <div className="w-full h-2.5 rounded-full bg-stone-100 overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-orange-500 via-amber-400 to-emerald-400 transition-all duration-300"
                   style={{ width: `${(completedMilestones.size / 35) * 100}%` }}
@@ -1584,8 +1591,8 @@ export default function JavaCapstone() {
                     onClick={() => toggleMilestone(milestone.id)}
                     className={`p-3.5 rounded-2xl border cursor-pointer transition-all flex items-center justify-between gap-3 ${
                       isDone
-                        ? "bg-emerald-950/20 border-emerald-500/40 text-slate-200"
-                        : "bg-slate-950/70 border-slate-800/80 text-slate-300 hover:border-slate-700 hover:bg-slate-900/60"
+                        ? "bg-emerald-950/20 border-emerald-500/40 text-stone-800"
+                        : "bg-stone-50/70 border-[#e7e3da] text-stone-700 hover:border-stone-200 hover:bg-white"
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -1595,11 +1602,11 @@ export default function JavaCapstone() {
                         <Square className="w-5 h-5 text-slate-600 shrink-0" />
                       )}
                       <div>
-                        <div className="text-xs font-bold text-white flex items-center gap-2">
+                        <div className="text-xs font-bold text-stone-900 flex items-center gap-2">
                           <span>{milestone.id}. {milestone.title}</span>
                         </div>
-                        <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-slate-400">
-                          <span className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300">
+                        <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-stone-500">
+                          <span className="px-1.5 py-0.5 rounded bg-stone-100 text-orange-300">
                             {milestone.category}
                           </span>
                           <span>{milestone.deliverable}</span>
@@ -1616,6 +1623,7 @@ export default function JavaCapstone() {
             </div>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

@@ -651,7 +651,7 @@ export default function JavaHashing() {
   }, [searchFilter]);
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500 selection:text-white px-4 py-6 sm:px-8 sm:py-10 md:px-12">
       {/* Top sticky module navigation bar */}
       <ModuleNav
         track="java"

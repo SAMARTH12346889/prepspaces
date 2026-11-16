@@ -605,7 +605,7 @@ export default function JavaStacksQueues() {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500/20 selection:text-orange-900 flex flex-col justify-between">
+    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 font-sans selection:bg-orange-500/20 selection:text-orange-900 flex flex-col justify-between px-4 py-6 sm:px-8 sm:py-10 md:px-12">
       {/* Top Header */}
       <header className="sticky top-0 z-50 bg-[#faf8f5]/90 backdrop-blur-md border-b border-[#e7e3da] px-4 sm:px-8 py-3 transition-all duration-200">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">

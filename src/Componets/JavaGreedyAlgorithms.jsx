@@ -644,80 +644,88 @@ export default function JavaGreedyAlgorithms() {
   }, [gasData, wb8GasStep]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500/30 selection:text-amber-200">
-      {/* Top Header Banner */}
-      <header className="border-b border-slate-800 bg-slate-900/60 backdrop-blur sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate("/learning/java/two-pointers-sliding-window")}
-              className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition"
-              title="Previous Module: Two Pointers & Sliding Window"
-            >
-              <ArrowLeft className="w-4 h-4" />
-            </button>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30">
-                  MODULE 16
-                </span>
-                <span className="text-xs text-slate-400 font-medium">Java + DSA Master Course</span>
-              </div>
-              <h1 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-                Greedy Algorithms & Interval Problems
-              </h1>
-            </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-8 sm:py-10 md:px-12 font-sans antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
+        {/* Module Navigation Header */}
+        <ModuleNav
+          track="java"
+          currentModuleId="greedy-algorithms"
+        />
+
+        {/* Hero Header */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c]">
+              <Layers size={13} />
+              Module 16 · Java + DSA Master Course
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono text-stone-600">
+              Greedy Choice &amp; Optimal Substructure
+            </span>
           </div>
 
-          {/* View Mode Navigation Tabs */}
-          <div className="flex items-center gap-1.5 bg-slate-900/90 p-1 rounded-xl border border-slate-800 text-xs">
-            <button
-              onClick={() => setActiveTab("curriculum")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition ${
-                activeTab === "curriculum"
-                  ? "bg-amber-500 text-slate-950 font-semibold shadow-sm"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
-              }`}
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Full Curriculum</span>
-            </button>
-            <button
-              onClick={() => setActiveTab("workbenches")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition ${
-                activeTab === "workbenches"
-                  ? "bg-amber-500 text-slate-950 font-semibold shadow-sm"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
-              }`}
-            >
-              <Cpu className="w-3.5 h-3.5" />
-              <span>8 Interactive Workbenches</span>
-            </button>
-            <button
-              onClick={() => setActiveTab("quiz")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition ${
-                activeTab === "quiz"
-                  ? "bg-amber-500 text-slate-950 font-semibold shadow-sm"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
-              }`}
-            >
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>Assessment Quiz (15)</span>
-            </button>
-            <button
-              onClick={() => setActiveTab("labs")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition ${
-                activeTab === "labs"
-                  ? "bg-amber-500 text-slate-950 font-semibold shadow-sm"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
-              }`}
-            >
-              <Award className="w-3.5 h-3.5" />
-              <span>Labs Tracker ({completedCount}/32)</span>
-            </button>
-          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#18181b] tracking-tight">
+            Greedy Algorithms &amp; Interval Problems
+          </h1>
+
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
+            Master locally optimal choices, activity selection, fractional knapsack, Huffman coding, interval scheduling, jump game dynamics, and greedy vs dynamic programming correctness proofs in Java.
+          </p>
+        </header>
+
+        {/* View Mode Navigation Tabs */}
+        <div className="flex flex-wrap items-center gap-2 mb-8">
+          <button
+            onClick={() => setActiveTab("curriculum")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "curriculum"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <BookOpen size={16} className={activeTab === "curriculum" ? "text-orange-400" : "text-stone-400"} />
+            <span>Full Curriculum</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("workbenches")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "workbenches"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <Cpu size={16} className={activeTab === "workbenches" ? "text-orange-400" : "text-stone-400"} />
+            <span>8 Interactive Workbenches</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("quiz")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "quiz"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <HelpCircle size={16} className={activeTab === "quiz" ? "text-orange-400" : "text-stone-400"} />
+            <span>Assessment Quiz (15)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("labs")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "labs"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <Award size={16} className={activeTab === "labs" ? "text-orange-400" : "text-stone-400"} />
+            <span>Labs Tracker ({completedCount}/32)</span>
+          </button>
         </div>
-      </header>
 
       {/* Main Body */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
@@ -727,12 +735,12 @@ export default function JavaGreedyAlgorithms() {
         {activeTab === "curriculum" && (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             {/* Sidebar Navigation */}
-            <aside className="lg:col-span-1 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 sticky top-20 max-h-[82vh] overflow-y-auto space-y-3 dark-scrollbar">
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-                <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            <aside className="lg:col-span-1 bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4 sticky top-20 max-h-[82vh] overflow-y-auto space-y-3 ">
+              <div className="flex items-center justify-between pb-2 border-b border-[#e7e3da]">
+                <span className="text-xs font-semibold text-stone-700 uppercase tracking-wider">
                   22 Sections
                 </span>
-                <span className="text-[11px] font-mono text-amber-400">100% Fidelity</span>
+                <span className="text-[11px] font-mono text-[#ea580c]">100% Fidelity</span>
               </div>
               <div className="space-y-1">
                 {JAVA_GREEDY_ALGORITHMS_SECTIONS.map((sec) => (
@@ -742,22 +750,22 @@ export default function JavaGreedyAlgorithms() {
                     title={sec.title}
                     className={`w-full text-left px-3 py-2 rounded-xl text-xs flex items-start justify-between transition ${
                       activeSectionId === sec.id
-                        ? "bg-amber-500/20 text-amber-200 font-semibold border border-amber-500/40"
-                        : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+                        ? "bg-orange-50 text-[#ea580c] font-bold border border-orange-200 shadow-xs"
+                        : "text-stone-500 hover:bg-stone-100 hover:text-stone-800"
                     }`}
                   >
                     <span className="break-words whitespace-normal leading-snug pr-2 flex-1">{sec.title}</span>
-                    <span className="text-[10px] font-mono text-slate-400 shrink-0 mt-0.5">#{sec.id}</span>
+                    <span className="text-[10px] font-mono text-stone-500 shrink-0 mt-0.5">#{sec.id}</span>
                   </button>
                 ))}
               </div>
             </aside>
 
             {/* Section Reader Display */}
-            <article className="lg:col-span-3 bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 sm:p-8 space-y-6">
-              <div className="border-b border-slate-800 pb-4 flex flex-wrap items-center justify-between gap-3">
+            <article className="lg:col-span-3 bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 sm:p-8 space-y-6">
+              <div className="border-b border-[#e7e3da] pb-4 flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <span className="text-xs font-mono text-amber-400 font-semibold uppercase tracking-wider">
+                  <span className="text-xs font-mono text-[#ea580c] font-semibold uppercase tracking-wider">
                     {activeSectionId === 0
                       ? "Module Overview · 22 Core Sections"
                       : `Section ${activeSectionId} of 22 · ${JAVA_GREEDY_ALGORITHMS_SECTIONS[activeSectionId]?.category || "Curriculum"}`}
@@ -770,14 +778,14 @@ export default function JavaGreedyAlgorithms() {
                   <button
                     disabled={activeSectionId === 0}
                     onClick={() => setActiveSectionId((prev) => Math.max(0, prev - 1))}
-                    className="px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800 text-xs text-slate-300 disabled:opacity-40 hover:bg-slate-700 transition"
+                    className="px-3 py-1.5 rounded-lg border border-stone-200 bg-stone-100 text-xs text-stone-700 disabled:opacity-40 hover:bg-stone-200 transition"
                   >
                     Previous
                   </button>
                   <button
                     disabled={activeSectionId === JAVA_GREEDY_ALGORITHMS_SECTIONS.length - 1}
                     onClick={() => setActiveSectionId((prev) => Math.min(JAVA_GREEDY_ALGORITHMS_SECTIONS.length - 1, prev + 1))}
-                    className="px-3 py-1.5 rounded-lg border border-amber-500/40 bg-amber-500/20 text-xs text-amber-200 disabled:opacity-40 hover:bg-amber-500/30 transition font-semibold"
+                    className="px-3 py-1.5 rounded-lg border border-amber-500/40 bg-amber-500/20 text-xs text-amber-900 disabled:opacity-40 hover:bg-amber-500/30 transition font-semibold"
                   >
                     Next Section
                   </button>
@@ -785,19 +793,19 @@ export default function JavaGreedyAlgorithms() {
               </div>
 
               {/* Section Content */}
-              <div className="prose prose-invert max-w-none text-slate-300 text-sm leading-relaxed">
+              <div className="prose prose-invert max-w-none text-stone-700 text-sm leading-relaxed">
                 {JAVA_GREEDY_ALGORITHMS_SECTIONS[activeSectionId]?.content}
               </div>
 
               {/* Footer Pager */}
-              <div className="border-t border-slate-800 pt-6 flex items-center justify-between">
+              <div className="border-t border-[#e7e3da] pt-6 flex items-center justify-between">
                 <button
                   disabled={activeSectionId === 0}
                   onClick={() => {
                     setActiveSectionId((prev) => Math.max(0, prev - 1));
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white disabled:opacity-30"
+                  className="flex items-center gap-1.5 text-xs text-stone-500 hover:text-white disabled:opacity-30"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" /> Previous Section
                 </button>
@@ -807,7 +815,7 @@ export default function JavaGreedyAlgorithms() {
                     setActiveSectionId((prev) => Math.min(JAVA_GREEDY_ALGORITHMS_SECTIONS.length - 1, prev + 1));
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className="flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-semibold disabled:opacity-30"
+                  className="flex items-center gap-1.5 text-xs text-[#ea580c] hover:text-amber-800 font-semibold disabled:opacity-30"
                 >
                   Next Section <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -822,7 +830,7 @@ export default function JavaGreedyAlgorithms() {
         {activeTab === "workbenches" && (
           <div className="space-y-6">
             {/* Workbench Selector Bar */}
-            <div className="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-4">
+            <div className="flex flex-wrap items-center gap-2 border-b border-[#e7e3da] pb-4">
               {[
                 { id: 1, label: "1. Activity Selection Studio", icon: Calendar },
                 { id: 2, label: "2. Interval Merging (LC 56)", icon: GitMerge },
@@ -841,7 +849,7 @@ export default function JavaGreedyAlgorithms() {
                     className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold transition ${
                       activeWorkbench === wb.id
                         ? "bg-amber-500 text-slate-950 shadow-md"
-                        : "bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800"
+                        : "bg-white border border-[#e7e3da] text-stone-700 hover:bg-stone-100"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -853,26 +861,26 @@ export default function JavaGreedyAlgorithms() {
 
             {/* WORKBENCH 1: ACTIVITY SELECTION */}
             {activeWorkbench === 1 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div>
                     <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <Calendar className="w-5 h-5 text-amber-400" />
+                      <Calendar className="w-5 h-5 text-[#ea580c]" />
                       Activity Selection & Interval Scheduling Studio
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Compare Greedy strategy (Earliest Finish Time) against alternative heuristics (Earliest Start, Shortest Duration).
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-slate-400">Sort By:</span>
+                    <span className="text-xs text-stone-500">Sort By:</span>
                     <select
                       value={wb1SortMode}
                       onChange={(e) => {
                         setWb1SortMode(e.target.value);
                         setWb1Step(0);
                       }}
-                      className="bg-slate-800 border border-slate-700 rounded-lg text-xs px-2.5 py-1 text-slate-200"
+                      className="bg-stone-100 border border-stone-200 rounded-lg text-xs px-2.5 py-1 text-stone-800"
                     >
                       <option value="finish">Earliest Finish Time (Optimal Greedy)</option>
                       <option value="start">Earliest Start Time (Suboptimal)</option>
@@ -882,10 +890,10 @@ export default function JavaGreedyAlgorithms() {
                 </div>
 
                 {/* Timeline Axis Visualizer */}
-                <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-3">
-                  <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-2">
+                <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-3">
+                  <div className="flex items-center justify-between text-xs text-stone-500 border-b border-[#e7e3da] pb-2">
                     <span>Timeline (Time Units 0 to 9)</span>
-                    <span className="font-mono text-amber-400">
+                    <span className="font-mono text-[#ea580c]">
                       Step {wb1Step} of {sortedActivities.length} | Selected: {wb1State.selected.length}
                     </span>
                   </div>
@@ -899,10 +907,10 @@ export default function JavaGreedyAlgorithms() {
 
                       return (
                         <div key={act.id} className="flex items-center gap-3">
-                          <span className="w-16 font-mono text-xs text-slate-300 font-bold">
+                          <span className="w-16 font-mono text-xs text-stone-700 font-bold">
                             Act {act.id} [{act.start}-{act.finish}]
                           </span>
-                          <div className="flex-1 bg-slate-900 h-7 rounded-lg relative overflow-hidden flex items-center px-2">
+                          <div className="flex-1 bg-white h-7 rounded-lg relative overflow-hidden flex items-center px-2">
                             {/* Gantt Bar */}
                             <div
                               style={{
@@ -916,7 +924,7 @@ export default function JavaGreedyAlgorithms() {
                                   ? "bg-rose-500/40 text-rose-200 line-through border border-rose-500/60"
                                   : isCurrent
                                   ? "bg-amber-400 text-slate-950 animate-pulse"
-                                  : "bg-slate-800 text-slate-400 border border-slate-700"
+                                  : "bg-stone-100 text-stone-500 border border-stone-200"
                               }`}
                             >
                               {act.id}
@@ -925,8 +933,8 @@ export default function JavaGreedyAlgorithms() {
                           <span className="w-20 text-[11px] font-mono text-right">
                             {isSelected && <span className="text-emerald-400 font-bold">✓ Selected</span>}
                             {isSkipped && <span className="text-rose-400 font-bold">✕ Overlap</span>}
-                            {isCurrent && <span className="text-amber-300 font-bold animate-pulse">Scanning</span>}
-                            {!isSelected && !isSkipped && !isCurrent && <span className="text-slate-400">Pending</span>}
+                            {isCurrent && <span className="text-amber-800 font-bold animate-pulse">Scanning</span>}
+                            {!isSelected && !isSkipped && !isCurrent && <span className="text-stone-500">Pending</span>}
                           </span>
                         </div>
                       );
@@ -935,11 +943,11 @@ export default function JavaGreedyAlgorithms() {
                 </div>
 
                 {/* Step Controls */}
-                <div className="flex items-center justify-between border-t border-slate-800 pt-4">
-                  <div className="text-xs text-slate-300">
+                <div className="flex items-center justify-between border-t border-[#e7e3da] pt-4">
+                  <div className="text-xs text-stone-700">
                     {wb1State.currentActivity ? (
                       <span>
-                        Evaluating <strong className="text-amber-300">Activity {wb1State.currentActivity.id}</strong> (Start: {wb1State.currentActivity.start}, Finish: {wb1State.currentActivity.finish}).
+                        Evaluating <strong className="text-amber-800">Activity {wb1State.currentActivity.id}</strong> (Start: {wb1State.currentActivity.start}, Finish: {wb1State.currentActivity.finish}).
                         {wb1State.currentActivity.start >= wb1State.lastFinish ? (
                           <span className="text-emerald-400 font-semibold ml-1"> Compatible (start &gt;= lastFinish: {wb1State.lastFinish})!</span>
                         ) : (
@@ -955,7 +963,7 @@ export default function JavaGreedyAlgorithms() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setWb1Step(0)}
-                      className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300 hover:bg-slate-800"
+                      className="px-3 py-1.5 rounded-lg border border-stone-200 text-xs text-stone-700 hover:bg-stone-100"
                     >
                       Reset
                     </button>
@@ -973,21 +981,21 @@ export default function JavaGreedyAlgorithms() {
 
             {/* WORKBENCH 2: INTERVAL MERGING */}
             {activeWorkbench === 2 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <GitMerge className="w-5 h-5 text-amber-400" />
+                    <GitMerge className="w-5 h-5 text-[#ea580c]" />
                     Interval Merging Visualizer (LeetCode 56)
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Sorted by starting time left-to-right. On overlap (<code className="text-amber-300 font-mono">next.start &lt;= current.end</code>), extend ending time (<code className="text-amber-300 font-mono">current.end = Math.max(current.end, next.end)</code>).
+                  <p className="text-xs text-stone-500 mt-1">
+                    Sorted by starting time left-to-right. On overlap (<code className="text-amber-800 font-mono">next.start &lt;= current.end</code>), extend ending time (<code className="text-amber-800 font-mono">current.end = Math.max(current.end, next.end)</code>).
                   </p>
                 </div>
 
-                <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-4">
-                  <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-2">
+                <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-4">
+                  <div className="flex items-center justify-between text-xs text-stone-500 border-b border-[#e7e3da] pb-2">
                     <span>Input Intervals (Sorted by start time)</span>
-                    <span className="font-mono text-amber-400">Step {wb2Step} / {sortedIntervals.length - 1}</span>
+                    <span className="font-mono text-[#ea580c]">Step {wb2Step} / {sortedIntervals.length - 1}</span>
                   </div>
 
                   <div className="flex flex-wrap gap-2">
@@ -996,10 +1004,10 @@ export default function JavaGreedyAlgorithms() {
                         key={idx}
                         className={`px-2.5 py-1 rounded-lg font-mono text-xs border ${
                           idx === wb2Step
-                            ? "bg-amber-500/20 text-amber-300 border-amber-500/50 font-bold"
+                            ? "bg-amber-500/20 text-amber-800 border-amber-500/50 font-bold"
                             : idx < wb2Step
-                            ? "bg-slate-800 text-slate-400 border-slate-700"
-                            : "bg-slate-900 text-slate-300 border-slate-800"
+                            ? "bg-stone-100 text-stone-500 border-stone-200"
+                            : "bg-white text-stone-700 border-[#e7e3da]"
                         }`}
                       >
                         [{intv[0]}, {intv[1]}]
@@ -1008,16 +1016,16 @@ export default function JavaGreedyAlgorithms() {
                   </div>
 
                   {/* Active Merge Box */}
-                  <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
+                  <div className="p-3 bg-white rounded-lg border border-[#e7e3da] flex items-center justify-between">
                     <div>
-                      <span className="text-[11px] text-slate-400 uppercase tracking-wider block">Current Merged Interval:</span>
+                      <span className="text-[11px] text-stone-500 uppercase tracking-wider block">Current Merged Interval:</span>
                       <span className="text-lg font-mono font-bold text-emerald-400">
                         [{wb2State.current[0]}, {wb2State.current[1]}]
                       </span>
                     </div>
                     {wb2State.nextCandidate && (
                       <div className="text-right">
-                        <span className="text-[11px] text-slate-400 uppercase tracking-wider block">Comparing With Next:</span>
+                        <span className="text-[11px] text-stone-500 uppercase tracking-wider block">Comparing With Next:</span>
                         <span className="text-base font-mono font-semibold text-cyan-300">
                           [{wb2State.nextCandidate[0]}, {wb2State.nextCandidate[1]}]
                         </span>
@@ -1027,7 +1035,7 @@ export default function JavaGreedyAlgorithms() {
 
                   {/* Final Merged List */}
                   <div>
-                    <span className="text-xs text-slate-400 block mb-1">Accumulated Result List:</span>
+                    <span className="text-xs text-stone-500 block mb-1">Accumulated Result List:</span>
                     <div className="flex flex-wrap gap-2">
                       {wb2State.merged.map((m, idx) => (
                         <span key={idx} className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-lg font-mono text-xs font-semibold">
@@ -1043,8 +1051,8 @@ export default function JavaGreedyAlgorithms() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between border-t border-slate-800 pt-4">
-                  <span className="text-xs text-slate-300">
+                <div className="flex items-center justify-between border-t border-[#e7e3da] pt-4">
+                  <span className="text-xs text-stone-700">
                     {wb2State.isFinished
                       ? "All intervals examined! Complete merged list formed."
                       : `Inspecting interval at index ${wb2Step + 1}...`}
@@ -1052,7 +1060,7 @@ export default function JavaGreedyAlgorithms() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setWb2Step(0)}
-                      className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300 hover:bg-slate-800"
+                      className="px-3 py-1.5 rounded-lg border border-stone-200 text-xs text-stone-700 hover:bg-stone-100"
                     >
                       Reset
                     </button>
@@ -1070,47 +1078,47 @@ export default function JavaGreedyAlgorithms() {
 
             {/* WORKBENCH 3: MINIMUM PLATFORMS */}
             {activeWorkbench === 3 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-amber-400" />
+                    <Activity className="w-5 h-5 text-[#ea580c]" />
                     Railway Minimum Platforms Sweeper (Two Pointers)
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Sort arrivals and departures independently. A two-pointer sweep chronologically simulates trains entering and leaving.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
-                    <span className="text-xs text-slate-400 uppercase font-semibold">Sorted Arrivals:</span>
+                  <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl space-y-2">
+                    <span className="text-xs text-stone-500 uppercase font-semibold">Sorted Arrivals:</span>
                     <div className="flex flex-wrap gap-1 font-mono text-xs">
                       {wb3SortedArr.map((t, idx) => (
-                        <span key={idx} className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-emerald-400">
+                        <span key={idx} className="px-2 py-0.5 rounded bg-white border border-[#e7e3da] text-emerald-400">
                           {t}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
-                    <span className="text-xs text-slate-400 uppercase font-semibold">Sorted Departures:</span>
+                  <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl space-y-2">
+                    <span className="text-xs text-stone-500 uppercase font-semibold">Sorted Departures:</span>
                     <div className="flex flex-wrap gap-1 font-mono text-xs">
                       {wb3SortedDep.map((t, idx) => (
-                        <span key={idx} className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-rose-400">
+                        <span key={idx} className="px-2 py-0.5 rounded bg-white border border-[#e7e3da] text-rose-400">
                           {t}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-between">
+                  <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl flex items-center justify-between">
                     <div>
-                      <span className="text-xs text-slate-400 uppercase font-semibold block">Peak Platforms:</span>
-                      <span className="text-3xl font-mono font-bold text-amber-400">
+                      <span className="text-xs text-stone-500 uppercase font-semibold block">Peak Platforms:</span>
+                      <span className="text-3xl font-mono font-bold text-[#ea580c]">
                         {wb3History[wb3Step]?.maxPlatforms || 0}
                       </span>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs text-slate-400 uppercase font-semibold block">Current Active:</span>
+                      <span className="text-xs text-stone-500 uppercase font-semibold block">Current Active:</span>
                       <span className="text-2xl font-mono font-bold text-cyan-300">
                         {wb3History[wb3Step]?.platforms || 0}
                       </span>
@@ -1119,10 +1127,10 @@ export default function JavaGreedyAlgorithms() {
                 </div>
 
                 {/* Event Log */}
-                <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2 max-h-48 overflow-y-auto">
-                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Sweep-Line Event Stream:</span>
+                <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-2 max-h-48 overflow-y-auto">
+                  <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Sweep-Line Event Stream:</span>
                   {wb3History.slice(0, wb3Step + 1).map((ev, idx) => (
-                    <div key={idx} className="text-xs font-mono flex items-center gap-2 text-slate-300">
+                    <div key={idx} className="text-xs font-mono flex items-center gap-2 text-stone-700">
                       <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
                         ev.type === "ARRIVAL" ? "bg-emerald-500/20 text-emerald-300" : "bg-rose-500/20 text-rose-300"
                       }`}>
@@ -1133,14 +1141,14 @@ export default function JavaGreedyAlgorithms() {
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between border-t border-slate-800 pt-4">
-                  <span className="text-xs text-slate-400">
+                <div className="flex items-center justify-between border-t border-[#e7e3da] pt-4">
+                  <span className="text-xs text-stone-500">
                     Step {wb3Step + 1} of {wb3History.length}
                   </span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setWb3Step(0)}
-                      className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300 hover:bg-slate-800"
+                      className="px-3 py-1.5 rounded-lg border border-stone-200 text-xs text-stone-700 hover:bg-stone-100"
                     >
                       Reset
                     </button>
@@ -1158,19 +1166,19 @@ export default function JavaGreedyAlgorithms() {
 
             {/* WORKBENCH 4: FRACTIONAL KNAPSACK */}
             {activeWorkbench === 4 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div>
                     <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <PackageCheck className="w-5 h-5 text-amber-400" />
+                      <PackageCheck className="w-5 h-5 text-[#ea580c]" />
                       Fractional Knapsack Studio (Value-to-Weight Ratios)
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Sort by ratio (value / weight) descending. Saturate the knapsack capacity by taking whole items and a fraction of the boundary item.
                     </p>
                   </div>
-                  <div className="flex items-center gap-3 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800">
-                    <span className="text-xs text-slate-300 font-medium">Capacity Slider:</span>
+                  <div className="flex items-center gap-3 bg-stone-50 px-4 py-2 rounded-xl border border-[#e7e3da]">
+                    <span className="text-xs text-stone-700 font-medium">Capacity Slider:</span>
                     <input
                       type="range"
                       min="10"
@@ -1180,7 +1188,7 @@ export default function JavaGreedyAlgorithms() {
                       onChange={(e) => setKnapsackCapacity(Number(e.target.value))}
                       className="w-28 accent-amber-500"
                     />
-                    <span className="text-xs font-mono font-bold text-amber-400 w-12 text-right">
+                    <span className="text-xs font-mono font-bold text-[#ea580c] w-12 text-right">
                       {knapsackCapacity} kg
                     </span>
                   </div>
@@ -1188,19 +1196,19 @@ export default function JavaGreedyAlgorithms() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {wb4Solution.itemAllocations.map((item) => (
-                    <div key={item.id} className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
+                    <div key={item.id} className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-sm font-bold text-white">Item {item.id}</span>
-                        <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[11px] font-semibold">
+                        <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-800 font-mono text-[11px] font-semibold">
                           {item.ratio.toFixed(1)} $/kg
                         </span>
                       </div>
-                      <div className="text-xs text-slate-400 space-y-1">
-                        <div>Weight: <strong className="text-slate-200">{item.weight} kg</strong> | Value: <strong className="text-slate-200">${item.value}</strong></div>
+                      <div className="text-xs text-stone-500 space-y-1">
+                        <div>Weight: <strong className="text-stone-800">{item.weight} kg</strong> | Value: <strong className="text-stone-800">${item.value}</strong></div>
                         <div>Taken Weight: <strong className="text-emerald-400">{item.takenWeight.toFixed(1)} kg</strong> ({(item.takenFraction * 100).toFixed(0)}%)</div>
                         <div>Value Contributed: <strong className="text-cyan-300">${item.gainedValue.toFixed(1)}</strong></div>
                       </div>
-                      <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-2">
+                      <div className="w-full bg-stone-100 h-2 rounded-full overflow-hidden mt-2">
                         <div
                           style={{ width: `${item.takenFraction * 100}%` }}
                           className="h-full bg-emerald-500 transition-all duration-300"
@@ -1211,20 +1219,20 @@ export default function JavaGreedyAlgorithms() {
                 </div>
 
                 {/* Knapsack Meter */}
-                <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl flex flex-wrap items-center justify-between gap-4">
+                <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl flex flex-wrap items-center justify-between gap-4">
                   <div>
-                    <span className="text-xs text-slate-400 uppercase tracking-wider block">Total Maximum Value:</span>
+                    <span className="text-xs text-stone-500 uppercase tracking-wider block">Total Maximum Value:</span>
                     <span className="text-3xl font-mono font-bold text-emerald-400">
                       ${wb4Solution.totalVal.toFixed(1)}
                     </span>
                   </div>
                   <div>
-                    <span className="text-xs text-slate-400 uppercase tracking-wider block">Remaining Capacity:</span>
-                    <span className="text-xl font-mono font-bold text-slate-300">
+                    <span className="text-xs text-stone-500 uppercase tracking-wider block">Remaining Capacity:</span>
+                    <span className="text-xl font-mono font-bold text-stone-700">
                       {wb4Solution.remCap} kg
                     </span>
                   </div>
-                  <div className="text-xs text-slate-400 max-w-sm">
+                  <div className="text-xs text-stone-500 max-w-sm">
                     <strong>Exchange Argument:</strong> Taking items with higher ratio ensures every unit of capacity yields maximum value. Fractional knapsack is always globally optimal.
                   </div>
                 </div>
@@ -1233,13 +1241,13 @@ export default function JavaGreedyAlgorithms() {
 
             {/* WORKBENCH 5: JOB SEQUENCING WITH DSU */}
             {activeWorkbench === 5 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-amber-400" />
+                    <Clock className="w-5 h-5 text-[#ea580c]" />
                     Job Sequencing with Deadlines (Disjoint Set Union)
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Sort jobs by profit descending. Place each job in the latest open slot at or before its deadline. DSU finds the latest free slot in near O(1) time.
                   </p>
                 </div>
@@ -1249,12 +1257,12 @@ export default function JavaGreedyAlgorithms() {
                   {[1, 2, 3].map((slotNum) => {
                     const assignedJobId = wb5State.slots[slotNum];
                     return (
-                      <div key={slotNum} className="p-4 bg-slate-950 rounded-xl border border-slate-800 text-center space-y-2">
-                        <span className="text-xs text-slate-400 font-mono">Time Slot {slotNum}</span>
+                      <div key={slotNum} className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] text-center space-y-2">
+                        <span className="text-xs text-stone-500 font-mono">Time Slot {slotNum}</span>
                         <div className={`py-3 rounded-lg font-mono font-bold text-base border ${
                           assignedJobId
-                            ? "bg-amber-500/20 text-amber-300 border-amber-500/40"
-                            : "bg-slate-900 text-slate-400 border-dashed border-slate-800"
+                            ? "bg-amber-500/20 text-amber-800 border-amber-500/40"
+                            : "bg-white text-stone-500 border-dashed border-[#e7e3da]"
                         }`}>
                           {assignedJobId ? `Job ${assignedJobId}` : "Empty"}
                         </div>
@@ -1264,8 +1272,8 @@ export default function JavaGreedyAlgorithms() {
                 </div>
 
                 {/* Jobs Evaluation List */}
-                <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
-                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Jobs Sorted by Profit Descending:</span>
+                <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-2">
+                  <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Jobs Sorted by Profit Descending:</span>
                   <div className="grid grid-cols-1 sm:grid-cols-5 gap-2">
                     {wb5SortedJobs.map((j, idx) => {
                       const isProcessed = idx <= wb5Step;
@@ -1279,28 +1287,28 @@ export default function JavaGreedyAlgorithms() {
                               ? isScheduled
                                 ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-300"
                                 : "bg-rose-500/10 border-rose-500/40 text-rose-300 line-through"
-                              : "bg-slate-900 border-slate-800 text-slate-400"
+                              : "bg-white border-[#e7e3da] text-stone-500"
                           }`}
                         >
                           <div className="font-bold flex justify-between">
                             <span>Job {j.id}</span>
                             <span>${j.profit}</span>
                           </div>
-                          <div className="text-[11px] text-slate-400">Deadline: {j.deadline}</div>
+                          <div className="text-[11px] text-stone-500">Deadline: {j.deadline}</div>
                         </div>
                       );
                     })}
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between border-t border-slate-800 pt-4">
-                  <div className="text-xs text-slate-300">
-                    Total Profit Accumulated: <strong className="text-amber-400 text-base font-mono">${wb5State.totalProfit}</strong> | Jobs Done: {wb5State.scheduled.length}
+                <div className="flex items-center justify-between border-t border-[#e7e3da] pt-4">
+                  <div className="text-xs text-stone-700">
+                    Total Profit Accumulated: <strong className="text-[#ea580c] text-base font-mono">${wb5State.totalProfit}</strong> | Jobs Done: {wb5State.scheduled.length}
                   </div>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setWb5Step(0)}
-                      className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300 hover:bg-slate-800"
+                      className="px-3 py-1.5 rounded-lg border border-stone-200 text-xs text-stone-700 hover:bg-stone-100"
                     >
                       Reset
                     </button>
@@ -1318,25 +1326,25 @@ export default function JavaGreedyAlgorithms() {
 
             {/* WORKBENCH 6: HUFFMAN CODING */}
             {activeWorkbench === 6 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Network className="w-5 h-5 text-amber-400" />
+                    <Network className="w-5 h-5 text-[#ea580c]" />
                     Huffman Coding & Variable-Length Prefix Codes
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Lossless compression: repeatedly pair the two lowest-frequency symbols using a Min-Heap. Higher frequency symbols receive shorter bit codes.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Table of Codes */}
-                  <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-3">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Generated Prefix Codes:</span>
+                  <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-3">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Generated Prefix Codes:</span>
                     <div className="overflow-x-auto">
                       <table className="w-full text-xs text-left border-collapse min-w-[240px]">
                         <thead>
-                          <tr className="border-b border-slate-800 text-amber-400 font-mono">
+                          <tr className="border-b border-[#e7e3da] text-[#ea580c] font-mono">
                             <th className="pb-2">Char</th>
                             <th className="pb-2">Freq</th>
                             <th className="pb-2">Prefix Code</th>
@@ -1347,9 +1355,9 @@ export default function JavaGreedyAlgorithms() {
                         {huffmanData.map((row) => (
                           <tr key={row.char}>
                             <td className="py-2 font-bold text-white">{row.char}</td>
-                            <td className="py-2 text-slate-400">{row.freq}</td>
+                            <td className="py-2 text-stone-500">{row.freq}</td>
                             <td className="py-2 text-cyan-300 font-bold">{row.code}</td>
-                            <td className="py-2 text-slate-300">{row.len} bits</td>
+                            <td className="py-2 text-stone-700">{row.len} bits</td>
                           </tr>
                         ))}
                       </tbody>
@@ -1358,24 +1366,24 @@ export default function JavaGreedyAlgorithms() {
                   </div>
 
                   {/* Compression Metrics */}
-                  <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Compression Performance:</span>
+                  <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Compression Performance:</span>
                     <div className="space-y-3">
                       <div className="flex justify-between text-xs">
-                        <span className="text-slate-400">Total Characters:</span>
-                        <span className="font-mono text-slate-200 font-bold">{huffmanStats.totalChars}</span>
+                        <span className="text-stone-500">Total Characters:</span>
+                        <span className="font-mono text-stone-800 font-bold">{huffmanStats.totalChars}</span>
                       </div>
                       <div className="flex justify-between text-xs">
-                        <span className="text-slate-400">Fixed-Length (3 bits/char):</span>
+                        <span className="text-stone-500">Fixed-Length (3 bits/char):</span>
                         <span className="font-mono text-rose-400 font-bold">{huffmanStats.fixedBits} bits</span>
                       </div>
                       <div className="flex justify-between text-xs">
-                        <span className="text-slate-400">Huffman Variable-Length:</span>
+                        <span className="text-stone-500">Huffman Variable-Length:</span>
                         <span className="font-mono text-emerald-400 font-bold">{huffmanStats.huffmanBits} bits</span>
                       </div>
-                      <div className="border-t border-slate-800 pt-3 flex justify-between items-center">
-                        <span className="text-xs text-slate-300 font-semibold">Compression Savings:</span>
-                        <span className="text-lg font-mono font-bold text-amber-400">
+                      <div className="border-t border-[#e7e3da] pt-3 flex justify-between items-center">
+                        <span className="text-xs text-stone-700 font-semibold">Compression Savings:</span>
+                        <span className="text-lg font-mono font-bold text-[#ea580c]">
                           {huffmanStats.savedPercentage}% Reduction
                         </span>
                       </div>
@@ -1387,28 +1395,28 @@ export default function JavaGreedyAlgorithms() {
 
             {/* WORKBENCH 7: MEETING ROOMS II MIN-HEAP */}
             {activeWorkbench === 7 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Layers className="w-5 h-5 text-amber-400" />
+                    <Layers className="w-5 h-5 text-[#ea580c]" />
                     Meeting Rooms II Min-Heap Allocator
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Sorted by start time. A Min-Heap tracks active meeting end times. If the earliest ending meeting finishes before the next meeting starts, reuse that room.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
-                    <span className="text-xs text-slate-400 uppercase font-semibold">Sorted Meetings:</span>
+                  <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl space-y-2">
+                    <span className="text-xs text-stone-500 uppercase font-semibold">Sorted Meetings:</span>
                     <div className="space-y-1">
                       {wb7Sorted.map((m, idx) => (
                         <div
                           key={m.id}
                           className={`px-2.5 py-1 rounded text-xs font-mono flex justify-between border ${
                             idx === wb7Step
-                              ? "bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold"
-                              : "bg-slate-900 text-slate-400 border-slate-800"
+                              ? "bg-amber-500/20 text-amber-800 border-amber-500/40 font-bold"
+                              : "bg-white text-stone-500 border-[#e7e3da]"
                           }`}
                         >
                           <span>{m.id}</span>
@@ -1419,8 +1427,8 @@ export default function JavaGreedyAlgorithms() {
                   </div>
 
                   {/* Active Min-Heap */}
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
-                    <span className="text-xs text-slate-400 uppercase font-semibold">Min-Heap (Active End Times):</span>
+                  <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl space-y-2">
+                    <span className="text-xs text-stone-500 uppercase font-semibold">Min-Heap (Active End Times):</span>
                     <div className="flex flex-wrap gap-2 pt-2">
                       {wb7State.heap.map((endT, idx) => (
                         <span key={idx} className="px-3 py-1.5 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold">
@@ -1431,29 +1439,29 @@ export default function JavaGreedyAlgorithms() {
                   </div>
 
                   {/* Rooms Count */}
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-between">
+                  <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl flex items-center justify-between">
                     <div>
-                      <span className="text-xs text-slate-400 uppercase font-semibold block">Minimum Rooms:</span>
-                      <span className="text-3xl font-mono font-bold text-amber-400">
+                      <span className="text-xs text-stone-500 uppercase font-semibold block">Minimum Rooms:</span>
+                      <span className="text-3xl font-mono font-bold text-[#ea580c]">
                         {wb7State.minRooms}
                       </span>
                     </div>
-                    <span className="text-xs text-slate-400">Peak concurrent meetings</span>
+                    <span className="text-xs text-stone-500">Peak concurrent meetings</span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between border-t border-slate-800 pt-4">
-                  <span className="text-xs text-slate-300">
+                <div className="flex items-center justify-between border-t border-[#e7e3da] pt-4">
+                  <span className="text-xs text-stone-700">
                     {wb7State.currentMeeting && (
                       <span>
-                        Processing <strong className="text-amber-300">Meeting {wb7State.currentMeeting.id}</strong> [{wb7State.currentMeeting.start}, {wb7State.currentMeeting.end}]
+                        Processing <strong className="text-amber-800">Meeting {wb7State.currentMeeting.id}</strong> [{wb7State.currentMeeting.start}, {wb7State.currentMeeting.end}]
                       </span>
                     )}
                   </span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setWb7Step(0)}
-                      className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300 hover:bg-slate-800"
+                      className="px-3 py-1.5 rounded-lg border border-stone-200 text-xs text-stone-700 hover:bg-stone-100"
                     >
                       Reset
                     </button>
@@ -1471,27 +1479,27 @@ export default function JavaGreedyAlgorithms() {
 
             {/* WORKBENCH 8: JUMP GAME & GAS STATION */}
             {activeWorkbench === 8 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div>
                     <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <Fuel className="w-5 h-5 text-amber-400" />
+                      <Fuel className="w-5 h-5 text-[#ea580c]" />
                       Jump Game & Gas Station Deficit Sweeper
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       Simulate reachability boundaries in Jump Game and cumulative fuel deficit resetting in Gas Station.
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+                  <div className="flex items-center gap-2 bg-stone-50 p-1 rounded-xl border border-[#e7e3da] text-xs">
                     <button
                       onClick={() => setWb8Mode("jump")}
-                      className={`px-3 py-1.5 rounded-lg font-medium ${wb8Mode === "jump" ? "bg-amber-500 text-slate-950 font-bold" : "text-slate-400"}`}
+                      className={`px-3 py-1.5 rounded-lg font-medium ${wb8Mode === "jump" ? "bg-amber-500 text-slate-950 font-bold" : "text-stone-500"}`}
                     >
                       Jump Game I & II
                     </button>
                     <button
                       onClick={() => setWb8Mode("gas")}
-                      className={`px-3 py-1.5 rounded-lg font-medium ${wb8Mode === "gas" ? "bg-amber-500 text-slate-950 font-bold" : "text-slate-400"}`}
+                      className={`px-3 py-1.5 rounded-lg font-medium ${wb8Mode === "gas" ? "bg-amber-500 text-slate-950 font-bold" : "text-stone-500"}`}
                     >
                       Gas Station Circuit
                     </button>
@@ -1500,44 +1508,44 @@ export default function JavaGreedyAlgorithms() {
 
                 {wb8Mode === "jump" ? (
                   <div className="space-y-4">
-                    <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-3">
-                      <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Jump Array [nums]:</span>
+                    <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-3">
+                      <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Jump Array [nums]:</span>
                       <div className="flex gap-2">
                         {jumpArray.map((val, idx) => (
                           <div
                             key={idx}
                             className={`p-3 rounded-xl border text-center font-mono flex-1 ${
                               idx === wb8JumpStep
-                                ? "bg-amber-500/20 border-amber-500 text-amber-300 font-bold"
+                                ? "bg-amber-500/20 border-amber-500 text-amber-800 font-bold"
                                 : idx <= (jumpState.latest?.farthest || 0)
                                 ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
-                                : "bg-slate-900 border-slate-800 text-slate-400"
+                                : "bg-white border-[#e7e3da] text-stone-500"
                             }`}
                           >
-                            <span className="text-[10px] text-slate-400 block">Idx {idx}</span>
+                            <span className="text-[10px] text-stone-500 block">Idx {idx}</span>
                             <span className="text-lg font-bold">{val}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl flex justify-between items-center text-xs">
+                    <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl flex justify-between items-center text-xs">
                       <div>
-                        <span className="text-slate-400 block">Farthest Reachable:</span>
+                        <span className="text-stone-500 block">Farthest Reachable:</span>
                         <span className="text-xl font-mono font-bold text-emerald-400">{jumpState.latest?.farthest || 0}</span>
                       </div>
                       <div>
-                        <span className="text-slate-400 block">Current Jump Boundary:</span>
+                        <span className="text-stone-500 block">Current Jump Boundary:</span>
                         <span className="text-xl font-mono font-bold text-cyan-300">{jumpState.latest?.currentEnd || 0}</span>
                       </div>
                       <div>
-                        <span className="text-slate-400 block">Jumps Committed:</span>
-                        <span className="text-xl font-mono font-bold text-amber-400">{jumpState.latest?.jumps || 0}</span>
+                        <span className="text-stone-500 block">Jumps Committed:</span>
+                        <span className="text-xl font-mono font-bold text-[#ea580c]">{jumpState.latest?.jumps || 0}</span>
                       </div>
                     </div>
 
                     <div className="flex justify-end gap-2">
-                      <button onClick={() => setWb8JumpStep(0)} className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300">
+                      <button onClick={() => setWb8JumpStep(0)} className="px-3 py-1.5 rounded-lg border border-stone-200 text-xs text-stone-700">
                         Reset
                       </button>
                       <button
@@ -1551,19 +1559,19 @@ export default function JavaGreedyAlgorithms() {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
-                      <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Station-by-Station Deficit:</span>
+                    <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] space-y-2">
+                      <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Station-by-Station Deficit:</span>
                       <div className="grid grid-cols-5 gap-2 font-mono text-xs">
                         {gasData.gas.map((g, idx) => (
                           <div
                             key={idx}
                             className={`p-2.5 rounded-lg border text-center ${
                               idx === wb8GasStep
-                                ? "bg-amber-500/20 border-amber-500 text-amber-300 font-bold"
-                                : "bg-slate-900 border-slate-800 text-slate-300"
+                                ? "bg-amber-500/20 border-amber-500 text-amber-800 font-bold"
+                                : "bg-white border-[#e7e3da] text-stone-700"
                             }`}
                           >
-                            <span className="text-[10px] text-slate-400 block">Station {idx}</span>
+                            <span className="text-[10px] text-stone-500 block">Station {idx}</span>
                             <div>Gas: {g} | Cost: {gasData.cost[idx]}</div>
                             <div className={g - gasData.cost[idx] >= 0 ? "text-emerald-400" : "text-rose-400"}>
                               Diff: {g - gasData.cost[idx] >= 0 ? `+${g - gasData.cost[idx]}` : g - gasData.cost[idx]}
@@ -1573,17 +1581,17 @@ export default function JavaGreedyAlgorithms() {
                       </div>
                     </div>
 
-                    <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl flex justify-between items-center text-xs">
+                    <div className="p-4 bg-stone-50 border border-[#e7e3da] rounded-xl flex justify-between items-center text-xs">
                       <div>
-                        <span className="text-slate-400 block">Candidate Start:</span>
-                        <span className="text-xl font-mono font-bold text-amber-400">Station {gasState.latest?.start || 0}</span>
+                        <span className="text-stone-500 block">Candidate Start:</span>
+                        <span className="text-xl font-mono font-bold text-[#ea580c]">Station {gasState.latest?.start || 0}</span>
                       </div>
                       <div>
-                        <span className="text-slate-400 block">Current Tank Fuel:</span>
+                        <span className="text-stone-500 block">Current Tank Fuel:</span>
                         <span className="text-xl font-mono font-bold text-cyan-300">{gasState.latest?.tank || 0}</span>
                       </div>
                       <div>
-                        <span className="text-slate-400 block">Circuit Completable:</span>
+                        <span className="text-stone-500 block">Circuit Completable:</span>
                         <span className={`text-sm font-bold ${gasState.canComplete ? "text-emerald-400" : "text-rose-400"}`}>
                           {gasState.canComplete ? "YES (Total >= 0)" : "NO (Total < 0)"}
                         </span>
@@ -1591,7 +1599,7 @@ export default function JavaGreedyAlgorithms() {
                     </div>
 
                     <div className="flex justify-end gap-2">
-                      <button onClick={() => setWb8GasStep(0)} className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300">
+                      <button onClick={() => setWb8GasStep(0)} className="px-3 py-1.5 rounded-lg border border-stone-200 text-xs text-stone-700">
                         Reset
                       </button>
                       <button
@@ -1614,13 +1622,13 @@ export default function JavaGreedyAlgorithms() {
         {/* ============================================================== */}
         {activeTab === "quiz" && (
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                  <HelpCircle className="w-5 h-5 text-amber-400" />
+                  <HelpCircle className="w-5 h-5 text-[#ea580c]" />
                   Module 16 Assessment Quiz
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   15 scenario-based interview questions on Greedy Choice Property, Interval Merging, DSU, Huffman Coding, and DP counterexamples.
                 </p>
               </div>
@@ -1630,7 +1638,7 @@ export default function JavaGreedyAlgorithms() {
                     setUserAnswers({});
                     setShowQuizResults(false);
                   }}
-                  className="px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300 hover:bg-slate-800"
+                  className="px-3 py-1.5 rounded-lg border border-stone-200 text-xs text-stone-700 hover:bg-stone-100"
                 >
                   Reset Quiz
                 </button>
@@ -1651,12 +1659,12 @@ export default function JavaGreedyAlgorithms() {
                 const isCorrect = selectedAns === q.correct;
 
                 return (
-                  <div key={q.id} className="p-5 bg-slate-900/40 border border-slate-800/80 rounded-2xl space-y-3">
+                  <div key={q.id} className="p-5 bg-white border border-[#e7e3da] rounded-2xl shadow-xs space-y-3">
                     <div className="flex items-start gap-2.5">
-                      <span className="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 text-amber-400 text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-6 h-6 rounded-full bg-stone-100 border border-stone-200 text-[#ea580c] text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                         {qIdx + 1}
                       </span>
-                      <h4 className="text-sm font-semibold text-slate-100 leading-snug">
+                      <h4 className="text-sm font-semibold text-stone-900 leading-snug">
                         {q.question}
                       </h4>
                     </div>
@@ -1664,7 +1672,7 @@ export default function JavaGreedyAlgorithms() {
                     <div className="space-y-2 pt-1 pl-8">
                       {q.options.map((opt, optIdx) => {
                         const isChosen = selectedAns === optIdx;
-                        let optStyle = "border-slate-800 bg-slate-950/60 text-slate-300 hover:bg-slate-900";
+                        let optStyle = "border-[#e7e3da] bg-stone-50/60 text-stone-700 hover:bg-white";
 
                         if (isSubmitted) {
                           if (optIdx === q.correct) {
@@ -1673,7 +1681,7 @@ export default function JavaGreedyAlgorithms() {
                             optStyle = "border-rose-500/60 bg-rose-500/10 text-rose-200 line-through";
                           }
                         } else if (isChosen) {
-                          optStyle = "border-amber-500/60 bg-amber-500/20 text-amber-200 font-semibold";
+                          optStyle = "border-amber-500/60 bg-amber-500/20 text-amber-900 font-semibold";
                         }
 
                         return (
@@ -1683,7 +1691,7 @@ export default function JavaGreedyAlgorithms() {
                             onClick={() => setUserAnswers((prev) => ({ ...prev, [q.id]: optIdx }))}
                             className={`w-full text-left p-3 rounded-xl border text-xs leading-relaxed transition flex items-center gap-2.5 ${optStyle}`}
                           >
-                            <span className="w-4 h-4 rounded-full border border-slate-700 flex items-center justify-center text-[10px] shrink-0">
+                            <span className="w-4 h-4 rounded-full border border-stone-200 flex items-center justify-center text-[10px] shrink-0">
                               {String.fromCharCode(65 + optIdx)}
                             </span>
                             <span>{opt}</span>
@@ -1700,7 +1708,7 @@ export default function JavaGreedyAlgorithms() {
                           {isCorrect ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />}
                           {isCorrect ? "Correct!" : "Explanation:"}
                         </div>
-                        <p className="text-slate-300">{q.explanation}</p>
+                        <p className="text-stone-700">{q.explanation}</p>
                       </div>
                     )}
                   </div>
@@ -1715,18 +1723,18 @@ export default function JavaGreedyAlgorithms() {
         {/* ============================================================== */}
         {activeTab === "labs" && (
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                  <Award className="w-5 h-5 text-amber-400" />
+                  <Award className="w-5 h-5 text-[#ea580c]" />
                   32 LeetCode & Practice Labs Tracker
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   Categorized across 4 mastery tiers: Fundamentals, Intervals & Scheduling, Greedy Optimization, and Advanced Problem Solving.
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-xs font-mono px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40">
+                <span className="text-xs font-mono px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-800 font-bold border border-amber-500/40">
                   {completedCount} / 32 Completed ({((completedCount / 32) * 100).toFixed(0)}%)
                 </span>
               </div>
@@ -1744,26 +1752,26 @@ export default function JavaGreedyAlgorithms() {
                     className={`p-4 rounded-xl border transition cursor-pointer flex items-center justify-between gap-4 ${
                       isDone
                         ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-200"
-                        : "bg-slate-900/40 border-slate-800 text-slate-300 hover:bg-slate-850"
+                        : "bg-white border-[#e7e3da] text-stone-700 hover:bg-slate-850"
                     }`}
                   >
                     <div className="flex items-start gap-3">
-                      <button className="mt-0.5 text-slate-400 hover:text-white">
-                        {isDone ? <CheckSquare className="w-4 h-4 text-emerald-400" /> : <Square className="w-4 h-4 text-slate-400" />}
+                      <button className="mt-0.5 text-stone-500 hover:text-white">
+                        {isDone ? <CheckSquare className="w-4 h-4 text-emerald-400" /> : <Square className="w-4 h-4 text-stone-500" />}
                       </button>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-semibold">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-100 text-stone-700 font-semibold">
                             {lab.tier}
                           </span>
                           <h4 className={`text-xs sm:text-sm font-semibold ${isDone ? "text-emerald-300 line-through" : "text-white"}`}>
                             {lab.title}
                           </h4>
                         </div>
-                        <p className="text-xs text-slate-400 mt-1">{lab.desc}</p>
+                        <p className="text-xs text-stone-500 mt-1">{lab.desc}</p>
                       </div>
                     </div>
-                    <span className="text-[11px] font-mono text-slate-400 shrink-0">#{lab.id}</span>
+                    <span className="text-[11px] font-mono text-stone-500 shrink-0">#{lab.id}</span>
                   </div>
                 );
               })}
@@ -1773,11 +1781,7 @@ export default function JavaGreedyAlgorithms() {
       </main>
 
       {/* Module Course Navigation Footer */}
-      <footer className="mt-12 border-t border-slate-800/80 bg-slate-900/40 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <ModuleNav currentModuleId="greedy-algorithms" />
-        </div>
-      </footer>
+      </div>
     </div>
   );
 }

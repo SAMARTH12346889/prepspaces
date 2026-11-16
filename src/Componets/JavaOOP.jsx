@@ -651,7 +651,7 @@ class Notification {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 pb-24 font-sans selection:bg-orange-500/20">
+    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 pb-24 font-sans selection:bg-orange-500/20 px-4 py-6 sm:px-8 sm:py-10 md:px-12">
       {/* HEADER & COURSE TRACK BREADCRUMB */}
       <header className="sticky top-0 z-40 bg-[#fcfbf9]/90 backdrop-blur-md border-b border-[#e7e3da]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">

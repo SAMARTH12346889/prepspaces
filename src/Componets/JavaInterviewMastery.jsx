@@ -595,7 +595,7 @@ for (int right = 0; right < s.length(); right++) {
   const totalRubricScore = Object.values(rubricScores).reduce((a, b) => a + b, 0);
   const getRecommendation = (score) => {
     if (score >= 22) return { grade: "Strong Hire", color: "text-emerald-400 bg-emerald-950/40 border-emerald-500/40" };
-    if (score >= 18) return { grade: "Hire / Lean Hire", color: "text-orange-400 bg-slate-900 border-orange-500/40" };
+    if (score >= 18) return { grade: "Hire / Lean Hire", color: "text-orange-400 bg-white border-orange-500/40" };
     if (score >= 14) return { grade: "Lean No Hire", color: "text-amber-400 bg-amber-950/40 border-amber-500/40" };
     return { grade: "No Hire", color: "text-rose-400 bg-rose-950/40 border-rose-500/40" };
   };
@@ -642,7 +642,14 @@ for (int right = 0; right < s.length(); right++) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white pb-16">
+    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-[#f97316] selection:text-white px-4 py-6 sm:px-8 sm:py-10 md:px-12">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
       {/* Module Navigation Header */}
       <ModuleNav
         track="java"
@@ -656,33 +663,33 @@ for (int right = 0; right < s.length(); right++) {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 w-full flex-1">
         {/* Module Header Banner */}
-        <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-r from-slate-900 via-slate-900/60 to-slate-900 border border-slate-800 shadow-2xl overflow-hidden mb-8">
+        <div className="relative rounded-3xl p-6 sm:p-8 bg-white border border-[#e7e3da] shadow-xs overflow-hidden mb-8">
           <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#ea580c] text-xs font-semibold uppercase tracking-wider mb-3">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 Engineering Placement Masterclass
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight">
                 Module 23 — Technical Interview &amp; Placement Mastery
               </h1>
-              <p className="mt-2 text-sm md:text-base text-slate-300 max-w-3xl leading-relaxed">
+              <p className="mt-2 text-sm md:text-base text-stone-700 max-w-3xl leading-relaxed">
                 Master the structured 7-step interview framework, brute-force to linear optimization, variable trace dry-runs, think-aloud communication, and top placement problem patterns.
               </p>
             </div>
 
             {/* Quick Metrics Badge */}
             <div className="flex flex-wrap md:flex-col gap-3 shrink-0">
-              <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
+              <div className="px-4 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-mono text-stone-700 flex items-center gap-2">
                 <Code2 className="w-4 h-4 text-emerald-400" />
                 <span>23 Curriculum Sections</span>
               </div>
-              <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
+              <div className="px-4 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-mono text-stone-700 flex items-center gap-2">
                 <Zap className="w-4 h-4 text-amber-400" />
                 <span>8 Interactive Workbenches</span>
               </div>
-              <div className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 flex items-center gap-2">
+              <div className="px-4 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-mono text-stone-700 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-orange-400" />
                 <span>35 Placement Labs</span>
               </div>
@@ -690,13 +697,13 @@ for (int right = 0; right < s.length(); right++) {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap items-center gap-2 mt-6 pt-6 border-t border-slate-800/80">
+          <div className="flex flex-wrap items-center gap-2 mt-6 pt-6 border-t border-[#e7e3da]">
             <button
               onClick={() => setActiveTab("curriculum")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "curriculum"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-[#18181b] text-white shadow-sm font-bold"
+                  : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold"
               }`}
             >
               <BookOpen className="w-4 h-4" />
@@ -706,8 +713,8 @@ for (int right = 0; right < s.length(); right++) {
               onClick={() => setActiveTab("workbenches")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "workbenches"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-[#18181b] text-white shadow-sm font-bold"
+                  : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold"
               }`}
             >
               <Terminal className="w-4 h-4" />
@@ -717,8 +724,8 @@ for (int right = 0; right < s.length(); right++) {
               onClick={() => setActiveTab("quiz")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "quiz"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-[#18181b] text-white shadow-sm font-bold"
+                  : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold"
               }`}
             >
               <Award className="w-4 h-4" />
@@ -728,8 +735,8 @@ for (int right = 0; right < s.length(); right++) {
               onClick={() => setActiveTab("problems")}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
                 activeTab === "problems"
-                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-[#18181b] text-white shadow-sm font-bold"
+                  : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold"
               }`}
             >
               <CheckSquare className="w-4 h-4" />
@@ -742,17 +749,17 @@ for (int right = 0; right < s.length(); right++) {
         {activeTab === "curriculum" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar Navigation */}
-            <div className="lg:col-span-4 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-6 shadow-xl space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+            <div className="lg:col-span-4 bg-white/70 border border-[#e7e3da] rounded-2xl p-4 sticky top-6 shadow-xl space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-[#e7e3da]">
+                <span className="text-xs font-bold uppercase tracking-wider text-stone-500 flex items-center gap-1.5">
                   <Layers className="w-4 h-4 text-orange-400" />
                   Table of Contents
                 </span>
-                <div className="flex items-center gap-1 bg-slate-800/80 p-0.5 rounded-lg border border-slate-700/60">
+                <div className="flex items-center gap-1 bg-stone-100/80 p-0.5 rounded-lg border border-stone-200/60">
                   <button
                     onClick={() => setViewMode("guided")}
                     className={`px-2 py-1 rounded text-[11px] font-medium transition-colors ${
-                      viewMode === "guided" ? "bg-orange-500 text-white" : "text-slate-400 hover:text-slate-200"
+                      viewMode === "guided" ? "bg-orange-500 text-stone-900" : "text-stone-500 hover:text-stone-800"
                     }`}
                   >
                     Focus Mode
@@ -760,7 +767,7 @@ for (int right = 0; right < s.length(); right++) {
                   <button
                     onClick={() => setViewMode("textbook")}
                     className={`px-2 py-1 rounded text-[11px] font-medium transition-colors ${
-                      viewMode === "textbook" ? "bg-orange-500 text-white" : "text-slate-400 hover:text-slate-200"
+                      viewMode === "textbook" ? "bg-orange-500 text-stone-900" : "text-stone-500 hover:text-stone-800"
                     }`}
                   >
                     Full Book
@@ -776,12 +783,12 @@ for (int right = 0; right < s.length(); right++) {
                   placeholder="Search topics, questions, dry runs..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-950/80 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition-colors"
+                  className="w-full pl-9 pr-3 py-1.5 text-xs bg-stone-50/80 border border-[#e7e3da] rounded-xl text-stone-800 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition-colors"
                 />
               </div>
 
               {/* Section list */}
-              <div className="max-h-[60vh] overflow-y-auto space-y-1 pr-1 custom-scrollbar dark-scrollbar">
+              <div className="max-h-[60vh] overflow-y-auto space-y-1 pr-1 custom-scrollbar ">
                 {filteredSections.map((sec) => {
                   const isActive = activeSectionId === sec.id;
                   return (
@@ -798,7 +805,7 @@ for (int right = 0; right < s.length(); right++) {
                       className={`w-full text-left px-3 py-2 rounded-xl transition-all flex flex-col gap-0.5 text-xs ${
                         isActive
                           ? "bg-orange-500/15 text-orange-300 border border-orange-500/40"
-                          : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent"
+                          : "text-stone-500 hover:bg-stone-100 hover:text-stone-800 border border-transparent"
                       }`}
                     >
                       <div className="font-semibold break-words whitespace-normal leading-snug">{sec.title}</div>
@@ -810,17 +817,17 @@ for (int right = 0; right < s.length(); right++) {
             </div>
 
             {/* Main Content Area */}
-            <div className="lg:col-span-8 bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="lg:col-span-8 bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               {viewMode === "guided" ? (
                 <div>
-                  <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+                  <div className="flex items-center justify-between pb-4 border-b border-[#e7e3da] mb-6">
                     <div>
                       <span className="text-[11px] font-mono text-orange-400 uppercase tracking-wider">
                         {activeSectionId === 0
                           ? "Module Overview · 23 Core Sections"
                           : `Section ${activeSectionId} of 23`}
                       </span>
-                      <h2 className="text-xl md:text-2xl font-bold text-white mt-1">
+                      <h2 className="text-xl md:text-2xl font-bold text-stone-900 mt-1">
                         {JAVA_INTERVIEW_MASTERY_SECTIONS[activeSectionId]?.title}
                       </h2>
                     </div>
@@ -828,7 +835,7 @@ for (int right = 0; right < s.length(); right++) {
                       <button
                         disabled={activeSectionId === 0}
                         onClick={() => setActiveSectionId((prev) => Math.max(0, prev - 1))}
-                        className="p-2 rounded-xl bg-slate-800 border border-slate-700 disabled:opacity-40 hover:bg-slate-700 transition-colors"
+                        className="p-2 rounded-xl bg-stone-100 border border-stone-200 disabled:opacity-40 hover:bg-stone-200 transition-colors"
                         title="Previous section"
                       >
                         <ArrowLeft className="w-4 h-4" />
@@ -840,7 +847,7 @@ for (int right = 0; right < s.length(); right++) {
                             Math.min(JAVA_INTERVIEW_MASTERY_SECTIONS.length - 1, prev + 1)
                           )
                         }
-                        className="p-2 rounded-xl bg-slate-800 border border-slate-700 disabled:opacity-40 hover:bg-slate-700 transition-colors"
+                        className="p-2 rounded-xl bg-stone-100 border border-stone-200 disabled:opacity-40 hover:bg-stone-200 transition-colors"
                         title="Next section"
                       >
                         <ArrowRight className="w-4 h-4" />
@@ -853,14 +860,14 @@ for (int right = 0; right < s.length(); right++) {
                   </div>
 
                   {/* Section bottom navigation */}
-                  <div className="flex items-center justify-between pt-8 mt-12 border-t border-slate-800">
+                  <div className="flex items-center justify-between pt-8 mt-12 border-t border-[#e7e3da]">
                     <button
                       disabled={activeSectionId === 0}
                       onClick={() => {
                         setActiveSectionId((prev) => Math.max(0, prev - 1));
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       Previous Section
@@ -873,7 +880,7 @@ for (int right = 0; right < s.length(); right++) {
                         );
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500 shadow-lg shadow-orange-500/20"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-500 text-xs font-semibold text-stone-900 disabled:opacity-30 hover:bg-orange-500 shadow-lg shadow-orange-500/20"
                     >
                       Next Section
                       <ArrowRight className="w-4 h-4" />
@@ -887,13 +894,13 @@ for (int right = 0; right < s.length(); right++) {
                     <div
                       key={sec.id}
                       id={`section-${sec.id}`}
-                      className="pt-8 border-t first:border-t-0 border-slate-800/80"
+                      className="pt-8 border-t first:border-t-0 border-[#e7e3da]"
                     >
                       <div className="mb-4">
                         <span className="text-[11px] font-mono text-orange-400 uppercase tracking-wider">
                           {sec.id === 0 ? "Module Overview" : `Section ${sec.id} of 23`}
                         </span>
-                        <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-1">
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-stone-900 mt-1">
                           {sec.title}
                         </h2>
                       </div>
@@ -910,16 +917,16 @@ for (int right = 0; right < s.length(); right++) {
         {activeTab === "workbenches" && (
           <div className="space-y-12">
             {/* WORKBENCH 1: 7-STEP INTERVIEW WORKFLOW SIMULATOR */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
+                <div className="p-2.5 rounded-2xl bg-orange-50 border border-orange-200 text-[#ea580c]">
                   <Compass className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 1: 7-Step Coding Interview Workflow Simulator
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Step through the exact 7-phase methodology expected by Google, Amazon, Microsoft, and Meta interviewers.
                   </p>
                 </div>
@@ -933,8 +940,8 @@ for (int right = 0; right < s.length(); right++) {
                     onClick={() => setWorkflowStep(s.step)}
                     className={`p-2.5 rounded-xl text-xs font-semibold flex flex-col items-center gap-1 transition-all ${
                       workflowStep === s.step
-                        ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20 border border-orange-400"
-                        : "bg-slate-800/60 text-slate-400 hover:bg-slate-800 hover:text-slate-200 border border-slate-700/60"
+                        ? "bg-[#18181b] text-white shadow-sm font-bold border border-orange-400"
+                        : "bg-stone-100 text-stone-500 hover:bg-stone-100 hover:text-stone-800 border border-stone-200/60"
                     }`}
                   >
                     <span className="font-mono text-[10px] opacity-75">Step {s.step}</span>
@@ -947,21 +954,21 @@ for (int right = 0; right < s.length(); right++) {
               {(() => {
                 const stepData = WORKFLOW_STEPS.find((s) => s.step === workflowStep);
                 return (
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-slate-950/70 border border-slate-800 p-6 rounded-2xl">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-stone-50/70 border border-[#e7e3da] p-6 rounded-2xl">
                     <div className="space-y-4">
                       <div className="flex items-center gap-2 text-orange-400 text-xs font-bold uppercase tracking-wider">
                         <Users className="w-4 h-4" />
                         Candidate Vocalization (What to Say)
                       </div>
-                      <blockquote className="p-4 rounded-xl bg-slate-900 border-l-4 border-orange-500 text-slate-200 text-sm italic leading-relaxed">
+                      <blockquote className="p-4 rounded-xl bg-white border-l-4 border-orange-500 text-stone-800 text-sm italic leading-relaxed">
                         &ldquo;{stepData.candidateSay}&rdquo;
                       </blockquote>
 
                       <div className="mt-4">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
                           Key Tactical Checklist
                         </h4>
-                        <ul className="space-y-1.5 text-xs text-slate-300">
+                        <ul className="space-y-1.5 text-xs text-stone-700">
                           {stepData.actions.map((act, i) => (
                             <li key={i} className="flex items-center gap-2">
                               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
@@ -983,21 +990,21 @@ for (int right = 0; right < s.length(); right++) {
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                      <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                         <button
                           disabled={workflowStep === 1}
                           onClick={() => setWorkflowStep((prev) => Math.max(1, prev - 1))}
-                          className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                          className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                         >
                           &larr; Prior Phase
                         </button>
-                        <span className="text-xs font-mono text-slate-400">
+                        <span className="text-xs font-mono text-stone-500">
                           Phase {workflowStep} of 7
                         </span>
                         <button
                           disabled={workflowStep === 7}
                           onClick={() => setWorkflowStep((prev) => Math.min(7, prev + 1))}
-                          className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500"
+                          className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-stone-900 disabled:opacity-30 hover:bg-orange-500"
                         >
                           Next Phase &rarr;
                         </button>
@@ -1009,16 +1016,16 @@ for (int right = 0; right < s.length(); right++) {
             </div>
 
             {/* WORKBENCH 2: BRUTE FORCE TO OPTIMIZED TRANSFORMER */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400">
                   <Zap className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 2: Brute Force to Optimized Transformer
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Compare naive quadratic nested loops against optimal linear data-structure patterns.
                   </p>
                 </div>
@@ -1033,7 +1040,7 @@ for (int right = 0; right < s.length(); right++) {
                     className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                       selectedTransformerProblem === key
                         ? "bg-amber-500 text-slate-950 font-bold shadow-lg shadow-amber-500/20"
-                        : "bg-slate-800/80 text-slate-300 hover:bg-slate-800"
+                        : "bg-stone-100/80 text-stone-700 hover:bg-stone-100"
                     }`}
                   >
                     {TRANSFORMER_DATA[key].title}
@@ -1047,7 +1054,7 @@ for (int right = 0; right < s.length(); right++) {
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       {/* Naive Box */}
-                      <div className="p-5 rounded-2xl bg-slate-950/80 border border-rose-500/30 flex flex-col justify-between">
+                      <div className="p-5 rounded-2xl bg-stone-50/80 border border-rose-500/30 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between mb-2">
                             <span className="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider">
@@ -1057,8 +1064,8 @@ for (int right = 0; right < s.length(); right++) {
                               {data.naive.complexity}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-400 mb-3">{data.naive.description}</p>
-                          <pre className="p-3 bg-slate-900 rounded-xl text-xs font-mono text-rose-200 overflow-x-auto">
+                          <p className="text-xs text-stone-500 mb-3">{data.naive.description}</p>
+                          <pre className="p-3 bg-white rounded-xl text-xs font-mono text-rose-200 overflow-x-auto">
                             <code>{data.naive.code}</code>
                           </pre>
                         </div>
@@ -1068,7 +1075,7 @@ for (int right = 0; right < s.length(); right++) {
                       </div>
 
                       {/* Optimized Box */}
-                      <div className="p-5 rounded-2xl bg-slate-950/80 border border-emerald-500/30 flex flex-col justify-between">
+                      <div className="p-5 rounded-2xl bg-stone-50/80 border border-emerald-500/30 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between mb-2">
                             <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
@@ -1078,8 +1085,8 @@ for (int right = 0; right < s.length(); right++) {
                               {data.optimized.complexity}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-400 mb-3">{data.optimized.description}</p>
-                          <pre className="p-3 bg-slate-900 rounded-xl text-xs font-mono text-emerald-200 overflow-x-auto">
+                          <p className="text-xs text-stone-500 mb-3">{data.optimized.description}</p>
+                          <pre className="p-3 bg-white rounded-xl text-xs font-mono text-emerald-200 overflow-x-auto">
                             <code>{data.optimized.code}</code>
                           </pre>
                         </div>
@@ -1089,7 +1096,7 @@ for (int right = 0; right < s.length(); right++) {
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-900 border border-orange-500/30 text-orange-200 text-xs leading-relaxed">
+                    <div className="p-4 rounded-xl bg-white border border-orange-500/30 text-orange-200 text-xs leading-relaxed">
                       <strong>Core Optimization Principle:</strong> {data.insight}
                     </div>
                   </div>
@@ -1098,23 +1105,23 @@ for (int right = 0; right < s.length(); right++) {
             </div>
 
             {/* WORKBENCH 3: SYSTEMATIC DRY-RUN SIMULATOR */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
                   <Play className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 3: Systematic Dry-Run Simulator (Binary Search)
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Simulate how interview candidates trace pointer state variables step-by-step before running code.
                   </p>
                 </div>
               </div>
 
-              <div className="my-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                <div className="text-xs font-mono text-slate-400 mb-3">
+              <div className="my-6 p-4 rounded-2xl bg-stone-50/80 border border-[#e7e3da]">
+                <div className="text-xs font-mono text-stone-500 mb-3">
                   Array: <code className="text-orange-300">[2, 5, 8, 12, 16, 23, 38]</code> | Target:{" "}
                   <code className="text-emerald-400">{TARGET_VAL}</code>
                 </div>
@@ -1135,8 +1142,8 @@ for (int right = 0; right < s.length(); right++) {
                             isMid
                               ? "bg-emerald-500 text-slate-950 border-emerald-400 shadow-lg shadow-emerald-500/30 scale-105"
                               : inRange
-                              ? "bg-slate-900 text-orange-200 border-orange-500/50"
-                              : "bg-slate-900/60 text-slate-600 border-slate-800 opacity-40"
+                              ? "bg-white text-orange-200 border-orange-500/50"
+                              : "bg-white text-slate-600 border-[#e7e3da] opacity-40"
                           }`}
                         >
                           {num}
@@ -1153,10 +1160,10 @@ for (int right = 0; right < s.length(); right++) {
                 </div>
 
                 {/* Trace Table */}
-                <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/80">
+                <div className="overflow-x-auto rounded-xl border border-[#e7e3da] bg-white">
                   <table className="w-full text-left text-xs font-mono">
                     <thead>
-                      <tr className="bg-slate-900 text-slate-400 border-b border-slate-800">
+                      <tr className="bg-white text-stone-500 border-b border-[#e7e3da]">
                         <th className="p-2.5">Step</th>
                         <th className="p-2.5">Low</th>
                         <th className="p-2.5">High</th>
@@ -1165,18 +1172,18 @@ for (int right = 0; right < s.length(); right++) {
                         <th className="p-2.5">Action &amp; Interval Update</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                    <tbody className="divide-y divide-slate-800/60 text-stone-700">
                       {DRY_RUN_HISTORY.slice(0, dryRunStep + 1).map((row) => (
                         <tr
                           key={row.step}
-                          className={row.step === dryRunStep ? "bg-slate-900 text-white" : ""}
+                          className={row.step === dryRunStep ? "bg-white text-stone-900" : ""}
                         >
                           <td className="p-2.5 font-bold text-orange-400">Step {row.step + 1}</td>
                           <td className="p-2.5">{row.low}</td>
                           <td className="p-2.5">{row.high}</td>
                           <td className="p-2.5 font-bold text-emerald-400">{row.mid}</td>
                           <td className="p-2.5 font-bold text-amber-300">{row.valMid}</td>
-                          <td className="p-2.5 text-slate-200">{row.action}</td>
+                          <td className="p-2.5 text-stone-800">{row.action}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -1184,24 +1191,24 @@ for (int right = 0; right < s.length(); right++) {
                 </div>
 
                 {/* Step controls */}
-                <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-800">
+                <div className="flex items-center justify-between mt-4 pt-3 border-t border-[#e7e3da]">
                   <button
                     disabled={dryRunStep === 0}
                     onClick={() => setDryRunStep((prev) => Math.max(0, prev - 1))}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                    className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                   >
                     &larr; Step Back
                   </button>
                   <button
                     onClick={() => setDryRunStep(0)}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1"
+                    className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs font-semibold text-stone-500 hover:text-stone-900 flex items-center gap-1"
                   >
                     <RotateCcw className="w-3 h-3" /> Reset
                   </button>
                   <button
                     disabled={dryRunStep === DRY_RUN_HISTORY.length - 1}
                     onClick={() => setDryRunStep((prev) => Math.min(DRY_RUN_HISTORY.length - 1, prev + 1))}
-                    className="px-3 py-1.5 rounded-lg bg-emerald-600 text-xs font-semibold text-white disabled:opacity-30 hover:bg-emerald-500"
+                    className="px-3 py-1.5 rounded-lg bg-emerald-600 text-xs font-semibold text-stone-900 disabled:opacity-30 hover:bg-emerald-500"
                   >
                     Step Forward &rarr;
                   </button>
@@ -1210,27 +1217,27 @@ for (int right = 0; right < s.length(); right++) {
             </div>
 
             {/* WORKBENCH 4: EDGE CASE STRESS TESTER */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400">
                   <AlertTriangle className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 4: Edge Case Stress Tester
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Verify defensive bounds against common corner cases that disqualify candidates in technical rounds.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 my-4">
-                <span className="text-xs text-slate-400">Select Algorithm:</span>
+                <span className="text-xs text-stone-500">Select Algorithm:</span>
                 <select
                   value={selectedAlgo}
                   onChange={(e) => setSelectedAlgo(e.target.value)}
-                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
+                  className="bg-stone-100 border border-stone-200 rounded-xl px-3 py-1.5 text-xs text-stone-800 focus:outline-none focus:border-orange-500"
                 >
                   <option value="maxSubarray">Maximum Subarray (Kadane)</option>
                   <option value="twoSum">Two Sum (HashMap)</option>
@@ -1238,20 +1245,20 @@ for (int right = 0; right < s.length(); right++) {
                 </select>
               </div>
 
-              <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-950/80">
+              <div className="overflow-x-auto rounded-2xl border border-[#e7e3da] bg-stone-50/80">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="bg-slate-900 text-slate-300 font-mono border-b border-slate-800">
+                    <tr className="bg-white text-stone-700 font-mono border-b border-[#e7e3da]">
                       <th className="p-3">Edge Case Category</th>
                       <th className="p-3">Sample Input</th>
                       <th className="p-3">Defensive Behavior &amp; Expected Output</th>
                       <th className="p-3">Status</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800 text-slate-300">
+                  <tbody className="divide-y divide-slate-800 text-stone-700">
                     {EDGE_CASES.map((item, idx) => (
-                      <tr key={idx} className="hover:bg-slate-900/40">
-                        <td className="p-3 font-semibold text-white">{item.name}</td>
+                      <tr key={idx} className="hover:bg-white">
+                        <td className="p-3 font-semibold text-stone-900">{item.name}</td>
                         <td className="p-3 font-mono text-orange-300">{item.input}</td>
                         <td className="p-3">{item[selectedAlgo]}</td>
                         <td className="p-3">
@@ -1267,16 +1274,16 @@ for (int right = 0; right < s.length(); right++) {
             </div>
 
             {/* WORKBENCH 5: THINK-EXPLAIN-IMPLEMENT COMMUNICATION TRAINER */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                   <Users className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 5: Think-Explain-Implement Communication Trainer
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Practice answering high-stakes interview follow-ups and navigating hints collaboratively.
                   </p>
                 </div>
@@ -1294,8 +1301,8 @@ for (int right = 0; right < s.length(); right++) {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                         selectedScenario === i
-                          ? "bg-orange-500 text-white"
-                          : "bg-slate-800/80 text-slate-400 hover:text-white"
+                          ? "bg-orange-500 text-stone-900"
+                          : "bg-stone-100/80 text-stone-500 hover:text-stone-900"
                       }`}
                     >
                       Scenario {i + 1}
@@ -1306,21 +1313,21 @@ for (int right = 0; right < s.length(); right++) {
                 {(() => {
                   const activeSc = COMMUNICATION_SCENARIOS[selectedScenario];
                   return (
-                    <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4">
-                      <div className="p-3.5 rounded-xl bg-slate-900 border-l-4 border-orange-500 text-sm font-semibold text-white">
+                    <div className="p-5 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-4">
+                      <div className="p-3.5 rounded-xl bg-white border-l-4 border-orange-500 text-sm font-semibold text-stone-900">
                         {activeSc.scenario}
                       </div>
 
                       <div className="space-y-2 mt-4">
-                        <span className="text-xs font-mono text-slate-400">Choose candidate reply:</span>
+                        <span className="text-xs font-mono text-stone-500">Choose candidate reply:</span>
                         {activeSc.options.map((opt) => (
                           <button
                             key={opt.id}
                             onClick={() => setSelectedResponse(opt)}
                             className={`w-full text-left p-3.5 rounded-xl text-xs transition-all border ${
                               selectedResponse?.id === opt.id
-                                ? "bg-slate-900 border-orange-500 text-white"
-                                : "bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800"
+                                ? "bg-white border-orange-500 text-stone-900"
+                                : "bg-white border-[#e7e3da] text-stone-700 hover:bg-stone-100"
                             }`}
                           >
                             <span className="font-bold text-orange-400 mr-2">{opt.id}.</span>
@@ -1330,9 +1337,9 @@ for (int right = 0; right < s.length(); right++) {
                       </div>
 
                       {selectedResponse && (
-                        <div className="mt-4 p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+                        <div className="mt-4 p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs space-y-2">
                           <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                            <span className="text-xs font-bold uppercase tracking-wider text-stone-500">
                               Evaluation Grade:
                             </span>
                             <span
@@ -1347,7 +1354,7 @@ for (int right = 0; right < s.length(); right++) {
                               {selectedResponse.grade}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-300 leading-relaxed">
+                          <p className="text-xs text-stone-700 leading-relaxed">
                             {selectedResponse.feedback}
                           </p>
                         </div>
@@ -1359,23 +1366,23 @@ for (int right = 0; right < s.length(); right++) {
             </div>
 
             {/* WORKBENCH 6: FLOYD'S CYCLE DETECTION VISUALIZER */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
                   <RotateCcw className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 6: Floyd's Cycle Detection Visualizer
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Watch the Tortoise (1x) and Hare (2x) pointers detect a cyclic loop in O(N) time and O(1) space.
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
-                <div className="text-xs font-mono text-slate-400">
+              <div className="p-5 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-6">
+                <div className="text-xs font-mono text-stone-500">
                   List: Head(0) &rarr; 1 &rarr; 2 &rarr; 3 &rarr; 4 &rarr; Loop back to 2
                 </div>
 
@@ -1394,10 +1401,10 @@ for (int right = 0; right < s.length(); right++) {
                             bothMeet
                               ? "bg-emerald-500 text-slate-950 border-emerald-300 shadow-xl shadow-emerald-500/50 scale-110"
                               : isSlow
-                              ? "bg-orange-500 text-white border-orange-400 shadow-lg shadow-orange-500/20"
+                              ? "bg-orange-500 text-stone-900 border-orange-400 shadow-lg shadow-orange-500/20"
                               : isFast
                               ? "bg-amber-500 text-slate-950 border-amber-300 shadow-lg shadow-amber-500/30"
-                              : "bg-slate-900 text-slate-300 border-slate-800"
+                              : "bg-white text-stone-700 border-[#e7e3da]"
                           }`}
                         >
                           N{nodeId}
@@ -1416,7 +1423,7 @@ for (int right = 0; right < s.length(); right++) {
                   })}
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 font-mono">
+                <div className="p-3.5 rounded-xl bg-white border border-[#e7e3da] shadow-xs text-xs text-stone-700 font-mono">
                   {CYCLE_PATH[cycleStep].note}
                 </div>
 
@@ -1425,20 +1432,20 @@ for (int right = 0; right < s.length(); right++) {
                   <button
                     disabled={cycleStep === 0}
                     onClick={() => setCycleStep((prev) => Math.max(0, prev - 1))}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                    className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                   >
                     &larr; Prev Step
                   </button>
                   <button
                     onClick={() => setCycleStep(0)}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-slate-400 hover:text-white flex items-center gap-1"
+                    className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs text-stone-500 hover:text-stone-900 flex items-center gap-1"
                   >
                     <RotateCcw className="w-3 h-3" /> Reset
                   </button>
                   <button
                     disabled={cycleStep === CYCLE_PATH.length - 1}
                     onClick={() => setCycleStep((prev) => Math.min(CYCLE_PATH.length - 1, prev + 1))}
-                    className="px-3 py-1.5 rounded-lg bg-cyan-600 text-xs font-semibold text-white disabled:opacity-30 hover:bg-cyan-500"
+                    className="px-3 py-1.5 rounded-lg bg-cyan-600 text-xs font-semibold text-stone-900 disabled:opacity-30 hover:bg-cyan-500"
                   >
                     Advance Step &rarr;
                   </button>
@@ -1447,23 +1454,23 @@ for (int right = 0; right < s.length(); right++) {
             </div>
 
             {/* WORKBENCH 7: KADANE'S SUBARRAY MAX VISUALIZER */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                   <BarChart3 className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 7: Kadane's Algorithm &amp; Subarray Max Step Visualizer
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Step through index-by-index DP recurrence:{" "}
                     <code className="text-orange-300">currentSum = Math.max(nums[i], currentSum + nums[i])</code>.
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-6">
+              <div className="p-5 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-6">
                 <div className="flex flex-wrap items-center gap-2">
                   {KADANE_ARRAY.map((num, idx) => {
                     const isCurrent = idx === kadaneIndex;
@@ -1473,10 +1480,10 @@ for (int right = 0; right < s.length(); right++) {
                         key={idx}
                         className={`w-11 h-11 rounded-xl flex items-center justify-center font-mono font-bold text-xs border transition-all ${
                           isCurrent
-                            ? "bg-orange-500 text-white border-orange-400 shadow-lg shadow-orange-500/20 scale-110"
+                            ? "bg-orange-500 text-stone-900 border-orange-400 shadow-lg shadow-orange-500/20 scale-110"
                             : isProcessed
-                            ? "bg-slate-800 text-slate-400 border-slate-700"
-                            : "bg-slate-900/60 text-slate-600 border-slate-800"
+                            ? "bg-stone-100 text-stone-500 border-stone-200"
+                            : "bg-white text-slate-600 border-[#e7e3da]"
                         }`}
                       >
                         {num}
@@ -1489,23 +1496,23 @@ for (int right = 0; right < s.length(); right++) {
                   const state = kadaneStates[kadaneIndex];
                   return (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                        <span className="text-xs font-mono text-slate-400">Current Element nums[i]</span>
-                        <div className="text-2xl font-bold font-mono text-white mt-1">{state.val}</div>
+                      <div className="p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs">
+                        <span className="text-xs font-mono text-stone-500">Current Element nums[i]</span>
+                        <div className="text-2xl font-bold font-mono text-stone-900 mt-1">{state.val}</div>
                       </div>
-                      <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                        <span className="text-xs font-mono text-slate-400">currentSum</span>
+                      <div className="p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs">
+                        <span className="text-xs font-mono text-stone-500">currentSum</span>
                         <div className="text-2xl font-bold font-mono text-orange-400 mt-1">{state.curSum}</div>
                       </div>
-                      <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                        <span className="text-xs font-mono text-slate-400">maximumSum</span>
+                      <div className="p-4 rounded-xl bg-white border border-[#e7e3da] shadow-xs">
+                        <span className="text-xs font-mono text-stone-500">maximumSum</span>
                         <div className="text-2xl font-bold font-mono text-emerald-400 mt-1">{state.maxSum}</div>
                       </div>
                     </div>
                   );
                 })()}
 
-                <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 font-mono">
+                <div className="p-3.5 rounded-xl bg-white border border-[#e7e3da] shadow-xs text-xs text-stone-700 font-mono">
                   {kadaneStates[kadaneIndex]?.decision}
                 </div>
 
@@ -1513,20 +1520,20 @@ for (int right = 0; right < s.length(); right++) {
                   <button
                     disabled={kadaneIndex === 0}
                     onClick={() => setKadaneIndex((prev) => Math.max(0, prev - 1))}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-30 hover:bg-slate-700"
+                    className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-30 hover:bg-stone-200"
                   >
                     &larr; Prev Index
                   </button>
                   <button
                     onClick={() => setKadaneIndex(0)}
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-slate-400 hover:text-white flex items-center gap-1"
+                    className="px-3 py-1.5 rounded-lg bg-stone-100 text-xs text-stone-500 hover:text-stone-900 flex items-center gap-1"
                   >
                     <RotateCcw className="w-3 h-3" /> Reset
                   </button>
                   <button
                     disabled={kadaneIndex === KADANE_ARRAY.length - 1}
                     onClick={() => setKadaneIndex((prev) => Math.min(KADANE_ARRAY.length - 1, prev + 1))}
-                    className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-white disabled:opacity-30 hover:bg-orange-500"
+                    className="px-3 py-1.5 rounded-lg bg-orange-500 text-xs font-semibold text-stone-900 disabled:opacity-30 hover:bg-orange-500"
                   >
                     Next Index &rarr;
                   </button>
@@ -1535,16 +1542,16 @@ for (int right = 0; right < s.length(); right++) {
             </div>
 
             {/* WORKBENCH 8: MOCK INTERVIEW SCORING & MISTAKE MATRIX */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-stone-900">
                     Workbench 8: Mock Interview Scoring &amp; Mistake Diagnostic Matrix
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Self-evaluate across the 5 core interview competency dimensions used by top tech hiring committees.
                   </p>
                 </div>
@@ -1560,12 +1567,12 @@ for (int right = 0; right < s.length(); right++) {
                     { key: "edgeCases", label: "4. Edge Case Handling & Dry Run Rigor", desc: "Systematic trace tables, boundary testing before running." },
                     { key: "timeManagement", label: "5. Time Management & Stress Resilience", desc: "Finishing within 35-45 minutes without panic or stalling." }
                   ].map((dim) => (
-                    <div key={dim.key} className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                    <div key={dim.key} className="p-3.5 rounded-xl bg-stone-50/80 border border-[#e7e3da] space-y-1.5">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-white">{dim.label}</span>
+                        <span className="font-semibold text-stone-900">{dim.label}</span>
                         <span className="font-mono font-bold text-orange-400">{rubricScores[dim.key]} / 5</span>
                       </div>
-                      <p className="text-[11px] text-slate-400">{dim.desc}</p>
+                      <p className="text-[11px] text-stone-500">{dim.desc}</p>
                       <input
                         type="range"
                         min="1"
@@ -1581,13 +1588,13 @@ for (int right = 0; right < s.length(); right++) {
                 </div>
 
                 {/* Score Summary Box */}
-                <div className="lg:col-span-5 flex flex-col justify-between p-6 rounded-2xl bg-slate-950/90 border border-slate-800">
+                <div className="lg:col-span-5 flex flex-col justify-between p-6 rounded-2xl bg-stone-50/90 border border-[#e7e3da]">
                   <div className="space-y-4">
-                    <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
+                    <span className="text-xs font-mono uppercase tracking-wider text-stone-500">
                       Placement Readiness Scorecard
                     </span>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-5xl font-extrabold text-white">{totalRubricScore}</span>
+                      <span className="text-5xl font-extrabold text-stone-900">{totalRubricScore}</span>
                       <span className="text-slate-500 text-lg font-mono">/ 25</span>
                     </div>
 
@@ -1600,7 +1607,7 @@ for (int right = 0; right < s.length(); right++) {
                       );
                     })()}
 
-                    <div className="space-y-2 pt-2 text-xs text-slate-400">
+                    <div className="space-y-2 pt-2 text-xs text-stone-500">
                       <div className="flex justify-between">
                         <span>22 - 25:</span>
                         <span className="text-emerald-400 font-semibold">Strong Hire (Tier-1 Tech)</span>
@@ -1620,7 +1627,7 @@ for (int right = 0; right < s.length(); right++) {
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-500">
+                  <div className="mt-6 pt-4 border-t border-[#e7e3da] text-[11px] text-slate-500">
                     Maintain an interview error log for every score below 4 to target corrective drills.
                   </div>
                 </div>
@@ -1631,14 +1638,14 @@ for (int right = 0; right < s.length(); right++) {
 
         {/* TAB 3: 15 MCQ PLACEMENT QUIZ */}
         {activeTab === "quiz" && (
-          <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-8">
-            <div className="flex items-center justify-between pb-6 border-b border-slate-800">
+          <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl space-y-8">
+            <div className="flex items-center justify-between pb-6 border-b border-[#e7e3da]">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                <h3 className="text-xl md:text-2xl font-bold text-stone-900 flex items-center gap-2">
                   <Award className="w-6 h-6 text-amber-400" />
                   Module 23 Comprehensive Placement Assessment
                 </h3>
-                <p className="text-xs md:text-sm text-slate-400 mt-1">
+                <p className="text-xs md:text-sm text-stone-500 mt-1">
                   15 high-frequency technical interview questions testing frameworks, optimization, and edge cases.
                 </p>
               </div>
@@ -1647,7 +1654,7 @@ for (int right = 0; right < s.length(); right++) {
                   <div className="text-2xl font-extrabold text-emerald-400">
                     {calculateQuizScore()} / {QUIZ_QUESTIONS.length}
                   </div>
-                  <div className="text-xs text-slate-400">
+                  <div className="text-xs text-stone-500">
                     {Math.round((calculateQuizScore() / QUIZ_QUESTIONS.length) * 100)}% Score
                   </div>
                 </div>
@@ -1661,19 +1668,19 @@ for (int right = 0; right < s.length(); right++) {
                 return (
                   <div
                     key={q.id}
-                    className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3"
+                    className="p-5 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-3"
                   >
                     <div className="flex items-start gap-3">
                       <span className="w-6 h-6 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/40 text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                         {idx + 1}
                       </span>
-                      <h4 className="text-sm font-semibold text-white">{q.question}</h4>
+                      <h4 className="text-sm font-semibold text-stone-900">{q.question}</h4>
                     </div>
 
                     <div className="grid grid-cols-1 gap-2 pl-9">
                       {q.options.map((opt, optIdx) => {
                         const isThisSelected = selectedOpt === optIdx;
-                        let optStyle = "bg-slate-900/70 border-slate-800 text-slate-300 hover:bg-slate-800";
+                        let optStyle = "bg-white/70 border-[#e7e3da] text-stone-700 hover:bg-stone-100";
                         if (submittedQuiz) {
                           if (optIdx === q.correct) {
                             optStyle = "bg-emerald-950/60 border-emerald-500 text-emerald-300 font-semibold";
@@ -1681,7 +1688,7 @@ for (int right = 0; right < s.length(); right++) {
                             optStyle = "bg-rose-950/60 border-rose-500 text-rose-300";
                           }
                         } else if (isThisSelected) {
-                          optStyle = "bg-slate-900 border-orange-500 text-white font-medium";
+                          optStyle = "bg-white border-orange-500 text-stone-900 font-medium";
                         }
 
                         return (
@@ -1716,13 +1723,13 @@ for (int right = 0; right < s.length(); right++) {
               })}
             </div>
 
-            <div className="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <div className="pt-6 border-t border-[#e7e3da] flex items-center justify-between">
               <button
                 onClick={() => {
                   setUserAnswers({});
                   setSubmittedQuiz(false);
                 }}
-                className="px-4 py-2 rounded-xl bg-slate-800 text-xs font-semibold text-slate-400 hover:text-white"
+                className="px-4 py-2 rounded-xl bg-stone-100 text-xs font-semibold text-stone-500 hover:text-stone-900"
               >
                 Reset Assessment
               </button>
@@ -1731,7 +1738,7 @@ for (int right = 0; right < s.length(); right++) {
                 <button
                   disabled={Object.keys(userAnswers).length < QUIZ_QUESTIONS.length}
                   onClick={() => setSubmittedQuiz(true)}
-                  className="px-6 py-2.5 rounded-xl bg-orange-500 text-xs font-bold text-white hover:bg-orange-500 disabled:opacity-40 shadow-lg shadow-orange-500/20"
+                  className="px-6 py-2.5 rounded-xl bg-orange-500 text-xs font-bold text-stone-900 hover:bg-orange-500 disabled:opacity-40 shadow-lg shadow-orange-500/20"
                 >
                   Submit &amp; View Score
                 </button>
@@ -1746,25 +1753,25 @@ for (int right = 0; right < s.length(); right++) {
 
         {/* TAB 4: 35 PRACTICE LABS TRACKER */}
         {activeTab === "problems" && (
-          <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#e7e3da]">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                <h3 className="text-xl md:text-2xl font-bold text-stone-900 flex items-center gap-2">
                   <CheckSquare className="w-6 h-6 text-orange-400" />
                   35 Technical Placement Problems Tracker
                 </h3>
-                <p className="text-xs md:text-sm text-slate-400 mt-1">
+                <p className="text-xs md:text-sm text-stone-500 mt-1">
                   Track your mastery across the 4 standard tiers of technical interview questions.
                 </p>
               </div>
 
               {/* Level Filter */}
               <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-400">Filter Tier:</span>
+                <span className="text-xs text-stone-500">Filter Tier:</span>
                 <select
                   value={filterLevel}
                   onChange={(e) => setFilterLevel(e.target.value)}
-                  className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
+                  className="bg-stone-100 border border-stone-200 rounded-xl px-3 py-1.5 text-xs text-stone-800 focus:outline-none focus:border-orange-500"
                 >
                   <option value="all">All 4 Levels (35)</option>
                   <option value="1">Level 1: Core Fundamentals (9)</option>
@@ -1777,14 +1784,14 @@ for (int right = 0; right < s.length(); right++) {
 
             {/* Progress bar */}
             <div className="space-y-1.5">
-              <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+              <div className="flex items-center justify-between text-xs font-mono text-stone-500">
                 <span>Placement Readiness Progress</span>
                 <span className="text-orange-400 font-bold">
                   {completedProblems.size} / 35 Solved (
                   {Math.round((completedProblems.size / 35) * 100)}%)
                 </span>
               </div>
-              <div className="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
+              <div className="w-full h-2.5 rounded-full bg-stone-100 overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-orange-500 to-emerald-400 transition-all duration-300"
                   style={{ width: `${(completedProblems.size / 35) * 100}%` }}
@@ -1802,8 +1809,8 @@ for (int right = 0; right < s.length(); right++) {
                     onClick={() => toggleProblem(prob.id)}
                     className={`p-3.5 rounded-2xl border cursor-pointer transition-all flex items-center justify-between gap-3 ${
                       isDone
-                        ? "bg-emerald-950/20 border-emerald-500/40 text-slate-200"
-                        : "bg-slate-950/70 border-slate-800/80 text-slate-300 hover:border-slate-700 hover:bg-slate-900/60"
+                        ? "bg-emerald-950/20 border-emerald-500/40 text-stone-800"
+                        : "bg-stone-50/70 border-[#e7e3da] text-stone-700 hover:border-stone-200 hover:bg-white"
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -1813,11 +1820,11 @@ for (int right = 0; right < s.length(); right++) {
                         <Square className="w-5 h-5 text-slate-600 shrink-0" />
                       )}
                       <div>
-                        <div className="text-xs font-bold text-white flex items-center gap-2">
+                        <div className="text-xs font-bold text-stone-900 flex items-center gap-2">
                           <span>{prob.id}. {prob.title}</span>
                         </div>
-                        <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-slate-400">
-                          <span className="px-1.5 py-0.5 rounded bg-slate-800 text-orange-300">
+                        <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-stone-500">
+                          <span className="px-1.5 py-0.5 rounded bg-stone-100 text-orange-300">
                             {prob.pattern}
                           </span>
                           <span>{prob.time}</span>
@@ -1845,6 +1852,7 @@ for (int right = 0; right < s.length(); right++) {
             </div>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

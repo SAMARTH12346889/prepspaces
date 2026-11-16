@@ -760,84 +760,92 @@ export default function JavaSpecializedDS() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
-      {/* MODULE HEADER BAR */}
-      <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40 px-4 lg:px-8 py-3">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate("/learning/java/heaps")}
-              className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
-              title="Previous Module: Heaps & Priority Queues"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  MODULE 14
-                </span>
-                <span className="text-xs text-slate-400 font-mono">Advanced DSA</span>
-              </div>
-              <h1 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                Tries, Disjoint Sets & Specialized Structures
-              </h1>
-            </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-8 sm:py-10 md:px-12 font-sans antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
+        {/* Module Navigation Header */}
+        <ModuleNav
+          track="java"
+          currentModuleId="specialized-ds"
+        />
+
+        {/* Hero Header */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c]">
+              <Layers size={13} />
+              Module 14 · Java + DSA Master Course
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono text-stone-600">
+              Advanced Data Structures
+            </span>
           </div>
 
-          {/* MODE SELECTOR */}
-          <div className="flex items-center gap-2 bg-slate-950 p-1 rounded-xl border border-slate-800">
-            <button
-              onClick={() => setActiveTab("workbench")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                activeTab === "workbench"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <Sliders className="w-4 h-4" />
-              8 Interactive Workbenches
-            </button>
-            <button
-              onClick={() => setActiveTab("reader")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                activeTab === "reader"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <BookOpen className="w-4 h-4" />
-              Curriculum (37 Sections)
-            </button>
-            <button
-              onClick={() => setActiveTab("quiz")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                activeTab === "quiz"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <HelpCircle className="w-4 h-4" />
-              Assessment Quiz (15)
-            </button>
-            <button
-              onClick={() => setActiveTab("labs")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                activeTab === "labs"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <Award className="w-4 h-4" />
-              45 Practical Labs ({completedLabCount}/45)
-            </button>
-          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#18181b] tracking-tight">
+            Tries, Disjoint Sets &amp; Specialized Structures
+          </h1>
+
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
+            Master prefix trees (Tries), Union-Find (Disjoint Set Union) with path compression and union by rank, Fenwick Trees (Binary Indexed Trees), Segment Trees, and cache-oblivious designs in Java.
+          </p>
+        </header>
+
+        {/* Mode Selector */}
+        <div className="flex flex-wrap items-center gap-2 mb-8">
+          <button
+            onClick={() => setActiveTab("workbench")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "workbench"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <Sliders size={16} className={activeTab === "workbench" ? "text-orange-400" : "text-stone-400"} />
+            <span>8 Interactive Workbenches</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("reader")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "reader"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <BookOpen size={16} className={activeTab === "reader" ? "text-orange-400" : "text-stone-400"} />
+            <span>Curriculum (37 Sections)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("quiz")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "quiz"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <HelpCircle size={16} className={activeTab === "quiz" ? "text-orange-400" : "text-stone-400"} />
+            <span>Assessment Quiz (15)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("labs")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "labs"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <Award size={16} className={activeTab === "labs" ? "text-orange-400" : "text-stone-400"} />
+            <span>Placement Labs (30)</span>
+          </button>
         </div>
-      </header>
 
       {/* TOP NOTIFICATION / PROGRESS STATUS BAR */}
-      <div className="bg-slate-900/60 border-b border-slate-800/80 px-4 py-2 text-xs">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-slate-400">
+      <div className="bg-white border-b border-[#e7e3da] px-4 py-2 text-xs">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-stone-500">
           <div className="flex items-center gap-4">
             <span>Reading Progress: <strong className="text-emerald-400">{completedSectionCount}</strong> of 37 Sections</span>
             <span>•</span>
@@ -845,7 +853,7 @@ export default function JavaSpecializedDS() {
           </div>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-slate-300 font-mono text-[11px]">Specialized Range & Set Data Structures</span>
+            <span className="text-stone-700 font-mono text-[11px]">Specialized Range & Set Data Structures</span>
           </div>
         </div>
       </div>
@@ -858,7 +866,7 @@ export default function JavaSpecializedDS() {
         {activeTab === "workbench" && (
           <div className="space-y-6">
             {/* TOOL SELECTOR PILLS */}
-            <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-slate-800">
+            <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-[#e7e3da]">
               {[
                 { id: "trie-studio", label: "1. Trie & Autocomplete Studio", icon: FolderTree },
                 { id: "wildcard-search", label: "2. Wildcard Dictionary (LC 211)", icon: Search },
@@ -877,7 +885,7 @@ export default function JavaSpecializedDS() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                       workbenchTool === tool.id
                         ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm"
-                        : "bg-slate-900 hover:bg-slate-850 text-slate-400 border border-slate-800"
+                        : "bg-white hover:bg-slate-850 text-stone-500 border border-[#e7e3da]"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -891,18 +899,18 @@ export default function JavaSpecializedDS() {
             {workbenchTool === "trie-studio" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-4 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <FolderTree className="w-4 h-4" />
                       Trie Operations Studio
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Store words in a 26-way prefix tree. Test exact word search, prefix matching, and DFS autocomplete suggestions.
                     </p>
 
                     {/* Word Insert */}
-                    <div className="space-y-2 pt-2 border-t border-slate-800">
-                      <label className="text-xs text-slate-300 font-semibold block">Insert Word into Trie</label>
+                    <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                      <label className="text-xs text-stone-700 font-semibold block">Insert Word into Trie</label>
                       <div className="flex gap-2">
                         <input
                           type="text"
@@ -910,7 +918,7 @@ export default function JavaSpecializedDS() {
                           onChange={(e) => setTrieInputWord(e.target.value)}
                           onKeyDown={(e) => e.key === "Enter" && handleTrieInsert()}
                           placeholder="e.g. apple"
-                          className="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
+                          className="flex-1 bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
                         />
                         <button
                           onClick={handleTrieInsert}
@@ -922,25 +930,25 @@ export default function JavaSpecializedDS() {
                     </div>
 
                     {/* Word Query */}
-                    <div className="space-y-2 pt-2 border-t border-slate-800">
-                      <label className="text-xs text-slate-300 font-semibold block">Query String</label>
+                    <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                      <label className="text-xs text-stone-700 font-semibold block">Query String</label>
                       <input
                         type="text"
                         value={trieQuery}
                         onChange={(e) => setTrieQuery(e.target.value)}
                         placeholder="e.g. ca"
-                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
+                        className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
                       />
                       <div className="grid grid-cols-3 gap-2 pt-1">
                         <button
                           onClick={handleTrieSearch}
-                          className="px-2 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700"
+                          className="px-2 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium border border-stone-200"
                         >
                           search(w)
                         </button>
                         <button
                           onClick={handleTriePrefix}
-                          className="px-2 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700"
+                          className="px-2 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium border border-stone-200"
                         >
                           startsWith(p)
                         </button>
@@ -965,7 +973,7 @@ export default function JavaSpecializedDS() {
                       </div>
                     )}
                     {trieAutocompleteRes.length > 0 && (
-                      <div className="p-3 rounded-lg text-xs bg-slate-950 border border-cyan-500/30 text-slate-200 space-y-1">
+                      <div className="p-3 rounded-lg text-xs bg-stone-50 border border-cyan-500/30 text-stone-800 space-y-1">
                         <div className="font-semibold text-cyan-400">Autocomplete Suggestions:</div>
                         <div className="flex flex-wrap gap-1">
                           {trieAutocompleteRes.map((w, idx) => (
@@ -981,9 +989,9 @@ export default function JavaSpecializedDS() {
 
                 <div className="lg:col-span-8 space-y-4">
                   {/* Words stored badge grid */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-slate-300">Words Stored in Active Trie ({trieWords.length})</span>
+                      <span className="text-xs font-semibold text-stone-700">Words Stored in Active Trie ({trieWords.length})</span>
                       <button
                         onClick={() => {
                           setTrieWords(["cat", "car", "cart", "card", "dog", "door", "dot"]);
@@ -992,7 +1000,7 @@ export default function JavaSpecializedDS() {
                           setTrieAutocompleteRes([]);
                           setTrieLogs(["Trie reset to default dataset."]);
                         }}
-                        className="text-xs text-slate-400 hover:text-slate-200 flex items-center gap-1"
+                        className="text-xs text-stone-500 hover:text-stone-800 flex items-center gap-1"
                       >
                         <RotateCcw className="w-3.5 h-3.5" /> Reset Default
                       </button>
@@ -1001,7 +1009,7 @@ export default function JavaSpecializedDS() {
                       {trieWords.map((word, idx) => (
                         <div
                           key={idx}
-                          className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-emerald-300 flex items-center gap-2"
+                          className="px-3 py-1.5 rounded-xl bg-stone-50 border border-[#e7e3da] text-xs font-mono text-emerald-300 flex items-center gap-2"
                         >
                           <span>{word}</span>
                           <span className="text-[10px] px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-400 font-sans">
@@ -1013,34 +1021,34 @@ export default function JavaSpecializedDS() {
                   </div>
 
                   {/* Trie Conceptual Hierarchy */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-slate-300">Prefix Tree Structure & Branching</span>
+                      <span className="text-xs font-semibold text-stone-700">Prefix Tree Structure & Branching</span>
                       <span className="text-xs font-mono text-slate-500">Root: [empty, 26 children]</span>
                     </div>
-                    <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto space-y-2">
+                    <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] font-mono text-xs text-stone-700 overflow-x-auto space-y-2">
                       <div className="text-amber-400 font-bold">root (isEnd: false)</div>
-                      <div className="pl-4 border-l-2 border-slate-800 space-y-1">
+                      <div className="pl-4 border-l-2 border-[#e7e3da] space-y-1">
                         <div>├── <span className="text-emerald-400 font-semibold">'c'</span> (isEnd: false)</div>
-                        <div className="pl-6 border-l-2 border-slate-800 space-y-1">
+                        <div className="pl-6 border-l-2 border-[#e7e3da] space-y-1">
                           <div>├── <span className="text-emerald-400 font-semibold">'a'</span> (isEnd: false)</div>
-                          <div className="pl-6 border-l-2 border-slate-800 space-y-1">
+                          <div className="pl-6 border-l-2 border-[#e7e3da] space-y-1">
                             <div>├── <span className="text-emerald-400 font-bold">'t'</span> <span className="text-emerald-500 text-[10px] bg-emerald-950 px-1 py-0.5 rounded">[isEnd: true] ("cat")</span></div>
                             <div>└── <span className="text-emerald-400 font-bold">'r'</span> <span className="text-emerald-500 text-[10px] bg-emerald-950 px-1 py-0.5 rounded">[isEnd: true] ("car")</span></div>
-                            <div className="pl-6 border-l-2 border-slate-800 space-y-1">
+                            <div className="pl-6 border-l-2 border-[#e7e3da] space-y-1">
                               <div>├── <span className="text-emerald-400 font-bold">'t'</span> <span className="text-emerald-500 text-[10px] bg-emerald-950 px-1 py-0.5 rounded">[isEnd: true] ("cart")</span></div>
                               <div>└── <span className="text-emerald-400 font-bold">'d'</span> <span className="text-emerald-500 text-[10px] bg-emerald-950 px-1 py-0.5 rounded">[isEnd: true] ("card")</span></div>
                             </div>
                           </div>
                         </div>
                         <div>└── <span className="text-cyan-400 font-semibold">'d'</span> (isEnd: false)</div>
-                        <div className="pl-6 border-l-2 border-slate-800 space-y-1">
+                        <div className="pl-6 border-l-2 border-[#e7e3da] space-y-1">
                           <div>└── <span className="text-cyan-400 font-semibold">'o'</span> (isEnd: false)</div>
-                          <div className="pl-6 border-l-2 border-slate-800 space-y-1">
+                          <div className="pl-6 border-l-2 border-[#e7e3da] space-y-1">
                             <div>├── <span className="text-cyan-400 font-bold">'g'</span> <span className="text-cyan-500 text-[10px] bg-cyan-950 px-1 py-0.5 rounded">[isEnd: true] ("dog")</span></div>
                             <div>├── <span className="text-cyan-400 font-bold">'t'</span> <span className="text-cyan-500 text-[10px] bg-cyan-950 px-1 py-0.5 rounded">[isEnd: true] ("dot")</span></div>
                             <div>└── <span className="text-cyan-400 font-bold">'o'</span> (isEnd: false)</div>
-                            <div className="pl-6 border-l-2 border-slate-800">
+                            <div className="pl-6 border-l-2 border-[#e7e3da]">
                               <div>└── <span className="text-cyan-400 font-bold">'r'</span> <span className="text-cyan-500 text-[10px] bg-cyan-950 px-1 py-0.5 rounded">[isEnd: true] ("door")</span></div>
                             </div>
                           </div>
@@ -1050,9 +1058,9 @@ export default function JavaSpecializedDS() {
                   </div>
 
                   {/* Activity Log */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Trie Operation Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Trie Operation Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {trieLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1066,17 +1074,17 @@ export default function JavaSpecializedDS() {
             {workbenchTool === "wildcard-search" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Search className="w-4 h-4" />
                       LeetCode 211: Wildcard Word Search
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
-                      Design a word search structure where the <code className="text-amber-400">'.'</code> dot character can match any arbitrary letter from <code className="text-slate-300">'a'</code> through <code className="text-slate-300">'z'</code> using recursive DFS branching.
+                    <p className="text-xs text-stone-500 leading-relaxed">
+                      Design a word search structure where the <code className="text-amber-400">'.'</code> dot character can match any arbitrary letter from <code className="text-stone-700">'a'</code> through <code className="text-stone-700">'z'</code> using recursive DFS branching.
                     </p>
 
-                    <div className="space-y-2 pt-2 border-t border-slate-800">
-                      <label className="text-xs text-slate-300 font-semibold block">Wildcard Pattern (use . for wildcard)</label>
+                    <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                      <label className="text-xs text-stone-700 font-semibold block">Wildcard Pattern (use . for wildcard)</label>
                       <div className="flex gap-2">
                         <input
                           type="text"
@@ -1084,7 +1092,7 @@ export default function JavaSpecializedDS() {
                           onChange={(e) => setWildcardPattern(e.target.value)}
                           onKeyDown={(e) => e.key === "Enter" && handleWildcardSearch()}
                           placeholder="e.g. .ad, b.., ..t"
-                          className="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500 font-mono"
+                          className="flex-1 bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500 font-mono"
                         />
                         <button
                           onClick={handleWildcardSearch}
@@ -1097,7 +1105,7 @@ export default function JavaSpecializedDS() {
 
                     {/* Pre-made Pattern Quick Buttons */}
                     <div className="space-y-1">
-                      <span className="text-[11px] text-slate-400">Quick Test Patterns:</span>
+                      <span className="text-[11px] text-stone-500">Quick Test Patterns:</span>
                       <div className="flex flex-wrap gap-1.5">
                         {[".ad", "b..", "..t", "d.d", ".a.", "...."].map((pat, idx) => (
                           <button
@@ -1109,7 +1117,7 @@ export default function JavaSpecializedDS() {
                               setWildcardMatches(matched);
                               setWildcardLogs(prev => [`Quick search("${pat}") -> ${matched.length} match(es): [${matched.join(", ")}]`, ...prev.slice(0, 9)]);
                             }}
-                            className="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs border border-slate-700"
+                            className="px-2 py-1 rounded bg-stone-100 hover:bg-stone-200 text-stone-800 font-mono text-xs border border-stone-200"
                           >
                             {pat}
                           </button>
@@ -1130,7 +1138,7 @@ export default function JavaSpecializedDS() {
                         </div>
                       </div>
                     ) : (
-                      <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-400">
+                      <div className="p-3 rounded-xl bg-stone-50 border border-[#e7e3da] text-xs text-stone-500">
                         No matches found for pattern "{wildcardPattern}" or search has not run yet.
                       </div>
                     )}
@@ -1138,8 +1146,8 @@ export default function JavaSpecializedDS() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Active Wildcard Dictionary Words</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Active Wildcard Dictionary Words</span>
                     <div className="flex flex-wrap gap-2">
                       {wildcardWords.map((word, idx) => {
                         const isMatched = wildcardMatches.includes(word);
@@ -1149,7 +1157,7 @@ export default function JavaSpecializedDS() {
                             className={`px-3 py-1 rounded-xl text-xs font-mono border transition-all ${
                               isMatched
                                 ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50 shadow-md shadow-emerald-500/10 font-bold scale-105"
-                                : "bg-slate-950 text-slate-400 border-slate-800"
+                                : "bg-stone-50 text-stone-500 border-[#e7e3da]"
                             }`}
                           >
                             {word}
@@ -1160,23 +1168,23 @@ export default function JavaSpecializedDS() {
                   </div>
 
                   {/* DFS Recursion Tree Visualization */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-                    <span className="text-xs font-semibold text-slate-300">DFS Wildcard Resolution Logic</span>
-                    <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 text-xs font-mono text-slate-300 space-y-2">
-                      <div className="text-slate-400">// Java LeetCode 211 Recursive DFS Logic:</div>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-2">
+                    <span className="text-xs font-semibold text-stone-700">DFS Wildcard Resolution Logic</span>
+                    <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] text-xs font-mono text-stone-700 space-y-2">
+                      <div className="text-stone-500">// Java LeetCode 211 Recursive DFS Logic:</div>
                       <div className="text-orange-300">if (char == '.') &#123;</div>
                       <div className="pl-4 text-emerald-300">// Branch across ALL non-null children:</div>
                       <div className="pl-4 text-cyan-300">for (TrieNode child : node.children) &#123;</div>
-                      <div className="pl-8 text-slate-200">if (child != null && dfs(word, index + 1, child)) return true;</div>
+                      <div className="pl-8 text-stone-800">if (child != null && dfs(word, index + 1, child)) return true;</div>
                       <div className="pl-4 text-cyan-300">&#125;</div>
                       <div className="pl-4 text-rose-300">return false; // Backtrack if no child branch matched</div>
                       <div className="text-orange-300">&#125;</div>
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Wildcard Search Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Wildcard Search Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {wildcardLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1190,21 +1198,21 @@ export default function JavaSpecializedDS() {
             {workbenchTool === "dsu-visualizer" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-4 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <GitMerge className="w-4 h-4" />
                       Disjoint Set Union (DSU) Visualizer
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Visualize <code className="text-emerald-400">parent[]</code> pointers, Path Compression tree flattening, and Union by Rank.
                     </p>
 
-                    <div className="space-y-3 pt-2 border-t border-slate-800">
+                    <div className="space-y-3 pt-2 border-t border-[#e7e3da]">
                       <div className="flex items-center justify-between">
-                        <label className="text-xs text-slate-300 font-semibold">Union Two Sets</label>
+                        <label className="text-xs text-stone-700 font-semibold">Union Two Sets</label>
                         <button
                           onClick={handleDsuReset}
-                          className="text-[11px] text-slate-400 hover:text-slate-200 flex items-center gap-1"
+                          className="text-[11px] text-stone-500 hover:text-stone-800 flex items-center gap-1"
                         >
                           <RotateCcw className="w-3 h-3" /> Reset
                         </button>
@@ -1212,25 +1220,25 @@ export default function JavaSpecializedDS() {
 
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <span className="text-[11px] text-slate-400 block mb-1">Element u (0..6)</span>
+                          <span className="text-[11px] text-stone-500 block mb-1">Element u (0..6)</span>
                           <input
                             type="number"
                             min="0"
                             max="6"
                             value={dsuU}
                             onChange={(e) => setDsuU(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                            className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                           />
                         </div>
                         <div>
-                          <span className="text-[11px] text-slate-400 block mb-1">Element v (0..6)</span>
+                          <span className="text-[11px] text-stone-500 block mb-1">Element v (0..6)</span>
                           <input
                             type="number"
                             min="0"
                             max="6"
                             value={dsuV}
                             onChange={(e) => setDsuV(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                            className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                           />
                         </div>
                       </div>
@@ -1243,14 +1251,14 @@ export default function JavaSpecializedDS() {
                       </button>
                     </div>
 
-                    <div className="space-y-2 pt-2 border-t border-slate-800">
-                      <span className="text-xs text-slate-300 font-semibold block">Interactive Find with Path Compression</span>
+                    <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                      <span className="text-xs text-stone-700 font-semibold block">Interactive Find with Path Compression</span>
                       <div className="flex flex-wrap gap-1.5">
                         {Array.from({ length: dsuSize }, (_, idx) => (
                           <button
                             key={idx}
                             onClick={() => handleDsuFind(idx)}
-                            className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono border border-slate-700"
+                            className="px-2.5 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-mono border border-stone-200"
                           >
                             find({idx})
                           </button>
@@ -1262,16 +1270,16 @@ export default function JavaSpecializedDS() {
 
                 <div className="lg:col-span-8 space-y-4">
                   {/* Parent Array Visualizer */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-slate-300">Live DSU State Arrays</span>
+                      <span className="text-xs font-semibold text-stone-700">Live DSU State Arrays</span>
                       <span className="text-xs font-mono text-emerald-400">Total Sets: {new Set(dsuParent.map((_, i) => dsuFind(i, dsuParent).root)).size}</span>
                     </div>
 
                     <div className="overflow-x-auto">
                       <table className="w-full text-xs font-mono text-center border-collapse">
                         <thead>
-                          <tr className="border-b border-slate-800 text-slate-400">
+                          <tr className="border-b border-[#e7e3da] text-stone-500">
                             <th className="p-2 text-left">Array</th>
                             {Array.from({ length: dsuSize }, (_, i) => (
                               <th key={i} className="p-2">[{i}]</th>
@@ -1279,8 +1287,8 @@ export default function JavaSpecializedDS() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr className="border-b border-slate-800/50">
-                            <td className="p-2 text-left font-semibold text-slate-300">parent[i]</td>
+                          <tr className="border-b border-[#e7e3da]/50">
+                            <td className="p-2 text-left font-semibold text-stone-700">parent[i]</td>
                             {dsuParent.map((p, idx) => (
                               <td key={idx} className={`p-2 font-bold ${p === idx ? "text-amber-400 bg-amber-500/10" : "text-emerald-400 bg-emerald-500/10"}`}>
                                 {p}
@@ -1288,7 +1296,7 @@ export default function JavaSpecializedDS() {
                             ))}
                           </tr>
                           <tr>
-                            <td className="p-2 text-left font-semibold text-slate-300">rank[i]</td>
+                            <td className="p-2 text-left font-semibold text-stone-700">rank[i]</td>
                             {dsuRank.map((r, idx) => (
                               <td key={idx} className="p-2 text-cyan-400">
                                 {r}
@@ -1301,8 +1309,8 @@ export default function JavaSpecializedDS() {
                   </div>
 
                   {/* Forest Tree Visualizer */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Forest Representation (Nodes pointing to Parents)</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Forest Representation (Nodes pointing to Parents)</span>
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2">
                       {Array.from({ length: dsuSize }, (_, idx) => {
                         const isRoot = dsuParent[idx] === idx;
@@ -1312,11 +1320,11 @@ export default function JavaSpecializedDS() {
                             className={`p-3 rounded-xl border text-center font-mono text-xs ${
                               isRoot
                                 ? "bg-amber-500/10 border-amber-500/40 text-amber-300 shadow-md shadow-amber-500/10"
-                                : "bg-slate-950 border-slate-800 text-slate-300"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-700"
                             }`}
                           >
                             <div className="text-lg font-bold">{idx}</div>
-                            <div className="text-[10px] text-slate-400 mt-1">
+                            <div className="text-[10px] text-stone-500 mt-1">
                               {isRoot ? "ROOT" : `-> ${dsuParent[idx]}`}
                             </div>
                             <div className="text-[9px] text-cyan-400 mt-0.5">
@@ -1329,9 +1337,9 @@ export default function JavaSpecializedDS() {
                   </div>
 
                   {/* DSU Log */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">DSU Operations Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">DSU Operations Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {dsuLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1345,21 +1353,21 @@ export default function JavaSpecializedDS() {
             {workbenchTool === "dsu-cycle" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Activity className="w-4 h-4" />
                       LeetCode 684: Redundant Connection
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Given an undirected tree of N nodes with 1 additional redundant edge that creates a cycle, process edges one by one using DSU to pinpoint the exact cycle-inducing edge.
                     </p>
 
-                    <div className="space-y-3 pt-2 border-t border-slate-800">
+                    <div className="space-y-3 pt-2 border-t border-[#e7e3da]">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-slate-300 font-semibold">Step {cycleStep} of {cycleEdges.length} Edges Processed</span>
+                        <span className="text-stone-700 font-semibold">Step {cycleStep} of {cycleEdges.length} Edges Processed</span>
                         <button
                           onClick={handleCycleReset}
-                          className="text-slate-400 hover:text-slate-200 flex items-center gap-1"
+                          className="text-stone-500 hover:text-stone-800 flex items-center gap-1"
                         >
                           <RotateCcw className="w-3.5 h-3.5" /> Reset
                         </button>
@@ -1368,7 +1376,7 @@ export default function JavaSpecializedDS() {
                       <button
                         onClick={handleCycleStepForward}
                         disabled={cycleStep >= cycleEdges.length}
-                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-white text-xs font-semibold transition-all"
+                        className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-stone-100 disabled:text-slate-600 text-white text-xs font-semibold transition-all"
                       >
                         {cycleStep >= cycleEdges.length ? "All Edges Processed" : `Process Next Edge: [${cycleEdges[cycleStep][0]}, ${cycleEdges[cycleStep][1]}]`}
                       </button>
@@ -1391,8 +1399,8 @@ export default function JavaSpecializedDS() {
 
                 <div className="lg:col-span-7 space-y-4">
                   {/* Edge Processing List */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Graph Edge Pipeline</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Graph Edge Pipeline</span>
                     <div className="grid grid-cols-5 gap-2">
                       {cycleEdges.map((edge, idx) => {
                         const isProcessed = idx < cycleStep;
@@ -1408,11 +1416,11 @@ export default function JavaSpecializedDS() {
                                 : isCurrent
                                 ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-300 ring-2 ring-emerald-500/30"
                                 : isProcessed
-                                ? "bg-slate-950 border-slate-800 text-slate-400"
-                                : "bg-slate-950/50 border-slate-850 text-slate-600"
+                                ? "bg-stone-50 border-[#e7e3da] text-stone-500"
+                                : "bg-stone-50/50 border-slate-850 text-slate-600"
                             }`}
                           >
-                            <div className="text-[10px] text-slate-400">Edge #{idx + 1}</div>
+                            <div className="text-[10px] text-stone-500">Edge #{idx + 1}</div>
                             <div className="text-sm font-bold mt-0.5">[{edge[0]}, {edge[1]}]</div>
                             <div className="text-[9px] mt-1">
                               {isCycle ? "REDUNDANT" : isProcessed ? "✓ CONNECTED" : "PENDING"}
@@ -1424,9 +1432,9 @@ export default function JavaSpecializedDS() {
                   </div>
 
                   {/* Live Parent Array */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">DSU Step History</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">DSU Step History</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {cycleLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1440,23 +1448,23 @@ export default function JavaSpecializedDS() {
             {workbenchTool === "segment-tree" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <BinaryIcon className="w-4 h-4" />
                       Segment Tree Range Simulator
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Simulate range queries and point updates in <code className="text-emerald-400">O(log N)</code> time with complete/partial/no overlap node classification.
                     </p>
 
                     {/* Query Controls */}
-                    <div className="space-y-3 pt-2 border-t border-slate-800">
+                    <div className="space-y-3 pt-2 border-t border-[#e7e3da]">
                       <div className="flex items-center justify-between">
-                        <label className="text-xs text-slate-300 font-semibold">Range Query [L, R]</label>
+                        <label className="text-xs text-stone-700 font-semibold">Range Query [L, R]</label>
                         <select
                           value={segAggFunc}
                           onChange={(e) => setSegAggFunc(e.target.value)}
-                          className="bg-slate-950 border border-slate-800 rounded px-2 py-0.5 text-xs text-emerald-400 font-mono"
+                          className="bg-stone-50 border border-[#e7e3da] rounded px-2 py-0.5 text-xs text-emerald-400 font-mono"
                         >
                           <option value="sum">Sum Aggregation</option>
                           <option value="min">Min Aggregation</option>
@@ -1466,25 +1474,25 @@ export default function JavaSpecializedDS() {
 
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <span className="text-[11px] text-slate-400 block mb-1">Left Index L (0..5)</span>
+                          <span className="text-[11px] text-stone-500 block mb-1">Left Index L (0..5)</span>
                           <input
                             type="number"
                             min="0"
                             max="5"
                             value={segQueryL}
                             onChange={(e) => setSegQueryL(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                            className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                           />
                         </div>
                         <div>
-                          <span className="text-[11px] text-slate-400 block mb-1">Right Index R (0..5)</span>
+                          <span className="text-[11px] text-stone-500 block mb-1">Right Index R (0..5)</span>
                           <input
                             type="number"
                             min="0"
                             max="5"
                             value={segQueryR}
                             onChange={(e) => setSegQueryR(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                            className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                           />
                         </div>
                       </div>
@@ -1498,33 +1506,33 @@ export default function JavaSpecializedDS() {
                     </div>
 
                     {/* Point Update Controls */}
-                    <div className="space-y-2 pt-2 border-t border-slate-800">
-                      <label className="text-xs text-slate-300 font-semibold block">Point Update: arr[idx] = val</label>
+                    <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                      <label className="text-xs text-stone-700 font-semibold block">Point Update: arr[idx] = val</label>
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <span className="text-[11px] text-slate-400 block mb-1">Index (0..5)</span>
+                          <span className="text-[11px] text-stone-500 block mb-1">Index (0..5)</span>
                           <input
                             type="number"
                             min="0"
                             max="5"
                             value={segUpdateIdx}
                             onChange={(e) => setSegUpdateIdx(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                            className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                           />
                         </div>
                         <div>
-                          <span className="text-[11px] text-slate-400 block mb-1">New Value</span>
+                          <span className="text-[11px] text-stone-500 block mb-1">New Value</span>
                           <input
                             type="number"
                             value={segUpdateVal}
                             onChange={(e) => setSegUpdateVal(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                            className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                           />
                         </div>
                       </div>
                       <button
                         onClick={handleSegUpdate}
-                        className="w-full py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700"
+                        className="w-full py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-semibold border border-stone-200"
                       >
                         Apply Point Update
                       </button>
@@ -1536,7 +1544,7 @@ export default function JavaSpecializedDS() {
                         <div className="font-bold">
                           Query [{segQueryResult.L}, {segQueryResult.R}] {segAggFunc.toUpperCase()} Result: {segQueryResult.res}
                         </div>
-                        <div className="text-[11px] text-slate-300">
+                        <div className="text-[11px] text-stone-700">
                           Visited {segQueryResult.visitedNodes.length} segment nodes along the O(log N) tree path.
                         </div>
                       </div>
@@ -1546,8 +1554,8 @@ export default function JavaSpecializedDS() {
 
                 <div className="lg:col-span-7 space-y-4">
                   {/* Array Visualization */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Underlying Array (Leaf Nodes of Segment Tree)</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Underlying Array (Leaf Nodes of Segment Tree)</span>
                     <div className="grid grid-cols-6 gap-2">
                       {segArray.map((val, idx) => {
                         const inQuery = segQueryResult && idx >= segQueryResult.L && idx <= segQueryResult.R;
@@ -1557,10 +1565,10 @@ export default function JavaSpecializedDS() {
                             className={`p-3 rounded-xl border text-center font-mono text-xs transition-all ${
                               inQuery
                                 ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold scale-105"
-                                : "bg-slate-950 border-slate-800 text-slate-300"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-700"
                             }`}
                           >
-                            <div className="text-[10px] text-slate-400">arr[{idx}]</div>
+                            <div className="text-[10px] text-stone-500">arr[{idx}]</div>
                             <div className="text-base font-bold mt-1">{val}</div>
                           </div>
                         );
@@ -1569,8 +1577,8 @@ export default function JavaSpecializedDS() {
                   </div>
 
                   {/* Overlap Classification Legend */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2">
-                    <span className="text-xs font-semibold text-slate-300">Query Node Overlap Classification</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4 space-y-2">
+                    <span className="text-xs font-semibold text-stone-700">Query Node Overlap Classification</span>
                     <div className="grid grid-cols-3 gap-2 text-xs">
                       <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">
                         <strong className="block text-[11px]">Complete Overlap</strong>
@@ -1580,16 +1588,16 @@ export default function JavaSpecializedDS() {
                         <strong className="block text-[11px]">Partial Overlap</strong>
                         Segment partially intersects [L, R]. Split down both children.
                       </div>
-                      <div className="p-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-400">
+                      <div className="p-2 rounded-lg bg-stone-100 border border-stone-200 text-stone-500">
                         <strong className="block text-[11px]">No Overlap (Prune)</strong>
                         Segment disjoint from [L, R]. Return identity element (0/inf).
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Segment Tree Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Segment Tree Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {segLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1603,34 +1611,34 @@ export default function JavaSpecializedDS() {
             {workbenchTool === "fenwick-tree" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Calculator className="w-4 h-4" />
                       Fenwick Tree (Binary Indexed Tree)
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Understand the core bit manipulation identity <code className="text-cyan-400">lowbit(i) = i & (-i)</code> that governs ancestor progression and prefix accumulation.
                     </p>
 
                     {/* Lowbit Inspector */}
-                    <div className="space-y-2 pt-2 border-t border-slate-800">
-                      <label className="text-xs text-slate-300 font-semibold block">Inspect Integer Lowbit: i & (-i)</label>
+                    <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                      <label className="text-xs text-stone-700 font-semibold block">Inspect Integer Lowbit: i & (-i)</label>
                       <input
                         type="number"
                         value={bitInspectNum}
                         onChange={(e) => setBitInspectNum(Math.max(1, parseInt(e.target.value) || 1))}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white font-mono"
+                        className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white font-mono"
                       />
-                      <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs font-mono space-y-1">
-                        <div className="text-slate-400">i = {bitInspectNum} = <span className="text-emerald-400">{bitInspectNum.toString(2).padStart(8, "0")}</span></div>
-                        <div className="text-slate-400">-i (2's comp) = <span className="text-amber-400">{((~bitInspectNum + 1) >>> 0).toString(2).slice(-8)}</span></div>
+                      <div className="p-3 bg-stone-50 rounded-xl border border-[#e7e3da] text-xs font-mono space-y-1">
+                        <div className="text-stone-500">i = {bitInspectNum} = <span className="text-emerald-400">{bitInspectNum.toString(2).padStart(8, "0")}</span></div>
+                        <div className="text-stone-500">-i (2's comp) = <span className="text-amber-400">{((~bitInspectNum + 1) >>> 0).toString(2).slice(-8)}</span></div>
                         <div className="text-cyan-300 font-bold">lowbit = {bitInspectNum & -bitInspectNum} (2^{Math.log2(bitInspectNum & -bitInspectNum)}) = {(bitInspectNum & -bitInspectNum).toString(2).padStart(8, "0")}</div>
                       </div>
                     </div>
 
                     {/* Prefix Sum Query */}
-                    <div className="space-y-2 pt-2 border-t border-slate-800">
-                      <label className="text-xs text-slate-300 font-semibold block">Prefix Sum Query: query(i)</label>
+                    <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                      <label className="text-xs text-stone-700 font-semibold block">Prefix Sum Query: query(i)</label>
                       <div className="flex gap-2">
                         <input
                           type="number"
@@ -1638,7 +1646,7 @@ export default function JavaSpecializedDS() {
                           max={bitArray.length}
                           value={bitQueryIdx}
                           onChange={(e) => setBitQueryIdx(e.target.value)}
-                          className="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                          className="flex-1 bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                         />
                         <button
                           onClick={handleBitQuery}
@@ -1652,7 +1660,7 @@ export default function JavaSpecializedDS() {
                     {bitPrefixRes && (
                       <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-300 space-y-1">
                         <div className="font-bold">Prefix Sum (1..{bitPrefixRes.targetIdx}): {bitPrefixRes.sum}</div>
-                        <div className="text-[11px] text-slate-300">
+                        <div className="text-[11px] text-stone-700">
                           Accumulated indices: {bitPrefixRes.path.map(p => `tree[${p.idx}](${p.val})`).join(" + ")}
                         </div>
                       </div>
@@ -1662,12 +1670,12 @@ export default function JavaSpecializedDS() {
 
                 <div className="lg:col-span-7 space-y-4">
                   {/* Responsible Range Chart */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Fenwick Tree 1-Based Indices & Responsible Ranges</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Fenwick Tree 1-Based Indices & Responsible Ranges</span>
                     <div className="overflow-x-auto">
                       <table className="w-full text-xs font-mono text-center border-collapse">
                         <thead>
-                          <tr className="border-b border-slate-800 text-slate-400">
+                          <tr className="border-b border-[#e7e3da] text-stone-500">
                             <th className="p-2 text-left">i</th>
                             <th className="p-2">Binary</th>
                             <th className="p-2">lowbit(i)</th>
@@ -1681,12 +1689,12 @@ export default function JavaSpecializedDS() {
                             const lb = i & -i;
                             const start = i - lb + 1;
                             return (
-                              <tr key={i} className="border-b border-slate-800/40 hover:bg-slate-850/50">
+                              <tr key={i} className="border-b border-[#e7e3da]/40 hover:bg-slate-850/50">
                                 <td className="p-2 text-left font-bold text-amber-400">{i}</td>
-                                <td className="p-2 text-slate-400">{i.toString(2).padStart(4, "0")}</td>
+                                <td className="p-2 text-stone-500">{i.toString(2).padStart(4, "0")}</td>
                                 <td className="p-2 text-cyan-400 font-bold">{lb}</td>
                                 <td className="p-2 text-emerald-300">[{start}..{i}]</td>
-                                <td className="p-2 font-bold text-slate-200">{fenwickTree[i]}</td>
+                                <td className="p-2 font-bold text-stone-800">{fenwickTree[i]}</td>
                               </tr>
                             );
                           })}
@@ -1695,9 +1703,9 @@ export default function JavaSpecializedDS() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Fenwick Operations Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Fenwick Operations Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {bitLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1711,38 +1719,38 @@ export default function JavaSpecializedDS() {
             {workbenchTool === "sparse-table" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Table className="w-4 h-4" />
                       Sparse Table Static RMQ Simulator
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Demonstrate strictly <code className="text-emerald-400">O(1)</code> Range Minimum Queries exploiting the idempotent overlap property <code className="text-cyan-400">min(A, B) = min(A, B, overlap)</code>.
                     </p>
 
-                    <div className="space-y-3 pt-2 border-t border-slate-800">
-                      <label className="text-xs text-slate-300 font-semibold block">RMQ Query Range [L, R]</label>
+                    <div className="space-y-3 pt-2 border-t border-[#e7e3da]">
+                      <label className="text-xs text-stone-700 font-semibold block">RMQ Query Range [L, R]</label>
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <span className="text-[11px] text-slate-400 block mb-1">L (0..7)</span>
+                          <span className="text-[11px] text-stone-500 block mb-1">L (0..7)</span>
                           <input
                             type="number"
                             min="0"
                             max="7"
                             value={sparseQueryL}
                             onChange={(e) => setSparseQueryL(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                            className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                           />
                         </div>
                         <div>
-                          <span className="text-[11px] text-slate-400 block mb-1">R (0..7)</span>
+                          <span className="text-[11px] text-stone-500 block mb-1">R (0..7)</span>
                           <input
                             type="number"
                             min="0"
                             max="7"
                             value={sparseQueryR}
                             onChange={(e) => setSparseQueryR(e.target.value)}
-                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                            className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                           />
                         </div>
                       </div>
@@ -1760,7 +1768,7 @@ export default function JavaSpecializedDS() {
                         <div className="font-bold text-sm">
                           RMQ [{sparseResult.L}, {sparseResult.R}] Minimum = {sparseResult.minVal}
                         </div>
-                        <div className="text-[11px] text-slate-300 space-y-1">
+                        <div className="text-[11px] text-stone-700 space-y-1">
                           <div>Range Length = {sparseResult.len}</div>
                           <div>Largest power of 2: k = floor(log2({sparseResult.len})) = <strong className="text-cyan-400">{sparseResult.k}</strong> (2^{sparseResult.k} = {sparseResult.pow2})</div>
                           <div>Block 1: [{sparseResult.block1Range[0]}..{sparseResult.block1Range[1]}] &rarr; Value: {sparseResult.block1Val}</div>
@@ -1776,12 +1784,12 @@ export default function JavaSpecializedDS() {
 
                 <div className="lg:col-span-7 space-y-4">
                   {/* Array and DP Table Display */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Precomputed Sparse Table dp[i][k] (O(N log N))</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Precomputed Sparse Table dp[i][k] (O(N log N))</span>
                     <div className="overflow-x-auto">
                       <table className="w-full text-xs font-mono text-center border-collapse">
                         <thead>
-                          <tr className="border-b border-slate-800 text-slate-400">
+                          <tr className="border-b border-[#e7e3da] text-stone-500">
                             <th className="p-2 text-left">i (arr[i])</th>
                             <th className="p-2">k=0 (len 1)</th>
                             <th className="p-2">k=1 (len 2)</th>
@@ -1791,12 +1799,12 @@ export default function JavaSpecializedDS() {
                         </thead>
                         <tbody>
                           {sparseArray.map((val, i) => (
-                            <tr key={i} className="border-b border-slate-800/40">
+                            <tr key={i} className="border-b border-[#e7e3da]/40">
                               <td className="p-2 text-left font-bold text-amber-400">
                                 [{i}] = {val}
                               </td>
                               {Array.from({ length: 4 }, (_, k) => (
-                                <td key={k} className="p-2 text-slate-300">
+                                <td key={k} className="p-2 text-stone-700">
                                   {sparseTable.dp[i][k] !== undefined && i + (1 << k) <= sparseArray.length
                                     ? sparseTable.dp[i][k]
                                     : "-"}
@@ -1809,9 +1817,9 @@ export default function JavaSpecializedDS() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Sparse Table Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Sparse Table Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {sparseLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1824,21 +1832,21 @@ export default function JavaSpecializedDS() {
             {/* WORKBENCH 8: SPECIALIZED DATA STRUCTURE DECISION MATRIX */}
             {workbenchTool === "decision-matrix" && (
               <div className="space-y-6">
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-base font-bold text-white flex items-center gap-2">
                         <Compass className="w-5 h-5 text-emerald-400" />
                         Specialized Data Structure Selection Engine
                       </h3>
-                      <p className="text-xs text-slate-400 mt-1">
+                      <p className="text-xs text-stone-500 mt-1">
                         Select a problem requirement to view the optimal data structure, time/space complexities, trade-offs, and engineering rationale.
                       </p>
                     </div>
                   </div>
 
                   {/* Problem Pills */}
-                  <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-800">
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[#e7e3da]">
                     {Object.entries(DECISION_CASES).map(([key, data]) => (
                       <button
                         key={key}
@@ -1846,7 +1854,7 @@ export default function JavaSpecializedDS() {
                         className={`px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                           decisionProblem === key
                             ? "bg-emerald-600 text-white font-bold shadow-lg shadow-emerald-600/30 scale-105"
-                            : "bg-slate-950 hover:bg-slate-850 text-slate-300 border border-slate-800"
+                            : "bg-stone-50 hover:bg-slate-850 text-stone-700 border border-[#e7e3da]"
                         }`}
                       >
                         {data.title}
@@ -1856,27 +1864,27 @@ export default function JavaSpecializedDS() {
 
                   {/* Active Decision Card */}
                   {DECISION_CASES[decisionProblem] && (
-                    <div className="mt-4 p-6 rounded-2xl bg-slate-950 border border-emerald-500/30 space-y-4">
+                    <div className="mt-4 p-6 rounded-2xl bg-stone-50 border border-emerald-500/30 space-y-4">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-4 border-b border-slate-850">
                         <div>
-                          <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Recommended Data Structure</span>
+                          <span className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Recommended Data Structure</span>
                           <h4 className="text-xl font-bold text-emerald-400 mt-0.5">
                             {DECISION_CASES[decisionProblem].winner}
                           </h4>
                         </div>
                         <div className="text-right">
-                          <span className="text-xs text-slate-400">Alternative:</span>
-                          <div className="text-sm font-semibold text-slate-300">{DECISION_CASES[decisionProblem].alt}</div>
+                          <span className="text-xs text-stone-500">Alternative:</span>
+                          <div className="text-sm font-semibold text-stone-700">{DECISION_CASES[decisionProblem].alt}</div>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
-                          <div className="text-xs text-slate-400">Time Complexity</div>
+                        <div className="p-4 rounded-xl bg-white border border-[#e7e3da] space-y-1">
+                          <div className="text-xs text-stone-500">Time Complexity</div>
                           <div className="text-sm font-mono text-cyan-400 font-bold">{DECISION_CASES[decisionProblem].time}</div>
                         </div>
-                        <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
-                          <div className="text-xs text-slate-400">Space Complexity</div>
+                        <div className="p-4 rounded-xl bg-white border border-[#e7e3da] space-y-1">
+                          <div className="text-xs text-stone-500">Space Complexity</div>
                           <div className="text-sm font-mono text-amber-400 font-bold">{DECISION_CASES[decisionProblem].space}</div>
                         </div>
                       </div>
@@ -1884,11 +1892,11 @@ export default function JavaSpecializedDS() {
                       <div className="space-y-2 pt-2">
                         <div className="text-xs">
                           <strong className="text-emerald-400">Key Advantage:</strong>{" "}
-                          <span className="text-slate-300">{DECISION_CASES[decisionProblem].pros}</span>
+                          <span className="text-stone-700">{DECISION_CASES[decisionProblem].pros}</span>
                         </div>
                         <div className="text-xs">
                           <strong className="text-rose-400">Trade-off / Limitation:</strong>{" "}
-                          <span className="text-slate-300">{DECISION_CASES[decisionProblem].cons}</span>
+                          <span className="text-stone-700">{DECISION_CASES[decisionProblem].cons}</span>
                         </div>
                         <div className="text-xs p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
                           <strong>Interview Verdict:</strong> {DECISION_CASES[decisionProblem].verdict}
@@ -1909,19 +1917,19 @@ export default function JavaSpecializedDS() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Sidebar Section Navigation */}
             <div className="lg:col-span-4 space-y-4">
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 sticky top-20">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4 space-y-3 sticky top-20">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Module Outline</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-stone-500">Module Outline</span>
                   <span className="text-xs text-emerald-400 font-mono">{filteredSections.length} Sections</span>
                 </div>
                 <div className="relative">
-                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
+                  <Search className="w-3.5 h-3.5 text-stone-500 absolute left-3 top-2.5" />
                   <input
                     type="text"
                     value={searchFilter}
                     onChange={(e) => setSearchFilter(e.target.value)}
                     placeholder="Filter sections..."
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
                   />
                 </div>
 
@@ -1938,8 +1946,8 @@ export default function JavaSpecializedDS() {
                           isActive
                             ? "bg-emerald-600 text-white font-medium shadow-md shadow-emerald-600/20"
                             : isDone
-                            ? "bg-slate-950/70 text-slate-300 hover:bg-slate-850"
-                            : "bg-slate-950 text-slate-400 hover:bg-slate-850 hover:text-slate-200"
+                            ? "bg-stone-50/70 text-stone-700 hover:bg-slate-850"
+                            : "bg-stone-50 text-stone-500 hover:bg-slate-850 hover:text-stone-800"
                         }`}
                       >
                         <span
@@ -1952,7 +1960,7 @@ export default function JavaSpecializedDS() {
                           {isDone ? (
                             <CheckSquare className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-emerald-400"}`} />
                           ) : (
-                            <Square className="w-3.5 h-3.5 text-slate-600 hover:text-slate-400" />
+                            <Square className="w-3.5 h-3.5 text-slate-600 hover:text-stone-500" />
                           )}
                         </span>
                         <div className="flex-1 min-w-0">
@@ -1975,8 +1983,8 @@ export default function JavaSpecializedDS() {
                 const isDone = !!completedSections[currentSec.id];
 
                 return (
-                  <article className="bg-slate-900 border border-slate-800 rounded-2xl p-6 lg:p-8 space-y-6">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+                  <article className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 lg:p-8 space-y-6">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#e7e3da]">
                       <div>
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
@@ -1984,7 +1992,7 @@ export default function JavaSpecializedDS() {
                               ? "Module Overview · 37 Core Sections"
                               : `Section ${currentSec.id} of 37`}
                           </span>
-                          <span className="text-xs text-slate-400 font-mono">
+                          <span className="text-xs text-stone-500 font-mono">
                             {currentSec.category}
                           </span>
                         </div>
@@ -1997,7 +2005,7 @@ export default function JavaSpecializedDS() {
                         className={`px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all ${
                           isDone
                             ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40"
-                            : "bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"
+                            : "bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-200"
                         }`}
                       >
                         {isDone ? (
@@ -2007,7 +2015,7 @@ export default function JavaSpecializedDS() {
                           </>
                         ) : (
                           <>
-                            <Square className="w-4 h-4 text-slate-400" />
+                            <Square className="w-4 h-4 text-stone-500" />
                             Mark as Done
                           </>
                         )}
@@ -2015,16 +2023,16 @@ export default function JavaSpecializedDS() {
                     </div>
 
                     {/* Section Body */}
-                    <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-sm">
+                    <div className="prose prose-invert max-w-none text-stone-700 leading-relaxed text-sm">
                       {currentSec.content}
                     </div>
 
                     {/* Next / Previous Section Footer */}
-                    <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+                    <div className="flex items-center justify-between pt-6 border-t border-[#e7e3da]">
                       <button
                         disabled={currentSec.id === 0}
                         onClick={() => setActiveSectionId(Math.max(0, currentSec.id - 1))}
-                        className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-750 disabled:opacity-40 text-xs text-slate-300 flex items-center gap-2"
+                        className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-slate-750 disabled:opacity-40 text-xs text-stone-700 flex items-center gap-2"
                       >
                         <ArrowLeft className="w-4 h-4" /> Previous Section
                       </button>
@@ -2048,13 +2056,13 @@ export default function JavaSpecializedDS() {
         {/* ========================================================================= */}
         {activeTab === "quiz" && (
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
                   <HelpCircle className="w-5 h-5 text-emerald-400" />
                   Module 14 Knowledge Assessment
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   15 questions covering Tries, DSU, Segment Trees, Fenwick Trees, and Sparse Tables.
                 </p>
               </div>
@@ -2065,7 +2073,7 @@ export default function JavaSpecializedDS() {
                       setUserAnswers({});
                       setShowQuizResults(false);
                     }}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-2"
+                    className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-800 flex items-center gap-2"
                   >
                     <RotateCcw className="w-4 h-4" /> Retake Quiz
                   </button>
@@ -2073,7 +2081,7 @@ export default function JavaSpecializedDS() {
                   <button
                     onClick={() => setShowQuizResults(true)}
                     disabled={Object.keys(userAnswers).length === 0}
-                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-xs font-bold text-white transition-all shadow-lg shadow-emerald-600/30"
+                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-stone-100 disabled:text-slate-600 text-xs font-bold text-white transition-all shadow-lg shadow-emerald-600/30"
                   >
                     Submit Assessment ({Object.keys(userAnswers).length}/15 Answered)
                   </button>
@@ -2087,12 +2095,12 @@ export default function JavaSpecializedDS() {
                   <div className="text-xs uppercase tracking-wider text-emerald-400 font-bold">Your Score</div>
                   <div className="text-3xl font-bold text-white mt-1">
                     {calculateScore()} / {QUIZ_QUESTIONS.length}
-                    <span className="text-sm text-slate-400 font-normal ml-2">
+                    <span className="text-sm text-stone-500 font-normal ml-2">
                       ({Math.round((calculateScore() / QUIZ_QUESTIONS.length) * 100)}%)
                     </span>
                   </div>
                 </div>
-                <div className="text-sm text-slate-300">
+                <div className="text-sm text-stone-700">
                   {calculateScore() >= 12 ? (
                     <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
                       <CheckCircle2 className="w-5 h-5" /> Master Level: Outstanding DSA Proficiency!
@@ -2120,11 +2128,11 @@ export default function JavaSpecializedDS() {
                         ? isCorrect
                           ? "bg-emerald-500/5 border-emerald-500/30"
                           : "bg-rose-500/5 border-rose-500/30"
-                        : "bg-slate-900 border-slate-800"
+                        : "bg-white border-[#e7e3da]"
                     }`}
                   >
                     <div className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-slate-800 text-slate-300 text-xs font-mono flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-700 text-xs font-mono flex items-center justify-center shrink-0 mt-0.5">
                         {idx + 1}
                       </span>
                       <div className="flex-1 space-y-3">
@@ -2133,7 +2141,7 @@ export default function JavaSpecializedDS() {
                         <div className="space-y-2">
                           {q.options.map((opt, optIdx) => {
                             const isThisOption = selected === optIdx;
-                            let btnStyle = "bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-850";
+                            let btnStyle = "bg-stone-50 border-[#e7e3da] text-stone-700 hover:bg-slate-850";
 
                             if (showQuizResults) {
                               if (optIdx === q.correct) {
@@ -2141,7 +2149,7 @@ export default function JavaSpecializedDS() {
                               } else if (isThisOption) {
                                 btnStyle = "bg-rose-500/20 border-rose-500/50 text-rose-300";
                               } else {
-                                btnStyle = "bg-slate-950/50 border-slate-850 text-slate-500";
+                                btnStyle = "bg-stone-50/50 border-slate-850 text-slate-500";
                               }
                             } else if (isThisOption) {
                               btnStyle = "bg-emerald-600/30 border-emerald-500 text-emerald-200 font-semibold";
@@ -2164,7 +2172,7 @@ export default function JavaSpecializedDS() {
                         </div>
 
                         {showQuizResults && (
-                          <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+                          <div className="p-3 rounded-xl bg-stone-50 border border-[#e7e3da] text-xs text-stone-700 leading-relaxed">
                             <strong className="text-emerald-400">Explanation: </strong>
                             {q.explanation}
                           </div>
@@ -2183,13 +2191,13 @@ export default function JavaSpecializedDS() {
         {/* ========================================================================= */}
         {activeTab === "labs" && (
           <div className="space-y-6">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
                   <Award className="w-5 h-5 text-emerald-400" />
                   45 Practical Implementation Labs
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   Categorized into Beginner, Intermediate, and Advanced milestones with persistent progress.
                 </p>
               </div>
@@ -2203,7 +2211,7 @@ export default function JavaSpecializedDS() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                       labTierFilter === tier
                         ? "bg-emerald-600 text-white font-bold"
-                        : "bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800"
+                        : "bg-stone-50 text-stone-500 hover:text-stone-800 border border-[#e7e3da]"
                     }`}
                   >
                     {tier}
@@ -2221,8 +2229,8 @@ export default function JavaSpecializedDS() {
                     onClick={() => toggleLabComplete(lab.id)}
                     className={`p-5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
                       isCompleted
-                        ? "bg-emerald-500/10 border-emerald-500/30 text-slate-200"
-                        : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700"
+                        ? "bg-emerald-500/10 border-emerald-500/30 text-stone-800"
+                        : "bg-white border-[#e7e3da] text-stone-700 hover:border-stone-200"
                     }`}
                   >
                     <div>
@@ -2241,10 +2249,10 @@ export default function JavaSpecializedDS() {
                         <span className="text-[11px] font-mono text-slate-500">Lab #{lab.id}</span>
                       </div>
                       <h4 className="text-sm font-bold text-white mb-1.5">{lab.title}</h4>
-                      <p className="text-xs text-slate-400 leading-relaxed">{lab.desc}</p>
+                      <p className="text-xs text-stone-500 leading-relaxed">{lab.desc}</p>
                     </div>
 
-                    <div className="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                    <div className="pt-4 mt-4 border-t border-[#e7e3da] flex items-center justify-between text-xs">
                       <span className={isCompleted ? "text-emerald-400 font-semibold" : "text-slate-500"}>
                         {isCompleted ? "✓ Completed" : "Mark as Completed"}
                       </span>
@@ -2263,11 +2271,7 @@ export default function JavaSpecializedDS() {
       </main>
 
       {/* MODULE FOOTER NAVIGATION */}
-      <footer className="border-t border-slate-800 bg-slate-950 py-6 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <ModuleNav currentModuleId="specialized-ds" nextRoute="/learning/java/two-pointers-sliding-window" />
-        </div>
-      </footer>
+      </div>
     </div>
   );
 }

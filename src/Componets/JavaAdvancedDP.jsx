@@ -660,7 +660,14 @@ export default function JavaAdvancedDP() {
   }, [quizAnswers]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-orange-500/20 selection:text-orange-200">
+    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-[#f97316] selection:text-white px-4 py-6 sm:px-8 sm:py-10 md:px-12">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="advanced-dp"
@@ -672,26 +679,26 @@ export default function JavaAdvancedDP() {
       />
 
       {/* Hero Banner */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-orange-950/20 via-slate-900/40 to-slate-950 px-4 py-8 md:py-12">
+      <div className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#ea580c] text-xs font-semibold tracking-wide uppercase">
               <Zap className="w-3.5 h-3.5" />
               Module 20 — Advanced Algorithms & Optimization
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white flex items-center gap-3">
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900 flex items-center gap-3">
               Advanced DP & Algorithm Design
             </h1>
-            <p className="text-slate-400 text-sm md:text-base max-w-3xl leading-relaxed">
+            <p className="text-stone-500 text-sm md:text-base max-w-3xl leading-relaxed">
               Transition from implementing known algorithms to designing complex state models: Multidimensional DP, Tree & Graph DP, Bitmasking, TSP, Digit DP, Interval DP, Divide & Conquer optimization, Meet in the Middle, and Mathematical Proofs.
             </p>
           </div>
 
           {/* Quick Metrics & Quiz Launcher */}
           <div className="flex flex-wrap md:flex-col items-start md:items-end gap-3">
-            <div className="flex items-center gap-3 bg-slate-900/80 border border-slate-800 px-4 py-2 rounded-xl text-xs">
+            <div className="flex items-center gap-3 bg-stone-50 border border-stone-200 px-4 py-2 rounded-xl text-xs">
               <div className="text-right">
-                <span className="text-slate-400 block text-[10px]">Practice Labs</span>
+                <span className="text-stone-500 block text-[10px]">Practice Labs</span>
                 <span className="font-bold text-emerald-400">{completedLabs.length} / 35 Complete</span>
               </div>
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
@@ -699,7 +706,7 @@ export default function JavaAdvancedDP() {
 
             <button
               onClick={() => setShowQuizModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-stone-900 font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 transition-all hover:scale-[1.02]"
             >
               <Award className="w-4 h-4" />
               Take Assessment Quiz ({QUIZ_QUESTIONS.length} MCQs)
@@ -708,13 +715,13 @@ export default function JavaAdvancedDP() {
         </div>
 
         {/* View Switcher Tabs */}
-        <div className="max-w-7xl mx-auto mt-8 flex items-center gap-2 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto mt-8 flex items-center gap-2 border-b border-[#e7e3da]">
           <button
             onClick={() => setActiveMode("workbenches")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "workbenches"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <Activity className="w-4 h-4" />
@@ -724,8 +731,8 @@ export default function JavaAdvancedDP() {
             onClick={() => setActiveMode("reader")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "reader"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <BookOpen className="w-4 h-4" />
@@ -735,8 +742,8 @@ export default function JavaAdvancedDP() {
             onClick={() => setActiveMode("labs")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "labs"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <CheckSquare className="w-4 h-4" />
@@ -771,10 +778,10 @@ export default function JavaAdvancedDP() {
                     className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between gap-2 ${
                       isSel
                         ? "bg-orange-500/15 border-orange-500/60 text-orange-300 shadow-md shadow-orange-500/20"
-                        : "bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                        : "bg-white border-[#e7e3da] text-stone-500 hover:border-stone-200 hover:text-stone-800"
                     }`}
                   >
-                    <IconComponent className={`w-4 h-4 ${isSel ? "text-orange-400" : "text-slate-400"}`} />
+                    <IconComponent className={`w-4 h-4 ${isSel ? "text-orange-400" : "text-stone-500"}`} />
                     <span className="text-xs font-semibold leading-tight">{wb.name}</span>
                   </button>
                 );
@@ -783,19 +790,19 @@ export default function JavaAdvancedDP() {
 
             {/* WORKBENCH 1: 3D Multidimensional Knapsack */}
             {activeWb === 1 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Database className="w-5 h-5 text-orange-400" />
                       Workbench 1: Multi-Dimensional 3D Knapsack Simulator
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Items subject to dual independent constraints: Weight Capacity W and Volume Capacity V in O(nWV) time.
                     </p>
                   </div>
                   <div className="flex flex-wrap items-center gap-4">
-                    <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
+                    <div className="flex items-center gap-2 text-xs font-mono text-stone-700">
                       <span>Max W:</span>
                       <input
                         type="range"
@@ -807,7 +814,7 @@ export default function JavaAdvancedDP() {
                       />
                       <span className="text-orange-400 font-bold">{maxWeight}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
+                    <div className="flex items-center gap-2 text-xs font-mono text-stone-700">
                       <span>Max V:</span>
                       <input
                         type="range"
@@ -824,9 +831,9 @@ export default function JavaAdvancedDP() {
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                   {multiItems.map((item, idx) => (
-                    <div key={idx} className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1.5">
-                      <div className="text-xs font-bold text-white">{item.name}</div>
-                      <div className="text-[11px] font-mono text-slate-400 flex justify-between">
+                    <div key={idx} className="bg-stone-50 p-3.5 rounded-xl border border-[#e7e3da] space-y-1.5">
+                      <div className="text-xs font-bold text-stone-900">{item.name}</div>
+                      <div className="text-[11px] font-mono text-stone-500 flex justify-between">
                         <span>Weight: {item.wt}</span>
                         <span>Volume: {item.vol}</span>
                       </div>
@@ -837,12 +844,12 @@ export default function JavaAdvancedDP() {
                   ))}
                 </div>
 
-                <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex items-center justify-between">
+                <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex items-center justify-between">
                   <div>
-                    <span className="text-xs font-mono text-slate-400 block">Optimal Payload Value dp[W][V]:</span>
-                    <div className="text-3xl font-extrabold text-white font-mono mt-1">${multiResult.maxVal}</div>
+                    <span className="text-xs font-mono text-stone-500 block">Optimal Payload Value dp[W][V]:</span>
+                    <div className="text-3xl font-extrabold text-stone-900 font-mono mt-1">${multiResult.maxVal}</div>
                   </div>
-                  <div className="text-right text-xs text-slate-400 font-mono space-y-1">
+                  <div className="text-right text-xs text-stone-500 font-mono space-y-1">
                     <div>State Dimensions: <span className="text-orange-400">[Items][Weight][Volume]</span></div>
                     <div>Space Complexity: <span className="text-emerald-400">O(W × V) rolling</span></div>
                   </div>
@@ -852,14 +859,14 @@ export default function JavaAdvancedDP() {
 
             {/* WORKBENCH 2: Grid DP with Interactive Obstacles */}
             {activeWb === 2 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Grid className="w-5 h-5 text-orange-400" />
                       Workbench 2: Grid DP with Interactive Obstacles
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Click any grid cell to toggle obstacle placement. Observe real-time path count and minimum accumulated cost.
                     </p>
                   </div>
@@ -869,7 +876,7 @@ export default function JavaAdvancedDP() {
                   </div>
                 </div>
 
-                <div className="overflow-x-auto bg-slate-950 p-2.5 sm:p-5 rounded-xl border border-slate-800">
+                <div className="overflow-x-auto bg-stone-50 p-2.5 sm:p-5 rounded-xl border border-[#e7e3da]">
                   <div className="grid grid-cols-5 gap-1.5 sm:gap-2 min-w-[270px] max-w-lg mx-auto">
                     {Array.from({ length: gridRows }).map((_, r) =>
                       Array.from({ length: gridCols }).map((_, c) => {
@@ -886,8 +893,8 @@ export default function JavaAdvancedDP() {
                                 : isStart
                                 ? "bg-emerald-950/40 border-emerald-500 text-emerald-300 ring-2 ring-emerald-500/20"
                                 : isEnd
-                                ? "bg-slate-900 border-orange-500 text-orange-300 ring-2 ring-orange-500/30"
-                                : "bg-slate-900 border-slate-800 hover:border-slate-700 text-slate-300"
+                                ? "bg-white border-orange-500 text-orange-300 ring-2 ring-orange-500/30"
+                                : "bg-white border-[#e7e3da] hover:border-stone-200 text-stone-700"
                             }`}
                           >
                             <div className="flex justify-between items-center text-[9px] sm:text-[10px] font-mono">
@@ -908,14 +915,14 @@ export default function JavaAdvancedDP() {
 
             {/* WORKBENCH 3: LPS String DP */}
             {activeWb === 3 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Code2 className="w-5 h-5 text-orange-400" />
                       Workbench 3: Longest Palindromic Subsequence (LPS) Studio
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Recurrence: <code className="text-orange-300 font-mono">dp[i][j] = (s[i] == s[j]) ? 2 + dp[i+1][j-1] : Math.max(dp[i+1][j], dp[i][j-1])</code>
                     </p>
                   </div>
@@ -925,28 +932,28 @@ export default function JavaAdvancedDP() {
                       value={lpsString}
                       onChange={(e) => setLpsString(e.target.value.toUpperCase().replace(/[^A-Z]/g, ''))}
                       maxLength={12}
-                      className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs font-mono text-white focus:outline-none focus:border-orange-500 w-44"
+                      className="bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs font-mono text-stone-900 focus:outline-none focus:border-orange-500 w-44"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <span className="text-xs font-mono text-slate-400 block uppercase">LPS Metrics</span>
-                    <div className="text-3xl font-extrabold text-white font-mono">{lpsResult.len} Chars</div>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
+                    <span className="text-xs font-mono text-stone-500 block uppercase">LPS Metrics</span>
+                    <div className="text-3xl font-extrabold text-stone-900 font-mono">{lpsResult.len} Chars</div>
                     <div className="text-xs font-mono text-emerald-400 font-bold">
                       Sequence: "{lpsResult.reconstructed}"
                     </div>
-                    <p className="text-[11px] text-slate-400 leading-relaxed pt-2">
+                    <p className="text-[11px] text-stone-500 leading-relaxed pt-2">
                       Equivalent to <strong className="text-orange-400">LCS(s, reverse(s))</strong> where reverse is "{lpsString.split('').reverse().join('')}".
                     </p>
                   </div>
 
-                  <div className="md:col-span-2 overflow-x-auto bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <div className="text-xs font-mono text-slate-400 mb-2">2D Interval DP Table dp[i][j]</div>
+                  <div className="md:col-span-2 overflow-x-auto bg-stone-50 p-4 rounded-xl border border-[#e7e3da]">
+                    <div className="text-xs font-mono text-stone-500 mb-2">2D Interval DP Table dp[i][j]</div>
                     <table className="w-full text-center text-xs font-mono border-collapse">
                       <thead>
-                        <tr className="bg-slate-900 border-b border-slate-800 text-slate-400">
+                        <tr className="bg-white border-b border-[#e7e3da] text-stone-500">
                           <th className="p-1.5 text-left">i \ j</th>
                           {lpsString.split('').map((ch, idx) => (
                             <th key={idx} className="p-1.5 text-orange-300 font-bold">{ch}</th>
@@ -964,8 +971,8 @@ export default function JavaAdvancedDP() {
                                   i === 0 && j === lpsString.length - 1
                                     ? "bg-orange-500/20 text-orange-300 font-bold border border-orange-500"
                                     : i <= j
-                                    ? "text-slate-300"
-                                    : "text-slate-400"
+                                    ? "text-stone-700"
+                                    : "text-stone-500"
                                 }`}
                               >
                                 {i <= j ? val : "-"}
@@ -982,43 +989,43 @@ export default function JavaAdvancedDP() {
 
             {/* WORKBENCH 4: Tree DP (House Robber III) */}
             {activeWb === 4 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <GitBranch className="w-5 h-5 text-orange-400" />
                     Workbench 4: Tree DP (House Robber on a Hierarchy)
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Post-order state vector (take[u], skip[u]) computed recursively in O(N) time and O(H) call stack.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
-                    <div className="text-xs font-mono text-slate-400 uppercase">Tree Topology & Optimal Loot</div>
-                    <div className="text-3xl font-extrabold text-white font-mono">${treeDPResult.maxVal}</div>
-                    <div className="text-xs text-slate-300">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-3">
+                    <div className="text-xs font-mono text-stone-500 uppercase">Tree Topology & Optimal Loot</div>
+                    <div className="text-3xl font-extrabold text-stone-900 font-mono">${treeDPResult.maxVal}</div>
+                    <div className="text-xs text-stone-700">
                       Robbed Node IDs: <strong className="text-emerald-400 font-mono">[{treeDPResult.chosen.join(", ")}]</strong>
                     </div>
-                    <div className="pt-2 text-[11px] font-mono text-slate-400 space-y-1">
+                    <div className="pt-2 text-[11px] font-mono text-stone-500 space-y-1">
                       <div>Root Take: ${treeDPResult.rootTake} (takes root #1 + grandchildren #4, #5)</div>
                       <div>Root Skip: ${treeDPResult.rootSkip} (takes child #2 + #3)</div>
                     </div>
                   </div>
 
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 space-y-3">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] font-mono text-xs text-stone-700 space-y-3">
                     <span className="text-orange-400 block font-bold">Hierarchical Structure Visualization:</span>
                     <div className="pl-4 border-l-2 border-orange-500/40 space-y-2">
                       <div className="flex items-center gap-2">
                         <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">Node #1 (val: $3) [TAKEN]</span>
                       </div>
-                      <div className="pl-6 border-l border-slate-800 space-y-2">
+                      <div className="pl-6 border-l border-[#e7e3da] space-y-2">
                         <div>├── Node #2 (val: $2) [SKIPPED]</div>
-                        <div className="pl-6 border-l border-slate-800 text-emerald-400">
+                        <div className="pl-6 border-l border-[#e7e3da] text-emerald-400">
                           └── Node #4 (val: $3) [TAKEN]
                         </div>
                         <div>└── Node #3 (val: $3) [SKIPPED]</div>
-                        <div className="pl-6 border-l border-slate-800 text-emerald-400">
+                        <div className="pl-6 border-l border-[#e7e3da] text-emerald-400">
                           └── Node #5 (val: $1) [TAKEN]
                         </div>
                       </div>
@@ -1030,24 +1037,24 @@ export default function JavaAdvancedDP() {
 
             {/* WORKBENCH 5: TSP Bitmask DP */}
             {activeWb === 5 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Layers className="w-5 h-5 text-orange-400" />
                     Workbench 5: Traveling Salesman Problem (TSP) Bitmask DP Studio
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     NP-hard Hamiltonian cycle solved in O(N² 2ⁿ) using integer bitmask representing visited vertices.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <div className="text-xs font-mono text-slate-400">4-City Cost Matrix (Complete Graph)</div>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
+                    <div className="text-xs font-mono text-stone-500">4-City Cost Matrix (Complete Graph)</div>
                     <div className="overflow-x-auto">
                       <table className="w-full text-center text-xs font-mono border-collapse min-w-[240px]">
                         <thead>
-                          <tr className="bg-slate-900 text-slate-400 border-b border-slate-800">
+                          <tr className="bg-white text-stone-500 border-b border-[#e7e3da]">
                             <th className="p-2">u \ v</th>
                             <th>0</th><th>1</th><th>2</th><th>3</th>
                           </tr>
@@ -1066,13 +1073,13 @@ export default function JavaAdvancedDP() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <div className="text-xs font-mono text-slate-400 uppercase">Optimal Hamiltonian Cycle</div>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
+                    <div className="text-xs font-mono text-stone-500 uppercase">Optimal Hamiltonian Cycle</div>
                     <div className="text-3xl font-extrabold text-emerald-400 font-mono">Cost: {tspResult.minCost}</div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-stone-700 leading-relaxed">
                       Starts at City 0, traverses cities in bitmask order, finishes at City {tspResult.lastCity}, and adds return edge <code className="text-orange-300 font-mono">cost[{tspResult.lastCity}][0] = {tspMatrix[tspResult.lastCity][0]}</code>.
                     </p>
-                    <div className="text-[11px] font-mono text-slate-400 pt-1">
+                    <div className="text-[11px] font-mono text-stone-500 pt-1">
                       Total bitmask state space: 2⁴ = 16 masks × 4 vertices = 64 cells.
                     </div>
                   </div>
@@ -1082,14 +1089,14 @@ export default function JavaAdvancedDP() {
 
             {/* WORKBENCH 6: Digit DP Simulator */}
             {activeWb === 6 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Sparkles className="w-5 h-5 text-orange-400" />
                       Workbench 6: Digit DP Interactive Range Counter
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Counting numbers in range [0, N] whose digit sum ≤ K using position, sum, and tightness flags.
                     </p>
                   </div>
@@ -1121,12 +1128,12 @@ export default function JavaAdvancedDP() {
                   </div>
                 </div>
 
-                <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex items-center justify-between">
+                <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex items-center justify-between">
                   <div>
-                    <span className="text-xs font-mono text-slate-400 block">Numbers in [0, {digitDPCount.bound}] with digit sum ≤ {digitDPCount.limit}:</span>
-                    <div className="text-3xl font-extrabold text-white font-mono mt-1">{digitDPCount.count} Numbers</div>
+                    <span className="text-xs font-mono text-stone-500 block">Numbers in [0, {digitDPCount.bound}] with digit sum ≤ {digitDPCount.limit}:</span>
+                    <div className="text-3xl font-extrabold text-stone-900 font-mono mt-1">{digitDPCount.count} Numbers</div>
                   </div>
-                  <div className="text-right text-xs text-slate-400 font-mono space-y-1">
+                  <div className="text-right text-xs text-stone-500 font-mono space-y-1">
                     <div>Recursion Depth: <span className="text-orange-400">O(digits = {digitBound.toString().length})</span></div>
                     <div>Tight Branching: <span className="text-emerald-400">Bound prefix checked</span></div>
                   </div>
@@ -1136,14 +1143,14 @@ export default function JavaAdvancedDP() {
 
             {/* WORKBENCH 7: Meet in the Middle */}
             {activeWb === 7 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Cpu className="w-5 h-5 text-orange-400" />
                       Workbench 7: Meet in the Middle Subset Sum Explorer
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Partition array of size N into two halves of size N/2, precomputing 2^(N/2) sums with binary search lookup.
                     </p>
                   </div>
@@ -1162,19 +1169,19 @@ export default function JavaAdvancedDP() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-2">
                     <span className="text-xs font-mono text-orange-400 font-semibold block">Left Half [{mitmResult.left.join(", ")}]</span>
-                    <div className="text-xs font-mono text-slate-300">Generated Subsets: 2^{mitmResult.left.length} = {mitmResult.leftCount}</div>
+                    <div className="text-xs font-mono text-stone-700">Generated Subsets: 2^{mitmResult.left.length} = {mitmResult.leftCount}</div>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-2">
                     <span className="text-xs font-mono text-amber-400 font-semibold block">Right Half [{mitmResult.right.join(", ")}]</span>
-                    <div className="text-xs font-mono text-slate-300">Sorted Subsets: 2^{mitmResult.right.length} = {mitmResult.rightCount}</div>
+                    <div className="text-xs font-mono text-stone-700">Sorted Subsets: 2^{mitmResult.right.length} = {mitmResult.rightCount}</div>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-2">
                     <span className="text-xs font-mono text-emerald-400 font-semibold block">Best Subset Sum ≤ {mitmTarget}</span>
-                    <div className="text-2xl font-bold font-mono text-white">{mitmResult.bestSum}</div>
+                    <div className="text-2xl font-bold font-mono text-stone-900">{mitmResult.bestSum}</div>
                   </div>
                 </div>
               </div>
@@ -1182,14 +1189,14 @@ export default function JavaAdvancedDP() {
 
             {/* WORKBENCH 8: Bit Manipulation & XOR Lab */}
             {activeWb === 8 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Binary className="w-5 h-5 text-orange-400" />
                       Workbench 8: Bit Manipulation & XOR Laboratory
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Live bit operations: Kernighan set bits, power of two, bitmask extraction, and two's complement inversion.
                     </p>
                   </div>
@@ -1208,25 +1215,25 @@ export default function JavaAdvancedDP() {
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1 text-center">
-                    <span className="text-[10px] text-slate-400 font-mono block">Binary (8-bit)</span>
-                    <div className="text-xl font-mono font-bold text-white">{bitMetrics.binStr}</div>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-1 text-center">
+                    <span className="text-[10px] text-stone-500 font-mono block">Binary (8-bit)</span>
+                    <div className="text-xl font-mono font-bold text-stone-900">{bitMetrics.binStr}</div>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1 text-center">
-                    <span className="text-[10px] text-slate-400 font-mono block">Set Bits Count (n & n-1)</span>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-1 text-center">
+                    <span className="text-[10px] text-stone-500 font-mono block">Set Bits Count (n & n-1)</span>
                     <div className="text-xl font-mono font-bold text-orange-400">{bitMetrics.setBits}</div>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1 text-center">
-                    <span className="text-[10px] text-slate-400 font-mono block">Is Power of Two?</span>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-1 text-center">
+                    <span className="text-[10px] text-stone-500 font-mono block">Is Power of Two?</span>
                     <div className={`text-xl font-mono font-bold ${bitMetrics.isPow2 ? "text-emerald-400" : "text-red-400"}`}>
                       {bitMetrics.isPow2 ? "YES" : "NO"}
                     </div>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1 text-center">
-                    <span className="text-[10px] text-slate-400 font-mono block">Rightmost Bit (n & -n)</span>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-1 text-center">
+                    <span className="text-[10px] text-stone-500 font-mono block">Rightmost Bit (n & -n)</span>
                     <div className="text-xl font-mono font-bold text-amber-400">{bitMetrics.lowestBit}</div>
                   </div>
                 </div>
@@ -1239,19 +1246,19 @@ export default function JavaAdvancedDP() {
         {activeMode === "reader" && (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             {/* Sidebar Table of Contents */}
-            <div className="lg:col-span-1 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-4 max-h-[85vh] flex flex-col gap-3 dark-scrollbar">
+            <div className="lg:col-span-1 bg-white/70 border border-[#e7e3da] rounded-2xl p-4 sticky top-4 max-h-[85vh] flex flex-col gap-3 ">
               <div className="flex items-center gap-2 px-1">
-                <Search className="w-4 h-4 text-slate-400" />
+                <Search className="w-4 h-4 text-stone-500" />
                 <input
                   type="text"
                   placeholder="Filter sections..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-2.5 py-1.5 text-xs text-stone-800 focus:outline-none focus:border-orange-500"
                 />
               </div>
 
-              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar dark-scrollbar">
+              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar ">
                 {filteredSections.map((sec) => (
                   <button
                     key={sec.id}
@@ -1260,10 +1267,10 @@ export default function JavaAdvancedDP() {
                     className={`w-full text-left p-2.5 rounded-xl text-xs transition flex items-start gap-2 ${
                       activeSectionId === sec.id
                         ? "bg-orange-500/15 border border-orange-500/50 text-orange-300 font-semibold"
-                        : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
+                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-100/40"
                     }`}
                   >
-                    <span className="font-mono text-[10px] text-slate-400 mt-0.5 shrink-0">{sec.id}.</span>
+                    <span className="font-mono text-[10px] text-stone-500 mt-0.5 shrink-0">{sec.id}.</span>
                     <span className="break-words whitespace-normal leading-snug flex-1">{sec.title}</span>
                   </button>
                 ))}
@@ -1271,39 +1278,39 @@ export default function JavaAdvancedDP() {
             </div>
 
             {/* Main Content Area */}
-            <div className="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
-              <div className="border-b border-slate-800 pb-4">
+            <div className="lg:col-span-3 bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
+              <div className="border-b border-[#e7e3da] pb-4">
                 <div className="text-xs font-mono text-orange-400 uppercase tracking-wider mb-1">
                   {activeSection.id === 0
                     ? "Module Overview · 30 Core Sections"
                     : `Section ${activeSection.id} of 30`}
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">
+                <h2 className="text-xl md:text-2xl font-bold text-stone-900">
                   {activeSection.title}
                 </h2>
-                <p className="text-xs md:text-sm text-slate-400 mt-1">
+                <p className="text-xs md:text-sm text-stone-500 mt-1">
                   {activeSection.summary}
                 </p>
               </div>
 
               {/* Render Section Content */}
-              <div className="prose prose-invert max-w-none text-slate-300 text-xs md:text-sm leading-relaxed">
+              <div className="prose prose-invert max-w-none text-stone-700 text-xs md:text-sm leading-relaxed">
                 {activeSection.content}
               </div>
 
               {/* Bottom Pagination */}
-              <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+              <div className="flex items-center justify-between pt-6 border-t border-[#e7e3da]">
                 <button
                   disabled={activeSectionId <= 0}
                   onClick={() => setActiveSectionId(prev => Math.max(0, prev - 1))}
-                  className="px-4 py-2 rounded-xl border border-slate-800 bg-slate-950 text-xs font-medium text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:border-slate-700 flex items-center gap-1.5 transition"
+                  className="px-4 py-2 rounded-xl border border-[#e7e3da] bg-stone-50 text-xs font-medium text-stone-700 disabled:opacity-40 disabled:cursor-not-allowed hover:border-stone-200 flex items-center gap-1.5 transition"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" /> Previous Section
                 </button>
                 <button
                   disabled={activeSectionId >= JAVA_ADVANCED_DP_SECTIONS.length - 1}
                   onClick={() => setActiveSectionId(prev => Math.min(JAVA_ADVANCED_DP_SECTIONS.length - 1, prev + 1))}
-                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition shadow-md shadow-orange-500/20"
+                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-stone-900 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition shadow-md shadow-orange-500/20"
                 >
                   Next Section <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -1315,14 +1322,14 @@ export default function JavaAdvancedDP() {
         {/* VIEW 3: 35 PRACTICE LABS TRACKER */}
         {activeMode === "labs" && (
           <div className="space-y-6">
-            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-4 shadow-xl">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-4 shadow-xl">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                 <div>
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <CheckSquare className="w-5 h-5 text-orange-400" />
                     35 Advanced Dynamic Programming & Algorithm Labs
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Track your implementation progress across 4 curated levels from multidimensional DP to randomized algorithms.
                   </p>
                 </div>
@@ -1330,7 +1337,7 @@ export default function JavaAdvancedDP() {
                   <span className="text-xs font-mono text-emerald-400 font-bold block">
                     {completedLabs.length} / 35 Solved ({Math.round((completedLabs.length / 35) * 100)}%)
                   </span>
-                  <div className="w-36 bg-slate-800 h-2 rounded-full overflow-hidden mt-1.5">
+                  <div className="w-36 bg-stone-100 h-2 rounded-full overflow-hidden mt-1.5">
                     <div
                       className="bg-emerald-500 h-full transition-all duration-300"
                       style={{ width: `${(completedLabs.length / 35) * 100}%` }}
@@ -1360,23 +1367,23 @@ export default function JavaAdvancedDP() {
                             onClick={() => toggleLab(lab.id)}
                             className={`p-3.5 rounded-xl border cursor-pointer transition flex items-start gap-3 ${
                               isDone
-                                ? "bg-emerald-950/20 border-emerald-500/40 text-slate-200"
-                                : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-300"
+                                ? "bg-emerald-950/20 border-emerald-500/40 text-stone-800"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-500 hover:border-stone-200 hover:text-stone-700"
                             }`}
                           >
-                            <button className="mt-0.5 text-slate-400 hover:text-white">
+                            <button className="mt-0.5 text-stone-500 hover:text-stone-900">
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-400" />
                               ) : (
-                                <Square className="w-4 h-4 text-slate-400" />
+                                <Square className="w-4 h-4 text-stone-500" />
                               )}
                             </button>
                             <div className="space-y-1">
-                              <div className="text-xs font-semibold text-white flex items-center gap-2">
-                                <span className="text-slate-400 font-mono text-[10px]">#{lab.id}</span>
+                              <div className="text-xs font-semibold text-stone-900 flex items-center gap-2">
+                                <span className="text-stone-500 font-mono text-[10px]">#{lab.id}</span>
                                 {lab.title}
                               </div>
-                              <p className="text-[11px] text-slate-400 leading-relaxed">
+                              <p className="text-[11px] text-stone-500 leading-relaxed">
                                 {lab.desc}
                               </p>
                             </div>
@@ -1395,19 +1402,19 @@ export default function JavaAdvancedDP() {
       {/* ASSESSMENT QUIZ MODAL */}
       {showQuizModal && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+          <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
             {/* Modal Header */}
-            <div className="p-5 border-b border-slate-800 flex items-center justify-between">
+            <div className="p-5 border-b border-[#e7e3da] flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
                   <Award className="w-5 h-5 text-orange-400" />
                   Module 20 Mastery Assessment Quiz
                 </h3>
-                <p className="text-xs text-slate-400">15 Scenario-based Advanced DP Questions</p>
+                <p className="text-xs text-stone-500">15 Scenario-based Advanced DP Questions</p>
               </div>
               <button
                 onClick={() => setShowQuizModal(false)}
-                className="text-slate-400 hover:text-white text-xs px-2.5 py-1 rounded-lg bg-slate-800"
+                className="text-stone-500 hover:text-stone-900 text-xs px-2.5 py-1 rounded-lg bg-stone-100"
               >
                 Close
               </button>
@@ -1418,8 +1425,8 @@ export default function JavaAdvancedDP() {
               {QUIZ_QUESTIONS.map((q, idx) => {
                 const userChoice = quizAnswers[q.id];
                 return (
-                  <div key={q.id} className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <div className="text-xs md:text-sm font-semibold text-white flex items-start gap-2">
+                  <div key={q.id} className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
+                    <div className="text-xs md:text-sm font-semibold text-stone-900 flex items-start gap-2">
                       <span className="font-mono text-orange-400">Q{idx + 1}.</span>
                       <span>{q.question}</span>
                     </div>
@@ -1427,7 +1434,7 @@ export default function JavaAdvancedDP() {
                     <div className="space-y-2 pt-1">
                       {q.options.map((opt, optIdx) => {
                         const isSelected = userChoice === optIdx;
-                        let optClass = "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700";
+                        let optClass = "bg-white border-[#e7e3da] text-stone-700 hover:border-stone-200";
                         if (quizSubmitted) {
                           if (optIdx === q.correct) optClass = "bg-emerald-950/40 border-emerald-500 text-emerald-300 font-semibold";
                           else if (isSelected) optClass = "bg-red-950/40 border-red-500 text-red-300";
@@ -1442,7 +1449,7 @@ export default function JavaAdvancedDP() {
                             onClick={() => setQuizAnswers(prev => ({ ...prev, [q.id]: optIdx }))}
                             className={`w-full text-left p-2.5 rounded-lg border text-xs transition flex items-center gap-2.5 ${optClass}`}
                           >
-                            <span className="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-mono shrink-0">
+                            <span className="w-5 h-5 rounded-full border border-stone-200 flex items-center justify-center text-[10px] font-mono shrink-0">
                               {String.fromCharCode(65 + optIdx)}
                             </span>
                             <span>{opt}</span>
@@ -1452,9 +1459,9 @@ export default function JavaAdvancedDP() {
                     </div>
 
                     {quizSubmitted && (
-                      <div className="p-3 rounded-lg bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-1">
+                      <div className="p-3 rounded-lg bg-white border border-[#e7e3da] shadow-xs text-xs text-stone-700 space-y-1">
                         <div className="font-semibold text-emerald-400">Explanation:</div>
-                        <p className="text-slate-400 text-[11px] leading-relaxed">{q.explanation}</p>
+                        <p className="text-stone-500 text-[11px] leading-relaxed">{q.explanation}</p>
                       </div>
                     )}
                   </div>
@@ -1463,13 +1470,13 @@ export default function JavaAdvancedDP() {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 border-t border-slate-800 bg-slate-950 flex items-center justify-between">
+            <div className="p-4 border-t border-[#e7e3da] bg-stone-50 flex items-center justify-between">
               {quizSubmitted ? (
                 <div className="text-xs font-mono">
                   Your Score: <strong className="text-emerald-400 text-sm">{quizScore} / {QUIZ_QUESTIONS.length}</strong> ({Math.round((quizScore / QUIZ_QUESTIONS.length) * 100)}%)
                 </div>
               ) : (
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-stone-500">
                   {Object.keys(quizAnswers).length} of {QUIZ_QUESTIONS.length} answered
                 </div>
               )}
@@ -1481,7 +1488,7 @@ export default function JavaAdvancedDP() {
                       setQuizSubmitted(false);
                       setQuizAnswers({});
                     }}
-                    className="px-4 py-2 rounded-xl bg-slate-800 text-xs font-medium text-slate-200 hover:bg-slate-700 transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 text-xs font-medium text-stone-800 hover:bg-stone-200 transition"
                   >
                     Retake Quiz
                   </button>
@@ -1489,7 +1496,7 @@ export default function JavaAdvancedDP() {
                   <button
                     onClick={() => setQuizSubmitted(true)}
                     disabled={Object.keys(quizAnswers).length === 0}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-stone-900 disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
                   >
                     Submit Answers
                   </button>
@@ -1499,6 +1506,7 @@ export default function JavaAdvancedDP() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

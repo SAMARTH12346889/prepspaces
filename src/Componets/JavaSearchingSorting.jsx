@@ -600,7 +600,7 @@ export default function JavaSearchingSorting() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white pb-24">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] antialiased selection:bg-orange-500 selection:text-white pb-24 px-4 py-6 sm:px-8 sm:py-10 md:px-12">
       {/* Background ambient lighting */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-10 left-1/3 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[140px]" />

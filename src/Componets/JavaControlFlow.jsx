@@ -540,7 +540,7 @@ export default function JavaControlFlow() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-orange-200 selection:text-orange-900">
+    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-orange-200 selection:text-orange-900 px-4 py-6 sm:px-8 sm:py-10 md:px-12">
       {/* Top Navigation */}
       <ModuleNav track="java" currentModuleId="control-flow" />
 

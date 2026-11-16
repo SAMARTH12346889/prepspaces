@@ -677,7 +677,14 @@ export default function JavaCollectionsJVM() {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-orange-500/20 selection:text-orange-200">
+    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-[#f97316] selection:text-white px-4 py-6 sm:px-8 sm:py-10 md:px-12">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="collections-jvm"
@@ -689,17 +696,17 @@ export default function JavaCollectionsJVM() {
       />
 
       {/* Hero Banner */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-orange-950/20 via-slate-900/40 to-slate-950 px-4 py-8 md:py-12">
+      <div className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#ea580c] text-xs font-semibold tracking-wide uppercase">
               <Zap className="w-3.5 h-3.5" />
               Module 22 — Advanced Java &amp; Systems Engineering
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white flex items-center gap-3">
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900 flex items-center gap-3">
               Collections, JVM &amp; Performance
             </h1>
-            <p className="text-slate-400 text-sm md:text-base max-w-3xl leading-relaxed">
+            <p className="text-stone-500 text-sm md:text-base max-w-3xl leading-relaxed">
               Master Java Collections Framework internals (ArrayList 50% resizing, HashMap treeification &amp; hash spreading, TreeMap Red-Black invariants, PriorityQueue min-heaps), JVM memory architecture (Stack frames vs Heap, GC reachability &amp; generational collectors), the Java Memory Model (JMM happens-before, volatile vs atomic CAS), and production performance engineering (JMH, JFR, JMC).
             </p>
           </div>
@@ -707,7 +714,7 @@ export default function JavaCollectionsJVM() {
           <div className="flex flex-wrap items-center gap-3">
             <button
               onClick={() => setQuizModalOpen(true)}
-              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-600 text-white font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 flex items-center gap-2 transition"
+              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-600 text-stone-900 font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 flex items-center gap-2 transition"
             >
               <Award className="w-4 h-4" />
               Knowledge Check ({QUIZ_QUESTIONS.length} MCQs)
@@ -717,14 +724,14 @@ export default function JavaCollectionsJVM() {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="border-b border-slate-800 bg-slate-900/60 sticky top-0 z-20 backdrop-blur-md">
+      <div className="border-b border-[#e7e3da] bg-[#f6f4ee]/90 sticky top-0 z-20 backdrop-blur-md pb-4">
         <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 overflow-x-auto py-2.5">
           <button
             onClick={() => setActiveTab("curriculum")}
             className={`px-4 py-2 rounded-lg text-xs md:text-sm font-medium transition flex items-center gap-2 whitespace-nowrap ${
               activeTab === "curriculum"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+                ? "bg-orange-500 text-stone-900 shadow-md shadow-orange-500/20"
+                : "text-stone-500 hover:text-stone-800 hover:bg-stone-100"
             }`}
           >
             <BookOpen className="w-4 h-4" />
@@ -735,8 +742,8 @@ export default function JavaCollectionsJVM() {
             onClick={() => setActiveTab("workbenches")}
             className={`px-4 py-2 rounded-lg text-xs md:text-sm font-medium transition flex items-center gap-2 whitespace-nowrap ${
               activeTab === "workbenches"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+                ? "bg-orange-500 text-stone-900 shadow-md shadow-orange-500/20"
+                : "text-stone-500 hover:text-stone-800 hover:bg-stone-100"
             }`}
           >
             <Cpu className="w-4 h-4" />
@@ -747,8 +754,8 @@ export default function JavaCollectionsJVM() {
             onClick={() => setActiveTab("labs")}
             className={`px-4 py-2 rounded-lg text-xs md:text-sm font-medium transition flex items-center gap-2 whitespace-nowrap ${
               activeTab === "labs"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+                ? "bg-orange-500 text-stone-900 shadow-md shadow-orange-500/20"
+                : "text-stone-500 hover:text-stone-800 hover:bg-stone-100"
             }`}
           >
             <Layers className="w-4 h-4" />
@@ -763,7 +770,7 @@ export default function JavaCollectionsJVM() {
         {activeTab === "curriculum" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar Navigation */}
-            <div className="lg:col-span-4 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sticky top-16 max-h-[82vh] flex flex-col dark-scrollbar">
+            <div className="lg:col-span-4 bg-white/50 border border-[#e7e3da] rounded-2xl p-4 sticky top-16 max-h-[82vh] flex flex-col ">
               <div className="relative mb-3">
                 <Search className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
                 <input
@@ -771,11 +778,11 @@ export default function JavaCollectionsJVM() {
                   placeholder="Search topics, JVM internals, collections..."
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
+                  className="w-full bg-stone-50 border border-[#e7e3da] rounded-xl pl-9 pr-3 py-2 text-xs text-stone-800 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                 />
               </div>
 
-              <div className="overflow-y-auto space-y-1.5 flex-1 pr-1 custom-scrollbar dark-scrollbar">
+              <div className="overflow-y-auto space-y-1.5 flex-1 pr-1 custom-scrollbar ">
                 {filteredSections.map(sec => {
                   const isSelected = selectedSection === sec.id;
                   return (
@@ -785,8 +792,8 @@ export default function JavaCollectionsJVM() {
                       title={sec.title}
                       className={`w-full text-left p-3 rounded-xl transition flex flex-col gap-1 border ${
                         isSelected
-                          ? "bg-orange-500/15 border-orange-500/40 text-white"
-                          : "border-transparent text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
+                          ? "bg-orange-500/15 border-orange-500/40 text-stone-900"
+                          : "border-transparent text-stone-500 hover:bg-stone-100/50 hover:text-stone-800"
                       }`}
                     >
                       <div className="flex items-center justify-between text-xs font-semibold">
@@ -795,8 +802,8 @@ export default function JavaCollectionsJVM() {
                         </span>
                         {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" />}
                       </div>
-                      <div className="text-xs font-medium text-slate-200 break-words whitespace-normal leading-snug">{sec.title}</div>
-                      <div className="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">{sec.summary}</div>
+                      <div className="text-xs font-medium text-stone-800 break-words whitespace-normal leading-snug">{sec.title}</div>
+                      <div className="text-[11px] text-stone-500 line-clamp-2 leading-relaxed">{sec.summary}</div>
                     </button>
                   );
                 })}
@@ -804,15 +811,15 @@ export default function JavaCollectionsJVM() {
             </div>
 
             {/* Section Reader Display */}
-            <div className="lg:col-span-8 bg-slate-900/30 border border-slate-800 rounded-2xl p-6 md:p-8">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+            <div className="lg:col-span-8 bg-white/30 border border-[#e7e3da] rounded-2xl p-6 md:p-8">
+              <div className="flex items-center justify-between border-b border-[#e7e3da] pb-4 mb-6">
                 <div>
                   <div className="text-xs font-mono text-orange-400 uppercase tracking-wider mb-1">
                     {selectedSection === 0
                       ? "Module Overview · 23 Core Sections"
                       : `Section ${selectedSection} of 23`}
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-white">
+                  <h2 className="text-xl md:text-2xl font-bold text-stone-900">
                     {JAVA_COLLECTIONS_JVM_SECTIONS[selectedSection]?.title}
                   </h2>
                 </div>
@@ -821,7 +828,7 @@ export default function JavaCollectionsJVM() {
                   <button
                     disabled={selectedSection === 0}
                     onClick={() => setSelectedSection(prev => Math.max(0, prev - 1))}
-                    className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 disabled:opacity-30 text-slate-300 transition"
+                    className="p-2 rounded-xl bg-stone-100/80 hover:bg-stone-200 disabled:opacity-30 text-stone-700 transition"
                     title="Previous Section"
                   >
                     <ArrowLeft className="w-4 h-4" />
@@ -829,7 +836,7 @@ export default function JavaCollectionsJVM() {
                   <button
                     disabled={selectedSection === JAVA_COLLECTIONS_JVM_SECTIONS.length - 1}
                     onClick={() => setSelectedSection(prev => Math.min(JAVA_COLLECTIONS_JVM_SECTIONS.length - 1, prev + 1))}
-                    className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 disabled:opacity-30 text-slate-300 transition"
+                    className="p-2 rounded-xl bg-stone-100/80 hover:bg-stone-200 disabled:opacity-30 text-stone-700 transition"
                     title="Next Section"
                   >
                     <ArrowRight className="w-4 h-4" />
@@ -838,16 +845,16 @@ export default function JavaCollectionsJVM() {
               </div>
 
               {/* Render Section Content */}
-              <div className="text-slate-300 leading-relaxed text-sm md:text-base">
+              <div className="text-stone-700 leading-relaxed text-sm md:text-base">
                 {JAVA_COLLECTIONS_JVM_SECTIONS[selectedSection]?.content}
               </div>
 
               {/* Footer navigation */}
-              <div className="mt-10 pt-6 border-t border-slate-800/80 flex items-center justify-between">
+              <div className="mt-10 pt-6 border-t border-[#e7e3da] flex items-center justify-between">
                 <button
                   disabled={selectedSection === 0}
                   onClick={() => setSelectedSection(prev => Math.max(0, prev - 1))}
-                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-30 text-xs font-medium text-slate-300 flex items-center gap-2 transition"
+                  className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 disabled:opacity-30 text-xs font-medium text-stone-700 flex items-center gap-2 transition"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   Previous Section
@@ -855,7 +862,7 @@ export default function JavaCollectionsJVM() {
                 <button
                   disabled={selectedSection === JAVA_COLLECTIONS_JVM_SECTIONS.length - 1}
                   onClick={() => setSelectedSection(prev => Math.min(JAVA_COLLECTIONS_JVM_SECTIONS.length - 1, prev + 1))}
-                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 disabled:opacity-30 text-xs font-medium text-white flex items-center gap-2 transition"
+                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 disabled:opacity-30 text-xs font-medium text-stone-900 flex items-center gap-2 transition"
                 >
                   Next Section
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -869,7 +876,7 @@ export default function JavaCollectionsJVM() {
         {activeTab === "workbenches" && (
           <div className="space-y-8">
             {/* Workbench Navigation Pills */}
-            <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+            <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white border border-[#e7e3da] shadow-xs">
               {[
                 { id: "arraylist", name: "1. ArrayList Resizing", icon: Layers },
                 { id: "hashmap", name: "2. HashMap Buckets", icon: Grid },
@@ -888,8 +895,8 @@ export default function JavaCollectionsJVM() {
                     onClick={() => setActiveWorkbench(wb.id)}
                     className={`px-3.5 py-2 rounded-xl text-xs font-medium transition flex items-center gap-2 ${
                       isCurrent
-                        ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                        : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+                        ? "bg-orange-500 text-stone-900 shadow-md shadow-orange-500/20"
+                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-100"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
@@ -901,34 +908,34 @@ export default function JavaCollectionsJVM() {
 
             {/* WORKBENCH 1: ARRAYLIST RESIZING */}
             {activeWorkbench === "arraylist" && (
-              <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Layers className="w-5 h-5 text-orange-400" />
                     ArrayList Dynamic Resizing &amp; Memory Allocation
                   </h3>
-                  <p className="text-slate-400 text-xs md:text-sm mt-1">
+                  <p className="text-stone-500 text-xs md:text-sm mt-1">
                     Simulates OpenJDK's 50% capacity expansion rule: <code className="text-orange-300 font-mono">newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)</code>.
                   </p>
                 </div>
 
                 {/* Metrics */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <div className="bg-slate-950/70 p-4 rounded-xl border border-slate-800/80">
+                  <div className="bg-stone-50/70 p-4 rounded-xl border border-[#e7e3da]">
                     <div className="text-[11px] font-mono text-slate-500 uppercase">Size (Elements)</div>
                     <div className="text-2xl font-bold text-orange-400 font-mono mt-1">{alElements.length}</div>
                   </div>
-                  <div className="bg-slate-950/70 p-4 rounded-xl border border-slate-800/80">
+                  <div className="bg-stone-50/70 p-4 rounded-xl border border-[#e7e3da]">
                     <div className="text-[11px] font-mono text-slate-500 uppercase">Current Capacity</div>
-                    <div className="text-2xl font-bold text-white font-mono mt-1">{alCapacity}</div>
+                    <div className="text-2xl font-bold text-stone-900 font-mono mt-1">{alCapacity}</div>
                   </div>
-                  <div className="bg-slate-950/70 p-4 rounded-xl border border-slate-800/80">
+                  <div className="bg-stone-50/70 p-4 rounded-xl border border-[#e7e3da]">
                     <div className="text-[11px] font-mono text-slate-500 uppercase">Load Percentage</div>
                     <div className="text-2xl font-bold text-amber-400 font-mono mt-1">
                       {Math.round((alElements.length / alCapacity) * 100)}%
                     </div>
                   </div>
-                  <div className="bg-slate-950/70 p-4 rounded-xl border border-slate-800/80">
+                  <div className="bg-stone-50/70 p-4 rounded-xl border border-[#e7e3da]">
                     <div className="text-[11px] font-mono text-slate-500 uppercase">Amortized Cost</div>
                     <div className="text-2xl font-bold text-emerald-400 font-mono mt-1">O(1)</div>
                   </div>
@@ -936,8 +943,8 @@ export default function JavaCollectionsJVM() {
 
                 {/* Visual Array representation */}
                 <div>
-                  <div className="text-xs font-mono text-slate-400 mb-2">Internal Object[] elementData:</div>
-                  <div className="flex flex-wrap gap-2 p-4 bg-slate-950 rounded-2xl border border-slate-800 min-h-[80px] items-center">
+                  <div className="text-xs font-mono text-stone-500 mb-2">Internal Object[] elementData:</div>
+                  <div className="flex flex-wrap gap-2 p-4 bg-stone-50 rounded-2xl border border-[#e7e3da] min-h-[80px] items-center">
                     {Array.from({ length: alCapacity }).map((_, idx) => {
                       const hasVal = idx < alElements.length;
                       return (
@@ -946,7 +953,7 @@ export default function JavaCollectionsJVM() {
                           className={`w-14 h-14 rounded-xl border flex flex-col items-center justify-center font-mono text-xs transition-all ${
                             hasVal
                               ? "bg-orange-500/15 border-orange-500/50 text-orange-300 font-bold"
-                              : "bg-slate-900/40 border-dashed border-slate-800 text-slate-600"
+                              : "bg-white border-dashed border-[#e7e3da] text-slate-600"
                           }`}
                         >
                           <span className="text-[10px] text-slate-500">[{idx}]</span>
@@ -961,7 +968,7 @@ export default function JavaCollectionsJVM() {
                 <div className="flex flex-wrap items-center gap-3">
                   <button
                     onClick={addAlElement}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-white font-medium text-xs flex items-center gap-1.5 transition"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-stone-900 font-medium text-xs flex items-center gap-1.5 transition"
                   >
                     <Play className="w-3.5 h-3.5" />
                     add(element)
@@ -969,26 +976,26 @@ export default function JavaCollectionsJVM() {
                   <button
                     onClick={removeAlElement}
                     disabled={alElements.length === 0}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 text-slate-200 font-medium text-xs transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 disabled:opacity-40 text-stone-800 font-medium text-xs transition"
                   >
                     removeLast()
                   </button>
                   <button
                     onClick={ensureAlCapacity}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-orange-300 font-medium text-xs transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-orange-300 font-medium text-xs transition"
                   >
                     ensureCapacity(12)
                   </button>
                   <button
                     onClick={resetAl}
-                    className="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs transition ml-auto"
+                    className="px-3 py-2 rounded-xl bg-white border border-[#e7e3da] shadow-xs hover:bg-stone-100 text-stone-500 hover:text-stone-800 text-xs transition ml-auto"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
                 {/* Operation History */}
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs space-y-1">
+                <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] font-mono text-xs space-y-1">
                   <div className="text-slate-500 text-[11px] mb-1">JVM RESIZE LOG:</div>
                   {alHistory.map((item, idx) => (
                     <div key={idx} className={idx === 0 ? "text-orange-300" : "text-slate-500 text-[11px]"}>
@@ -1001,13 +1008,13 @@ export default function JavaCollectionsJVM() {
 
             {/* WORKBENCH 2: HASHMAP BUCKET SIMULATOR */}
             {activeWorkbench === "hashmap" && (
-              <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Grid className="w-5 h-5 text-orange-400" />
                     HashMap Separate Chaining &amp; Treeification
                   </h3>
-                  <p className="text-slate-400 text-xs md:text-sm mt-1">
+                  <p className="text-stone-500 text-xs md:text-sm mt-1">
                     Visualizes how keys are hashed, spread via <code className="text-orange-300 font-mono">hash ^ (hash &gt;&gt;&gt; 16)</code>, and placed into buckets using <code className="text-orange-300 font-mono">(capacity - 1) &amp; hash</code>.
                   </p>
                 </div>
@@ -1019,18 +1026,18 @@ export default function JavaCollectionsJVM() {
                     placeholder="Key (e.g. Priya)"
                     value={hmKeyInput}
                     onChange={e => setHmKeyInput(e.target.value)}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-orange-500 w-36"
+                    className="bg-stone-50 border border-[#e7e3da] rounded-xl px-3 py-2 text-xs font-mono text-stone-900 focus:outline-none focus:border-orange-500 w-36"
                   />
                   <input
                     type="text"
                     placeholder="Val (e.g. 95)"
                     value={hmValInput}
                     onChange={e => setHmValInput(e.target.value)}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-orange-500 w-28"
+                    className="bg-stone-50 border border-[#e7e3da] rounded-xl px-3 py-2 text-xs font-mono text-stone-900 focus:outline-none focus:border-orange-500 w-28"
                   />
                   <button
                     onClick={insertHmEntry}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-white font-medium text-xs flex items-center gap-1.5 transition"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-stone-900 font-medium text-xs flex items-center gap-1.5 transition"
                   >
                     <Play className="w-3.5 h-3.5" />
                     map.put(key, val)
@@ -1049,11 +1056,11 @@ export default function JavaCollectionsJVM() {
                             ? "bg-rose-950/20 border-rose-500/50"
                             : nodes.length > 1
                             ? "bg-amber-950/20 border-amber-500/40"
-                            : "bg-slate-950/80 border-slate-800"
+                            : "bg-stone-50/80 border-[#e7e3da]"
                         }`}
                       >
                         <div className="flex items-center justify-between text-xs font-mono mb-2">
-                          <span className="font-bold text-slate-300">Bucket [{bIdx}]</span>
+                          <span className="font-bold text-stone-700">Bucket [{bIdx}]</span>
                           <span
                             className={`text-[10px] px-1.5 py-0.5 rounded ${
                               isTreeified
@@ -1074,10 +1081,10 @@ export default function JavaCollectionsJVM() {
                             {nodes.map((node, nIdx) => (
                               <div
                                 key={nIdx}
-                                className="p-2 rounded-lg bg-slate-900 border border-slate-800/80 text-[11px] font-mono flex items-center justify-between text-slate-200"
+                                className="p-2 rounded-lg bg-white border border-[#e7e3da] shadow-xs/80 text-[11px] font-mono flex items-center justify-between text-stone-800"
                               >
                                 <span className="text-orange-300 font-semibold">{node.key}</span>
-                                <span className="text-slate-400">→ {node.val}</span>
+                                <span className="text-stone-500">→ {node.val}</span>
                               </div>
                             ))}
                           </div>
@@ -1088,7 +1095,7 @@ export default function JavaCollectionsJVM() {
                 </div>
 
                 {/* Hash Log */}
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs space-y-1">
+                <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] font-mono text-xs space-y-1">
                   <div className="text-slate-500 text-[11px] mb-1">HASH COMPUTATION LOG:</div>
                   {hmLog.map((line, idx) => (
                     <div key={idx} className={idx === 0 ? "text-orange-300" : "text-slate-500 text-[11px]"}>
@@ -1101,23 +1108,23 @@ export default function JavaCollectionsJVM() {
 
             {/* WORKBENCH 3: PRIORITYQUEUE MIN-HEAP */}
             {activeWorkbench === "priorityqueue" && (
-              <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                     <BarChart3 className="w-5 h-5 text-orange-400" />
                     PriorityQueue Binary Min-Heap Simulator
                   </h3>
-                  <p className="text-slate-400 text-xs md:text-sm mt-1">
+                  <p className="text-stone-500 text-xs md:text-sm mt-1">
                     Visualizes complete binary min-heap array storage with <code className="text-orange-300 font-mono">offer()</code> (sift-up) and <code className="text-orange-300 font-mono">poll()</code> (sift-down) in O(log N) time.
                   </p>
                 </div>
 
                 {/* Current Array View */}
                 <div>
-                  <div className="text-xs font-mono text-slate-400 mb-2">
+                  <div className="text-xs font-mono text-stone-500 mb-2">
                     Heap Array (Root at [0], Children at 2i+1, 2i+2):
                   </div>
-                  <div className="flex flex-wrap gap-2 p-4 bg-slate-950 rounded-2xl border border-slate-800 items-center">
+                  <div className="flex flex-wrap gap-2 p-4 bg-stone-50 rounded-2xl border border-[#e7e3da] items-center">
                     {pqHeap.map((val, idx) => (
                       <div
                         key={idx}
@@ -1141,12 +1148,12 @@ export default function JavaCollectionsJVM() {
                     type="number"
                     value={pqInputVal}
                     onChange={e => setPqInputVal(e.target.value)}
-                    className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-orange-500 w-24"
+                    className="bg-stone-50 border border-[#e7e3da] rounded-xl px-3 py-2 text-xs font-mono text-stone-900 focus:outline-none focus:border-orange-500 w-24"
                     placeholder="Val"
                   />
                   <button
                     onClick={pqOffer}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-white font-medium text-xs flex items-center gap-1.5 transition"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-stone-900 font-medium text-xs flex items-center gap-1.5 transition"
                   >
                     <Play className="w-3.5 h-3.5" />
                     pq.offer({pqInputVal})
@@ -1154,7 +1161,7 @@ export default function JavaCollectionsJVM() {
                   <button
                     onClick={pqPoll}
                     disabled={pqHeap.length === 0}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 text-amber-300 font-medium text-xs transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 disabled:opacity-40 text-amber-300 font-medium text-xs transition"
                   >
                     pq.poll() (Extract Min)
                   </button>
@@ -1163,14 +1170,14 @@ export default function JavaCollectionsJVM() {
                       setPqHeap([10, 20, 15, 40, 50, 30]);
                       setPqLog(["Reset min-heap to [10, 20, 15, 40, 50, 30]."]);
                     }}
-                    className="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs transition ml-auto"
+                    className="px-3 py-2 rounded-xl bg-white border border-[#e7e3da] shadow-xs hover:bg-stone-100 text-stone-500 hover:text-stone-800 text-xs transition ml-auto"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
                 {/* Operation Log */}
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs space-y-1">
+                <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] font-mono text-xs space-y-1">
                   <div className="text-slate-500 text-[11px] mb-1">HEAP LOG:</div>
                   {pqLog.map((line, idx) => (
                     <div key={idx} className={idx === 0 ? "text-orange-300" : "text-slate-500 text-[11px]"}>
@@ -1183,13 +1190,13 @@ export default function JavaCollectionsJVM() {
 
             {/* WORKBENCH 4: COLLECTIONS SELECTION MATRIX */}
             {activeWorkbench === "matrix" && (
-              <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Database className="w-5 h-5 text-orange-400" />
                     Collections Selection Decision Matrix
                   </h3>
-                  <p className="text-slate-400 text-xs md:text-sm mt-1">
+                  <p className="text-stone-500 text-xs md:text-sm mt-1">
                     Select your access requirements and concurrency model to determine the mathematically optimal Java collection.
                   </p>
                 </div>
@@ -1198,7 +1205,7 @@ export default function JavaCollectionsJVM() {
                   {/* Selectors */}
                   <div className="space-y-4">
                     <div>
-                      <label className="text-xs font-mono text-slate-400 block mb-2">Primary Access Pattern:</label>
+                      <label className="text-xs font-mono text-stone-500 block mb-2">Primary Access Pattern:</label>
                       <div className="grid grid-cols-2 gap-2">
                         {[
                           { id: "indexed", label: "Indexed Random Access" },
@@ -1213,8 +1220,8 @@ export default function JavaCollectionsJVM() {
                             onClick={() => setDmPattern(opt.id)}
                             className={`p-2.5 rounded-xl border text-xs font-medium text-left transition ${
                               dmPattern === opt.id
-                                ? "bg-orange-500/15 border-orange-500 text-white"
-                                : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                                ? "bg-orange-500/15 border-orange-500 text-stone-900"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-500 hover:text-stone-800"
                             }`}
                           >
                             {opt.label}
@@ -1224,7 +1231,7 @@ export default function JavaCollectionsJVM() {
                     </div>
 
                     <div>
-                      <label className="text-xs font-mono text-slate-400 block mb-2">Concurrency Model:</label>
+                      <label className="text-xs font-mono text-stone-500 block mb-2">Concurrency Model:</label>
                       <div className="grid grid-cols-2 gap-2">
                         {[
                           { id: "single", label: "Single-Threaded" },
@@ -1237,8 +1244,8 @@ export default function JavaCollectionsJVM() {
                             onClick={() => setDmThreadModel(opt.id)}
                             className={`p-2.5 rounded-xl border text-xs font-medium text-left transition ${
                               dmThreadModel === opt.id
-                                ? "bg-orange-500/15 border-orange-500 text-white"
-                                : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                                ? "bg-orange-500/15 border-orange-500 text-stone-900"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-500 hover:text-stone-800"
                             }`}
                           >
                             {opt.label}
@@ -1249,23 +1256,23 @@ export default function JavaCollectionsJVM() {
                   </div>
 
                   {/* Recommendation Card */}
-                  <div className="bg-slate-950 p-6 rounded-2xl border border-orange-500/30 flex flex-col justify-between">
+                  <div className="bg-stone-50 p-6 rounded-2xl border border-orange-500/30 flex flex-col justify-between">
                     <div>
                       <div className="text-[11px] font-mono text-orange-400 uppercase tracking-wider mb-1">
                         RECOMMENDED COLLECTION
                       </div>
-                      <div className="text-2xl font-extrabold text-white font-mono mt-1">
+                      <div className="text-2xl font-extrabold text-stone-900 font-mono mt-1">
                         {decisionRecommendation.name}
                       </div>
                       <div className="inline-block mt-2 px-2.5 py-1 rounded bg-orange-500/10 border border-orange-500/30 text-orange-300 font-mono text-xs font-semibold">
                         {decisionRecommendation.complexity}
                       </div>
-                      <p className="text-slate-300 text-xs md:text-sm mt-4 leading-relaxed">
+                      <p className="text-stone-700 text-xs md:text-sm mt-4 leading-relaxed">
                         {decisionRecommendation.rationale}
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 font-mono">
+                    <div className="pt-4 border-t border-[#e7e3da] text-[11px] text-slate-500 font-mono">
                       Engineering Rule: Always declare interface types (e.g. List&lt;T&gt; list = new ArrayList&lt;&gt;()).
                     </div>
                   </div>
@@ -1275,13 +1282,13 @@ export default function JavaCollectionsJVM() {
 
             {/* WORKBENCH 5: JMM RACE CONDITION SIMULATOR */}
             {activeWorkbench === "jmm" && (
-              <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                     <ShieldCheck className="w-5 h-5 text-orange-400" />
                     Java Memory Model: Visibility vs Atomicity Race Simulator
                   </h3>
-                  <p className="text-slate-400 text-xs md:text-sm mt-1">
+                  <p className="text-stone-500 text-xs md:text-sm mt-1">
                     Simulates two concurrent worker threads executing 5 increments on a shared counter to demonstrate volatile lost updates vs synchronized vs CAS.
                   </p>
                 </div>
@@ -1304,8 +1311,8 @@ export default function JavaCollectionsJVM() {
                       }}
                       className={`px-4 py-2 rounded-xl text-xs font-medium transition ${
                         jmmMode === m.id
-                          ? "bg-orange-500 text-white"
-                          : "bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200"
+                          ? "bg-orange-500 text-stone-900"
+                          : "bg-stone-50 border border-[#e7e3da] text-stone-500 hover:text-stone-800"
                       }`}
                     >
                       {m.label}
@@ -1317,7 +1324,7 @@ export default function JavaCollectionsJVM() {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={runJmmSimulation}
-                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-600 text-white font-medium text-xs flex items-center gap-2 transition"
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-600 text-stone-900 font-medium text-xs flex items-center gap-2 transition"
                   >
                     <Play className="w-4 h-4" />
                     Run 2 Concurrent Threads (5 ops each)
@@ -1326,11 +1333,11 @@ export default function JavaCollectionsJVM() {
 
                 {/* Live Thread Visualizer */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                  <div className="p-4 rounded-xl bg-stone-50 border border-[#e7e3da] text-center">
                     <div className="text-xs font-mono text-slate-500">Thread A Increments</div>
                     <div className="text-3xl font-bold font-mono text-sky-400 mt-2">+{jmmThreadAVal}</div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                  <div className="p-4 rounded-xl bg-stone-50 border border-[#e7e3da] text-center">
                     <div className="text-xs font-mono text-slate-500">Thread B Increments</div>
                     <div className="text-3xl font-bold font-mono text-orange-400 mt-2">+{jmmThreadBVal}</div>
                   </div>
@@ -1340,7 +1347,7 @@ export default function JavaCollectionsJVM() {
                         ? "bg-emerald-950/20 border-emerald-500/50"
                         : jmmFinalCount > 0
                         ? "bg-rose-950/20 border-rose-500/50"
-                        : "bg-slate-950 border-slate-800"
+                        : "bg-stone-50 border-[#e7e3da]"
                     }`}
                   >
                     <div className="text-xs font-mono text-slate-500">Final Stored Count (Expected: 10)</div>
@@ -1360,7 +1367,7 @@ export default function JavaCollectionsJVM() {
 
                 {/* Explanation Output */}
                 {jmmSimulationLog && (
-                  <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 leading-relaxed">
+                  <div className="p-4 rounded-2xl bg-stone-50 border border-[#e7e3da] font-mono text-xs text-stone-700 leading-relaxed">
                     <span className="text-orange-400 font-bold">ANALYSIS: </span>
                     {jmmSimulationLog}
                   </div>
@@ -1370,13 +1377,13 @@ export default function JavaCollectionsJVM() {
 
             {/* WORKBENCH 6: GENERATIONAL GC SIMULATOR */}
             {activeWorkbench === "gc" && (
-              <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                     <RefreshCw className="w-5 h-5 text-orange-400" />
                     Generational Garbage Collection &amp; Memory Promotion
                   </h3>
-                  <p className="text-slate-400 text-xs md:text-sm mt-1">
+                  <p className="text-stone-500 text-xs md:text-sm mt-1">
                     Visualizes how modern generational collectors (G1, Parallel) manage Eden, Survivor spaces, and Tenured Old Gen.
                   </p>
                 </div>
@@ -1385,11 +1392,11 @@ export default function JavaCollectionsJVM() {
                 <div className="space-y-4">
                   {/* Eden */}
                   <div>
-                    <div className="flex justify-between text-xs font-mono text-slate-400 mb-1">
+                    <div className="flex justify-between text-xs font-mono text-stone-500 mb-1">
                       <span>Young Gen: Eden Space (Allocations)</span>
                       <span>{edenUsage}%</span>
                     </div>
-                    <div className="w-full bg-slate-950 h-6 rounded-xl overflow-hidden border border-slate-800">
+                    <div className="w-full bg-stone-50 h-6 rounded-xl overflow-hidden border border-[#e7e3da]">
                       <div
                         className="bg-orange-500 h-full transition-all duration-300"
                         style={{ width: `${edenUsage}%` }}
@@ -1400,11 +1407,11 @@ export default function JavaCollectionsJVM() {
                   {/* S0 and S1 */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <div className="flex justify-between text-xs font-mono text-slate-400 mb-1">
+                      <div className="flex justify-between text-xs font-mono text-stone-500 mb-1">
                         <span>Survivor 0 (From)</span>
                         <span>{s0Usage}%</span>
                       </div>
-                      <div className="w-full bg-slate-950 h-5 rounded-xl overflow-hidden border border-slate-800">
+                      <div className="w-full bg-stone-50 h-5 rounded-xl overflow-hidden border border-[#e7e3da]">
                         <div
                           className="bg-sky-500 h-full transition-all duration-300"
                           style={{ width: `${s0Usage}%` }}
@@ -1412,11 +1419,11 @@ export default function JavaCollectionsJVM() {
                       </div>
                     </div>
                     <div>
-                      <div className="flex justify-between text-xs font-mono text-slate-400 mb-1">
+                      <div className="flex justify-between text-xs font-mono text-stone-500 mb-1">
                         <span>Survivor 1 (To)</span>
                         <span>{s1Usage}%</span>
                       </div>
-                      <div className="w-full bg-slate-950 h-5 rounded-xl overflow-hidden border border-slate-800">
+                      <div className="w-full bg-stone-50 h-5 rounded-xl overflow-hidden border border-[#e7e3da]">
                         <div
                           className="bg-sky-400 h-full transition-all duration-300"
                           style={{ width: `${s1Usage}%` }}
@@ -1427,11 +1434,11 @@ export default function JavaCollectionsJVM() {
 
                   {/* Old Gen */}
                   <div>
-                    <div className="flex justify-between text-xs font-mono text-slate-400 mb-1">
+                    <div className="flex justify-between text-xs font-mono text-stone-500 mb-1">
                       <span>Old Generation (Tenured - Promoted Objects)</span>
                       <span>{oldGenUsage}%</span>
                     </div>
-                    <div className="w-full bg-slate-950 h-6 rounded-xl overflow-hidden border border-slate-800">
+                    <div className="w-full bg-stone-50 h-6 rounded-xl overflow-hidden border border-[#e7e3da]">
                       <div
                         className="bg-amber-500 h-full transition-all duration-300"
                         style={{ width: `${oldGenUsage}%` }}
@@ -1444,21 +1451,21 @@ export default function JavaCollectionsJVM() {
                 <div className="flex flex-wrap items-center gap-3">
                   <button
                     onClick={allocateMemoryGC}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-white font-medium text-xs flex items-center gap-1.5 transition"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-stone-900 font-medium text-xs flex items-center gap-1.5 transition"
                   >
                     <Play className="w-3.5 h-3.5" />
                     Allocate 32MB Objects
                   </button>
                   <button
                     onClick={triggerMajorGC}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 font-medium text-xs transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-amber-300 font-medium text-xs transition"
                   >
                     Trigger Full GC (Stop-The-World)
                   </button>
                 </div>
 
                 {/* GC Event Log */}
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs space-y-1">
+                <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] font-mono text-xs space-y-1">
                   <div className="text-slate-500 text-[11px] mb-1">JVM GC LOG:</div>
                   {gcLog.map((line, idx) => (
                     <div key={idx} className={idx === 0 ? "text-orange-300" : "text-slate-500 text-[11px]"}>
@@ -1471,22 +1478,22 @@ export default function JavaCollectionsJVM() {
 
             {/* WORKBENCH 7: JIT TIERED ENGINE */}
             {activeWorkbench === "jit" && (
-              <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Zap className="w-5 h-5 text-orange-400" />
                     JIT Tiered Compilation &amp; Warm-up Engine
                   </h3>
-                  <p className="text-slate-400 text-xs md:text-sm mt-1">
+                  <p className="text-stone-500 text-xs md:text-sm mt-1">
                     Simulates HotSpot tiered compilation levels: Interpreter (Tier 0) &rarr; C1 Compiler (Tiers 1-3) &rarr; C2 Server Compiler (Tier 4).
                   </p>
                 </div>
 
                 {/* Counter & Level Display */}
-                <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="p-6 rounded-2xl bg-stone-50 border border-[#e7e3da] flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div>
                     <div className="text-xs font-mono text-slate-500">Method Invocation Counter:</div>
-                    <div className="text-4xl font-extrabold text-white font-mono mt-1">
+                    <div className="text-4xl font-extrabold text-stone-900 font-mono mt-1">
                       {jitInvocations.toLocaleString()} calls
                     </div>
                   </div>
@@ -1499,14 +1506,14 @@ export default function JavaCollectionsJVM() {
                 </div>
 
                 {/* Details */}
-                <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-2 text-xs">
+                <div className="p-4 rounded-xl bg-stone-50/70 border border-[#e7e3da] space-y-2 text-xs">
                   <div>
-                    <strong className="text-slate-300">Execution Dynamics:</strong>{" "}
-                    <span className="text-slate-400">{jitState.desc}</span>
+                    <strong className="text-stone-700">Execution Dynamics:</strong>{" "}
+                    <span className="text-stone-500">{jitState.desc}</span>
                   </div>
                   <div>
                     <strong className="text-orange-300">Applied Optimizations:</strong>{" "}
-                    <span className="text-slate-300 font-mono">{jitState.optimizations}</span>
+                    <span className="text-stone-700 font-mono">{jitState.optimizations}</span>
                   </div>
                 </div>
 
@@ -1514,25 +1521,25 @@ export default function JavaCollectionsJVM() {
                 <div className="flex flex-wrap items-center gap-3">
                   <button
                     onClick={() => setJitInvocations(c => c + 100)}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-medium text-xs transition"
                   >
                     +100 Invocations
                   </button>
                   <button
                     onClick={() => setJitInvocations(c => c + 1000)}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-white font-medium text-xs transition"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-stone-900 font-medium text-xs transition"
                   >
                     +1,000 Invocations (Cross C1 Threshold)
                   </button>
                   <button
                     onClick={() => setJitInvocations(c => c + 10000)}
-                    className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs transition"
+                    className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-stone-900 font-medium text-xs transition"
                   >
                     +10,000 Invocations (Trigger C2 Peak)
                   </button>
                   <button
                     onClick={() => setJitInvocations(0)}
-                    className="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs transition ml-auto"
+                    className="px-3 py-2 rounded-xl bg-white border border-[#e7e3da] shadow-xs hover:bg-stone-100 text-stone-500 hover:text-stone-800 text-xs transition ml-auto"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                   </button>
@@ -1542,13 +1549,13 @@ export default function JavaCollectionsJVM() {
 
             {/* WORKBENCH 8: PERFORMANCE OUTAGE DIAGNOSTICS */}
             {activeWorkbench === "profiler" && (
-              <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Terminal className="w-5 h-5 text-orange-400" />
                     Production Outage &amp; Diagnostic CLI Studio
                   </h3>
-                  <p className="text-slate-400 text-xs md:text-sm mt-1">
+                  <p className="text-stone-500 text-xs md:text-sm mt-1">
                     Select a high-severity production incident to view diagnosis CLI commands, thread dump outputs, and code refactorings.
                   </p>
                 </div>
@@ -1566,8 +1573,8 @@ export default function JavaCollectionsJVM() {
                       onClick={() => setProfScenario(inc.id)}
                       className={`p-3 rounded-xl border text-xs font-medium text-left transition ${
                         profScenario === inc.id
-                          ? "bg-orange-500/15 border-orange-500 text-white"
-                          : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                          ? "bg-orange-500/15 border-orange-500 text-stone-900"
+                          : "bg-stone-50 border-[#e7e3da] text-stone-500 hover:text-stone-800"
                       }`}
                     >
                       {inc.label}
@@ -1576,33 +1583,33 @@ export default function JavaCollectionsJVM() {
                 </div>
 
                 {/* Scenario Analysis Card */}
-                <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4">
+                <div className="bg-stone-50 p-6 rounded-2xl border border-[#e7e3da] space-y-4">
                   <div>
                     <span className="text-[11px] font-mono text-rose-400 uppercase tracking-wider">
                       INCIDENT SCENARIO:
                     </span>
-                    <h4 className="text-lg font-bold text-white mt-1">{scenarioDetails.title}</h4>
-                    <p className="text-slate-400 text-xs mt-1 leading-relaxed">{scenarioDetails.symptoms}</p>
+                    <h4 className="text-lg font-bold text-stone-900 mt-1">{scenarioDetails.title}</h4>
+                    <p className="text-stone-500 text-xs mt-1 leading-relaxed">{scenarioDetails.symptoms}</p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-slate-800/80">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-[#e7e3da]">
                     <div>
                       <div className="text-[11px] font-mono text-orange-400 uppercase">Diagnostic CLI Command</div>
-                      <code className="block mt-1.5 p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-orange-200">
+                      <code className="block mt-1.5 p-3 rounded-xl bg-white border border-[#e7e3da] shadow-xs text-xs font-mono text-orange-200">
                         {scenarioDetails.command}
                       </code>
                     </div>
                     <div>
                       <div className="text-[11px] font-mono text-sky-400 uppercase">Profiling Tool</div>
-                      <div className="mt-1.5 p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">
+                      <div className="mt-1.5 p-3 rounded-xl bg-white border border-[#e7e3da] shadow-xs text-xs font-mono text-stone-700">
                         {scenarioDetails.tool}
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-800/80">
+                  <div className="pt-3 border-t border-[#e7e3da]">
                     <div className="text-[11px] font-mono text-emerald-400 uppercase">Recommended Architectural Fix</div>
-                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">{scenarioDetails.fix}</p>
+                    <p className="text-xs text-stone-700 mt-1 leading-relaxed">{scenarioDetails.fix}</p>
                   </div>
                 </div>
               </div>
@@ -1613,25 +1620,25 @@ export default function JavaCollectionsJVM() {
         {/* --- TAB 3: PRACTICE LABS TRACKER --- */}
         {activeTab === "labs" && (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900/40 p-6 rounded-3xl border border-slate-800">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-[#e7e3da]">
               <div>
-                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                <h3 className="text-xl font-bold text-stone-900 flex items-center gap-2">
                   <Layers className="w-5 h-5 text-orange-400" />
                   35 Practical Labs &amp; Production Challenges
                 </h3>
-                <p className="text-slate-400 text-xs md:text-sm mt-1">
+                <p className="text-stone-500 text-xs md:text-sm mt-1">
                   Track your hands-on implementation progress across Collections, Concurrency, JVM Internals, and Performance Engineering.
                 </p>
               </div>
 
               <div className="flex items-center gap-3">
                 <div className="text-right">
-                  <div className="text-xs font-mono text-slate-400">Total Completed</div>
+                  <div className="text-xs font-mono text-stone-500">Total Completed</div>
                   <div className="text-xl font-bold text-emerald-400 font-mono">
                     {completedLabs.size} / {PRACTICE_PROBLEMS.length}
                   </div>
                 </div>
-                <div className="w-12 h-12 rounded-full border-4 border-slate-800 border-t-emerald-500 flex items-center justify-center text-xs font-bold text-white">
+                <div className="w-12 h-12 rounded-full border-4 border-[#e7e3da] border-t-emerald-500 flex items-center justify-center text-xs font-bold text-stone-900">
                   {Math.round((completedLabs.size / PRACTICE_PROBLEMS.length) * 100)}%
                 </div>
               </div>
@@ -1654,8 +1661,8 @@ export default function JavaCollectionsJVM() {
                     }}
                     className={`p-4 rounded-2xl border transition cursor-pointer flex items-start gap-3.5 ${
                       isDone
-                        ? "bg-emerald-950/10 border-emerald-500/30 text-slate-200"
-                        : "bg-slate-900/30 border-slate-800/80 text-slate-400 hover:border-slate-700"
+                        ? "bg-emerald-950/10 border-emerald-500/30 text-stone-800"
+                        : "bg-white/30 border-[#e7e3da] text-stone-500 hover:border-stone-200"
                     }`}
                   >
                     <div className="mt-0.5">
@@ -1668,7 +1675,7 @@ export default function JavaCollectionsJVM() {
 
                     <div className="space-y-1 flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-white font-mono">
+                        <span className="text-xs font-bold text-stone-900 font-mono">
                           Lab {p.id}. {p.title}
                         </span>
                         <span
@@ -1683,7 +1690,7 @@ export default function JavaCollectionsJVM() {
                           {p.difficulty}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-400 leading-relaxed">{p.description}</p>
+                      <p className="text-xs text-stone-500 leading-relaxed">{p.description}</p>
                       <div className="text-[10px] font-mono text-orange-400">{p.category}</div>
                     </div>
                   </div>
@@ -1697,21 +1704,21 @@ export default function JavaCollectionsJVM() {
       {/* --- KNOWLEDGE CHECK QUIZ MODAL --- */}
       {quizModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+          <div className="bg-white border border-[#e7e3da] shadow-xs rounded-3xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
             {/* Modal Header */}
-            <div className="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
+            <div className="p-5 border-b border-[#e7e3da] flex items-center justify-between bg-stone-50">
               <div>
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
                   <Award className="w-5 h-5 text-orange-400" />
                   Module 22 Knowledge Check Assessment
                 </h3>
-                <p className="text-xs text-slate-400 mt-0.5">
+                <p className="text-xs text-stone-500 mt-0.5">
                   15 Scenario-based questions on Collections, JVM Internals &amp; Performance Engineering
                 </p>
               </div>
               <button
                 onClick={() => setQuizModalOpen(false)}
-                className="p-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition"
+                className="p-2 rounded-xl text-stone-500 hover:text-stone-800 hover:bg-stone-100 transition"
               >
                 ✕
               </button>
@@ -1723,13 +1730,13 @@ export default function JavaCollectionsJVM() {
                 const selectedOption = quizAnswers[q.id];
 
                 return (
-                  <div key={q.id} className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3">
+                  <div key={q.id} className="p-5 rounded-2xl bg-stone-50/80 border border-[#e7e3da] space-y-3">
                     <div className="text-xs font-mono text-orange-400 font-semibold">Question {idx + 1} of 15</div>
-                    <div className="text-sm font-medium text-white leading-relaxed">{q.question}</div>
+                    <div className="text-sm font-medium text-stone-900 leading-relaxed">{q.question}</div>
 
                     <div className="space-y-2 mt-2">
                       {q.options.map((opt, oIdx) => {
-                        let btnStyle = "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700";
+                        let btnStyle = "bg-white border-[#e7e3da] text-stone-700 hover:border-stone-200";
 
                         if (quizSubmitted) {
                           if (oIdx === q.correct) {
@@ -1737,10 +1744,10 @@ export default function JavaCollectionsJVM() {
                           } else if (selectedOption === oIdx) {
                             btnStyle = "bg-rose-950/30 border-rose-500/60 text-rose-200";
                           } else {
-                            btnStyle = "bg-slate-950 opacity-40 border-slate-800 text-slate-500";
+                            btnStyle = "bg-stone-50 opacity-40 border-[#e7e3da] text-slate-500";
                           }
                         } else if (selectedOption === oIdx) {
-                          btnStyle = "bg-orange-500/15 border-orange-500 text-white font-medium";
+                          btnStyle = "bg-orange-500/15 border-orange-500 text-stone-900 font-medium";
                         }
 
                         return (
@@ -1758,7 +1765,7 @@ export default function JavaCollectionsJVM() {
                     </div>
 
                     {quizSubmitted && (
-                      <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+                      <div className="p-3.5 rounded-xl bg-white border border-[#e7e3da] shadow-xs text-xs text-stone-700 leading-relaxed">
                         <span className="font-bold text-orange-300">Explanation: </span>
                         {q.explanation}
                       </div>
@@ -1769,13 +1776,13 @@ export default function JavaCollectionsJVM() {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 border-t border-slate-800 bg-slate-950 flex items-center justify-between">
+            <div className="p-4 border-t border-[#e7e3da] bg-stone-50 flex items-center justify-between">
               {quizSubmitted ? (
                 <div className="text-xs font-mono">
                   Your Score: <strong className="text-emerald-400 text-sm">{quizScore} / {QUIZ_QUESTIONS.length}</strong> ({Math.round((quizScore / QUIZ_QUESTIONS.length) * 100)}%)
                 </div>
               ) : (
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-stone-500">
                   {Object.keys(quizAnswers).length} of {QUIZ_QUESTIONS.length} answered
                 </div>
               )}
@@ -1787,7 +1794,7 @@ export default function JavaCollectionsJVM() {
                       setQuizSubmitted(false);
                       setQuizAnswers({});
                     }}
-                    className="px-4 py-2 rounded-xl bg-slate-800 text-xs font-medium text-slate-200 hover:bg-slate-700 transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 text-xs font-medium text-stone-800 hover:bg-stone-200 transition"
                   >
                     Retake Quiz
                   </button>
@@ -1795,7 +1802,7 @@ export default function JavaCollectionsJVM() {
                   <button
                     onClick={() => setQuizSubmitted(true)}
                     disabled={Object.keys(quizAnswers).length === 0}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-stone-900 disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
                   >
                     Submit Answers
                   </button>
@@ -1805,6 +1812,7 @@ export default function JavaCollectionsJVM() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

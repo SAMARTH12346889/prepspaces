@@ -538,7 +538,14 @@ export default function JavaProblemSolvingPatterns() {
   }, [quizAnswers]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-orange-500/20 selection:text-orange-200">
+    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-[#f97316] selection:text-white px-4 py-6 sm:px-8 sm:py-10 md:px-12">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="problem-solving-patterns"
@@ -550,26 +557,26 @@ export default function JavaProblemSolvingPatterns() {
       />
 
       {/* Hero Banner */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-orange-950/20 via-slate-900/40 to-slate-950 px-4 py-8 md:py-12">
+      <div className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#ea580c] text-xs font-semibold tracking-wide uppercase">
               <Zap className="w-3.5 h-3.5" />
               Module 21 — Master Problem Solving Track
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white flex items-center gap-3">
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900 flex items-center gap-3">
               Advanced Problem-Solving Patterns
             </h1>
-            <p className="text-slate-400 text-sm md:text-base max-w-3xl leading-relaxed">
+            <p className="text-stone-500 text-sm md:text-base max-w-3xl leading-relaxed">
               Synthesize your complete Java & DSA foundation into unified patterns: Backtracking pruning, Branch and Bound, Binary Search on Answer, Monotonic Stacks & Queues, Tree DP, Greedy Proofs, Difference Arrays, and Offline Mo's Algorithm.
             </p>
           </div>
 
           {/* Quick Metrics & Quiz Launcher */}
           <div className="flex flex-wrap md:flex-col items-start md:items-end gap-3">
-            <div className="flex items-center gap-3 bg-slate-900/80 border border-slate-800 px-4 py-2 rounded-xl text-xs">
+            <div className="flex items-center gap-3 bg-stone-50 border border-stone-200 px-4 py-2 rounded-xl text-xs">
               <div className="text-right">
-                <span className="text-slate-400 block text-[10px]">Practice Labs</span>
+                <span className="text-stone-500 block text-[10px]">Practice Labs</span>
                 <span className="font-bold text-emerald-400">{completedLabs.length} / 35 Complete</span>
               </div>
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
@@ -577,7 +584,7 @@ export default function JavaProblemSolvingPatterns() {
 
             <button
               onClick={() => setShowQuizModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-stone-900 font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 transition-all hover:scale-[1.02]"
             >
               <Award className="w-4 h-4" />
               Take Assessment Quiz ({QUIZ_QUESTIONS.length} MCQs)
@@ -586,13 +593,13 @@ export default function JavaProblemSolvingPatterns() {
         </div>
 
         {/* View Switcher Tabs */}
-        <div className="max-w-7xl mx-auto mt-8 flex items-center gap-2 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto mt-8 flex items-center gap-2 border-b border-[#e7e3da]">
           <button
             onClick={() => setActiveMode("workbenches")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "workbenches"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <Activity className="w-4 h-4" />
@@ -602,8 +609,8 @@ export default function JavaProblemSolvingPatterns() {
             onClick={() => setActiveMode("reader")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "reader"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <BookOpen className="w-4 h-4" />
@@ -613,8 +620,8 @@ export default function JavaProblemSolvingPatterns() {
             onClick={() => setActiveMode("labs")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "labs"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <CheckSquare className="w-4 h-4" />
@@ -649,10 +656,10 @@ export default function JavaProblemSolvingPatterns() {
                     className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between gap-2 ${
                       isSel
                         ? "bg-orange-500/15 border-orange-500/60 text-orange-300 shadow-md shadow-orange-500/20"
-                        : "bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                        : "bg-white border-[#e7e3da] text-stone-500 hover:border-stone-200 hover:text-stone-800"
                     }`}
                   >
-                    <IconComponent className={`w-4 h-4 ${isSel ? "text-orange-400" : "text-slate-400"}`} />
+                    <IconComponent className={`w-4 h-4 ${isSel ? "text-orange-400" : "text-stone-500"}`} />
                     <span className="text-xs font-semibold leading-tight">{wb.name}</span>
                   </button>
                 );
@@ -661,14 +668,14 @@ export default function JavaProblemSolvingPatterns() {
 
             {/* WORKBENCH 1: Backtracking N-Queens */}
             {activeWb === 1 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Grid className="w-5 h-5 text-orange-400" />
                       Workbench 1: Backtracking & N-Queens Visualizer
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       O(1) diagonal conflict verification using <code className="text-orange-300 font-mono">d1[r - c + n - 1]</code> and <code className="text-orange-300 font-mono">d2[r + c]</code>.
                     </p>
                   </div>
@@ -687,19 +694,19 @@ export default function JavaProblemSolvingPatterns() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
-                    <span className="text-xs font-mono text-slate-400 block uppercase">Placement Metrics</span>
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-3">
+                    <span className="text-xs font-mono text-stone-500 block uppercase">Placement Metrics</span>
                     <div className="text-3xl font-extrabold text-emerald-400 font-mono">
                       {nQueensSolutions.count} Valid Solutions
                     </div>
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-stone-700 leading-relaxed">
                       Placing one queen per row. Any candidate column with boolean collision on column array or diagonals is immediately pruned.
                     </p>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <div className="text-xs font-mono text-slate-400 mb-2">First Discovered Arrangement</div>
-                    <div className="inline-block p-2 bg-slate-900 rounded-lg border border-slate-800">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da]">
+                    <div className="text-xs font-mono text-stone-500 mb-2">First Discovered Arrangement</div>
+                    <div className="inline-block p-2 bg-white rounded-lg border border-[#e7e3da]">
                       {nQueensSolutions.firstSolution.map((rowStr, r) => (
                         <div key={r} className="flex gap-1 my-1">
                           {rowStr.split('').map((cell, c) => (
@@ -707,10 +714,10 @@ export default function JavaProblemSolvingPatterns() {
                               key={c}
                               className={`w-7 h-7 flex items-center justify-center font-mono text-xs font-bold rounded ${
                                 cell === 'Q'
-                                  ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
+                                  ? "bg-orange-500 text-stone-900 shadow-md shadow-orange-500/20"
                                   : (r + c) % 2 === 0
-                                  ? "bg-slate-800 text-slate-400"
-                                  : "bg-slate-850 text-slate-400"
+                                  ? "bg-stone-100 text-stone-500"
+                                  : "bg-slate-850 text-stone-500"
                               }`}
                             >
                               {cell === 'Q' ? '♛' : '·'}
@@ -726,14 +733,14 @@ export default function JavaProblemSolvingPatterns() {
 
             {/* WORKBENCH 2: Binary Search on Answer */}
             {activeWb === 2 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Search className="w-5 h-5 text-orange-400" />
                       Workbench 2: Binary Search on Answer (Capacity to Ship Packages)
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Searching over monotonic feasibility range <code className="text-orange-300 font-mono">[max(weights), sum(weights)]</code> in O(N log S).
                     </p>
                   </div>
@@ -751,12 +758,12 @@ export default function JavaProblemSolvingPatterns() {
                   </div>
                 </div>
 
-                <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex items-center justify-between">
+                <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex items-center justify-between">
                   <div>
-                    <span className="text-xs font-mono text-slate-400 block">Minimum Ship Capacity:</span>
-                    <div className="text-3xl font-extrabold text-white font-mono mt-1">{shipResult.minCapacity} kg/day</div>
+                    <span className="text-xs font-mono text-stone-500 block">Minimum Ship Capacity:</span>
+                    <div className="text-3xl font-extrabold text-stone-900 font-mono mt-1">{shipResult.minCapacity} kg/day</div>
                   </div>
-                  <div className="text-right text-xs text-slate-400 font-mono space-y-1">
+                  <div className="text-right text-xs text-stone-500 font-mono space-y-1">
                     <div>Lower Bound (max package): <span className="text-orange-400">{shipResult.minBound}</span></div>
                     <div>Upper Bound (sum of packages): <span className="text-emerald-400">{shipResult.maxBound}</span></div>
                   </div>
@@ -766,22 +773,22 @@ export default function JavaProblemSolvingPatterns() {
 
             {/* WORKBENCH 3: Monotonic Stack */}
             {activeWb === 3 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Layers className="w-5 h-5 text-orange-400" />
                     Workbench 3: Monotonic Stack Studio (Next Greater Element)
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Decreasing monotonic stack storing array indices: each element enters and exits the stack at most once for linear O(N) evaluation.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-5 gap-3">
                   {ngeInput.map((val, idx) => (
-                    <div key={idx} className="bg-slate-950 p-3 rounded-xl border border-slate-800 text-center space-y-1">
-                      <span className="text-[10px] text-slate-400 font-mono">idx: {idx}</span>
-                      <div className="text-xl font-mono font-bold text-white">{val}</div>
+                    <div key={idx} className="bg-stone-50 p-3 rounded-xl border border-[#e7e3da] text-center space-y-1">
+                      <span className="text-[10px] text-stone-500 font-mono">idx: {idx}</span>
+                      <div className="text-xl font-mono font-bold text-stone-900">{val}</div>
                       <span className="text-xs font-mono font-bold text-emerald-400 block">
                         NGE: {ngeResult[idx]}
                       </span>
@@ -793,14 +800,14 @@ export default function JavaProblemSolvingPatterns() {
 
             {/* WORKBENCH 4: Monotonic Queue */}
             {activeWb === 4 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Sliders className="w-5 h-5 text-orange-400" />
                       Workbench 4: Monotonic Queue (Sliding Window Maximum)
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Double-ended ArrayDeque maintaining decreasing values by evicting smaller items from rear in O(N).
                     </p>
                   </div>
@@ -818,12 +825,12 @@ export default function JavaProblemSolvingPatterns() {
                   </div>
                 </div>
 
-                <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
-                  <div className="text-xs font-mono text-slate-400">Input Array: [{mqArray.join(", ")}]</div>
+                <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-3">
+                  <div className="text-xs font-mono text-stone-500">Input Array: [{mqArray.join(", ")}]</div>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {mqResult.map((maxVal, idx) => (
-                      <div key={idx} className="bg-slate-900 border border-slate-800 px-3 py-2 rounded-lg font-mono text-xs">
-                        <span className="text-[10px] text-slate-400 block">Window {idx}</span>
+                      <div key={idx} className="bg-white border border-[#e7e3da] shadow-xs px-3 py-2 rounded-lg font-mono text-xs">
+                        <span className="text-[10px] text-stone-500 block">Window {idx}</span>
                         <span className="text-sm font-bold text-emerald-400">Max = {maxVal}</span>
                       </div>
                     ))}
@@ -834,13 +841,13 @@ export default function JavaProblemSolvingPatterns() {
 
             {/* WORKBENCH 5: Graph Classifier */}
             {activeWb === 5 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Compass className="w-5 h-5 text-orange-400" />
                     Workbench 5: Graph Algorithm Classifier & Decision Matrix
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Toggle constraint properties to inspect the recommended graph algorithm and theoretical reasoning.
                   </p>
                 </div>
@@ -849,7 +856,7 @@ export default function JavaProblemSolvingPatterns() {
                   <button
                     onClick={() => setHasWeights(!hasWeights)}
                     className={`px-3 py-1.5 rounded-lg border text-xs font-mono ${
-                      hasWeights ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-slate-950 border-slate-800 text-slate-400"
+                      hasWeights ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-stone-50 border-[#e7e3da] text-stone-500"
                     }`}
                   >
                     Weighted Edges: {hasWeights ? "YES" : "NO (Unweighted)"}
@@ -859,7 +866,7 @@ export default function JavaProblemSolvingPatterns() {
                     onClick={() => setHasNegatives(!hasNegatives)}
                     disabled={!hasWeights}
                     className={`px-3 py-1.5 rounded-lg border text-xs font-mono disabled:opacity-30 ${
-                      hasNegatives ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-slate-950 border-slate-800 text-slate-400"
+                      hasNegatives ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-stone-50 border-[#e7e3da] text-stone-500"
                     }`}
                   >
                     Negative Weights: {hasNegatives ? "YES" : "NO"}
@@ -868,41 +875,41 @@ export default function JavaProblemSolvingPatterns() {
                   <button
                     onClick={() => setIsDAG(!isDAG)}
                     className={`px-3 py-1.5 rounded-lg border text-xs font-mono ${
-                      isDAG ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-slate-950 border-slate-800 text-slate-400"
+                      isDAG ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-stone-50 border-[#e7e3da] text-stone-500"
                     }`}
                   >
                     Acyclic (DAG): {isDAG ? "YES" : "NO"}
                   </button>
                 </div>
 
-                <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
-                  <span className="text-xs font-mono text-slate-400 uppercase">Recommended Architecture</span>
+                <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-2">
+                  <span className="text-xs font-mono text-stone-500 uppercase">Recommended Architecture</span>
                   <div className="text-2xl font-bold text-emerald-400 font-mono">{graphRecommendation.algo}</div>
                   <div className="text-xs font-mono text-orange-400">Complexity: {graphRecommendation.complexity}</div>
-                  <p className="text-xs text-slate-300 leading-relaxed pt-1">{graphRecommendation.reason}</p>
+                  <p className="text-xs text-stone-700 leading-relaxed pt-1">{graphRecommendation.reason}</p>
                 </div>
               </div>
             )}
 
             {/* WORKBENCH 6: Tree DP */}
             {activeWb === 6 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <GitBranch className="w-5 h-5 text-orange-400" />
                     Workbench 6: Tree DP (Maximum Independent Set)
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Post-order DFS state vector: <code className="text-orange-300 font-mono">take[u] = 1 + sum(skip[c])</code> and <code className="text-orange-300 font-mono">skip[u] = sum(max(take, skip))</code>.
                   </p>
                 </div>
 
-                <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex items-center justify-between">
+                <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex items-center justify-between">
                   <div>
-                    <span className="text-xs font-mono text-slate-400 block">Maximum Independent Set Size:</span>
-                    <div className="text-3xl font-extrabold text-white font-mono mt-1">{treeISResult.maxSetSize} Nodes</div>
+                    <span className="text-xs font-mono text-stone-500 block">Maximum Independent Set Size:</span>
+                    <div className="text-3xl font-extrabold text-stone-900 font-mono mt-1">{treeISResult.maxSetSize} Nodes</div>
                   </div>
-                  <div className="text-right text-xs text-slate-400 font-mono space-y-1">
+                  <div className="text-right text-xs text-stone-500 font-mono space-y-1">
                     <div>Root Take: <span className="text-orange-400">{treeISResult.rootTake}</span></div>
                     <div>Root Skip: <span className="text-emerald-400">{treeISResult.rootSkip}</span></div>
                   </div>
@@ -912,14 +919,14 @@ export default function JavaProblemSolvingPatterns() {
 
             {/* WORKBENCH 7: Difference Array */}
             {activeWb === 7 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Code2 className="w-5 h-5 text-orange-400" />
                       Workbench 7: Difference Array Range Updates
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       O(1) range additions via <code className="text-orange-300 font-mono">diff[l] += x; diff[r+1] -= x;</code> with prefix sum recovery.
                     </p>
                   </div>
@@ -938,24 +945,24 @@ export default function JavaProblemSolvingPatterns() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <span className="text-xs font-mono text-slate-400 block mb-2">Difference Array diff[0 ... 5]:</span>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da]">
+                    <span className="text-xs font-mono text-stone-500 block mb-2">Difference Array diff[0 ... 5]:</span>
                     <div className="flex gap-2">
                       {diffResult.diffArray.map((v, i) => (
-                        <div key={i} className="px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded font-mono text-xs text-center">
-                          <span className="block text-[8px] text-slate-400">{i}</span>
+                        <div key={i} className="px-2.5 py-1.5 bg-white border border-[#e7e3da] shadow-xs rounded font-mono text-xs text-center">
+                          <span className="block text-[8px] text-stone-500">{i}</span>
                           <span className="font-bold text-orange-300">{v}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <span className="text-xs font-mono text-slate-400 block mb-2">Recovered Array via Prefix Sum:</span>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da]">
+                    <span className="text-xs font-mono text-stone-500 block mb-2">Recovered Array via Prefix Sum:</span>
                     <div className="flex gap-2">
                       {diffResult.recovered.map((v, i) => (
-                        <div key={i} className="px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded font-mono text-xs text-center">
-                          <span className="block text-[8px] text-slate-400">{i}</span>
+                        <div key={i} className="px-2.5 py-1.5 bg-white border border-[#e7e3da] shadow-xs rounded font-mono text-xs text-center">
+                          <span className="block text-[8px] text-stone-500">{i}</span>
                           <span className="font-bold text-emerald-400">{v}</span>
                         </div>
                       ))}
@@ -967,30 +974,30 @@ export default function JavaProblemSolvingPatterns() {
 
             {/* WORKBENCH 8: Mo's Algorithm */}
             {activeWb === 8 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Cpu className="w-5 h-5 text-orange-400" />
                     Workbench 8: Mo's Algorithm Offline Query Sqrt-Decomposition
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Sorting queries by <code className="text-orange-300 font-mono">block(L) = L / sqrt(N)</code> balances pointer movement to O((N + Q) sqrt(N)).
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
-                    <span className="text-xs font-mono text-slate-400 uppercase">Original Arrival Order</span>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-2">
+                    <span className="text-xs font-mono text-stone-500 uppercase">Original Arrival Order</span>
                     <div className="space-y-1">
                       {moQueries.map(q => (
-                        <div key={q.id} className="text-xs font-mono bg-slate-900 p-2 rounded border border-slate-800">
+                        <div key={q.id} className="text-xs font-mono bg-white p-2 rounded border border-[#e7e3da]">
                           Q#{q.id}: [{q.l}, {q.r}]
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-2">
                     <span className="text-xs font-mono text-emerald-400 uppercase">
                       Mo's Reordered Processing (Block Size = {moSortedQueries.blockSize})
                     </span>
@@ -998,7 +1005,7 @@ export default function JavaProblemSolvingPatterns() {
                       {moSortedQueries.sorted.map((q, idx) => (
                         <div key={q.id} className="text-xs font-mono bg-emerald-950/20 border border-emerald-500/40 p-2 rounded text-emerald-300 flex justify-between">
                           <span>Step {idx + 1}: Q#{q.id} [{q.l}, {q.r}]</span>
-                          <span className="text-slate-400 text-[10px]">block: {Math.floor(q.l / moSortedQueries.blockSize)}</span>
+                          <span className="text-stone-500 text-[10px]">block: {Math.floor(q.l / moSortedQueries.blockSize)}</span>
                         </div>
                       ))}
                     </div>
@@ -1013,19 +1020,19 @@ export default function JavaProblemSolvingPatterns() {
         {activeMode === "reader" && (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             {/* Sidebar Table of Contents */}
-            <div className="lg:col-span-1 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-4 max-h-[85vh] flex flex-col gap-3 dark-scrollbar">
+            <div className="lg:col-span-1 bg-white/70 border border-[#e7e3da] rounded-2xl p-4 sticky top-4 max-h-[85vh] flex flex-col gap-3 ">
               <div className="flex items-center gap-2 px-1">
-                <Search className="w-4 h-4 text-slate-400" />
+                <Search className="w-4 h-4 text-stone-500" />
                 <input
                   type="text"
                   placeholder="Filter sections..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-2.5 py-1.5 text-xs text-stone-800 focus:outline-none focus:border-orange-500"
                 />
               </div>
 
-              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar dark-scrollbar">
+              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar ">
                 {filteredSections.map((sec) => (
                   <button
                     key={sec.id}
@@ -1034,10 +1041,10 @@ export default function JavaProblemSolvingPatterns() {
                     className={`w-full text-left p-2.5 rounded-xl text-xs transition flex items-start gap-2 ${
                       activeSectionId === sec.id
                         ? "bg-orange-500/15 border border-orange-500/50 text-orange-300 font-semibold"
-                        : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
+                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-100/40"
                     }`}
                   >
-                    <span className="font-mono text-[10px] text-slate-400 mt-0.5 shrink-0">{sec.id}.</span>
+                    <span className="font-mono text-[10px] text-stone-500 mt-0.5 shrink-0">{sec.id}.</span>
                     <span className="break-words whitespace-normal leading-snug flex-1">{sec.title}</span>
                   </button>
                 ))}
@@ -1045,39 +1052,39 @@ export default function JavaProblemSolvingPatterns() {
             </div>
 
             {/* Main Content Area */}
-            <div className="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
-              <div className="border-b border-slate-800 pb-4">
+            <div className="lg:col-span-3 bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
+              <div className="border-b border-[#e7e3da] pb-4">
                 <div className="text-xs font-mono text-orange-400 uppercase tracking-wider mb-1">
                   {activeSection.id === 0
                     ? "Module Overview · 22 Core Sections"
                     : `Section ${activeSection.id} of 22`}
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">
+                <h2 className="text-xl md:text-2xl font-bold text-stone-900">
                   {activeSection.title}
                 </h2>
-                <p className="text-xs md:text-sm text-slate-400 mt-1">
+                <p className="text-xs md:text-sm text-stone-500 mt-1">
                   {activeSection.summary}
                 </p>
               </div>
 
               {/* Render Section Content */}
-              <div className="prose prose-invert max-w-none text-slate-300 text-xs md:text-sm leading-relaxed">
+              <div className="prose prose-invert max-w-none text-stone-700 text-xs md:text-sm leading-relaxed">
                 {activeSection.content}
               </div>
 
               {/* Bottom Pagination */}
-              <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+              <div className="flex items-center justify-between pt-6 border-t border-[#e7e3da]">
                 <button
                   disabled={activeSectionId <= 0}
                   onClick={() => setActiveSectionId(prev => Math.max(0, prev - 1))}
-                  className="px-4 py-2 rounded-xl border border-slate-800 bg-slate-950 text-xs font-medium text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:border-slate-700 flex items-center gap-1.5 transition"
+                  className="px-4 py-2 rounded-xl border border-[#e7e3da] bg-stone-50 text-xs font-medium text-stone-700 disabled:opacity-40 disabled:cursor-not-allowed hover:border-stone-200 flex items-center gap-1.5 transition"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" /> Previous Section
                 </button>
                 <button
                   disabled={activeSectionId >= JAVA_PROBLEM_SOLVING_PATTERNS_SECTIONS.length - 1}
                   onClick={() => setActiveSectionId(prev => Math.min(JAVA_PROBLEM_SOLVING_PATTERNS_SECTIONS.length - 1, prev + 1))}
-                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition shadow-md shadow-orange-500/20"
+                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-stone-900 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition shadow-md shadow-orange-500/20"
                 >
                   Next Section <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -1089,14 +1096,14 @@ export default function JavaProblemSolvingPatterns() {
         {/* VIEW 3: 35 PRACTICE LABS TRACKER */}
         {activeMode === "labs" && (
           <div className="space-y-6">
-            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-4 shadow-xl">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-4 shadow-xl">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                 <div>
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <CheckSquare className="w-5 h-5 text-orange-400" />
                     35 Advanced Problem-Solving Patterns Labs
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Track your implementation progress across 4 curated levels from backtracking to competitive programming.
                   </p>
                 </div>
@@ -1104,7 +1111,7 @@ export default function JavaProblemSolvingPatterns() {
                   <span className="text-xs font-mono text-emerald-400 font-bold block">
                     {completedLabs.length} / 35 Solved ({Math.round((completedLabs.length / 35) * 100)}%)
                   </span>
-                  <div className="w-36 bg-slate-800 h-2 rounded-full overflow-hidden mt-1.5">
+                  <div className="w-36 bg-stone-100 h-2 rounded-full overflow-hidden mt-1.5">
                     <div
                       className="bg-emerald-500 h-full transition-all duration-300"
                       style={{ width: `${(completedLabs.length / 35) * 100}%` }}
@@ -1134,23 +1141,23 @@ export default function JavaProblemSolvingPatterns() {
                             onClick={() => toggleLab(lab.id)}
                             className={`p-3.5 rounded-xl border cursor-pointer transition flex items-start gap-3 ${
                               isDone
-                                ? "bg-emerald-950/20 border-emerald-500/40 text-slate-200"
-                                : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-300"
+                                ? "bg-emerald-950/20 border-emerald-500/40 text-stone-800"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-500 hover:border-stone-200 hover:text-stone-700"
                             }`}
                           >
-                            <button className="mt-0.5 text-slate-400 hover:text-white">
+                            <button className="mt-0.5 text-stone-500 hover:text-stone-900">
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-400" />
                               ) : (
-                                <Square className="w-4 h-4 text-slate-400" />
+                                <Square className="w-4 h-4 text-stone-500" />
                               )}
                             </button>
                             <div className="space-y-1">
-                              <div className="text-xs font-semibold text-white flex items-center gap-2">
-                                <span className="text-slate-400 font-mono text-[10px]">#{lab.id}</span>
+                              <div className="text-xs font-semibold text-stone-900 flex items-center gap-2">
+                                <span className="text-stone-500 font-mono text-[10px]">#{lab.id}</span>
                                 {lab.title}
                               </div>
-                              <p className="text-[11px] text-slate-400 leading-relaxed">
+                              <p className="text-[11px] text-stone-500 leading-relaxed">
                                 {lab.desc}
                               </p>
                             </div>
@@ -1169,19 +1176,19 @@ export default function JavaProblemSolvingPatterns() {
       {/* ASSESSMENT QUIZ MODAL */}
       {showQuizModal && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+          <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
             {/* Modal Header */}
-            <div className="p-5 border-b border-slate-800 flex items-center justify-between">
+            <div className="p-5 border-b border-[#e7e3da] flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
                   <Award className="w-5 h-5 text-orange-400" />
                   Module 21 Mastery Assessment Quiz
                 </h3>
-                <p className="text-xs text-slate-400">15 Scenario-based Pattern Recognition Questions</p>
+                <p className="text-xs text-stone-500">15 Scenario-based Pattern Recognition Questions</p>
               </div>
               <button
                 onClick={() => setShowQuizModal(false)}
-                className="text-slate-400 hover:text-white text-xs px-2.5 py-1 rounded-lg bg-slate-800"
+                className="text-stone-500 hover:text-stone-900 text-xs px-2.5 py-1 rounded-lg bg-stone-100"
               >
                 Close
               </button>
@@ -1192,8 +1199,8 @@ export default function JavaProblemSolvingPatterns() {
               {QUIZ_QUESTIONS.map((q, idx) => {
                 const userChoice = quizAnswers[q.id];
                 return (
-                  <div key={q.id} className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <div className="text-xs md:text-sm font-semibold text-white flex items-start gap-2">
+                  <div key={q.id} className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
+                    <div className="text-xs md:text-sm font-semibold text-stone-900 flex items-start gap-2">
                       <span className="font-mono text-orange-400">Q{idx + 1}.</span>
                       <span>{q.question}</span>
                     </div>
@@ -1201,7 +1208,7 @@ export default function JavaProblemSolvingPatterns() {
                     <div className="space-y-2 pt-1">
                       {q.options.map((opt, optIdx) => {
                         const isSelected = userChoice === optIdx;
-                        let optClass = "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700";
+                        let optClass = "bg-white border-[#e7e3da] text-stone-700 hover:border-stone-200";
                         if (quizSubmitted) {
                           if (optIdx === q.correct) optClass = "bg-emerald-950/40 border-emerald-500 text-emerald-300 font-semibold";
                           else if (isSelected) optClass = "bg-red-950/40 border-red-500 text-red-300";
@@ -1216,7 +1223,7 @@ export default function JavaProblemSolvingPatterns() {
                             onClick={() => setQuizAnswers(prev => ({ ...prev, [q.id]: optIdx }))}
                             className={`w-full text-left p-2.5 rounded-lg border text-xs transition flex items-center gap-2.5 ${optClass}`}
                           >
-                            <span className="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-mono shrink-0">
+                            <span className="w-5 h-5 rounded-full border border-stone-200 flex items-center justify-center text-[10px] font-mono shrink-0">
                               {String.fromCharCode(65 + optIdx)}
                             </span>
                             <span>{opt}</span>
@@ -1226,9 +1233,9 @@ export default function JavaProblemSolvingPatterns() {
                     </div>
 
                     {quizSubmitted && (
-                      <div className="p-3 rounded-lg bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-1">
+                      <div className="p-3 rounded-lg bg-white border border-[#e7e3da] shadow-xs text-xs text-stone-700 space-y-1">
                         <div className="font-semibold text-emerald-400">Explanation:</div>
-                        <p className="text-slate-400 text-[11px] leading-relaxed">{q.explanation}</p>
+                        <p className="text-stone-500 text-[11px] leading-relaxed">{q.explanation}</p>
                       </div>
                     )}
                   </div>
@@ -1237,13 +1244,13 @@ export default function JavaProblemSolvingPatterns() {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 border-t border-slate-800 bg-slate-950 flex items-center justify-between">
+            <div className="p-4 border-t border-[#e7e3da] bg-stone-50 flex items-center justify-between">
               {quizSubmitted ? (
                 <div className="text-xs font-mono">
                   Your Score: <strong className="text-emerald-400 text-sm">{quizScore} / {QUIZ_QUESTIONS.length}</strong> ({Math.round((quizScore / QUIZ_QUESTIONS.length) * 100)}%)
                 </div>
               ) : (
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-stone-500">
                   {Object.keys(quizAnswers).length} of {QUIZ_QUESTIONS.length} answered
                 </div>
               )}
@@ -1255,7 +1262,7 @@ export default function JavaProblemSolvingPatterns() {
                       setQuizSubmitted(false);
                       setQuizAnswers({});
                     }}
-                    className="px-4 py-2 rounded-xl bg-slate-800 text-xs font-medium text-slate-200 hover:bg-slate-700 transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 text-xs font-medium text-stone-800 hover:bg-stone-200 transition"
                   >
                     Retake Quiz
                   </button>
@@ -1263,7 +1270,7 @@ export default function JavaProblemSolvingPatterns() {
                   <button
                     onClick={() => setQuizSubmitted(true)}
                     disabled={Object.keys(quizAnswers).length === 0}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-stone-900 disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
                   >
                     Submit Answers
                   </button>
@@ -1273,6 +1280,7 @@ export default function JavaProblemSolvingPatterns() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

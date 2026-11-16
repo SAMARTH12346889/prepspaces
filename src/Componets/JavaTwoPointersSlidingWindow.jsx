@@ -742,84 +742,92 @@ export default function JavaTwoPointersSlidingWindow() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
-      {/* MODULE HEADER BAR */}
-      <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40 px-4 lg:px-8 py-3">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate("/learning/java/specialized-ds")}
-              className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
-              title="Previous Module: Tries, Disjoint Sets & Specialized Structures"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  MODULE 15
-                </span>
-                <span className="text-xs text-slate-400 font-mono">Advanced Problem-Solving Patterns</span>
-              </div>
-              <h1 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-                Two Pointers, Sliding Window & Prefix Sums
-              </h1>
-            </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-8 sm:py-10 md:px-12 font-sans antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
+        {/* Module Navigation Header */}
+        <ModuleNav
+          track="java"
+          currentModuleId="two-pointers-sliding-window"
+        />
+
+        {/* Hero Header */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c]">
+              <Layers size={13} />
+              Module 15 · Java + DSA Master Course
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono text-stone-600">
+              Advanced Problem-Solving Patterns
+            </span>
           </div>
 
-          {/* MODE SELECTOR */}
-          <div className="flex items-center gap-2 bg-slate-950 p-1 rounded-xl border border-slate-800">
-            <button
-              onClick={() => setActiveTab("workbench")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                activeTab === "workbench"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <Sliders className="w-4 h-4" />
-              8 Interactive Workbenches
-            </button>
-            <button
-              onClick={() => setActiveTab("reader")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                activeTab === "reader"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <BookOpen className="w-4 h-4" />
-              Curriculum (23 Sections)
-            </button>
-            <button
-              onClick={() => setActiveTab("quiz")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                activeTab === "quiz"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <HelpCircle className="w-4 h-4" />
-              Assessment Quiz (15)
-            </button>
-            <button
-              onClick={() => setActiveTab("labs")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                activeTab === "labs"
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <Award className="w-4 h-4" />
-              30 Practice Labs ({completedLabCount}/30)
-            </button>
-          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#18181b] tracking-tight">
+            Two Pointers, Sliding Window &amp; Prefix Sums
+          </h1>
+
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
+            Master convergent pointers, fast and slow pointer cycle detection, fixed and variable-size sliding windows, prefix sums, 2D difference arrays, and monotonic deque window optimization in Java.
+          </p>
+        </header>
+
+        {/* Mode Selector */}
+        <div className="flex flex-wrap items-center gap-2 mb-8">
+          <button
+            onClick={() => setActiveTab("workbench")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "workbench"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <Sliders size={16} className={activeTab === "workbench" ? "text-orange-400" : "text-stone-400"} />
+            <span>8 Interactive Workbenches</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("reader")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "reader"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <BookOpen size={16} className={activeTab === "reader" ? "text-orange-400" : "text-stone-400"} />
+            <span>Curriculum (23 Sections)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("quiz")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "quiz"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <HelpCircle size={16} className={activeTab === "quiz" ? "text-orange-400" : "text-stone-400"} />
+            <span>Assessment Quiz (15)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("labs")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "labs"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <Award size={16} className={activeTab === "labs" ? "text-orange-400" : "text-stone-400"} />
+            <span>30 Practice Labs ({completedLabCount}/30)</span>
+          </button>
         </div>
-      </header>
 
       {/* SUB-HEADER PROGRESS BANNER */}
-      <div className="bg-slate-900/60 border-b border-slate-800/80 px-4 py-2 text-xs">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-slate-400">
+      <div className="bg-white border-b border-[#e7e3da] px-4 py-2 text-xs">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-stone-500">
           <div className="flex items-center gap-4">
             <span>Reading Progress: <strong className="text-emerald-400">{completedSecCount}</strong> of 23 Sections</span>
             <span>&bull;</span>
@@ -827,7 +835,7 @@ export default function JavaTwoPointersSlidingWindow() {
           </div>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-slate-300 font-mono text-[11px]">Two Pointers &bull; Sliding Window &bull; Prefix Sums</span>
+            <span className="text-stone-700 font-mono text-[11px]">Two Pointers &bull; Sliding Window &bull; Prefix Sums</span>
           </div>
         </div>
       </div>
@@ -840,7 +848,7 @@ export default function JavaTwoPointersSlidingWindow() {
         {activeTab === "workbench" && (
           <div className="space-y-6">
             {/* TOOL SELECTOR PILLS */}
-            <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-slate-800">
+            <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-[#e7e3da]">
               {[
                 { id: "two-pointers", label: "1. Two Pointers Studio", icon: Repeat },
                 { id: "fast-slow", label: "2. Fast & Slow Cycle Detector", icon: Activity },
@@ -859,7 +867,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                       workbenchTool === tool.id
                         ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm"
-                        : "bg-slate-900 hover:bg-slate-850 text-slate-400 border border-slate-800"
+                        : "bg-white hover:bg-slate-850 text-stone-500 border border-[#e7e3da]"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -873,42 +881,42 @@ export default function JavaTwoPointersSlidingWindow() {
             {workbenchTool === "two-pointers" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <div className="flex items-center justify-between">
                       <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                         <Repeat className="w-4 h-4" />
                         Opposite-Direction Two Pointers
                       </h3>
-                      <div className="flex rounded-lg bg-slate-950 p-0.5 border border-slate-800 text-[11px]">
+                      <div className="flex rounded-lg bg-stone-50 p-0.5 border border-[#e7e3da] text-[11px]">
                         <button
                           onClick={() => { setTwoPtrMode("pair-sum"); handleTpReset(); }}
-                          className={`px-2 py-0.5 rounded font-medium ${twoPtrMode === "pair-sum" ? "bg-emerald-600 text-white" : "text-slate-400"}`}
+                          className={`px-2 py-0.5 rounded font-medium ${twoPtrMode === "pair-sum" ? "bg-emerald-600 text-white" : "text-stone-500"}`}
                         >
                           Pair Sum
                         </button>
                         <button
                           onClick={() => { setTwoPtrMode("reverse"); handleTpReset(); }}
-                          className={`px-2 py-0.5 rounded font-medium ${twoPtrMode === "reverse" ? "bg-emerald-600 text-white" : "text-slate-400"}`}
+                          className={`px-2 py-0.5 rounded font-medium ${twoPtrMode === "reverse" ? "bg-emerald-600 text-white" : "text-stone-500"}`}
                         >
                           Reversal
                         </button>
                       </div>
                     </div>
 
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       {twoPtrMode === "pair-sum"
                         ? "Pointers start at extremes and move inward based on sorted sum comparison."
                         : "In-place array reversal swapping elements at left and right pointers in O(1) space."}
                     </p>
 
                     {twoPtrMode === "pair-sum" && (
-                      <div className="space-y-2 pt-2 border-t border-slate-800">
-                        <label className="text-xs text-slate-300 font-semibold block">Target Sum</label>
+                      <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                        <label className="text-xs text-stone-700 font-semibold block">Target Sum</label>
                         <input
                           type="number"
                           value={tpTarget}
                           onChange={(e) => { setTpTarget(parseInt(e.target.value) || 0); setTpFound(null); }}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                          className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                         />
                       </div>
                     )}
@@ -922,7 +930,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       </button>
                       <button
                         onClick={handleTpReset}
-                        className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
+                        className="px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                       </button>
@@ -940,8 +948,8 @@ export default function JavaTwoPointersSlidingWindow() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Array Pointers Visualization</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Array Pointers Visualization</span>
                     <div className="grid grid-cols-7 gap-2">
                       {tpArray.map((val, idx) => {
                         const isL = idx === tpLeft;
@@ -956,7 +964,7 @@ export default function JavaTwoPointersSlidingWindow() {
                                 ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold scale-105"
                                 : isL || isR
                                 ? "bg-cyan-500/10 border-cyan-500/40 text-cyan-300 ring-2 ring-cyan-500/30"
-                                : "bg-slate-950 border-slate-800 text-slate-400"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-500"
                             }`}
                           >
                             <div className="text-[10px] text-slate-500">[{idx}]</div>
@@ -970,9 +978,9 @@ export default function JavaTwoPointersSlidingWindow() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Two Pointers Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Two Pointers Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {tpLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -986,16 +994,16 @@ export default function JavaTwoPointersSlidingWindow() {
             {workbenchTool === "fast-slow" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Activity className="w-4 h-4" />
                       Floyd&apos;s Tortoise &amp; Hare (Cycle Detection)
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Slow pointer moves 1 step while fast pointer moves 2 steps. Inside a cycle of length C, they meet in at most C iterations.
                     </p>
 
-                    <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs space-y-1">
+                    <div className="p-3 bg-stone-50 rounded-xl border border-[#e7e3da] text-xs space-y-1">
                       <div><strong>Phase:</strong> <span className="text-cyan-400 font-mono">{cyclePhase === "detect" ? "1. Detect Cycle Existence" : "2. Locate Cycle Entrance"}</span></div>
                       <div><strong>Slow Pointer Node:</strong> <span className="text-emerald-400 font-bold">{cycleSlow}</span></div>
                       <div><strong>Fast Pointer Node:</strong> <span className="text-orange-400 font-bold">{cycleFast}</span></div>
@@ -1010,7 +1018,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       </button>
                       <button
                         onClick={handleCycleReset}
-                        className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
+                        className="px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                       </button>
@@ -1028,8 +1036,8 @@ export default function JavaTwoPointersSlidingWindow() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Linked List Graph (Node 5 points back to Node 2)</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Linked List Graph (Node 5 points back to Node 2)</span>
                     <div className="grid grid-cols-6 gap-2">
                       {[0, 1, 2, 3, 4, 5].map((node) => {
                         const isS = node === cycleSlow;
@@ -1042,10 +1050,10 @@ export default function JavaTwoPointersSlidingWindow() {
                             className={`p-3 rounded-xl border text-center font-mono text-xs transition-all ${
                               inCycle
                                 ? "bg-amber-500/10 border-amber-500/40 text-amber-300"
-                                : "bg-slate-950 border-slate-800 text-slate-300"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-700"
                             }`}
                           >
-                            <div className="text-[10px] text-slate-400">{inCycle ? "Cycle Node" : "Linear Node"}</div>
+                            <div className="text-[10px] text-stone-500">{inCycle ? "Cycle Node" : "Linear Node"}</div>
                             <div className="text-base font-bold my-1 text-white">Node {node}</div>
                             <div className="text-[10px] space-y-0.5">
                               {isS && <div className="px-1 rounded bg-emerald-500/20 text-emerald-400">Slow</div>}
@@ -1058,9 +1066,9 @@ export default function JavaTwoPointersSlidingWindow() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Cycle Detector Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Cycle Detector Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {cycleLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1074,29 +1082,29 @@ export default function JavaTwoPointersSlidingWindow() {
             {workbenchTool === "same-direction" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <div className="flex items-center justify-between">
                       <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                         <GitMerge className="w-4 h-4" />
                         In-Place Array Compaction
                       </h3>
-                      <div className="flex rounded-lg bg-slate-950 p-0.5 border border-slate-800 text-[11px]">
+                      <div className="flex rounded-lg bg-stone-50 p-0.5 border border-[#e7e3da] text-[11px]">
                         <button
                           onClick={() => { setSameDirMode("remove-dupes"); handleSdReset(); }}
-                          className={`px-2 py-0.5 rounded font-medium ${sameDirMode === "remove-dupes" ? "bg-emerald-600 text-white" : "text-slate-400"}`}
+                          className={`px-2 py-0.5 rounded font-medium ${sameDirMode === "remove-dupes" ? "bg-emerald-600 text-white" : "text-stone-500"}`}
                         >
                           Remove Dupes
                         </button>
                         <button
                           onClick={() => { setSameDirMode("move-zeroes"); handleSdReset(); }}
-                          className={`px-2 py-0.5 rounded font-medium ${sameDirMode === "move-zeroes" ? "bg-emerald-600 text-white" : "text-slate-400"}`}
+                          className={`px-2 py-0.5 rounded font-medium ${sameDirMode === "move-zeroes" ? "bg-emerald-600 text-white" : "text-stone-500"}`}
                         >
                           Move Zeroes
                         </button>
                       </div>
                     </div>
 
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       {sameDirMode === "remove-dupes"
                         ? "Pointer i tracks boundary of unique elements; pointer j scans forward for new values."
                         : "Pointer i records write position for nonzero values; pointer j scans the array."}
@@ -1106,13 +1114,13 @@ export default function JavaTwoPointersSlidingWindow() {
                       <button
                         onClick={handleSdStep}
                         disabled={sdDone}
-                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-white text-xs font-semibold"
+                        className="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-stone-100 disabled:text-slate-600 text-white text-xs font-semibold"
                       >
                         {sdDone ? "Completed" : `Step Forward (i=${sdI}, j=${sdJ})`}
                       </button>
                       <button
                         onClick={handleSdReset}
-                        className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
+                        className="px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                       </button>
@@ -1121,8 +1129,8 @@ export default function JavaTwoPointersSlidingWindow() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Array In-Place State</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Array In-Place State</span>
                     <div className="grid grid-cols-8 gap-1.5">
                       {sdArray.map((val, idx) => {
                         const isI = idx === sdI;
@@ -1135,7 +1143,7 @@ export default function JavaTwoPointersSlidingWindow() {
                             className={`p-2.5 rounded-xl border text-center font-mono text-xs transition-all ${
                               isUniquePrefix
                                 ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-300 font-bold"
-                                : "bg-slate-950 border-slate-800 text-slate-500"
+                                : "bg-stone-50 border-[#e7e3da] text-slate-500"
                             }`}
                           >
                             <div className="text-[9px] text-slate-500">[{idx}]</div>
@@ -1149,9 +1157,9 @@ export default function JavaTwoPointersSlidingWindow() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Compaction Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Compaction Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {sdLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1165,16 +1173,16 @@ export default function JavaTwoPointersSlidingWindow() {
             {workbenchTool === "fixed-window" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <BinaryIcon className="w-4 h-4" />
                       Fixed-Size Sliding Window (Size K)
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Slide window of width K=3 in O(1) time: add incoming <code className="text-emerald-400">arr[R]</code> and subtract outgoing <code className="text-rose-400">arr[R - K]</code>.
                     </p>
 
-                    <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs space-y-1">
+                    <div className="p-3 bg-stone-50 rounded-xl border border-[#e7e3da] text-xs space-y-1">
                       <div><strong>Current Window Sum:</strong> <span className="text-cyan-400 font-bold">{fixedCurrentSum}</span></div>
                       <div><strong>Max Window Sum Seen:</strong> <span className="text-emerald-400 font-bold">{fixedMaxSum}</span></div>
                       <div><strong>Optimal Subarray:</strong> <span className="text-amber-400 font-mono">[{fixedBestWindow[0]}..{fixedBestWindow[1]}]</span></div>
@@ -1189,7 +1197,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       </button>
                       <button
                         onClick={handleFixedReset}
-                        className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
+                        className="px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                       </button>
@@ -1198,8 +1206,8 @@ export default function JavaTwoPointersSlidingWindow() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Array Sliding Window Highlight (K=3)</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Array Sliding Window Highlight (K=3)</span>
                     <div className="grid grid-cols-8 gap-2">
                       {fixedArray.map((val, idx) => {
                         const inWindow = idx > fixedRight - fixedK && idx <= fixedRight;
@@ -1212,7 +1220,7 @@ export default function JavaTwoPointersSlidingWindow() {
                             className={`p-3 rounded-xl border text-center font-mono text-xs transition-all ${
                               inWindow
                                 ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold scale-105"
-                                : "bg-slate-950 border-slate-800 text-slate-400"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-500"
                             }`}
                           >
                             <div className="text-[10px] text-slate-500">[{idx}]</div>
@@ -1226,9 +1234,9 @@ export default function JavaTwoPointersSlidingWindow() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Window Step History</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Window Step History</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {fixedLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1242,26 +1250,26 @@ export default function JavaTwoPointersSlidingWindow() {
             {workbenchTool === "unique-sub" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Search className="w-4 h-4" />
                       LeetCode 3: Longest Unique Substring
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Expand right while keeping all characters unique. When a duplicate appears, jump left forward using <code className="text-amber-400">Math.max(left, lastSeen + 1)</code>.
                     </p>
 
-                    <div className="space-y-2 pt-2 border-t border-slate-800">
-                      <label className="text-xs text-slate-300 font-semibold block">Input String</label>
+                    <div className="space-y-2 pt-2 border-t border-[#e7e3da]">
+                      <label className="text-xs text-stone-700 font-semibold block">Input String</label>
                       <input
                         type="text"
                         value={uniqueStr}
                         onChange={(e) => { setUniqueStr(e.target.value.toLowerCase()); handleUniqueReset(); }}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white font-mono"
+                        className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white font-mono"
                       />
                     </div>
 
-                    <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs space-y-1">
+                    <div className="p-3 bg-stone-50 rounded-xl border border-[#e7e3da] text-xs space-y-1">
                       <div><strong>Active Window [L..R]:</strong> [{uLeft}..{Math.max(0, uRight - 1)}] ({uniqueStr.slice(uLeft, uRight)})</div>
                       <div><strong>Longest Unique Found:</strong> <span className="text-emerald-400 font-bold">{uMaxLen} (&quot;{uBestSub}&quot;)</span></div>
                     </div>
@@ -1275,7 +1283,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       </button>
                       <button
                         onClick={handleUniqueReset}
-                        className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
+                        className="px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                       </button>
@@ -1284,8 +1292,8 @@ export default function JavaTwoPointersSlidingWindow() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">String Character Index Tracker</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">String Character Index Tracker</span>
                     <div className="flex flex-wrap gap-2">
                       {uniqueStr.split("").map((ch, idx) => {
                         const inWindow = idx >= uLeft && idx < uRight;
@@ -1298,7 +1306,7 @@ export default function JavaTwoPointersSlidingWindow() {
                             className={`p-3 rounded-xl border text-center font-mono text-xs transition-all ${
                               inWindow
                                 ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold scale-105"
-                                : "bg-slate-950 border-slate-800 text-slate-500"
+                                : "bg-stone-50 border-[#e7e3da] text-slate-500"
                             }`}
                           >
                             <div className="text-[10px] text-slate-500">{idx}</div>
@@ -1312,9 +1320,9 @@ export default function JavaTwoPointersSlidingWindow() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Algorithm Execution Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Algorithm Execution Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {uLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1328,16 +1336,16 @@ export default function JavaTwoPointersSlidingWindow() {
             {workbenchTool === "min-window" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Maximize2 className="w-4 h-4" />
                       LeetCode 76: Minimum Window Substring
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Two-phase sliding window: expand right until <code className="text-emerald-400">formed == required</code>, then shrink left to find minimal valid length.
                     </p>
 
-                    <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs space-y-1">
+                    <div className="p-3 bg-stone-50 rounded-xl border border-[#e7e3da] text-xs space-y-1">
                       <div><strong>Target Characters (T):</strong> &quot;{minT}&quot; (need: {Object.keys(minNeed).length} unique)</div>
                       <div><strong>Formed Count:</strong> <span className="text-cyan-400 font-bold">{minFormed} / {Object.keys(minNeed).length}</span></div>
                       <div><strong>Best Window Found:</strong> <span className="text-emerald-400 font-bold">{minBestStr || "None"} ({minBestLen === Infinity ? 0 : minBestLen})</span></div>
@@ -1352,7 +1360,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       </button>
                       <button
                         onClick={handleMinReset}
-                        className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
+                        className="px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                       </button>
@@ -1361,8 +1369,8 @@ export default function JavaTwoPointersSlidingWindow() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">String S Window View</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">String S Window View</span>
                     <div className="flex flex-wrap gap-1.5">
                       {minS.split("").map((ch, idx) => {
                         const inWindow = idx >= minL && idx < minR;
@@ -1375,8 +1383,8 @@ export default function JavaTwoPointersSlidingWindow() {
                               inWindow
                                 ? isTChar
                                   ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold"
-                                  : "bg-slate-900 border-slate-700 text-slate-300"
-                                : "bg-slate-950 border-slate-800 text-slate-600"
+                                  : "bg-white border-stone-200 text-stone-700"
+                                : "bg-stone-50 border-[#e7e3da] text-slate-600"
                             }`}
                           >
                             <div className="text-[9px] text-slate-500">{idx}</div>
@@ -1387,9 +1395,9 @@ export default function JavaTwoPointersSlidingWindow() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Min Window Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Min Window Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {minLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1403,36 +1411,36 @@ export default function JavaTwoPointersSlidingWindow() {
             {workbenchTool === "prefix-sums" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Calculator className="w-4 h-4" />
                       1D Prefix Sum Query Engine
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Precompute cumulative totals in O(N). Query any range [L, R] in strictly O(1) time using <code className="text-cyan-400">P[R+1] - P[L]</code>.
                     </p>
 
-                    <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+                    <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[#e7e3da]">
                       <div>
-                        <span className="text-[11px] text-slate-400 block mb-1">Left Index L (0..4)</span>
+                        <span className="text-[11px] text-stone-500 block mb-1">Left Index L (0..4)</span>
                         <input
                           type="number"
                           min="0"
                           max="4"
                           value={qL}
                           onChange={(e) => setQL(parseInt(e.target.value) || 0)}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                          className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                         />
                       </div>
                       <div>
-                        <span className="text-[11px] text-slate-400 block mb-1">Right Index R (0..4)</span>
+                        <span className="text-[11px] text-stone-500 block mb-1">Right Index R (0..4)</span>
                         <input
                           type="number"
                           min="0"
                           max="4"
                           value={qR}
                           onChange={(e) => setQR(parseInt(e.target.value) || 0)}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white"
+                          className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-1.5 text-xs text-white"
                         />
                       </div>
                     </div>
@@ -1447,7 +1455,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     {qResult && (
                       <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-300 space-y-1">
                         <div className="font-bold">Sum([{qResult.l}..{qResult.r}]) = {qResult.ans}</div>
-                        <div className="text-[11px] text-slate-300">
+                        <div className="text-[11px] text-stone-700">
                           Formula: P[{qResult.r + 1}] ({qResult.pRight}) - P[{qResult.l}] ({qResult.pLeft}) = {qResult.ans} in O(1)
                         </div>
                       </div>
@@ -1456,12 +1464,12 @@ export default function JavaTwoPointersSlidingWindow() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-                    <span className="text-xs font-semibold text-slate-300">Prefix Array Construction</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
+                    <span className="text-xs font-semibold text-stone-700">Prefix Array Construction</span>
                     <div className="overflow-x-auto">
                       <table className="w-full text-xs font-mono text-center border-collapse">
                         <thead>
-                          <tr className="border-b border-slate-800 text-slate-400">
+                          <tr className="border-b border-[#e7e3da] text-stone-500">
                             <th className="p-2 text-left">Index</th>
                             {pref1D.map((_, i) => (
                               <th key={i} className="p-2">[{i}]</th>
@@ -1469,15 +1477,15 @@ export default function JavaTwoPointersSlidingWindow() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr className="border-b border-slate-800/50">
-                            <td className="p-2 text-left font-semibold text-slate-300">arr[i]</td>
+                          <tr className="border-b border-[#e7e3da]/50">
+                            <td className="p-2 text-left font-semibold text-stone-700">arr[i]</td>
                             <td className="p-2 text-slate-600">-</td>
                             {pref1DArr.map((v, idx) => (
                               <td key={idx} className="p-2 font-bold text-amber-400">{v}</td>
                             ))}
                           </tr>
                           <tr>
-                            <td className="p-2 text-left font-semibold text-slate-300">Prefix P[i]</td>
+                            <td className="p-2 text-left font-semibold text-stone-700">Prefix P[i]</td>
                             {pref1D.map((p, idx) => (
                               <td key={idx} className="p-2 font-bold text-emerald-400">{p}</td>
                             ))}
@@ -1494,16 +1502,16 @@ export default function JavaTwoPointersSlidingWindow() {
             {workbenchTool === "kadane" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-4">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
                       <Compass className="w-4 h-4" />
                       Kadane&apos;s Max Subarray Sum
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       At each element, choose whether to extend the previous subarray or start fresh: <code className="text-amber-400">cur = max(x, cur + x)</code>.
                     </p>
 
-                    <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs space-y-1">
+                    <div className="p-3 bg-stone-50 rounded-xl border border-[#e7e3da] text-xs space-y-1">
                       <div><strong>Current Subarray Sum:</strong> <span className="text-cyan-400 font-bold">{kCurrentSum}</span></div>
                       <div><strong>All-Time Max Sum:</strong> <span className="text-emerald-400 font-bold">{kMaxSum}</span></div>
                       <div><strong>Best Subarray:</strong> <span className="text-amber-400 font-mono">[{kBestRange[0]}..{kBestRange[1]}]</span></div>
@@ -1518,7 +1526,7 @@ export default function JavaTwoPointersSlidingWindow() {
                       </button>
                       <button
                         onClick={handleKadaneReset}
-                        className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
+                        className="px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                       </button>
@@ -1527,8 +1535,8 @@ export default function JavaTwoPointersSlidingWindow() {
                 </div>
 
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-                    <span className="text-xs font-semibold text-slate-300">Array Processing &amp; Subarray Highlight</span>
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-5 space-y-3">
+                    <span className="text-xs font-semibold text-stone-700">Array Processing &amp; Subarray Highlight</span>
                     <div className="grid grid-cols-9 gap-1.5">
                       {kadaneArr.map((val, idx) => {
                         const inBest = idx >= kBestRange[0] && idx <= kBestRange[1];
@@ -1542,7 +1550,7 @@ export default function JavaTwoPointersSlidingWindow() {
                                 ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold"
                                 : isCur
                                 ? "bg-cyan-500/10 border-cyan-500/40 text-cyan-300"
-                                : "bg-slate-950 border-slate-800 text-slate-400"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-500"
                             }`}
                           >
                             <div className="text-[9px] text-slate-500">[{idx}]</div>
@@ -1554,9 +1562,9 @@ export default function JavaTwoPointersSlidingWindow() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Kadane Log</span>
-                    <div className="font-mono text-[11px] text-slate-300 space-y-1 max-h-36 overflow-y-auto">
+                  <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4">
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block mb-2">Kadane Log</span>
+                    <div className="font-mono text-[11px] text-stone-700 space-y-1 max-h-36 overflow-y-auto">
                       {kadaneLogs.map((log, idx) => (
                         <div key={idx} className="border-b border-slate-850 pb-1">{log}</div>
                       ))}
@@ -1574,19 +1582,19 @@ export default function JavaTwoPointersSlidingWindow() {
         {activeTab === "reader" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div className="lg:col-span-4 space-y-4">
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 sticky top-20">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-4 space-y-3 sticky top-20">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Curriculum Index</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-stone-500">Curriculum Index</span>
                   <span className="text-xs text-emerald-400 font-mono">{filteredSections.length} Sections</span>
                 </div>
                 <div className="relative">
-                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
+                  <Search className="w-3.5 h-3.5 text-stone-500 absolute left-3 top-2.5" />
                   <input
                     type="text"
                     value={searchFilter}
                     onChange={(e) => setSearchFilter(e.target.value)}
                     placeholder="Filter sections..."
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
                   />
                 </div>
 
@@ -1603,8 +1611,8 @@ export default function JavaTwoPointersSlidingWindow() {
                           isActive
                             ? "bg-emerald-600 text-white font-medium shadow-md shadow-emerald-600/20"
                             : isDone
-                            ? "bg-slate-950/70 text-slate-300 hover:bg-slate-850"
-                            : "bg-slate-950 text-slate-400 hover:bg-slate-850 hover:text-slate-200"
+                            ? "bg-stone-50/70 text-stone-700 hover:bg-slate-850"
+                            : "bg-stone-50 text-stone-500 hover:bg-slate-850 hover:text-stone-800"
                         }`}
                       >
                         <span
@@ -1617,7 +1625,7 @@ export default function JavaTwoPointersSlidingWindow() {
                           {isDone ? (
                             <CheckSquare className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-emerald-400"}`} />
                           ) : (
-                            <Square className="w-3.5 h-3.5 text-slate-600 hover:text-slate-400" />
+                            <Square className="w-3.5 h-3.5 text-slate-600 hover:text-stone-500" />
                           )}
                         </span>
                         <div className="flex-1 min-w-0">
@@ -1639,8 +1647,8 @@ export default function JavaTwoPointersSlidingWindow() {
                 const isDone = !!completedSections[currentSec.id];
 
                 return (
-                  <article className="bg-slate-900 border border-slate-800 rounded-2xl p-6 lg:p-8 space-y-6">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+                  <article className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 lg:p-8 space-y-6">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#e7e3da]">
                       <div>
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
@@ -1648,7 +1656,7 @@ export default function JavaTwoPointersSlidingWindow() {
                               ? "Module Overview · 23 Core Sections"
                               : `Section ${currentSec.id} of 23`}
                           </span>
-                          <span className="text-xs text-slate-400 font-mono">
+                          <span className="text-xs text-stone-500 font-mono">
                             {currentSec.category}
                           </span>
                         </div>
@@ -1661,7 +1669,7 @@ export default function JavaTwoPointersSlidingWindow() {
                         className={`px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all ${
                           isDone
                             ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40"
-                            : "bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"
+                            : "bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-200"
                         }`}
                       >
                         {isDone ? (
@@ -1671,22 +1679,22 @@ export default function JavaTwoPointersSlidingWindow() {
                           </>
                         ) : (
                           <>
-                            <Square className="w-4 h-4 text-slate-400" />
+                            <Square className="w-4 h-4 text-stone-500" />
                             Mark as Done
                           </>
                         )}
                       </button>
                     </div>
 
-                    <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-sm">
+                    <div className="prose prose-invert max-w-none text-stone-700 leading-relaxed text-sm">
                       {currentSec.content}
                     </div>
 
-                    <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+                    <div className="flex items-center justify-between pt-6 border-t border-[#e7e3da]">
                       <button
                         disabled={currentSec.id === 0}
                         onClick={() => setActiveSectionId(Math.max(0, currentSec.id - 1))}
-                        className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-750 disabled:opacity-40 text-xs text-slate-300 flex items-center gap-2"
+                        className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-slate-750 disabled:opacity-40 text-xs text-stone-700 flex items-center gap-2"
                       >
                         <ArrowLeft className="w-4 h-4" /> Previous Section
                       </button>
@@ -1710,13 +1718,13 @@ export default function JavaTwoPointersSlidingWindow() {
         {/* ========================================================================= */}
         {activeTab === "quiz" && (
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
                   <HelpCircle className="w-5 h-5 text-emerald-400" />
                   Module 15 Knowledge Assessment
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   15 questions covering Two Pointers, Sliding Windows, Prefix Sums, Difference Arrays, and Kadane&apos;s Algorithm.
                 </p>
               </div>
@@ -1724,7 +1732,7 @@ export default function JavaTwoPointersSlidingWindow() {
                 {showQuizResults ? (
                   <button
                     onClick={() => { setUserAnswers({}); setShowQuizResults(false); }}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-2"
+                    className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-800 flex items-center gap-2"
                   >
                     <RotateCcw className="w-4 h-4" /> Retake Quiz
                   </button>
@@ -1732,7 +1740,7 @@ export default function JavaTwoPointersSlidingWindow() {
                   <button
                     onClick={() => setShowQuizResults(true)}
                     disabled={Object.keys(userAnswers).length === 0}
-                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-xs font-bold text-white transition-all shadow-lg shadow-emerald-600/30"
+                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-stone-100 disabled:text-slate-600 text-xs font-bold text-white transition-all shadow-lg shadow-emerald-600/30"
                   >
                     Submit Assessment ({Object.keys(userAnswers).length}/15 Answered)
                   </button>
@@ -1746,12 +1754,12 @@ export default function JavaTwoPointersSlidingWindow() {
                   <div className="text-xs uppercase tracking-wider text-emerald-400 font-bold">Your Score</div>
                   <div className="text-3xl font-bold text-white mt-1">
                     {calculateScore()} / {QUIZ_QUESTIONS.length}
-                    <span className="text-sm text-slate-400 font-normal ml-2">
+                    <span className="text-sm text-stone-500 font-normal ml-2">
                       ({Math.round((calculateScore() / QUIZ_QUESTIONS.length) * 100)}%)
                     </span>
                   </div>
                 </div>
-                <div className="text-sm text-slate-300">
+                <div className="text-sm text-stone-700">
                   {calculateScore() >= 12 ? (
                     <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
                       <CheckCircle2 className="w-5 h-5" /> Master Level: Superb DSA Pattern Proficiency!
@@ -1779,11 +1787,11 @@ export default function JavaTwoPointersSlidingWindow() {
                         ? isCorrect
                           ? "bg-emerald-500/5 border-emerald-500/30"
                           : "bg-rose-500/5 border-rose-500/30"
-                        : "bg-slate-900 border-slate-800"
+                        : "bg-white border-[#e7e3da]"
                     }`}
                   >
                     <div className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-slate-800 text-slate-300 text-xs font-mono flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-700 text-xs font-mono flex items-center justify-center shrink-0 mt-0.5">
                         {idx + 1}
                       </span>
                       <div className="flex-1 space-y-3">
@@ -1792,7 +1800,7 @@ export default function JavaTwoPointersSlidingWindow() {
                         <div className="space-y-2">
                           {q.options.map((opt, optIdx) => {
                             const isThisOption = selected === optIdx;
-                            let btnStyle = "bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-850";
+                            let btnStyle = "bg-stone-50 border-[#e7e3da] text-stone-700 hover:bg-slate-850";
 
                             if (showQuizResults) {
                               if (optIdx === q.correct) {
@@ -1800,7 +1808,7 @@ export default function JavaTwoPointersSlidingWindow() {
                               } else if (isThisOption) {
                                 btnStyle = "bg-rose-500/20 border-rose-500/50 text-rose-300";
                               } else {
-                                btnStyle = "bg-slate-950/50 border-slate-850 text-slate-500";
+                                btnStyle = "bg-stone-50/50 border-slate-850 text-slate-500";
                               }
                             } else if (isThisOption) {
                               btnStyle = "bg-emerald-600/30 border-emerald-500 text-emerald-200 font-semibold";
@@ -1823,7 +1831,7 @@ export default function JavaTwoPointersSlidingWindow() {
                         </div>
 
                         {showQuizResults && (
-                          <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+                          <div className="p-3 rounded-xl bg-stone-50 border border-[#e7e3da] text-xs text-stone-700 leading-relaxed">
                             <strong className="text-emerald-400">Explanation: </strong>
                             {q.explanation}
                           </div>
@@ -1842,13 +1850,13 @@ export default function JavaTwoPointersSlidingWindow() {
         {/* ========================================================================= */}
         {activeTab === "labs" && (
           <div className="space-y-6">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl shadow-xs p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
                   <Award className="w-5 h-5 text-emerald-400" />
                   30 Practice Problems &amp; Implementation Labs
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   Categorized into 4 difficulty tiers: Fundamentals, Sliding Window, Prefix Sums, and Advanced Interview Patterns.
                 </p>
               </div>
@@ -1862,7 +1870,7 @@ export default function JavaTwoPointersSlidingWindow() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                       labTierFilter === tier
                         ? "bg-emerald-600 text-white font-bold"
-                        : "bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800"
+                        : "bg-stone-50 text-stone-500 hover:text-stone-800 border border-[#e7e3da]"
                     }`}
                   >
                     {tier}
@@ -1880,8 +1888,8 @@ export default function JavaTwoPointersSlidingWindow() {
                     onClick={() => toggleLabComplete(lab.id)}
                     className={`p-5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
                       isCompleted
-                        ? "bg-emerald-500/10 border-emerald-500/30 text-slate-200"
-                        : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700"
+                        ? "bg-emerald-500/10 border-emerald-500/30 text-stone-800"
+                        : "bg-white border-[#e7e3da] text-stone-700 hover:border-stone-200"
                     }`}
                   >
                     <div>
@@ -1902,10 +1910,10 @@ export default function JavaTwoPointersSlidingWindow() {
                         <span className="text-[11px] font-mono text-slate-500">Problem #{lab.id}</span>
                       </div>
                       <h4 className="text-sm font-bold text-white mb-1.5">{lab.title}</h4>
-                      <p className="text-xs text-slate-400 leading-relaxed">{lab.desc}</p>
+                      <p className="text-xs text-stone-500 leading-relaxed">{lab.desc}</p>
                     </div>
 
-                    <div className="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                    <div className="pt-4 mt-4 border-t border-[#e7e3da] flex items-center justify-between text-xs">
                       <span className={isCompleted ? "text-emerald-400 font-semibold" : "text-slate-500"}>
                         {isCompleted ? "✓ Solved" : "Mark as Solved"}
                       </span>
@@ -1924,11 +1932,7 @@ export default function JavaTwoPointersSlidingWindow() {
       </main>
 
       {/* MODULE FOOTER NAVIGATION */}
-      <footer className="border-t border-slate-800 bg-slate-950 py-6 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <ModuleNav currentModuleId="two-pointers-sliding-window" nextRoute="/learning/java/greedy-algorithms" />
-        </div>
-      </footer>
+      </div>
     </div>
   );
 }

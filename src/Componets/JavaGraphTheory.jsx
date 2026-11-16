@@ -598,82 +598,88 @@ export default function JavaGraphTheory() {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-200">
-      {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-slate-900/90 backdrop-blur border-b border-slate-800 px-4 lg:px-8 py-3 flex items-center justify-between shadow-lg">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => navigate("/learning/java/greedy-algorithms")}
-            className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition"
-            title="Previous Module: Greedy Algorithms"
-          >
-            <ArrowLeft className="w-4 h-4" />
-          </button>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-400 border border-orange-500/30 rounded">
-                Module 17
-              </span>
-              <span className="text-xs text-slate-400 font-mono hidden sm:inline">Advanced Java + DSA</span>
-            </div>
-            <h1 className="text-sm sm:text-base font-extrabold text-white flex items-center gap-2">
-              <Network className="w-4 h-4 text-orange-400" />
-              Graph Theory & Graph Algorithms
-            </h1>
-          </div>
-        </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-8 sm:py-10 md:px-12 font-sans antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
 
-        {/* View Tabs */}
-        <div className="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
+        {/* Module Navigation Header */}
+        <ModuleNav
+          track="java"
+          currentModuleId="graph-theory"
+        />
+
+        {/* Hero Header */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c]">
+              <Network size={13} />
+              Module 17 · Java + DSA Master Course
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono text-stone-600">
+              Graph Representations &amp; Traversals
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#18181b] tracking-tight">
+            Graph Theory &amp; Graph Algorithms
+          </h1>
+
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
+            Master adjacency lists, adjacency matrices, BFS, DFS, cycle detection, bipartite testing, topological sort (Kahn's and DFS), and connected component algorithms in Java.
+          </p>
+        </header>
+
+        {/* View Mode Navigation Tabs */}
+        <div className="flex flex-wrap items-center gap-2 mb-8">
           <button
             onClick={() => setActiveTab("curriculum")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "curriculum"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Curriculum</span>
+            <BookOpen size={16} className={activeTab === "curriculum" ? "text-orange-400" : "text-stone-400"} />
+            <span>Curriculum</span>
           </button>
           <button
             onClick={() => setActiveTab("workbenches")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "workbenches"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <Cpu className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">8 Workbenches</span>
+            <Cpu size={16} className={activeTab === "workbenches" ? "text-orange-400" : "text-stone-400"} />
+            <span>8 Workbenches</span>
           </button>
           <button
             onClick={() => setActiveTab("quiz")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "quiz"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Assessment Quiz</span>
+            <HelpCircle size={16} className={activeTab === "quiz" ? "text-orange-400" : "text-stone-400"} />
+            <span>Assessment Quiz</span>
           </button>
           <button
             onClick={() => setActiveTab("labs")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "labs"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <Award className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">35 Practice Labs</span>
-            <span className="ml-1 px-1.5 py-0.2 text-[10px] rounded-full bg-slate-800 text-slate-300">
-              {completedLabsCount}/35
-            </span>
+            <Award size={16} className={activeTab === "labs" ? "text-orange-400" : "text-stone-400"} />
+            <span>35 Practice Labs</span>
           </button>
         </div>
-      </header>
 
       {/* Main Container */}
       <div className="flex-1 flex flex-col">
@@ -681,24 +687,24 @@ export default function JavaGraphTheory() {
         {activeTab === "curriculum" && (
           <div className="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto w-full px-4 lg:px-8 py-6 gap-6">
             {/* Sidebar Section List */}
-            <aside className="w-full lg:w-80 shrink-0 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col h-fit lg:sticky lg:top-20 max-h-[85vh]">
+            <aside className="w-full lg:w-80 shrink-0 bg-white border border-[#e7e3da] rounded-2xl p-4 flex flex-col h-fit lg:sticky lg:top-20 max-h-[85vh]">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+                <span className="text-xs font-bold text-stone-700 uppercase tracking-wider flex items-center gap-2">
                   <Layers className="w-3.5 h-3.5 text-orange-400" />
                   Sections (25)
                 </span>
-                <span className="text-[10px] text-slate-400 font-mono">Module 17</span>
+                <span className="text-[10px] text-stone-500 font-mono">Module 17</span>
               </div>
 
               {/* Search box */}
               <div className="relative mb-3">
-                <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400" />
+                <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-stone-500" />
                 <input
                   type="text"
                   placeholder="Filter 25 sections..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-400 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg pl-8 pr-3 py-1.5 text-xs text-stone-800 placeholder-slate-400 focus:outline-none focus:border-orange-500"
                 />
               </div>
 
@@ -712,24 +718,24 @@ export default function JavaGraphTheory() {
                     className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-start justify-between ${
                       activeSectionId === sec.id
                         ? "bg-orange-500/15 text-orange-300 border border-orange-500/40 font-semibold"
-                        : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+                        : "text-stone-500 hover:bg-stone-100/60 hover:text-stone-800"
                     }`}
                   >
                     <span className="break-words whitespace-normal leading-snug pr-2 flex-1">{sec.title}</span>
-                    <span className="text-[10px] font-mono text-slate-400 shrink-0 mt-0.5">#{sec.id}</span>
+                    <span className="text-[10px] font-mono text-stone-500 shrink-0 mt-0.5">#{sec.id}</span>
                   </button>
                 ))}
               </div>
             </aside>
 
             {/* Reading Content Pane */}
-            <main className="flex-1 bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 lg:p-8 min-w-0">
+            <main className="flex-1 bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 min-w-0">
               {(() => {
                 const currentSec = JAVA_GRAPH_THEORY_SECTIONS.find(s => s.id === activeSectionId) || JAVA_GRAPH_THEORY_SECTIONS[0];
                 return (
                   <div>
                     {/* Section Header */}
-                    <div className="border-b border-slate-800 pb-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="border-b border-[#e7e3da] pb-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/10 text-orange-400 border border-orange-500/20">
@@ -737,10 +743,10 @@ export default function JavaGraphTheory() {
                               ? "Module Overview · 25 Core Sections"
                               : `Section ${currentSec.id} of 25`}
                           </span>
-                          <span className="text-xs text-slate-400">PrepSpaces Java Masterclass</span>
+                          <span className="text-xs text-stone-500">PrepSpaces Java Masterclass</span>
                         </div>
                         <h2 className="text-xl sm:text-2xl font-black text-white">{currentSec.title}</h2>
-                        <p className="text-xs text-slate-400 mt-1">{currentSec.summary}</p>
+                        <p className="text-xs text-stone-500 mt-1">{currentSec.summary}</p>
                       </div>
 
                       {/* Jump to Workbench CTA */}
@@ -764,16 +770,16 @@ export default function JavaGraphTheory() {
                     </div>
 
                     {/* Section Content */}
-                    <div className="prose prose-invert max-w-none text-slate-200">
+                    <div className="prose prose-invert max-w-none text-stone-800">
                       {currentSec.content}
                     </div>
 
                     {/* Bottom Navigation between sections */}
-                    <div className="mt-12 pt-6 border-t border-slate-800 flex items-center justify-between">
+                    <div className="mt-12 pt-6 border-t border-[#e7e3da] flex items-center justify-between">
                       <button
                         disabled={activeSectionId === 0}
                         onClick={() => setActiveSectionId(prev => Math.max(0, prev - 1))}
-                        className="px-4 py-2 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 transition"
+                        className="px-4 py-2 rounded-xl border border-[#e7e3da] bg-white hover:bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 transition"
                       >
                         <ArrowLeft className="w-3.5 h-3.5" />
                         Previous Section
@@ -817,7 +823,7 @@ export default function JavaGraphTheory() {
                     className={`p-3 rounded-xl border text-left transition flex flex-col gap-1.5 ${
                       activeWorkbench === wb.id
                         ? "bg-orange-500 text-white border-orange-500 shadow-lg shadow-orange-500/20"
-                        : "bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800"
+                        : "bg-white border-[#e7e3da] text-stone-700 hover:bg-stone-100"
                     }`}
                   >
                     <Icon className="w-4 h-4 text-orange-300" />
@@ -829,44 +835,44 @@ export default function JavaGraphTheory() {
 
             {/* WORKBENCH 1: GRAPH REPRESENTATION PLAYGROUND */}
             {activeWorkbench === 1 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 1
                     </span>
-                    <span className="text-xs text-slate-400">Graph Representations & Data Structures</span>
+                    <span className="text-xs text-stone-500">Graph Representations & Data Structures</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Interactive Graph Representation Playground</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Configure vertices and edges to compare Adjacency Matrix O(V²), Adjacency List O(V + E), and Edge List O(E) in real time.
                   </p>
                 </div>
 
                 {/* Graph Controls */}
-                <div className="flex flex-wrap items-center gap-4 bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs">
+                <div className="flex flex-wrap items-center gap-4 bg-stone-50 p-4 rounded-xl border border-[#e7e3da] text-xs">
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-400 font-semibold">Graph Mode:</span>
+                    <span className="text-stone-500 font-semibold">Graph Mode:</span>
                     <button
                       onClick={() => setWb1GraphType("undirected")}
-                      className={`px-3 py-1 rounded-lg ${wb1GraphType === "undirected" ? "bg-orange-500 text-white" : "bg-slate-800 text-slate-400"}`}
+                      className={`px-3 py-1 rounded-lg ${wb1GraphType === "undirected" ? "bg-orange-500 text-white" : "bg-stone-100 text-stone-500"}`}
                     >
                       Undirected
                     </button>
                     <button
                       onClick={() => setWb1GraphType("directed")}
-                      className={`px-3 py-1 rounded-lg ${wb1GraphType === "directed" ? "bg-orange-500 text-white" : "bg-slate-800 text-slate-400"}`}
+                      className={`px-3 py-1 rounded-lg ${wb1GraphType === "directed" ? "bg-orange-500 text-white" : "bg-stone-100 text-stone-500"}`}
                     >
                       Directed
                     </button>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-400 font-semibold">Vertices V:</span>
+                    <span className="text-stone-500 font-semibold">Vertices V:</span>
                     <select
                       value={wb1VCount}
                       onChange={(e) => setWb1VCount(Number(e.target.value))}
-                      className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-slate-200"
+                      className="bg-stone-100 border border-stone-200 rounded-lg px-2 py-1 text-stone-800"
                     >
                       <option value={4}>4 Vertices (0..3)</option>
                       <option value={5}>5 Vertices (0..4)</option>
@@ -875,24 +881,24 @@ export default function JavaGraphTheory() {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-400 font-semibold">Add Edge:</span>
-                    <span className="text-slate-400">u:</span>
+                    <span className="text-stone-500 font-semibold">Add Edge:</span>
+                    <span className="text-stone-500">u:</span>
                     <input
                       type="number"
                       min={0}
                       max={wb1VCount - 1}
                       value={wb1NewU}
                       onChange={(e) => setWb1NewU(Number(e.target.value))}
-                      className="w-12 bg-slate-800 border border-slate-700 rounded px-1.5 py-0.5 text-center"
+                      className="w-12 bg-stone-100 border border-stone-200 rounded px-1.5 py-0.5 text-center"
                     />
-                    <span className="text-slate-400">v:</span>
+                    <span className="text-stone-500">v:</span>
                     <input
                       type="number"
                       min={0}
                       max={wb1VCount - 1}
                       value={wb1NewV}
                       onChange={(e) => setWb1NewV(Number(e.target.value))}
-                      className="w-12 bg-slate-800 border border-slate-700 rounded px-1.5 py-0.5 text-center"
+                      className="w-12 bg-stone-100 border border-stone-200 rounded px-1.5 py-0.5 text-center"
                     />
                     <button
                       onClick={addEdgeWb1}
@@ -906,14 +912,14 @@ export default function JavaGraphTheory() {
                 {/* Representations Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                   {/* Adjacency Matrix */}
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col">
-                    <div className="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] flex flex-col">
+                    <div className="flex items-center justify-between mb-3 border-b border-[#e7e3da] pb-2">
                       <span className="font-bold text-xs text-orange-400 uppercase tracking-wider">1. Adjacency Matrix</span>
-                      <span className="text-[10px] font-mono text-slate-400">Space: O(V²) = {wb1VCount * wb1VCount} cells</span>
+                      <span className="text-[10px] font-mono text-stone-500">Space: O(V²) = {wb1VCount * wb1VCount} cells</span>
                     </div>
                     <div className="overflow-x-auto flex-1 flex flex-col items-center justify-center py-2">
                       <div className="grid" style={{ gridTemplateColumns: `repeat(${wb1VCount + 1}, minmax(28px, 1fr))` }}>
-                        <div className="text-[11px] font-mono text-slate-400 text-center p-1">u\v</div>
+                        <div className="text-[11px] font-mono text-stone-500 text-center p-1">u\v</div>
                         {Array.from({ length: wb1VCount }).map((_, c) => (
                           <div key={c} className="text-[11px] font-mono text-orange-400 font-bold text-center p-1">{c}</div>
                         ))}
@@ -924,7 +930,7 @@ export default function JavaGraphTheory() {
                               <div
                                 key={c}
                                 className={`text-xs font-mono text-center p-1 m-0.5 rounded ${
-                                  cell === 1 ? "bg-orange-500 text-white font-bold" : "bg-slate-900 text-slate-400"
+                                  cell === 1 ? "bg-orange-500 text-white font-bold" : "bg-white text-stone-500"
                                 }`}
                               >
                                 {cell}
@@ -934,24 +940,24 @@ export default function JavaGraphTheory() {
                         ))}
                       </div>
                     </div>
-                    <p className="text-[11px] text-slate-400 mt-2">
+                    <p className="text-[11px] text-stone-500 mt-2">
                       Edge lookup (u, v): <strong className="text-emerald-400">O(1)</strong> | Neighbors scan: <strong className="text-amber-400">O(V)</strong>
                     </p>
                   </div>
 
                   {/* Adjacency List */}
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col">
-                    <div className="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] flex flex-col">
+                    <div className="flex items-center justify-between mb-3 border-b border-[#e7e3da] pb-2">
                       <span className="font-bold text-xs text-emerald-400 uppercase tracking-wider">2. Adjacency List</span>
-                      <span className="text-[10px] font-mono text-slate-400">Space: O(V + E)</span>
+                      <span className="text-[10px] font-mono text-stone-500">Space: O(V + E)</span>
                     </div>
                     <div className="space-y-1.5 flex-1 overflow-y-auto">
                       {wb1AdjList.map((neighbors, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs font-mono bg-slate-900/80 p-2 rounded-lg border border-slate-800/80">
+                        <div key={idx} className="flex items-center gap-2 text-xs font-mono bg-white p-2 rounded-lg border border-[#e7e3da]">
                           <span className="w-6 h-6 rounded bg-orange-500 text-white font-bold flex items-center justify-center shrink-0">
                             {idx}
                           </span>
-                          <span className="text-slate-400">→</span>
+                          <span className="text-stone-500">→</span>
                           {neighbors.length > 0 ? (
                             <div className="flex flex-wrap gap-1">
                               {neighbors.map((nb, i) => (
@@ -961,27 +967,27 @@ export default function JavaGraphTheory() {
                               ))}
                             </div>
                           ) : (
-                            <span className="text-slate-400 italic text-[11px]">empty (no outgoing)</span>
+                            <span className="text-stone-500 italic text-[11px]">empty (no outgoing)</span>
                           )}
                         </div>
                       ))}
                     </div>
-                    <p className="text-[11px] text-slate-400 mt-2">
+                    <p className="text-[11px] text-stone-500 mt-2">
                       Edge lookup: <strong className="text-amber-400">O(deg)</strong> | Neighbors scan: <strong className="text-emerald-400">O(deg)</strong>
                     </p>
                   </div>
 
                   {/* Edge List */}
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col">
-                    <div className="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] flex flex-col">
+                    <div className="flex items-center justify-between mb-3 border-b border-[#e7e3da] pb-2">
                       <span className="font-bold text-xs text-amber-400 uppercase tracking-wider">3. Edge List</span>
-                      <span className="text-[10px] font-mono text-slate-400">Total: {wb1Edges.length} edges</span>
+                      <span className="text-[10px] font-mono text-stone-500">Total: {wb1Edges.length} edges</span>
                     </div>
                     <div className="flex-1 overflow-y-auto max-h-48 space-y-1">
                       {wb1Edges.length > 0 ? (
                         wb1Edges.map(([u, v], idx) => (
-                          <div key={idx} className="flex items-center justify-between bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-800/80 text-xs font-mono">
-                            <span className="text-slate-200">
+                          <div key={idx} className="flex items-center justify-between bg-white px-3 py-1.5 rounded-lg border border-[#e7e3da] text-xs font-mono">
+                            <span className="text-stone-800">
                               [{u} {wb1GraphType === "directed" ? "→" : "—"} {v}]
                             </span>
                             <button
@@ -993,10 +999,10 @@ export default function JavaGraphTheory() {
                           </div>
                         ))
                       ) : (
-                        <p className="text-slate-400 text-xs text-center py-4">No edges defined.</p>
+                        <p className="text-stone-500 text-xs text-center py-4">No edges defined.</p>
                       )}
                     </div>
-                    <p className="text-[11px] text-slate-400 mt-2">
+                    <p className="text-[11px] text-stone-500 mt-2">
                       Best suited for: <strong className="text-orange-300">Kruskal's MST / Bellman-Ford</strong>
                     </p>
                   </div>
@@ -1006,16 +1012,16 @@ export default function JavaGraphTheory() {
 
             {/* WORKBENCH 2: BFS VISUALIZER */}
             {activeWorkbench === 2 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 2
                     </span>
-                    <span className="text-xs text-slate-400">Level-Order Traversal & Queue Dynamics</span>
+                    <span className="text-xs text-stone-500">Level-Order Traversal & Queue Dynamics</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Breadth-First Search (BFS) Visualizer</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Step through BFS execution on an unweighted graph. Observe FIFO Queue state, Visited tracking, and shortest path hop distances.
                   </p>
                 </div>
@@ -1023,7 +1029,7 @@ export default function JavaGraphTheory() {
                 {/* Graph SVG & State Panel */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* SVG Graph */}
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col items-center justify-center min-h-[300px]">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] flex flex-col items-center justify-center min-h-[300px]">
                     <svg width="420" height="290" className="overflow-visible">
                       {/* Edges */}
                       {WB2_EDGES.map(([u, v], i) => {
@@ -1094,7 +1100,7 @@ export default function JavaGraphTheory() {
                       })}
                     </svg>
 
-                    <div className="flex items-center gap-4 text-[11px] text-slate-400 mt-2">
+                    <div className="flex items-center gap-4 text-[11px] text-stone-500 mt-2">
                       <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-amber-500"></span> Currently Dequeued</span>
                       <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-orange-500"></span> In Queue</span>
                       <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-emerald-600"></span> Visited</span>
@@ -1102,19 +1108,19 @@ export default function JavaGraphTheory() {
                   </div>
 
                   {/* Simulator State Panel */}
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between gap-4">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between gap-4">
                     <div className="space-y-4">
                       {/* Step Note */}
-                      <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-orange-300 font-mono leading-relaxed">
+                      <div className="p-3 rounded-xl bg-white border border-[#e7e3da] text-xs text-orange-300 font-mono leading-relaxed">
                         {curWb2.note}
                       </div>
 
                       {/* Queue State */}
                       <div>
-                        <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1">
+                        <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-1">
                           FIFO Queue State (Queue&lt;Integer&gt;)
                         </span>
-                        <div className="flex items-center gap-2 p-2 bg-slate-900 rounded-lg border border-slate-800 min-h-[42px] overflow-x-auto">
+                        <div className="flex items-center gap-2 p-2 bg-white rounded-lg border border-[#e7e3da] min-h-[42px] overflow-x-auto">
                           {curWb2.queue.length > 0 ? (
                             curWb2.queue.map((item, idx) => (
                               <span
@@ -1127,21 +1133,21 @@ export default function JavaGraphTheory() {
                               </span>
                             ))
                           ) : (
-                            <span className="text-slate-400 text-xs font-mono">[ Empty Queue ]</span>
+                            <span className="text-stone-500 text-xs font-mono">[ Empty Queue ]</span>
                           )}
                         </div>
                       </div>
 
                       {/* Traversal Order & Distances */}
                       <div className="grid grid-cols-2 gap-3">
-                        <div className="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                          <span className="text-[11px] font-bold text-slate-400 block mb-1">Visited Array</span>
+                        <div className="p-3 bg-white rounded-lg border border-[#e7e3da]">
+                          <span className="text-[11px] font-bold text-stone-500 block mb-1">Visited Array</span>
                           <div className="flex flex-wrap gap-1">
                             {curWb2.visited.map((v, i) => (
                               <span
                                 key={i}
                                 className={`px-1.5 py-0.5 rounded text-[10px] font-mono ${
-                                  v ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40" : "bg-slate-800 text-slate-400"
+                                  v ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40" : "bg-stone-100 text-stone-500"
                                 }`}
                               >
                                 {i}:{v ? "T" : "F"}
@@ -1150,8 +1156,8 @@ export default function JavaGraphTheory() {
                           </div>
                         </div>
 
-                        <div className="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                          <span className="text-[11px] font-bold text-slate-400 block mb-1">BFS Output Order</span>
+                        <div className="p-3 bg-white rounded-lg border border-[#e7e3da]">
+                          <span className="text-[11px] font-bold text-stone-500 block mb-1">BFS Output Order</span>
                           <span className="text-xs font-mono text-emerald-400 font-bold">
                             {curWb2.order.length > 0 ? curWb2.order.join(" → ") : "—"}
                           </span>
@@ -1160,10 +1166,10 @@ export default function JavaGraphTheory() {
                     </div>
 
                     {/* Step Controls */}
-                    <div className="flex items-center justify-between pt-3 border-t border-slate-800">
+                    <div className="flex items-center justify-between pt-3 border-t border-[#e7e3da]">
                       <button
                         onClick={() => setWb2Step(0)}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                       >
                         Reset
                       </button>
@@ -1171,11 +1177,11 @@ export default function JavaGraphTheory() {
                         <button
                           disabled={wb2Step === 0}
                           onClick={() => setWb2Step(prev => Math.max(0, prev - 1))}
-                          className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                          className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                         >
                           Prev Step
                         </button>
-                        <span className="text-xs font-mono text-slate-400">
+                        <span className="text-xs font-mono text-stone-500">
                           {wb2Step + 1}/{wb2History.length}
                         </span>
                         <button
@@ -1194,33 +1200,33 @@ export default function JavaGraphTheory() {
 
             {/* WORKBENCH 3: DFS CALL STACK STUDIO */}
             {activeWorkbench === 3 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 3
                     </span>
-                    <span className="text-xs text-slate-400">Recursion, Call Stack & Backtracking</span>
+                    <span className="text-xs text-stone-500">Recursion, Call Stack & Backtracking</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Depth-First Search (DFS) & Call Stack Studio</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Visualize how JVM recursion pushes and pops stack frames during DFS traversal and backtracking.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Call Stack Visualizer */}
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-4">
+                      <div className="flex items-center justify-between border-b border-[#e7e3da] pb-2 mb-4">
                         <span className="text-xs font-bold text-orange-400 uppercase tracking-wider flex items-center gap-1.5">
                           <Layers className="w-3.5 h-3.5" />
                           JVM Call Stack (LIFO)
                         </span>
-                        <span className="text-[10px] font-mono text-slate-400">Depth: {curWb3.stack.length}</span>
+                        <span className="text-[10px] font-mono text-stone-500">Depth: {curWb3.stack.length}</span>
                       </div>
 
-                      <div className="flex flex-col-reverse gap-2 min-h-[220px] p-3 bg-slate-900/80 rounded-xl border border-slate-800 justify-start">
+                      <div className="flex flex-col-reverse gap-2 min-h-[220px] p-3 bg-white rounded-xl border border-[#e7e3da] justify-start">
                         {curWb3.stack.length > 0 ? (
                           curWb3.stack.map((frame, idx) => (
                             <div
@@ -1228,46 +1234,46 @@ export default function JavaGraphTheory() {
                               className={`p-2.5 rounded-lg border font-mono text-xs flex items-center justify-between ${
                                 idx === curWb3.stack.length - 1
                                   ? "bg-orange-500/20 border-orange-500 text-orange-200 font-bold"
-                                  : "bg-slate-800/80 border-slate-700 text-slate-300"
+                                  : "bg-stone-100/80 border-stone-200 text-stone-700"
                               }`}
                             >
                               <span>dfs(node = {frame})</span>
-                              <span className="text-[10px] text-slate-400">
+                              <span className="text-[10px] text-stone-500">
                                 {idx === curWb3.stack.length - 1 ? "[ACTIVE FRAME]" : `depth: ${idx}`}
                               </span>
                             </div>
                           ))
                         ) : (
-                          <div className="text-center text-slate-400 text-xs py-10 font-mono">
+                          <div className="text-center text-stone-500 text-xs py-10 font-mono">
                             Call Stack is empty (Base Case Reached / Complete)
                           </div>
                         )}
                       </div>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                    <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
                       Action Type: <strong className="text-orange-300 font-mono">{curWb3.action}</strong>
                     </div>
                   </div>
 
                   {/* Trace Log & Step Controls */}
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between gap-4">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between gap-4">
                     <div className="space-y-4">
-                      <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-orange-300 font-mono leading-relaxed">
+                      <div className="p-3 rounded-xl bg-white border border-[#e7e3da] text-xs text-orange-300 font-mono leading-relaxed">
                         {curWb3.note}
                       </div>
 
                       <div>
-                        <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1">
+                        <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-1">
                           Discovery Path (Order of First Visit)
                         </span>
-                        <div className="p-2.5 bg-slate-900 rounded-lg border border-slate-800 text-xs font-mono text-emerald-400 font-bold">
+                        <div className="p-2.5 bg-white rounded-lg border border-[#e7e3da] text-xs font-mono text-emerald-400 font-bold">
                           {curWb3.path.join(" → ")}
                         </div>
                       </div>
 
                       <div>
-                        <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1">
+                        <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-1">
                           Visited Status (boolean[] visited)
                         </span>
                         <div className="flex flex-wrap gap-1.5">
@@ -1275,7 +1281,7 @@ export default function JavaGraphTheory() {
                             <span
                               key={i}
                               className={`px-2 py-1 rounded text-xs font-mono ${
-                                v ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40" : "bg-slate-800 text-slate-400"
+                                v ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40" : "bg-stone-100 text-stone-500"
                               }`}
                             >
                               node {i}: {v ? "true" : "false"}
@@ -1286,10 +1292,10 @@ export default function JavaGraphTheory() {
                     </div>
 
                     {/* Step Controls */}
-                    <div className="flex items-center justify-between pt-3 border-t border-slate-800">
+                    <div className="flex items-center justify-between pt-3 border-t border-[#e7e3da]">
                       <button
                         onClick={() => setWb3Step(0)}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                       >
                         Reset
                       </button>
@@ -1297,11 +1303,11 @@ export default function JavaGraphTheory() {
                         <button
                           disabled={wb3Step === 0}
                           onClick={() => setWb3Step(prev => Math.max(0, prev - 1))}
-                          className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                          className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                         >
                           Prev Step
                         </button>
-                        <span className="text-xs font-mono text-slate-400">
+                        <span className="text-xs font-mono text-stone-500">
                           {wb3Step + 1}/{wb3History.length}
                         </span>
                         <button
@@ -1320,16 +1326,16 @@ export default function JavaGraphTheory() {
 
             {/* WORKBENCH 4: CONNECTED COMPONENTS EXPLORER */}
             {activeWorkbench === 4 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 4
                     </span>
-                    <span className="text-xs text-slate-400">Flood Fill & Subgraph Decomposition</span>
+                    <span className="text-xs text-stone-500">Flood Fill & Subgraph Decomposition</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Connected Components Explorer</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Detect isolated provinces and islands in disconnected graphs using outer-loop component scanning.
                   </p>
                 </div>
@@ -1341,8 +1347,8 @@ export default function JavaGraphTheory() {
                       onClick={() => setWb4SelectedComp(comp.id)}
                       className={`p-5 rounded-2xl border transition cursor-pointer flex flex-col justify-between ${
                         wb4SelectedComp === comp.id
-                          ? "bg-slate-900 border-orange-500 shadow-xl"
-                          : "bg-slate-950 border-slate-800 hover:border-slate-700"
+                          ? "bg-white border-orange-500 shadow-xl"
+                          : "bg-stone-50 border-[#e7e3da] hover:border-stone-200"
                       }`}
                     >
                       <div>
@@ -1354,46 +1360,46 @@ export default function JavaGraphTheory() {
                           }`}>
                             {comp.name}
                           </span>
-                          <span className="text-xs font-mono text-slate-400">Size: {comp.nodes.length} Nodes</span>
+                          <span className="text-xs font-mono text-stone-500">Size: {comp.nodes.length} Nodes</span>
                         </div>
-                        <p className="text-xs text-slate-300 mb-4">
+                        <p className="text-xs text-stone-700 mb-4">
                           Vertices: <strong className="font-mono text-white">[{comp.nodes.join(", ")}]</strong>
                         </p>
-                        <div className="text-xs font-mono text-slate-400 space-y-1">
+                        <div className="text-xs font-mono text-stone-500 space-y-1">
                           {comp.edges.map(([u, v], i) => (
-                            <div key={i} className="bg-slate-900 px-2 py-1 rounded">
+                            <div key={i} className="bg-white px-2 py-1 rounded">
                               Edge ({u}, {v})
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      <div className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400">
+                      <div className="mt-4 pt-3 border-t border-[#e7e3da] text-[11px] text-stone-500">
                         Launched via: <code className="text-orange-300">if (!visited[{comp.nodes[0]}]) dfs({comp.nodes[0]});</code>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 text-xs text-slate-300 flex items-center justify-between">
+                <div className="p-4 bg-stone-50 rounded-xl border border-[#e7e3da] text-xs text-stone-700 flex items-center justify-between">
                   <span>Total Connected Components: <strong className="text-emerald-400 font-bold">3 Disjoint Provinces</strong></span>
-                  <span className="text-slate-400 font-mono">Time: O(V + E) | Space: O(V)</span>
+                  <span className="text-stone-500 font-mono">Time: O(V + E) | Space: O(V)</span>
                 </div>
               </div>
             )}
 
             {/* WORKBENCH 5: CYCLE DETECTION STUDIO */}
             {activeWorkbench === 5 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 5
                     </span>
-                    <span className="text-xs text-slate-400">Parent-Tracking vs 3-State Recursion Stack</span>
+                    <span className="text-xs text-stone-500">Parent-Tracking vs 3-State Recursion Stack</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Cycle Detection Studio</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Compare undirected cycle detection (neighbor != parent) with directed cycle detection (3-Color / RecStack).
                   </p>
                 </div>
@@ -1403,7 +1409,7 @@ export default function JavaGraphTheory() {
                   <button
                     onClick={() => { setWb5Mode("undirected"); setWb5Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      wb5Mode === "undirected" ? "bg-orange-500 text-white" : "bg-slate-900 text-slate-400"
+                      wb5Mode === "undirected" ? "bg-orange-500 text-white" : "bg-white text-stone-500"
                     }`}
                   >
                     Undirected Graph (Parent Tracking)
@@ -1411,7 +1417,7 @@ export default function JavaGraphTheory() {
                   <button
                     onClick={() => { setWb5Mode("directed"); setWb5Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      wb5Mode === "directed" ? "bg-orange-500 text-white" : "bg-slate-900 text-slate-400"
+                      wb5Mode === "directed" ? "bg-orange-500 text-white" : "bg-white text-stone-500"
                     }`}
                   >
                     Directed Graph (3-State Back-Edge)
@@ -1424,12 +1430,12 @@ export default function JavaGraphTheory() {
                   const cur = trace[Math.min(wb5Step, trace.length - 1)];
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
                           <span className="text-xs font-bold text-orange-400 uppercase tracking-wider block mb-3">
                             Algorithm Rule & Status
                           </span>
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-slate-200 mb-4 leading-relaxed">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-stone-800 mb-4 leading-relaxed">
                             {wb5Mode === "undirected" ? (
                               <>
                                 <strong>Rule:</strong> If neighbor is already visited AND neighbor != parent, an alternate cycle path exists!
@@ -1442,7 +1448,7 @@ export default function JavaGraphTheory() {
                           </div>
 
                           <div className={`p-4 rounded-xl border text-xs font-bold flex items-center gap-2 ${
-                            cur.cycleFound ? "bg-rose-500/20 border-rose-500/40 text-rose-300" : "bg-slate-900 border-slate-800 text-slate-300"
+                            cur.cycleFound ? "bg-rose-500/20 border-rose-500/40 text-rose-300" : "bg-white border-[#e7e3da] text-stone-700"
                           }`}>
                             {cur.cycleFound ? (
                               <>
@@ -1458,24 +1464,24 @@ export default function JavaGraphTheory() {
                           </div>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
-                          Step Note: <span className="text-slate-200">{cur.note}</span>
+                        <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
+                          Step Note: <span className="text-stone-800">{cur.note}</span>
                         </div>
                       </div>
 
                       {/* Step Controller */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-2">
                             State Inspection
                           </span>
                           {wb5Mode === "undirected" ? (
                             <div className="space-y-2 text-xs font-mono">
                               <div>Current Node: <span className="text-amber-400 font-bold">{cur.curr}</span></div>
-                              <div>Immediate Parent: <span className="text-slate-300">{cur.parent}</span></div>
+                              <div>Immediate Parent: <span className="text-stone-700">{cur.parent}</span></div>
                               <div className="flex gap-2">
                                 {cur.visited.map((v, i) => (
-                                  <span key={i} className={`px-2 py-1 rounded ${v ? "bg-orange-500 text-white" : "bg-slate-800 text-slate-400"}`}>
+                                  <span key={i} className={`px-2 py-1 rounded ${v ? "bg-orange-500 text-white" : "bg-stone-100 text-stone-500"}`}>
                                     v[{i}]: {v ? "T" : "F"}
                                   </span>
                                 ))}
@@ -1488,8 +1494,8 @@ export default function JavaGraphTheory() {
                                 {cur.state.map((s, i) => (
                                   <span key={i} className={`px-2 py-1 rounded ${
                                     s === "GRAY" ? "bg-amber-500 text-slate-950 font-bold" :
-                                    s === "BLACK" ? "bg-slate-700 text-slate-300" :
-                                    "bg-slate-900 text-slate-400"
+                                    s === "BLACK" ? "bg-slate-700 text-stone-700" :
+                                    "bg-white text-stone-500"
                                   }`}>
                                     v[{i}]: {s}
                                   </span>
@@ -1499,10 +1505,10 @@ export default function JavaGraphTheory() {
                           )}
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb5Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1510,11 +1516,11 @@ export default function JavaGraphTheory() {
                             <button
                               disabled={wb5Step === 0}
                               onClick={() => setWb5Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb5Step + 1}/{trace.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb5Step + 1}/{trace.length}</span>
                             <button
                               disabled={wb5Step === trace.length - 1}
                               onClick={() => setWb5Step(p => Math.min(trace.length - 1, p + 1))}
@@ -1533,16 +1539,16 @@ export default function JavaGraphTheory() {
 
             {/* WORKBENCH 6: BIPARTITE TWO-COLORING SIMULATOR */}
             {activeWorkbench === 6 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 6
                     </span>
-                    <span className="text-xs text-slate-400">Konig's Theorem & Odd Cycle Conflict</span>
+                    <span className="text-xs text-stone-500">Konig's Theorem & Odd Cycle Conflict</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Bipartite Graph Two-Coloring Simulator</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Simulate 2-coloring via BFS/DFS. A graph is bipartite if and only if it contains NO odd-length cycles.
                   </p>
                 </div>
@@ -1552,7 +1558,7 @@ export default function JavaGraphTheory() {
                   <button
                     onClick={() => { setWb6GraphType("bipartite"); setWb6Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      wb6GraphType === "bipartite" ? "bg-orange-500 text-white" : "bg-slate-900 text-slate-400"
+                      wb6GraphType === "bipartite" ? "bg-orange-500 text-white" : "bg-white text-stone-500"
                     }`}
                   >
                     Bipartite Graph (Even Cycle: Length 4)
@@ -1560,7 +1566,7 @@ export default function JavaGraphTheory() {
                   <button
                     onClick={() => { setWb6GraphType("non-bipartite"); setWb6Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      wb6GraphType === "non-bipartite" ? "bg-orange-500 text-white" : "bg-slate-900 text-slate-400"
+                      wb6GraphType === "non-bipartite" ? "bg-orange-500 text-white" : "bg-white text-stone-500"
                     }`}
                   >
                     Non-Bipartite Graph (Odd Cycle: Triangle 3)
@@ -1572,12 +1578,12 @@ export default function JavaGraphTheory() {
                   const cur = steps[Math.min(wb6Step, steps.length - 1)];
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
                           <span className="text-xs font-bold text-orange-400 uppercase tracking-wider block mb-3">
                             Step Trace & Conflict Detection
                           </span>
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-slate-200 mb-4 leading-relaxed">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-stone-800 mb-4 leading-relaxed">
                             {cur.note}
                           </div>
 
@@ -1598,15 +1604,15 @@ export default function JavaGraphTheory() {
                           </div>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                        <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
                           Theorem: <strong className="text-orange-300">Graph is 2-colorable ⟺ No odd cycle</strong>
                         </div>
                       </div>
 
                       {/* Coloring State */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-3">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-3">
                             Node Color Assignments (color[] array)
                           </span>
                           <div className="grid grid-cols-2 gap-2">
@@ -1616,7 +1622,7 @@ export default function JavaGraphTheory() {
                                 className={`p-3 rounded-lg border font-mono text-xs flex items-center justify-between ${
                                   c === 0 ? "bg-orange-500/20 border-orange-500 text-orange-200 font-bold" :
                                   c === 1 ? "bg-emerald-600/30 border-emerald-500 text-emerald-200 font-bold" :
-                                  "bg-slate-900 border-slate-800 text-slate-400"
+                                  "bg-white border-[#e7e3da] text-stone-500"
                                 }`}
                               >
                                 <span>Node {i}</span>
@@ -1626,10 +1632,10 @@ export default function JavaGraphTheory() {
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb6Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1637,11 +1643,11 @@ export default function JavaGraphTheory() {
                             <button
                               disabled={wb6Step === 0}
                               onClick={() => setWb6Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb6Step + 1}/{steps.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb6Step + 1}/{steps.length}</span>
                             <button
                               disabled={wb6Step === steps.length - 1}
                               onClick={() => setWb6Step(p => Math.min(steps.length - 1, p + 1))}
@@ -1660,16 +1666,16 @@ export default function JavaGraphTheory() {
 
             {/* WORKBENCH 7: KAHN'S TOPOLOGICAL SORT */}
             {activeWorkbench === 7 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 7
                     </span>
-                    <span className="text-xs text-slate-400">In-Degree Queue & Dependency Resolution</span>
+                    <span className="text-xs text-stone-500">In-Degree Queue & Dependency Resolution</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Kahn's Algorithm & In-Degree Topo Sorter</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Simulate BFS-based topological sorting on a Directed Acyclic Graph (DAG) with in-degree tracking.
                   </p>
                 </div>
@@ -1678,20 +1684,20 @@ export default function JavaGraphTheory() {
                   const cur = wb7Trace[Math.min(wb7Step, wb7Trace.length - 1)];
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
                           <span className="text-xs font-bold text-orange-400 uppercase tracking-wider block mb-2">
                             Step Log & Queue Simulation
                           </span>
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-orange-300 mb-4 leading-relaxed">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-orange-300 mb-4 leading-relaxed">
                             {cur.note}
                           </div>
 
                           <div className="mb-4">
-                            <span className="text-xs font-bold text-slate-300 block mb-1">
+                            <span className="text-xs font-bold text-stone-700 block mb-1">
                               Zero In-Degree Queue (Ready Tasks)
                             </span>
-                            <div className="flex items-center gap-2 p-2 bg-slate-900 rounded-lg border border-slate-800 min-h-[40px]">
+                            <div className="flex items-center gap-2 p-2 bg-white rounded-lg border border-[#e7e3da] min-h-[40px]">
                               {cur.queue.length > 0 ? (
                                 cur.queue.map((item, i) => (
                                   <span key={i} className="px-2.5 py-1 rounded bg-orange-500 text-white font-mono text-xs font-bold">
@@ -1699,38 +1705,38 @@ export default function JavaGraphTheory() {
                                   </span>
                                 ))
                               ) : (
-                                <span className="text-slate-400 text-xs font-mono">[ Queue Empty ]</span>
+                                <span className="text-stone-500 text-xs font-mono">[ Queue Empty ]</span>
                               )}
                             </div>
                           </div>
 
                           <div>
-                            <span className="text-xs font-bold text-slate-300 block mb-1">
+                            <span className="text-xs font-bold text-stone-700 block mb-1">
                               Constructed Topological Order
                             </span>
-                            <div className="p-2.5 bg-slate-900 rounded-lg border border-slate-800 text-xs font-mono text-emerald-400 font-bold">
+                            <div className="p-2.5 bg-white rounded-lg border border-[#e7e3da] text-xs font-mono text-emerald-400 font-bold">
                               {cur.order.length > 0 ? cur.order.join(" → ") : "—"}
                             </div>
                           </div>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                        <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
                           Cycle Check: <strong className="text-emerald-400">{cur.order.length}/5 vertices processed</strong>
                         </div>
                       </div>
 
                       {/* In-Degree array */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-3">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-3">
                             In-Degree Array (inDegree[])
                           </span>
                           <div className="space-y-2">
                             {cur.inDeg.map((deg, i) => (
-                              <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono">
+                              <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-white border border-[#e7e3da] text-xs font-mono">
                                 <span>Vertex {i}</span>
                                 <span className={`px-2 py-0.5 rounded font-bold ${
-                                  deg === 0 ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" : "bg-slate-800 text-amber-400"
+                                  deg === 0 ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" : "bg-stone-100 text-amber-400"
                                 }`}>
                                   inDegree = {deg}
                                 </span>
@@ -1739,10 +1745,10 @@ export default function JavaGraphTheory() {
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb7Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1750,11 +1756,11 @@ export default function JavaGraphTheory() {
                             <button
                               disabled={wb7Step === 0}
                               onClick={() => setWb7Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb7Step + 1}/{wb7Trace.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb7Step + 1}/{wb7Trace.length}</span>
                             <button
                               disabled={wb7Step === wb7Trace.length - 1}
                               onClick={() => setWb7Step(p => Math.min(wb7Trace.length - 1, p + 1))}
@@ -1773,16 +1779,16 @@ export default function JavaGraphTheory() {
 
             {/* WORKBENCH 8: KOSARAJU & TARJAN SCC / BRIDGES */}
             {activeWorkbench === 8 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 8
                     </span>
-                    <span className="text-xs text-slate-400">Advanced Graph Connectivity & Cut Components</span>
+                    <span className="text-xs text-stone-500">Advanced Graph Connectivity & Cut Components</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Kosaraju & Tarjan SCC / Bridges Analyzer</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Explore Strongly Connected Components (SCC) via Kosaraju Transpose and Tarjan Low-Link discovery for Bridges & Articulation Points.
                   </p>
                 </div>
@@ -1791,7 +1797,7 @@ export default function JavaGraphTheory() {
                   <button
                     onClick={() => { setWb8Mode("kosaraju"); setWb8Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      wb8Mode === "kosaraju" ? "bg-orange-500 text-white" : "bg-slate-900 text-slate-400"
+                      wb8Mode === "kosaraju" ? "bg-orange-500 text-white" : "bg-white text-stone-500"
                     }`}
                   >
                     Kosaraju SCC (Two-Pass Transpose)
@@ -1799,7 +1805,7 @@ export default function JavaGraphTheory() {
                   <button
                     onClick={() => { setWb8Mode("tarjan_bridge"); setWb8Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      wb8Mode === "tarjan_bridge" ? "bg-orange-500 text-white" : "bg-slate-900 text-slate-400"
+                      wb8Mode === "tarjan_bridge" ? "bg-orange-500 text-white" : "bg-white text-stone-500"
                     }`}
                   >
                     Tarjan Bridges (low[v] &gt; disc[u])
@@ -1807,30 +1813,30 @@ export default function JavaGraphTheory() {
                 </div>
 
                 {wb8Mode === "kosaraju" ? (
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
-                    <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-4">
+                    <div className="flex items-center justify-between border-b border-[#e7e3da] pb-3">
                       <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                         {wb8KosarajuSteps[wb8Step].phase}
                       </span>
-                      <span className="text-xs font-mono text-slate-400">Step {wb8Step + 1} of 3</span>
+                      <span className="text-xs font-mono text-stone-500">Step {wb8Step + 1} of 3</span>
                     </div>
 
-                    <p className="text-xs text-slate-300">{wb8KosarajuSteps[wb8Step].note}</p>
+                    <p className="text-xs text-stone-700">{wb8KosarajuSteps[wb8Step].note}</p>
 
                     {wb8KosarajuSteps[wb8Step].scc && (
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                         {wb8KosarajuSteps[wb8Step].scc.map((item, i) => (
-                          <div key={i} className="p-3 bg-slate-900 rounded-xl border border-orange-500/40 text-xs font-mono font-bold text-orange-300">
+                          <div key={i} className="p-3 bg-white rounded-xl border border-orange-500/40 text-xs font-mono font-bold text-orange-300">
                             {item}
                           </div>
                         ))}
                       </div>
                     )}
 
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                    <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                       <button
                         onClick={() => setWb8Step(0)}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                       >
                         Reset
                       </button>
@@ -1838,7 +1844,7 @@ export default function JavaGraphTheory() {
                         <button
                           disabled={wb8Step === 0}
                           onClick={() => setWb8Step(p => Math.max(0, p - 1))}
-                          className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                          className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                         >
                           Prev
                         </button>
@@ -1853,21 +1859,21 @@ export default function JavaGraphTheory() {
                     </div>
                   </div>
                 ) : (
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
-                    <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-4">
+                    <div className="flex items-center justify-between border-b border-[#e7e3da] pb-3">
                       <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
                         Tarjan Low-Link & Bridge Evaluator
                       </span>
-                      <span className="text-xs font-mono text-slate-400">Step {wb8Step + 1} of 3</span>
+                      <span className="text-xs font-mono text-stone-500">Step {wb8Step + 1} of 3</span>
                     </div>
 
-                    <p className="text-xs text-slate-300">{wb8TarjanBridgeSteps[wb8Step].note}</p>
+                    <p className="text-xs text-stone-700">{wb8TarjanBridgeSteps[wb8Step].note}</p>
 
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {wb8TarjanBridgeSteps[wb8Step].disc.map((d, i) => (
-                        <div key={i} className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono">
+                        <div key={i} className="p-2.5 rounded-lg bg-white border border-[#e7e3da] text-xs font-mono">
                           <span className="text-orange-400 font-bold">Node {i}:</span>
-                          <div className="text-[11px] text-slate-400">disc = {d}</div>
+                          <div className="text-[11px] text-stone-500">disc = {d}</div>
                           <div className="text-[11px] text-emerald-400 font-bold">low = {wb8TarjanBridgeSteps[wb8Step].low[i]}</div>
                         </div>
                       ))}
@@ -1880,10 +1886,10 @@ export default function JavaGraphTheory() {
                       </div>
                     )}
 
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                    <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                       <button
                         onClick={() => setWb8Step(0)}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                       >
                         Reset
                       </button>
@@ -1891,7 +1897,7 @@ export default function JavaGraphTheory() {
                         <button
                           disabled={wb8Step === 0}
                           onClick={() => setWb8Step(p => Math.max(0, p - 1))}
-                          className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                          className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                         >
                           Prev
                         </button>
@@ -1914,14 +1920,14 @@ export default function JavaGraphTheory() {
         {/* TAB 3: 15-QUESTION ASSESSMENT QUIZ */}
         {activeTab === "quiz" && (
           <div className="flex-1 max-w-4xl mx-auto w-full px-4 lg:px-8 py-6 flex flex-col gap-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-5">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Evaluation Quiz
                     </span>
-                    <span className="text-xs text-slate-400">15 Multiple Choice Questions</span>
+                    <span className="text-xs text-stone-500">15 Multiple Choice Questions</span>
                   </div>
                   <h2 className="text-2xl font-black text-white">Module 17 Mastery Assessment</h2>
                 </div>
@@ -1936,9 +1942,9 @@ export default function JavaGraphTheory() {
               {/* Questions List */}
               <div className="space-y-6">
                 {QUIZ_QUESTIONS.map((q, idx) => (
-                  <div key={q.id} className="p-5 rounded-xl bg-slate-950 border border-slate-800/80 flex flex-col gap-3">
+                  <div key={q.id} className="p-5 rounded-xl bg-stone-50 border border-[#e7e3da] flex flex-col gap-3">
                     <div className="flex items-start justify-between gap-2">
-                      <span className="text-sm font-bold text-slate-200">
+                      <span className="text-sm font-bold text-stone-800">
                         {idx + 1}. {q.question}
                       </span>
                     </div>
@@ -1946,7 +1952,7 @@ export default function JavaGraphTheory() {
                     <div className="grid grid-cols-1 gap-2 mt-1">
                       {q.options.map((opt, optIdx) => {
                         const isSelected = userAnswers[q.id] === optIdx;
-                        let btnStyle = "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-850";
+                        let btnStyle = "bg-white border-[#e7e3da] text-stone-700 hover:bg-slate-850";
 
                         if (quizSubmitted) {
                           if (optIdx === q.correct) {
@@ -1965,7 +1971,7 @@ export default function JavaGraphTheory() {
                             onClick={() => setUserAnswers(prev => ({ ...prev, [q.id]: optIdx }))}
                             className={`p-3 rounded-lg border text-left text-xs transition flex items-center gap-3 ${btnStyle}`}
                           >
-                            <span className="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-mono shrink-0">
+                            <span className="w-5 h-5 rounded-full border border-stone-200 flex items-center justify-center text-[10px] font-mono shrink-0">
                               {String.fromCharCode(65 + optIdx)}
                             </span>
                             <span>{opt}</span>
@@ -1975,7 +1981,7 @@ export default function JavaGraphTheory() {
                     </div>
 
                     {quizSubmitted && (
-                      <div className="mt-2 p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
+                      <div className="mt-2 p-3 rounded-lg bg-white border border-[#e7e3da] text-xs text-stone-500">
                         <strong className="text-orange-400 block mb-0.5">Explanation:</strong>
                         {q.explanation}
                       </div>
@@ -1985,14 +1991,14 @@ export default function JavaGraphTheory() {
               </div>
 
               {/* Submit / Retake Button */}
-              <div className="pt-4 border-t border-slate-800 flex justify-end gap-3">
+              <div className="pt-4 border-t border-[#e7e3da] flex justify-end gap-3">
                 {quizSubmitted ? (
                   <button
                     onClick={() => {
                       setQuizSubmitted(false);
                       setUserAnswers({});
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition"
+                    className="px-5 py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-white font-bold text-xs transition"
                   >
                     Retake Quiz
                   </button>
@@ -2012,20 +2018,20 @@ export default function JavaGraphTheory() {
         {/* TAB 4: 35 PRACTICE PROBLEMS & LABS TRACKER */}
         {activeTab === "labs" && (
           <div className="flex-1 max-w-5xl mx-auto w-full px-4 lg:px-8 py-6 flex flex-col gap-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-5">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Problem Roadmap
                     </span>
-                    <span className="text-xs text-slate-400">5 Difficulty Tiers</span>
+                    <span className="text-xs text-stone-500">5 Difficulty Tiers</span>
                   </div>
                   <h2 className="text-2xl font-black text-white">35 FAANG & LeetCode Graph Labs</h2>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-32 bg-slate-950 rounded-full h-2.5 border border-slate-800 overflow-hidden">
+                  <div className="w-32 bg-stone-50 rounded-full h-2.5 border border-[#e7e3da] overflow-hidden">
                     <div
                       className="bg-emerald-500 h-full transition-all duration-500"
                       style={{ width: `${(completedLabsCount / 35) * 100}%` }}
@@ -2064,12 +2070,12 @@ export default function JavaGraphTheory() {
                             onClick={() => toggleLab(lab.id)}
                             className={`p-3.5 rounded-xl border transition cursor-pointer flex items-center justify-between gap-4 ${
                               isDone
-                                ? "bg-emerald-950/20 border-emerald-500/30 text-slate-300"
-                                : "bg-slate-950/80 border-slate-800 text-slate-200 hover:border-slate-700"
+                                ? "bg-emerald-950/20 border-emerald-500/30 text-stone-700"
+                                : "bg-stone-50/80 border-[#e7e3da] text-stone-800 hover:border-stone-200"
                             }`}
                           >
                             <div className="flex items-start gap-3">
-                              <button className="mt-0.5 text-slate-400 hover:text-white">
+                              <button className="mt-0.5 text-stone-500 hover:text-white">
                                 {isDone ? (
                                   <CheckSquare className="w-4 h-4 text-emerald-400" />
                                 ) : (
@@ -2077,14 +2083,14 @@ export default function JavaGraphTheory() {
                                 )}
                               </button>
                               <div>
-                                <span className={`text-xs font-bold block ${isDone ? "line-through text-slate-400" : "text-white"}`}>
+                                <span className={`text-xs font-bold block ${isDone ? "line-through text-stone-500" : "text-white"}`}>
                                   {lab.title}
                                 </span>
-                                <span className="text-[11px] text-slate-400">{lab.desc}</span>
+                                <span className="text-[11px] text-stone-500">{lab.desc}</span>
                               </div>
                             </div>
 
-                            <span className="text-[10px] font-mono text-slate-400 shrink-0">#{lab.id}</span>
+                            <span className="text-[10px] font-mono text-stone-500 shrink-0">#{lab.id}</span>
                           </div>
                         );
                       })}
@@ -2098,14 +2104,7 @@ export default function JavaGraphTheory() {
       </div>
 
       {/* Persistent Footer with Module Navigation */}
-      <footer className="mt-auto border-t border-slate-800 bg-slate-950 px-4 lg:px-8 py-4">
-        <ModuleNav
-          courseId="java-programming"
-          currentModuleId="graph-theory"
-          prevRoute="/learning/java/greedy-algorithms"
-          nextRoute="/learning/java/shortest-paths-mst"
-        />
-      </footer>
+      </div>
     </div>
   );
 }

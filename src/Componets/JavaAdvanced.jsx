@@ -457,7 +457,7 @@ export default function JavaAdvanced() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 pb-16 selection:bg-orange-500/20 selection:text-orange-900">
+    <div className="min-h-screen bg-[#fcfbf9] text-stone-900 pb-16 selection:bg-orange-500/20 selection:text-orange-900 px-4 py-6 sm:px-8 sm:py-10 md:px-12">
       {/* Top Banner / Breadcrumb */}
       <div className="border-b border-[#e7e3da] bg-white/80 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">

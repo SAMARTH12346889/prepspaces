@@ -495,82 +495,88 @@ export default function JavaShortestPathsMST() {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-200">
-      {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-slate-900/90 backdrop-blur border-b border-slate-800 px-4 lg:px-8 py-3 flex items-center justify-between shadow-lg">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => navigate("/learning/java/graph-theory")}
-            className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition"
-            title="Previous Module: Graph Theory"
-          >
-            <ArrowLeft className="w-4 h-4" />
-          </button>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-400 border border-orange-500/30 rounded">
-                Module 18
-              </span>
-              <span className="text-xs text-slate-400 font-mono hidden sm:inline">Advanced Java + DSA</span>
-            </div>
-            <h1 className="text-sm sm:text-base font-extrabold text-white flex items-center gap-2">
-              <Compass className="w-4 h-4 text-orange-400" />
-              Shortest Paths & Minimum Spanning Trees
-            </h1>
-          </div>
-        </div>
+    <div className="min-h-screen bg-[#f6f4ee] text-[#18181b] px-4 py-6 sm:px-8 sm:py-10 md:px-12 font-sans antialiased selection:bg-[#f97316] selection:text-white">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
 
-        {/* View Tabs */}
-        <div className="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
+        {/* Module Navigation Header */}
+        <ModuleNav
+          track="java"
+          currentModuleId="shortest-paths-mst"
+        />
+
+        {/* Hero Header */}
+        <header className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#ea580c]">
+              <Compass size={13} />
+              Module 18 · Java + DSA Master Course
+            </span>
+            <span className="rounded-full bg-stone-100 border border-stone-200 px-3 py-1 text-[11px] font-mono text-stone-600">
+              Shortest Paths &amp; Minimum Spanning Trees
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#18181b] tracking-tight">
+            Shortest Paths &amp; Minimum Spanning Trees
+          </h1>
+
+          <p className="mt-3 text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
+            Master Dijkstra's algorithm, Bellman-Ford, Floyd-Warshall, Prim's algorithm, Kruskal's algorithm, and disjoint-set cycle verification in Java.
+          </p>
+        </header>
+
+        {/* View Mode Navigation Tabs */}
+        <div className="flex flex-wrap items-center gap-2 mb-8">
           <button
             onClick={() => setActiveTab("curriculum")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "curriculum"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Curriculum</span>
+            <BookOpen size={16} className={activeTab === "curriculum" ? "text-orange-400" : "text-stone-400"} />
+            <span>Curriculum</span>
           </button>
           <button
             onClick={() => setActiveTab("workbenches")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "workbenches"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <Cpu className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">8 Workbenches</span>
+            <Cpu size={16} className={activeTab === "workbenches" ? "text-orange-400" : "text-stone-400"} />
+            <span>8 Workbenches</span>
           </button>
           <button
             onClick={() => setActiveTab("quiz")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "quiz"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Assessment Quiz</span>
+            <HelpCircle size={16} className={activeTab === "quiz" ? "text-orange-400" : "text-stone-400"} />
+            <span>Assessment Quiz</span>
           </button>
           <button
             onClick={() => setActiveTab("labs")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeTab === "labs"
-                ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900"
             }`}
           >
-            <Award className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">35 Practice Labs</span>
-            <span className="ml-1 px-1.5 py-0.2 text-[10px] rounded-full bg-slate-800 text-slate-300">
-              {completedLabsCount}/35
-            </span>
+            <Award size={16} className={activeTab === "labs" ? "text-orange-400" : "text-stone-400"} />
+            <span>35 Practice Labs</span>
           </button>
         </div>
-      </header>
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
@@ -578,24 +584,24 @@ export default function JavaShortestPathsMST() {
         {activeTab === "curriculum" && (
           <div className="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto w-full px-4 lg:px-8 py-6 gap-6">
             {/* Sidebar Section Index */}
-            <aside className="w-full lg:w-80 shrink-0 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col h-fit lg:sticky lg:top-20 max-h-[85vh]">
+            <aside className="w-full lg:w-80 shrink-0 bg-white border border-[#e7e3da] rounded-2xl p-4 flex flex-col h-fit lg:sticky lg:top-20 max-h-[85vh]">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+                <span className="text-xs font-bold text-stone-700 uppercase tracking-wider flex items-center gap-2">
                   <Layers className="w-3.5 h-3.5 text-orange-400" />
                   Sections (27)
                 </span>
-                <span className="text-[10px] text-slate-400 font-mono">Module 18</span>
+                <span className="text-[10px] text-stone-500 font-mono">Module 18</span>
               </div>
 
               {/* Filter box */}
               <div className="relative mb-3">
-                <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400" />
+                <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-stone-500" />
                 <input
                   type="text"
                   placeholder="Filter 27 sections..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-400 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg pl-8 pr-3 py-1.5 text-xs text-stone-800 placeholder-slate-400 focus:outline-none focus:border-orange-500"
                 />
               </div>
 
@@ -609,24 +615,24 @@ export default function JavaShortestPathsMST() {
                     className={`w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-start justify-between ${
                       activeSectionId === sec.id
                         ? "bg-orange-500/15 text-orange-300 border border-orange-500/40 font-semibold"
-                        : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+                        : "text-stone-500 hover:bg-stone-100/60 hover:text-stone-800"
                     }`}
                   >
                     <span className="break-words whitespace-normal leading-snug pr-2 flex-1">{sec.title}</span>
-                    <span className="text-[10px] font-mono text-slate-400 shrink-0 mt-0.5">#{sec.id}</span>
+                    <span className="text-[10px] font-mono text-stone-500 shrink-0 mt-0.5">#{sec.id}</span>
                   </button>
                 ))}
               </div>
             </aside>
 
             {/* Reading Content Pane */}
-            <main className="flex-1 bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 lg:p-8 min-w-0">
+            <main className="flex-1 bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 min-w-0">
               {(() => {
                 const currentSec = JAVA_SHORTEST_PATHS_MST_SECTIONS.find(s => s.id === activeSectionId) || JAVA_SHORTEST_PATHS_MST_SECTIONS[0];
                 return (
                   <div>
                     {/* Section Header */}
-                    <div className="border-b border-slate-800 pb-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="border-b border-[#e7e3da] pb-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/10 text-orange-400 border border-orange-500/20">
@@ -634,10 +640,10 @@ export default function JavaShortestPathsMST() {
                               ? "Module Overview · 27 Core Sections"
                               : `Section ${currentSec.id} of 27`}
                           </span>
-                          <span className="text-xs text-slate-400">PrepSpaces Java Masterclass</span>
+                          <span className="text-xs text-stone-500">PrepSpaces Java Masterclass</span>
                         </div>
                         <h2 className="text-xl sm:text-2xl font-black text-white">{currentSec.title}</h2>
-                        <p className="text-xs text-slate-400 mt-1">{currentSec.summary}</p>
+                        <p className="text-xs text-stone-500 mt-1">{currentSec.summary}</p>
                       </div>
 
                       {/* Jump to Workbench CTA */}
@@ -661,16 +667,16 @@ export default function JavaShortestPathsMST() {
                     </div>
 
                     {/* Section Content */}
-                    <div className="prose prose-invert max-w-none text-slate-200">
+                    <div className="prose prose-invert max-w-none text-stone-800">
                       {currentSec.content}
                     </div>
 
                     {/* Bottom Navigation */}
-                    <div className="mt-12 pt-6 border-t border-slate-800 flex items-center justify-between">
+                    <div className="mt-12 pt-6 border-t border-[#e7e3da] flex items-center justify-between">
                       <button
                         disabled={activeSectionId === 0}
                         onClick={() => setActiveSectionId(prev => Math.max(0, prev - 1))}
-                        className="px-4 py-2 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-xs font-semibold text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 transition"
+                        className="px-4 py-2 rounded-xl border border-[#e7e3da] bg-white hover:bg-stone-100 text-xs font-semibold text-stone-700 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 transition"
                       >
                         <ArrowLeft className="w-3.5 h-3.5" />
                         Previous Section
@@ -714,7 +720,7 @@ export default function JavaShortestPathsMST() {
                     className={`p-3 rounded-xl border text-left transition flex flex-col gap-1.5 ${
                       activeWorkbench === wb.id
                         ? "bg-orange-500 text-white border-orange-500 shadow-lg shadow-orange-500/20"
-                        : "bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800"
+                        : "bg-white border-[#e7e3da] text-stone-700 hover:bg-stone-100"
                     }`}
                   >
                     <Icon className="w-4 h-4 text-orange-300" />
@@ -726,23 +732,23 @@ export default function JavaShortestPathsMST() {
 
             {/* WORKBENCH 1: DIJKSTRA VISUALIZER */}
             {activeWorkbench === 1 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 1
                     </span>
-                    <span className="text-xs text-slate-400">Nonnegative Shortest Paths & PriorityQueue</span>
+                    <span className="text-xs text-stone-500">Nonnegative Shortest Paths & PriorityQueue</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Dijkstra's Algorithm & Relaxation Visualizer</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Step through Dijkstra's execution: observe Min-Heap PriorityQueue states, edge relaxation, and pruning of stale outdated entries.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* SVG Graph */}
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col items-center justify-center min-h-[300px]">
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] flex flex-col items-center justify-center min-h-[300px]">
                     <svg width="420" height="290" className="overflow-visible">
                       {/* Edges */}
                       {WB1_EDGES.map((e, idx) => {
@@ -830,18 +836,18 @@ export default function JavaShortestPathsMST() {
                       })}
                     </svg>
 
-                    <div className="flex items-center gap-4 text-[11px] text-slate-400 mt-2">
+                    <div className="flex items-center gap-4 text-[11px] text-stone-500 mt-2">
                       <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-amber-500"></span> Current Extracted</span>
                       <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-orange-500"></span> Discovered / In PQ</span>
-                      <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-slate-800 border border-slate-600"></span> Unvisited</span>
+                      <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-stone-100 border border-slate-600"></span> Unvisited</span>
                     </div>
                   </div>
 
                   {/* Simulator State Panel */}
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between gap-4">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between gap-4">
                     <div className="space-y-4">
                       {/* Step Note */}
-                      <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-orange-300 font-mono leading-relaxed">
+                      <div className="p-3 rounded-xl bg-white border border-[#e7e3da] text-xs text-orange-300 font-mono leading-relaxed">
                         {curWb1.note}
                       </div>
 
@@ -855,10 +861,10 @@ export default function JavaShortestPathsMST() {
 
                       {/* Priority Queue State */}
                       <div>
-                        <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1">
+                        <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-1">
                           Min-Heap PriorityQueue (PriorityQueue&lt;State&gt;)
                         </span>
-                        <div className="flex flex-wrap items-center gap-2 p-2 bg-slate-900 rounded-lg border border-slate-800 min-h-[42px]">
+                        <div className="flex flex-wrap items-center gap-2 p-2 bg-white rounded-lg border border-[#e7e3da] min-h-[42px]">
                           {curWb1.pq.length > 0 ? (
                             curWb1.pq.map((st, idx) => (
                               <span
@@ -871,21 +877,21 @@ export default function JavaShortestPathsMST() {
                               </span>
                             ))
                           ) : (
-                            <span className="text-slate-400 text-xs font-mono">[ Queue Empty ]</span>
+                            <span className="text-stone-500 text-xs font-mono">[ Queue Empty ]</span>
                           )}
                         </div>
                       </div>
 
                       {/* Distance Array */}
                       <div>
-                        <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1">
+                        <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-1">
                           Distance Array (long[] dist)
                         </span>
                         <div className="grid grid-cols-5 gap-1.5">
                           {curWb1.dist.map((d, i) => (
-                            <div key={i} className="p-2 bg-slate-900 rounded-lg border border-slate-800 text-center font-mono text-xs">
-                              <span className="text-slate-400 block text-[10px]">node {i}</span>
-                              <span className={d !== "∞" ? "text-emerald-400 font-bold" : "text-slate-400"}>{d}</span>
+                            <div key={i} className="p-2 bg-white rounded-lg border border-[#e7e3da] text-center font-mono text-xs">
+                              <span className="text-stone-500 block text-[10px]">node {i}</span>
+                              <span className={d !== "∞" ? "text-emerald-400 font-bold" : "text-stone-500"}>{d}</span>
                             </div>
                           ))}
                         </div>
@@ -893,10 +899,10 @@ export default function JavaShortestPathsMST() {
                     </div>
 
                     {/* Step Controls */}
-                    <div className="flex items-center justify-between pt-3 border-t border-slate-800">
+                    <div className="flex items-center justify-between pt-3 border-t border-[#e7e3da]">
                       <button
                         onClick={() => setWb1Step(0)}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                       >
                         Reset
                       </button>
@@ -904,11 +910,11 @@ export default function JavaShortestPathsMST() {
                         <button
                           disabled={wb1Step === 0}
                           onClick={() => setWb1Step(prev => Math.max(0, prev - 1))}
-                          className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                          className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                         >
                           Prev Step
                         </button>
-                        <span className="text-xs font-mono text-slate-400">
+                        <span className="text-xs font-mono text-stone-500">
                           {wb1Step + 1}/{wb1Trace.length}
                         </span>
                         <button
@@ -927,16 +933,16 @@ export default function JavaShortestPathsMST() {
 
             {/* WORKBENCH 2: BELLMAN-FORD & NEGATIVE CYCLES */}
             {activeWorkbench === 2 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 2
                     </span>
-                    <span className="text-xs text-slate-400">V - 1 Iterations & Negative Cycle Flag</span>
+                    <span className="text-xs text-stone-500">V - 1 Iterations & Negative Cycle Flag</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Bellman-Ford & Negative Cycle Detector</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Simulate edge relaxations across all edges V-1 times and observe how pass V confirms whether a reachable negative-weight cycle exists.
                   </p>
                 </div>
@@ -945,7 +951,7 @@ export default function JavaShortestPathsMST() {
                   <button
                     onClick={() => { setWb2HasCycle(false); setWb2Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      !wb2HasCycle ? "bg-orange-500 text-white" : "bg-slate-900 text-slate-400"
+                      !wb2HasCycle ? "bg-orange-500 text-white" : "bg-white text-stone-500"
                     }`}
                   >
                     Valid Graph (No Negative Cycle)
@@ -953,7 +959,7 @@ export default function JavaShortestPathsMST() {
                   <button
                     onClick={() => { setWb2HasCycle(true); setWb2Step(0); }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
-                      wb2HasCycle ? "bg-rose-600 text-white" : "bg-slate-900 text-slate-400"
+                      wb2HasCycle ? "bg-rose-600 text-white" : "bg-white text-stone-500"
                     }`}
                   >
                     Graph With Negative Cycle
@@ -965,16 +971,16 @@ export default function JavaShortestPathsMST() {
                   const cur = trace[Math.min(wb2Step, trace.length - 1)];
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                          <div className="flex items-center justify-between border-b border-[#e7e3da] pb-2 mb-3">
                             <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                               Iteration Round: {cur.pass}
                             </span>
-                            <span className="text-[10px] font-mono text-slate-400">V = {cur.dist.length} vertices</span>
+                            <span className="text-[10px] font-mono text-stone-500">V = {cur.dist.length} vertices</span>
                           </div>
 
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-slate-200 mb-4 leading-relaxed">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-stone-800 mb-4 leading-relaxed">
                             {cur.note}
                           </div>
 
@@ -997,23 +1003,23 @@ export default function JavaShortestPathsMST() {
                           )}
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                        <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
                           Invariance: <strong className="text-orange-300">Shortest simple path has at most V - 1 edges</strong>
                         </div>
                       </div>
 
                       {/* State Display */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-3">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-3">
                             Current Distance Array (dist[])
                           </span>
                           <div className="grid grid-cols-4 gap-2">
                             {cur.dist.map((d, i) => (
-                              <div key={i} className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-center font-mono text-xs">
-                                <span className="text-slate-400 block text-[10px]">node {i}</span>
+                              <div key={i} className="p-3 rounded-lg bg-white border border-[#e7e3da] text-center font-mono text-xs">
+                                <span className="text-stone-500 block text-[10px]">node {i}</span>
                                 <span className={`text-base font-bold ${
-                                  d !== "∞" ? (Number(d) < 0 ? "text-rose-400" : "text-emerald-400") : "text-slate-400"
+                                  d !== "∞" ? (Number(d) < 0 ? "text-rose-400" : "text-emerald-400") : "text-stone-500"
                                 }`}>
                                   {d}
                                 </span>
@@ -1022,10 +1028,10 @@ export default function JavaShortestPathsMST() {
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb2Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1033,11 +1039,11 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb2Step === 0}
                               onClick={() => setWb2Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb2Step + 1}/{trace.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb2Step + 1}/{trace.length}</span>
                             <button
                               disabled={wb2Step === trace.length - 1}
                               onClick={() => setWb2Step(p => Math.min(trace.length - 1, p + 1))}
@@ -1056,29 +1062,29 @@ export default function JavaShortestPathsMST() {
 
             {/* WORKBENCH 3: FLOYD-WARSHALL MATRIX */}
             {activeWorkbench === 3 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 3
                     </span>
-                    <span className="text-xs text-slate-400">All-Pairs Shortest Paths O(V³) DP</span>
+                    <span className="text-xs text-stone-500">All-Pairs Shortest Paths O(V³) DP</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Floyd-Warshall 2D Distance Matrix Simulator</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Observe how testing each intermediate waypoint vertex k updates the all-pairs distance matrix in-place.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Matrix Grid */}
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col items-center justify-center">
                     <div className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-4">
                       {wb3Matrices[wb3K].title}
                     </div>
 
                     <div className="grid grid-cols-4 gap-1.5 text-center font-mono text-xs">
-                      <div className="p-2 text-slate-400 font-bold">i \ j</div>
+                      <div className="p-2 text-stone-500 font-bold">i \ j</div>
                       <div className="p-2 text-orange-400 font-bold">0</div>
                       <div className="p-2 text-orange-400 font-bold">1</div>
                       <div className="p-2 text-orange-400 font-bold">2</div>
@@ -1090,10 +1096,10 @@ export default function JavaShortestPathsMST() {
                               key={c}
                               className={`p-2.5 rounded-lg border font-bold ${
                                 r === c
-                                  ? "bg-slate-800/80 border-slate-700 text-slate-300"
+                                  ? "bg-stone-100/80 border-stone-200 text-stone-700"
                                   : val !== "∞"
                                   ? "bg-orange-500/20 border-orange-500 text-orange-200"
-                                  : "bg-slate-900 border-slate-800 text-slate-400"
+                                  : "bg-white border-[#e7e3da] text-stone-500"
                               }`}
                             >
                               {val}
@@ -1103,22 +1109,22 @@ export default function JavaShortestPathsMST() {
                       ))}
                     </div>
 
-                    <p className="text-[11px] text-slate-400 mt-4 text-center">
+                    <p className="text-[11px] text-stone-500 mt-4 text-center">
                       Recurrence: <code className="text-orange-300 font-mono">dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])</code>
                     </p>
                   </div>
 
                   {/* Matrix Step Note & Controls */}
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                     <div>
-                      <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                      <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-2">
                         Intermediate Waypoint Explanation
                       </span>
-                      <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-orange-300 leading-relaxed mb-4">
+                      <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-orange-300 leading-relaxed mb-4">
                         {wb3Matrices[wb3K].note}
                       </div>
 
-                      <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-1">
+                      <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs text-stone-700 space-y-1">
                         <div>Diagonal Negative Cycle Check:</div>
                         <div className="text-emerald-400 font-mono font-bold">
                           dist[0][0]=0, dist[1][1]=0, dist[2][2]=0 (All non-negative, no cycles)
@@ -1126,10 +1132,10 @@ export default function JavaShortestPathsMST() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                    <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                       <button
                         onClick={() => setWb3K(0)}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                        className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                       >
                         Reset
                       </button>
@@ -1137,11 +1143,11 @@ export default function JavaShortestPathsMST() {
                         <button
                           disabled={wb3K === 0}
                           onClick={() => setWb3K(p => Math.max(0, p - 1))}
-                          className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                          className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                         >
                           Prev
                         </button>
-                        <span className="text-xs font-mono text-slate-400">{wb3K + 1}/{wb3Matrices.length}</span>
+                        <span className="text-xs font-mono text-stone-500">{wb3K + 1}/{wb3Matrices.length}</span>
                         <button
                           disabled={wb3K === wb3Matrices.length - 1}
                           onClick={() => setWb3K(p => Math.min(wb3Matrices.length - 1, p + 1))}
@@ -1158,16 +1164,16 @@ export default function JavaShortestPathsMST() {
 
             {/* WORKBENCH 4: DAG SHORTEST PATHS */}
             {activeWorkbench === 4 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 4
                     </span>
-                    <span className="text-xs text-slate-400">Linear Time O(V + E) Topological Relaxation</span>
+                    <span className="text-xs text-stone-500">Linear Time O(V + E) Topological Relaxation</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">DAG Shortest Paths via Topological Sort</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Linearize the DAG into topological order and relax outgoing edges in a single pass. Handles negative edge weights safely!
                   </p>
                 </div>
@@ -1176,7 +1182,7 @@ export default function JavaShortestPathsMST() {
                   const cur = wb4Trace[Math.min(wb4Step, wb4Trace.length - 1)];
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
                           <div className="mb-3">
                             <span className="text-xs font-bold text-orange-400 uppercase tracking-wider block mb-1">
@@ -1187,7 +1193,7 @@ export default function JavaShortestPathsMST() {
                                 <span
                                   key={i}
                                   className={`px-3 py-1 rounded-lg text-xs font-mono font-bold ${
-                                    node === cur.curr ? "bg-amber-500 text-slate-950" : "bg-slate-900 border border-slate-800 text-slate-300"
+                                    node === cur.curr ? "bg-amber-500 text-slate-950" : "bg-white border border-[#e7e3da] text-stone-700"
                                   }`}
                                 >
                                   {node}
@@ -1196,27 +1202,27 @@ export default function JavaShortestPathsMST() {
                             </div>
                           </div>
 
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-slate-200 leading-relaxed">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-stone-800 leading-relaxed">
                             {cur.note}
                           </div>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                        <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
                           Advantage: <strong className="text-emerald-400">Linear O(V + E) runtime with negative weights allowed</strong>
                         </div>
                       </div>
 
                       {/* Distance Array */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-3">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-3">
                             Distance Array (dist[])
                           </span>
                           <div className="grid grid-cols-5 gap-2">
                             {cur.dist.map((d, i) => (
-                              <div key={i} className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-center font-mono text-xs">
-                                <span className="text-slate-400 block text-[10px]">node {i}</span>
-                                <span className={`text-base font-bold ${d !== "∞" ? "text-emerald-400" : "text-slate-400"}`}>
+                              <div key={i} className="p-3 rounded-lg bg-white border border-[#e7e3da] text-center font-mono text-xs">
+                                <span className="text-stone-500 block text-[10px]">node {i}</span>
+                                <span className={`text-base font-bold ${d !== "∞" ? "text-emerald-400" : "text-stone-500"}`}>
                                   {d}
                                 </span>
                               </div>
@@ -1224,10 +1230,10 @@ export default function JavaShortestPathsMST() {
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb4Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1235,11 +1241,11 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb4Step === 0}
                               onClick={() => setWb4Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb4Step + 1}/{wb4Trace.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb4Step + 1}/{wb4Trace.length}</span>
                             <button
                               disabled={wb4Step === wb4Trace.length - 1}
                               onClick={() => setWb4Step(p => Math.min(wb4Trace.length - 1, p + 1))}
@@ -1258,16 +1264,16 @@ export default function JavaShortestPathsMST() {
 
             {/* WORKBENCH 5: PRIM'S MST ALGORITHM */}
             {activeWorkbench === 5 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 5
                     </span>
-                    <span className="text-xs text-slate-400">Tree-Growing Greedy Strategy O(E log V)</span>
+                    <span className="text-xs text-stone-500">Tree-Growing Greedy Strategy O(E log V)</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Prim's Algorithm & Cut Boundary Studio</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Grow an MST from seed vertex 0. Always select the minimum-weight boundary edge crossing the cut between the tree and outside vertices.
                   </p>
                 </div>
@@ -1276,9 +1282,9 @@ export default function JavaShortestPathsMST() {
                   const cur = wb5Trace[Math.min(wb5Step, wb5Trace.length - 1)];
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                          <div className="flex items-center justify-between border-b border-[#e7e3da] pb-2 mb-3">
                             <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                               MST Tree Nodes ({cur.tree.length}/4)
                             </span>
@@ -1293,7 +1299,7 @@ export default function JavaShortestPathsMST() {
                             ))}
                           </div>
 
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-slate-200 leading-relaxed mb-3">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-stone-800 leading-relaxed mb-3">
                             {cur.note}
                           </div>
 
@@ -1305,35 +1311,35 @@ export default function JavaShortestPathsMST() {
                           )}
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                        <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
                           Cut Property: <strong className="text-orange-300">Minimum-weight edge crossing the cut is always safe</strong>
                         </div>
                       </div>
 
                       {/* Candidate Queue */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-3">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-3">
                             Boundary Candidate Edges (PriorityQueue)
                           </span>
                           <div className="space-y-1.5">
                             {cur.cand.length > 0 ? (
                               cur.cand.map((c, i) => (
-                                <div key={i} className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono flex items-center justify-between">
+                                <div key={i} className="p-2.5 rounded-lg bg-white border border-[#e7e3da] text-xs font-mono flex items-center justify-between">
                                   <span>{c}</span>
                                   <span className="text-[10px] text-orange-400 font-bold">{i === 0 ? "Next Min Candidate" : "In PQ"}</span>
                                 </div>
                               ))
                             ) : (
-                              <span className="text-slate-400 text-xs font-mono">[ Tree Fully Connected ]</span>
+                              <span className="text-stone-500 text-xs font-mono">[ Tree Fully Connected ]</span>
                             )}
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb5Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1341,11 +1347,11 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb5Step === 0}
                               onClick={() => setWb5Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb5Step + 1}/{wb5Trace.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb5Step + 1}/{wb5Trace.length}</span>
                             <button
                               disabled={wb5Step === wb5Trace.length - 1}
                               onClick={() => setWb5Step(p => Math.min(wb5Trace.length - 1, p + 1))}
@@ -1364,16 +1370,16 @@ export default function JavaShortestPathsMST() {
 
             {/* WORKBENCH 6: KRUSKAL'S MST & DSU */}
             {activeWorkbench === 6 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 6
                     </span>
-                    <span className="text-xs text-slate-400">Global Edge Sorting & DSU Cycle Rejection</span>
+                    <span className="text-xs text-stone-500">Global Edge Sorting & DSU Cycle Rejection</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Kruskal's Algorithm & DSU Forest Simulator</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Process edges in ascending order. Disjoint Set Union checks if endpoints belong to the same component, preventing cycle formation.
                   </p>
                 </div>
@@ -1382,16 +1388,16 @@ export default function JavaShortestPathsMST() {
                   const cur = wb6Trace[Math.min(wb6Step, wb6Trace.length - 1)];
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                          <div className="flex items-center justify-between border-b border-[#e7e3da] pb-2 mb-3">
                             <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                               Edge Under Test: {cur.edge}
                             </span>
                             <span className="text-xs font-mono text-emerald-400 font-bold">Total MST Weight: {cur.total}</span>
                           </div>
 
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-slate-200 leading-relaxed mb-4">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-stone-800 leading-relaxed mb-4">
                             {cur.note}
                           </div>
 
@@ -1412,20 +1418,20 @@ export default function JavaShortestPathsMST() {
                           </div>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                        <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
                           DSU Optimization: <strong className="text-orange-300">Path compression + Union by size = O(alpha(V))</strong>
                         </div>
                       </div>
 
                       {/* DSU Sets */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-3">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-3">
                             Disjoint Component Sets (DSU Forest)
                           </span>
                           <div className="space-y-2">
                             {cur.dsu.map((setStr, i) => (
-                              <div key={i} className="p-3 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs text-orange-300 flex items-center justify-between">
+                              <div key={i} className="p-3 rounded-lg bg-white border border-[#e7e3da] font-mono text-xs text-orange-300 flex items-center justify-between">
                                 <span>Component {i + 1}</span>
                                 <span className="font-bold text-emerald-400">{setStr}</span>
                               </div>
@@ -1433,10 +1439,10 @@ export default function JavaShortestPathsMST() {
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb6Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1444,11 +1450,11 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb6Step === 0}
                               onClick={() => setWb6Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb6Step + 1}/{wb6Trace.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb6Step + 1}/{wb6Trace.length}</span>
                             <button
                               disabled={wb6Step === wb6Trace.length - 1}
                               onClick={() => setWb6Step(p => Math.min(wb6Trace.length - 1, p + 1))}
@@ -1467,16 +1473,16 @@ export default function JavaShortestPathsMST() {
 
             {/* WORKBENCH 7: MULTI-SOURCE BFS */}
             {activeWorkbench === 7 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 7
                     </span>
-                    <span className="text-xs text-slate-400">Nearest Zero / Rotting Oranges Wavefront</span>
+                    <span className="text-xs text-stone-500">Nearest Zero / Rotting Oranges Wavefront</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">Multi-Source BFS Grid Propagation</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     Seed the queue with all sources at distance 0 simultaneously. Wavefront expands in unison to calculate nearest-facility distance in O(R*C).
                   </p>
                 </div>
@@ -1486,7 +1492,7 @@ export default function JavaShortestPathsMST() {
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       {/* Grid Display */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col items-center justify-center">
                         <span className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-4">
                           Grid State & Distance Matrix (Time = {cur.step})
                         </span>
@@ -1504,10 +1510,10 @@ export default function JavaShortestPathsMST() {
                                       ? "bg-amber-600/30 border-amber-500 text-amber-300 font-bold"
                                       : dVal === "2"
                                       ? "bg-emerald-600/30 border-emerald-500 text-emerald-300 font-bold"
-                                      : "bg-slate-900 border-slate-800 text-slate-400"
+                                      : "bg-white border-[#e7e3da] text-stone-500"
                                   }`}
                                 >
-                                  <span className="text-[10px] text-slate-400">({r},{c})</span>
+                                  <span className="text-[10px] text-stone-500">({r},{c})</span>
                                   <span className="text-sm">{dVal === "-" ? "?" : `d=${dVal}`}</span>
                                 </div>
                               ))}
@@ -1515,7 +1521,7 @@ export default function JavaShortestPathsMST() {
                           ))}
                         </div>
 
-                        <div className="flex items-center gap-4 text-[11px] text-slate-400 mt-4">
+                        <div className="flex items-center gap-4 text-[11px] text-stone-500 mt-4">
                           <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-rose-500"></span> Sources (d=0)</span>
                           <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-amber-500"></span> Wavefront 1</span>
                           <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-emerald-500"></span> Wavefront 2</span>
@@ -1523,18 +1529,18 @@ export default function JavaShortestPathsMST() {
                       </div>
 
                       {/* Log & Step Controls */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-2">
                             Step Log
                           </span>
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-orange-300 leading-relaxed mb-4">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-orange-300 leading-relaxed mb-4">
                             {cur.note}
                           </div>
 
-                          <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1">
+                          <div className="p-3 rounded-xl bg-white border border-[#e7e3da] text-xs text-stone-700 space-y-1">
                             <div>Primary Applications:</div>
-                            <ul className="list-disc list-inside text-[11px] text-slate-400 space-y-0.5">
+                            <ul className="list-disc list-inside text-[11px] text-stone-500 space-y-0.5">
                               <li>Rotting Oranges (LeetCode 994)</li>
                               <li>01 Matrix Nearest Zero (LeetCode 542)</li>
                               <li>Shortest distance to fire exits / hospital centers</li>
@@ -1542,10 +1548,10 @@ export default function JavaShortestPathsMST() {
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb7Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1553,11 +1559,11 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb7Step === 0}
                               onClick={() => setWb7Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb7Step + 1}/{wb7Grids.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb7Step + 1}/{wb7Grids.length}</span>
                             <button
                               disabled={wb7Step === wb7Grids.length - 1}
                               onClick={() => setWb7Step(p => Math.min(wb7Grids.length - 1, p + 1))}
@@ -1576,16 +1582,16 @@ export default function JavaShortestPathsMST() {
 
             {/* WORKBENCH 8: 0-1 BFS DEQUE */}
             {activeWorkbench === 8 && (
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Workbench 8
                     </span>
-                    <span className="text-xs text-slate-400">ArrayDeque Front/Back Push O(V + E)</span>
+                    <span className="text-xs text-stone-500">ArrayDeque Front/Back Push O(V + E)</span>
                   </div>
                   <h3 className="text-xl font-bold text-white">0-1 BFS Double-Ended Queue Studio</h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     When edge weights are strictly 0 and 1, push 0-weight edges to the front and 1-weight edges to the back of a Deque. Achieves linear O(V + E) without heap overhead!
                   </p>
                 </div>
@@ -1594,24 +1600,24 @@ export default function JavaShortestPathsMST() {
                   const cur = wb8Trace[Math.min(wb8Step, wb8Trace.length - 1)];
                   return (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                          <div className="flex items-center justify-between border-b border-[#e7e3da] pb-2 mb-3">
                             <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                               Processing Node: {cur.curr} (d = {cur.d})
                             </span>
                             <span className="text-[10px] font-mono text-emerald-400 font-bold">Weights: &#123;0, 1&#125;</span>
                           </div>
 
-                          <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs font-mono text-slate-200 leading-relaxed mb-4">
+                          <div className="p-3 bg-white rounded-xl border border-[#e7e3da] text-xs font-mono text-stone-800 leading-relaxed mb-4">
                             {cur.note}
                           </div>
 
                           <div>
-                            <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1">
+                            <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-1">
                               Deque State (ArrayDeque&lt;State&gt;)
                             </span>
-                            <div className="flex items-center gap-2 p-2.5 bg-slate-900 rounded-lg border border-slate-800 min-h-[42px] overflow-x-auto">
+                            <div className="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-[#e7e3da] min-h-[42px] overflow-x-auto">
                               {cur.deque.length > 0 ? (
                                 cur.deque.map((item, i) => (
                                   <span key={i} className={`px-2.5 py-1 rounded text-xs font-mono font-bold ${
@@ -1621,28 +1627,28 @@ export default function JavaShortestPathsMST() {
                                   </span>
                                 ))
                               ) : (
-                                <span className="text-slate-400 text-xs font-mono">[ Deque Empty ]</span>
+                                <span className="text-stone-500 text-xs font-mono">[ Deque Empty ]</span>
                               )}
                             </div>
                           </div>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                        <div className="mt-4 pt-3 border-t border-[#e7e3da] text-xs text-stone-500">
                           Invariant: <strong className="text-orange-300">Elements in Deque differ by at most 1 in distance</strong>
                         </div>
                       </div>
 
                       {/* Distance Map */}
-                      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                      <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] flex flex-col justify-between">
                         <div>
-                          <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-3">
+                          <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block mb-3">
                             Distance Map
                           </span>
                           <div className="grid grid-cols-4 gap-2">
                             {Object.entries(cur.dist).map(([node, d]) => (
-                              <div key={node} className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-center font-mono text-xs">
-                                <span className="text-slate-400 block text-[10px]">Node {node}</span>
-                                <span className={`text-base font-bold ${d !== "∞" ? "text-emerald-400" : "text-slate-400"}`}>
+                              <div key={node} className="p-3 rounded-lg bg-white border border-[#e7e3da] text-center font-mono text-xs">
+                                <span className="text-stone-500 block text-[10px]">Node {node}</span>
+                                <span className={`text-base font-bold ${d !== "∞" ? "text-emerald-400" : "text-stone-500"}`}>
                                   {d}
                                 </span>
                               </div>
@@ -1650,10 +1656,10 @@ export default function JavaShortestPathsMST() {
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <div className="flex items-center justify-between pt-4 border-t border-[#e7e3da]">
                           <button
                             onClick={() => setWb8Step(0)}
-                            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
+                            className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700"
                           >
                             Reset
                           </button>
@@ -1661,11 +1667,11 @@ export default function JavaShortestPathsMST() {
                             <button
                               disabled={wb8Step === 0}
                               onClick={() => setWb8Step(p => Math.max(0, p - 1))}
-                              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40"
+                              className="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-xs font-semibold text-stone-700 disabled:opacity-40"
                             >
                               Prev
                             </button>
-                            <span className="text-xs font-mono text-slate-400">{wb8Step + 1}/{wb8Trace.length}</span>
+                            <span className="text-xs font-mono text-stone-500">{wb8Step + 1}/{wb8Trace.length}</span>
                             <button
                               disabled={wb8Step === wb8Trace.length - 1}
                               onClick={() => setWb8Step(p => Math.min(wb8Trace.length - 1, p + 1))}
@@ -1687,14 +1693,14 @@ export default function JavaShortestPathsMST() {
         {/* TAB 3: 15-QUESTION ASSESSMENT QUIZ */}
         {activeTab === "quiz" && (
           <div className="flex-1 max-w-4xl mx-auto w-full px-4 lg:px-8 py-6 flex flex-col gap-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-5">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Evaluation Quiz
                     </span>
-                    <span className="text-xs text-slate-400">15 Multiple Choice Questions</span>
+                    <span className="text-xs text-stone-500">15 Multiple Choice Questions</span>
                   </div>
                   <h2 className="text-2xl font-black text-white">Module 18 Mastery Assessment</h2>
                 </div>
@@ -1709,9 +1715,9 @@ export default function JavaShortestPathsMST() {
               {/* Questions List */}
               <div className="space-y-6">
                 {QUIZ_QUESTIONS.map((q, idx) => (
-                  <div key={q.id} className="p-5 rounded-xl bg-slate-950 border border-slate-800/80 flex flex-col gap-3">
+                  <div key={q.id} className="p-5 rounded-xl bg-stone-50 border border-[#e7e3da] flex flex-col gap-3">
                     <div className="flex items-start justify-between gap-2">
-                      <span className="text-sm font-bold text-slate-200">
+                      <span className="text-sm font-bold text-stone-800">
                         {idx + 1}. {q.question}
                       </span>
                     </div>
@@ -1719,7 +1725,7 @@ export default function JavaShortestPathsMST() {
                     <div className="grid grid-cols-1 gap-2 mt-1">
                       {q.options.map((opt, optIdx) => {
                         const isSelected = userAnswers[q.id] === optIdx;
-                        let btnStyle = "bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-850";
+                        let btnStyle = "bg-white border-[#e7e3da] text-stone-700 hover:bg-slate-850";
 
                         if (quizSubmitted) {
                           if (optIdx === q.correct) {
@@ -1738,7 +1744,7 @@ export default function JavaShortestPathsMST() {
                             onClick={() => setUserAnswers(prev => ({ ...prev, [q.id]: optIdx }))}
                             className={`p-3 rounded-lg border text-left text-xs transition flex items-center gap-3 ${btnStyle}`}
                           >
-                            <span className="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-mono shrink-0">
+                            <span className="w-5 h-5 rounded-full border border-stone-200 flex items-center justify-center text-[10px] font-mono shrink-0">
                               {String.fromCharCode(65 + optIdx)}
                             </span>
                             <span>{opt}</span>
@@ -1748,7 +1754,7 @@ export default function JavaShortestPathsMST() {
                     </div>
 
                     {quizSubmitted && (
-                      <div className="mt-2 p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
+                      <div className="mt-2 p-3 rounded-lg bg-white border border-[#e7e3da] text-xs text-stone-500">
                         <strong className="text-orange-400 block mb-0.5">Explanation:</strong>
                         {q.explanation}
                       </div>
@@ -1758,14 +1764,14 @@ export default function JavaShortestPathsMST() {
               </div>
 
               {/* Submit / Retake Button */}
-              <div className="pt-4 border-t border-slate-800 flex justify-end gap-3">
+              <div className="pt-4 border-t border-[#e7e3da] flex justify-end gap-3">
                 {quizSubmitted ? (
                   <button
                     onClick={() => {
                       setQuizSubmitted(false);
                       setUserAnswers({});
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition"
+                    className="px-5 py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-white font-bold text-xs transition"
                   >
                     Retake Quiz
                   </button>
@@ -1785,20 +1791,20 @@ export default function JavaShortestPathsMST() {
         {/* TAB 4: 35 PRACTICE PROBLEMS & LABS TRACKER */}
         {activeTab === "labs" && (
           <div className="flex-1 max-w-5xl mx-auto w-full px-4 lg:px-8 py-6 flex flex-col gap-6">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+            <div className="bg-white border border-[#e7e3da] rounded-2xl p-6 lg:p-8 flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e3da] pb-5">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-orange-500/15 text-orange-400 border border-orange-500/30">
                       Problem Roadmap
                     </span>
-                    <span className="text-xs text-slate-400">4 Difficulty Tiers</span>
+                    <span className="text-xs text-stone-500">4 Difficulty Tiers</span>
                   </div>
                   <h2 className="text-2xl font-black text-white">35 FAANG & LeetCode Graph Labs</h2>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-32 bg-slate-950 rounded-full h-2.5 border border-slate-800 overflow-hidden">
+                  <div className="w-32 bg-stone-50 rounded-full h-2.5 border border-[#e7e3da] overflow-hidden">
                     <div
                       className="bg-emerald-500 h-full transition-all duration-500"
                       style={{ width: `${(completedLabsCount / 35) * 100}%` }}
@@ -1836,12 +1842,12 @@ export default function JavaShortestPathsMST() {
                             onClick={() => toggleLab(lab.id)}
                             className={`p-3.5 rounded-xl border transition cursor-pointer flex items-center justify-between gap-4 ${
                               isDone
-                                ? "bg-emerald-950/20 border-emerald-500/30 text-slate-300"
-                                : "bg-slate-950/80 border-slate-800 text-slate-200 hover:border-slate-700"
+                                ? "bg-emerald-950/20 border-emerald-500/30 text-stone-700"
+                                : "bg-stone-50/80 border-[#e7e3da] text-stone-800 hover:border-stone-200"
                             }`}
                           >
                             <div className="flex items-start gap-3">
-                              <button className="mt-0.5 text-slate-400 hover:text-white">
+                              <button className="mt-0.5 text-stone-500 hover:text-white">
                                 {isDone ? (
                                   <CheckSquare className="w-4 h-4 text-emerald-400" />
                                 ) : (
@@ -1849,14 +1855,14 @@ export default function JavaShortestPathsMST() {
                                 )}
                               </button>
                               <div>
-                                <span className={`text-xs font-bold block ${isDone ? "line-through text-slate-400" : "text-white"}`}>
+                                <span className={`text-xs font-bold block ${isDone ? "line-through text-stone-500" : "text-white"}`}>
                                   {lab.title}
                                 </span>
-                                <span className="text-[11px] text-slate-400">{lab.desc}</span>
+                                <span className="text-[11px] text-stone-500">{lab.desc}</span>
                               </div>
                             </div>
 
-                            <span className="text-[10px] font-mono text-slate-400 shrink-0">#{lab.id}</span>
+                            <span className="text-[10px] font-mono text-stone-500 shrink-0">#{lab.id}</span>
                           </div>
                         );
                       })}
@@ -1870,14 +1876,7 @@ export default function JavaShortestPathsMST() {
       </div>
 
       {/* Persistent Footer with Module Navigation */}
-      <footer className="mt-auto border-t border-slate-800 bg-slate-950 px-4 lg:px-8 py-4">
-        <ModuleNav
-          courseId="java-programming"
-          currentModuleId="shortest-paths-mst"
-          prevRoute="/learning/java/graph-theory"
-          nextRoute="/learning/java/dynamic-programming"
-        />
-      </footer>
+      </div>
     </div>
   );
 }

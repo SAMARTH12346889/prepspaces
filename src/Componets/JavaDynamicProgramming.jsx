@@ -595,7 +595,14 @@ export default function JavaDynamicProgramming() {
   }, [quizAnswers]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-orange-500/20 selection:text-orange-200">
+    <div className="min-h-screen bg-[#f6f4ee] text-stone-900 font-sans antialiased selection:bg-[#f97316] selection:text-white px-4 py-6 sm:px-8 sm:py-10 md:px-12">
+      {/* Background ambient lighting */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-[130px]" />
+        <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/[0.04] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl w-full">
       {/* Top Navigation Bar */}
       <ModuleNav
         currentModuleId="dynamic-programming"
@@ -607,26 +614,26 @@ export default function JavaDynamicProgramming() {
       />
 
       {/* Hero Banner */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-orange-950/20 via-slate-900/40 to-slate-950 px-4 py-8 md:py-12">
+      <div className="mb-8 rounded-3xl border border-[#e7e3da] bg-white p-6 sm:p-8 backdrop-blur-xl shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#ea580c] text-xs font-semibold tracking-wide uppercase">
               <Zap className="w-3.5 h-3.5" />
               Module 19 — Master Algorithms Track
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white flex items-center gap-3">
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900 flex items-center gap-3">
               Dynamic Programming Fundamentals
             </h1>
-            <p className="text-slate-400 text-sm md:text-base max-w-3xl leading-relaxed">
+            <p className="text-stone-500 text-sm md:text-base max-w-3xl leading-relaxed">
               Master state formulation, optimal substructure, overlapping subproblems, memoization vs tabulation, knapsack models, string subsequences, and interview pattern recognition in Java.
             </p>
           </div>
 
           {/* Quick Metrics & Quiz Launcher */}
           <div className="flex flex-wrap md:flex-col items-start md:items-end gap-3">
-            <div className="flex items-center gap-3 bg-slate-900/80 border border-slate-800 px-4 py-2 rounded-xl text-xs">
+            <div className="flex items-center gap-3 bg-stone-50 border border-stone-200 px-4 py-2 rounded-xl text-xs">
               <div className="text-right">
-                <span className="text-slate-400 block text-[10px]">Practice Labs</span>
+                <span className="text-stone-500 block text-[10px]">Practice Labs</span>
                 <span className="font-bold text-emerald-400">{completedLabs.length} / 35 Complete</span>
               </div>
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
@@ -634,7 +641,7 @@ export default function JavaDynamicProgramming() {
 
             <button
               onClick={() => setShowQuizModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-stone-900 font-medium text-xs md:text-sm shadow-lg shadow-orange-500/20 transition-all hover:scale-[1.02]"
             >
               <Award className="w-4 h-4" />
               Take Assessment Quiz ({QUIZ_QUESTIONS.length} MCQs)
@@ -643,13 +650,13 @@ export default function JavaDynamicProgramming() {
         </div>
 
         {/* View Switcher Tabs */}
-        <div className="max-w-7xl mx-auto mt-8 flex items-center gap-2 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto mt-8 flex items-center gap-2 border-b border-[#e7e3da]">
           <button
             onClick={() => setActiveMode("workbenches")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "workbenches"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <Activity className="w-4 h-4" />
@@ -659,8 +666,8 @@ export default function JavaDynamicProgramming() {
             onClick={() => setActiveMode("reader")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "reader"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <BookOpen className="w-4 h-4" />
@@ -670,8 +677,8 @@ export default function JavaDynamicProgramming() {
             onClick={() => setActiveMode("labs")}
             className={`px-5 py-2.5 text-xs md:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
               activeMode === "labs"
-                ? "border-orange-500 text-orange-400 bg-orange-500/10 rounded-t-lg"
-                : "border-transparent text-slate-400 hover:text-slate-200"
+                ? "bg-[#18181b] text-white shadow-sm font-bold rounded-xl border-transparent"
+                : "bg-white text-stone-600 border border-stone-200/80 hover:bg-stone-50 hover:text-stone-900 font-bold rounded-xl"
             }`}
           >
             <CheckSquare className="w-4 h-4" />
@@ -706,10 +713,10 @@ export default function JavaDynamicProgramming() {
                     className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between gap-2 ${
                       isSel
                         ? "bg-orange-500/15 border-orange-500/60 text-orange-300 shadow-md shadow-orange-500/20"
-                        : "bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                        : "bg-white border-[#e7e3da] text-stone-500 hover:border-stone-200 hover:text-stone-800"
                     }`}
                   >
-                    <IconComponent className={`w-4 h-4 ${isSel ? "text-orange-400" : "text-slate-400"}`} />
+                    <IconComponent className={`w-4 h-4 ${isSel ? "text-orange-400" : "text-stone-500"}`} />
                     <span className="text-xs font-semibold leading-tight">{wb.name}</span>
                   </button>
                 );
@@ -718,19 +725,19 @@ export default function JavaDynamicProgramming() {
 
             {/* WORKBENCH 1: Fibonacci Quad-Strategy Visualizer */}
             {activeWb === 1 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Zap className="w-5 h-5 text-orange-400" />
                       Workbench 1: Fibonacci Quad-Strategy Benchmark
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Directly observe the exponential vs linear divergence: Naive Recursion vs Memoization vs Tabulation vs Space Optimization.
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-slate-400">Input N:</span>
+                    <span className="text-xs font-mono text-stone-500">Input N:</span>
                     <input
                       type="range"
                       min="1"
@@ -748,55 +755,55 @@ export default function JavaDynamicProgramming() {
                 {/* 4 Strategy Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   {/* Strategy 1: Naive Recursion */}
-                  <div className="bg-slate-950/70 border border-red-500/30 rounded-xl p-4 space-y-3">
+                  <div className="bg-stone-50/70 border border-red-500/30 rounded-xl p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-red-400">1. Naive Recursion</span>
-                      <span className="text-[10px] font-mono text-slate-400">O(2ⁿ)</span>
+                      <span className="text-[10px] font-mono text-stone-500">O(2ⁿ)</span>
                     </div>
-                    <div className="text-2xl font-extrabold text-white font-mono">{fibStats.val}</div>
-                    <div className="space-y-1 text-xs text-slate-400">
+                    <div className="text-2xl font-extrabold text-stone-900 font-mono">{fibStats.val}</div>
+                    <div className="space-y-1 text-xs text-stone-500">
                       <div>Function Calls: <span className="font-mono text-red-300 font-bold">{fibStats.recCalls}</span></div>
-                      <div>Aux Space: <span className="font-mono text-slate-300">O(N) stack</span></div>
+                      <div>Aux Space: <span className="font-mono text-stone-700">O(N) stack</span></div>
                       <div>Duplicated Work: <span className="font-mono text-red-400 font-semibold">{Math.max(0, fibStats.recCalls - fibStats.n)} redundant</span></div>
                     </div>
                   </div>
 
                   {/* Strategy 2: Memoization */}
-                  <div className="bg-slate-950/70 border border-amber-500/30 rounded-xl p-4 space-y-3">
+                  <div className="bg-stone-50/70 border border-amber-500/30 rounded-xl p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-amber-400">2. Memoization</span>
-                      <span className="text-[10px] font-mono text-slate-400">O(N) Top-Down</span>
+                      <span className="text-[10px] font-mono text-stone-500">O(N) Top-Down</span>
                     </div>
-                    <div className="text-2xl font-extrabold text-white font-mono">{fibStats.val}</div>
-                    <div className="space-y-1 text-xs text-slate-400">
+                    <div className="text-2xl font-extrabold text-stone-900 font-mono">{fibStats.val}</div>
+                    <div className="space-y-1 text-xs text-stone-500">
                       <div>Function Calls: <span className="font-mono text-amber-300 font-bold">{fibStats.memCalls}</span></div>
-                      <div>Aux Space: <span className="font-mono text-slate-300">O(N) memo + stack</span></div>
+                      <div>Aux Space: <span className="font-mono text-stone-700">O(N) memo + stack</span></div>
                       <div>Cache Hits: <span className="font-mono text-amber-400 font-semibold">{Math.max(0, fibStats.memCalls - (fibStats.n + 1))} hits</span></div>
                     </div>
                   </div>
 
                   {/* Strategy 3: Tabulation */}
-                  <div className="bg-slate-950/70 border border-amber-500/30 rounded-xl p-4 space-y-3">
+                  <div className="bg-stone-50/70 border border-amber-500/30 rounded-xl p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-amber-400">3. Tabulation</span>
-                      <span className="text-[10px] font-mono text-slate-400">O(N) Bottom-Up</span>
+                      <span className="text-[10px] font-mono text-stone-500">O(N) Bottom-Up</span>
                     </div>
-                    <div className="text-2xl font-extrabold text-white font-mono">{fibStats.val}</div>
-                    <div className="space-y-1 text-xs text-slate-400">
+                    <div className="text-2xl font-extrabold text-stone-900 font-mono">{fibStats.val}</div>
+                    <div className="space-y-1 text-xs text-stone-500">
                       <div>Loop Iterations: <span className="font-mono text-amber-300 font-bold">{fibStats.tabSteps}</span></div>
-                      <div>Aux Space: <span className="font-mono text-slate-300">O(N) array</span></div>
+                      <div>Aux Space: <span className="font-mono text-stone-700">O(N) array</span></div>
                       <div>Call Stack: <span className="font-mono text-amber-400 font-semibold">0 overhead</span></div>
                     </div>
                   </div>
 
                   {/* Strategy 4: Space-Optimized */}
-                  <div className="bg-slate-950/70 border border-emerald-500/30 rounded-xl p-4 space-y-3">
+                  <div className="bg-stone-50/70 border border-emerald-500/30 rounded-xl p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">4. Space Optimized</span>
-                      <span className="text-[10px] font-mono text-slate-400">O(1) Space</span>
+                      <span className="text-[10px] font-mono text-stone-500">O(1) Space</span>
                     </div>
                     <div className="text-2xl font-extrabold text-emerald-400 font-mono">{fibStats.val}</div>
-                    <div className="space-y-1 text-xs text-slate-400">
+                    <div className="space-y-1 text-xs text-stone-500">
                       <div>Loop Iterations: <span className="font-mono text-emerald-300 font-bold">{fibStats.tabSteps}</span></div>
                       <div>Aux Space: <span className="font-mono text-emerald-400 font-bold">O(1) (2 vars)</span></div>
                       <div>Memory Efficiency: <span className="font-mono text-emerald-400 font-semibold">100% optimal</span></div>
@@ -805,8 +812,8 @@ export default function JavaDynamicProgramming() {
                 </div>
 
                 {/* DP Array Strip */}
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
-                  <div className="text-xs font-mono text-slate-400">Bottom-Up Tabulation State Array dp[0 ... {fibStats.n}]:</div>
+                <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-2">
+                  <div className="text-xs font-mono text-stone-500">Bottom-Up Tabulation State Array dp[0 ... {fibStats.n}]:</div>
                   <div className="flex flex-wrap gap-2">
                     {fibStats.dpTable.map((val, idx) => (
                       <div
@@ -814,10 +821,10 @@ export default function JavaDynamicProgramming() {
                         className={`px-3 py-2 rounded-lg border text-center font-mono ${
                           idx === fibStats.n
                             ? "bg-orange-500/15 border-orange-500 text-orange-300 font-bold ring-2 ring-orange-500/30"
-                            : "bg-slate-900 border-slate-800 text-slate-300"
+                            : "bg-white border-[#e7e3da] text-stone-700"
                         }`}
                       >
-                        <div className="text-[10px] text-slate-400">i={idx}</div>
+                        <div className="text-[10px] text-stone-500">i={idx}</div>
                         <div className="text-sm font-semibold">{val}</div>
                       </div>
                     ))}
@@ -828,20 +835,20 @@ export default function JavaDynamicProgramming() {
 
             {/* WORKBENCH 2: Climbing Stairs & Min Cost */}
             {activeWb === 2 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Activity className="w-5 h-5 text-orange-400" />
                     Workbench 2: Minimum Cost Climbing Stairs Visualizer
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Formula: <code className="text-orange-300 font-mono">dp[i] = cost[i] + Math.min(dp[i - 1], dp[i - 2])</code>
                   </p>
                 </div>
 
                 {/* Controls to adjust costs */}
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-xs text-slate-400 font-mono">Preset Step Costs:</span>
+                  <span className="text-xs text-stone-500 font-mono">Preset Step Costs:</span>
                   {[
                     [10, 15, 20, 5, 25],
                     [1, 100, 1, 1, 1, 100, 1, 1, 100, 1],
@@ -854,7 +861,7 @@ export default function JavaDynamicProgramming() {
                       className={`px-3 py-1 text-xs rounded-lg border font-mono transition ${
                         JSON.stringify(stairsCost) === JSON.stringify(preset)
                           ? "bg-orange-500/20 border-orange-500 text-orange-300"
-                          : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                          : "bg-stone-50 border-[#e7e3da] text-stone-500 hover:text-stone-800"
                       }`}
                     >
                       Preset {idx + 1} ({preset.length} steps)
@@ -863,8 +870,8 @@ export default function JavaDynamicProgramming() {
                 </div>
 
                 {/* Interactive Stepping Visualizer */}
-                <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
-                  <div className="flex items-center justify-between text-xs text-slate-400">
+                <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-4">
+                  <div className="flex items-center justify-between text-xs text-stone-500">
                     <span>Flight of Stairs</span>
                     <span className="font-mono text-emerald-400 font-bold">
                       Minimum Total Cost to Top: {minCostStairsResult.topCost}
@@ -875,26 +882,26 @@ export default function JavaDynamicProgramming() {
                     {stairsCost.map((cost, idx) => (
                       <div
                         key={idx}
-                        className="bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-center flex flex-col justify-between"
+                        className="bg-white border border-[#e7e3da] shadow-xs rounded-lg p-2.5 text-center flex flex-col justify-between"
                         style={{ height: `${Math.min(180, 70 + cost * 1.5)}px` }}
                       >
-                        <div className="text-[10px] text-slate-400 font-mono">Step {idx}</div>
+                        <div className="text-[10px] text-stone-500 font-mono">Step {idx}</div>
                         <div className="my-auto">
                           <span className="text-xs font-mono font-bold text-amber-300">Fee: {cost}</span>
                           <div className="text-[11px] font-mono text-orange-400 mt-1">
                             dp = {minCostStairsResult.dp[idx]}
                           </div>
                         </div>
-                        <span className="text-[9px] text-slate-400">
+                        <span className="text-[9px] text-stone-500">
                           {idx === 0 || idx === 1 ? "start choice" : "min prev 2"}
                         </span>
                       </div>
                     ))}
                     {/* Top of Floor */}
-                    <div className="bg-slate-900 border border-orange-500/50 rounded-lg p-2.5 text-center flex flex-col justify-between h-[190px]">
+                    <div className="bg-white border border-orange-500/50 rounded-lg p-2.5 text-center flex flex-col justify-between h-[190px]">
                       <div className="text-[10px] text-orange-400 font-mono font-bold">TOP FLOOR</div>
                       <div className="my-auto">
-                        <div className="text-xs text-slate-400">Exit Cost</div>
+                        <div className="text-xs text-stone-500">Exit Cost</div>
                         <div className="text-lg font-bold font-mono text-emerald-400">
                           {minCostStairsResult.topCost}
                         </div>
@@ -908,14 +915,14 @@ export default function JavaDynamicProgramming() {
 
             {/* WORKBENCH 3: House Robber I & II */}
             {activeWb === 3 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Layers className="w-5 h-5 text-orange-400" />
                       Workbench 3: House Robber Decision Studio
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       State transition: <code className="text-orange-300 font-mono">dp[i] = Math.max(dp[i - 1], nums[i] + dp[i - 2])</code>
                     </p>
                   </div>
@@ -927,7 +934,7 @@ export default function JavaDynamicProgramming() {
                       className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition ${
                         !isCircular
                           ? "bg-orange-500/20 border-orange-500 text-orange-300"
-                          : "bg-slate-950 border-slate-800 text-slate-400"
+                          : "bg-stone-50 border-[#e7e3da] text-stone-500"
                       }`}
                     >
                       Linear (Robber I)
@@ -937,7 +944,7 @@ export default function JavaDynamicProgramming() {
                       className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition ${
                         isCircular
                           ? "bg-orange-500/20 border-orange-500 text-orange-300"
-                          : "bg-slate-950 border-slate-800 text-slate-400"
+                          : "bg-stone-50 border-[#e7e3da] text-stone-500"
                       }`}
                     >
                       Circular (Robber II)
@@ -946,8 +953,8 @@ export default function JavaDynamicProgramming() {
                 </div>
 
                 {/* Houses Grid */}
-                <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
-                  <div className="flex items-center justify-between text-xs text-slate-400">
+                <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-4">
+                  <div className="flex items-center justify-between text-xs text-stone-500">
                     <span>Street of Houses ({houseRobberResult.variant})</span>
                     <span className="font-mono text-emerald-400 font-bold text-sm">
                       Max Loot: ${houseRobberResult.maxVal}
@@ -963,14 +970,14 @@ export default function JavaDynamicProgramming() {
                           className={`p-3 rounded-xl border text-center transition-all ${
                             isPicked
                               ? "bg-emerald-950/40 border-emerald-500/70 text-emerald-300 ring-2 ring-emerald-500/20"
-                              : "bg-slate-900/60 border-slate-800 text-slate-400"
+                              : "bg-white border-[#e7e3da] text-stone-500"
                           }`}
                         >
-                          <div className="text-[10px] font-mono text-slate-400">House #{idx}</div>
-                          <div className="text-xl font-bold font-mono my-1 text-white">${val}</div>
+                          <div className="text-[10px] font-mono text-stone-500">House #{idx}</div>
+                          <div className="text-xl font-bold font-mono my-1 text-stone-900">${val}</div>
                           <span
                             className={`text-[10px] px-2 py-0.5 rounded font-mono font-semibold ${
-                              isPicked ? "bg-emerald-500/20 text-emerald-400" : "bg-slate-800 text-slate-400"
+                              isPicked ? "bg-emerald-500/20 text-emerald-400" : "bg-stone-100 text-stone-500"
                             }`}
                           >
                             {isPicked ? "ROBBED" : "SKIPPED"}
@@ -991,19 +998,19 @@ export default function JavaDynamicProgramming() {
 
             {/* WORKBENCH 4: 0/1 Knapsack Simulator */}
             {activeWb === 4 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Grid className="w-5 h-5 text-orange-400" />
                       Workbench 4: 0/1 Knapsack 2D Matrix & 1D Space Simulator
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Recurrence: <code className="text-orange-300 font-mono">dp[i][w] = Math.max(dp[i - 1][w], val + dp[i - 1][w - wt])</code>
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-slate-400">Knapsack Capacity W:</span>
+                    <span className="text-xs font-mono text-stone-500">Knapsack Capacity W:</span>
                     <input
                       type="range"
                       min="3"
@@ -1027,18 +1034,18 @@ export default function JavaDynamicProgramming() {
                         key={item.id}
                         className={`p-3 rounded-xl border flex items-center justify-between ${
                           isChosen
-                            ? "bg-slate-900 border-orange-500/60 text-orange-300 ring-1 ring-orange-500/30"
-                            : "bg-slate-950 border-slate-800 text-slate-400"
+                            ? "bg-white border-orange-500/60 text-orange-300 ring-1 ring-orange-500/30"
+                            : "bg-stone-50 border-[#e7e3da] text-stone-500"
                         }`}
                       >
                         <div>
-                          <div className="font-semibold text-xs text-white">{item.name}</div>
-                          <div className="text-[11px] font-mono text-slate-400">
+                          <div className="font-semibold text-xs text-stone-900">{item.name}</div>
+                          <div className="text-[11px] font-mono text-stone-500">
                             Weight: {item.wt} | Value: ${item.val}
                           </div>
                         </div>
                         <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold ${
-                          isChosen ? "bg-orange-500/15 text-orange-300" : "bg-slate-800 text-slate-400"
+                          isChosen ? "bg-orange-500/15 text-orange-300" : "bg-stone-100 text-stone-500"
                         }`}>
                           {isChosen ? "PACKED" : "OMITTED"}
                         </span>
@@ -1048,14 +1055,14 @@ export default function JavaDynamicProgramming() {
                 </div>
 
                 {/* 2D DP Table Visualizer */}
-                <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <div className="overflow-x-auto rounded-xl border border-[#e7e3da] bg-stone-50 p-4">
                   <div className="flex items-center justify-between mb-3 text-xs">
-                    <span className="font-mono text-slate-400 font-semibold">2D DP Table dp[item i][capacity w]</span>
+                    <span className="font-mono text-stone-500 font-semibold">2D DP Table dp[item i][capacity w]</span>
                     <span className="font-mono text-emerald-400 font-bold">Max Value at dp[{knapItems.length}][{knapCapacity}] = ${knapTable.maxVal}</span>
                   </div>
                   <table className="w-full text-center text-xs font-mono border-collapse">
                     <thead>
-                      <tr className="bg-slate-900 border-b border-slate-800 text-slate-400">
+                      <tr className="bg-white border-b border-[#e7e3da] text-stone-500">
                         <th className="p-2 text-left">Item \ Cap</th>
                         {Array.from({ length: knapCapacity + 1 }, (_, w) => (
                           <th key={w} className="p-2">w={w}</th>
@@ -1064,8 +1071,8 @@ export default function JavaDynamicProgramming() {
                     </thead>
                     <tbody className="divide-y divide-slate-800/60">
                       {knapTable.dp.map((row, i) => (
-                        <tr key={i} className="hover:bg-slate-900/40 transition">
-                          <td className="p-2 text-left font-sans text-slate-300 font-medium">
+                        <tr key={i} className="hover:bg-white transition">
+                          <td className="p-2 text-left font-sans text-stone-700 font-medium">
                             {i === 0 ? "0 (None)" : `${i}. ${knapItems[i - 1].name}`}
                           </td>
                           {row.map((val, w) => {
@@ -1078,7 +1085,7 @@ export default function JavaDynamicProgramming() {
                                     ? "bg-orange-500/20 text-orange-300 font-bold border border-orange-500"
                                     : val > 0
                                     ? "text-emerald-400 font-semibold"
-                                    : "text-slate-400"
+                                    : "text-stone-500"
                                 }`}
                               >
                                 {val}
@@ -1095,22 +1102,22 @@ export default function JavaDynamicProgramming() {
 
             {/* WORKBENCH 5: Unbounded Knapsack */}
             {activeWb === 5 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Database className="w-5 h-5 text-orange-400" />
                     Workbench 5: Unbounded Knapsack & Forward Capacity Studio
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Unlimited supply: loop iterates <strong>forward</strong> <code className="text-orange-300 font-mono">for (w = wt; w &lt;= W; w++)</code> allowing multiple copies.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">Configuration</span>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
+                    <span className="text-xs font-mono text-stone-500 uppercase tracking-wider block">Configuration</span>
                     <div>
-                      <label className="text-xs text-slate-400 block mb-1">Max Capacity W: {unbCapacity}</label>
+                      <label className="text-xs text-stone-500 block mb-1">Max Capacity W: {unbCapacity}</label>
                       <input
                         type="range"
                         min="4"
@@ -1122,7 +1129,7 @@ export default function JavaDynamicProgramming() {
                     </div>
                     <div className="space-y-1.5 pt-2">
                       {unbItems.map((it, idx) => (
-                        <div key={idx} className="text-xs font-mono bg-slate-900 p-2 rounded border border-slate-800/80 text-slate-300 flex justify-between">
+                        <div key={idx} className="text-xs font-mono bg-white p-2 rounded border border-[#e7e3da] text-stone-700 flex justify-between">
                           <span>{it.name}</span>
                           <span className="text-amber-400">ratio: {(it.val / it.wt).toFixed(2)}</span>
                         </div>
@@ -1130,9 +1137,9 @@ export default function JavaDynamicProgramming() {
                     </div>
                   </div>
 
-                  <div className="md:col-span-2 bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+                  <div className="md:col-span-2 bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-mono text-slate-400">1D Array State Propagation</span>
+                      <span className="font-mono text-stone-500">1D Array State Propagation</span>
                       <span className="font-mono text-emerald-400 font-bold">Max Value = ${unbResult.maxVal}</span>
                     </div>
 
@@ -1142,9 +1149,9 @@ export default function JavaDynamicProgramming() {
                           <span className="text-[11px] font-mono text-orange-400">After item: {tr.item}</span>
                           <div className="flex flex-wrap gap-1">
                             {tr.row.map((val, w) => (
-                              <div key={w} className="px-2 py-1 bg-slate-900 border border-slate-800 rounded font-mono text-xs text-center min-w-[34px]">
-                                <span className="block text-[8px] text-slate-400">w={w}</span>
-                                <span className="font-bold text-slate-200">{val}</span>
+                              <div key={w} className="px-2 py-1 bg-white border border-[#e7e3da] shadow-xs rounded font-mono text-xs text-center min-w-[34px]">
+                                <span className="block text-[8px] text-stone-500">w={w}</span>
+                                <span className="font-bold text-stone-800">{val}</span>
                               </div>
                             ))}
                           </div>
@@ -1158,19 +1165,19 @@ export default function JavaDynamicProgramming() {
 
             {/* WORKBENCH 6: Subset Sum & Partition Equal */}
             {activeWb === 6 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="border-b border-slate-800 pb-4">
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="border-b border-[#e7e3da] pb-4">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-orange-400" />
                     Workbench 6: Subset Sum & Partition Equal Subset Matrix
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Target = TotalSum / 2. Boolean DP transition: <code className="text-orange-300 font-mono">dp[i][j] = dp[i - 1][j] || dp[i - 1][j - num]</code>
                   </p>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-xs text-slate-400 font-mono">Input Array Presets:</span>
+                  <span className="text-xs text-stone-500 font-mono">Input Array Presets:</span>
                   {[
                     [1, 5, 11, 5],
                     [1, 2, 3, 5],
@@ -1183,7 +1190,7 @@ export default function JavaDynamicProgramming() {
                       className={`px-3 py-1 text-xs rounded-lg border font-mono transition ${
                         JSON.stringify(subsetArr) === JSON.stringify(preset)
                           ? "bg-orange-500/20 border-orange-500 text-orange-300"
-                          : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                          : "bg-stone-50 border-[#e7e3da] text-stone-500 hover:text-stone-800"
                       }`}
                     >
                       [{preset.join(", ")}]
@@ -1192,27 +1199,27 @@ export default function JavaDynamicProgramming() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <div className="text-xs text-slate-400 font-mono">Total Array Sum</div>
-                    <div className="text-2xl font-bold text-white font-mono">{subsetResult.total}</div>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
+                    <div className="text-xs text-stone-500 font-mono">Total Array Sum</div>
+                    <div className="text-2xl font-bold text-stone-900 font-mono">{subsetResult.total}</div>
                     <div className={`p-2.5 rounded-lg border text-xs leading-relaxed ${
                       subsetResult.isEven ? "bg-emerald-950/30 border-emerald-500/40 text-emerald-300" : "bg-red-950/30 border-red-500/40 text-red-300"
                     }`}>
                       {subsetResult.isEven ? `Even total sum (${subsetResult.total}). Required subset target = ${subsetResult.target}.` : `Odd total sum (${subsetResult.total}). Cannot be split into two equal integers!`}
                     </div>
                     <div className="pt-2">
-                      <span className="text-xs text-slate-400 font-mono block">Can Partition Equally?</span>
+                      <span className="text-xs text-stone-500 font-mono block">Can Partition Equally?</span>
                       <span className={`text-lg font-bold font-mono ${subsetResult.canPartition ? "text-emerald-400" : "text-red-400"}`}>
                         {subsetResult.canPartition ? "TRUE (Partition Exists)" : "FALSE (Impossible)"}
                       </span>
                     </div>
                   </div>
 
-                  <div className="md:col-span-2 overflow-x-auto bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <div className="text-xs font-mono text-slate-400 mb-2">Subset Sum Boolean Table (up to target = {subsetResult.target})</div>
+                  <div className="md:col-span-2 overflow-x-auto bg-stone-50 p-4 rounded-xl border border-[#e7e3da]">
+                    <div className="text-xs font-mono text-stone-500 mb-2">Subset Sum Boolean Table (up to target = {subsetResult.target})</div>
                     <table className="w-full text-center text-xs font-mono border-collapse">
                       <thead>
-                        <tr className="bg-slate-900 border-b border-slate-800 text-slate-400">
+                        <tr className="bg-white border-b border-[#e7e3da] text-stone-500">
                           <th className="p-1.5 text-left">i \ sum</th>
                           {Array.from({ length: subsetResult.target + 1 }, (_, j) => (
                             <th key={j} className="p-1.5">{j}</th>
@@ -1222,14 +1229,14 @@ export default function JavaDynamicProgramming() {
                       <tbody className="divide-y divide-slate-800/60">
                         {subsetResult.dpTable.map((row, i) => (
                           <tr key={i}>
-                            <td className="p-1.5 text-left font-sans text-slate-300">
+                            <td className="p-1.5 text-left font-sans text-stone-700">
                               {i === 0 ? "0 (empty)" : `${i}. num=${subsetArr[i - 1]}`}
                             </td>
                             {row.map((val, j) => (
                               <td
                                 key={j}
                                 className={`p-1.5 font-bold ${
-                                  val ? "text-emerald-400 bg-emerald-500/10" : "text-slate-400"
+                                  val ? "text-emerald-400 bg-emerald-500/10" : "text-stone-500"
                                 }`}
                               >
                                 {val ? "T" : "F"}
@@ -1246,19 +1253,19 @@ export default function JavaDynamicProgramming() {
 
             {/* WORKBENCH 7: Coin Change I vs II */}
             {activeWb === 7 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Cpu className="w-5 h-5 text-orange-400" />
                       Workbench 7: Coin Change I (Min Coins) vs Coin Change II (Combinations Count)
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Coin Change I minimizes coins with INF sentinels. Coin Change II sums ways with coins in outer loop.
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-slate-400">Target Amount:</span>
+                    <span className="text-xs font-mono text-stone-500">Target Amount:</span>
                     <input
                       type="range"
                       min="1"
@@ -1275,22 +1282,22 @@ export default function JavaDynamicProgramming() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* Coin Change I */}
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-orange-400">Coin Change I (Min Coins)</span>
-                      <span className="text-xs font-mono text-slate-400">Coins: [{coinList.join(", ")}]</span>
+                      <span className="text-xs font-mono text-stone-500">Coins: [{coinList.join(", ")}]</span>
                     </div>
-                    <div className="text-3xl font-extrabold text-white font-mono">
+                    <div className="text-3xl font-extrabold text-stone-900 font-mono">
                       {coinChangeResult.minCoins === -1 ? "Impossible (-1)" : `${coinChangeResult.minCoins} Coins`}
                     </div>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Recurrence: <code className="text-orange-300 font-mono">dp[a] = Math.min(dp[a], 1 + dp[a - c])</code>.
                       Base case: <code className="text-orange-300 font-mono">dp[0] = 0</code>, all others INF.
                     </p>
                     <div className="flex flex-wrap gap-1.5 pt-2">
                       {coinChangeResult.dpMin.map((val, a) => (
-                        <div key={a} className="p-1.5 bg-slate-900 border border-slate-800 rounded font-mono text-xs text-center min-w-[34px]">
-                          <span className="block text-[8px] text-slate-400">amt={a}</span>
+                        <div key={a} className="p-1.5 bg-white border border-[#e7e3da] shadow-xs rounded font-mono text-xs text-center min-w-[34px]">
+                          <span className="block text-[8px] text-stone-500">amt={a}</span>
                           <span className={`font-bold ${val >= 999999 ? "text-red-400" : "text-emerald-400"}`}>
                             {val >= 999999 ? "∞" : val}
                           </span>
@@ -1300,21 +1307,21 @@ export default function JavaDynamicProgramming() {
                   </div>
 
                   {/* Coin Change II */}
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Coin Change II (Distinct Ways)</span>
-                      <span className="text-xs font-mono text-slate-400">Order Does NOT Matter</span>
+                      <span className="text-xs font-mono text-stone-500">Order Does NOT Matter</span>
                     </div>
-                    <div className="text-3xl font-extrabold text-white font-mono">
+                    <div className="text-3xl font-extrabold text-stone-900 font-mono">
                       {coinChangeResult.totalWays} Combinations
                     </div>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Recurrence: <code className="text-emerald-300 font-mono">dp[a] += dp[a - c]</code> with coins in outer loop to prevent ordered permutations. Base: <code className="text-emerald-300 font-mono">dp[0] = 1</code>.
                     </p>
                     <div className="flex flex-wrap gap-1.5 pt-2">
                       {coinChangeResult.dpWays.map((val, a) => (
-                        <div key={a} className="p-1.5 bg-slate-900 border border-slate-800 rounded font-mono text-xs text-center min-w-[34px]">
-                          <span className="block text-[8px] text-slate-400">amt={a}</span>
+                        <div key={a} className="p-1.5 bg-white border border-[#e7e3da] shadow-xs rounded font-mono text-xs text-center min-w-[34px]">
+                          <span className="block text-[8px] text-stone-500">amt={a}</span>
                           <span className="font-bold text-emerald-300">{val}</span>
                         </div>
                       ))}
@@ -1326,14 +1333,14 @@ export default function JavaDynamicProgramming() {
 
             {/* WORKBENCH 8: LCS & Edit Distance Studio */}
             {activeWb === 8 && (
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-6 shadow-xl">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                    <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                       <Code2 className="w-5 h-5 text-orange-400" />
                       Workbench 8: String DP Studio (LCS & Edit Distance)
                     </h2>
-                    <p className="text-xs md:text-sm text-slate-400">
+                    <p className="text-xs md:text-sm text-stone-500">
                       Two-dimensional string grid dynamic programming with character alignment.
                     </p>
                   </div>
@@ -1341,7 +1348,7 @@ export default function JavaDynamicProgramming() {
                     <button
                       onClick={() => setLcsTab("lcs")}
                       className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition ${
-                        lcsTab === "lcs" ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-slate-950 border-slate-800 text-slate-400"
+                        lcsTab === "lcs" ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-stone-50 border-[#e7e3da] text-stone-500"
                       }`}
                     >
                       Longest Common Subsequence
@@ -1349,7 +1356,7 @@ export default function JavaDynamicProgramming() {
                     <button
                       onClick={() => setLcsTab("edit")}
                       className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition ${
-                        lcsTab === "edit" ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-slate-950 border-slate-800 text-slate-400"
+                        lcsTab === "edit" ? "bg-orange-500/20 border-orange-500 text-orange-300" : "bg-stone-50 border-[#e7e3da] text-stone-500"
                       }`}
                     >
                       Edit Distance (Levenshtein)
@@ -1360,42 +1367,42 @@ export default function JavaDynamicProgramming() {
                 {/* String Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs text-slate-400 font-mono block mb-1">String 1 (s1):</label>
+                    <label className="text-xs text-stone-500 font-mono block mb-1">String 1 (s1):</label>
                     <input
                       type="text"
                       value={s1}
                       onChange={(e) => setS1(e.target.value.toLowerCase().replace(/[^a-z]/g, ''))}
                       maxLength={10}
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm font-mono text-white focus:outline-none focus:border-orange-500"
+                      className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-2 text-sm font-mono text-stone-900 focus:outline-none focus:border-orange-500"
                     />
                   </div>
                   <div>
-                    <label className="text-xs text-slate-400 font-mono block mb-1">String 2 (s2):</label>
+                    <label className="text-xs text-stone-500 font-mono block mb-1">String 2 (s2):</label>
                     <input
                       type="text"
                       value={s2}
                       onChange={(e) => setS2(e.target.value.toLowerCase().replace(/[^a-z]/g, ''))}
                       maxLength={10}
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm font-mono text-white focus:outline-none focus:border-orange-500"
+                      className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-3 py-2 text-sm font-mono text-stone-900 focus:outline-none focus:border-orange-500"
                     />
                   </div>
                 </div>
 
                 {/* Sub-view: LCS */}
                 {lcsTab === "lcs" && (
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-4">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-mono text-slate-400">LCS DP Grid Matrix</span>
+                      <span className="font-mono text-stone-500">LCS DP Grid Matrix</span>
                       <div className="flex items-center gap-3">
-                        <span className="text-slate-400 font-mono">Length: <strong className="text-orange-400">{lcsResult.lcsLen}</strong></span>
-                        <span className="text-slate-400 font-mono">String: <strong className="text-emerald-400 font-mono">"{lcsResult.lcsStr}"</strong></span>
+                        <span className="text-stone-500 font-mono">Length: <strong className="text-orange-400">{lcsResult.lcsLen}</strong></span>
+                        <span className="text-stone-500 font-mono">String: <strong className="text-emerald-400 font-mono">"{lcsResult.lcsStr}"</strong></span>
                       </div>
                     </div>
 
                     <div className="overflow-x-auto">
                       <table className="w-full text-center text-xs font-mono border-collapse">
                         <thead>
-                          <tr className="bg-slate-900 border-b border-slate-800 text-slate-400">
+                          <tr className="bg-white border-b border-[#e7e3da] text-stone-500">
                             <th className="p-2 text-left">s1 \ s2</th>
                             <th className="p-2">ε</th>
                             {s2.split('').map((ch, j) => (
@@ -1417,7 +1424,7 @@ export default function JavaDynamicProgramming() {
                                     className={`p-2 ${
                                       isMatch
                                         ? "bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40"
-                                        : "text-slate-300"
+                                        : "text-stone-700"
                                     }`}
                                   >
                                     {val}
@@ -1434,9 +1441,9 @@ export default function JavaDynamicProgramming() {
 
                 {/* Sub-view: Edit Distance */}
                 {lcsTab === "edit" && (
-                  <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+                  <div className="bg-stone-50 p-5 rounded-xl border border-[#e7e3da] space-y-4">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-mono text-slate-400">Levenshtein Edit Operations Grid</span>
+                      <span className="font-mono text-stone-500">Levenshtein Edit Operations Grid</span>
                       <span className="font-mono text-emerald-400 font-bold text-sm">
                         Minimum Operations: {editDistResult.distance}
                       </span>
@@ -1445,7 +1452,7 @@ export default function JavaDynamicProgramming() {
                     <div className="overflow-x-auto">
                       <table className="w-full text-center text-xs font-mono border-collapse">
                         <thead>
-                          <tr className="bg-slate-900 border-b border-slate-800 text-slate-400">
+                          <tr className="bg-white border-b border-[#e7e3da] text-stone-500">
                             <th className="p-2 text-left">s1 \ s2</th>
                             <th className="p-2">ε</th>
                             {s2.split('').map((ch, j) => (
@@ -1467,7 +1474,7 @@ export default function JavaDynamicProgramming() {
                                     className={`p-2 ${
                                       isFinal
                                         ? "bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/50"
-                                        : "text-slate-300"
+                                        : "text-stone-700"
                                     }`}
                                   >
                                     {val}
@@ -1490,19 +1497,19 @@ export default function JavaDynamicProgramming() {
         {activeMode === "reader" && (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             {/* Sidebar Table of Contents */}
-            <div className="lg:col-span-1 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 sticky top-4 max-h-[85vh] flex flex-col gap-3 dark-scrollbar">
+            <div className="lg:col-span-1 bg-white/70 border border-[#e7e3da] rounded-2xl p-4 sticky top-4 max-h-[85vh] flex flex-col gap-3 ">
               <div className="flex items-center gap-2 px-1">
-                <Search className="w-4 h-4 text-slate-400" />
+                <Search className="w-4 h-4 text-stone-500" />
                 <input
                   type="text"
                   placeholder="Filter sections..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-stone-50 border border-[#e7e3da] rounded-lg px-2.5 py-1.5 text-xs text-stone-800 focus:outline-none focus:border-orange-500"
                 />
               </div>
 
-              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar dark-scrollbar">
+              <div className="overflow-y-auto space-y-1 pr-1 custom-scrollbar ">
                 {filteredSections.map((sec) => (
                   <button
                     key={sec.id}
@@ -1511,10 +1518,10 @@ export default function JavaDynamicProgramming() {
                     className={`w-full text-left p-2.5 rounded-xl text-xs transition flex items-start gap-2 ${
                       activeSectionId === sec.id
                         ? "bg-orange-500/15 border border-orange-500/50 text-orange-300 font-semibold"
-                        : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
+                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-100/40"
                     }`}
                   >
-                    <span className="font-mono text-[10px] text-slate-400 mt-0.5 shrink-0">{sec.id}.</span>
+                    <span className="font-mono text-[10px] text-stone-500 mt-0.5 shrink-0">{sec.id}.</span>
                     <span className="break-words whitespace-normal leading-snug flex-1">{sec.title}</span>
                   </button>
                 ))}
@@ -1522,39 +1529,39 @@ export default function JavaDynamicProgramming() {
             </div>
 
             {/* Main Content Area */}
-            <div className="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
-              <div className="border-b border-slate-800 pb-4">
+            <div className="lg:col-span-3 bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
+              <div className="border-b border-[#e7e3da] pb-4">
                 <div className="text-xs font-mono text-orange-400 uppercase tracking-wider mb-1">
                   {activeSection.id === 0
                     ? "Module Overview · 31 Core Sections"
                     : `Section ${activeSection.id} of 31`}
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">
+                <h2 className="text-xl md:text-2xl font-bold text-stone-900">
                   {activeSection.title}
                 </h2>
-                <p className="text-xs md:text-sm text-slate-400 mt-1">
+                <p className="text-xs md:text-sm text-stone-500 mt-1">
                   {activeSection.summary}
                 </p>
               </div>
 
               {/* Render Section Content */}
-              <div className="prose prose-invert max-w-none text-slate-300 text-xs md:text-sm leading-relaxed">
+              <div className="prose prose-invert max-w-none text-stone-700 text-xs md:text-sm leading-relaxed">
                 {activeSection.content}
               </div>
 
               {/* Bottom Pagination */}
-              <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+              <div className="flex items-center justify-between pt-6 border-t border-[#e7e3da]">
                 <button
                   disabled={activeSectionId <= 0}
                   onClick={() => setActiveSectionId(prev => Math.max(0, prev - 1))}
-                  className="px-4 py-2 rounded-xl border border-slate-800 bg-slate-950 text-xs font-medium text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:border-slate-700 flex items-center gap-1.5 transition"
+                  className="px-4 py-2 rounded-xl border border-[#e7e3da] bg-stone-50 text-xs font-medium text-stone-700 disabled:opacity-40 disabled:cursor-not-allowed hover:border-stone-200 flex items-center gap-1.5 transition"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" /> Previous Section
                 </button>
                 <button
                   disabled={activeSectionId >= JAVA_DYNAMIC_PROGRAMMING_SECTIONS.length - 1}
                   onClick={() => setActiveSectionId(prev => Math.min(JAVA_DYNAMIC_PROGRAMMING_SECTIONS.length - 1, prev + 1))}
-                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition shadow-md shadow-orange-500/20"
+                  className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-stone-900 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition shadow-md shadow-orange-500/20"
                 >
                   Next Section <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -1566,14 +1573,14 @@ export default function JavaDynamicProgramming() {
         {/* VIEW 3: 35 PRACTICE LABS TRACKER */}
         {activeMode === "labs" && (
           <div className="space-y-6">
-            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 md:p-7 space-y-4 shadow-xl">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl p-5 md:p-7 space-y-4 shadow-xl">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e7e3da] pb-4">
                 <div>
-                  <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                  <h2 className="text-lg md:text-xl font-bold text-stone-900 flex items-center gap-2">
                     <CheckSquare className="w-5 h-5 text-orange-400" />
                     35 Dynamic Programming Practice Labs & Interview Roadmap
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-400">
+                  <p className="text-xs md:text-sm text-stone-500">
                     Track your progress across 4 curated levels from beginner memoization to advanced competitive DP patterns.
                   </p>
                 </div>
@@ -1581,7 +1588,7 @@ export default function JavaDynamicProgramming() {
                   <span className="text-xs font-mono text-emerald-400 font-bold block">
                     {completedLabs.length} / 35 Solved ({Math.round((completedLabs.length / 35) * 100)}%)
                   </span>
-                  <div className="w-36 bg-slate-800 h-2 rounded-full overflow-hidden mt-1.5">
+                  <div className="w-36 bg-stone-100 h-2 rounded-full overflow-hidden mt-1.5">
                     <div
                       className="bg-emerald-500 h-full transition-all duration-300"
                       style={{ width: `${(completedLabs.length / 35) * 100}%` }}
@@ -1611,23 +1618,23 @@ export default function JavaDynamicProgramming() {
                             onClick={() => toggleLab(lab.id)}
                             className={`p-3.5 rounded-xl border cursor-pointer transition flex items-start gap-3 ${
                               isDone
-                                ? "bg-emerald-950/20 border-emerald-500/40 text-slate-200"
-                                : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-300"
+                                ? "bg-emerald-950/20 border-emerald-500/40 text-stone-800"
+                                : "bg-stone-50 border-[#e7e3da] text-stone-500 hover:border-stone-200 hover:text-stone-700"
                             }`}
                           >
-                            <button className="mt-0.5 text-slate-400 hover:text-white">
+                            <button className="mt-0.5 text-stone-500 hover:text-stone-900">
                               {isDone ? (
                                 <CheckSquare className="w-4 h-4 text-emerald-400" />
                               ) : (
-                                <Square className="w-4 h-4 text-slate-400" />
+                                <Square className="w-4 h-4 text-stone-500" />
                               )}
                             </button>
                             <div className="space-y-1">
-                              <div className="text-xs font-semibold text-white flex items-center gap-2">
-                                <span className="text-slate-400 font-mono text-[10px]">#{lab.id}</span>
+                              <div className="text-xs font-semibold text-stone-900 flex items-center gap-2">
+                                <span className="text-stone-500 font-mono text-[10px]">#{lab.id}</span>
                                 {lab.title}
                               </div>
-                              <p className="text-[11px] text-slate-400 leading-relaxed">
+                              <p className="text-[11px] text-stone-500 leading-relaxed">
                                 {lab.desc}
                               </p>
                             </div>
@@ -1646,19 +1653,19 @@ export default function JavaDynamicProgramming() {
       {/* ASSESSMENT QUIZ MODAL */}
       {showQuizModal && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+          <div className="bg-white border border-[#e7e3da] shadow-xs rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
             {/* Modal Header */}
-            <div className="p-5 border-b border-slate-800 flex items-center justify-between">
+            <div className="p-5 border-b border-[#e7e3da] flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
                   <Award className="w-5 h-5 text-orange-400" />
                   Module 19 Mastery Assessment Quiz
                 </h3>
-                <p className="text-xs text-slate-400">15 Scenario-based Dynamic Programming Questions</p>
+                <p className="text-xs text-stone-500">15 Scenario-based Dynamic Programming Questions</p>
               </div>
               <button
                 onClick={() => setShowQuizModal(false)}
-                className="text-slate-400 hover:text-white text-xs px-2.5 py-1 rounded-lg bg-slate-800"
+                className="text-stone-500 hover:text-stone-900 text-xs px-2.5 py-1 rounded-lg bg-stone-100"
               >
                 Close
               </button>
@@ -1669,8 +1676,8 @@ export default function JavaDynamicProgramming() {
               {QUIZ_QUESTIONS.map((q, idx) => {
                 const userChoice = quizAnswers[q.id];
                 return (
-                  <div key={q.id} className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <div className="text-xs md:text-sm font-semibold text-white flex items-start gap-2">
+                  <div key={q.id} className="bg-stone-50 p-4 rounded-xl border border-[#e7e3da] space-y-3">
+                    <div className="text-xs md:text-sm font-semibold text-stone-900 flex items-start gap-2">
                       <span className="font-mono text-orange-400">Q{idx + 1}.</span>
                       <span>{q.question}</span>
                     </div>
@@ -1678,7 +1685,7 @@ export default function JavaDynamicProgramming() {
                     <div className="space-y-2 pt-1">
                       {q.options.map((opt, optIdx) => {
                         const isSelected = userChoice === optIdx;
-                        let optClass = "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700";
+                        let optClass = "bg-white border-[#e7e3da] text-stone-700 hover:border-stone-200";
                         if (quizSubmitted) {
                           if (optIdx === q.correct) optClass = "bg-emerald-950/40 border-emerald-500 text-emerald-300 font-semibold";
                           else if (isSelected) optClass = "bg-red-950/40 border-red-500 text-red-300";
@@ -1693,7 +1700,7 @@ export default function JavaDynamicProgramming() {
                             onClick={() => setQuizAnswers(prev => ({ ...prev, [q.id]: optIdx }))}
                             className={`w-full text-left p-2.5 rounded-lg border text-xs transition flex items-center gap-2.5 ${optClass}`}
                           >
-                            <span className="w-5 h-5 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-mono shrink-0">
+                            <span className="w-5 h-5 rounded-full border border-stone-200 flex items-center justify-center text-[10px] font-mono shrink-0">
                               {String.fromCharCode(65 + optIdx)}
                             </span>
                             <span>{opt}</span>
@@ -1703,9 +1710,9 @@ export default function JavaDynamicProgramming() {
                     </div>
 
                     {quizSubmitted && (
-                      <div className="p-3 rounded-lg bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-1">
+                      <div className="p-3 rounded-lg bg-white border border-[#e7e3da] shadow-xs text-xs text-stone-700 space-y-1">
                         <div className="font-semibold text-emerald-400">Explanation:</div>
-                        <p className="text-slate-400 text-[11px] leading-relaxed">{q.explanation}</p>
+                        <p className="text-stone-500 text-[11px] leading-relaxed">{q.explanation}</p>
                       </div>
                     )}
                   </div>
@@ -1714,13 +1721,13 @@ export default function JavaDynamicProgramming() {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 border-t border-slate-800 bg-slate-950 flex items-center justify-between">
+            <div className="p-4 border-t border-[#e7e3da] bg-stone-50 flex items-center justify-between">
               {quizSubmitted ? (
                 <div className="text-xs font-mono">
                   Your Score: <strong className="text-emerald-400 text-sm">{quizScore} / {QUIZ_QUESTIONS.length}</strong> ({Math.round((quizScore / QUIZ_QUESTIONS.length) * 100)}%)
                 </div>
               ) : (
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-stone-500">
                   {Object.keys(quizAnswers).length} of {QUIZ_QUESTIONS.length} answered
                 </div>
               )}
@@ -1732,7 +1739,7 @@ export default function JavaDynamicProgramming() {
                       setQuizSubmitted(false);
                       setQuizAnswers({});
                     }}
-                    className="px-4 py-2 rounded-xl bg-slate-800 text-xs font-medium text-slate-200 hover:bg-slate-700 transition"
+                    className="px-4 py-2 rounded-xl bg-stone-100 text-xs font-medium text-stone-800 hover:bg-stone-200 transition"
                   >
                     Retake Quiz
                   </button>
@@ -1740,7 +1747,7 @@ export default function JavaDynamicProgramming() {
                   <button
                     onClick={() => setQuizSubmitted(true)}
                     disabled={Object.keys(quizAnswers).length === 0}
-                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-white disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
+                    className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-500 text-xs font-medium text-stone-900 disabled:opacity-40 transition shadow-lg shadow-orange-500/20"
                   >
                     Submit Answers
                   </button>
@@ -1750,6 +1757,7 @@ export default function JavaDynamicProgramming() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

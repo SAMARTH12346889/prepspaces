@@ -553,7 +553,7 @@ Percentage: 86.6%
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#f6f4ee] text-[#1c1917] font-sans overflow-x-hidden px-4 py-6 sm:px-8 sm:py-10 md:px-12">
       {/* Top Universal Navigation Bar */}
       <ModuleNav
         courseTitle="Java Programming Master Course"
