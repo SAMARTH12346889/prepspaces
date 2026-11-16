@@ -1,0 +1,250 @@
+{
+  "id": "specialized-ds",
+  "title": "14. Tries, Disjoint Sets & Specialized Structures",
+  "track": "java",
+  "courseId": "java-programming",
+  "description": "Master specialized advanced data structures: Trie (Prefix Tree) fundamentals, TrieNode representation, exact word search, prefix matching, autocomplete DFS, LeetCode 211 Wildcard search, Disjoint Set Union (DSU / Union-Find) with Path Compression and Union by Rank/Size, Inverse Ackermann complexity O(alpha(n)), cycle detection in undirected graphs, Segment Trees for dynamic range queries and point updates with 4N storage, Fenwick Trees (Binary Indexed Trees) with lowbit bit manipulation (i & -i), and Sparse Tables for O(1) static Range Minimum Queries (RMQ).",
+  "totalQuestions": 20,
+  "questions": [
+    {
+      "id": "m14-q1",
+      "question": "What is the time complexity of searching for a word of length L in a Trie containing N words of average length L?",
+      "options": [
+        "O(L)",
+        "O(N * L)",
+        "O(log N)",
+        "O(N + L)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Searching in a Trie requires checking at most one node per character of the query string. For a word of length L, exactly L transitions are made down the tree. Thus the time complexity is strictly O(L), independent of the total number of words N stored."
+    },
+    {
+      "id": "m14-q2",
+      "question": "In a standard Trie implementation over lowercase English letters ('a' through 'z'), how is the child index calculated from a character c?",
+      "options": [
+        "c - 'a'",
+        "c - 'A'",
+        "c % 26",
+        "(int) c"
+      ],
+      "correctIndex": 0,
+      "explanation": "Because ASCII values for lowercase English letters 'a' through 'z' are contiguous (from 97 to 122), evaluating c - 'a' maps 'a' to index 0, 'b' to 1, ..., and 'z' to 25."
+    },
+    {
+      "id": "m14-q3",
+      "question": "Why does a Trie node require a boolean flag like 'isEndOfWord' or 'isWord'?",
+      "options": [
+        "To distinguish between a complete word and a prefix that is merely a substring of a longer word",
+        "To prevent cycles from forming in the tree",
+        "To record whether the node has 26 children",
+        "To track memory deallocation during garbage collection"
+      ],
+      "correctIndex": 0,
+      "explanation": "If words like 'app' and 'apple' are inserted, the node representing the second 'p' is part of both. Without the boolean flag isEndOfWord, searching for 'app' would be indistinguishable from searching for an incomplete prefix of 'apple'."
+    },
+    {
+      "id": "m14-q4",
+      "question": "What is the primary memory drawback of an array-based TrieNode (e.g. TrieNode[] children = new TrieNode[26]) when many words have unique prefixes?",
+      "options": [
+        "Excessive null pointer overhead since unbranched letters occupy unused array slots",
+        "Garbage collection thrashing caused by recursive loops",
+        "Array indices cannot be looked up in O(1) time",
+        "Trie nodes cannot store strings longer than 26 characters"
+      ],
+      "correctIndex": 0,
+      "explanation": "Each TrieNode allocates a fixed array of 26 references. When prefixes are sparse, the vast majority of child pointers remain null, resulting in significant memory overhead compared to hash maps or ternary search trees."
+    },
+    {
+      "id": "m14-q5",
+      "question": "In LeetCode 211 (Design Add and Search Words Data Structure), how should the '.' wildcard character be processed during search?",
+      "options": [
+        "Explore all non-null children of the current node recursively via DFS and return true if any path matches",
+        "Hash the string using MD5 and query a HashSet",
+        "Treat '.' as matching only the letter 'a'",
+        "Jump directly to the leaf nodes using binary search"
+      ],
+      "correctIndex": 0,
+      "explanation": "When encountering '.', the search algorithm branches across all existing (non-null) children of the current TrieNode using recursion/DFS. If any recursive branch returns true, the wildcard pattern matches."
+    },
+    {
+      "id": "m14-q6",
+      "question": "What are the two primary optimizations that make Disjoint Set Union (DSU) practically O(1) per operation?",
+      "options": [
+        "Path Compression and Union by Rank (or Size)",
+        "Splay rotation and AVL rebalancing",
+        "Binary lifting and Floyd-Warshall caching",
+        "Breadth-first search and topological sorting"
+      ],
+      "correctIndex": 0,
+      "explanation": "DSU achieves near-constant time by combining Path Compression (flattening tree depth during find) with Union by Rank/Size (attaching the shallower/smaller tree under the root of the deeper/larger tree)."
+    },
+    {
+      "id": "m14-q7",
+      "question": "What is the amortized time complexity of M operations on a Disjoint Set Union (DSU) of N elements with both Path Compression and Union by Rank?",
+      "options": [
+        "O(M * alpha(N))",
+        "O(M * log N)",
+        "O(M * N)",
+        "O(M + N^2)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tarjan proved that combining Path Compression with Union by Rank yields an amortized time complexity of O(M * alpha(N)), where alpha is the Inverse Ackermann function, which is <= 4 for all practical inputs (N < 10^80)."
+    },
+    {
+      "id": "m14-q8",
+      "question": "What does the Path Compression optimization do during a find(x) operation in DSU?",
+      "options": [
+        "Points x and all intermediate nodes directly to the representative root of their set",
+        "Deletes all redundant edges from the graph",
+        "Inverts parent pointers to point from root to leaves",
+        "Sorts the elements in ascending order"
+      ],
+      "correctIndex": 0,
+      "explanation": "Path compression recursively finds the root and reassigns parent[x] = find(parent[x]), flattening the tree so subsequent queries on x and its ancestors execute in O(1) time."
+    },
+    {
+      "id": "m14-q9",
+      "question": "How is DSU used to detect a cycle when processing undirected graph edges one by one?",
+      "options": [
+        "If find(u) == find(v) before adding edge (u, v), the edge connects vertices already in the same component, creating a cycle",
+        "If the rank of u equals the rank of v, a cycle is guaranteed",
+        "If the number of components is greater than 1, a cycle exists",
+        "If find(u) returns null, a cycle is detected"
+      ],
+      "correctIndex": 0,
+      "explanation": "If two endpoints u and v already have the exact same representative root (find(u) == find(v)), an existing path already connects them. Adding edge (u, v) introduces an alternate path, forming a cycle (as in Kruskal's algorithm and LeetCode 684)."
+    },
+    {
+      "id": "m14-q10",
+      "question": "Why is an array of size 4N traditionally allocated for a Segment Tree representing an array of N elements?",
+      "options": [
+        "To safely accommodate the complete binary tree structure rounded up to the nearest power of 2 (2^(ceil(log2 N) + 1) - 1 < 4N)",
+        "Because each node stores 4 integer pointers to children and siblings",
+        "To allow 4-way quaternary branching instead of binary branching",
+        "To reserve space for 3 backup duplicate trees"
+      ],
+      "correctIndex": 0,
+      "explanation": "A segment tree is a complete or full binary tree whose leaf nodes store the N elements. If N is not a power of 2, rounding up to the next power of 2 and doubling the total node count guarantees that indices will never exceed 4N."
+    },
+    {
+      "id": "m14-q11",
+      "question": "What is the time complexity to build a Segment Tree for an array of N elements, and what is the query time for a range [L, R]?",
+      "options": [
+        "Build: O(N), Query: O(log N)",
+        "Build: O(N log N), Query: O(1)",
+        "Build: O(N^2), Query: O(log N)",
+        "Build: O(log N), Query: O(N)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Building visits all 2N - 1 nodes once from bottom to top, taking O(N) time. A range query traverses at most 4 nodes per level in the tree of height O(log N), yielding O(log N) query time."
+    },
+    {
+      "id": "m14-q12",
+      "question": "During a Segment Tree range query, what should the function return when the current node segment [segmentStart, segmentEnd] has NO overlap with [queryLeft, queryRight] for a Range Sum Query?",
+      "options": [
+        "0",
+        "Integer.MAX_VALUE",
+        "-1",
+        "Double.NaN"
+      ],
+      "correctIndex": 0,
+      "explanation": "For addition/sum queries, 0 is the neutral identity element (x + 0 = x). For Range Minimum Query (RMQ), the identity element would be positive infinity (Integer.MAX_VALUE)."
+    },
+    {
+      "id": "m14-q13",
+      "question": "What bitwise expression extracts the lowest set bit (the lowest power of 2 that divides i) of an integer i?",
+      "options": [
+        "i & (-i)",
+        "i | (-i)",
+        "i ^ (i - 1)",
+        "i & (i - 1)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using two's complement representation, -i equals (~i + 1). Bitwise ANDing i with -i clears all bits except the lowest 1-bit: lowbit(i) = i & (-i)."
+    },
+    {
+      "id": "m14-q14",
+      "question": "In a 1-based Fenwick Tree (Binary Indexed Tree), how does one advance index i to propagate an update delta to its covering ancestors?",
+      "options": [
+        "i += (i & -i)",
+        "i -= (i & -i)",
+        "i = i * 2",
+        "i = (i - 1) / 2"
+      ],
+      "correctIndex": 0,
+      "explanation": "To update values in a Fenwick Tree, the index i moves forward to the next responsible interval by repeatedly adding its lowest set bit: i += (i & -i) until i exceeds N."
+    },
+    {
+      "id": "m14-q15",
+      "question": "In a 1-based Fenwick Tree, how does one move index i to accumulate prefix sum P(i) = arr[1] + ... + arr[i]?",
+      "options": [
+        "i -= (i & -i)",
+        "i += (i & -i)",
+        "i = i / 2",
+        "i = (i + 1) >> 1"
+      ],
+      "correctIndex": 0,
+      "explanation": "Querying prefix sums peels off the lowest set bit repeatedly by subtracting lowbit: i -= (i & -i) until i becomes 0, accumulating tree[i] along the way in O(log N) time."
+    },
+    {
+      "id": "m14-q16",
+      "question": "What is the memory footprint of a Fenwick Tree compared to a Segment Tree for an array of size N?",
+      "options": [
+        "Fenwick Tree requires O(N) space (N + 1 elements), whereas Segment Tree requires ~4N space",
+        "Fenwick Tree requires O(N^2) space, whereas Segment Tree requires O(N log N)",
+        "Both require identical O(N log N) auxiliary space",
+        "Fenwick Tree requires 4N space, whereas Segment Tree requires 2N space"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Fenwick Tree uses exactly one array of size N + 1 (O(N) space) with minimal constant factors, while a pointer-free array Segment Tree typically allocates 4N elements."
+    },
+    {
+      "id": "m14-q17",
+      "question": "Why can a Sparse Table achieve O(1) query time for Range Minimum Query (RMQ), but CANNOT easily do O(1) for Range Sum Queries?",
+      "options": [
+        "Minimum is an idempotent operation where min(A, B) = min(A, B, overlap), whereas sum would count the overlapping region twice",
+        "Sparse Tables do not store numbers, only bits",
+        "Integer addition causes 32-bit overflow in O(1) time",
+        "Range Sum requires division, which is not supported by Sparse Tables"
+      ],
+      "correctIndex": 0,
+      "explanation": "The idempotent property states that f(x, x) = x. For minimum, min(min(left_block), min(right_block)) correctly covers the range even if the two power-of-two blocks overlap. For sum, overlapping elements would be added twice, requiring non-overlapping blocks that take O(log N) to combine."
+    },
+    {
+      "id": "m14-q18",
+      "question": "What is the construction time and space complexity of a Sparse Table for an array of size N?",
+      "options": [
+        "O(N log N) time and O(N log N) space",
+        "O(N) time and O(N) space",
+        "O(log N) time and O(N) space",
+        "O(N^2) time and O(1) space"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Sparse Table computes table[i][k] for all 0 <= i < N and 0 <= k <= floor(log2 N). Building each entry takes O(1) dynamic programming transitions (table[i][k] = min(table[i][k-1], table[i + 2^(k-1)][k-1])), resulting in O(N log N) preprocessing time and O(N log N) space."
+    },
+    {
+      "id": "m14-q19",
+      "question": "When should you choose a Fenwick Tree over a Segment Tree for dynamic range-sum problems?",
+      "options": [
+        "When the problem only involves point updates and range/prefix sums, and code simplicity and memory efficiency are desired",
+        "When arbitrary range updates with lazy propagation are required",
+        "When the array contains string keys instead of numbers",
+        "When queries require O(1) worst-case time"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fenwick Trees are extremely compact (N+1 ints) and require fewer than 15 lines of code for point-update and range-sum queries. However, if complex range modifications (like range updates with lazy propagation) are needed, Segment Trees are required."
+    },
+    {
+      "id": "m14-q20",
+      "question": "What happens if a DSU implementation only implements Path Compression without Union by Rank or Size?",
+      "options": [
+        "Worst-case operations degrade to O(log N) amortized (or O(N) worst-case without amortized tree flattening)",
+        "The find operation enters an infinite recursion loop",
+        "The graph becomes disconnected automatically",
+        "Memory consumption doubles to O(N^2)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Path compression alone provides good amortized performance of O(N log N) across N operations, but without rank/size balancing, pathological union sequences can temporarily produce tall trees of depth O(N) before compression runs."
+    }
+  ]
+}

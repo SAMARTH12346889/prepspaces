@@ -196,6 +196,7 @@ const JavaStacksQueues = React.lazy(() => import("./Componets/JavaStacksQueues")
 const JavaHashing = React.lazy(() => import("./Componets/JavaHashing"));
 const JavaTrees = React.lazy(() => import("./Componets/JavaTrees"));
 const JavaHeaps = React.lazy(() => import("./Componets/JavaHeaps"));
+const JavaSpecializedDS = React.lazy(() => import("./Componets/JavaSpecializedDS"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1692,6 +1693,15 @@ function App() {
             <Route path="/learning/java/module-13" element={<JavaHeaps />} />
             <Route path="/courses/java/heaps" element={<JavaHeaps />} />
             <Route path="/learn/java/heaps" element={<JavaHeaps />} />
+            <Route path="/learning/java/specialized-ds" element={<JavaSpecializedDS />} />
+            <Route path="/learning/java/tries-dsu" element={<JavaSpecializedDS />} />
+            <Route path="/learning/java/tries" element={<JavaSpecializedDS />} />
+            <Route path="/learning/java/dsu" element={<JavaSpecializedDS />} />
+            <Route path="/learning/java/segment-trees" element={<JavaSpecializedDS />} />
+            <Route path="/learning/java/fenwick-trees" element={<JavaSpecializedDS />} />
+            <Route path="/learning/java/module-14" element={<JavaSpecializedDS />} />
+            <Route path="/courses/java/specialized-ds" element={<JavaSpecializedDS />} />
+            <Route path="/learn/java/specialized-ds" element={<JavaSpecializedDS />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

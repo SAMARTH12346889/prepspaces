@@ -234,6 +234,7 @@ export const JAVA_MODULES = [
   { id: "hashing", name: "11. Hashing & Hash-Based Data Structures", route: "/learning/java/hashing" },
   { id: "trees", name: "12. Trees & Binary Search Trees", route: "/learning/java/trees" },
   { id: "heaps", name: "13. Heaps, Priority Queues & Advanced Trees", route: "/learning/java/heaps" },
+  { id: "specialized-ds", name: "14. Tries, Disjoint Sets & Specialized Structures", route: "/learning/java/specialized-ds" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

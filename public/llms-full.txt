@@ -1753,3 +1753,43 @@ Topics Covered:
   - 25. 15 Assessment MCQs with Explanations and Interactive Testing
   - 26. Learning Outcomes & Engineering Mastery Roadmap
   - 27. Recommended Practical Study Sequence
+
+### Module 14: Tries, Disjoint Sets & Specialized Structures
+URL: https://prepspaces.com/learning/java/specialized-ds
+Topics Covered:
+  - 1. Trie Fundamentals: Prefix Trees, Character Transitions, Branching Factor 26, isEndOfWord Invariant
+  - 2. Trie vs HashMap vs Balanced BST: Prefix Query Performance, Memory Trade-offs, Cache Locality
+  - 3. TrieNode Representation: Child Pointers Array TrieNode[26] vs HashMap<Character, TrieNode>, Memory Footprint
+  - 4. Implementing Trie in Java: Complete Type-Safe Class with insert, search, and startsWith Methods (LeetCode 208)
+  - 5. Autocomplete System Design: Prefix Subtree DFS, Bounded Priority Queue Ranking, Practical Suggestions
+  - 6. Wildcard Word Search: Recursive DFS Branching for '.' Dot Characters, Backtracking Mechanics (LeetCode 211)
+  - 7. Disjoint Set Union (DSU / Union-Find) Fundamentals: Disjoint Partitions, Representative Elements, Equivalence Relations
+  - 8. DSU vs BFS / DFS: Dynamic Graph Connectivity, Online Edge Streams vs Static Traversal Trade-offs
+  - 9. Naive DSU vs Optimized DSU: O(N) Skewed Chains vs O(alpha(N)) Near-Constant Time
+  - 10. Path Compression: Recursive Tree Flattening during find(x), Amortized Analysis
+  - 11. Union by Rank and Union by Size: Tree Depth Bounding, Shallow-to-Deep Subtree Merging
+  - 12. Complete Java DSU Implementation: Full Class with Path Compression, Union by Rank, Component Counting
+  - 13. Graph Cycle & Redundant Connection: Identifying Cycles in Undirected Graphs (LeetCode 684)
+  - 14. Segment Trees Fundamentals: Interval Decomposition, Range Queries, Point Updates, Complete Binary Tree Array
+  - 15. Sizing Segment Tree Arrays: Why 4N Space Guarantees Power-of-Two Index Safety (2^(ceil(log2 N) + 1) < 4N)
+  - 16. Building a Segment Tree: O(N) Bottom-Up Divide and Conquer Construction
+  - 17. Segment Tree Range Queries: Complete Overlap, Partial Overlap, and No Overlap Recursive Splitting in O(log N)
+  - 18. Segment Tree Point Updates: Leaf Modification and Bottom-Up Ancestor Propagation in O(log N)
+  - 19. Segment Tree Range Minimum Query (RMQ): Min Aggregation, Integer.MAX_VALUE Identity Element
+  - 20. Lazy Propagation Concepts: Deferred Range Updates [L, R] += val in O(log N)
+  - 21. Fenwick Tree (Binary Indexed Tree / BIT) Fundamentals: Prefix Sums, Point Updates, 1-Based Indexing, O(N) Memory
+  - 22. Bit Manipulation Core: lowbit(i) = i & (-i), Two's Complement Explanation
+  - 23. BIT Point Update & Prefix Query: Forward Index Traversal (i += lowbit(i)) and Backward Accumulation (i -= lowbit(i))
+  - 24. Sparse Table Fundamentals: Static Arrays, Range Minimum Query (RMQ) in O(1) Strict Time
+  - 25. Idempotent Functions: f(x, x) = x, Why Min/Max/GCD Support Overlapping Intervals while Sum Does Not
+  - 26. Precomputing Sparse Table: Dynamic Programming Table dp[i][k] of Size N * (floor(log2 N) + 1) in O(N log N)
+  - 27. O(1) Range Minimum Query: k = floor(log2(R - L + 1)), min(dp[L][k], dp[R - 2^k + 1][k])
+  - 28. Specialized Structures Architectural Decision Matrix: Comparative Cheat Sheet
+  - 29. Complete Complexity Cheat Sheet: 16-Row Comprehensive Time & Space Master Matrix
+  - 30. Common Mistakes in This Module: 22 Defensive Engineering Traps
+  - 31. Important Theoretical Interview Questions: 45 Comprehensive Technical Q&As
+  - 32. Practical Coding Assignments: 45 Problems across Beginner, Intermediate, and Advanced Tiers
+  - 33. Curated LeetCode Practice Track: 15 High-Yield Problems
+  - 34. 15 Assessment MCQs with Explanations and Interactive Testing
+  - 35. Learning Outcomes & Engineering Mastery Roadmap
+  - 36. Recommended Practical Study Sequence

@@ -141,5 +141,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "specialized-ds",
+    "courseId": "java-programming",
+    "index": 14,
+    "name": "14. Tries, Disjoint Sets & Specialized Structures",
+    "route": "/learning/java/specialized-ds",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

@@ -533,7 +533,7 @@ export default function JavaHeaps() {
       <ModuleNav
         currentModuleId="heaps"
         prevRoute="/learning/java/trees"
-        nextRoute={null}
+        nextRoute="/learning/java/specialized-ds"
       />
 
       {/* Main Container */}

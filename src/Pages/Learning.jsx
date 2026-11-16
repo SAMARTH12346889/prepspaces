@@ -255,6 +255,7 @@ const learningTracks = [
       "Hash Tables, Chaining, Probing, HashMap Treeification & LRU Cache",
       "Trees, BST Invariants, Tree Traversals, LCA & Tree Serialization",
       "Heaps, PriorityQueue, Top-K, Median Stream, AVL Rotations & Red-Black Trees",
+      "Tries, Disjoint Set Union (DSU), Segment Trees, Fenwick Trees & Sparse Tables",
     ],
   },
 ];

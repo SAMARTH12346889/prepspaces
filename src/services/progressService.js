@@ -124,7 +124,7 @@ const DEFAULT_CATALOG = [
     tag: "Software Engineering",
     color: "from-stone-900 via-orange-950 to-orange-600",
     badgeColor: "bg-orange-500/10 text-orange-600 border-orange-500/20",
-    totalModules: 13,
+    totalModules: 14,
   },
 ];
 

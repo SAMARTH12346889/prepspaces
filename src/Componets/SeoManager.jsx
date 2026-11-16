@@ -165,6 +165,12 @@ const routeMeta = {
     keywords: "Java Heap, Binary Heap Java, PriorityQueue Java, Heap Sort In-Place, Min Heap Max Heap Java, Build Heap Linear Time O(n), Top K Frequent Elements, Merge K Sorted Lists Java, Running Median Two Heaps, AVL Tree Rotations LL RR LR RL, Red-Black Tree Java, TreeMap Internals, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/heaps`,
   },
+  "/learning/java/specialized-ds": {
+    title: "Module 14: Tries, Disjoint Sets & Specialized Structures | PrepSpaces",
+    description: "Master advanced specialized data structures in Java: Trie (Prefix Tree) implementation, exact search, prefix matching, LeetCode 211 Wildcard search, Disjoint Set Union (DSU / Union-Find) with Path Compression and Union by Rank/Size, LeetCode 684 Redundant Connection cycle detection, Segment Trees for range queries and point updates, Fenwick Trees (Binary Indexed Trees) with lowbit (i & -i), and Sparse Tables for O(1) static Range Minimum Queries.",
+    keywords: "Java Trie, Prefix Tree Java, Disjoint Set Union Java, DSU Union Find, Path Compression, Union by Rank, LeetCode 684 Redundant Connection, Segment Tree Java, Range Query Point Update, Fenwick Tree, Binary Indexed Tree Java, lowbit i & -i, Sparse Table RMQ O(1), Idempotent Range Query, Advanced DSA Java, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/specialized-ds`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",
