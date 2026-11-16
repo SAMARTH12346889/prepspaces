@@ -256,6 +256,7 @@ const learningTracks = [
       "Trees, BST Invariants, Tree Traversals, LCA & Tree Serialization",
       "Heaps, PriorityQueue, Top-K, Median Stream, AVL Rotations & Red-Black Trees",
       "Tries, Disjoint Set Union (DSU), Segment Trees, Fenwick Trees & Sparse Tables",
+      "Two Pointers, Sliding Window, 1D/2D Prefix Sums, Difference Arrays & Kadane's Algorithm",
     ],
   },
 ];

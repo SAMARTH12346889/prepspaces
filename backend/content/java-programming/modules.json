@@ -152,5 +152,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "two-pointers-sliding-window",
+    "courseId": "java-programming",
+    "index": 15,
+    "name": "15. Two Pointers, Sliding Window & Prefix Sums",
+    "route": "/learning/java/two-pointers-sliding-window",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

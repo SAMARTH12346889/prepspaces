@@ -171,6 +171,12 @@ const routeMeta = {
     keywords: "Java Trie, Prefix Tree Java, Disjoint Set Union Java, DSU Union Find, Path Compression, Union by Rank, LeetCode 684 Redundant Connection, Segment Tree Java, Range Query Point Update, Fenwick Tree, Binary Indexed Tree Java, lowbit i & -i, Sparse Table RMQ O(1), Idempotent Range Query, Advanced DSA Java, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/specialized-ds`,
   },
+  "/learning/java/two-pointers-sliding-window": {
+    title: "Module 15: Two Pointers, Sliding Window & Prefix Sums | PrepSpaces",
+    description: "Master essential algorithmic problem-solving patterns in Java: Opposite-direction Two Pointers (Two Sum, Palindromes, in-place reversal), Fast and Slow Pointers (Floyd's Tortoise & Hare cycle detection, midpoint), Same-direction Pointers (in-place compaction, move zeroes), Fixed-size Sliding Window (max sum and averages of size K), Variable-size Sliding Window (longest substring without repeating characters, LeetCode 76 Minimum Window Substring), 1D & 2D Prefix Sums with inclusion-exclusion, Difference Arrays for O(1) batch updates, Prefix XOR, Subarray Sum Equals K (LeetCode 560), Three Sum (LeetCode 15), and Kadane's Algorithm for maximum subarray sum.",
+    keywords: "Two Pointers Java, Sliding Window Java, Prefix Sums Java, 2D Prefix Sum Matrix, Difference Array, Floyd Cycle Detection, Fast and Slow Pointers, LeetCode 3 Longest Substring, LeetCode 76 Minimum Window Substring, LeetCode 560 Subarray Sum Equals K, LeetCode 15 Three Sum, Kadane Algorithm Java, Maximum Subarray Sum, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/two-pointers-sliding-window`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

@@ -1,0 +1,254 @@
+const fs = require('fs');
+const path = require('path');
+
+const moduleData = {
+  id: "two-pointers-sliding-window",
+  title: "15. Two Pointers, Sliding Window & Prefix Sums",
+  track: "java",
+  courseId: "java-programming",
+  description: "Master essential algorithmic problem-solving patterns: Opposite-direction Two Pointers (Two Sum in sorted array, palindrome verification, in-place reversal), Fast and Slow Pointers (Floyd's cycle detection, linked list middle, cycle entrance), Same-direction Pointers (in-place duplicate removal, move zeroes), Fixed-size Sliding Window (maximum sum and averages of size K), Variable-size Sliding Window (longest substring without repeating characters, LeetCode 76 Minimum Window Substring), 1D and 2D Prefix Sums with inclusion-exclusion, Difference Arrays for O(1) batch range updates, Prefix XOR, Subarray Sum Equals K (LeetCode 560) with HashMaps, Three Sum (LeetCode 15) with duplicate skipping, and Kadane's Algorithm for maximum subarray sum.",
+  totalQuestions: 20,
+  questions: [
+    {
+      id: "m15-q1",
+      question: "Why does the two-pointer technique on a sorted array find a pair adding up to target in O(n) time instead of O(n^2)?",
+      options: [
+        "Because sorted order guarantees moving left rightward increases the sum and moving right leftward decreases the sum, eliminating unviable pairs without scanning them",
+        "Because it hashes every element into an underlying bucket table",
+        "Because it creates a binary heap and extracts root elements in O(1)",
+        "Because it performs divide-and-conquer merge sort recursively"
+      ],
+      correctIndex: 0,
+      explanation: "In a sorted array, if arr[left] + arr[right] < target, pairing arr[left] with any other element to the left of 'right' would only produce an even smaller sum. Thus left can be safely incremented without checking other candidates. The symmetric reasoning holds for right--, examining at most n elements."
+    },
+    {
+      id: "m15-q2",
+      question: "In Floyd's Cycle Detection Algorithm (Tortoise and Hare), what speeds do the slow and fast pointers move?",
+      options: [
+        "Slow moves 1 step; Fast moves 2 steps",
+        "Slow moves 1 step; Fast moves 3 steps",
+        "Both move 2 steps simultaneously",
+        "Slow starts at head; Fast starts at tail"
+      ],
+      correctIndex: 0,
+      explanation: "By having slow move 1 step and fast move 2 steps, the distance between fast and slow decreases by 1 node per iteration inside any cycle of length C, guaranteeing they meet in at most C steps with O(1) space."
+    },
+    {
+      id: "m15-q3",
+      question: "After fast and slow pointers meet inside a cycle in a linked list, how is the exact starting node of the cycle located?",
+      options: [
+        "Move one pointer back to the head of the list; advance both pointers 1 step at a time until they meet",
+        "Reverse the linked list starting from the meeting point",
+        "Continue moving fast 2 steps and slow 1 step until they meet a second time",
+        "Traverse backwards from slow using previous pointers"
+      ],
+      correctIndex: 0,
+      explanation: "Let L be distance to cycle start and C be cycle length. The meeting point is C - (L mod C) from the cycle start. Moving one pointer to the head while keeping the other at the meeting node and advancing both 1 step causes them to meet exactly at the cycle entrance after L steps."
+    },
+    {
+      id: "m15-q4",
+      question: "In same-direction in-place array modification (e.g. Remove Duplicates from Sorted Array), what do pointers i and j represent?",
+      options: [
+        "i tracks the boundary of the last unique element; j scans forward through the array",
+        "i scans from right to left; j scans from left to right",
+        "i and j form a sliding window of fixed width K",
+        "i stores the frequency map; j stores the running sum"
+      ],
+      correctIndex: 0,
+      explanation: "Pointer j scans every element in the array. Whenever arr[j] != arr[i], a new unique value is discovered: i is incremented and arr[i] is updated to arr[j], compacting unique elements into the prefix of the array."
+    },
+    {
+      id: "m15-q5",
+      question: "How is a fixed-size sliding window of size K updated in O(1) time when moving from index right-1 to right?",
+      options: [
+        "windowSum = windowSum + arr[right] - arr[right - k]",
+        "windowSum = windowSum + arr[right] + arr[right - k]",
+        "Recompute the sum by iterating from right - k + 1 to right",
+        "Multiply windowSum by arr[right] / arr[right - k]"
+      ],
+      correctIndex: 0,
+      explanation: "A fixed-size window slides by adding the incoming element at index right and subtracting the outgoing element at index right - k, completing the shift in O(1) time."
+    },
+    {
+      id: "m15-q6",
+      question: "Why should you NOT use a standard variable-size sliding window to find a subarray with a target sum when the array contains negative numbers?",
+      options: [
+        "Because negative numbers violate monotonicity: shrinking the window by moving left forward can INCREASE the sum, and expanding right can DECREASE it",
+        "Because sliding windows cannot store negative array indices",
+        "Because Java arrays throw ArrayIndexOutOfBoundsException on negative values",
+        "Because negative numbers require floating point division"
+      ],
+      correctIndex: 0,
+      explanation: "The variable sliding window relies on monotonic expansion (increasing sum) and shrinking (decreasing sum). Negative numbers destroy this monotonic property, making it impossible to know whether expanding or shrinking will move toward the target sum. Prefix Sums + HashMap must be used instead."
+    },
+    {
+      id: "m15-q7",
+      question: "In LeetCode 3 (Longest Substring Without Repeating Characters), why is left updated with Math.max(left, lastSeen.get(c) + 1)?",
+      options: [
+        "To prevent left from moving backwards if the duplicate character was seen at an index already outside the current window (e.g. in 'abba')",
+        "To ensure the window size never exceeds 26",
+        "Because Math.max runs in O(1) whereas an if statement runs in O(N)",
+        "To reset the window to the beginning of the string"
+      ],
+      correctIndex: 0,
+      explanation: "In a string like 'abba', after processing the second 'b' left moves to index 2. When the second 'a' is encountered at index 3, lastSeen('a') is 0. Moving left to 0 + 1 = 1 would move left backwards and re-introduce the duplicate 'b'. Math.max ensures left only moves forward."
+    },
+    {
+      id: "m15-q8",
+      question: "In LeetCode 76 (Minimum Window Substring), when is the current window [left, right] considered valid?",
+      options: [
+        "When 'formed == required', meaning every unique character from string t matches or exceeds its required frequency in the active window",
+        "When the length of the window right - left + 1 equals t.length()",
+        "When all 26 English lowercase letters are present",
+        "When left reaches the end of string s"
+      ],
+      correctIndex: 0,
+      explanation: "Variables 'required' (count of distinct characters in t) and 'formed' (count of characters in the window whose frequency meets or exceeds requirement) ensure that once formed == required, all character requirements are satisfied."
+    },
+    {
+      id: "m15-q9",
+      question: "Given a 1D prefix sum array P of size N+1 where P[i+1] = P[i] + arr[i], what is the formula for the sum of elements from index l to r inclusive?",
+      options: ["P[r + 1] - P[l]", "P[r] - P[l - 1]", "P[r + 1] - P[l + 1]", "P[r] - P[l]"],
+      correctIndex: 0,
+      explanation: "P[r + 1] contains the sum of elements arr[0..r], and P[l] contains the sum of arr[0..l-1]. Subtracting P[l] removes the prefix before index l, leaving exactly arr[l..r] in O(1) time."
+    },
+    {
+      id: "m15-q10",
+      question: "What is the formula to calculate the sum of a 2D matrix rectangle with corners (r1, c1) to (r2, c2) inclusive using a (rows+1) x (cols+1) 2D prefix sum array P?",
+      options: [
+        "P[r2+1][c2+1] - P[r1][c2+1] - P[r2+1][c1] + P[r1][c1]",
+        "P[r2][c2] - P[r1][c2] - P[r2][c1] + P[r1][c1]",
+        "P[r2+1][c2+1] + P[r1][c2+1] - P[r2+1][c1] - P[r1][c1]",
+        "P[r2+1][c2+1] - P[r1+1][c1+1]"
+      ],
+      correctIndex: 0,
+      explanation: "By the Principle of Inclusion-Exclusion: take the entire top-left rectangle P[r2+1][c2+1], subtract the top strip P[r1][c2+1], subtract the left strip P[r2+1][c1], and add back the doubly subtracted top-left corner P[r1][c1]."
+    },
+    {
+      id: "m15-q11",
+      question: "How does a Difference Array apply a range update 'add value x to all elements from index left to right inclusive' in O(1) time?",
+      options: [
+        "diff[left] += x; if (right + 1 < diff.length) diff[right + 1] -= x;",
+        "diff[left] += x; diff[right] -= x;",
+        "diff[left] -= x; diff[right + 1] += x;",
+        "diff[left..right] += x using a for-loop"
+      ],
+      correctIndex: 0,
+      explanation: "Incrementing diff[left] by x ensures that computing the running prefix sum adds x to every index starting from left. Decrementing diff[right + 1] by x cancels this addition for all indices beyond right."
+    },
+    {
+      id: "m15-q12",
+      question: "What mathematical property of the XOR operator allows range XOR queries to be answered in O(1) using prefix XOR?",
+      options: [
+        "a ^ a = 0 and a ^ 0 = a, so P[r+1] ^ P[l] cancels out the prefix arr[0..l-1]",
+        "XOR is distributive over addition",
+        "XOR produces monotonic sequences",
+        "XOR clears the lowest set bit"
+      ],
+      correctIndex: 0,
+      explanation: "Because a ^ a = 0, evaluating P[r+1] ^ P[l] computes (arr[0] ^ ... ^ arr[r]) ^ (arr[0] ^ ... ^ arr[l-1]). Elements from 0 to l-1 appear twice and cancel to 0, leaving arr[l] ^ ... ^ arr[r]."
+    },
+    {
+      id: "m15-q13",
+      question: "In LeetCode 560 (Subarray Sum Equals K), why must the frequency map be initialized with map.put(0L, 1)?",
+      options: [
+        "To account for valid subarrays that start at index 0 (where prefixSum == k, so prefixSum - k == 0)",
+        "To prevent NullPointerException when the array is empty",
+        "To represent the sentinel node of a linked list",
+        "Because 0 is the smallest integer"
+      ],
+      correctIndex: 0,
+      explanation: "If a subarray starting at index 0 has sum equal to k, the running prefix sum becomes k. Looking up prefixSum - k queries 0. If 0 is not in the map with frequency 1, this valid subarray would not be counted."
+    },
+    {
+      id: "m15-q14",
+      question: "In 'Longest Subarray with Sum Equal to K', why must we use map.putIfAbsent(prefix, i) rather than map.put(prefix, i)?",
+      options: [
+        "Because to maximize the length of a subarray ending at index j (length = j - earlier_idx), we must preserve the EARLIEST index where prefix appeared",
+        "Because HashMaps throw an exception on duplicate keys",
+        "Because later indices overwrite negative sums",
+        "To avoid integer overflow"
+      ],
+      correctIndex: 0,
+      explanation: "The length of a valid subarray is j - earlier_index. To make this difference as large as possible, earlier_index must be as small as possible. Therefore, we preserve the earliest index and never overwrite it."
+    },
+    {
+      id: "m15-q15",
+      question: "In Three Sum (LeetCode 15), at what three levels must duplicate values be skipped to avoid duplicate triplets in the output?",
+      options: [
+        "The fixed outer loop element nums[i], the left pointer nums[left], and the right pointer nums[right]",
+        "Only the outer loop element nums[i]",
+        "Only the left pointer nums[left]",
+        "Only after inserting the triplet into a HashSet"
+      ],
+      correctIndex: 0,
+      explanation: "To prevent identical triplets without expensive set hashing: (1) if i > 0 && nums[i] == nums[i-1] continue; (2) when sum == 0, advance left past identical values (nums[left] == nums[left-1]); and (3) decrement right past identical values (nums[right] == nums[right+1])."
+    },
+    {
+      id: "m15-q16",
+      question: "What is the core dynamic programming recurrence of Kadane's Algorithm for maximum subarray sum?",
+      options: [
+        "currentSum = Math.max(arr[i], currentSum + arr[i]); maxSum = Math.max(maxSum, currentSum);",
+        "currentSum = currentSum + arr[i]; maxSum = Math.max(0, currentSum);",
+        "currentSum = Math.min(arr[i], currentSum + arr[i]);",
+        "maxSum = arr[i] + arr[i-1];"
+      ],
+      correctIndex: 0,
+      explanation: "At each index i, we decide whether to extend the previous optimal subarray (currentSum + arr[i]) or start a fresh subarray containing only arr[i] (if the accumulated previous sum is negative)."
+    },
+    {
+      id: "m15-q17",
+      question: "Why should Kadane's algorithm initialize currentSum and maxSum with arr[0] instead of 0?",
+      options: [
+        "If all array elements are negative (e.g. [-5, -2, -8]), initializing with 0 would incorrectly return 0 instead of the true maximum element -2",
+        "Because index 0 is always the largest element",
+        "Because Java primitive variables cannot be set to 0",
+        "To prevent division by zero"
+      ],
+      correctIndex: 0,
+      explanation: "If an array consists entirely of negative numbers like [-5, -2, -8], the maximum nonempty subarray sum is -2. An initial value of 0 would falsely report 0 (representing an empty subarray, which is invalid when a nonempty subarray is required)."
+    },
+    {
+      id: "m15-q18",
+      question: "What is the time complexity of solving Three Sum on an unsorted array of size N using the sorting + two-pointer approach?",
+      options: ["O(N^2)", "O(N^3)", "O(N log N)", "O(N)"],
+      correctIndex: 0,
+      explanation: "Sorting the array takes O(N log N). The outer loop fixes each of the N elements, and the inner two-pointer search takes O(N) time. The overall time complexity is O(N log N) + O(N^2) = O(N^2)."
+    },
+    {
+      id: "m15-q19",
+      question: "What is the time and space complexity of answering Q range sum queries on an immutable array of size N using a 1D Prefix Sum array?",
+      options: [
+        "Preprocessing: O(N) time & O(N) space; Each query: O(1) time",
+        "Preprocessing: O(1) time & O(1) space; Each query: O(N) time",
+        "Preprocessing: O(N log N) time & O(N) space; Each query: O(log N) time",
+        "Preprocessing: O(N^2) time & O(N^2) space; Each query: O(1) time"
+      ],
+      correctIndex: 0,
+      explanation: "Building the prefix array visits each element once in O(N) time and consumes N+1 memory. Once precomputed, any arbitrary range sum P[r+1] - P[l] is evaluated in strictly O(1) time, yielding total time O(N + Q)."
+    },
+    {
+      id: "m15-q20",
+      question: "For an inclusive sliding window between indices left and right, what is the formula for the number of elements in the window?",
+      options: ["right - left + 1", "right - left", "right - left - 1", "left + right"],
+      correctIndex: 0,
+      explanation: "In inclusive indexing where both boundaries left and right are part of the window, the count of elements is right - left + 1. For example, indices 2 through 4 contain 4 - 2 + 1 = 3 elements."
+    }
+  ]
+};
+
+const targetDir1 = path.join(__dirname, '..', 'backend', 'content', 'java-programming', 'modules');
+const targetDir2 = path.join(__dirname, '..', 'backend', 'content', 'java', 'modules');
+
+fs.mkdirSync(targetDir1, { recursive: true });
+fs.mkdirSync(targetDir2, { recursive: true });
+
+const filePath1 = path.join(targetDir1, 'two-pointers-sliding-window.json');
+const filePath2 = path.join(targetDir2, 'two-pointers-sliding-window.json');
+
+fs.writeFileSync(filePath1, JSON.stringify(moduleData, null, 2), 'utf-8');
+fs.writeFileSync(filePath2, JSON.stringify(moduleData, null, 2), 'utf-8');
+
+console.log('Successfully generated two-pointers-sliding-window.json in:');
+console.log('1.', filePath1);
+console.log('2.', filePath2);

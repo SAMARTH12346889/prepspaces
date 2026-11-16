@@ -235,6 +235,7 @@ export const JAVA_MODULES = [
   { id: "trees", name: "12. Trees & Binary Search Trees", route: "/learning/java/trees" },
   { id: "heaps", name: "13. Heaps, Priority Queues & Advanced Trees", route: "/learning/java/heaps" },
   { id: "specialized-ds", name: "14. Tries, Disjoint Sets & Specialized Structures", route: "/learning/java/specialized-ds" },
+  { id: "two-pointers-sliding-window", name: "15. Two Pointers, Sliding Window & Prefix Sums", route: "/learning/java/two-pointers-sliding-window" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

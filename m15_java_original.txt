@@ -1,0 +1,3033 @@
+# **Module 15 — Two Pointers, Sliding Window & Prefix Sums**
+
+**Java + Data Structures and Algorithms | Advanced Problem-Solving Patterns**
+
+This module introduces three of the most important techniques for solving array, string, and subarray problems efficiently:
+
+1. **Two Pointers:** Use two indices to explore or modify data without unnecessary nested loops.
+2. **Sliding Window:** Maintain a moving range over a contiguous part of an array or string.
+3. **Prefix Sums:** Precompute cumulative information so that range queries and subarray calculations become efficient.
+
+These techniques are especially important in coding interviews because they help transform many brute-force \(O(n^2)\) or \(O(n^3)\) solutions into \(O(n)\) or \(O(n\log n)\) solutions.
+
+# **1. Pattern-Based Problem-Solving**
+
+Before learning individual algorithms, understand how to recognize a problem-solving pattern.
+
+In DSA, solving a problem is not simply about knowing syntax or memorizing algorithms. It is about identifying the structure of the problem and selecting an appropriate technique.
+
+Consider this problem:
+
+**Problem:** Given an integer array, find two numbers whose sum equals a target.
+
+```
+int[] arr = {2, 7, 11, 15};
+int target = 9;
+```
+
+Expected answer: `2 + 7 = 9`.
+
+A beginner might check every possible pair.
+
+```
+for (int i = 0; i < arr.length; i++) {
+    for (int j = i + 1; j < arr.length; j++) {
+        if (arr[i] + arr[j] == target) {
+            System.out.println(arr[i] + ", " + arr[j]);
+        }
+    }
+}
+```
+
+This examines approximately \(n(n-1)/2\) pairs.
+
+**Time complexity:** \(O(n^2)\).
+
+However, if the array is sorted, we can use two pointers and solve the problem in \(O(n)\).
+
+This is the central idea behind pattern-based problem-solving: identify useful properties of the input, then exploit them.
+
+## **1.1 Recognizing common patterns**
+
+| Problem characteristics                            | Possible pattern                |
+| -------------------------------------------------- | ------------------------------- |
+| Find a pair in a sorted array                      | Opposite-direction two pointers |
+| Find a triplet with a target sum                   | Sorting + two pointers          |
+| Detect a cycle in a linked list                    | Fast and slow pointers          |
+| Remove duplicates in-place                         | Same-direction two pointers     |
+| Find maximum sum of exactly K consecutive elements | Fixed-size sliding window       |
+| Find the longest valid substring                   | Variable-size sliding window    |
+| Find the sum between two indices repeatedly        | Prefix sums                     |
+| Count subarrays whose sum equals K                 | Prefix sums + HashMap           |
+| Find a maximum-sum contiguous subarray             | Kadane's algorithm              |
+| Apply many range updates                           | Difference array                |
+
+These are clues rather than strict rules. Some problems can be solved using multiple techniques.
+
+## **1.2 Understand the type of range**
+
+One of the most important distinctions is between a *subarray*, a *substring*, and a *subsequence*.
+
+**Subarray:** A contiguous portion of an array.
+
+```
+Array:     [2, 4, 6, 8, 10]
+
+Subarray:  [4, 6, 8]
+```
+
+**Substring:** A contiguous portion of a string.
+
+```
+String:    "PROGRAM"
+
+Substring: "GRA"
+```
+
+**Subsequence:** Elements that retain their original order but do not have to be adjacent.
+
+```
+String:      "PROGRAM"
+
+Subsequence: "POM"
+```
+
+Sliding windows and most basic subarray techniques operate on contiguous ranges. A subsequence problem may require dynamic programming instead.
+
+## **1.3 A practical problem-solving workflow**
+
+When you receive an array or string problem:
+
+1. Identify whether it asks for a pair, triplet, subarray, substring, or subsequence.
+2. Check whether the input is sorted.
+3. Identify whether negative numbers are allowed.
+4. Determine whether you need a maximum, minimum, count, existence check, or actual indices.
+5. Write a brute-force solution first.
+6. Identify repeated work and look for a suitable pattern.
+7. Confirm the time and space complexity.
+8. Test edge cases such as empty input, duplicates, negative numbers, and arrays of length one.
+
+**Important:** Never apply a sliding-window sum technique blindly when negative numbers are present. Its usual shrinking logic relies on predictable changes in the sum.
+
+# **2. Two-Pointer Technique**
+
+The two-pointer technique uses two indices to process an array, string, or linked list.
+
+Instead of comparing every possible combination, we move pointers according to some condition.
+
+The general structure is:
+
+```
+int left = 0;
+int right = arr.length - 1;
+
+while (left < right) {
+    // Process current elements
+
+    // Move left, right, or both
+}
+```
+
+The two-pointer technique can reduce many \(O(n^2)\) operations to \(O(n)\).
+
+There are three important variations:
+
+- Opposite-direction pointers.
+- Fast and slow pointers.
+- Same-direction pointers.
+
+## **2.1 Opposite-Direction Pointers**
+
+In this pattern, one pointer starts at the beginning and another starts at the end.
+
+```
+Index:    0   1   2   3   4
+Array:   [1,  2,  4,  7,  9]
+
+          L           R
+```
+
+The pointers move towards each other until they meet.
+
+### **Example: Two Sum in a Sorted Array**
+
+**Problem:** Given a sorted array, determine whether two elements add up to a target.
+
+```
+int[] arr = {1, 2, 4, 7, 9};
+int target = 11;
+```
+
+Expected answer:
+
+```
+2 + 9 = 11
+```
+
+### **Step-by-step execution**
+
+Initially:
+
+```
+Array: [1, 2, 4, 7, 9]
+        L           R
+
+1 + 9 = 10
+```
+
+The sum is smaller than the target.
+
+Because the array is sorted, moving the left pointer right increases the possible sum.
+
+```
+Array: [1, 2, 4, 7, 9]
+           L        R
+
+2 + 9 = 11
+```
+
+We found the answer.
+
+### **Java implementation**
+
+```
+public class TwoSumSorted {
+
+    public static boolean twoSum(int[] arr, int target) {
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+
+            int sum = arr[left] + arr[right];
+
+            if (sum == target) {
+                return true;
+            }
+
+            else if (sum < target) {
+                left++;
+            }
+
+            else {
+                right--;
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 4, 7, 9};
+
+        System.out.println(twoSum(arr, 11));
+    }
+}
+```
+
+**Output:**
+
+```
+true
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+### **Why does this work?**
+
+The array is sorted.
+
+When the sum is too small, the current right element is already the largest remaining candidate. Moving the right pointer left would only make the sum smaller. Therefore, we move the left pointer right.
+
+When the sum is too large, the current left element is already the smallest remaining candidate. Moving the left pointer right would only make the sum larger. Therefore, we move the right pointer left.
+
+This reasoning is the basis of the algorithm's correctness.
+
+**Important:** This implementation requires a sorted array. It does not directly work on an arbitrary unsorted array.
+
+## **2.2 Palindrome Checking Using Two Pointers**
+
+A palindrome reads the same forward and backward.
+
+Examples:
+
+```
+"madam"  → Palindrome
+"level"  → Palindrome
+"hello"  → Not a palindrome
+```
+
+We compare the first and last characters, then move inward.
+
+### **Java implementation**
+
+```
+public class Palindrome {
+
+    public static boolean isPalindrome(String str) {
+
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(isPalindrome("madam"));
+        System.out.println(isPalindrome("hello"));
+    }
+}
+```
+
+**Output:**
+
+```
+true
+false
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+The code checks exact character equality. A case-insensitive or punctuation-ignoring palindrome requires additional preprocessing or conditional character skipping.
+
+## **2.3 Reversing an Array In-Place**
+
+An in-place algorithm modifies the original array without creating another array of the same size.
+
+### **Example**
+
+```
+Original: [1, 2, 3, 4, 5]
+
+Reversed: [5, 4, 3, 2, 1]
+```
+
+We swap the elements at the two pointer positions.
+
+### **Java implementation**
+
+```
+public class ReverseArray {
+
+    public static void reverse(int[] arr) {
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+
+            int temp = arr[left];
+
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4, 5};
+
+        reverse(arr);
+
+        System.out.println(Arrays.toString(arr));
+    }
+}
+```
+
+Add this import:
+
+```
+import java.util.Arrays;
+```
+
+**Output:**
+
+```
+[5, 4, 3, 2, 1]
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+Only half of the array needs to be processed because every swap handles two elements.
+
+# **3. Fast and Slow Pointers**
+
+Fast and slow pointers are another variation of the two-pointer technique.
+
+Here, both pointers usually start at the same position but move at different speeds.
+
+```
+Slow pointer: Moves one step
+Fast pointer: Moves two steps
+```
+
+This technique is especially useful for linked lists and cycle-detection problems.
+
+## **3.1 Finding the Middle of a Linked List**
+
+Consider a linked list:
+
+```
+10 → 20 → 30 → 40 → 50 → null
+```
+
+We need to find the middle node.
+
+A straightforward solution counts the nodes and then traverses halfway through the list.
+
+However, fast and slow pointers allow us to find the middle in one traversal.
+
+### **Logic**
+
+- Slow moves one node.
+- Fast moves two nodes.
+- When fast reaches the end, slow is at the middle.
+
+```
+Initially:
+
+Slow
+Fast
+ ↓
+10 → 20 → 30 → 40 → 50
+```
+
+After one iteration:
+
+```
+     Slow
+          Fast
+       ↓    ↓
+10 → 20 → 30 → 40 → 50
+```
+
+When fast reaches the end, slow reaches the middle.
+
+### **Java implementation**
+
+```
+class ListNode {
+
+    int value;
+    ListNode next;
+
+    ListNode(int value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+public class MiddleOfLinkedList {
+
+    public static ListNode findMiddle(ListNode head) {
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+}
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+For an even number of nodes, this implementation returns the second middle node.
+
+## **3.2 Detecting a Cycle in a Linked List**
+
+A linked list normally ends with `null`.
+
+However, a cycle occurs when a node points back to an earlier node.
+
+Example:
+
+```
+10 → 20 → 30 → 40
+          ↑     ↓
+          ← ← ←
+```
+
+Here, the list never reaches `null`.
+
+### **Floyd's Cycle Detection Algorithm**
+
+This is also called the **Tortoise and Hare algorithm**.
+
+- Slow pointer moves one step.
+- Fast pointer moves two steps.
+- If a cycle exists, they eventually meet.
+- If fast reaches `null`, no cycle exists.
+
+### **Java implementation**
+
+```
+public class CycleDetection {
+
+    public static boolean hasCycle(ListNode head) {
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+Why is this efficient?
+
+A HashSet-based solution stores every visited node, requiring \(O(n)\) additional space. Floyd's algorithm only requires two references.
+
+## **3.3 Finding the Start of a Cycle**
+
+Floyd's algorithm can do more than detect a cycle.
+
+After slow and fast meet:
+
+1. Move one pointer back to the head.
+2. Keep the other pointer at the meeting node.
+3. Move both pointers one step at a time.
+4. Their next meeting point is the beginning of the cycle.
+
+### **Java implementation**
+
+```
+public class CycleStart {
+
+    public static ListNode detectCycle(ListNode head) {
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+
+                ListNode pointer = head;
+
+                while (pointer != slow) {
+                    pointer = pointer.next;
+                    slow = slow.next;
+                }
+
+                return pointer;
+            }
+        }
+
+        return null;
+    }
+}
+```
+
+This is a common interview question because it tests whether you understand the mathematics behind fast and slow pointers.
+
+# **4. Same-Direction Pointers**
+
+In same-direction two-pointer problems, both pointers move from left to right.
+
+Typically:
+
+- One pointer tracks the position where the next valid element should go.
+- Another pointer scans the array.
+
+This is useful for in-place modifications.
+
+## **4.1 Removing Duplicates from a Sorted Array**
+
+**Problem:** Remove duplicates from a sorted array without creating another array.
+
+Input:
+
+```
+[1, 1, 2, 2, 3, 4, 4]
+```
+
+Expected logical array:
+
+```
+[1, 2, 3, 4]
+```
+
+### **Pointer logic**
+
+- `i` tracks the last unique element.
+- `j` scans the remaining elements.
+- Whenever `arr[j]` differs from `arr[i]`, advance `i` and copy the new unique value.
+
+### **Java implementation**
+
+```
+public class RemoveDuplicates {
+
+    public static int removeDuplicates(int[] arr) {
+
+        if (arr.length == 0) {
+            return 0;
+        }
+
+        int i = 0;
+
+        for (int j = 1; j < arr.length; j++) {
+
+            if (arr[j] != arr[i]) {
+
+                i++;
+
+                arr[i] = arr[j];
+            }
+        }
+
+        return i + 1;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 1, 2, 2, 3, 4, 4};
+
+        int size = removeDuplicates(arr);
+
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+```
+
+**Output:**
+
+```
+1 2 3 4
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+Notice that the array may still contain old values after the returned logical length. Only the first `size` positions represent the deduplicated result.
+
+## **4.2 Moving Zeroes to the End**
+
+**Problem:** Move all zeroes to the end while maintaining the relative order of nonzero elements.
+
+Input:
+
+```
+[0, 1, 0, 3, 12]
+```
+
+Expected output:
+
+```
+[1, 3, 12, 0, 0]
+```
+
+### **Java implementation**
+
+```
+public class MoveZeroes {
+
+    public static void moveZeroes(int[] arr) {
+
+        int position = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] != 0) {
+
+                int temp = arr[position];
+
+                arr[position] = arr[i];
+                arr[i] = temp;
+
+                position++;
+            }
+        }
+    }
+}
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+The scanning pointer finds nonzero values, while the second pointer identifies where the next nonzero value belongs.
+
+## **4.3 When to Use Same-Direction Pointers**
+
+Recognize this pattern when the problem asks you to:
+
+- Remove duplicates.
+- Remove certain elements in-place.
+- Move zeroes.
+- Partition an array.
+- Separate positive and negative numbers.
+- Compact valid elements towards the beginning.
+- Maintain a filtered array without allocating another array.
+
+# **5. Sliding Window Fundamentals**
+
+Sliding window is one of the most important patterns for array and string problems.
+
+It is used when we need to examine **contiguous ranges** efficiently.
+
+A window is a range represented by two pointers:
+
+```
+[left, right]
+```
+
+Instead of recalculating information for every possible subarray, we update the existing window as it moves.
+
+## **5.1 Why Sliding Window Is Needed**
+
+Consider:
+
+```
+Array: [2, 1, 5, 1, 3, 2]
+```
+
+**Problem:** Find the maximum sum of any three consecutive elements.
+
+A brute-force approach calculates every group of three elements independently.
+
+```
+2 + 1 + 5 = 8
+1 + 5 + 1 = 7
+5 + 1 + 3 = 9
+1 + 3 + 2 = 6
+```
+
+The maximum is `9`.
+
+With sliding window, we calculate the first window once and then update it.
+
+The first window:
+
+```
+[2, 1, 5] → Sum = 8
+```
+
+Move one position right:
+
+- Remove the outgoing element `2`.
+- Add the incoming element `1`.
+
+```
+[1, 5, 1] → 8 - 2 + 1 = 7
+```
+
+Move again:
+
+```
+[5, 1, 3] → 7 - 1 + 3 = 9
+```
+
+Move again:
+
+```
+[1, 3, 2] → 9 - 5 + 2 = 6
+```
+
+We avoided recalculating the entire sum for each window.
+
+## **5.2 Types of Sliding Windows**
+
+There are two major types.
+
+| Fixed-size window                      | Variable-size window                                    |
+| -------------------------------------- | ------------------------------------------------------- |
+| Window length is given                 | Window length changes                                   |
+| Add one element and remove one element | Expand and shrink based on a condition                  |
+| Example: Maximum sum of K elements     | Example: Longest substring without repeating characters |
+
+# **6. Fixed-Size Sliding Window**
+
+A fixed-size sliding window maintains exactly `K` elements.
+
+Typical questions include:
+
+- Maximum sum of K consecutive elements.
+- Minimum sum of K consecutive elements.
+- Average of every window of size K.
+- Maximum number of vowels in a substring of length K.
+
+## **6.1 Maximum Sum Subarray of Size K**
+
+**Problem:** Find the maximum sum of any contiguous subarray of size K.
+
+Input:
+
+```
+int[] arr = {2, 1, 5, 1, 3, 2};
+int k = 3;
+```
+
+Expected result:
+
+```
+9
+```
+
+### **Algorithm**
+
+1. Calculate the sum of the first `K` elements.
+2. Store this as the initial maximum.
+3. Move the window one position at a time.
+4. Subtract the outgoing element.
+5. Add the incoming element.
+6. Update the maximum.
+
+### **Java implementation**
+
+```
+public class MaximumSumWindow {
+
+    public static long maxSum(int[] arr, int k) {
+
+        if (arr == null || k <= 0 || k > arr.length) {
+            throw new IllegalArgumentException("Invalid window size");
+        }
+
+        long windowSum = 0;
+
+        for (int i = 0; i < k; i++) {
+            windowSum += arr[i];
+        }
+
+        long maxSum = windowSum;
+
+        for (int right = k; right < arr.length; right++) {
+
+            windowSum += arr[right];
+            windowSum -= arr[right - k];
+
+            maxSum = Math.max(maxSum, windowSum);
+        }
+
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {2, 1, 5, 1, 3, 2};
+
+        System.out.println(maxSum(arr, 3));
+    }
+}
+```
+
+**Output:**
+
+```
+9
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+### **Important edge cases**
+
+- `k = 1`: The answer is the largest individual element.
+- `k = arr.length`: The answer is the sum of the entire array.
+- All elements negative: Initialize the maximum using the first window, not zero.
+- `k > arr.length`: The requested window does not exist.
+
+Using `long` for the sum helps avoid integer overflow.
+
+## **6.2 Average of Every Window of Size K**
+
+The same technique works for averages.
+
+```
+public static double[] findAverages(int[] arr, int k) {
+
+    if (k <= 0 || k > arr.length) {
+        throw new IllegalArgumentException("Invalid window size");
+    }
+
+    double[] result = new double[arr.length - k + 1];
+
+    long sum = 0;
+
+    for (int i = 0; i < k; i++) {
+        sum += arr[i];
+    }
+
+    result[0] = (double) sum / k;
+
+    for (int right = k; right < arr.length; right++) {
+
+        sum += arr[right];
+        sum -= arr[right - k];
+
+        result[right - k + 1] = (double) sum / k;
+    }
+
+    return result;
+}
+```
+
+If the array contains `n` elements, the result contains `n - k + 1` averages.
+
+# **7. Variable-Size Sliding Window**
+
+Unlike a fixed window, a variable-size window changes its length according to a condition.
+
+The general pattern is:
+
+```
+int left = 0;
+
+for (int right = 0; right < arr.length; right++) {
+
+    // Add the new element to the window
+
+    while (/* window violates the condition */) {
+
+        // Remove the leftmost element
+
+        left++;
+    }
+
+    // Update the answer
+}
+```
+
+The exact condition depends on the problem.
+
+The important operations are:
+
+- Expand the window by moving `right`.
+- Shrink the window by moving `left`.
+- Update the answer when the current window is valid.
+
+## **7.1 Longest Subarray with Sum at Most K**
+
+Suppose all array elements are nonnegative.
+
+```
+Array: [2, 1, 3, 2, 1]
+K = 5
+```
+
+We want the longest contiguous subarray whose sum is at most `5`.
+
+A window may expand while its sum remains valid. When the sum exceeds `5`, remove elements from the left until it becomes valid again.
+
+### **Java implementation**
+
+```
+public static int longestSubarrayAtMostK(int[] arr, int k) {
+
+    int left = 0;
+    int sum = 0;
+    int maxLength = 0;
+
+    for (int right = 0; right < arr.length; right++) {
+
+        sum += arr[right];
+
+        while (sum > k && left <= right) {
+
+            sum -= arr[left];
+            left++;
+        }
+
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
+
+    return maxLength;
+}
+```
+
+**Complexity:**
+
+- Time: \(O(n)\)
+- Auxiliary space: \(O(1)\)
+
+**Why does it work?**
+
+The elements are nonnegative. Removing an element from the left cannot increase the window sum, so shrinking the window can restore validity.
+
+**Important limitation:** This reasoning does not work for arbitrary negative numbers. Adding a negative number can decrease the sum, while removing a negative number can increase it. For problems with negative values, consider prefix sums and other techniques.
+
+# **8. Longest Substring Without Repeating Characters**
+
+This is a classic interview problem.
+
+**Problem:** Find the length of the longest substring that contains no repeated characters.
+
+Input:
+
+```
+"abcabcbb"
+```
+
+Expected output:
+
+```
+3
+```
+
+Explanation:
+
+```
+"abc" → Length 3
+"bca" → Length 3
+"cab" → Length 3
+```
+
+No longer substring exists without repeating characters.
+
+## **8.1 Brute-Force Approach**
+
+Generate every possible substring and check whether it contains duplicate characters.
+
+This involves generating \(O(n^2)\) substrings and potentially checking up to \(O(n)\) characters for each one.
+
+**Time complexity:** \(O(n^3)\) in a straightforward implementation.
+
+We can improve this using a variable-size sliding window and a HashMap.
+
+## **8.2 Optimized Approach: Sliding Window + HashMap**
+
+Maintain a map storing the most recent index at which each character appeared.
+
+For example:
+
+```
+String: "abcabcbb"
+
+Character positions:
+a → 0
+b → 1
+c → 2
+```
+
+When a repeated character appears, move the left pointer beyond its previous occurrence, provided that occurrence is inside the current window.
+
+### **Java implementation**
+
+```
+import java.util.HashMap;
+import java.util.Map;
+
+public class LongestUniqueSubstring {
+
+    public static int lengthOfLongestSubstring(String s) {
+
+        Map<Character, Integer> lastSeen = new HashMap<>();
+
+        int left = 0;
+        int maxLength = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+
+            char current = s.charAt(right);
+
+            if (lastSeen.containsKey(current)) {
+
+                left = Math.max(
+                    left,
+                    lastSeen.get(current) + 1
+                );
+            }
+
+            lastSeen.put(current, right);
+
+            maxLength = Math.max(
+                maxLength,
+                right - left + 1
+            );
+        }
+
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(
+            lengthOfLongestSubstring("abcabcbb")
+        );
+    }
+}
+```
+
+**Output:**
+
+```
+3
+```
+
+**Complexity:**
+
+- Time: \(O(n)\) expected with HashMap operations.
+- Auxiliary space: \(O(min(n, character\ set\ size))\).
+
+### **Why do we use Math.max?**
+
+Consider:
+
+```
+"abba"
+```
+
+When the second `b` appears, the previous index of `b` is inside the current window, so `left` moves forward.
+
+Later, the final `a` appears. Its earlier occurrence is already outside the current window.
+
+We must not move `left` backwards.
+
+This is why we write:
+
+```
+left = Math.max(left, lastSeen.get(current) + 1);
+```
+
+### **Interview insight**
+
+This problem demonstrates an important combination:
+
+**Sliding Window + HashMap = Efficient substring tracking.**
+
+The sliding window determines the valid range, while the HashMap stores the information needed to decide how far to move the boundary.
+
+# **9. Minimum Window Substring**
+
+This is a more advanced sliding-window problem.
+
+**Problem:** Given two strings `s` and `t`, find the smallest substring of `s` that contains every character of `t`, including repeated occurrences.
+
+Example:
+
+```
+s = "ADOBECODEBANC"
+t = "ABC"
+```
+
+Expected result:
+
+```
+"BANC"
+```
+
+Why?
+
+- `"BANC"` contains A, B, and C.
+- Its length is 4.
+- No shorter valid substring exists.
+
+Notice that a valid window must respect character frequencies, not merely contain each distinct character.
+
+For example:
+
+```
+s = "AAB"
+t = "AAB"
+```
+
+The window must contain two `A` characters and one `B`.
+
+## **9.1 Approach**
+
+Use two frequency maps:
+
+- `need`: Required frequency of every character in `t`.
+- `window`: Current frequency inside the active substring.
+
+Also maintain:
+
+- `required`: Number of distinct characters that must reach their required frequency.
+- `formed`: Number of distinct characters that currently satisfy their required frequency.
+
+When `formed == required`, the current window is valid.
+
+Then try shrinking it to find the shortest valid answer.
+
+## **9.2 Java implementation**
+
+```
+import java.util.HashMap;
+import java.util.Map;
+
+public class MinimumWindowSubstring {
+
+    public static String minWindow(String s, String t) {
+
+        if (s.length() < t.length() || t.isEmpty()) {
+            return "";
+        }
+
+        Map<Character, Integer> need = new HashMap<>();
+        Map<Character, Integer> window = new HashMap<>();
+
+        for (char c : t.toCharArray()) {
+            need.put(c, need.getOrDefault(c, 0) + 1);
+        }
+
+        int required = need.size();
+        int formed = 0;
+
+        int left = 0;
+
+        int minLength = Integer.MAX_VALUE;
+        int minStart = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+
+            char current = s.charAt(right);
+
+            window.put(
+                current,
+                window.getOrDefault(current, 0) + 1
+            );
+
+            if (need.containsKey(current)
+                    && window.get(current).intValue()
+                       == need.get(current).intValue()) {
+
+                formed++;
+            }
+
+            while (formed == required) {
+
+                int currentLength = right - left + 1;
+
+                if (currentLength < minLength) {
+
+                    minLength = currentLength;
+                    minStart = left;
+                }
+
+                char leftChar = s.charAt(left);
+
+                window.put(
+                    leftChar,
+                    window.get(leftChar) - 1
+                );
+
+                if (need.containsKey(leftChar)
+                        && window.get(leftChar)
+                           < need.get(leftChar)) {
+
+                    formed--;
+                }
+
+                left++;
+            }
+        }
+
+        if (minLength == Integer.MAX_VALUE) {
+            return "";
+        }
+
+        return s.substring(minStart, minStart + minLength);
+    }
+
+    public static void main(String[] args) {
+
+        String s = "ADOBECODEBANC";
+        String t = "ABC";
+
+        System.out.println(minWindow(s, t));
+    }
+}
+```
+
+**Output:**
+
+```
+BANC
+```
+
+**Complexity:**
+
+- Time: \(O(n+m)\) expected with HashMap operations, where `n` and `m` are the lengths of `s` and `t`.
+- Auxiliary space: \(O(d)\), where `d` is the number of distinct characters tracked, bounded by the relevant character sets.
+
+### **Why does the inner while loop work?**
+
+The outer loop expands the window until it contains all required characters.
+
+Once valid, the inner loop removes characters from the left.
+
+It continues until removing another character would make the window invalid.
+
+This guarantees that we examine increasingly smaller valid windows as we progress.
+
+### **Important distinction**
+
+The longest-substring-without-repetition problem and minimum-window-substring problem both use variable-size windows, but their conditions differ:
+
+| Problem                              | Window condition                                        |
+| ------------------------------------ | ------------------------------------------------------- |
+| Longest substring without repetition | No character appears more than once                     |
+| Minimum window substring             | Every required character reaches its required frequency |
+
+Understanding the condition is more important than memorizing the template.
+
+# **10. Prefix Sum Arrays**
+
+Prefix sums are used to calculate cumulative information.
+
+They are especially useful when a problem asks for many range-sum queries.
+
+## **10.1 Basic Idea**
+
+Consider:
+
+```
+Array: [2, 4, 6, 8, 10]
+```
+
+Construct a prefix sum array.
+
+```
+Original: [2, 4, 6, 8, 10]
+
+Prefix:   [2, 6, 12, 20, 30]
+```
+
+Each prefix value represents the sum of all elements up to that index.
+
+Mathematically:
+
+\[ P[i] = a[0] + a[1] + \dots + a[i] \]
+
+For convenience, we usually create a prefix array of length `n + 1`.
+
+```
+Array:  [2, 4, 6, 8, 10]
+
+Prefix: [0, 2, 6, 12, 20, 30]
+         0  1  2   3   4   5
+```
+
+The extra zero makes range queries easier.
+
+The general formula is:
+
+\[ P[i+1] = P[i] + a[i] \]
+
+## **10.2 Calculating a Range Sum in O(1)**
+
+Suppose we need the sum of elements from index `1` to index `3`, inclusive.
+
+Original array:
+
+```
+[2, 4, 6, 8, 10]
+```
+
+Expected sum:
+
+```
+4 + 6 + 8 = 18
+```
+
+Using prefix sums:
+
+```
+Prefix: [0, 2, 6, 12, 20, 30]
+```
+
+Formula:
+
+\[ sum(l,r) = P[r+1] - P[l] \]
+
+Substitute:
+
+\[ sum(1,3) = P[4] - P[1] \]
+
+\[ =20-2=18 \]
+
+We can answer the query in constant time.
+
+## **10.3 Java implementation**
+
+```
+public class PrefixSum {
+
+    public static long[] buildPrefixSum(int[] arr) {
+
+        long[] prefix = new long[arr.length + 1];
+
+        for (int i = 0; i < arr.length; i++) {
+
+            prefix[i + 1] = prefix[i] + arr[i];
+        }
+
+        return prefix;
+    }
+
+    public static long rangeSum(
+            long[] prefix,
+            int left,
+            int right) {
+
+        if (left < 0 || right + 1 >= prefix.length
+                || left > right) {
+
+            throw new IllegalArgumentException("Invalid range");
+        }
+
+        return prefix[right + 1] - prefix[left];
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {2, 4, 6, 8, 10};
+
+        long[] prefix = buildPrefixSum(arr);
+
+        System.out.println(rangeSum(prefix, 1, 3));
+    }
+}
+```
+
+**Output:**
+
+```
+18
+```
+
+**Complexity:**
+
+| Operation                            | Time complexity |
+| ------------------------------------ | --------------- |
+| Build prefix sum                     | \(O(n)\)      |
+| Answer one range query               | \(O(1)\)      |
+| Answer Q queries after preprocessing | \(O(n+Q)\)    |
+| Additional storage                   | \(O(n)\)      |
+
+Prefix sums are especially useful when the array does not change between queries.
+
+# **11. 2D Prefix Sums**
+
+A normal prefix sum works with a one-dimensional array.
+
+A 2D prefix sum extends the same concept to matrices.
+
+It allows us to calculate the sum of any rectangular region in constant time after preprocessing.
+
+## **11.1 Example**
+
+Consider this matrix:
+
+```
+       C0  C1  C2
+R0     1   2   3
+R1     4   5   6
+R2     7   8   9
+```
+
+Suppose we want the sum of this rectangle:
+
+```
+5   6
+8   9
+```
+
+Expected result:
+
+\[ 5+6+8+9=28 \]
+
+Repeatedly iterating through each rectangle would be expensive when many queries are required.
+
+A 2D prefix sum solves this efficiently.
+
+## **11.2 Building a 2D Prefix Sum**
+
+Create a prefix matrix of dimensions:
+
+```
+(rows + 1) × (columns + 1)
+```
+
+For every cell:
+
+\[ P[i+1][j+1] = A[i][j] +P[i][j+1] +P[i+1][j] -P[i][j] \]
+
+The last term is subtracted because the top-left region has been counted twice.
+
+## **11.3 Rectangle Sum Formula**
+
+For a rectangle with inclusive coordinates:
+
+- Top row = `r1`
+- Left column = `c1`
+- Bottom row = `r2`
+- Right column = `c2`
+
+The formula is:
+
+\[ \begin{aligned} sum ={}& P[r2+1][c2+1]\\ &-P[r1][c2+1]\\ &-P[r2+1][c1]\\ &+P[r1][c1] \end{aligned} \]
+
+Think of this as inclusion-exclusion:
+
+1. Start with the entire prefix rectangle.
+2. Remove the area above the requested rectangle.
+3. Remove the area to its left.
+4. Add back the top-left overlap because it was removed twice.
+
+## **11.4 Java implementation**
+
+```
+public class MatrixPrefixSum {
+
+    public static long[][] buildPrefix(int[][] matrix) {
+
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        long[][] prefix = new long[rows + 1][cols + 1];
+
+        for (int i = 0; i < rows; i++) {
+
+            for (int j = 0; j < cols; j++) {
+
+                prefix[i + 1][j + 1] =
+                    matrix[i][j]
+                    + prefix[i][j + 1]
+                    + prefix[i + 1][j]
+                    - prefix[i][j];
+            }
+        }
+
+        return prefix;
+    }
+
+    public static long rectangleSum(
+            long[][] prefix,
+            int r1,
+            int c1,
+            int r2,
+            int c2) {
+
+        return prefix[r2 + 1][c2 + 1]
+             - prefix[r1][c2 + 1]
+             - prefix[r2 + 1][c1]
+             + prefix[r1][c1];
+    }
+
+    public static void main(String[] args) {
+
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        long[][] prefix = buildPrefix(matrix);
+
+        System.out.println(
+            rectangleSum(prefix, 1, 1, 2, 2)
+        );
+    }
+}
+```
+
+**Output:**
+
+```
+28
+```
+
+**Complexity:**
+
+- Building the prefix matrix: \(O(rows \times columns)\).
+- Each rectangle query: \(O(1)\).
+- Additional space: \(O(rows \times columns)\).
+
+**Real-world applications:**
+
+- Image processing.
+- 2D grid analysis.
+- Finding the sum of a rectangular region.
+- Heat maps.
+- Matrix-based competitive programming problems.
+
+# **12. Difference Arrays**
+
+A difference array is closely related to prefix sums.
+
+While prefix sums efficiently answer range-sum queries, difference arrays efficiently handle repeated range updates.
+
+Suppose we have:
+
+```
+[0, 0, 0, 0, 0]
+```
+
+We need to add `5` to every element from index `1` to index `3`.
+
+Expected result:
+
+```
+[0, 5, 5, 5, 0]
+```
+
+A straightforward implementation updates all three positions.
+
+But suppose we need thousands of range updates. Repeatedly traversing each range may become expensive.
+
+A difference array lets us represent each update using only two changes.
+
+## **12.1 Difference Array Concept**
+
+For an array `arr`, define:
+
+\[ diff[0]=arr[0] \]
+
+\[ diff[i]=arr[i]-arr[i-1] \]
+
+For the original array:
+
+```
+Array: [0, 0, 0, 0, 0]
+
+Diff:  [0, 0, 0, 0, 0]
+```
+
+To add `5` from index `1` through index `3`:
+
+```
+diff[1] += 5
+diff[4] -= 5
+```
+
+The updated difference array becomes:
+
+```
+Diff: [0, 5, 0, 0, -5]
+```
+
+Take the running sum:
+
+```
+Index 0:  0
+Index 1:  5
+Index 2:  5
+Index 3:  5
+Index 4:  0
+```
+
+The resulting array is:
+
+```
+[0, 5, 5, 5, 0]
+```
+
+## **12.2 General Formula**
+
+For a range update:
+
+\[ [l,r] \text{ add } x \]
+
+Apply:
+
+\[ diff[l] += x \]
+
+If `r + 1` is inside the array:
+
+\[ diff[r+1] -= x \]
+
+After processing every update, compute the prefix sum of the difference array to reconstruct the final values.
+
+## **12.3 Java implementation**
+
+```
+import java.util.Arrays;
+
+public class DifferenceArray {
+
+    public static void rangeAdd(
+            long[] diff,
+            int left,
+            int right,
+            long value) {
+
+        diff[left] += value;
+
+        if (right + 1 < diff.length) {
+            diff[right + 1] -= value;
+        }
+    }
+
+    public static long[] buildResult(long[] diff) {
+
+        long[] result = new long[diff.length];
+
+        result[0] = diff[0];
+
+        for (int i = 1; i < diff.length; i++) {
+
+            result[i] = result[i - 1] + diff[i];
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        int n = 5;
+
+        long[] diff = new long[n];
+
+        rangeAdd(diff, 1, 3, 5);
+
+        long[] result = buildResult(diff);
+
+        System.out.println(Arrays.toString(result));
+    }
+}
+```
+
+**Output:**
+
+```
+[0, 5, 5, 5, 0]
+```
+
+**Complexity:**
+
+For `Q` range updates:
+
+- Each update: \(O(1)\).
+- Reconstructing the final array: \(O(n)\).
+- Total: \(O(n+Q)\).
+- Auxiliary space: \(O(n)\).
+
+### **Difference Arrays vs Prefix Sums**
+
+| Prefix Sum                          | Difference Array                        |
+| ----------------------------------- | --------------------------------------- |
+| Efficient range-sum queries         | Efficient range updates                 |
+| Precompute cumulative totals        | Record changes at boundaries            |
+| Query uses subtraction              | Reconstruction uses cumulative addition |
+| Usually assumes the array is static | Particularly useful for batch updates   |
+
+# **13. Prefix XOR**
+
+Prefix XOR is similar to prefix sum, but it uses the XOR operator.
+
+The XOR operator is written as:
+
+```
+^
+```
+
+Its basic properties are:
+
+```
+0 ^ a = a
+a ^ a = 0
+a ^ 0 = a
+```
+
+XOR is commutative and associative:
+
+\[ a \oplus b = b \oplus a \]
+
+\[ (a \oplus b)\oplus c = a\oplus(b\oplus c) \]
+
+These properties make range-XOR queries efficient.
+
+## **13.1 Building Prefix XOR**
+
+For an array:
+
+```
+[2, 3, 5, 7]
+```
+
+Define:
+
+```
+prefix[0] = 0
+prefix[i + 1] = prefix[i] ^ arr[i]
+```
+
+Result:
+
+```
+Array:       [2, 3, 5, 7]
+Prefix XOR: [0, 2, 1, 4, 3]
+```
+
+## **13.2 Range XOR Formula**
+
+To calculate XOR from index `left` to index `right`:
+
+\[ XOR(left,right)=P[right+1]\oplus P[left] \]
+
+Example:
+
+```
+Array = [2, 3, 5, 7]
+```
+
+XOR from index `1` through `3`:
+
+\[ 3\oplus5\oplus7=1 \]
+
+Using prefix XOR:
+
+\[ P[4]\oplus P[1] \]
+
+\[ =3\oplus2=1 \]
+
+## **13.3 Java implementation**
+
+```
+public class PrefixXOR {
+
+    public static int[] buildPrefixXOR(int[] arr) {
+
+        int[] prefix = new int[arr.length + 1];
+
+        for (int i = 0; i < arr.length; i++) {
+
+            prefix[i + 1] = prefix[i] ^ arr[i];
+        }
+
+        return prefix;
+    }
+
+    public static int rangeXOR(
+            int[] prefix,
+            int left,
+            int right) {
+
+        return prefix[right + 1] ^ prefix[left];
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {2, 3, 5, 7};
+
+        int[] prefix = buildPrefixXOR(arr);
+
+        System.out.println(rangeXOR(prefix, 1, 3));
+    }
+}
+```
+
+**Output:**
+
+```
+1
+```
+
+**Complexity:**
+
+- Building prefix XOR: \(O(n)\).
+- Each range query: \(O(1)\).
+- Additional space: \(O(n)\).
+
+## **13.4 Where Prefix XOR Is Useful**
+
+- Range XOR queries.
+- Finding XOR of all subarrays.
+- Detecting repeated values using XOR properties in special problems.
+- Bitwise competitive programming problems.
+- XOR-based subarray counting.
+
+# **14. Subarray Sum Problems**
+
+Subarray sum problems are among the most common uses of prefix sums and sliding windows.
+
+The correct technique depends on the properties of the array and the question.
+
+Consider:
+
+```
+Array: [1, 2, 3, 4]
+```
+
+Some possible questions:
+
+- Find a subarray with sum equal to K.
+- Count subarrays with sum equal to K.
+- Find the longest subarray with sum K.
+- Find the shortest subarray with sum at least K.
+- Find the maximum-sum subarray.
+
+These questions may look similar, but their solutions are different.
+
+## **14.1 Count Subarrays with Sum Equal to K**
+
+**Problem:** Count how many contiguous subarrays have a sum equal to `K`.
+
+Input:
+
+```
+arr = [1, 2, 3]
+K = 3
+```
+
+Subarrays:
+
+```
+[1, 2] → Sum 3
+[3]    → Sum 3
+```
+
+Expected result:
+
+```
+2
+```
+
+### **Prefix Sum + HashMap**
+
+Let the current prefix sum be `prefix`.
+
+If an earlier prefix sum was:
+
+\[ prefix-K \]
+
+then the elements between that earlier position and the current position have sum `K`.
+
+In other words:
+
+\[ currentPrefix-previousPrefix=K \]
+
+Rearranging:
+
+\[ previousPrefix=currentPrefix-K \]
+
+We can store the frequency of previously seen prefix sums in a HashMap.
+
+### **Java implementation**
+
+```
+import java.util.HashMap;
+import java.util.Map;
+
+public class SubarraySumEqualsK {
+
+    public static long subarraySum(int[] nums, int k) {
+
+        Map<Long, Integer> frequency = new HashMap<>();
+
+        frequency.put(0L, 1);
+
+        long prefix = 0;
+        long count = 0;
+
+        for (int num : nums) {
+
+            prefix += num;
+
+            count += frequency.getOrDefault(
+                prefix - k,
+                0
+            );
+
+            frequency.put(
+                prefix,
+                frequency.getOrDefault(prefix, 0) + 1
+            );
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3};
+
+        System.out.println(subarraySum(arr, 3));
+    }
+}
+```
+
+**Output:**
+
+```
+2
+```
+
+### **Why initialize the map with `0 → 1`?**
+
+This represents an empty prefix before the array begins.
+
+Without it, we would fail to count a valid subarray that starts at index `0`.
+
+### **Why is this better than sliding window?**
+
+Because this technique works with negative numbers too.
+
+Example:
+
+```
+[2, -1, 2]
+```
+
+With negative values, adding a new element does not always increase the window sum. Therefore, the usual sliding-window shrinking rule may fail.
+
+Prefix sums do not depend on all elements being nonnegative.
+
+**Complexity:**
+
+- Time: \(O(n)\) expected.
+- Auxiliary space: \(O(n)\).
+
+## **14.2 Longest Subarray with Sum Equal to K**
+
+This problem is similar, but we want the maximum length instead of the count.
+
+### **Key idea**
+
+Store the earliest index at which each prefix sum appears.
+
+Why the earliest index?
+
+Suppose the same prefix sum occurs at indices `2` and `7`.
+
+To obtain the longest possible range ending at some later index, we prefer the earlier occurrence.
+
+### **Java implementation**
+
+```
+import java.util.HashMap;
+import java.util.Map;
+
+public class LongestSubarraySumK {
+
+    public static int longestSubarray(int[] arr, long k) {
+
+        Map<Long, Integer> firstIndex = new HashMap<>();
+
+        firstIndex.put(0L, -1);
+
+        long prefix = 0;
+        int maxLength = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            prefix += arr[i];
+
+            long required = prefix - k;
+
+            if (firstIndex.containsKey(required)) {
+
+                int length = i - firstIndex.get(required);
+
+                maxLength = Math.max(maxLength, length);
+            }
+
+            firstIndex.putIfAbsent(prefix, i);
+        }
+
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, -1, 5, -2, 3};
+
+        System.out.println(longestSubarray(arr, 3));
+    }
+}
+```
+
+**Output:**
+
+```
+4
+```
+
+One longest valid subarray is:
+
+```
+[1, -1, 5, -2]
+```
+
+Its sum is `3`, and its length is `4`.
+
+**Complexity:**
+
+- Time: \(O(n)\) expected.
+- Auxiliary space: \(O(n)\).
+
+**Important distinction:** When array elements are nonnegative, a sliding window may solve some longest or shortest sum problems. For arrays containing negatives, prefix sums with a HashMap are often more appropriate.
+
+# **15. Pair Sum and Triplet Sum Problems**
+
+Pair sum and triplet sum are important problems that frequently use sorting and two pointers.
+
+## **15.1 Pair Sum**
+
+**Problem:** Find two elements whose sum equals a target.
+
+There are two main approaches.
+
+### **Approach 1: HashMap**
+
+For each element, calculate:
+
+\[ needed=target-current \]
+
+Check whether the required value has already been seen.
+
+```
+import java.util.HashMap;
+import java.util.Map;
+
+public class TwoSumHashMap {
+
+    public static int[] twoSum(int[] nums, int target) {
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+
+            int needed = target - nums[i];
+
+            if (map.containsKey(needed)) {
+
+                return new int[] {
+                    map.get(needed),
+                    i
+                };
+            }
+
+            map.put(nums[i], i);
+        }
+
+        return new int[] {-1, -1};
+    }
+}
+```
+
+**Complexity:**
+
+- Time: \(O(n)\) expected.
+- Auxiliary space: \(O(n)\).
+
+This approach works without sorting and can return original indices.
+
+### **Approach 2: Sorting + Two Pointers**
+
+Sort the array, set pointers at both ends, and adjust them based on the sum.
+
+- Time: \(O(n\log n)\) including sorting.
+- Auxiliary space: Depends on the sorting implementation and whether the original array is modified.
+
+This is convenient when the problem is focused on finding values rather than preserving original indices.
+
+## **15.2 Three Sum**
+
+**Problem:** Find all unique triplets whose sum equals zero.
+
+Input:
+
+```
+[-1, 0, 1, 2, -1, -4]
+```
+
+Expected answer:
+
+```
+[-1, -1, 2]
+[-1, 0, 1]
+```
+
+### **Brute-force approach**
+
+Use three nested loops.
+
+**Time complexity:** \(O(n^3)\).
+
+### **Optimized approach**
+
+1. Sort the array.
+2. Fix one element at index `i`.
+3. Use two pointers for the remaining array.
+4. Move pointers based on the sum.
+5. Skip duplicates to avoid repeated triplets.
+
+### **Java implementation**
+
+```
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ThreeSum {
+
+    public static List<List<Integer>> threeSum(int[] nums) {
+
+        Arrays.sort(nums);
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        for (int i = 0; i < nums.length - 2; i++) {
+
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            int left = i + 1;
+            int right = nums.length - 1;
+
+            while (left < right) {
+
+                long sum = (long) nums[i]
+                         + nums[left]
+                         + nums[right];
+
+                if (sum == 0) {
+
+                    result.add(Arrays.asList(
+                        nums[i],
+                        nums[left],
+                        nums[right]
+                    ));
+
+                    left++;
+                    right--;
+
+                    while (left < right
+                            && nums[left] == nums[left - 1]) {
+                        left++;
+                    }
+
+                    while (left < right
+                            && nums[right] == nums[right + 1]) {
+                        right--;
+                    }
+                }
+
+                else if (sum < 0) {
+                    left++;
+                }
+
+                else {
+                    right--;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {-1, 0, 1, 2, -1, -4};
+
+        System.out.println(threeSum(nums));
+    }
+}
+```
+
+**Output:**
+
+```
+[[-1, -1, 2], [-1, 0, 1]]
+```
+
+**Complexity:**
+
+- Sorting: \(O(n\log n)\).
+- Main algorithm: \(O(n^2)\).
+- Total: \(O(n^2)\).
+- Additional working space: \(O(1)\) apart from sorting, excluding the output list.
+
+### **Why skip duplicates?**
+
+Without duplicate handling, an input containing multiple copies of the same value could produce the same triplet repeatedly.
+
+We skip duplicates at three levels:
+
+- The fixed element.
+- The left pointer value.
+- The right pointer value.
+
+### **Other important variations**
+
+Once you understand Three Sum, you can learn:
+
+- Three Sum Closest.
+- Four Sum.
+- Pair Sum in a Sorted Array.
+- Count Pairs with a Given Sum.
+- Count Triplets with a Smaller Sum.
+- K-Sum problems.
+
+The general idea is to reduce the number of free variables by fixing one or more elements and using the remaining structure to search efficiently.
+
+# **16. Kadane's Algorithm**
+
+Kadane's algorithm finds the maximum sum of a contiguous subarray.
+
+It is one of the most important array algorithms in DSA.
+
+**Problem:**
+
+Given an integer array, find the maximum possible sum of a nonempty contiguous subarray.
+
+Example:
+
+```
+[-2, 1, -3, 4, -1, 2, 1, -5, 4]
+```
+
+Expected answer:
+
+```
+6
+```
+
+The maximum-sum subarray is:
+
+```
+[4, -1, 2, 1]
+```
+
+Its sum is:
+
+\[ 4-1+2+1=6 \]
+
+## **16.1 Brute-Force Approach**
+
+Generate every subarray and calculate its sum.
+
+There are \(O(n^2)\) possible subarrays, but calculating each independently may take another \(O(n)\).
+
+**Time complexity:** \(O(n^3)\).
+
+Using a running sum for each starting index can improve this to \(O(n^2)\).
+
+However, Kadane's algorithm solves it in \(O(n)\).
+
+## **16.2 Core Idea**
+
+At every position, ask:
+
+Should we:
+
+1. Extend the previous subarray?
+2. Start a new subarray from the current element?
+
+The recurrence is:
+
+\[ currentSum= \max(arr[i], currentSum+arr[i]) \]
+
+Then update the global maximum:
+
+\[ maxSum=\max(maxSum,currentSum) \]
+
+In plain language:
+
+- If the previous running sum makes the current subarray better, continue it.
+- Otherwise, discard the previous subarray and start again.
+
+## **16.3 Step-by-Step Example**
+
+Array:
+
+```
+[-2, 1, -3, 4, -1, 2, 1, -5, 4]
+```
+
+| Element | Best sum ending here | Overall maximum |
+| ------- | -------------------- | --------------- |
+| -2      | -2                   | -2              |
+| 1       | 1                    | 1               |
+| -3      | -2                   | 1               |
+| 4       | 4                    | 4               |
+| -1      | 3                    | 4               |
+| 2       | 5                    | 5               |
+| 1       | 6                    | 6               |
+| -5      | 1                    | 6               |
+| 4       | 5                    | 6               |
+
+Final result:
+
+```
+6
+```
+
+## **16.4 Java implementation**
+
+```
+public class KadaneAlgorithm {
+
+    public static long maxSubarraySum(int[] arr) {
+
+        if (arr == null || arr.length == 0) {
+            throw new IllegalArgumentException("Array cannot be empty");
+        }
+
+        long currentSum = arr[0];
+        long maxSum = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+
+            currentSum = Math.max(
+                arr[i],
+                currentSum + arr[i]
+            );
+
+            maxSum = Math.max(maxSum, currentSum);
+        }
+
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {
+            -2, 1, -3, 4, -1, 2, 1, -5, 4
+        };
+
+        System.out.println(maxSubarraySum(arr));
+    }
+}
+```
+
+**Output:**
+
+```
+6
+```
+
+**Complexity:**
+
+- Time: \(O(n)\).
+- Auxiliary space: \(O(1)\).
+
+### **Why initialize with the first element instead of zero?**
+
+Consider:
+
+```
+[-5, -2, -8, -1]
+```
+
+The correct maximum nonempty subarray sum is:
+
+```
+-1
+```
+
+If we initialize the maximum to zero, we incorrectly report zero by effectively choosing an empty subarray.
+
+Initializing with the first element handles all-negative arrays correctly.
+
+## **16.5 Returning the Actual Maximum-Sum Subarray**
+
+Sometimes an interviewer asks for the subarray itself, not just its sum.
+
+We can track the starting and ending indices.
+
+```
+public class KadaneWithIndices {
+
+    public static void findMaxSubarray(int[] arr) {
+
+        if (arr == null || arr.length == 0) {
+            throw new IllegalArgumentException("Array cannot be empty");
+        }
+
+        long currentSum = arr[0];
+        long maxSum = arr[0];
+
+        int start = 0;
+        int bestStart = 0;
+        int bestEnd = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+
+            if (arr[i] > currentSum + arr[i]) {
+
+                currentSum = arr[i];
+                start = i;
+            }
+
+            else {
+                currentSum += arr[i];
+            }
+
+            if (currentSum > maxSum) {
+
+                maxSum = currentSum;
+
+                bestStart = start;
+                bestEnd = i;
+            }
+        }
+
+        System.out.println("Maximum Sum: " + maxSum);
+
+        System.out.print("Subarray: ");
+
+        for (int i = bestStart; i <= bestEnd; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {
+            -2, 1, -3, 4, -1, 2, 1, -5, 4
+        };
+
+        findMaxSubarray(arr);
+    }
+}
+```
+
+**Output:**
+
+```
+Maximum Sum: 6
+Subarray: 4 -1 2 1
+```
+
+## **16.6 Kadane's Algorithm and Dynamic Programming**
+
+Kadane's algorithm can be understood as a space-optimized dynamic programming solution.
+
+Define:
+
+\[ dp[i]=\text{maximum subarray sum ending exactly at index } i \]
+
+Then:
+
+\[ dp[i]=\max(arr[i],dp[i-1]+arr[i]) \]
+
+We only need the previous DP state to calculate the next one. Therefore, we do not need to store the entire DP array.
+
+This is why Kadane's algorithm uses constant auxiliary space.
+
+# **17. Subarray Optimization Techniques**
+
+The most important skill in this module is knowing which pattern to use.
+
+Several problems look almost identical but require different algorithms.
+
+## **17.1 Technique Selection**
+
+| Requirement                                       | Recommended technique                        |
+| ------------------------------------------------- | -------------------------------------------- |
+| Maximum sum of exactly K consecutive elements     | Fixed-size sliding window                    |
+| Minimum sum of exactly K consecutive elements     | Fixed-size sliding window                    |
+| Longest substring without repetition              | Variable-size sliding window + HashMap       |
+| Smallest substring containing required characters | Variable-size sliding window + frequency map |
+| Pair sum in a sorted array                        | Opposite-direction two pointers              |
+| Triplets with a target sum                        | Sorting + two pointers                       |
+| Remove duplicates in-place                        | Same-direction two pointers                  |
+| Find the middle of a linked list                  | Fast and slow pointers                       |
+| Detect a linked-list cycle                        | Floyd's cycle detection                      |
+| Many static range-sum queries                     | Prefix sums                                  |
+| Many static matrix rectangle queries              | 2D prefix sums                               |
+| Count subarrays with sum K                        | Prefix sums + HashMap                        |
+| Longest subarray with sum K                       | Prefix sums + earliest-index HashMap         |
+| Many range additions                              | Difference arrays                            |
+| Range XOR queries                                 | Prefix XOR                                   |
+| Maximum-sum contiguous subarray                   | Kadane's algorithm                           |
+
+## **17.2 When Sliding Window Is Better Than Prefix Sum**
+
+Consider the problem:
+
+**Find the maximum sum of any K consecutive elements.**
+
+Both prefix sums and sliding windows can solve it.
+
+However:
+
+- Prefix sums require an \(O(n)\) preprocessing array.
+- A sliding window only needs the current sum and maximum sum.
+- Sliding window provides \(O(1)\) auxiliary space.
+
+Now consider:
+
+**Answer 100,000 arbitrary range-sum queries on a static array.**
+
+Prefix sums are better because each query takes \(O(1)\).
+
+The lesson is that you should select the technique according to the operation being repeated.
+
+## **17.3 When a HashMap Is Needed**
+
+A HashMap is especially useful when you need to remember information about previously visited elements.
+
+Examples:
+
+- Last occurrence of a character.
+- Frequency of a prefix sum.
+- First index of a prefix sum.
+- Frequency of elements inside a window.
+
+It often works together with two pointers, sliding windows, or prefix sums.
+
+## **17.4 Monotonic Deque: An Advanced Window Optimization**
+
+Sometimes a sliding-window problem needs the maximum or minimum element inside each window.
+
+A normal window sum is easy to update using addition and subtraction. But the maximum element cannot be updated that way.
+
+A **monotonic deque** maintains candidate indices in increasing or decreasing order.
+
+For example, to find the maximum value in every window of size K:
+
+```
+Array: [1, 3, -1, -3, 5, 3, 6, 7]
+K = 3
+```
+
+Expected result:
+
+```
+[3, 3, 5, 5, 6, 7]
+```
+
+A decreasing deque keeps the largest candidates at the front and removes smaller candidates from the back.
+
+This can solve the problem in:
+
+- Time: \(O(n)\).
+- Auxiliary space: \(O(k)\).
+
+This is an important advanced extension of sliding-window thinking.
+
+# **18. Complexity Comparison**
+
+Understanding time and space complexity helps you select the correct algorithm during interviews.
+
+| Algorithm or technique       | Typical time                                     | Auxiliary space                        |
+| ---------------------------- | ------------------------------------------------ | -------------------------------------- |
+| Brute-force pair search      | \(O(n^2)\)                                     | \(O(1)\)                             |
+| Sorted-array two pointers    | \(O(n)\)                                       | \(O(1)\)                             |
+| HashMap Two Sum              | \(O(n)\) expected                              | \(O(n)\)                             |
+| Three Sum                    | \(O(n^2)\)                                     | Excluding output and sorting workspace |
+| Palindrome with two pointers | \(O(n)\)                                       | \(O(1)\)                             |
+| Linked-list fast and slow    | \(O(n)\)                                       | \(O(1)\)                             |
+| In-place duplicate removal   | \(O(n)\)                                       | \(O(1)\)                             |
+| Fixed-size sliding window    | \(O(n)\)                                       | \(O(1)\)                             |
+| Sliding window + HashMap     | \(O(n)\) expected                              | \(O(d)\)                             |
+| Prefix sums                  | \(O(n)\) preprocessing                         | \(O(n)\)                             |
+| 2D prefix sums               | \(O(RC)\) preprocessing                        | \(O(RC)\)                            |
+| Difference array             | \(O(1)\) per update, \(O(n)\) reconstruction | \(O(n)\)                             |
+| Prefix XOR                   | \(O(n)\) preprocessing                         | \(O(n)\)                             |
+| Prefix sum + HashMap         | \(O(n)\) expected                              | \(O(n)\)                             |
+| Kadane's algorithm           | \(O(n)\)                                       | \(O(1)\)                             |
+
+Here, `d` represents the number of distinct characters or keys stored in the relevant map.
+
+# **19. Common Mistakes and Interview Traps**
+
+Understanding these mistakes will help you avoid incorrect solutions.
+
+## **19.1 Using Two Pointers on an Unsorted Array**
+
+The standard opposite-direction pair-sum algorithm depends on sorted order.
+
+On an unsorted array, moving a pointer does not predictably increase or decrease the sum.
+
+**Solution:** Sort the array when original indices are not important, or use a HashMap.
+
+## **19.2 Forgetting to Skip Duplicates in Three Sum**
+
+The algorithm may discover the same triplet multiple times.
+
+**Solution:** Skip duplicate fixed values and duplicate left and right values after finding a valid triplet.
+
+## **19.3 Incorrect Sliding Window Conditions**
+
+Do not assume every subarray problem can use the standard variable-window pattern.
+
+For example, when negative values are present, shrinking a window may increase its sum.
+
+**Solution:** Check whether the problem's condition is monotonic as the window expands and shrinks. Use prefix sums or more advanced techniques when appropriate.
+
+## **19.4 Incorrect Prefix Sum Indexing**
+
+The most common mistake is mixing inclusive and exclusive indices.
+
+With a prefix array of length `n + 1`:
+
+\[ sum(l,r)=prefix[r+1]-prefix[l] \]
+
+This formula assumes both `l` and `r` are inclusive.
+
+## **19.5 Forgetting the Initial Prefix Sum**
+
+For subarray-sum counting:
+
+```
+frequency.put(0L, 1);
+```
+
+is necessary to count subarrays beginning at index zero.
+
+## **19.6 Overwriting the Earliest Prefix-Sum Index**
+
+For longest subarray with sum K, use:
+
+```
+firstIndex.putIfAbsent(prefix, i);
+```
+
+Do not overwrite an earlier occurrence. The earliest index can produce the longest range.
+
+## **19.7 Incorrect Initialization in Kadane's Algorithm**
+
+Do not initialize the maximum to zero when the problem requires a nonempty subarray.
+
+Use:
+
+```
+long currentSum = arr[0];
+long maxSum = arr[0];
+```
+
+## **19.8 Integer Overflow**
+
+A sum of many `int` values can exceed the `int` range.
+
+Use `long` for:
+
+- Prefix sums.
+- Subarray sums.
+- Running window sums.
+- Large target calculations where necessary.
+
+In Three Sum, the three values are also converted to `long` before addition.
+
+## **19.9 Confusing Window Length and Window Index**
+
+For an inclusive window:
+
+\[ length=right-left+1 \]
+
+For a range using an exclusive right boundary:
+
+\[ length=right-left \]
+
+Be consistent throughout the implementation.
+
+# **20. Worked Interview Problem-Solving Examples**
+
+Let's compare how different patterns approach similar-looking questions.
+
+## **Problem A — Maximum Sum of K Consecutive Elements**
+
+```
+Array: [4, 2, 1, 7, 8, 1, 2]
+K = 3
+```
+
+Use fixed-size sliding window.
+
+```
+long sum = 0;
+long maxSum;
+
+for (int i = 0; i < k; i++) {
+    sum += arr[i];
+}
+
+maxSum = sum;
+
+for (int i = k; i < arr.length; i++) {
+
+    sum += arr[i];
+    sum -= arr[i - k];
+
+    maxSum = Math.max(maxSum, sum);
+}
+```
+
+Expected result:
+
+```
+16
+```
+
+The maximum window is:
+
+```
+[7, 8, 1]
+```
+
+## **Problem B — Count Subarrays with Sum K**
+
+```
+Array: [1, 2, 1, 2]
+K = 3
+```
+
+Use prefix sums and a frequency HashMap.
+
+Valid subarrays:
+
+```
+[1, 2]
+[2, 1]
+[1, 2]
+```
+
+Expected result:
+
+```
+3
+```
+
+## **Problem C — Find the Maximum Subarray Sum**
+
+```
+Array: [-2, 3, -1, 5, -6]
+```
+
+Use Kadane's algorithm.
+
+Maximum subarray:
+
+```
+[3, -1, 5]
+```
+
+Expected result:
+
+```
+7
+```
+
+## **Problem D — Find Two Elements in a Sorted Array**
+
+```
+Array: [1, 3, 4, 6, 8, 10]
+Target = 14
+```
+
+Use opposite-direction pointers.
+
+```
+4 + 10 = 14
+```
+
+Expected result:
+
+```
+[4, 10]
+```
+
+## **Problem E — Find the Smallest Substring Containing All Required Characters**
+
+```
+s = "ADOBECODEBANC"
+t = "ABC"
+```
+
+Use variable-size sliding window and frequency tracking.
+
+Expected result:
+
+```
+"BANC"
+```
+
+The important lesson is that you should identify the problem's requirements first, rather than force every array problem into a single pattern.
+
+# **21. Practice Problems**
+
+These problems are designed to build from basic implementation to advanced interview-level problem solving.
+
+## **Level 1 — Fundamentals**
+
+1. Reverse an array using two pointers.
+2. Check whether a string is a palindrome.
+3. Find two numbers with a target sum in a sorted array.
+4. Remove duplicates from a sorted array.
+5. Move all zeroes to the end.
+6. Find the middle node of a linked list.
+7. Detect a cycle in a linked list.
+
+## **Level 2 — Sliding Window**
+
+8. Maximum sum subarray of size K.
+9. Minimum sum subarray of size K.
+10. Average of all subarrays of size K.
+11. Longest substring without repeating characters.
+12. Longest subarray with at most K distinct elements.
+13. Minimum-size subarray with sum at least a target, assuming positive elements.
+
+## **Level 3 — Prefix Sums**
+
+14. Build a prefix sum array.
+15. Answer multiple range-sum queries.
+16. Find the equilibrium index of an array.
+17. Count subarrays with sum equal to K.
+18. Find the longest subarray with sum K.
+19. Perform range updates using a difference array.
+20. Answer range XOR queries.
+
+## **Level 4 — Advanced Interview Problems**
+
+21. Three Sum.
+22. Three Sum Closest.
+23. Four Sum.
+24. Minimum Window Substring.
+25. Maximum Subarray — Kadane's Algorithm.
+26. Sliding Window Maximum.
+27. Count subarrays with XOR equal to K.
+28. Maximum sum of a circular subarray.
+29. Maximum sum of two non-overlapping subarrays.
+30. Maximum sum rectangle in a 2D matrix.
+
+# **22. Important Concepts to Remember**
+
+**Two Pointers**
+
+Use two indices to reduce unnecessary comparisons.
+
+- Opposite direction: Sorted pair sum, palindrome, reversing.
+- Fast and slow: Linked-list middle and cycle detection.
+- Same direction: Removing duplicates, moving zeroes.
+
+**Sliding Window**
+
+Maintain a contiguous range and update it as it moves.
+
+- Fixed window: Exactly K elements.
+- Variable window: Expand and shrink according to a condition.
+- HashMap integration: Track character frequencies or recent occurrences.
+- Monotonic deque: Maintain window minimum or maximum efficiently.
+
+**Prefix Sums**
+
+Store cumulative information to avoid repeated calculations.
+
+- 1D prefix sum: Range-sum queries.
+- 2D prefix sum: Matrix rectangle queries.
+- Difference array: Batch range updates.
+- Prefix XOR: Range-XOR queries.
+- Prefix sum + HashMap: Subarray sum counting and length problems.
+
+**Kadane's Algorithm**
+
+Find the maximum-sum contiguous subarray in linear time.
+
+\[ current=\max(a[i],current+a[i]) \]
+
+\[ answer=\max(answer,current) \]
+
+## **23. Module 15 — Mastery Checklist**
+
+**Your learning progress**
+
+# **0%**
+
+0 of 18 concepts mastered
+
+Identify when to use two pointers instead of nested loops
+
+Implement opposite-direction pointers
+
+Solve pair sum and triplet sum problems
+
+Implement fast and slow pointers for linked lists
+
+Use same-direction pointers for in-place array modification
+
+Explain fixed-size sliding-window logic
+
+Implement variable-size sliding windows
+
+Solve longest substring without repeating characters
+
+Implement minimum window substring
+
+Build and query 1D prefix sums
+
+Build and query 2D prefix sums
+
+Apply range updates using difference arrays
+
+Implement prefix XOR
+
+Count subarrays with sum K using a HashMap
+
+Find the longest subarray with sum K
+
+Implement Kadane's algorithm and return the actual subarray
+
+Analyze time and space complexity
+
+Recognize negative-number limitations in sliding-window problems
+
+Reset checklist
+
+## **Final Understanding**
+
+The key to mastering this module is understanding the relationship between the patterns:
+
+- **Two pointers** reduce unnecessary searching by intelligently moving indices.
+- **Sliding windows** optimize repeated calculations over contiguous ranges.
+- **Prefix sums** transform repeated range calculations into constant-time queries.
+- **Difference arrays** optimize repeated range updates.
+- **HashMaps** remember information about previously visited elements.
+- **Kadane's algorithm** uses a running optimal subarray state to solve a maximum-sum problem.
+
+Do not memorize only the code. Be able to explain **why a pointer moves, why a window shrinks, why a prefix sum is subtracted, and why a previous prefix must be stored**. That understanding is what makes these patterns useful across hundreds of different DSA problems.

@@ -197,6 +197,7 @@ const JavaHashing = React.lazy(() => import("./Componets/JavaHashing"));
 const JavaTrees = React.lazy(() => import("./Componets/JavaTrees"));
 const JavaHeaps = React.lazy(() => import("./Componets/JavaHeaps"));
 const JavaSpecializedDS = React.lazy(() => import("./Componets/JavaSpecializedDS"));
+const JavaTwoPointersSlidingWindow = React.lazy(() => import("./Componets/JavaTwoPointersSlidingWindow"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1702,6 +1703,13 @@ function App() {
             <Route path="/learning/java/module-14" element={<JavaSpecializedDS />} />
             <Route path="/courses/java/specialized-ds" element={<JavaSpecializedDS />} />
             <Route path="/learn/java/specialized-ds" element={<JavaSpecializedDS />} />
+            <Route path="/learning/java/two-pointers-sliding-window" element={<JavaTwoPointersSlidingWindow />} />
+            <Route path="/learning/java/sliding-window" element={<JavaTwoPointersSlidingWindow />} />
+            <Route path="/learning/java/two-pointers" element={<JavaTwoPointersSlidingWindow />} />
+            <Route path="/learning/java/prefix-sums" element={<JavaTwoPointersSlidingWindow />} />
+            <Route path="/learning/java/module-15" element={<JavaTwoPointersSlidingWindow />} />
+            <Route path="/courses/java/two-pointers-sliding-window" element={<JavaTwoPointersSlidingWindow />} />
+            <Route path="/learn/java/two-pointers-sliding-window" element={<JavaTwoPointersSlidingWindow />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

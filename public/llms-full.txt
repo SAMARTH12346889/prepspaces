@@ -1793,3 +1793,33 @@ Topics Covered:
   - 34. 15 Assessment MCQs with Explanations and Interactive Testing
   - 35. Learning Outcomes & Engineering Mastery Roadmap
   - 36. Recommended Practical Study Sequence
+
+### Module 15: Two Pointers, Sliding Window & Prefix Sums
+URL: https://prepspaces.com/learning/java/two-pointers-sliding-window
+Topics Covered:
+  - 1. Pattern-Based Problem-Solving: Recognizing Common Clues, Subarrays vs Substrings vs Subsequences, Engineering Workflow
+  - 2. Two-Pointer Technique: Opposite-Direction Pointers, Two Sum in Sorted Array O(N), Palindrome Verification, In-Place Array Reversal
+  - 3. Fast and Slow Pointers: Finding Linked List Middle in One Pass, Floyd's Cycle Detection Algorithm (Tortoise and Hare), Finding Cycle Entrance Math
+  - 4. Same-Direction Pointers: In-Place Duplicates Removal from Sorted Array, Moving Zeroes to End Maintaining Relative Order
+  - 5. Sliding Window Fundamentals: Why Sliding Window is Needed, O(N) vs O(N^2) Brute Force, Fixed vs Variable Windows
+  - 6. Fixed-Size Sliding Window: Maximum Sum Subarray of Size K, Rolling Averages of Size K, Boundary Edge Cases and Long Overflow
+  - 7. Variable-Size Sliding Window: Longest Subarray with Sum at Most K, Monotonic Nonnegative Condition, Shrinking and Expanding
+  - 8. Longest Substring Without Repeating Characters: LeetCode 3, Sliding Window + HashMap lastSeen, Math.max(left, lastSeen + 1) Rule
+  - 9. Minimum Window Substring: LeetCode 76, need and window Frequency Maps, formed == required Invariant, Minimal Valid Window Shrink
+  - 10. Prefix Sum Arrays: Cumulative Sum Array Construction, O(1) Range Queries sum(l, r) = P[r+1] - P[l], N+1 Sizing Rationale
+  - 11. 2D Prefix Sums: Submatrix Rectangle Sums in O(1), Inclusion-Exclusion Formula P[r2+1][c2+1] - P[r1][c2+1] - P[r2+1][c1] + P[r1][c1]
+  - 12. Difference Arrays: Batch Range Additions in O(1) diff[l] += x, diff[r+1] -= x, Array Reconstruction in O(N)
+  - 13. Prefix XOR: Bitwise XOR Invariants (a ^ a = 0, a ^ 0 = a), O(1) Range XOR Queries P[r+1] ^ P[l]
+  - 14. Subarray Sum Problems: Count Subarrays with Sum Equal to K (LeetCode 560), Prefix Sum + Frequency HashMap, Why Initialize 0->1, Handling Negative Numbers
+  - 15. Longest Subarray with Sum Equal to K: Preserving Earliest Index with putIfAbsent(prefix, i) to Maximize Range Length
+  - 16. Pair Sum & Triplet Sum: HashMap vs Two Pointers, Three Sum (LeetCode 15) with Duplicate Skipping at 3 Distinct Levels
+  - 17. Kadane's Algorithm: Maximum-Sum Contiguous Subarray in O(N), Dynamic Programming State Recurrence cur = max(x, cur + x), Initializing with arr[0]
+  - 18. Returning Actual Subarray in Kadane: Tracking start, bestStart, and bestEnd Pointers
+  - 19. Subarray Optimization Matrix: When to Select Two Pointers vs Sliding Window vs Prefix Sums vs Monotonic Deque
+  - 20. Monotonic Deque: Window Maximum / Minimum in Amortized O(1) Time (LeetCode 239)
+  - 21. Complexity Comparison Table: 15-Row Master Time & Space Analysis
+  - 22. Common Mistakes & Interview Traps: Unsorted Arrays, Duplicate Triplets, Monotonicity Violations with Negatives, 64-bit Integer Overflow
+  - 23. 5 Worked Interview Problem-Solving Examples: Problems A through E Comparative Walkthrough
+  - 24. 30 Practice Problems Across 4 Levels: Fundamentals, Sliding Window, Prefix Sums, and Advanced Patterns
+  - 25. 15 Assessment MCQs with Explanations and Interactive Testing
+  - 26. 18-Point Mastery Checklist & Engineering Insights

@@ -2257,7 +2257,7 @@ export default function JavaSpecializedDS() {
       {/* MODULE FOOTER NAVIGATION */}
       <footer className="border-t border-slate-800 bg-slate-950 py-6 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <ModuleNav currentModuleId="specialized-ds" nextRoute={null} />
+          <ModuleNav currentModuleId="specialized-ds" nextRoute="/learning/java/two-pointers-sliding-window" />
         </div>
       </footer>
     </div>
