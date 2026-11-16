@@ -1477,3 +1477,42 @@ Topics Covered:
   - 23. 20 Assessment MCQs, Output Prediction, and Error Diagnosis
   - 24. Capstone Mini Project: University Course Registration and Management System
   - 25. Phase 1 Foundations Milestone and Transition Roadmap to DSA
+
+### Module 5: Advanced Java Programming & Standard Library
+URL: https://prepspaces.com/learning/java/advanced
+Topics Covered:
+  - 1. Exception Handling Architecture: Throwable, Error, Exception & RuntimeException
+  - 2. Checked vs Unchecked Exceptions: Compile-Time Contracts & Design Trade-offs
+  - 3. Try, Catch, Finally & Java 7 Multi-Catch Exception Handling
+  - 4. Signaling & Contracts: 'throw' Operator vs 'throws' Method Declarations
+  - 5. Exception Propagation, Call Stack Unwinding & Chained Causes
+  - 6. Custom Exceptions: Checked Domain Failures vs Unchecked Invariant Violations
+  - 7. Automatic Resource Management: try-with-resources & Suppressed Exceptions
+  - 8. Generics: Type Safety, Raw Type Elimination & Compile-Time Cast Verification
+  - 9. Generic Classes, Type Parameters (T, E, K, V) & Heap Array Restrictions
+  - 10. Generic Methods & Type Parameter Inference
+  - 11. Bounded Types, Multiple Bounds (&) & Wildcards: PECS (Producer Extends, Consumer Super)
+  - 12. JVM Type Erasure: Bytecode Bridge Methods & Generic Boundary Replacement
+  - 13. Collections Framework Architecture: Iterable, Collection, List, Set, Queue & Map
+  - 14. List Implementations: ArrayList Dynamic Growth vs LinkedList Node Overhead
+  - 15. Set Implementations: HashSet Hashing vs LinkedHashSet Order vs TreeSet Balanced Trees
+  - 16. Queue & Deque: ArrayDeque Ring Buffers vs PriorityQueue Binary Heaps
+  - 17. Map Implementations: HashMap Buckets/Red-Black Trees vs LinkedHashMap vs TreeMap
+  - 18. Traversal Semantics: Iterator, ListIterator & ConcurrentModificationException Fail-Fast
+  - 19. Object Ordering: Comparable Natural Order vs Comparator Strategies & Method Chaining
+  - 20. Lambda Expressions: Syntax, Scope, Closures & Functional Interface Targets
+  - 21. Standard Functional Interfaces: Predicate, Function, Consumer, Supplier & Operators
+  - 22. Method References: Static, Bound, Unbound & Constructor Reference (::) Syntax
+  - 23. Stream API: Lazy Pipelines, Intermediate Filters/Maps vs Terminal Reductions
+  - 24. Advanced Stream Reductions: reduce(), min(), max(), findFirst() & Short-Circuiting
+  - 25. Stream Collectors: toList(), toSet(), joining() & Multi-Level groupingBy() Aggregations
+  - 26. Primitive Streams: IntStream, LongStream, DoubleStream & Range Operations
+  - 27. Parallel Streams: ForkJoinPool, Splitting Overhead & Concurrency Race Hazards
+  - 28. Monadic Design with Optional<T>: orElse vs orElseGet vs orElseThrow
+  - 29. Modern File I/O: Java NIO.2 Path, Paths & Files Static Operations
+  - 30. Byte Streams vs Decoded Character Streams: UTF-8 Encodings & Buffered I/O
+  - 31. File Handling Security, Path Validation, Directory Traversal & Atomic Moves
+  - 32. Object Serialization: Serializable, serialVersionUID, ObjectStreams & transient Fields
+  - 33. Serialization Security Risks: Untrusted Deserialization, Gadget Chains & ObjectInputFilter
+  - 34. Full Capstone Project: Student Record Management System with File Persistence & Streams
+  - 35. 30 Assessment MCQs, 10 Labs, 5 Capstones, and 40 Technical Interview Questions

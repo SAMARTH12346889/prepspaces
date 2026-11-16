@@ -241,12 +241,12 @@ const learningTracks = [
     color: "from-stone-900 via-orange-950 to-orange-600",
     badgeColor: "text-orange-700 bg-orange-50 border-orange-200",
     highlights: [
-      "Computational Thinking & Algorithm Design",
-      "JDK, JRE & JVM Bytecode Architecture",
-      "Primitive Types, Strings & 2D Matrix Mathematics",
+      "Computational Thinking & JVM Bytecode Architecture",
       "Control Flow, Methods, Scope & Recursion",
+      "Arrays, Strings & 2D Matrix Mathematics",
       "Object-Oriented Programming (OOP) & Dynamic Dispatch",
-      "UML Class Modeling & SOLID Software Principles",
+      "Exceptions, Generics, PECS & Collections Architecture",
+      "Lambdas, Stream API Pipelines & NIO.2 File Systems",
     ],
   },
 ];

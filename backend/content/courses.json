@@ -188,15 +188,17 @@
     "route": "/learning/java",
     "tag": "Software Engineering & Systems",
     "modulesCount": "Comprehensive Modules",
-    "totalModules": 4,
+    "totalModules": 5,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
-      "Computational Thinking & Algorithm Design",
-      "JDK, JRE & JVM Bytecode Architecture",
-      "Primitive Data Types & Type Conversion",
-      "Operators, Precedence & Short-Circuit Logic",
-      "Scanner I/O & Interactive Debugging"
+      "Computational Thinking & JVM Bytecode Architecture",
+      "Control Flow, Methods, Scope & Recursion",
+      "Arrays, Strings & 2D Matrix Algorithms",
+      "OOP, Dynamic Dispatch, Interfaces & SOLID",
+      "Exceptions, Generics, PECS & Collections Framework",
+      "Lambdas, Stream API Pipelines & Grouping",
+      "NIO.2 Path Operations & Serialization Security"
     ]
   }
 ]

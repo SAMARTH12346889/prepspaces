@@ -225,6 +225,7 @@ export const JAVA_MODULES = [
   { id: "control-flow", name: "2. Control Flow, Methods & Problem-Solving", route: "/learning/java/control-flow" },
   { id: "arrays-strings", name: "3. Arrays, Strings & Basic Data Handling", route: "/learning/java/arrays-strings" },
   { id: "oop", name: "4. Object-Oriented Programming (OOP) with Java", route: "/learning/java/oop" },
+  { id: "advanced", name: "5. Advanced Java Programming", route: "/learning/java/advanced" },
 ];
 
 export const BLOCKCHAIN_MODULES = [

@@ -187,6 +187,7 @@ const JavaIntro = React.lazy(() => import("./Componets/JavaIntro"));
 const JavaControlFlow = React.lazy(() => import("./Componets/JavaControlFlow"));
 const JavaArraysStrings = React.lazy(() => import("./Componets/JavaArraysStrings"));
 const JavaOOP = React.lazy(() => import("./Componets/JavaOOP"));
+const JavaAdvanced = React.lazy(() => import("./Componets/JavaAdvanced"));
 const DataEngineeringIntro = React.lazy(() => import("./Componets/DataEngineeringIntro"));
 const DataEngineeringPython = React.lazy(() => import("./Componets/DataEngineeringPython"));
 const DataEngineeringSql = React.lazy(() => import("./Componets/DataEngineeringSql"));
@@ -1632,6 +1633,10 @@ function App() {
             <Route path="/learning/java/module-4" element={<JavaOOP />} />
             <Route path="/courses/java/oop" element={<JavaOOP />} />
             <Route path="/learn/java/oop" element={<JavaOOP />} />
+            <Route path="/learning/java/advanced" element={<JavaAdvanced />} />
+            <Route path="/learning/java/module-5" element={<JavaAdvanced />} />
+            <Route path="/courses/java/advanced" element={<JavaAdvanced />} />
+            <Route path="/learn/java/advanced" element={<JavaAdvanced />} />
 
                         {/* DATA ENGINEERING MASTER COURSE */}
             <Route path="/learning/data-engineering" element={<DataEngineeringIntro />} />

@@ -42,5 +42,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "advanced",
+    "courseId": "java-programming",
+    "index": 5,
+    "name": "5. Advanced Java Programming",
+    "route": "/learning/java/advanced",
+    "questionCount": 30,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

@@ -111,6 +111,12 @@ const routeMeta = {
     keywords: "Java OOP, Java Classes and Objects, Java Encapsulation, Java Inheritance, Java Polymorphism, Dynamic Method Dispatch, Java Abstract Classes, Java Interfaces, UML Class Diagrams, SOLID Principles Java, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/oop`,
   },
+  "/learning/java/advanced": {
+    title: "Module 5: Advanced Java Programming & Standard Library | PrepSpaces",
+    description: "Master enterprise Java programming: exception hierarchies, custom exceptions, try-with-resources, generics, bounded wildcards (PECS), Collections Framework architecture, lambdas, Stream API pipelines, collectors, Optional, NIO.2 file handling, and serialization security.",
+    keywords: "Advanced Java, Java Exceptions, Java Generics, PECS Wildcards, Java Collections Framework, ArrayList vs LinkedList, HashMap Internals, Java Lambdas, Java Stream API, Stream Collectors, Java Optional, Java NIO2, Java Serialization Security, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/advanced`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

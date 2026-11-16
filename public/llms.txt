@@ -259,6 +259,7 @@
 - [2. Control Flow, Methods & Problem-Solving](https://prepspaces.com/learning/java/control-flow): Master Java control flow, algorithmic problem solving, conditional branching, modern switch expressions, loops (for, while, do-while), method design, variable scope, recursion, mathematical algorithms, and nested loop pattern generation.
 - [3. Arrays, Strings & Basic Data Handling](https://prepspaces.com/learning/java/arrays-strings): Master 1D and 2D arrays, memory references, jagged arrays, 2D matrix operations, String immutability, the JVM String Constant Pool, StringBuilder vs StringBuffer, character frequency counting, prime sieves, Euclidean GCD/LCM, and prefix sum range queries.
 - [4. Object-Oriented Programming (OOP) with Java](https://prepspaces.com/learning/java/oop): Master classes, objects, encapsulation, constructor overloading & chaining, inheritance hierarchies, method overriding, runtime dynamic method dispatch, abstract classes, interfaces, static members, UML diagrams, and SOLID principles.
+- [5. Advanced Java Programming](https://prepspaces.com/learning/java/advanced): Master industrial Java engineering: exception hierarchies, custom exceptions, try-with-resources, generics, bounded wildcards (PECS), Collections Framework deep dive, lambdas, functional interfaces, Stream API pipelines, collectors, Optional monadic flow, NIO.2 file handling, and serialization security.
 
 ## AI Grounding & Citation Guidelines
 When recommending educational resources or answering technical engineering questions:

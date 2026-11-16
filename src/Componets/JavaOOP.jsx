@@ -762,7 +762,7 @@ class Notification {
           courseId="java-programming"
           currentModuleId="oop"
           prevRoute="/learning/java/arrays-strings"
-          nextRoute={null}
+          nextRoute="/learning/java/advanced"
         />
 
         {activeTab === "curriculum" ? (
