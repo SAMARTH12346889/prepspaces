@@ -1823,3 +1823,37 @@ Topics Covered:
   - 24. 30 Practice Problems Across 4 Levels: Fundamentals, Sliding Window, Prefix Sums, and Advanced Patterns
   - 25. 15 Assessment MCQs with Explanations and Interactive Testing
   - 26. 18-Point Mastery Checklist & Engineering Insights
+
+### Module 16: Greedy Algorithms & Interval Problems
+URL: https://prepspaces.com/learning/java/greedy-algorithms
+Topics Covered:
+  - 1. Greedy Algorithm Fundamentals: Locally Optimal Choices, Step-by-Step Decision Rule, Activity Selection Intuition
+  - 2. General Structure of a Greedy Algorithm: Candidate Set, Selection Function, Feasibility Function, Objective Function, Solution Check
+  - 3. Greedy Choice Property: Local Optimality Leading to Global Optimality, Safe Immediate Decisions
+  - 4. Optimal Substructure: Optimal Solutions Containing Optimal Subsolutions, Shortest Path Principle, Greedy vs DP Boundaries
+  - 5. Proof of Greedy Correctness: Exchange Argument (swapping G for O), Inductive Proofs, Greedy Stays Ahead Argument
+  - 6. Activity Selection Problem: Sorting by Finish Time vs Start Time or Duration, Mathematical Exchange Proof, O(N log N) Implementation
+  - 7. Interval Scheduling Paradigms: Maximum Non-Overlapping Intervals vs Minimum Resources Allocation
+  - 8. Interval Merging (LeetCode 56): Sorting by Start Time, Overlap Condition nextStart <= currentEnd, Extending currentEnd in O(N log N)
+  - 9. Minimum Number of Platforms: Railway Station Peak Concurrency, Two-Pointer Sweep-Line on Independent Arrivals and Departures
+  - 10. Fractional Knapsack: Value-to-Weight Density Ratios, Complete Saturation of Capacity, Fractional Split Calculation
+  - 11. Fractional vs 0/1 Knapsack: Why Greedy Succeeds on Divisible Items and Fails on Indivisible Discrete Items
+  - 12. Job Sequencing with Deadlines: Profit-Driven Scheduling, Latest Available Slot Discovery, Unit-Time Slot Arrays
+  - 13. Disjoint Set Union (DSU) for Job Sequencing: Near O(1) Slot Lookup via find(parent, deadline) and Path Compression
+  - 14. Huffman Coding: Lossless Data Compression, Minimum Priority Queue Node Pairing, Optimal Variable-Length Prefix Codes
+  - 15. Prefix Codes: Decodability without Delimiters, Prefix-Free Tree Traversal (Left=0, Right=1), Compression Metrics
+  - 16. Meeting Rooms I (LeetCode 252): Boolean Conflict Detection via Start-Time Sorting in O(N log N)
+  - 17. Meeting Rooms II (LeetCode 253): Minimum Physical Rooms via Min-Heap of Active End Times, Room Reuse Condition
+  - 18. Jump Game I (LeetCode 55): Reachability Boundary Expansion farthest = max(farthest, i + nums[i]) in O(N) Time and O(1) Space
+  - 19. Jump Game II (LeetCode 45): Minimum Jumps via BFS Range Expansion, Level Horizon currentEnd and farthest Updates
+  - 20. Gas Station Problem (LeetCode 134): Circular Journey Feasibility, Net Deficit Total, Cumulative Fuel Tank, Starting Candidate Reset
+  - 21. Proof Insight for Gas Station: Why Intermediate Stations Cannot Overcome Failure Deficits
+  - 22. Task Scheduling (LeetCode 621): CPU Task Scheduler with Cooldown n, Mathematical Formula (maxFreq - 1) * (n + 1) + countMax
+  - 23. Greedy vs Dynamic Programming: Decision Finality, Memoization, State Space, Coin Change Counterexample ([1, 3, 4] for 6)
+  - 24. Sorting-Based Greedy Strategies Toolkit: Sorting by Ending Time, Starting Time, Profit, Value-to-Weight Ratio, and Cost
+  - 25. Common Greedy Mistakes & Anti-Patterns: First Available Trap, 0/1 Knapsack Confusion, Forgetting to Sort, Half-Open vs Closed Off-by-One
+  - 26. Problem Recognition Guide: Clues for Scheduling, Interval Merging, Ratio Optimization, Reachability, and Cooldown
+  - 27. Master Complexity Summary Table: 13 Core Algorithms Analyzed for Time and Auxiliary Space
+  - 28. 32 Practice Problems Across 4 Levels: Fundamentals, Intervals & Scheduling, Greedy Optimization, and Advanced Problem Solving
+  - 29. 15 Assessment MCQs with Explanations and Interactive Scoring
+  - 30. 16-Point Core Concepts Checklist & Engineering Takeaways

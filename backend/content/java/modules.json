@@ -163,5 +163,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "greedy-algorithms",
+    "courseId": "java-programming",
+    "index": 16,
+    "name": "16. Greedy Algorithms & Interval Problems",
+    "route": "/learning/java/greedy-algorithms",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

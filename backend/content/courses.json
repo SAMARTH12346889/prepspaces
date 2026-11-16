@@ -188,7 +188,7 @@
     "route": "/learning/java",
     "tag": "Software Engineering & Systems",
     "modulesCount": "Comprehensive Modules",
-    "totalModules": 15,
+    "totalModules": 16,
     "color": "from-stone-900 via-orange-950 to-orange-600",
     "badgeColor": "text-orange-700 bg-orange-50 border-orange-200",
     "highlights": [
@@ -207,7 +207,8 @@
       "Trees, BST Invariants, Tree Traversals, LCA & Tree Serialization",
       "Heaps, PriorityQueue, Top-K, Median Stream, AVL Rotations & Red-Black Trees",
       "Tries, Disjoint Set Union (DSU), Segment Trees, Fenwick Trees & Sparse Tables",
-      "Two Pointers, Sliding Window, 1D/2D Prefix Sums, Difference Arrays & Kadane's Algorithm"
+      "Two Pointers, Sliding Window, 1D/2D Prefix Sums, Difference Arrays & Kadane's Algorithm",
+      "Greedy Algorithms, Exchange Arguments, Interval Merging, Fractional Knapsack, Job Sequencing, Huffman Coding & Gas Station"
     ]
   }
 ]
