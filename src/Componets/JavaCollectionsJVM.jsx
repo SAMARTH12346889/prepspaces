@@ -682,10 +682,10 @@ export default function JavaCollectionsJVM() {
       <ModuleNav
         currentModuleId="collections-jvm"
         currentTrack="java"
-        totalModules={22}
+        totalModules={23}
         accentColor="indigo"
         prevRoute="/learning/java/problem-solving-patterns"
-        nextRoute={null}
+        nextRoute="/learning/java/interview-mastery"
       />
 
       {/* Hero Banner */}

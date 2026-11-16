@@ -2030,3 +2030,31 @@ Topics Covered:
   - 20. 35 Practice Problems Across 4 Levels: Collections & Selection, Concurrency & JMM, JVM Memory & GC Diagnostics, JIT & Enterprise Performance
   - 21. 15 Assessment MCQs with Scenario Explanations and Instant Diagnostic Scoring
   - 22. 8 Interactive Workbenches: ArrayList Dynamic Resizer, HashMap Bucket & Collision Simulator, PriorityQueue Min-Heap Simulator, Collections Selection Matrix, JMM Visibility & Race Simulator, Generational GC Visualizer, JIT Tiered Compilation Engine, and Production Outage Diagnostic Studio
+
+### Module 23: Technical Interview & Placement Mastery
+URL: https://prepspaces.com/learning/java/interview-mastery
+Topics Covered:
+  - 1. Data Structures Interview Preparation: Interviewer Expectations, Core Data Structures (Arrays, Strings, Linked Lists, Stacks, Queues, HashMaps, Trees, Graphs, Heaps, Tries, DSU, Segment Trees), Time and Space Complexity Comparison Table, and Frequency of Testing
+  - 2. Algorithms Interview Preparation: Algorithmic Categories (Searching, Sorting, Recursion, Backtracking, Greedy, Dynamic Programming, Graphs), Matching Problem Constraints to Asymptotics, and Choosing Between Linear Search and Binary Search
+  - 3. Coding Interview Methodology: The Seven-Step Framework (Understand, Clarify, Brute-Force, Optimize, Complexity, Code, Dry-Run), Avoiding Premature Coding, and Collaborating with Interviewers
+  - 4. Clarifying Problem Requirements: Input Format & Ranges, Negative Values, Floating Point Values, Duplicate Elements, Empty and Single-Element Inputs, Mutability of Inputs, Ordering Requirements, and Extreme Constraint Clarifications
+  - 5. Brute Force to Optimized Solution: Establishing Correct Baselines, Identifying Redundant Computations, Transforming O(N^2) Nested Loops to O(N) via HashMaps (Two Sum), Trade-offs Between Memory and Execution Speed
+  - 6. Complexity Explanation: Formulating Big-O Time and Space Bounds, Dominant Terms, Drop Constants, Recursion Stack Overhead, and Amortized Time Complexity (ArrayList dynamic resizing)
+  - 7. Edge Case Analysis: Edge Case Discovery Methodology, Empty Inputs, Single Elements, Two Elements, All Duplicates, All Negative Numbers, Extreme Values (Integer.MAX_VALUE overflow), Large Inputs, and Comprehensive Checklist
+  - 8. Dry Runs: Walking Through Logic Manually, Systematic Variable Trace Tables, Testing Normal and Boundary Inputs, Catching Off-by-One Pointer Errors Before Running Code
+  - 9. Code Quality and Readability: Semantic Variable Naming, Avoiding Over-Engineering, Modular Helper Methods, Interface Types, and Idiomatic Java Standards
+  - 10. Interview Communication: Think-Aloud Protocol, Structuring Explanations (Problem -> Naive -> Bottleneck -> Optimized -> Space/Time), Responding to Hints, Navigating Feedback, and Maintaining Composure
+  - 11. Java Coding Interview Questions: Core Java Specifics, String Immutability and StringBuilder Efficiency, equals() and hashCode() Contract in HashMaps, OOP vs Interfaces, Abstract Classes, and Custom Comparators
+  - 12. Arrays and Strings Interview Patterns: Two-Pointer Techniques (Palindromes, In-place Reversal), Sliding Window for Substrings without Repeating Characters, Frequency Arrays for ASCII Strings, and Prefix Sums
+  - 13. Linked List Interview Questions: Iterative In-Place Reversal, Pointer Splicing, Floyd's Cycle Detection (Tortoise and Hare), Middle Node Finding, and Merging Sorted Lists
+  - 14. Tree and Graph Interview Questions: Breadth-First Search (BFS) Level-Order Traversal with Queue, Depth-First Search (DFS) Tree Traversal, Graph Representation (Adjacency Lists), and Shortest Path in Unweighted Graphs
+  - 15. Dynamic Programming Interview Questions: Identifying Overlapping Subproblems and Optimal Substructure, Memoization vs Tabulation, House Robber Optimization (O(1) Space Variables), Knapsack, and Subsequence Patterns
+  - 16. Mock Technical Interviews: Simulating Live Technical Screenings, Time Management, Peer Rubrics, and Adapting to Unfamiliar Problem Statements
+  - 17. Timed Coding Assessments: Online Assessment (OA) Tactics, 90-Minute 3-Problem Triage Strategy, Budgeting Time for Testing, and Handling Platform Edge Suites
+  - 18. Competitive Programming Revision: Speed Patterns, Fast I/O, Binary Exponentiation, Bit Manipulation Tricks, and Modular Arithmetic
+  - 19. Interview Mistake Analysis: Taxonomy of Technical and Behavioral Failures, Requirement Misunderstandings, Algorithm Mis-selection, Infinite Loops, and Maintaining an Interview Error Log
+  - 20. Technical Interview Question Bank: High-Frequency Question Catalog Spanning Data Structures, Algorithms, Patterns, and System Foundations
+  - 21. Practical Interview Preparation Strategy: 4-Phase Roadmap: Foundational Fluency, Pattern Drill, Timed Mock Assessments, and Company-Specific Calibration
+  - 22. 35 Practice Problems Across 4 Levels: Core Fundamentals, Interview Patterns, Trees/Graphs/DP, and Mock Assessment Simulations
+  - 23. 15 Comprehensive Assessment MCQs with Explanations and Instant Scorecards
+  - 24. 8 Interactive Workbenches: 7-Step Coding Interview Workflow Simulator, Brute Force to Optimized Transformer, Systematic Dry-Run Simulator, Edge Case Stress Tester, Think-Explain-Implement Communication Trainer, Floyd's Cycle Detection Visualizer, Kadane's Subarray Max Step Visualizer, and Mock Interview Scoring & Mistake Diagnostic Matrix

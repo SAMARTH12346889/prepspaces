@@ -219,6 +219,12 @@ const routeMeta = {
     keywords: "Java Collections Framework Internals, ArrayList Resizing Java, HashMap Treeification OpenJDK, HashMap Hash Spreading, TreeMap Red Black Tree Java, PriorityQueue Min Heap Java, ConcurrentHashMap Java 8, Java Memory Model JMM, Volatile Happens Before Java, Generational Garbage Collection Java, G1GC ZGC Shenandoah, JVM Stack and Heap, HotSpot JIT Tiered Compilation, Escape Analysis Scalar Replacement, TLAB Java, JMH Java Microbenchmark Harness, Java Flight Recorder JFR, jcmd Diagnostics, High Performance Java, PrepSpaces",
     canonical: `${BASE_URL}/learning/java/collections-jvm`,
   },
+  "/learning/java/interview-mastery": {
+    title: "Module 23: Technical Interview & Placement Mastery | PrepSpaces",
+    description: "Master software engineering technical interviews and placement assessments: the 7-step coding interview framework, systematic requirement clarification, transforming brute-force O(N^2) to optimal O(N) solutions via HashMaps and sliding windows, Big-O time and space complexity explanations, comprehensive edge-case analysis, systematic dry-runs with variable trace tables, production code readability, think-aloud communication protocol, Floyd's cycle detection, Kadane's algorithm, timed online assessment triage strategies, and mock interview scoring matrices.",
+    keywords: "Technical Interview Preparation Java, Coding Interview Framework, Brute Force to Optimized Java, Two Sum HashMap O(N), Systematic Dry Run Trace Table, Edge Case Checklist Technical Interview, Think-Aloud Interview Protocol, Floyds Cycle Detection Fast Slow Pointers, Kadanes Algorithm Java, Linked List Reverse Java, Online Assessment OA Strategy, Mock Interview Scoring Rubric, Software Engineering Placement Prep, FAANG Coding Interview Java, DSA Interview Masterclass, PrepSpaces",
+    canonical: `${BASE_URL}/learning/java/interview-mastery`,
+  },
   "/courses/data-engineering": {
     title: "Data Engineering Master Course | Pipelines, Lakehouses & SQL – PrepSpaces",
     description: "Master data engineering with PrepSpaces. Learn data pipeline architecture, OLTP vs OLAP, batch and stream processing, ETL/ELT, data lakes, Apache Iceberg, Delta Lake, data quality, and Python data pipelines.",

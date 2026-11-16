@@ -240,5 +240,16 @@
     "hasTopics": true,
     "hasCommands": true,
     "hasScenarios": true
+  },
+  {
+    "id": "interview-mastery",
+    "courseId": "java-programming",
+    "index": 23,
+    "name": "23. Technical Interview & Placement Mastery",
+    "route": "/learning/java/interview-mastery",
+    "questionCount": 20,
+    "hasTopics": true,
+    "hasCommands": true,
+    "hasScenarios": true
   }
 ]

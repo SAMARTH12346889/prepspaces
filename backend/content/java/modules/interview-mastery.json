@@ -1,0 +1,251 @@
+{
+  "moduleId": "interview-mastery",
+  "moduleName": "23. Technical Interview & Placement Mastery",
+  "courseId": "java",
+  "track": "java",
+  "totalQuestions": 20,
+  "passingScore": 70,
+  "description": "Test your mastery of coding interview frameworks, brute-force to O(N) optimization, dry-run tracing, edge-case testing, think-aloud communication, and top placement problem patterns.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "In the 7-step coding interview framework, what should a candidate always do immediately after listening to or reading the problem statement?",
+      "options": [
+        "Clarify ambiguous requirements, input bounds, edge scenarios, and constraints with the interviewer before discussing any code",
+        "Immediately write out the most optimized Java solution in the editor",
+        "Begin writing unit test cases and setting up JUnit runner infrastructure",
+        "Ask the interviewer to provide the optimal time and space complexity constraints right away"
+      ],
+      "correct": 0,
+      "explanation": "Step 1 & 2 of the framework mandate confirming understanding and clarifying requirements (input sizes, types, sortedness, edge bounds) before jumping into algorithmic design or coding."
+    },
+    {
+      "id": 2,
+      "question": "When asked to solve an unfamiliar problem, why is articulating a brute-force solution first considered an interview best practice?",
+      "options": [
+        "It establishes a correct baseline, demonstrates problem comprehension, guarantees a working fallback, and reveals redundant operations to optimize",
+        "It allows the candidate to stall for time while searching for the optimal answer online",
+        "Interviewers reject candidates who propose an optimal solution immediately without writing brute force first",
+        "Brute force solutions in Java are automatically optimized by the HotSpot JIT compiler to linear time"
+      ],
+      "correct": 0,
+      "explanation": "Articulating a brute force approach proves you comprehend the problem, guarantees you have a baseline correct answer, and pinpoints where redundant computations occur, allowing systematic optimization."
+    },
+    {
+      "id": 3,
+      "question": "In the classic Two Sum problem (find indices of two numbers that add up to target), how does the optimal single-pass approach achieve O(N) time complexity?",
+      "options": [
+        "By storing each seen number and its index in a HashMap, checking if `target - nums[i]` exists in expected O(1) time per element",
+        "By sorting the array in O(N log N) time and using nested binary searches",
+        "By using two nested loops iterating from `i = 0` and `j = i + 1`",
+        "By converting all numbers into a Trie and querying prefixes"
+      ],
+      "correct": 0,
+      "explanation": "A HashMap stores previously inspected elements mapped to their indices. For each element `nums[i]`, checking whether the complement `target - nums[i]` has already been seen takes expected O(1) time, solving the problem in O(N) total time and O(N) space."
+    },
+    {
+      "id": 4,
+      "question": "Which of the following represents a critical edge case category that should ALWAYS be evaluated during interview problem analysis?",
+      "options": [
+        "Empty collections, single-element inputs, negative values, duplicates, and integer overflow at bounds",
+        "Whether the JVM runs in 32-bit or 64-bit client mode",
+        "Whether the interviewer uses dark mode or light mode in their IDE",
+        "Whether the target computer has multiple CPU sockets"
+      ],
+      "correct": 0,
+      "explanation": "Core algorithmic edge cases include empty inputs (`[]`, `\"\"`), single elements, two elements, duplicate elements, negative numbers, extreme numeric values (`Integer.MAX_VALUE`, `Integer.MIN_VALUE`), and large-scale inputs."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary objective of performing a systematic dry run with a variable trace table before declaring code complete in an interview?",
+      "options": [
+        "To trace state variables step-by-step through a concrete test case, catching off-by-one errors and pointer bugs before execution",
+        "To measure the exact microsecond execution latency on the host CPU",
+        "To convince the interviewer that automated tests are unnecessary",
+        "To reformat indentation and rename local variables"
+      ],
+      "correct": 0,
+      "explanation": "A dry run involves manually tracing pointers, counters, and state variables row-by-row on a concrete sample input. This verifies correctness, validates loop termination, and uncovers off-by-one bugs before running."
+    },
+    {
+      "id": 6,
+      "question": "In Floyd's Cycle-Finding Algorithm (Tortoise and Hare) for singly linked lists, how do the two pointers operate to detect a loop in O(N) time and O(1) space?",
+      "options": [
+        "Slow pointer advances 1 node per step while Fast pointer advances 2 nodes per step; if they meet, a cycle exists",
+        "Both pointers start at the tail and move backward towards the head node",
+        "Fast pointer counts all visited nodes into a dynamic HashSet while slow pointer deletes them",
+        "Slow pointer advances 2 nodes while fast pointer reverses the list nodes in-place"
+      ],
+      "correct": 0,
+      "explanation": "Floyd's algorithm uses two pointers: slow (`slow = slow.next`) and fast (`fast = fast.next.next`). If a cycle exists, the fast pointer closes the relative distance by 1 node per iteration until both pointers reference the identical node."
+    },
+    {
+      "id": 7,
+      "question": "When reversing a singly linked list iteratively in O(N) time and O(1) space, why is a temporary `nextNode` pointer mandatory inside the traversal loop?",
+      "options": [
+        "Because updating `current.next = previous` breaks the link to the remainder of the list, losing access to subsequent nodes unless preserved first",
+        "Because Java Garbage Collection deletes unreferenced next nodes immediately within loop scope",
+        "Because LinkedList in Java requires synchronized double buffering during pointer mutation",
+        "Because the JVM memory model prohibits direct reference reassignment without an intermediate register"
+      ],
+      "correct": 0,
+      "explanation": "In `ReverseLinkedList`, overwriting `current.next` to point backwards to `previous` severs the forward pointer chain. Storing `ListNode nextNode = current.next` prior to mutating `current.next` ensures the remaining unreversed chain remains accessible."
+    },
+    {
+      "id": 8,
+      "question": "In Kadane's algorithm for finding the Maximum Subarray Sum, what is the core dynamic programming recurrence relation evaluated at each index `i`?",
+      "options": [
+        "`currentSum = Math.max(nums[i], currentSum + nums[i])`",
+        "`currentSum = currentSum + nums[i]` unconditionally",
+        "`currentSum = Math.min(nums[i], currentSum - nums[i])`",
+        "`currentSum = Math.max(nums[i], nums[i - 1])`"
+      ],
+      "correct": 0,
+      "explanation": "Kadane's algorithm determines whether to extend the existing contiguous subarray (`currentSum + nums[i]`) or discard the prior subarray and restart a fresh subarray at `nums[i]`, yielding `currentSum = Math.max(nums[i], currentSum + nums[i])`."
+    },
+    {
+      "id": 9,
+      "question": "In the 'Longest Substring Without Repeating Characters' problem, what allows the sliding window to achieve O(N) time complexity rather than O(N^2)?",
+      "options": [
+        "Each character is added by the right pointer once and removed by the left pointer at most once, meaning both pointers traverse at most N steps",
+        "The string is converted into a sorted array of characters",
+        "A nested loop rescans all characters from index 0 whenever a duplicate is found",
+        "Regular expressions pre-filter all repeated subsequences in O(1) time"
+      ],
+      "correct": 0,
+      "explanation": "In a sliding window with two pointers `left` and `right`, both indices advance strictly monotonically from 0 to N. Because each element enters and leaves the window at most once, total time complexity is bounded by O(2N) = O(N)."
+    },
+    {
+      "id": 10,
+      "question": "Why is Breadth-First Search (BFS) preferred over Depth-First Search (DFS) when finding the shortest path in an unweighted graph?",
+      "options": [
+        "BFS explores vertices in order of increasing distance level-by-level, guaranteeing the first time the target is reached represents the minimum edge count",
+        "BFS requires O(1) auxiliary space whereas DFS requires exponential memory",
+        "DFS cannot be implemented on unweighted graphs in Java",
+        "BFS operates without needing a visited set"
+      ],
+      "correct": 0,
+      "explanation": "BFS processes nodes radially level by level in non-decreasing order of path length from the source. In an unweighted graph, the first time a destination vertex is dequeued, the path traversed is guaranteed to be the shortest."
+    },
+    {
+      "id": 11,
+      "question": "In the House Robber problem (cannot rob two adjacent houses), what is the optimal state transition and space optimization?",
+      "options": [
+        "`current = Math.max(previousOne, previousTwo + nums[i])`, which only requires two scalar tracking variables instead of an entire array",
+        "`dp[i] = dp[i - 1] + dp[i - 2]`",
+        "`current = Math.min(previousOne, nums[i])`",
+        "Using a 2D matrix of size N x N to track all possible combinations"
+      ],
+      "correct": 0,
+      "explanation": "At house `i`, the robber can either skip house `i` (taking `previousOne`) or rob house `i` (taking `previousTwo + nums[i]`). Because calculating `current` only depends on the previous two values, space can be reduced to O(1) auxiliary variables."
+    },
+    {
+      "id": 12,
+      "question": "In Java, why should iterative String concatenation inside loops (e.g., `s += ch`) be replaced with `StringBuilder` during technical interviews?",
+      "options": [
+        "String is immutable; each `+` creates a new String and copies existing characters, leading to O(N^2) time and massive heap allocation churn",
+        "String concatenation causes compiler syntax errors in Java 8 and higher",
+        "The `+` operator in Java is non-deterministic and can scramble characters",
+        "`StringBuilder` automatically validates palindrome properties"
+      ],
+      "correct": 0,
+      "explanation": "Because `java.lang.String` is immutable, repeated concatenation inside an N-iteration loop allocates a new character array each time, copying all prior characters and accumulating O(N^2) total work. `StringBuilder` uses a dynamic buffer with amortized O(1) appends, finishing in O(N) time."
+    },
+    {
+      "id": 13,
+      "question": "What is the consequence of overriding `equals()` in a custom Java class without overriding `hashCode()` when instances are used as HashMap keys?",
+      "options": [
+        "Logically equal keys may produce different hash codes, resulting in entries being placed into wrong buckets and failing subsequent lookups",
+        "The JVM throws a `FatalClassFormatError` at runtime",
+        "The HashMap automatically locks all threads permanently",
+        "Keys will automatically be sorted in descending order"
+      ],
+      "correct": 0,
+      "explanation": "The Java contract requires: if `a.equals(b)` is true, then `a.hashCode() == b.hashCode()` must also be true. If violated, `map.get(newKey)` hashes to a different bucket than where the equal key was stored, causing lookup failures."
+    },
+    {
+      "id": 14,
+      "question": "During a 90-minute Online Assessment (OA) with 3 problems, what is the recommended time triage strategy?",
+      "options": [
+        "Read all 3 questions first, rank them by difficulty/pattern familiarity, solve the easiest first to secure points, and budget time for testing",
+        "Spend the first 80 minutes attempting the hardest question to maximize partial credit",
+        "Write code for all three simultaneously in three different browser tabs",
+        "Submit empty files immediately to check if automated test cases reveal answers"
+      ],
+      "correct": 0,
+      "explanation": "Triage strategy advises: spend 5 minutes reading all questions, solve the most straightforward question first to secure baseline points and build momentum, allocate balanced time to medium/hard, and reserve the final 10 minutes for edge testing."
+    },
+    {
+      "id": 15,
+      "question": "What is the 'Think-Aloud' protocol and why do top tech companies heavily weight it in engineering interview rubrics?",
+      "options": [
+        "Continuously vocalizing your thought process, trade-offs, and reasoning so the interviewer understands how you formulate solutions and collaborate",
+        "Reading every Java keyword aloud in a high-pitch voice as you type it",
+        "Singing pseudocode out loud to memorize syntax rules",
+        "Reciting Java documentation word-for-word from memory"
+      ],
+      "correct": 0,
+      "explanation": "The Think-Aloud protocol gives the interviewer visibility into your analytical problem-solving process, architectural trade-offs, and communication skills. It also allows the interviewer to guide you before you invest time into flawed approaches."
+    },
+    {
+      "id": 16,
+      "question": "If an interviewer offers a gentle hint or asks 'Are you sure about that pointer condition?', what is the most constructive response?",
+      "options": [
+        "Acknowledge the hint, step through the specific condition with a small example, explain what could go wrong, and adjust the logic collaboratively",
+        "Ignore the comment and continue typing rapidly to prove confidence",
+        "Argue with the interviewer that the condition works in other programming languages",
+        "Immediately erase the entire codebase and start over from scratch"
+      ],
+      "correct": 0,
+      "explanation": "Interviewers use hints to evaluate coachability and collaboration. The best candidates thank the interviewer, pause, re-verify the specific condition with a small dry-run test case, and discuss the correction collaboratively."
+    },
+    {
+      "id": 17,
+      "question": "What is the difference between Time Complexity O(N) and Space Complexity O(N) in terms of auxiliary interview requirements?",
+      "options": [
+        "Time complexity measures algorithm operation count relative to input size; auxiliary space complexity measures additional memory allocated beyond the input itself",
+        "Time complexity measures network latency; space complexity measures hard drive capacity",
+        "Time complexity is measured in megabytes; space complexity is measured in clock cycles",
+        "They are identical metrics and always have the same numerical value"
+      ],
+      "correct": 0,
+      "explanation": "Time complexity characterizes the growth rate of computational operations as input size N grows. Auxiliary space complexity measures extra temporary memory (arrays, hash maps, recursion stack frames) allocated by the algorithm outside the given input."
+    },
+    {
+      "id": 18,
+      "question": "When reversing words in a sentence or checking palindromes, why are Two Pointers preferred over creating auxiliary String arrays or substrings?",
+      "options": [
+        "Two Pointers operate in-place or with minimal character scans, maintaining O(1) auxiliary space instead of allocating multiple intermediate strings",
+        "Two Pointers run in O(log N) time on strings",
+        "Java does not support string splitting functions",
+        "Two Pointers bypass Java security manager restrictions"
+      ],
+      "correct": 0,
+      "explanation": "Techniques like `sentence.split(\" \")` create intermediate string arrays and objects on the heap. Two pointers navigate indices from opposite ends, processing characters directly in O(N) time and O(1) auxiliary memory."
+    },
+    {
+      "id": 19,
+      "question": "What is the purpose of maintaining a personal 'Interview Error Log' after practice rounds or mock interviews?",
+      "options": [
+        "To identify recurring patterns of failure (e.g., off-by-one errors, boundary handling, wrong DP state) and systematically eliminate them",
+        "To document grievances against automated assessment platforms",
+        "To submit error logs to potential employers as proof of work",
+        "To generate automated bot scripts for competitive programming"
+      ],
+      "correct": 0,
+      "explanation": "An error log tracks the problem name, the mistake made, the root cause (misread constraint, forgotten edge case, incorrect invariant), and the corrective rule. Reviewing it prevents repeating identical mistakes under pressure."
+    },
+    {
+      "id": 20,
+      "question": "Which of the following data structure choices is optimal for retrieving the K-th largest element in an ongoing streaming dataset of unknown length?",
+      "options": [
+        "A Min-Heap (PriorityQueue) of fixed capacity K, which stores the K largest elements seen so far in O(log K) insertion time",
+        "A sorted ArrayList that is re-sorted using Collections.sort() after every single incoming element",
+        "A singly LinkedList that appends elements to the tail",
+        "A standard Stack that pops all elements into a temporary queue on each query"
+      ],
+      "correct": 0,
+      "explanation": "A Min-Heap of size K maintains the K largest elements encountered. When a new element exceeds the heap's minimum (`pq.peek()`), the min is polled and the new element inserted in O(log K) time, keeping auxiliary space strictly bounded to O(K)."
+    }
+  ]
+}
